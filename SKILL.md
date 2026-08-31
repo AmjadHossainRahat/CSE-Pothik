@@ -448,7 +448,7 @@ Required sections:
 5. Concise misconceptions paired with veteran orientation voices; two visible perspectives and three in an accessible native disclosure.
 6. Career landscape reveal: all eight families, no duplicated featured-career grid.
 7. Practical, non-shaming encouragement woven through these sections.
-8. “Try before you choose”: three representative previews linking to the full nine-experiment index.
+8. “Try before you choose”: three representative previews linking to the full published experiment index (currently eleven); derive the displayed count from data.
 9. Understand → Explore → Compare → Try → Prepare → Adapt journey.
 10. Closing orientation message and next-step CTA.
 11. Footer with product links, language/theme support, privacy and attribution/inspiration references as appropriate.
@@ -1419,6 +1419,18 @@ Do not include npm commands.
 Expand careers, roadmaps, experiments and curated resources without weakening the content quality bar.
 
 ---
+
+## 44A. Goal guides and mobile / UX/UI implementation
+
+Maintain eleven complete careers across eight families. Mobile App Development and UX/UI Engineering must participate in career comparison, families, five-stage roadmaps, experiments, AI pages and bilingual route generation. Use role-specific stage overrides where generic software tasks or JavaScript testing resources would be misleading. Preserve existing routes and comparison defaults when adding entries.
+
+Use strict `GoalId`, `GoalGuide`, `GoalStage` and `GuidanceSource` contracts. Store seven complete localized guides in typed modules under `src/data/goals/`, indexed by `src/data/goals.ts`; source metadata belongs in `src/data/guidance-sources.ts`. A source is a scoped reference, not a `LearningResource.isFree` claim about applications, tests or publishing. Keep localization helpers free of circular runtime imports.
+
+Generate `/goals/`, `/goals/[slug]/` and their `/bn/` equivalents through shared Astro templates. Essential content, starting-point anchors, sources and related routes must work without JavaScript. Use a desktop section index and mobile native disclosure; no React, external UI dependency or state storage is justified for these static guides. Preserve GitHub Pages base paths on every link, metadata URL and cross-route anchor.
+
+Each guide requires branches; four stages (`foundation`, `evidence`, `application`, `adapt`) with why, tasks, readiness evidence, not-yet guidance and a valid source; pitfalls; AI practice; a concrete weekly action; and curated related careers/goals. Validate IDs, nonempty bilingual fields, Bangla prose, source metadata, and complete relationships. Include Article and BreadcrumbList JSON-LD for goal details.
+
+Test all seven routes in both languages, the two new careers across career/roadmap/experiment/AI routes, homepage → goal → career-roadmap and lost-flow journeys, equivalent language switching, keyboard/no-JavaScript disclosure, 320/390/768/1280/1600px layouts, both themes, console errors and relevant axe checks. Cover goal/source analytics with the existing bounded `next_step_clicked` and `learning_resource_clicked` abstraction. Extend external-link checks to the guidance-source registry. Run both root and project-Pages production verification; inspect actual viewport screenshots and retain truthful validation records.
 
 ## 45. Definition of Done
 

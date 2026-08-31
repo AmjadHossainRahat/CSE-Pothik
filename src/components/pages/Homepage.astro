@@ -4,7 +4,7 @@ import mentorImage from "@/assets/illustrations/mentor-guide.png";
 import robotImage from "@/assets/illustrations/ai-study-partner.png";
 import { experimentPath, localePath, withBase } from "@/config/site";
 import { careerById, careerFamilies } from "@/data/careers";
-import { experimentById } from "@/data/experiments";
+import { experimentById, experiments } from "@/data/experiments";
 import { studentSituations } from "@/data/situations";
 import { t } from "@/lib/i18n";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -389,14 +389,37 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             ))
           }
         </div>
+        <p class="mentor-line goal-entry">
+          <strong
+            >{
+              copy("Have a bigger goal in mind?", "বড় কোনো লক্ষ্য মাথায় আছে?")
+            }</strong
+          >{" "}
+          {
+            copy(
+              "Global or local industry, remote work, study abroad, research, freelancing, or a tech business.",
+              "Global বা local industry, remote কাজ, বিদেশে উচ্চশিক্ষা, research, freelancing বা tech business।",
+            )
+          }{" "}
+          <a
+            href={href("/goals/")}
+            data-track-event="next_step_clicked"
+            data-track-param-destination="goals"
+            >{
+              copy("Find your preparation path →", "প্রস্তুতির পথ বেছে নাও →")
+            }</a
+          >
+        </p>
         <p class="mentor-line">
-          <strong>{copy("Feeling behind?", "পিছিয়ে পড়েছ মনে হচ্ছে?")}</strong>
+          <strong>{copy("Feeling behind?", "পিছিয়ে পড়েছ মনে হচ্ছে?")}</strong>{
+            " "
+          }
           {
             copy(
               "You do not have to catch everyone. You just need to stop standing still.",
               "সবার সঙ্গে পাল্লা দিতে হবে না। আজ একটা ছোট কাজ দিয়ে শুরু করলেই হয়।",
             )
-          }
+          }{" "}
           <a href={href("/guidance/feel-behind/")}
             >{
               copy(
@@ -607,7 +630,10 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             }
           </p><a class="button button--secondary" href={href("/try/")}
             >{
-              copy("See all 9 career experiments", "৯টি career experiment দেখো")
+              copy(
+                `See all ${experiments.length} career experiments`,
+                `${experiments.length.toLocaleString("bn-BD")}টি career experiment দেখো`,
+              )
             }</a
           >
         </div>

@@ -1,6 +1,6 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
-import { roadmapPath, withBase } from "@/config/site";
+import { localePath, roadmapPath, withBase } from "@/config/site";
 import { careers } from "@/data/careers";
 import { t } from "@/lib/i18n";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -37,7 +37,44 @@ const bn = locale === "bn";
       }
     </p>
   </header>
-  <section class="section section--tinted">
+  <section
+    class="section route-choices"
+    aria-label={bn ? "Roadmap-এর ধরন" : "Choose a roadmap type"}
+  >
+    <div class="container route-choice-grid">
+      <article>
+        <p class="eyebrow">{bn ? "কী শিখবে" : "What to learn"}</p><h2>
+          {bn ? "Career অনুযায়ী" : "By career"}
+        </h2><p>
+          {
+            bn
+              ? "Backend, mobile, UX/UI আর অন্য কাজের foundation থেকে specialization।"
+              : "From foundations to specialization in backend, mobile, UX/UI and other careers."
+          }
+        </p><a class="button button--secondary" href="#career-roadmaps"
+          >{bn ? "Career roadmap দেখো" : "Browse career roadmaps"}</a
+        >
+      </article>
+      <article>
+        <p class="eyebrow">
+          {bn ? "কোথায় কাজে লাগাবে" : "How to put it to work"}
+        </p><h2>{bn ? "লক্ষ্য অনুযায়ী" : "By goal"}</h2><p>
+          {
+            bn
+              ? "Global/local industry, remote কাজ, study abroad, research, freelancing আর tech business—সাতটি practical route।"
+              : "Seven practical routes: global/local industry, remote work, study abroad, research, freelancing and a tech business."
+          }
+        </p><a
+          class="button"
+          href={withBase(localePath(locale, "/goals/"))}
+          data-track-event="next_step_clicked"
+          data-track-param-destination="goals"
+          >{bn ? "লক্ষ্য বেছে নিই" : "Find my goal guide"}</a
+        >
+      </article>
+    </div>
+  </section>
+  <section class="section section--tinted" id="career-roadmaps">
     <div class="container roadmap-list">
       {
         careers.map((career, index) => (
@@ -79,6 +116,26 @@ const bn = locale === "bn";
   </section>
 </BaseLayout>
 <style>
+  .route-choices {
+    padding-block: 2.5rem;
+  }
+  .route-choice-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  .route-choice-grid article {
+    padding: 1.5rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+  }
+  .route-choice-grid h2 {
+    font-size: 2rem;
+  }
+  @media (min-width: 48rem) {
+    .route-choice-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
   .roadmap-list {
     border-top: 1px solid var(--color-border-strong);
   }

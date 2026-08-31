@@ -133,7 +133,17 @@ Do not reduce the homepage to a generic marketing landing page.
 
 Use `themes-sample.png` as the visual mood reference: cool off-white/navy light theme, midnight-navy dark theme, editorial hero typography, clear mentor and robot silhouettes. Keep the CSE Compass brand and original generated illustrations; do not copy the sample artwork. Use the checked-in assets and provenance in `docs/illustrations.md`.
 
-Keep the homepage focused: preview three experiments and link to the complete nine-experiment index; do not reduce the detail pages. In the orientation map and useful loop, group every caption with its title and make every step a working link. Reset inherited list margins for grid/flex components. Breadcrumbs must align with the page content, and desktop navigation must remain visible after mobile breakpoint changes.
+Keep the homepage focused: preview three experiments and link to the complete published experiment index (currently eleven); derive counts from data and do not reduce the detail pages. In the orientation map and useful loop, group every caption with its title and make every step a working link. Reset inherited list margins for grid/flex components. Breadcrumbs must align with the page content, and desktop navigation must remain visible after mobile breakpoint changes.
+
+## Goal-based guidance expansion
+
+Implement and preserve the complete seven-goal preparation layer specified in DESIGN.md: global companies/advanced engineering, Bangladesh industry, remote employment, study abroad, thesis/research/publication, freelancing and tech business. Do not collapse distinct goals into one generic advice page. Every guide needs meaningful branches, staged tasks, evidence criteria, not-yet guidance, pitfalls, AI responsibility, a practical action this week, scoped dated official references and related career roadmaps.
+
+Career roadmaps answer what to learn; goal guides answer how to apply it. Integrate a compact homepage starting-point entry, By career/By goal Roadmaps navigation, contextual career/roadmap links and the “I’m Lost” goal choice. Keep the homepage focused and AI Reality immediately after the hero. Use static Astro templates, native anchors/disclosure and complete English/Bangla parity, without accounts, scores or progress storage.
+
+Publish full Mobile App Development and UX/UI Engineering careers, including roadmaps, experiments, comparison, AI guidance and free learning resources. Distinguish native/cross-platform mobile choices and UX/product design/UI engineering/frontend responsibilities. Do not require every mobile stack or paid design tooling. Maintain the original eight career families with eleven complete careers.
+
+Verify all new journeys, sources, bilingual metadata, structured data, keyboard/no-JavaScript use, mobile/tablet/desktop, both themes and root/project-Pages builds. Extend content-integrity, E2E, accessibility and bounded analytics tests. Update README.md, DESIGN.md, SKILL.md and validation records truthfully; do not substitute documentation updates for completed functionality or real test execution.
 
 # Core experiences
 

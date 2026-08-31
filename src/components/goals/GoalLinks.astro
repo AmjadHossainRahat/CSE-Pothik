@@ -1,0 +1,71 @@
+---
+import { goals } from "@/data/goals";
+import { localePath, withBase } from "@/config/site";
+import { t } from "@/lib/i18n";
+import type { CareerId, Locale } from "@/types/content";
+interface Props {
+  careerId: CareerId;
+  locale: Locale;
+}
+const { careerId, locale } = Astro.props;
+const relevant = goals.filter((goal) => goal.careerIds.includes(careerId));
+const bn = locale === "bn";
+---
+
+<section class="section section--tinted" aria-labelledby="career-goals-title">
+  <div class="container">
+    <p class="eyebrow">
+      {bn ? "Skill থেকে গন্তব্য" : "From skills to a destination"}
+    </p>
+    <h2 id="career-goals-title">
+      {bn ? "এই skill নিয়ে কোথায় এগোবে?" : "Where could you take this?"}
+    </h2>
+    <p class="lede">
+      {
+        bn
+          ? "Career roadmap বলে কী শিখবে। Goal guide বলে সেই skill দিয়ে কীভাবে এগোবে। একটি পথ দিয়ে শুরু করো; সব একসঙ্গে নয়।"
+          : "The career roadmap explains what to learn. A goal guide helps you put those skills to work. Start with one—not every route at once."
+      }
+    </p>
+    <ul class="goal-links">
+      {
+        relevant.map((goal) => (
+          <li>
+            <a
+              href={withBase(localePath(locale, `/goals/${goal.id}/`))}
+              data-track-event="next_step_clicked"
+              data-track-param-destination={`goal/${goal.id}`}
+            >
+              {t(goal.title, locale)} <span aria-hidden="true">→</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+<style>
+  h2 {
+    max-width: 23ch;
+  }
+  .goal-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin: 1.6rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .goal-links li {
+    margin: 0;
+    max-width: 100%;
+  }
+  .goal-links a {
+    display: block;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg);
+    font-weight: 700;
+  }
+</style>

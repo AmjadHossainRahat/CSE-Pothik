@@ -14,6 +14,8 @@ export const careerIds = [
   "embedded-systems",
   "systems-research",
   "technical-product-leadership",
+  "mobile-app-development",
+  "ux-ui-engineering",
 ] as const;
 export type CareerId = (typeof careerIds)[number];
 
@@ -143,4 +145,50 @@ export interface StudentSituation {
   label: LocalizedText;
   note: LocalizedText;
   destination: { en: string; bn: string };
+}
+
+export const goalIds = [
+  "global-companies",
+  "local-industry",
+  "remote-employment",
+  "study-abroad",
+  "research-publication",
+  "freelancing",
+  "tech-business",
+] as const;
+export type GoalId = (typeof goalIds)[number];
+
+/** Public reference material, not a promise that applying or participating is free. */
+export interface GuidanceSource {
+  id: string;
+  title: string;
+  provider: string;
+  url: string;
+  scope: LocalizedText;
+  lastReviewed: string;
+}
+
+export interface GoalStage {
+  id: string;
+  title: LocalizedText;
+  why: LocalizedText;
+  tasks: LocalizedText[];
+  evidence: LocalizedText;
+  notYet: LocalizedText;
+  sourceId: string;
+}
+
+export interface GoalGuide {
+  id: GoalId;
+  title: LocalizedText;
+  summary: LocalizedText;
+  reality: LocalizedText;
+  variants: { title: LocalizedText; description: LocalizedText }[];
+  stages: GoalStage[];
+  pitfalls: LocalizedText[];
+  aiPractice: LocalizedText;
+  thisWeek: LocalizedText;
+  careerIds: CareerId[];
+  relatedGoalIds: GoalId[];
+  sourceIds: string[];
 }

@@ -74,6 +74,7 @@ const career = careerById.get(experiment.careerId)!;
         <h3>{bn ? "Setup resources" : "Setup resources"}</h3><ResourceList
           locale={locale}
           resourceIds={experiment.resourceIds}
+          alternatives={career.id === "mobile-app-development"}
           compact
         />
       </aside>

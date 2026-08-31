@@ -10,6 +10,14 @@ for (const route of [
   "/careers/backend-engineering/",
   "/compare/",
   "/im-lost/",
+  "/goals/",
+  "/bn/goals/",
+  "/goals/global-companies/",
+  "/bn/goals/study-abroad/",
+  "/careers/mobile-app-development/",
+  "/bn/careers/ux-ui-engineering/",
+  "/roadmaps/mobile-app-development/",
+  "/try/ux-ui-engineering/",
 ]) {
   test(`has no detectable WCAG A/AA violations: ${route}`, async ({ page }) => {
     await page.goto(withBase(route));
@@ -25,6 +33,12 @@ for (const route of [
   "/bn/",
   "/careers/backend-engineering/",
   "/compare/",
+  "/goals/",
+  "/bn/goals/global-companies/",
+  "/goals/research-publication/",
+  "/careers/ux-ui-engineering/",
+  "/bn/roadmaps/mobile-app-development/",
+  "/bn/try/ux-ui-engineering/",
 ]) {
   test(`has no detectable dark-theme WCAG A/AA violations: ${route}`, async ({
     page,

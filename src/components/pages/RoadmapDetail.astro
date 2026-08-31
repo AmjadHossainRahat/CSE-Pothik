@@ -1,6 +1,7 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
 import ResourceList from "@/components/common/ResourceList.astro";
+import GoalLinks from "@/components/goals/GoalLinks.astro";
 import {
   careerPath,
   experimentPath,
@@ -120,6 +121,7 @@ const career = careerById.get(roadmap.careerId)!;
                 <ResourceList
                   locale={locale}
                   resourceIds={stage.resourceIds}
+                  alternatives={career.id === "mobile-app-development"}
                   compact
                 />
               </div>
@@ -129,6 +131,7 @@ const career = careerById.get(roadmap.careerId)!;
       </section>
     ))
   }
+  <GoalLinks careerId={career.id} locale={locale} />
   <section class="section closing-stage">
     <div class="container">
       <p class="eyebrow">

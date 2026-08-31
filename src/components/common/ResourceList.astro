@@ -8,8 +8,14 @@ interface Props {
   locale: Locale;
   resourceIds: string[];
   compact?: boolean;
+  alternatives?: boolean;
 }
-const { locale, resourceIds, compact = false } = Astro.props;
+const {
+  locale,
+  resourceIds,
+  compact = false,
+  alternatives = false,
+} = Astro.props;
 const list = resourceIds
   .map((id) => resourceById.get(id))
   .filter((item) => item !== undefined);
@@ -17,21 +23,34 @@ const list = resourceIds
 
 <div class="resource-list">
   {
+    alternatives && (
+      <p class="muted">
+        {locale === "en"
+          ? "Platform alternatives: use the reference for your chosen stack. These are not consecutive learning levels; you do not need all of them."
+          : "Platform-এর বিকল্প: বাছা stack-এর reference ব্যবহার করো। এগুলো পরপর শেখার level নয়; সবগুলো দরকার নেই।"}
+      </p>
+    )
+  }
+  {
     list.map((resource, index) => (
       <article class="resource">
         <div class="resource__meta">
           <span class="tag">
-            {index === 0
+            {alternatives
               ? locale === "en"
-                ? "Learn"
-                : "শেখো"
-              : index === 1
+                ? "Platform option"
+                : "Platform-এর বিকল্প"
+              : index === 0
                 ? locale === "en"
-                  ? "Practice"
-                  : "Practice"
-                : locale === "en"
-                  ? "Go deeper · optional"
-                  : "আরও গভীরে · optional"}
+                  ? "Learn"
+                  : "শেখো"
+                : index === 1
+                  ? locale === "en"
+                    ? "Practice"
+                    : "Practice"
+                  : locale === "en"
+                    ? "Go deeper · optional"
+                    : "আরও গভীরে · optional"}
           </span>
           <span>{resource.provider}</span>
           <span>·</span>

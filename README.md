@@ -10,7 +10,8 @@ English is the canonical/default language; natural Bangla routes live under `/bn
 
 CSE Compass includes:
 
-- eight career families and nine detailed career guides;
+- eight career families and eleven detailed career guides, including Mobile App Development and UX/UI Engineering;
+- seven goal guides for global companies, Bangladesh industry, remote employment, study abroad, research/publication, freelancing and a tech business;
 - career comparison for two or three paths;
 - one safe, time-bounded experiment for every published career;
 - a five-stage roadmap for every published career;
@@ -41,7 +42,7 @@ src/
 ├── assets/           original illustration masters optimized by Astro
 ├── components/       shared UI and complete page experiences
 ├── config/           brand, locale and route configuration
-├── data/             careers, families, roadmaps, experiments, resources
+├── data/             careers, goals, roadmaps, experiments, resources, sources
 ├── layouts/          document layout, metadata, global behavior
 ├── lib/              analytics, comparison, content, i18n, navigation, theme
 ├── pages/            English routes and equivalent /bn routes
@@ -95,7 +96,7 @@ yarn check:external-links
 
 Run the non-browser suite with `yarn check`.
 
-See [the visual revision validation report](docs/validation.md) for the completed checks, fixes and genuine verification limitations.
+See [the validation report](docs/validation.md) for completed checks, fixes and genuine verification limitations.
 
 Browser tests normally use the development server. To exercise the actual production HTML and optimized assets, build first and set `PLAYWRIGHT_SERVER=preview`. Keep the same `BASE_PATH` for build, verification and browser tests. For a project-Pages production check in PowerShell:
 
@@ -113,7 +114,7 @@ Content tests reject duplicate IDs, invalid slugs, missing bilingual copy, missi
 
 ## Content architecture
 
-Published entities use stable language-neutral IDs. Localized copy uses `{ en, bn }` fields so route parity and required translations can be validated. Core types in `src/types/content.ts` include `CareerFamily`, `Career`, `Roadmap`, `RoadmapStage`, `CareerExperiment`, `LearningResource`, `AITaskExposure`, and `StudentSituation`.
+Published entities use stable language-neutral IDs. Localized copy uses `{ en, bn }` fields so route parity and required translations can be validated. Core types in `src/types/content.ts` include `CareerFamily`, `Career`, `Roadmap`, `RoadmapStage`, `CareerExperiment`, `LearningResource`, `AITaskExposure`, `StudentSituation`, `GoalGuide`, `GoalStage`, and `GuidanceSource`.
 
 Language implementation combines shared resources and separate generated HTML: typed bilingual data/UI copy and shared Astro templates are the source; thin English and `/bn/` route wrappers select the locale at build time. We do not maintain two hand-written HTML copies of each page or translate essential content in the browser. Some page-specific editorial copy is colocated as English/Bangla pairs inside the shared template.
 
@@ -122,11 +123,11 @@ English is the canonical editorial source. Bangla should be rewritten as natural
 ### Add a career
 
 1. Add the stable ID to `careerIds` in `src/types/content.ts`.
-2. Add complete English/Bangla content in `src/data/careers.ts`.
+2. Add complete English/Bangla content in `src/data/careers.ts` or its imported `additional-careers.ts` module. Shared localization helpers live in `src/lib/localized.ts` to avoid circular runtime imports.
 3. Assign a family and comparison dimensions.
 4. Add three qualitative AI task-exposure entries.
 5. Add a roadmap relationship and an experiment in `src/data/experiments.ts`.
-6. Add related careers, “what not to learn yet,” and resource references.
+6. Add related careers, “what not to learn yet,” resource references, and relevant goal connections in `src/data/goals/`.
 7. Run `yarn test:content`, `yarn typecheck`, and `yarn build`.
 8. Verify both languages, both themes, and mobile/desktop.
 
@@ -135,6 +136,18 @@ Dynamic routes generate the English and Bangla career, roadmap, experiment, and 
 ### Add or change a roadmap
 
 Roadmaps are generated from career learning layers in `src/data/roadmaps.ts`. Every stage must explain intent, topics, “enough for now,” one practical task, what not to learn yet, and a small Learn → Practice → Go Deeper resource set. Do not turn a roadmap into a technology checklist.
+
+Mobile and UX/UI have contextual stage overrides: mobile addresses platform choice, state, persistence and release safety; UX/UI addresses research, accessible interactions and reusable components. `ResourceList` has an alternatives mode so mobile platforms are labelled as choices, not sequential Learn/Practice/Go Deeper levels or a requirement to learn four stacks. UX/product design, UI engineering and broader frontend development are distinguished in the career copy.
+
+### Goal guides: where skills lead
+
+`/roadmaps/` offers **By career** (what to learn) and **By goal** (how to apply it). `/goals/` groups seven complete guides into industry, academic and independent paths. Every route has a `/bn/` equivalent. The homepage adds only a compact entry within its starting-point area; the header retains Roadmaps. Career/roadmap pages and “I’m Lost” provide contextual entry points.
+
+`src/data/goals.ts` combines typed modules under `src/data/goals/`. Add a goal ID, complete localized content, branches, four stages (`foundation`, `evidence`, `application`, `adapt`), pitfalls, responsible AI use, a concrete action this week, related goals and curated career IDs. Each stage needs why, practical tasks, enough-for-now evidence, what not to do yet and a source reference. `GoalDetail.astro` renders the shared static template; desktop has a sticky section index and mobile has a native disclosure. Essential guidance is always rendered, including with JavaScript disabled. No state, assessment, deadline promise or completion tracking is added.
+
+`src/data/guidance-sources.ts` holds dated, scoped references to official hiring, admission, research and business guidance. These are **not** `LearningResource.isFree` entries: reading a reference may be free while applications, tests, tools, publishing or participation have costs. The guide is our editorial synthesis, not an employer/university endorsement. Recheck changing requirements before revising claims, especially NASA eligibility, work authorization, admission/funding and venue AI policies. `yarn check:external-links` covers both source registries.
+
+`tests/content/goals.test.ts` validates all seven guides, language completeness and relationships. `tests/e2e/goal-guidance.spec.ts` checks routes, new careers, journey links, no-JavaScript keyboard navigation, language equivalents and the five-width/two-language/two-theme layout matrix.
 
 ### Add or change an experiment
 
@@ -150,7 +163,7 @@ Add metadata in `src/data/resources.ts`: stable ID, provider, HTTPS URL, type, f
 
 The visual mood follows `themes-sample.png`: cool off-white/navy in light mode, midnight navy in dark mode, and an editorial serif hero with system sans-serif body text. The CSE Compass name and compass mark remain the brand; the sample's artwork is not reused.
 
-The homepage now follows a focused orientation sequence: illustrated hero/map → AI Reality → starting point → concise misconceptions/mentor voices → eight career families → three experiment previews → six-step useful loop → a practical, encouraging next step. Additional mentor voices use a native disclosure; all nine complete experiments remain on the dedicated index. Motivation is attached to realistic action, not promises or pressure.
+The homepage follows a focused orientation sequence: illustrated hero/map → AI Reality → starting point (including the compact goal entry) → concise misconceptions/mentor voices → eight career families → three experiment previews → six-step useful loop → a practical, encouraging next step. Additional mentor voices use a native disclosure; all eleven complete experiments remain on the dedicated index. The experiment count is derived from data. Motivation is attached to realistic action, not promises or pressure.
 
 Two original transparent illustrations—a hoodie-and-laptop mentor and an AI study partner—are imported from `src/assets/illustrations/` through Astro's responsive image pipeline. WebP variants, intrinsic dimensions, an eager hero and lazy supporting image keep them static and lightweight. See [illustration provenance and generation prompts](docs/illustrations.md).
 
@@ -193,7 +206,7 @@ Parameters are bounded scalar IDs. Do not add names, emails, free text, sensitiv
 
 ## SEO
 
-`BaseLayout.astro` creates unique localized titles/descriptions, canonical URLs, equivalent `hreflang`, `x-default`, Open Graph, X card metadata, and WebSite JSON-LD. Career pages add Article and breadcrumb structured data.
+`BaseLayout.astro` creates unique localized titles/descriptions, canonical URLs, equivalent `hreflang`, `x-default`, Open Graph, X card metadata, and WebSite JSON-LD. Career and goal detail pages add Article and breadcrumb structured data.
 
 The build produces static essential content, `sitemap-index.xml`, base-aware `robots.txt`, the project social card at `public/social/cse-compass-og.png`, an SVG favicon, and directory-format trailing-slash URLs. Every new primary route needs an equivalent under `src/pages/bn/` and localized metadata.
 

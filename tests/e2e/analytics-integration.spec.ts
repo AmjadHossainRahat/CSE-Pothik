@@ -79,4 +79,30 @@ test("homepage actions dispatch bounded GA4 events without contacting Google", a
   await expect
     .poll(() => events)
     .toContainEqual(["event", "ai_guidance_viewed", { career_id: "overview" }]);
+  await page.goto(route("/goals/"));
+  await page
+    .locator('.goal-option a[href$="/goals/global-companies/"]')
+    .click();
+  await expect
+    .poll(() => events)
+    .toContainEqual([
+      "event",
+      "next_step_clicked",
+      { destination: "goal/global-companies" },
+    ]);
+  await page.route("https://www.amazon.jobs/**", (request) =>
+    request.fulfill({
+      status: 200,
+      contentType: "text/html",
+      body: "<p>Local source navigation test</p>",
+    }),
+  );
+  await page.locator("#source-amazon-interviews a").click();
+  await expect
+    .poll(() => events)
+    .toContainEqual([
+      "event",
+      "learning_resource_clicked",
+      { resource_id: "amazon-interviews", provider: "Amazon Jobs" },
+    ]);
 });

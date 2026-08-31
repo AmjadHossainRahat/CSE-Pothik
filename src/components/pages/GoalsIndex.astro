@@ -1,0 +1,209 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import { localePath, withBase } from "@/config/site";
+import { goals } from "@/data/goals";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+const href = (path: string) => withBase(localePath(locale, path));
+const groups = [
+  {
+    title: bn ? "Industry-তে কাজ" : "Work in industry",
+    note: bn
+      ? "Role-এর skill + hiring-এর প্রস্তুতি"
+      : "Role skills + hiring preparation",
+    items: goals.slice(0, 3),
+  },
+  {
+    title: bn ? "পড়াশোনা আর গবেষণা" : "Study & investigate",
+    note: bn ? "Academic fit + evidence" : "Academic fit + evidence",
+    items: goals.slice(3, 5),
+  },
+  {
+    title: bn ? "নিজের উদ্যোগে কাজ" : "Work independently",
+    note: bn
+      ? "Client বা customer + delivery"
+      : "Clients or customers + delivery",
+    items: goals.slice(5),
+  },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={bn
+    ? "সাত লক্ষ্য, বাস্তব প্রস্তুতি"
+    : "Seven goals, practical preparation"}
+  description={bn
+    ? "Global company, বাংলাদেশের industry, remote চাকরি, বিদেশে উচ্চশিক্ষা, research, freelancing আর tech business-এর বাস্তব প্রস্তুতি ও roadmap।"
+    : "Practical preparation for global companies, Bangladesh industry, remote jobs, study abroad, research, freelancing and a tech business."}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[
+      { label: bn ? "Roadmap" : "Roadmaps", path: "/roadmaps/" },
+      { label: bn ? "লক্ষ্যভিত্তিক পথ" : "Goal guides" },
+    ]}
+  />
+  <header class="page-hero container goals-hero">
+    <p class="eyebrow">
+      {bn ? "একটি লক্ষ্য দিয়ে শুরু" : "Start with one direction"}
+    </p>
+    <h1>
+      {bn ? "Skill আছে। এবার কোন দিকে?" : "Skills are a start. Where next?"}
+    </h1>
+    <p class="lede">
+      {
+        bn
+          ? "বড় company, গবেষণা না নিজের কাজ? সাতটি practical পথ—কী প্রস্তুতি, কী evidence আর এই সপ্তাহে কী করতে পারো। কোনো promise বা permanent career contract নয়।"
+          : "A global company, research, or something of your own? Seven practical routes—with preparation, evidence and something useful to do this week. No guarantees or lifetime career contracts."
+      }
+    </p>
+    <div class="button-row">
+      <a class="button" href="#goal-choices"
+        >{bn ? "আমার লক্ষ্য বেছে নিই" : "Choose a goal"}</a
+      ><a class="button button--secondary" href={href("/careers/")}
+        >{bn ? "আগে career চিনে নিই" : "Explore careers first"}</a
+      >
+    </div>
+    <p class="route-note">
+      {
+        bn
+          ? "কোন skill শিখবে জানা থাকলে career roadmap; skill কোথায় কাজে লাগাবে বুঝতে goal guide। দুই পথ একসঙ্গে কাজে লাগে।"
+          : "Use a career roadmap for what to learn and a goal guide for how to apply it. They work together."
+      }
+    </p>
+  </header>
+  <div class="section section--tinted" id="goal-choices">
+    <div class="container goal-groups">
+      {
+        groups.map((group) => (
+          <section class="goal-group">
+            <>
+              <div class="group-heading">
+                <>
+                  <h2>{group.title}</h2>
+                  <p>{group.note}</p>
+                </>
+              </div>
+              <div class="goal-options">
+                {group.items.map((goal) => (
+                  <article class="goal-option">
+                    <h3>
+                      <a
+                        href={href(`/goals/${goal.id}/`)}
+                        data-track-event="next_step_clicked"
+                        data-track-param-destination={`goal/${goal.id}`}
+                      >
+                        {t(goal.title, locale)}{" "}
+                        <span aria-hidden="true">↗</span>
+                      </a>
+                    </h3>
+                    <p>{t(goal.summary, locale)}</p>
+                    <span class="option-note">
+                      {bn
+                        ? "প্রস্তুতি → evidence → পরের পদক্ষেপ"
+                        : "Preparation → evidence → next action"}
+                    </span>
+                  </article>
+                ))}
+              </div>
+            </>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+  <section class="section">
+    <div class="container editorial-grid">
+      <div>
+        <p class="eyebrow">
+          {bn ? "একটু স্বস্তি" : "A little breathing room"}
+        </p><h2>
+          {
+            bn
+              ? "সব পথ একসঙ্গে প্রস্তুত করতে হবে না।"
+              : "You do not have to prepare for every future."
+          }
+        </h2>
+      </div><div>
+        <p class="lede">
+          {
+            bn
+              ? "একটি primary goal নাও, একটি ছোট কাজ করো, তারপর evidence দেখে বদলাও। Local কাজ থেকে remote বা research থেকে higher study—পথ বদলানো ব্যর্থতা নয়।"
+              : "Choose one primary goal, do a small piece of work and revise with evidence. Local work can lead to remote work; research can lead to further study. Changing direction is not failure."
+          }
+        </p><a href={href("/roadmaps/#career-roadmaps")}
+          >{
+            bn
+              ? "Career অনুযায়ী শেখার পথ দেখো →"
+              : "Find the learning path for your career →"
+          }</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .goals-hero h1 {
+    max-width: 15ch;
+  }
+  .route-note {
+    max-width: 49rem;
+    margin: 1.8rem 0 0;
+    color: var(--color-text-muted);
+  }
+  .goal-groups {
+    display: grid;
+    gap: 3rem;
+  }
+  .goal-group {
+    display: grid;
+    gap: 1.5rem;
+  }
+  .group-heading {
+    border-top: 3px solid var(--color-primary);
+    padding-top: 1.2rem;
+  }
+  .group-heading h2 {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+  }
+  .group-heading p,
+  .goal-option p {
+    color: var(--color-text-muted);
+  }
+  .goal-options {
+    display: grid;
+    gap: 1rem;
+  }
+  .goal-option {
+    padding: clamp(1.2rem, 3vw, 1.8rem);
+    border: 1px solid var(--color-border-strong);
+    background: var(--color-bg);
+    border-radius: var(--radius-md);
+  }
+  .goal-option h3 {
+    font-size: clamp(1.3rem, 2.5vw, 1.65rem);
+    line-height: 1.3;
+  }
+  .goal-option h3 a {
+    display: block;
+    padding-block: 0.2rem;
+  }
+  .option-note {
+    color: var(--color-teal);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  @media (min-width: 58rem) {
+    .goal-group {
+      grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.6fr);
+      gap: 3rem;
+    }
+  }
+</style>

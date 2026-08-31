@@ -33,6 +33,11 @@ const bn = locale === "bn";
       <h2>{bn ? "পরের দিক" : "Keep exploring"}</h2>
       <ul>
         <li>
+          <a href={withBase(localePath(locale, "/goals/"))}
+            >{bn ? "লক্ষ্যভিত্তিক প্রস্তুতি" : "Goal-based preparation"}</a
+          >
+        </li>
+        <li>
           <a href={withBase(localePath(locale, "/careers/"))}
             >{bn ? "Career দেখো" : "Explore careers"}</a
           >

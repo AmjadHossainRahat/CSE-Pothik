@@ -1,6 +1,7 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
 import ResourceList from "@/components/common/ResourceList.astro";
+import GoalLinks from "@/components/goals/GoalLinks.astro";
 import {
   aiCareerPath,
   careerPath,
@@ -377,7 +378,13 @@ const structuredData = [
         <p class="eyebrow">
           {bn ? "Curated learning" : "Curated learning resources"}
         </p><h2>
-          {bn ? "Learn → Practice → Go deeper" : "Learn → Practice → Go deeper"}
+          {
+            career.id === "mobile-app-development"
+              ? bn
+                ? "একটি platform দিয়ে শুরু"
+                : "Start with one platform"
+              : "Learn → Practice → Go deeper"
+          }
         </h2><p class="lede">
           {
             bn
@@ -387,7 +394,10 @@ const structuredData = [
         </p>
       </div><ResourceList
         locale={locale}
-        resourceIds={career.resourceIds.slice(0, 3)}
+        resourceIds={career.id === "mobile-app-development"
+          ? career.resourceIds
+          : career.resourceIds.slice(0, 3)}
+        alternatives={career.id === "mobile-app-development"}
       />
     </div>
   </section>
@@ -433,6 +443,7 @@ const structuredData = [
       </div>
     </div>
   </section>
+  <GoalLinks careerId={career.id} locale={locale} />
 </BaseLayout>
 
 <style>

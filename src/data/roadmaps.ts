@@ -23,7 +23,7 @@ const commonStage = (
 
 export const roadmaps: Roadmap[] = careers.map((career) => {
   const [learn, practice, deeper, extra] = career.resourceIds;
-  return {
+  const roadmap: Roadmap = {
     id: career.id,
     careerId: career.id,
     stages: [
@@ -141,6 +141,106 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
       ),
     ],
   };
+  if (career.id === "mobile-app-development") {
+    roadmap.stages[0]!.resourceIds = [
+      "android-compose",
+      "apple-swift",
+      "flutter",
+      "react-native",
+    ];
+    roadmap.stages[0]!.practicalTask = l(
+      "Choose one platform that your available tooling supports. Build an editable list with in-memory state before adding storage.",
+      "হাতের tooling যে platform সমর্থন করে সেটি বেছে নাও। Storage-এর আগে in-memory state-সহ editable list বানাও।",
+    );
+    roadmap.stages[0]!.enoughForNow = l(
+      "You can run the app, change a field, trace its state and debug an error in your chosen language.",
+      "App চালাতে, field বদলাতে, state trace আর নিজের language-এ error debug করতে পারো।",
+    );
+    roadmap.stages[1]!.resourceIds = [
+      "android-compose",
+      "apple-swift",
+      "flutter",
+      "react-native",
+    ];
+    roadmap.stages[1]!.practicalTask = l(
+      "Follow only your chosen platform reference. Add navigation and local persistence, then test restart, back navigation and missing data.",
+      "শুধু বাছা platform-এর reference অনুসরণ করো। Navigation আর local persistence দিয়ে restart, back navigation আর missing data test করো।",
+    );
+    roadmap.stages[2]!.resourceIds = [
+      "android-compose",
+      "apple-swift",
+      "flutter",
+      "react-native",
+    ];
+    roadmap.stages[3]!.topics = [
+      l(
+        "Separate UI state from data access and test the boundary.",
+        "UI state আর data access আলাদা করে boundary test করো।",
+      ),
+      l(
+        "Permission minimization, accessible controls and crash diagnostics.",
+        "কম permission, accessible control আর crash diagnostics।",
+      ),
+      l(
+        "Device checks, release notes and rollback planning.",
+        "Device check, release note আর rollback planning।",
+      ),
+    ];
+    roadmap.stages[3]!.resourceIds = [
+      "android-compose",
+      "apple-swift",
+      "flutter",
+      "react-native",
+    ];
+    roadmap.stages[3]!.practicalTask = l(
+      "Keep using your selected platform docs. Write a release checklist, test an interrupted save and record how to recover without losing user data.",
+      "বাছা platform-এর docs ব্যবহার চালাও। Release checklist লেখো, interrupted save test করো, user data না হারিয়ে recovery লিখে রাখো।",
+    );
+    roadmap.stages[4]!.resourceIds = [
+      "android-compose",
+      "apple-swift",
+      "flutter",
+      "react-native",
+    ];
+  }
+  if (career.id === "ux-ui-engineering") {
+    roadmap.stages[0]!.practicalTask = l(
+      "Describe one user task, sketch its flow and implement a semantic HTML form without a component library.",
+      "একটি user task লিখে flow sketch করো; component library ছাড়া semantic HTML form বানাও।",
+    );
+    roadmap.stages[0]!.enoughForNow = l(
+      "You can explain the task, build labeled controls and navigate them with a keyboard.",
+      "Task বোঝাতে, labeled control বানাতে আর keyboard দিয়ে ব্যবহার করতে পারো।",
+    );
+    roadmap.stages[1]!.practicalTask = l(
+      "Compare two low-fidelity flows, observe a consenting peer and distinguish observation from assumption. Implement the better-supported choice.",
+      "দুটি low-fidelity flow compare করে সম্মতি দেওয়া peer-কে দেখো; observation আর assumption আলাদা করো। Evidence বেশি এমন choice implement করো।",
+    );
+    roadmap.stages[3]!.topics = [
+      l(
+        "Component contracts, design tokens and documented interaction states.",
+        "Component contract, design token আর documented interaction state।",
+      ),
+      l(
+        "Keyboard, assistive-technology and responsive regression checks.",
+        "Keyboard, assistive technology আর responsive regression check।",
+      ),
+      l(
+        "Ethical research notes, design decisions and implementation review.",
+        "Ethical research note, design decision আর implementation review।",
+      ),
+    ];
+    roadmap.stages[3]!.resourceIds = ["web-a11y", "gov-design-system"];
+    roadmap.stages[3]!.practicalTask = l(
+      "Extract one tested form component, document its states and have another person integrate it. Fix one misunderstanding and retest keyboard behavior.",
+      "একটি tested form component আলাদা করে state document করো; অন্য কাউকে integrate করতে দাও। একটি ভুল বোঝাবুঝি ঠিক করে keyboard behavior আবার test করো।",
+    );
+    roadmap.stages[3]!.enoughForNow = l(
+      "Another person can reuse the component and explain its behavior; you can show usability evidence and accessibility checks with their limitations.",
+      "অন্য কেউ component reuse আর behavior explain করতে পারে; সীমাবদ্ধতা-সহ usability evidence আর accessibility check দেখাতে পারো।",
+    );
+  }
+  return roadmap;
 });
 
 export const roadmapById = new Map(

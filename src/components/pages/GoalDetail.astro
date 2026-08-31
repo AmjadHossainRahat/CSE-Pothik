@@ -1,0 +1,579 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import { careerById } from "@/data/careers";
+import { goalById } from "@/data/goals";
+import { guidanceSourceById } from "@/data/guidance-sources";
+import { localePath, roadmapPath, withBase } from "@/config/site";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { GoalGuide, Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+  goal: GoalGuide;
+}
+const { locale, goal } = Astro.props;
+const bn = locale === "bn";
+const href = (path: string) => withBase(localePath(locale, path));
+const sections = [
+  { id: "orientation", title: bn ? "পথের ধরন" : "Choose your branch" },
+  {
+    id: "starting-point",
+    title: bn ? "কোথা থেকে শুরু" : "Your starting point",
+  },
+  ...goal.stages.map((stage) => ({
+    id: `stage-${stage.id}`,
+    title: t(stage.title, locale),
+  })),
+  { id: "pitfalls", title: bn ? "ফাঁদ আর AI ব্যবহার" : "Pitfalls & AI use" },
+  { id: "this-week", title: bn ? "এই সপ্তাহের কাজ" : "One action this week" },
+  {
+    id: "career-paths",
+    title: bn ? "যুক্ত career roadmap" : "Connected career roadmaps",
+  },
+  { id: "sources", title: bn ? "Source আর যাচাই" : "Sources & verification" },
+];
+const starts = [
+  {
+    id: "orientation",
+    title: bn ? "এখনো explore করছি" : "Still exploring",
+    text: bn
+      ? "আগে path-এর ধরন বোঝো।"
+      : "Understand the different branches first.",
+  },
+  {
+    id: "stage-foundation",
+    title: bn ? "Foundation তৈরি করছি" : "Building foundations",
+    text: bn
+      ? "Target আর prerequisite মিলাও।"
+      : "Match your target and prerequisites.",
+  },
+  {
+    id: "stage-evidence",
+    title: bn ? "কাজ বানাতে পারি" : "Can already build or investigate",
+    text: bn
+      ? "Relevant evidence বানাও।"
+      : "Turn ability into relevant evidence.",
+  },
+  {
+    id: "stage-application",
+    title: bn ? "Apply বা deliver করতে চাই" : "Ready to apply or deliver",
+    text: bn
+      ? "আগের evidence criteria মিলিয়ে নাও।"
+      : "Check the earlier evidence criteria, then proceed.",
+  },
+];
+const sourceIds = [
+  ...new Set([
+    ...goal.sourceIds,
+    ...goal.stages.map((stage) => stage.sourceId),
+  ]),
+];
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: t(goal.title, locale),
+    description: t(goal.summary, locale),
+    inLanguage: locale,
+    isAccessibleForFree: true,
+    author: { "@type": "Organization", name: "CSE Compass" },
+    mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: bn ? "লক্ষ্যভিত্তিক পথ" : "Goal guides",
+        item: new URL(href("/goals/"), Astro.site).href,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t(goal.title, locale),
+        item: new URL(Astro.url.pathname, Astro.site).href,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={t(goal.title, locale)}
+  description={t(goal.summary, locale)}
+  structuredData={structuredData}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[
+      { label: bn ? "লক্ষ্যভিত্তিক পথ" : "Goal guides", path: "/goals/" },
+      { label: t(goal.title, locale) },
+    ]}
+  />
+  <header class="page-hero container goal-hero">
+    <p class="eyebrow">
+      {
+        bn
+          ? "Goal guide · নিজের জায়গা থেকে শুরু"
+          : "Goal guide · start from where you are"
+      }
+    </p>
+    <h1>{t(goal.title, locale)}</h1><p class="lede">
+      {t(goal.summary, locale)}
+    </p>
+    <div class="button-row">
+      <a class="button" href="#starting-point"
+        >{bn ? "শুরুর জায়গা বেছে নিই" : "Find my starting point"}</a
+      ><a class="button button--secondary" href="#this-week"
+        >{bn ? "এই সপ্তাহে একটি কাজ" : "Give me one action this week"}</a
+      >
+    </div>
+  </header>
+  <div class="container goal-layout">
+    <aside class="goal-index">
+      <nav class="desktop-index" aria-label={bn ? "এই পাতায়" : "On this page"}>
+        <p class="eyebrow">{bn ? "এই পাতায়" : "On this page"}</p><ol>
+          {
+            sections.map((section) => (
+              <li>
+                <a href={`#${section.id}`}>{section.title}</a>
+              </li>
+            ))
+          }
+        </ol>
+      </nav>
+      <details class="mobile-index">
+        <summary
+          >{
+            bn ? "এই পাতায় · অংশ বেছে নাও" : "On this page · jump to a section"
+          }</summary
+        ><nav aria-label={bn ? "পাতার অংশ" : "Page sections"}>
+          <ol>
+            {
+              sections.map((section) => (
+                <li>
+                  <a href={`#${section.id}`}>{section.title}</a>
+                </li>
+              ))
+            }
+          </ol>
+        </nav>
+      </details>
+    </aside>
+    <div class="goal-content">
+      <section class="guide-section" id="orientation">
+        <p class="eyebrow">
+          {bn ? "প্রথমে বাস্তবতা" : "First, a reality check"}
+        </p><h2>
+          {bn ? "পথটা বুঝে নাও" : "Know the route before the checklist"}
+        </h2><div class="reality-note">
+          <p>{t(goal.reality, locale)}</p>
+        </div><div class="goal-variants">
+          {
+            goal.variants.map((variant) => (
+              <article>
+                <>
+                  <h3>{t(variant.title, locale)}</h3>
+                  <p>{t(variant.description, locale)}</p>
+                </>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+      <section class="guide-section" id="starting-point">
+        <p class="eyebrow">{bn ? "এটি test নয়" : "Not a test or a score"}</p><h2
+        >
+          {bn ? "আজ তুমি কোথায়?" : "Where are you starting today?"}
+        </h2><p>
+          {
+            bn
+              ? "যে জায়গা মেলে সেখানে যাও। আগের stage-এর evidence না থাকলে ফিরে এসো। কোনো উত্তর বা progress save হয় না; stage শেষ করার fixed deadline নেই।"
+              : "Jump to the point that fits. If earlier evidence is missing, return to it. Nothing is saved or scored, and stages have no fixed completion deadline."
+          }
+        </p><ul class="start-options">
+          {
+            starts.map((start) => (
+              <li>
+                <a href={`#${start.id}`}>
+                  <>
+                    <strong>{start.title}</strong>
+                    <span>{start.text}</span>
+                  </>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+      {
+        goal.stages.map((stage, index) => (
+          <section class="guide-section goal-stage" id={`stage-${stage.id}`}>
+            <>
+              <p class="eyebrow">
+                {bn
+                  ? `ধাপ ${index + 1} / ${goal.stages.length}`
+                  : `Stage ${index + 1} / ${goal.stages.length}`}
+              </p>
+              <h2>{t(stage.title, locale)}</h2>
+              <p class="stage-why">{t(stage.why, locale)}</p>
+              <h3>{bn ? "কাজগুলো" : "What to do"}</h3>
+              <ul class="task-list">
+                {stage.tasks.map((task) => (
+                  <li>{t(task, locale)}</li>
+                ))}
+              </ul>
+              <div class="evidence-note">
+                <>
+                  <h3>{bn ? "এখন যথেষ্ট যখন…" : "Enough for now when…"}</h3>
+                  <p>{t(stage.evidence, locale)}</p>
+                </>
+              </div>
+              <p class="not-yet">
+                <strong>{bn ? "এখনই নয়: " : "Not yet: "}</strong>
+                {t(stage.notYet, locale)}
+              </p>
+              <a class="stage-reference" href={`#source-${stage.sourceId}`}>
+                {bn ? "এই ধাপের reference: " : "Reference for this stage: "}
+                {guidanceSourceById.get(stage.sourceId)!.provider}{" "}
+                <span aria-hidden="true">↓</span>
+              </a>
+            </>
+          </section>
+        ))
+      }
+      <section class="guide-section" id="pitfalls">
+        <p class="eyebrow">
+          {bn ? "বুদ্ধি দিয়ে এগোও" : "Keep your judgment switched on"}
+        </p><h2>
+          {bn ? "ফাঁদ আর AI ব্যবহার" : "Common traps & sensible AI use"}
+        </h2><ul class="task-list">
+          {goal.pitfalls.map((pitfall) => <li>{t(pitfall, locale)}</li>)}
+        </ul><div class="reality-note">
+          <h3>
+            {
+              bn
+                ? "AI সহকারী, দায়িত্ব তোমার"
+                : "AI can assist. You remain responsible."
+            }
+          </h3><p>{t(goal.aiPractice, locale)}</p><a href={href("/ai/")}
+            >{bn ? "AI-resilience guide →" : "Explore AI-resilient skills →"}</a
+          >
+        </div>
+      </section>
+      <section class="guide-section" id="this-week">
+        <div class="week-card">
+          <p class="eyebrow">
+            {bn ? "একটি ছোট কাজ যথেষ্ট" : "One small action is enough"}
+          </p><h2>{bn ? "এই সপ্তাহে শুরু করো" : "Make this week count"}</h2><p>
+            {t(goal.thisWeek, locale)}
+          </p><p class="week-reflection">
+            {
+              bn
+                ? "শেষে তিন লাইন: কী করলাম, কী শিখলাম, এরপর কী বদলাব। আজকের direction একটা draft—আজীবনের contract নয়।"
+                : "Afterwards, write three lines: what I did, what I learned, what I will change next. Today's direction is a draft—not a lifetime contract."
+            }
+          </p>
+        </div>
+      </section>
+      <section class="guide-section" id="career-paths">
+        <p class="eyebrow">
+          {bn ? "কী শিখবে, তার পথ" : "The skills underneath the goal"}
+        </p><h2>
+          {
+            bn
+              ? "একটি career roadmap যুক্ত করো"
+              : "Pair this with a career roadmap"
+          }
+        </h2><p>
+          {
+            bn
+              ? "এগুলো relevant starting point, সবগুলো prerequisite নয়। একটি বেছে নাও; অন্য career-ও তোমার specific goal-এর সঙ্গে মিলতে পারে।"
+              : "These are relevant starting points, not a list of prerequisites. Choose one; other careers may also fit your specific goal."
+          }
+        </p><ul class="career-paths">
+          {
+            goal.careerIds.map((id) => (
+              <li>
+                <a
+                  href={withBase(roadmapPath(locale, id))}
+                  data-track-event="next_step_clicked"
+                  data-track-param-destination={`roadmap/${id}`}
+                >
+                  {t(careerById.get(id)!.title, locale)}{" "}
+                  <span aria-hidden="true">→</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul><h3 class="related-heading">
+          {bn ? "পাশের পথগুলো" : "Adjacent directions"}
+        </h3><ul>
+          {
+            goal.relatedGoalIds.map((id) => (
+              <li>
+                <a href={href(`/goals/${id}/`)}>
+                  {t(goalById.get(id)!.title, locale)}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+      <section class="guide-section" id="sources">
+        <h2>
+          {bn ? "Source আর requirement যাচাই" : "Sources & requirement checks"}
+        </h2><p>
+          {
+            bn
+              ? "এই roadmap CSE Compass-এর editorial guidance; sourceগুলো নির্দিষ্ট official reference, পুরো plan-এর endorsement নয়। Guidance পড়া free হলেও application, test, tool বা publication-এ খরচ হতে পারে। Rule বদলায়; সিদ্ধান্তের আগে official page আবার দেখো। External source মূলত English।"
+              : "This roadmap is CSE Compass editorial guidance. Sources provide specific official references, not endorsement of the entire plan. Reading guidance may be free while applications, tests, tools or publication have costs. Rules change: recheck official pages before acting. External references are primarily in English."
+          }
+        </p><ul class="source-list">
+          {
+            sourceIds.map((id) => {
+              const source = guidanceSourceById.get(id)!;
+              return (
+                <li id={`source-${source.id}`}>
+                  <>
+                    <a
+                      href={source.url}
+                      rel="noopener noreferrer"
+                      data-track-event="learning_resource_clicked"
+                      data-track-param-resource-id={source.id}
+                      data-track-param-provider={source.provider}
+                    >
+                      {source.provider} · {source.title}{" "}
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                    <p>{t(source.scope, locale)}</p>
+                    <small>
+                      {bn ? "Reference review: " : "Reference reviewed: "}
+                      <time datetime={source.lastReviewed}>
+                        {source.lastReviewed}
+                      </time>
+                    </small>
+                  </>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+<style>
+  .goal-hero h1 {
+    max-width: 19ch;
+    font-size: clamp(2.4rem, 6vw, 5rem);
+  }
+  .goal-layout {
+    display: grid;
+    gap: 1.5rem;
+    padding-bottom: 4rem;
+  }
+  .goal-content {
+    min-width: 0;
+    max-width: 52rem;
+  }
+  .desktop-index {
+    display: none;
+  }
+  .goal-index ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .goal-index li {
+    margin: 0;
+  }
+  .goal-index a {
+    display: block;
+    padding: 0.55rem 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  .mobile-index {
+    border-block: 1px solid var(--color-border-strong);
+    padding: 0.7rem 0;
+  }
+  .mobile-index summary {
+    cursor: pointer;
+    padding: 0.5rem 0;
+    font-weight: 750;
+  }
+  .guide-section {
+    padding: 2.7rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .guide-section h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.65rem);
+    line-height: 1.2;
+  }
+  .guide-section h3 {
+    font-size: 1.18rem;
+    line-height: 1.4;
+  }
+  .reality-note {
+    padding: 1.25rem;
+    border-inline-start: 3px solid var(--color-warm);
+    background: var(--color-surface);
+  }
+  .reality-note p:last-child {
+    margin: 0;
+  }
+  .goal-variants {
+    display: grid;
+    gap: 1.3rem;
+    margin-top: 1.8rem;
+  }
+  .goal-variants article {
+    padding-bottom: 0.5rem;
+  }
+  .goal-variants p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+  .start-options {
+    display: grid;
+    gap: 0.7rem;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    list-style: none;
+  }
+  .start-options li {
+    margin: 0;
+  }
+  .start-options a {
+    display: block;
+    height: 100%;
+    padding: 1rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    text-decoration: none;
+  }
+  .start-options strong {
+    display: block;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .start-options span {
+    display: block;
+    margin-top: 0.4rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+  .stage-why {
+    font-size: 1.14rem;
+    color: var(--color-text-muted);
+  }
+  .task-list {
+    padding-inline-start: 1.3rem;
+  }
+  .task-list li + li {
+    margin-top: 1rem;
+  }
+  .evidence-note {
+    margin-block: 1.7rem;
+    padding: 1.2rem;
+    border: 1px solid var(--color-border-strong);
+    border-inline-start: 4px solid var(--color-teal);
+    background: var(--color-surface);
+  }
+  .evidence-note h3 {
+    color: var(--color-teal);
+  }
+  .evidence-note p {
+    margin: 0;
+  }
+  .not-yet {
+    color: var(--color-text-muted);
+  }
+  .stage-reference {
+    display: inline-block;
+    padding-block: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .week-card {
+    padding: clamp(1.2rem, 4vw, 2rem);
+    border: 1px solid var(--color-border-strong);
+    border-top: 4px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+  }
+  .week-card > p:not(.eyebrow) {
+    font-size: 1.1rem;
+  }
+  .week-card .week-reflection {
+    font-size: 0.95rem;
+    margin: 1.5rem 0 0;
+    color: var(--color-text-muted);
+  }
+  .career-paths {
+    display: grid;
+    gap: 0.6rem;
+    padding: 0;
+    list-style: none;
+  }
+  .career-paths li {
+    margin: 0;
+  }
+  .career-paths a {
+    display: block;
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.7rem 0;
+    font-weight: 700;
+  }
+  .related-heading {
+    margin-top: 2rem;
+  }
+  .source-list {
+    list-style: none;
+    padding: 0;
+  }
+  .source-list li {
+    margin: 0;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--color-border);
+    overflow-wrap: anywhere;
+  }
+  .source-list a {
+    font-weight: 700;
+  }
+  .source-list p {
+    margin: 0.6rem 0;
+  }
+  .source-list small {
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 42rem) {
+    .start-options {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 64rem) {
+    .goal-layout {
+      grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+      gap: 4rem;
+    }
+    .goal-index {
+      align-self: start;
+      position: sticky;
+      top: 6rem;
+      max-height: calc(100dvh - 7rem);
+      overflow-y: auto;
+      padding: 0.7rem;
+    }
+    .desktop-index {
+      display: block;
+    }
+    .mobile-index {
+      display: none;
+    }
+  }
+</style>

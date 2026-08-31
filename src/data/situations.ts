@@ -85,6 +85,18 @@ export interface LostChoice {
 
 export const lostChoices: LostChoice[] = [
   {
+    id: "goal",
+    prompt: l(
+      "I have a goal, but not a preparation plan.",
+      "লক্ষ্য আছে, প্রস্তুতির plan নেই।",
+    ),
+    response: l(
+      "Choose a goal guide for industry, remote work, study abroad, research, freelancing or a tech business. Then connect it to one career roadmap.",
+      "Industry, remote কাজ, study abroad, research, freelancing বা tech business-এর goal guide নাও। তারপর একটি career roadmap যুক্ত করো।",
+    ),
+    destination: { en: "/goals/", bn: "/bn/goals/" },
+  },
+  {
     id: "careers",
     prompt: l("I don’t know what careers exist.", "কী কী career আছে জানি না।"),
     response: l(

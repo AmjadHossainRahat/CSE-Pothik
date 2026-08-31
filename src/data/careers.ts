@@ -8,9 +8,11 @@ import type {
   LocalizedText,
 } from "@/types/content";
 
-export const l = (en: string, bn: string): LocalizedText => ({ en, bn });
+import { l } from "@/lib/localized";
+import { additionalCareers } from "@/data/additional-careers";
+export { l };
 
-interface CareerSeed {
+export interface CareerSeed {
   id: CareerId;
   familyId: FamilyId;
   title: LocalizedText;
@@ -1602,28 +1604,30 @@ const seeds: CareerSeed[] = [
   },
 ];
 
-export const careers: Career[] = seeds.map((seed) => ({
-  id: seed.id,
-  slug: seed.id,
-  familyId: seed.familyId,
-  title: seed.title,
-  shortDescription: seed.description,
-  actualWork: seed.work,
-  enjoyIf: seed.enjoy,
-  dislikeIf: seed.dislike,
-  realisticDay: seed.day.map(([time, activity]) => ({ time, activity })),
-  dimensions: seed.dimensions,
-  roadmapId: seed.id,
-  experimentId: seed.id,
-  aiExposure: seed.ai,
-  relatedCareerIds: seed.related,
-  notYet: seed.notYet,
-  foundation: seed.foundation,
-  core: seed.core,
-  practical: seed.practical,
-  later: seed.later,
-  resourceIds: seed.resources,
-}));
+export const careers: Career[] = [...seeds, ...additionalCareers].map(
+  (seed) => ({
+    id: seed.id,
+    slug: seed.id,
+    familyId: seed.familyId,
+    title: seed.title,
+    shortDescription: seed.description,
+    actualWork: seed.work,
+    enjoyIf: seed.enjoy,
+    dislikeIf: seed.dislike,
+    realisticDay: seed.day.map(([time, activity]) => ({ time, activity })),
+    dimensions: seed.dimensions,
+    roadmapId: seed.id,
+    experimentId: seed.id,
+    aiExposure: seed.ai,
+    relatedCareerIds: seed.related,
+    notYet: seed.notYet,
+    foundation: seed.foundation,
+    core: seed.core,
+    practical: seed.practical,
+    later: seed.later,
+    resourceIds: seed.resources,
+  }),
+);
 
 export const careerById = new Map(careers.map((career) => [career.id, career]));
 
@@ -1635,7 +1639,11 @@ export const careerFamilies: CareerFamily[] = [
       "Create products and the systems behind them.",
       "Product আর তার পেছনের system বানাও।",
     ),
-    careerIds: ["backend-engineering", "frontend-engineering"],
+    careerIds: [
+      "backend-engineering",
+      "frontend-engineering",
+      "mobile-app-development",
+    ],
     accent: "blue",
   },
   {
@@ -1705,7 +1713,7 @@ export const careerFamilies: CareerFamily[] = [
       "Connect technical work, decisions and teams.",
       "Technical কাজ, decision আর team-কে যুক্ত করো।",
     ),
-    careerIds: ["technical-product-leadership"],
+    careerIds: ["ux-ui-engineering", "technical-product-leadership"],
     accent: "warm",
   },
 ];

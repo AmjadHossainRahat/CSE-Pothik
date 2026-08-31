@@ -16,6 +16,15 @@ for (const locale of ["en", "bn"] as const) {
     await expect(page.locator(".journey a")).toHaveCount(6);
     await expect(page.locator(".family-map article")).toHaveCount(8);
     await expect(page.locator(".experiment-grid article")).toHaveCount(3);
+    await expect(page.locator(".goal-entry")).toContainText(
+      locale === "en" ? "mind? Global" : "আছে? Global",
+    );
+    await expect(page.locator(".goal-entry")).toContainText(
+      locale === "en" ? "business. Find" : "business। প্রস্তুতির",
+    );
+    await expect(page.locator(".mentor-line").last()).toContainText(
+      locale === "en" ? "behind? You" : "হচ্ছে? সবার",
+    );
     const illustrations = page.locator(".hero-visual img, .ai-art img");
     await expect(illustrations).toHaveCount(2);
     for (const illustration of await illustrations.all()) {

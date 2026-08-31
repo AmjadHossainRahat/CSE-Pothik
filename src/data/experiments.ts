@@ -18,6 +18,104 @@ interface ExperimentSeed {
 
 const seeds: ExperimentSeed[] = [
   {
+    id: "mobile-app-development",
+    title: l(
+      "Make a reading list survive a restart",
+      "Restart-এর পরেও reading list বাঁচিয়ে রাখো",
+    ),
+    duration: "90–120 min",
+    prerequisites: [
+      l(
+        "Basic programming and one mobile starter app already running on your chosen emulator/device. Setup time is separate; use the linked platform guide first.",
+        "Basic programming আর পছন্দের emulator/device-এ একটি starter app আগে থেকেই চালু। Setup-এর সময় আলাদা; আগে linked platform guide দেখো।",
+      ),
+    ],
+    goals: [
+      l(
+        "Feel state, persistence and interruptions—not just drawing a screen.",
+        "শুধু screen আঁকা নয়—state, persistence আর interruption-এর কাজ অনুভব করো।",
+      ),
+    ],
+    steps: [
+      l(
+        "Create a list with a title field, Add action and a clear empty state. Keep it local; no login or backend.",
+        "Title field, Add action আর পরিষ্কার empty state-সহ list বানাও। Local রাখো; login বা backend নয়।",
+      ),
+      l(
+        "Save entries in local storage supported by your stack, then close and reopen the app.",
+        "নিজের stack-এর local storage-এ entry রেখে app বন্ধ করে আবার খোলো।",
+      ),
+      l(
+        "Test duplicate taps, empty titles, larger text and switching to another app. Record one failure.",
+        "Duplicate tap, খালি title, বড় text আর অন্য app-এ যাওয়া test করো। একটি failure লিখে রাখো।",
+      ),
+      l(
+        "Fix the failure, add a small test for the state logic and explain where data lives. If time runs out, document the reproduction and continue later.",
+        "Failure fix করে state logic-এর ছোট test দাও; data কোথায় থাকে বোঝাও। সময় শেষ হলে reproduction লিখে পরে চালাও।",
+      ),
+    ],
+    attention: [
+      l(
+        "Was preserving a user's work more interesting than adding a second screen?",
+        "দ্বিতীয় screen বানানোর চেয়ে user-এর কাজ বাঁচিয়ে রাখা বেশি interesting লেগেছে?",
+      ),
+      l(
+        "Can you explain the difference between temporary UI state and persisted data?",
+        "Temporary UI state আর persisted data-এর পার্থক্য বোঝাতে পারো?",
+      ),
+    ],
+    resources: ["android-compose", "react-native", "flutter", "apple-swift"],
+  },
+  {
+    id: "ux-ui-engineering",
+    title: l(
+      "Turn a confusing form into a usable flow",
+      "বিভ্রান্তিকর form-কে usable flow বানাও",
+    ),
+    duration: "90–120 min",
+    prerequisites: [
+      l(
+        "Basic HTML/CSS and a little JavaScript. Paper and a browser are enough; no paid design tool. If no participant is available, label your self-review honestly.",
+        "Basic HTML/CSS আর একটু JavaScript। কাগজ আর browser যথেষ্ট; paid design tool নয়। Participant না পেলে নিজের review-কে সেভাবেই উল্লেখ করো।",
+      ),
+    ],
+    goals: [
+      l(
+        "Experience the bridge between observing a problem, testing an idea and implementing an accessible interaction.",
+        "সমস্যা দেখা, idea যাচাই আর accessible interaction implement করার যোগসূত্র অনুভব করো।",
+      ),
+    ],
+    steps: [
+      l(
+        "Choose a three-field event-registration form. Write the user task, a confusing moment and a sketch of a simpler flow.",
+        "তিন field-এর event registration form নাও। User task, বিভ্রান্তির জায়গা আর সহজ flow-এর sketch লেখো।",
+      ),
+      l(
+        "Ask a consenting peer to try the sketch with fictional data; do not coach. Note observed behavior separately from your interpretation.",
+        "সম্মতি দেওয়া peer-কে কাল্পনিক data দিয়ে sketch try করতে বলো; সাহায্য কোরো না। দেখা behavior আর নিজের ব্যাখ্যা আলাদা রাখো।",
+      ),
+      l(
+        "Implement labels, instructions, validation errors and a success state. Preserve entered data after an error.",
+        "Label, instruction, validation error আর success state বানাও। Error হলে দেওয়া data ধরে রাখো।",
+      ),
+      l(
+        "Use only the keyboard, zoom the page and check a narrow screen. Revise one issue and write a before/after decision note without claiming statistical proof.",
+        "শুধু keyboard ব্যবহার, page zoom আর narrow screen test করো। একটি issue ঠিক করে before/after decision note লেখো; statistical proof দাবি কোরো না।",
+      ),
+    ],
+    attention: [
+      l(
+        "Did feedback change your design, or did you defend the first sketch?",
+        "Feedback-এ design বদলেছে, নাকি প্রথম sketch-ই defend করেছ?",
+      ),
+      l(
+        "Did you enjoy both understanding the task and implementing the details?",
+        "Task বোঝা আর খুঁটিনাটি implement—দুটিই ভালো লেগেছে?",
+      ),
+    ],
+    resources: ["gov-user-research", "web-a11y", "gov-design-system"],
+  },
+  {
     id: "backend-engineering",
     title: l(
       "Build, break and explain a tiny API",

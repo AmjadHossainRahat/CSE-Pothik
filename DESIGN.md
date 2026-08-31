@@ -341,7 +341,7 @@ It must combine two layers:
 
 The required display order is: header → hero with orientation map → **AI Reality** → starting-point navigator → concise misconceptions and veteran voices → career landscape → experiment previews → useful loop → encouraging next step → footer. The topic numbers below identify requirements, not display order. AI Reality must be the first section after the hero; do not place the career grid ahead of it.
 
-The homepage introduces the product; it is not the entire directory. Show three representative experiments and a clear link to all nine, keep every career family discoverable, and avoid repeating the same careers in a second featured-card section. Show two veteran perspectives initially and make three more available through a keyboard-accessible native disclosure. The complete career, roadmap and experiment pages remain unchanged in depth.
+The homepage introduces the product; it is not the entire directory. Show three representative experiments and a clear link to all published experiments (currently eleven), keep every career family discoverable, and avoid repeating the same careers in a second featured-card section. Show two veteran perspectives initially and make three more available through a keyboard-accessible native disclosure. The complete career, roadmap and experiment pages remain unchanged in depth.
 
 Motivation must accompany action: welcome students who are confused or restarting, use a short future-self note, explain that a direction is a draft rather than a verdict, and end with one achievable 20-minute next step. Do not substitute slogans or false guarantees for practical guidance.
 
@@ -527,7 +527,7 @@ Example experiment cards:
 
 Experiments should usually take around 60–120 minutes or a short multi-day period.
 
-The homepage previews Backend, Cybersecurity and ML; the dedicated experiment index exposes all nine complete experiments. Not enjoying an experiment is useful evidence, not failure.
+The homepage previews Backend, Cybersecurity and ML; the dedicated experiment index exposes all eleven complete experiments, including Mobile App Development and UX/UI Engineering. Not enjoying an experiment is useful evidence, not failure.
 
 CTA:
 
@@ -1431,6 +1431,30 @@ The site must remain visually and editorially original and must not reproduce th
 **Project provenance:** Full-site requirement engineering and product/design planning were done with ChatGPT; development was done by Codex.
 
 ---
+
+## 36A. Goal-based preparation and expanded career coverage
+
+Career roadmaps explain **what to learn**; goal guides explain **where and how to apply those skills**. Keep the layers connected without generating repetitive career × goal pages or duplicating the role syllabus.
+
+Publish seven complete English/Bangla guides at `/goals/` and `/bn/goals/`:
+
+1. Global companies and advanced engineering: distinguish software/product, embedded/robotics/physical systems, and research. Include scoped official references for Google, Meta, Microsoft, Amazon, Tesla, NASA and SpaceX. NASA is a government agency, not a company. Check role-specific eligibility and work authorization; never imply a universal hiring formula.
+2. Bangladesh industry: product/startups, services/export, banks/fintech, telecom/enterprise IT, government and public-interest/NGO technology. Categories are not prestige rankings. Explain relevant project evidence and questions about mentorship and working conditions.
+3. Remote employment: role competence, async writing, reviews, handoffs, location/time-zone eligibility and sustainable delivery. Distinguish employment/long-term contracting from finding freelance clients.
+4. Study abroad: taught master's, research master's and PhD branches; prerequisites, fit, references, statements, program-specific tests, funding/costs and official deadlines. Admission, funding and visa decisions are separate and never guaranteed.
+5. Thesis, research and publication: literature, a bounded question, ethics, baseline, fair evaluation, reproducibility, writing, defense, venue selection and review. Respect computing conferences as well as journals. No guaranteed “world-class journal,” invented results, purchased authorship or paper-count obsession.
+6. Freelancing: narrow service, honest portfolio, discovery, proposals, scope, milestones, safeguards, delivery, support and repeat trust. No income promises or platform dependency.
+7. Tech business: service/agency versus product, customer discovery, a small pilot, distribution, cost assumptions, support, security and evidence-led continuation or stopping. No investment advice or revenue guarantees.
+
+Each guide has a visible reality/eligibility note, meaningful branches, starting-point anchors, four preparation stages, enough-for-now evidence, what not to do yet, specific source references, pitfalls, responsible AI use, one feasible action this week, and related career/goal links. Timelines are not guarantees. The “this week” action is encouragement, not a tracked assignment. General process guidance must not masquerade as jurisdiction-specific legal advice.
+
+UX placement: one compact goal entry inside the homepage starting-point section; By career/By goal entries on Roadmaps; a grouped seven-choice goal hub; contextual links on career/roadmap pages; a goal option in “I’m Lost”; a footer link. Keep the global header uncluttered and AI Reality immediately after the hero. Desktop detail pages use a readable article with a sticky section index; mobile uses a native “On this page” disclosure. Do not hide essential guidance in accordions or require JavaScript to read it.
+
+Career coverage is now eleven careers across the original eight families. Mobile App Development belongs to Build Software and covers Android, Apple and cross-platform choices, state, lifecycle, local persistence, offline behavior, accessibility and release responsibility. Students choose one stack based on tooling access and purpose, not four at once. Setup time is explicit in its experiment.
+
+UX/UI Engineering belongs to Technology + People and bridges user research, interaction design and accessible implementation. Explain UX/product design versus UI engineering versus broader frontend engineering; a purely design-focused role is a valid alternative. Include consent-based observation, keyboard and responsive testing, design-system states and honest case studies. Never fabricate research participants or treat attractive screens as validated UX. Both new careers require full comparison, roadmap, experiment, AI and resource coverage.
+
+Sources have provider, scope and review date. Publicly readable guidance does not imply applications, tests, publication or tools are free. Keep core learning material free, name optional costs honestly, and distinguish the site's editorial plan from an organization's official requirements.
 
 ## 37. Design Definition of Done
 

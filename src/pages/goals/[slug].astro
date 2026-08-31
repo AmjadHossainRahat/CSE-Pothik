@@ -1,0 +1,10 @@
+---
+import GoalDetail from "@/components/pages/GoalDetail.astro";
+import { goals } from "@/data/goals";
+export function getStaticPaths() {
+  return goals.map((goal) => ({ params: { slug: goal.id }, props: { goal } }));
+}
+const { goal } = Astro.props;
+---
+
+<GoalDetail goal={goal} locale="en" />
