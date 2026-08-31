@@ -36,6 +36,25 @@ for (const viewport of viewports) {
         await expect(page.locator("html")).toHaveAttribute("lang", locale);
         await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
         await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+        const primary = page.locator('.hero-copy a[href="#starting-point"]');
+        await expect(primary).toBeInViewport({ ratio: 1 });
+        const introBox = await page.locator(".hero-lede").boundingBox();
+        const buttonBox = await primary.boundingBox();
+        expect(
+          introBox && buttonBox && introBox.y + introBox.height <= buttonBox.y,
+        ).toBe(true);
+        if (viewport.width < 960) {
+          const copyBox = await page.locator(".hero-copy").boundingBox();
+          const artBox = await page.locator(".hero-visual").boundingBox();
+          expect(
+            copyBox && artBox && copyBox.y + copyBox.height <= artBox.y,
+          ).toBe(true);
+        }
+        await page.screenshot({
+          path: testInfo.outputPath(
+            `hero-${locale}-${theme}-${viewport.name}.png`,
+          ),
+        });
         const artwork = page.locator(".hero-visual img");
         await expect
           .poll(() =>
@@ -84,6 +103,36 @@ for (const viewport of viewports) {
         expect(mapItems.every((width) => width > 95)).toBe(true);
         if (viewport.width >= 1088)
           await expect(page.locator(".nav-details nav")).toBeVisible();
+        await page.locator('.hero-copy a[href="#starting-point"]').click();
+        await expect(page.locator("#starting-title")).toBeInViewport();
+        // Wait for the native smooth anchor scroll before taking a visual record.
+        await expect
+          .poll(() =>
+            page
+              .locator("#starting-point")
+              .evaluate((element) =>
+                Math.abs(
+                  element.getBoundingClientRect().top -
+                    Number.parseFloat(
+                      getComputedStyle(document.documentElement)
+                        .scrollPaddingTop,
+                    ),
+                ),
+              ),
+          )
+          .toBeLessThan(2);
+        await page.screenshot({
+          path: testInfo.outputPath(
+            `entry-${locale}-${theme}-${viewport.name}.png`,
+          ),
+        });
+        await page.locator(".situation-options summary").click();
+        await expect(page.locator(".situation-list a").last()).toBeVisible();
+        expect(
+          await page.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth + 1,
+          ),
+        ).toBe(true);
         expect(consoleErrors).toEqual([]);
         expect(pageErrors).toEqual([]);
         await page.screenshot({

@@ -81,7 +81,7 @@ test("homepage and roadmap hub lead to goals; goal connects back to a learning r
   page,
 }) => {
   await page.goto(route("/"));
-  await page.locator(".goal-entry a").click();
+  await page.locator('[data-home-entry="prepare"]').click();
   await expect(page).toHaveURL(/\/goals\/$/);
   await page
     .locator('.goal-option a[href$="/goals/remote-employment/"]')

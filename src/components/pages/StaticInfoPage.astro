@@ -2,6 +2,7 @@
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
 import ResourceList from "@/components/common/ResourceList.astro";
 import { siteConfig } from "@/config/site";
+import { collaborators, inspirations } from "@/data/credits";
 import { resources } from "@/data/resources";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { Locale } from "@/types/content";
@@ -28,10 +29,12 @@ const metadata = {
       : "Learn how CSE Compass uses optional aggregate GA4 analytics and local preferences without accounts, profiles or progress tracking.",
   },
   about: {
-    title: bn ? "About CSE Compass" : "About CSE Compass",
+    title: bn
+      ? "CSE Compass সম্পর্কে ও কৃতজ্ঞতা"
+      : "About CSE Compass & Credits",
     description: bn
-      ? "CSE Compass-এর mission, non-goal, provenance, inspiration আর free educational community philosophy।"
-      : "The mission, non-goals, provenance, inspiration and free educational community philosophy behind CSE Compass.",
+      ? "CSE Compass-এর উদ্দেশ্য, roadmap.sh ও Architect Prep-এর অনুপ্রেরণা এবং উদ্যোক্তা, ChatGPT ও Codex-এর ভূমিকা জানো।"
+      : "The purpose of CSE Compass, inspiration from roadmap.sh and Architect Prep, and the roles of its creator, ChatGPT and Codex.",
   },
 }[kind];
 ---
@@ -202,6 +205,11 @@ const metadata = {
                 ? "CSE Compass fresher থেকে final-year student-কে landscape বুঝতে, real কাজ try করতে, common mistake এড়াতে আর AI era-তে next meaningful step নিতে সাহায্য করে।"
                 : "CSE Compass helps students—from freshers to final year—understand the landscape, try real work, avoid common mistakes and take a meaningful next step in the AI era."}
             </p>
+            <a class="button button--secondary" href="#credits">
+              {bn
+                ? "অনুপ্রেরণা ও নির্মাণের গল্প"
+                : "Inspiration & how this was built"}
+            </a>
           </>
         </header>
         <section class="section section--tinted">
@@ -242,50 +250,69 @@ const metadata = {
             </>
           </div>
         </section>
-        <section class="section">
+        <section class="section" id="credits" aria-labelledby="credits-title">
+          <div class="container credits-intro">
+            <p class="eyebrow">{bn ? "কৃতজ্ঞতা" : "With thanks"}</p>
+            <h2 id="credits-title">
+              {bn ? "অনুপ্রেরণা ও সহযোগিতা" : "Inspiration & collaboration"}
+            </h2>
+            <p class="lede">
+              {bn
+                ? "একজন মানুষের উদ্যোগ ও পরিচালনা, অনুপ্রেরণাদায়ী community project আর AI-এর সহযোগিতায় তৈরি। প্রত্যেকের ভূমিকা আলাদা।"
+                : "Human-led, inspired by community projects and built with AI assistance. Each contribution has a different role."}
+            </p>
+          </div>
           <div class="container editorial-grid">
             <>
               <div>
                 <>
-                  <p class="eyebrow">{bn ? "Inspiration" : "Inspiration"}</p>
-                  <h2>
+                  <h3>
                     {bn
                       ? "Principle নেওয়া, content copy নয়"
                       : "Principles, never copied content"}
-                  </h2>
+                  </h3>
                   <p>
                     {bn
                       ? "roadmap.sh-এর structured role/skill navigation আর Architect Prep-এর focused technical navigation conceptually inspire করেছে। Visual system, copy, roadmap আর mentoring model original।"
                       : "The structured role/skill navigation of roadmap.sh and focused technical navigation of Architect Prep offered conceptual inspiration. The visual system, copy, roadmaps and mentoring model are original."}
                   </p>
-                  <ul>
-                    <>
-                      <li>
-                        <a href="https://roadmap.sh/" rel="noopener noreferrer">
-                          roadmap.sh ↗
-                        </a>
-                      </li>
+                  <ul class="inspiration-list" role="list">
+                    {inspirations.map((source) => (
                       <li>
                         <a
-                          href="https://mayurjp.github.io/architect-prep/"
+                          class="text-link"
+                          href={source.url}
                           rel="noopener noreferrer"
                         >
-                          Architect Prep ↗
+                          {source.name} <span aria-hidden="true">↗</span>
                         </a>
+                        <p>{source.contribution[locale]}</p>
                       </li>
-                    </>
+                    ))}
                   </ul>
+                  <p class="muted">
+                    {bn
+                      ? "এটি কৃতজ্ঞতা প্রকাশ, কোনো আনুষ্ঠানিক সম্পর্ক বা endorsement-এর দাবি নয়। নামগুলোর মালিকানা সংশ্লিষ্ট প্রতিষ্ঠান ও প্রকল্পের।"
+                      : "These acknowledgments do not imply affiliation or endorsement. Names belong to their respective owners."}
+                  </p>
                 </>
               </div>
               <div>
                 <>
-                  <p class="eyebrow">{bn ? "Provenance" : "Provenance"}</p>
-                  <h2>{bn ? "Project history" : "Project history"}</h2>
-                  <p>
-                    {bn
-                      ? "Full-site requirement engineering আর product/design planning ChatGPT দিয়ে করা হয়েছে; development Codex করেছে। Original project ও contributor attribution preserve করতে হবে।"
-                      : "Full-site requirement engineering and product/design planning were done with ChatGPT; development was done by Codex. Attribution to the original project and contributors should be preserved."}
-                  </p>
+                  <h3>
+                    {bn ? "যেভাবে সাইটটি তৈরি হয়েছে" : "How this was built"}
+                  </h3>
+                  <dl class="collaboration-list">
+                    {collaborators.map((person) => (
+                      <div>
+                        <dt>
+                          <strong>{person.name}</strong>
+                          <span>{person.role[locale]}</span>
+                        </dt>
+                        <dd>{person.contribution[locale]}</dd>
+                      </div>
+                    ))}
+                  </dl>
                   <p>
                     {bn
                       ? "Repository MIT License-এর অধীনে। Student-facing resource free ও accessible রাখার community philosophy-কে সম্মান করা encouraged।"
@@ -301,6 +328,30 @@ const metadata = {
   }
 </BaseLayout>
 <style>
+  .credits-intro {
+    margin-bottom: 2.5rem;
+  }
+  .inspiration-list {
+    margin: 1.5rem 0;
+    padding: 0;
+    list-style: none;
+  }
+  .collaboration-list > div {
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .collaboration-list > div:first-child {
+    padding-top: 0;
+  }
+  .collaboration-list dt span {
+    display: block;
+    color: var(--color-primary-strong);
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+  .collaboration-list dd {
+    margin: 0.5rem 0 0;
+  }
   .resource-index {
     margin-top: 3rem;
   }

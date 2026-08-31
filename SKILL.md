@@ -442,9 +442,9 @@ Implement the homepage sections in the order and spirit defined in `DESIGN.md`.
 Required sections:
 
 1. Header/navigation with the `CSE Compass` wordmark/brand mark, language switch and theme switch.
-2. Illustrated hero: “You got into CSE. Now what?”, future-self note and four-stop orientation map.
+2. Purpose-first illustrated hero: free CSE career guidance, clear outcomes, practical reassurance and a prominent next-step action; preserve the future-self note and four-stop orientation map.
 3. AI reality / resilience section immediately after the hero, with the original AI study-partner illustration.
-4. “Where are you right now?” navigator and recovery encouragement.
+4. Three visible starting intentions and six detailed situations in a native disclosure, with recovery encouragement.
 5. Concise misconceptions paired with veteran orientation voices; two visible perspectives and three in an accessible native disclosure.
 6. Career landscape reveal: all eight families, no duplicated featured-career grid.
 7. Practical, non-shaming encouragement woven through these sections.
@@ -728,7 +728,9 @@ Requirements:
 
 Implement the homepage starting-point selector as a prominent component.
 
-Required initial choices:
+Keep bilingual hero and three-entry copy in `src/data/homepage.ts`. Render static linked rows for new/unsure students, career exploration and goal preparation, pointing respectively to the fresher guide, career index and goal hub. All links must use the locale/base-path helpers; analytics use existing bounded `next_step_clicked` destinations.
+
+Keep these six detailed choices in the static HTML inside an accessible native disclosure:
 
 - new to CSE;
 - cannot choose a career;
@@ -736,6 +738,8 @@ Required initial choices:
 - worried about AI;
 - already have a target;
 - near graduation / feel behind.
+
+Preserve recovery encouragement outside the disclosure. Do not add a framework, quiz, persistent profile or client-side routing. Test each primary entry end to end, disclosure keyboard/no-JavaScript use, translated equivalents and fully visible initial-viewport primary actions at the responsive matrix sizes. The purpose and action must precede artwork on phones. Run axe with the disclosure both closed and open; inspect actual viewport screenshots, not just overflow assertions.
 
 Track only the selected category as an aggregate analytics event.
 
@@ -1341,6 +1345,10 @@ Create a clear `README.md` containing:
 - repository structure;
 - contribution workflow;
 - attribution/inspiration link to the relevant section of `DESIGN.md`.
+
+Visible attribution is implemented as static shared-footer content and localized About `#credits`, backed by typed bilingual `src/data/credits.ts` and the creator name in `src/config/site.ts`. Keep both inspiration URLs and the distinct Orchestrator/ChatGPT/Codex roles in content-integrity coverage. Verify footer-to-About base-path links, keyboard/no-JavaScript use, English/Bangla, both themes and narrow-screen wrapping. Build verification must confirm footer credits on all generated HTML pages and the target anchors. Do not add client hydration or analytics just for credits.
+
+Cleanup must follow reference and entry-point checks, not simply remove files lacking imports: Astro routes, public assets, scripts, tests and configuration are legitimate entry points. Preserve current PNG masters and design references; retire only confirmed obsolete assets with recoverable history and synchronized provenance documentation.
 
 Do not include npm commands.
 

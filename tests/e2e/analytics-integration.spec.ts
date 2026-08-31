@@ -38,7 +38,7 @@ test("homepage actions dispatch bounded GA4 events without contacting Google", a
     ]);
   await page.goto(route("/"));
   await page
-    .getByRole("link", { name: "Find My Starting Point", exact: true })
+    .getByRole("link", { name: "Help me find my next step", exact: true })
     .click();
   await expect
     .poll(() => events)
@@ -47,6 +47,7 @@ test("homepage actions dispatch bounded GA4 events without contacting Google", a
       "next_step_clicked",
       { destination: "starting-point" },
     ]);
+  await page.locator(".situation-options summary").click();
   await page.locator(".situation-list a").first().click();
   await expect
     .poll(() => events.some((event) => event[1] === "starting_point_selected"))

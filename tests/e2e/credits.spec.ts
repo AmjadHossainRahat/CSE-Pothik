@@ -1,0 +1,131 @@
+import { expect, test } from "@playwright/test";
+import { collaborators, inspirations } from "../../src/data/credits";
+
+const base = (process.env.BASE_PATH ?? "").replace(/\/$/, "");
+const route = (locale: string, path: string) =>
+  `${base}${locale === "bn" ? "/bn" : ""}${path}`;
+
+for (const locale of ["en", "bn"] as const) {
+  test(`${locale} fresher can discover credits and switch to the equivalent language`, async ({
+    page,
+  }) => {
+    await page.goto(route(locale, "/guidance/new-cse-student/"));
+    const footer = page.locator(".footer-credits");
+    await expect(footer).toContainText("Orchestrator");
+    for (const source of inspirations)
+      await expect(
+        footer.getByRole("link", { name: source.name, exact: true }),
+      ).toHaveAttribute("href", source.url);
+    await footer
+      .getByRole("link", {
+        name: locale === "en" ? "Full credits" : "বিস্তারিত কৃতজ্ঞতা",
+        exact: true,
+      })
+      .click();
+    await expect(page).toHaveURL(route(locale, "/about/#credits"));
+    await expect(
+      page
+        .getByRole("region", {
+          name:
+            locale === "en"
+              ? "Inspiration & collaboration"
+              : "অনুপ্রেরণা ও সহযোগিতা",
+          exact: true,
+        })
+        .first(),
+    ).toBeVisible();
+    for (const person of collaborators) {
+      await expect(page.locator("#credits")).toContainText(person.name);
+      await expect(page.locator("#credits")).toContainText(person.role[locale]);
+      await expect(page.locator("#credits")).toContainText(
+        person.contribution[locale],
+      );
+    }
+    for (const source of inspirations)
+      await expect(
+        page
+          .locator("#credits")
+          .getByRole("link", { name: source.name, exact: true }),
+      ).toHaveAttribute("href", source.url);
+    await page.locator("[data-language-switch]").click();
+    const other = locale === "en" ? "bn" : "en";
+    await expect(page).toHaveURL(route(other, "/about/"));
+    await expect(page.locator("html")).toHaveAttribute("lang", other);
+    await page.locator('.page-hero a[href="#credits"]').click();
+    await expect(page).toHaveURL(route(other, "/about/#credits"));
+  });
+
+  test(`${locale} credits work with keyboard and JavaScript disabled`, async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({
+      javaScriptEnabled: false,
+      viewport: { width: 390, height: 844 },
+    });
+    const page = await context.newPage();
+    await page.goto(`http://127.0.0.1:4321${route(locale, "/about/")}`);
+    await page.locator('.page-hero a[href="#credits"]').focus();
+    await page.keyboard.press("Enter");
+    await expect(page).toHaveURL(/\/about\/#credits$/);
+    const source = page.locator('#credits a[href="https://roadmap.sh/"]');
+    await source.focus();
+    await expect(source).toBeFocused();
+    expect(
+      await source.evaluate(
+        (element) => getComputedStyle(element).outlineStyle,
+      ),
+    ).not.toBe("none");
+    await expect(page.locator("#credits")).toContainText("Orchestrator");
+    await expect(page.locator(".footer-credits")).toContainText("ChatGPT");
+    await context.close();
+  });
+}
+
+for (const width of [320, 390, 768, 1280, 1600])
+  for (const locale of ["en", "bn"])
+    for (const theme of ["light", "dark"]) {
+      test(`${locale} ${theme} credits layout and console at ${width}px`, async ({
+        page,
+      }, info) => {
+        test.skip(
+          info.project.name === "mobile",
+          "Explicit viewport matrix runs once",
+        );
+        await page.setViewportSize({ width, height: 900 });
+        await page.addInitScript(
+          (value) => localStorage.setItem("cse-compass-theme", value),
+          theme,
+        );
+        const errors: string[] = [];
+        page.on("pageerror", (error) => errors.push(error.message));
+        page.on("console", (message) => {
+          if (message.type() === "error") errors.push(message.text());
+        });
+        await page.goto(route(locale, "/about/#credits"));
+        await expect(page.locator("html")).toHaveAttribute("lang", locale);
+        await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
+        expect(
+          await page.evaluate(
+            () => document.documentElement.scrollWidth <= innerWidth + 1,
+          ),
+        ).toBe(true);
+        for (const selector of ["#credits h2", ".footer-credits"]) {
+          await page.locator(selector).scrollIntoViewIfNeeded();
+          await page.screenshot({
+            path: info.outputPath(
+              `${selector.startsWith("#") ? "about" : "footer"}-${locale}-${theme}-${width}.png`,
+            ),
+          });
+        }
+        for (const link of await page.locator(".footer-credits a").all()) {
+          const box = await link.boundingBox();
+          expect(
+            box &&
+              box.x >= 0 &&
+              box.x + box.width <= width + 1 &&
+              box.height >= 44,
+          ).toBe(true);
+        }
+        expect(errors).toEqual([]);
+      });
+    }

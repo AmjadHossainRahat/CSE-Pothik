@@ -1,6 +1,7 @@
 ---
 import Logo from "@/components/common/Logo.astro";
 import { localePath, siteConfig, withBase } from "@/config/site";
+import { collaborators, inspirations } from "@/data/credits";
 import type { Locale } from "@/types/content";
 
 interface Props {
@@ -81,7 +82,7 @@ const bn = locale === "bn";
       <ul>
         <li>
           <a href={withBase(localePath(locale, "/about/"))}
-            >{bn ? "About ও attribution" : "About & attribution"}</a
+            >{bn ? "সাইট সম্পর্কে" : "About CSE Compass"}</a
           >
         </li>
         <li>
@@ -97,6 +98,45 @@ const bn = locale === "bn";
       </ul>
     </nav>
   </div>
+  <section
+    class="container footer-credits"
+    aria-labelledby="footer-credits-title"
+  >
+    <div class="credits-heading">
+      <h2 id="footer-credits-title">
+        {bn ? "অনুপ্রেরণা ও সহযোগিতা" : "Inspiration & collaboration"}
+      </h2>
+      <a href={withBase(localePath(locale, "/about/#credits"))}>
+        {bn ? "বিস্তারিত কৃতজ্ঞতা" : "Full credits"}
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+    <div class="credits-grid">
+      <div>
+        <p>{bn ? "যাদের কাজ থেকে অনুপ্রেরণা" : "Inspired by"}</p>
+        <ul class="inspiration-links" role="list">
+          {
+            inspirations.map((source) => (
+              <li>
+                <a href={source.url} rel="noopener noreferrer">
+                  {source.name} <span aria-hidden="true">↗</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <ul class="collaborators" role="list">
+        {
+          collaborators.map((person) => (
+            <li>
+              <strong>{person.name}</strong> — {person.role[locale]}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
   <div class="container footer-base">
     <p>© {new Date().getFullYear()} CSE Compass · MIT License</p>
     <p>
@@ -154,7 +194,45 @@ const bn = locale === "bn";
   .footer-base p {
     margin: 0;
   }
+  .footer-credits {
+    margin-top: 2.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.95rem;
+  }
+  .credits-heading {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    margin-bottom: 1rem;
+  }
+  .credits-heading h2,
+  .footer-credits p {
+    margin: 0;
+  }
+  .credits-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  .inspiration-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1.5rem;
+  }
+  .footer-credits a {
+    gap: 0.35rem;
+    min-height: 2.75rem;
+  }
+  .collaborators li + li {
+    margin-top: 0.4rem;
+  }
   @media (min-width: 48rem) {
+    .credits-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
     .footer-grid {
       grid-template-columns: minmax(20rem, 1.4fr) 1fr 1fr;
     }

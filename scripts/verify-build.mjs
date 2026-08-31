@@ -58,6 +58,25 @@ for (const file of htmlFiles) {
   );
   const canonical = attr(html, /<link\s+rel="canonical"\s+href="([^"]+)"/i);
   const noindex = /<meta\s+name="robots"\s+content="noindex/i.test(html);
+  const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i)?.[0] ?? "";
+  for (const credit of [
+    "https://roadmap.sh/",
+    "https://mayurjp.github.io/architect-prep/",
+    "Orchestrator",
+    "ChatGPT",
+    "Codex",
+  ]) {
+    if (!footer.includes(credit))
+      failures.push(`${label}: missing visible footer credit ${credit}`);
+  }
+  const localePrefix = label.startsWith("bn/") ? "bn/" : "";
+  if (!footer.includes(`${base}/${localePrefix}about/#credits`))
+    failures.push(`${label}: missing localized full-credits link`);
+  if (
+    label === `${localePrefix}about/index.html` &&
+    !html.includes('id="credits"')
+  )
+    failures.push(`${label}: missing full-credits anchor`);
 
   if (!title) failures.push(`${label}: missing title`);
   if (!description) failures.push(`${label}: missing meta description`);

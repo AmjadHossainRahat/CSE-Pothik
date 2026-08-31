@@ -6,6 +6,7 @@ import { experimentPath, localePath, withBase } from "@/config/site";
 import { careerById, careerFamilies } from "@/data/careers";
 import { experimentById, experiments } from "@/data/experiments";
 import { studentSituations } from "@/data/situations";
+import { homepageEntries, homepageIntro } from "@/data/homepage";
 import { t } from "@/lib/i18n";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { CareerId, Locale } from "@/types/content";
@@ -24,32 +25,32 @@ const experimentIds: CareerId[] = [
 ];
 const mapSteps = [
   [
-    "See the landscape",
-    "Landscape বোঝো",
-    "CSE is more than one career",
-    "CSE মানে একটাই career নয়",
+    "Explore careers",
+    "Career বোঝো",
+    "What does the work involve?",
+    "আসলে কী কাজ করতে হয়?",
     "#landscape",
   ],
   [
-    "Meet the real work",
-    "আসল কাজটা দেখো",
-    "Tasks, not impressive titles",
-    "Title নয়, কাজ দিয়ে চিনো",
-    "/careers/",
-  ],
-  [
-    "Try a small version",
-    "ছোট করে try করো",
-    "A little evidence beats a guess",
-    "আন্দাজের চেয়ে experience ভালো",
+    "Try real work",
+    "কাজ করে দেখো",
+    "Would I enjoy doing it?",
+    "কাজটা আমার ভালো লাগবে?",
     "#experiments",
   ],
   [
-    "Take one next step",
-    "একটা next step নাও",
-    "Not a lifetime contract",
-    "সারা জীবনের contract নয়",
-    "#starting-point",
+    "Find a learning path",
+    "শেখার পথ খোঁজো",
+    "What should I learn first?",
+    "আগে কী শিখব?",
+    "/roadmaps/",
+  ],
+  [
+    "Prepare for a goal",
+    "লক্ষ্যের প্রস্তুতি নাও",
+    "How can I put my skills to work?",
+    "শেখাটা কাজে লাগাব কীভাবে?",
+    "/goals/",
   ],
 ] as const;
 const realityChecks = [
@@ -147,8 +148,8 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
     "CSE Compass — CSE-তে তোমার direction খুঁজে নাও",
   )}
   description={copy(
-    "Explore CSE careers, compare real work, try practical experiments, follow focused roadmaps and prepare for an AI-shaped future.",
-    "বাংলাদেশি CSE student-দের জন্য practical career direction, roadmap, experiment আর AI-resilience guidance।",
+    "Free career guidance for CSE students: explore careers, try practical work and find learning paths for jobs, higher studies, research or independent work.",
+    "CSE শিক্ষার্থীদের জন্য বিনামূল্যে career guidance: career বোঝো, কাজ করে দেখো, চাকরি, উচ্চশিক্ষা, গবেষণা বা নিজের কাজের প্রস্তুতির পথ খুঁজে নাও।",
   )}
 >
   <div class="homepage">
@@ -156,26 +157,15 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
       <div class="container">
         <div class="hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">
-              {
-                copy(
-                  "Understand CSE careers. Find your next step.",
-                  "CSE-এর career বোঝো। নিজের পরের পদক্ষেপ খুঁজে নাও।",
-                )
-              }
-            </p>
+            <p class="eyebrow">{t(homepageIntro.eyebrow, locale)}</p>
             <h1 id="hero-title">
-              {copy("You got into CSE.", "CSE-তে ঢুকেছ।")}<br /><em
-                >{copy("Now what?", "এখন কী?")}</em
+              {t(homepageIntro.title, locale)}{" "}<em
+                >{t(homepageIntro.emphasis, locale)}</em
               >
             </h1>
-            <p class="hero-lede">
-              {
-                copy(
-                  "You do not need a 10-year plan today. You need a clearer picture of the possibilities—and one small place to start.",
-                  "আজই ১০ বছরের plan লাগবে না। কী কী পথ আছে সেটা বোঝো—তারপর ছোট একটা জায়গা থেকে শুরু করো।",
-                )
-              }
+            <p class="hero-lede">{t(homepageIntro.description, locale)}</p>
+            <p class="hero-reassurance">
+              {t(homepageIntro.reassurance, locale)}
             </p>
             <div class="button-row">
               <a
@@ -183,22 +173,14 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
                 href="#starting-point"
                 data-track-event="next_step_clicked"
                 data-track-param-destination="starting-point"
-                >{copy("Find My Starting Point", "আমার starting point খুঁজি")}
+                >{t(homepageIntro.primaryAction, locale)}
                 <span aria-hidden="true">→</span></a
               >
               <a class="button button--secondary" href={href("/careers/")}
-                >{copy("Explore CSE Careers", "CSE career দেখো")}</a
+                >{t(homepageIntro.secondaryAction, locale)}</a
               >
             </div>
-            <p class="hero-reassurance">
-              <span aria-hidden="true">✦</span>
-              {
-                copy(
-                  "New, confused, or starting again? You belong here.",
-                  "নতুন, confused, বা আবার শুরু করছ? এই জায়গাটা তোমারও।",
-                )
-              }
-            </p>
+            <p class="hero-outcome">{t(homepageIntro.outcome, locale)}</p>
           </div>
           <figure class="hero-visual">
             <Image
@@ -306,8 +288,8 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
           </h2><p>
             {
               copy(
-                "Ignoring AI is not a strategy. Panicking is not one either. Learn to understand the problem, direct the tools, and check the answer.",
-                "AI-কে ignore করা strategy নয়। Panic করাও নয়। Problem বোঝো, tool-কে নির্দেশ দাও, আর উত্তরটা ঠিক কি না যাচাই করো।",
+                "Some tasks are easier to automate now. Learn to understand the problem, direct AI, and check its answers—skills you can practice on any path.",
+                "কিছু কাজ এখন সহজেই automate করা যায়। Problem বোঝা, AI-কে নির্দেশ দেওয়া আর তার উত্তর যাচাই করা শেখো—যে পথেই যাও, এগুলো practice করতে পারবে।",
               )
             }
           </p><a
@@ -352,64 +334,91 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             <p class="eyebrow">
               {copy("Your next step starts here", "এখান থেকেই পরের ধাপ")}
             </p><h2 id="starting-title">
-              {copy("Where are you right now?", "তুমি এখন কোথায়?")}
+              {copy("What would help you today?", "আজ কোনটা তোমার কাজে লাগবে?")}
             </h2>
           </div><p>
             {
               copy(
-                "There is no wrong starting point. Choose what sounds like you today—no quiz, account, or score.",
-                "ভুল starting point বলে কিছু নেই। আজ তোমার সঙ্গে যেটা মেলে, বেছে নাও—quiz, account বা score নেই।",
+                "Pick one route. You can change direction later—no quiz, account, or perfect answer needed.",
+                "একটা পথ বেছে নাও। পরে বদলাতেই পারো—quiz, account বা নিখুঁত উত্তর লাগবে না।",
               )
             }
           </p>
         </div>
-        <div class="situation-list">
-          {
-            studentSituations.map((situation, index) => (
-              <a
-                href={withBase(situation.destination[locale])}
-                data-track-event="starting_point_selected"
-                data-track-param-situation-id={situation.id}
-              >
-                <>
-                  <span class="situation-number" aria-hidden="true">
-                    0{index + 1}
-                  </span>
-                  <span class="situation-copy">
-                    <>
-                      <strong>{t(situation.label, locale)}</strong>
-                      <small>{t(situation.note, locale)}</small>
-                    </>
-                  </span>
-                  <span class="situation-arrow" aria-hidden="true">
-                    →
-                  </span>
-                </>
-              </a>
-            ))
-          }
-        </div>
-        <p class="mentor-line goal-entry">
-          <strong
+        <nav aria-labelledby="starting-title">
+          <ul class="entry-list" role="list">
+            {
+              homepageEntries.map((entry, index) => (
+                <li>
+                  <a
+                    href={href(entry.destination)}
+                    data-home-entry={entry.id}
+                    data-track-event="next_step_clicked"
+                    data-track-param-destination={entry.analyticsDestination}
+                  >
+                    <span class="entry-number" aria-hidden="true">
+                      0{index + 1}
+                    </span>
+                    <span class="entry-copy">
+                      <>
+                        <strong>{t(entry.label, locale)}</strong>
+                        <span>{t(entry.note, locale)}</span>
+                      </>
+                    </span>
+                    <span class="entry-arrow" aria-hidden="true">
+                      →
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+        <details class="situation-options" id="your-situation">
+          <summary
             >{
-              copy("Have a bigger goal in mind?", "বড় কোনো লক্ষ্য মাথায় আছে?")
-            }</strong
-          >{" "}
-          {
-            copy(
-              "Global or local industry, remote work, study abroad, research, freelancing, or a tech business.",
-              "Global বা local industry, remote কাজ, বিদেশে উচ্চশিক্ষা, research, freelancing বা tech business।",
-            )
-          }{" "}
-          <a
-            href={href("/goals/")}
-            data-track-event="next_step_clicked"
-            data-track-param-destination="goals"
-            >{
-              copy("Find your preparation path →", "প্রস্তুতির পথ বেছে নাও →")
-            }</a
+              copy(
+                "Already studying? Find a more specific starting point",
+                "আগেই পড়াশোনা শুরু করেছ? নিজের অবস্থার সঙ্গে মিলিয়ে দেখো",
+              )
+            }</summary
           >
-        </p>
+          <h3>{copy("Where are you right now?", "তুমি এখন কোথায়?")}</h3>
+          <p>
+            {
+              copy(
+                "New, undecided, worried about AI, or feeling behind? Choose what sounds like you today.",
+                "নতুন, দ্বিধায়, AI নিয়ে চিন্তিত, না পিছিয়ে পড়েছ মনে হচ্ছে? আজ যেটা তোমার সঙ্গে মেলে, বেছে নাও।",
+              )
+            }
+          </p>
+          <div class="situation-list">
+            {
+              studentSituations.map((situation, index) => (
+                <a
+                  href={withBase(situation.destination[locale])}
+                  data-track-event="starting_point_selected"
+                  data-track-param-situation-id={situation.id}
+                >
+                  <>
+                    <span class="situation-number" aria-hidden="true">
+                      0{index + 1}
+                    </span>
+                    <span class="situation-copy">
+                      <>
+                        <strong>{t(situation.label, locale)}</strong>
+                        <small>{t(situation.note, locale)}</small>
+                      </>
+                    </span>
+                    <span class="situation-arrow" aria-hidden="true">
+                      →
+                    </span>
+                  </>
+                </a>
+              ))
+            }
+          </div>
+        </details>
         <p class="mentor-line">
           <strong>{copy("Feeling behind?", "পিছিয়ে পড়েছ মনে হচ্ছে?")}</strong>{
             " "
@@ -509,16 +518,16 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             </p><h2 id="landscape-title">
               {
                 copy(
-                  "Different minds. Different kinds of work.",
-                  "আলাদা আগ্রহ। আলাদা ধরনের কাজ।",
+                  "What does this work actually involve?",
+                  "কোন career-এ আসলে কী কাজ?",
                 )
               }
             </h2>
           </div><p>
             {
               copy(
-                "Start with a problem you would like to solve. The job titles can come next.",
-                "কোন ধরনের problem solve করতে ভালো লাগতে পারে, সেটা দিয়ে শুরু করো। Job title পরে আসুক।",
+                "Explore different kinds of problems, daily tasks and trade-offs. Open a career that makes you curious—you are exploring, not committing.",
+                "আলাদা problem, প্রতিদিনের কাজ আর ভালো-মন্দ বোঝো। কৌতূহল হয় এমন একটা career খোলো—এখন দেখছ, চূড়ান্ত সিদ্ধান্ত নিচ্ছ না।",
               )
             }
           </p>
@@ -581,16 +590,16 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             </p><h2 id="try-title">
               {
                 copy(
-                  "One small experiment. A much better clue.",
-                  "ছোট একটা experiment। অনেকটা পরিষ্কার ধারণা।",
+                  "Would I enjoy doing this work?",
+                  "এই কাজ করতে আমার ভালো লাগবে?",
                 )
               }
             </h2>
           </div><p>
             {
               copy(
-                "A salary video cannot tell you whether you enjoy the work. A safe, 60–120 minute experiment can give you a first clue.",
-                "Salary video বলে দেবে না কাজটা তোমার ভালো লাগবে কি না। Safe, ৬০–১২০ মিনিটের experiment একটা ধারণা দেবে।",
+                "Try a safe, 60–120 minute challenge. Check the prerequisites, try the work, and notice what interests you before committing to a longer learning path.",
+                "নিরাপদ ৬০–১২০ মিনিটের ছোট challenge নাও। আগে কী জানা লাগবে দেখো, কাজ করে বোঝো কোনটা ভালো লাগে—তারপর বড় learning path বেছে নাও।",
               )
             }
           </p>
@@ -649,8 +658,8 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             >
               {
                 copy(
-                  "You can change direction. Keep moving.",
-                  "Direction বদলাতেই পারো। এগোতে থাকো।",
+                  "What should I learn—and where can it lead?",
+                  "কী শিখব—আর সেটা কাজে লাগাব কোথায়?",
                 )
               }
             </h2>
@@ -681,6 +690,20 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             )
           }
         </ol>
+        <p class="preparation-note">
+          {
+            copy(
+              "A career roadmap explains what to learn. A goal guide helps you apply it.",
+              "Career roadmap বলে কী শিখবে। Goal guide দেখায় শেখাটা কীভাবে কাজে লাগাবে।",
+            )
+          }{" "}
+          <a href={href("/roadmaps/")}
+            >{copy("Choose a learning roadmap", "শেখার roadmap বেছে নাও")}</a
+          >{" · "}
+          <a href={href("/goals/")}
+            >{copy("Find a preparation guide", "প্রস্তুতির guide দেখো")}</a
+          >
+        </p>
       </div>
     </section>
 
@@ -757,13 +780,14 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
     min-width: 0;
   }
   .hero h1 {
-    max-width: 18ch;
+    max-width: 23ch;
     font-family: var(--font-display);
-    font-size: clamp(2.6rem, 5.4vw, 4.65rem);
+    font-size: clamp(2.1rem, 4.4vw, 3.5rem);
     line-height: 1.08;
     letter-spacing: -0.045em;
   }
   .hero h1 em {
+    display: block;
     color: var(--color-primary);
     font-style: normal;
     text-decoration: underline;
@@ -773,18 +797,91 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
   }
   .hero-lede {
     max-width: 37rem;
-    margin-block: 1.6rem;
+    margin-block: 1rem;
     color: var(--color-text-muted);
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   .hero-reassurance {
-    margin-top: 1.2rem;
-    font-size: 0.88rem;
+    max-width: 38rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.95rem;
+    color: var(--color-text);
+  }
+  .hero-outcome {
+    max-width: 36rem;
+    margin: 1rem 0 0;
+    font-size: 0.85rem;
     color: var(--color-text-muted);
   }
-  .hero-reassurance span {
-    color: var(--color-teal);
-    margin-right: 0.3rem;
+  .entry-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--color-border-strong);
+  }
+  .entry-list li {
+    margin: 0;
+    border-bottom: 1px solid var(--color-border-strong);
+  }
+  .entry-list a {
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 1.2rem 0.5rem;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .entry-list a:hover {
+    background: var(--color-code);
+  }
+  .entry-number,
+  .entry-arrow {
+    color: var(--color-primary-strong);
+    font-weight: 750;
+  }
+  .entry-number {
+    font-size: 0.8rem;
+  }
+  .entry-copy strong,
+  .entry-copy > span {
+    display: block;
+  }
+  .entry-copy strong {
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.4;
+  }
+  .entry-copy > span {
+    margin-top: 0.35rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+  .situation-options {
+    margin-top: 1.5rem;
+  }
+  .situation-options summary {
+    min-height: 2.75rem;
+    padding-block: 0.7rem;
+    color: var(--color-primary-strong);
+    font-weight: 750;
+    cursor: pointer;
+  }
+  .situation-options[open] summary {
+    margin-bottom: 1rem;
+  }
+  .situation-options > p,
+  .preparation-note {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+  .preparation-note {
+    margin: 1.5rem 0 0;
+    max-width: 55rem;
+  }
+  .preparation-note a {
+    display: inline-block;
+    padding-block: 0.6rem;
+    font-weight: 700;
   }
   .hero-visual {
     position: relative;

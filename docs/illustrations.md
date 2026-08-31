@@ -93,7 +93,7 @@ The following records the first mixed-gender scene and its prompts for provenanc
 
 The original lone-male hero is replaced by a shared learning scene. The woman and man have their own laptops, equal visual prominence and a peer relationship. A single static scene gives immediate representation without carousel motion, extra controls, hidden slides or more downloads. The existing future-self encouragement remains inclusive; no fictional testimonial is introduced.
 
-Built-in ImageGen was used for one generation and two targeted edits. The initial generation and alpha-extraction retry returned an opaque simulated checkerboard, not genuine transparency; those rejected images are not shipped. The final edit uses a deliberate solid backdrop instead. Only the final selected `study-partners.png` is imported by the homepage. The original `mentor-guide.png` remains as a historical source/style reference and is not emitted by the current production build.
+Built-in ImageGen was used for one generation and two targeted edits. The initial generation and alpha-extraction retry returned an opaque simulated checkerboard, not genuine transparency; those rejected images are not shipped. The final edit uses a deliberate solid backdrop instead. Only the final selected `study-partners.png` is imported by the homepage. The obsolete original `mentor-guide.png` was removed from the working tree on 1 September 2026 after confirming that no source imported it. Its historical prompt below and the asset in Git history preserve provenance; it was already excluded from production output.
 
 ### Initial composition prompt
 
@@ -123,7 +123,7 @@ Generation prompt: Use case: ads-marketing. Asset type: one landscape social sha
 
 ## Asset maintenance
 
-- Keep original PNG masters, including the study-partners' intentional backdrop and the AI partner's real alpha. Do not substitute screenshots or simulated-transparency checkerboards.
+- Keep the active original PNG masters, including the study-partners' intentional backdrop and the AI partner's real alpha. Superseded unused masters can be removed after checking references and preserving provenance/history. Do not substitute screenshots or simulated-transparency checkerboards.
 - Preserve all three teammates' equal agency and visibility, the central QA tablet, the seated woman's hair-covering orna and the current clothing-reference limits. Do not reintroduce a lone-male default or rotating gender/ethnicity-specific slides.
 - Generate edits through ImageGen and inspect the complete silhouette in both themes.
 - Import through `astro:assets`, not public raw PNG URLs. Update responsive sizes if the rendered layout changes.

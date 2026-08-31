@@ -9,7 +9,7 @@ test("homepage exposes the complete orientation journey", async ({ page }) => {
     page.getByRole("heading", { level: 1, name: /You got into CSE/ }),
   ).toBeVisible();
   await expect(
-    page.getByRole("heading", { name: "Where are you right now?" }),
+    page.getByRole("heading", { name: "What would help you today?" }),
   ).toBeVisible();
   await expect(
     page.getByText("Understand → Explore → Compare → Try → Prepare → Adapt", {
@@ -53,6 +53,7 @@ test("starting point and lost flow route to useful guidance", async ({
   page,
 }) => {
   await page.goto(route("/"));
+  await page.locator(".situation-options summary").click();
   await page.getByRole("link", { name: /close to graduation/i }).click();
   await expect(page).toHaveURL(/\/guidance\/feel-behind\/$/);
   await page.goto(route("/im-lost/"));

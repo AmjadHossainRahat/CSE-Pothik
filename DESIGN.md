@@ -345,7 +345,7 @@ The homepage introduces the product; it is not the entire directory. Show three 
 
 Motivation must accompany action: welcome students who are confused or restarting, use a short future-self note, explain that a direction is a draft rather than a verdict, and end with one achievable 20-minute next step. Do not substitute slogans or false guarantees for practical guidance.
 
-### 10.1 Hero — “You got into CSE. Now what?”
+### 10.1 Hero — purpose before navigation
 
 The header/brand area should clearly identify **CSE Compass**, while the hero headline remains student-problem-first rather than repeating the product name as the main headline.
 
@@ -353,24 +353,29 @@ Core direction:
 
 # You got into CSE. Now what?
 
-You do not need a 10-year career plan today.  
-But you should not spend the next three years without understanding where CSE can take you.
+Begin with the explicit purpose: **Free career guidance for CSE students**. Follow it with the student-problem-first punch line **“You got into CSE. Now what?”** Explain that visitors can explore careers, try real work and follow clear learning paths for jobs, higher studies, research, freelancing or a tech business. Do not assume that a first-time visitor already knows what the site does.
+
+Reassure without pressure: “You don’t need your whole future figured out. Start with one useful next step.” Explain the practical outcome: a path to explore, a learning order and something to try. Do not promise employment, admissions or a personalized assessment.
 
 Primary CTA:
 
-**Find My Starting Point**
+**Help me find my next step** — jump to the three starting intentions.
 
 Secondary CTA:
 
-**Explore CSE Careers**
+**Explore career paths** — open the career index directly.
 
 The hero should feel open, calm and editorial—not like a dashboard.
+
+On phones, place the purpose, headline, explanation and primary action before the artwork. Keep the primary action fully visible in the tested 320×720 and 390×844 initial viewports, in English and Bangla; do not shrink text below readable sizes or hide the artwork to achieve this. Use shared typed bilingual copy from `src/data/homepage.ts`.
 
 Use the original three-person study-partners illustration, not stock photography: a Chakma Bangladeshi woman standing in the centre with a QA checklist tablet and stylus, between a woman and man each using a laptop. They are equal computing teammates, each contributing to building and checking a product. Give all three equal visual prominence and retain their complete visible composition on every screen size and in both themes. Show them together in one static scene, not alternating gender- or ethnicity-specific carousel slides. The future-self caption is an editorial encouragement, not an endorsement by a real professional.
 
 Make the scene welcoming and unambiguously about technology: all three glance toward the viewer with relaxed, casual smiles and clear personal space. The seated woman keeps her hands at her laptop and wears a teal hoodie and neatly draped ivory orna covering all her hair; the man retains his navy hoodie, glasses and keyboard posture. The centre teammate holds a visible test checklist tablet and stylus, wearing a cream blouse with a restrained Chakma-textile-inspired shoulder cloth. Use documented weaving references and contemporary styling, without inventing ceremonial costume, exaggerating facial features or claiming that one outfit defines a community. QA is her illustrative activity, not a role assigned to any ethnicity or gender. Preserve the notebook's technical flow diagram, coffee, water bottle and small indoor plant, visibly resting on the desk. Keep devices physically consistent. Avoid mutual gazing, inward leaning or romantic posing; friendliness is directed toward the visitor. Ethnic representation does not change the English/Bangla-only language scope.
 
 “Today’s orientation map” is four working links with a number, grouped title and caption, and directional arrow. The caption must sit beneath its own title, never in the narrow number column. Use one column on small phones, two on tablets, and four when space permits.
+
+Its four destinations explain the journey: explore careers (career landscape), try real work (experiment previews), find a learning path (career roadmaps), and prepare for a goal (goal guides). Introduce later sections with the questions students are trying to answer: what the work involves, whether they would enjoy it, and what to learn next. Distinguish a career roadmap's learning order from a goal guide's preparation strategy.
 
 ### 10.2 Before You Choose Anything
 
@@ -497,11 +502,15 @@ Place this section immediately after the hero. Balance the warning with agency: 
 
 Use **Task Automation Exposure**, not **Replacement Probability**.
 
-### 10.6 “Where Are You Right Now?”
+### 10.6 “What would help you today?”
 
-This is the homepage’s primary navigation engine.
+This is the homepage’s primary navigation engine. Show three plain-language intentions as readable linked rows, with the benefit explained beside each:
 
-Cards/options:
+- I’m new or unsure where to begin → the new-CSE-student guide.
+- I want to understand different careers → the career index.
+- I know my goal and need a plan → the seven-goal preparation hub.
+
+Preserve the following six detailed situations inside a native “Already studying? Find a more specific starting point” disclosure. Its contents must remain in static HTML and be keyboard-accessible without JavaScript. Do not require a quiz, account, score or stored profile. Keep recovery encouragement visible outside the disclosure.
 
 - I just started CSE.
 - I have no idea which career suits me.
@@ -1430,7 +1439,11 @@ This site is inspired in part by:
 
 The site must remain visually and editorially original and must not reproduce their content.
 
-**Project provenance:** Full-site requirement engineering and product/design planning were done with ChatGPT; development was done by Codex.
+**Project provenance:** MD. Amjad Hossain is the Creator & Orchestrator. He shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. ChatGPT assisted with requirement engineering and product/design planning; Codex was used to build the site and assist with testing, fixes and iteration. Preserve human agency and distinguish these roles; do not imply affiliation or endorsement by the inspiration projects or AI providers.
+
+Make this acknowledgment discoverable, not hidden behind an ambiguous label: every localized page has a compact footer section with direct roadmap.sh and Architect Prep links, the three contribution roles, and a “Full credits” link to localized About `#credits`. About includes a direct jump link, contextual inspiration explanations and fuller collaboration history. Keep student navigation ahead of credits in the footer and do not add another homepage content section or a primary-navigation item solely for attribution. All credit copy must have English/Bangla parity and remain readable in both themes without JavaScript.
+
+The 1 September 2026 fresher UX assessment is recorded in `docs/ux-review.md`. Its unimplemented navigation proposals are recommendations, not a claim that a redesign or real-user study has already taken place.
 
 ---
 
@@ -1450,7 +1463,7 @@ Publish seven complete English/Bangla guides at `/goals/` and `/bn/goals/`:
 
 Each guide has a visible reality/eligibility note, meaningful branches, starting-point anchors, four preparation stages, enough-for-now evidence, what not to do yet, specific source references, pitfalls, responsible AI use, one feasible action this week, and related career/goal links. Timelines are not guarantees. The “this week” action is encouragement, not a tracked assignment. General process guidance must not masquerade as jurisdiction-specific legal advice.
 
-UX placement: one compact goal entry inside the homepage starting-point section; By career/By goal entries on Roadmaps; a grouped seven-choice goal hub; contextual links on career/roadmap pages; a goal option in “I’m Lost”; a footer link. Keep the global header uncluttered and AI Reality immediately after the hero. Desktop detail pages use a readable article with a sticky section index; mobile uses a native “On this page” disclosure. Do not hide essential guidance in accordions or require JavaScript to read it.
+UX placement: goal preparation is one of the three primary homepage starting intentions; By career/By goal entries on Roadmaps; a grouped seven-choice goal hub; contextual links on career/roadmap pages; a goal option in “I’m Lost”; a footer link. Keep the global header uncluttered and AI Reality immediately after the hero. Desktop detail pages use a readable article with a sticky section index; mobile uses a native “On this page” disclosure. Do not hide essential guidance in accordions or require JavaScript to read it.
 
 Career coverage is now fourteen careers across the original eight families. Mobile App Development belongs to Build Software and covers Android, Apple and cross-platform choices, state, lifecycle, local persistence, offline behavior, accessibility and release responsibility. Students choose one stack based on tooling access and purpose, not four at once. Setup time is explicit in its experiment.
 
@@ -1484,7 +1497,7 @@ The design is considered correctly implemented when:
 
 ## Identity and project-readiness revision
 
-Use clear orientation copy: “Understand CSE careers. Find your next step.” The previous “salary reel” expression is retired. The identity is an open circular C with a directional needle and a restrained wordmark, not a mascot badge. Header/footer SVG and favicon share the geometry; the social preview uses the matching navy/off-white editorial palette. Preserve theme contrast, small-size legibility and the original study-partners/AI illustration style.
+Use the purpose-first orientation copy in §10.1, beginning “Free career guidance for CSE students.” The previous “salary reel” expression is retired. The identity is an open circular C with a directional needle and a restrained wordmark, not a mascot badge. Header/footer SVG and favicon share the geometry; the social preview uses the matching navy/off-white editorial palette. Preserve theme contrast, small-size legibility and the original study-partners/AI illustration style.
 
 English is default and Bangla is the only additional language. No third-language edition, font or translation-fallback experience is included.
 

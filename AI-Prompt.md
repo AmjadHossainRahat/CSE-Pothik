@@ -128,9 +128,9 @@ Nothing important may visually merge into the background.
 Implement the complete homepage experience from `DESIGN.md`, including:
 
 1. Header/navigation
-2. “You got into CSE. Now what?” illustrated hero, future-self encouragement and four-stop orientation map
+2. Purpose-first illustrated hero: “Free career guidance for CSE students” followed by the student-problem-first punch line “You got into CSE. Now what?” Explain useful outcomes, include practical reassurance, a prominent “Help me find my next step” action, future-self encouragement and a four-stop orientation map
 3. AI reality / AI-resilience section immediately after the hero, with the AI study-partner illustration
-4. “Where are you right now?” navigator with practical reassurance for students restarting
+4. Three visible starting intentions (new/unsure → fresher guide; explore careers → career index; prepare for a goal → goal hub), with all six detailed situations inside a native disclosure and visible practical reassurance for students restarting
 5. Concise “Before you choose anything…” reality check and veteran orientation voices (two visible, three in a native disclosure)
 6. Career landscape reveal: all eight families, without a duplicate featured-careers section
 7. Practical motivation throughout, attached to achievable next actions rather than guarantees
@@ -140,6 +140,8 @@ Implement the complete homepage experience from `DESIGN.md`, including:
 11. Meaningful footer
 
 Do not reduce the homepage to a generic marketing landing page.
+
+Keep purpose and benefit ahead of navigation: a first-time visitor should understand who the site is for, what they can find and where to begin. Use shared typed English/Bangla introduction and entry data. On phones, keep the primary action before the artwork and fully within the tested initial viewport. Preserve all existing detailed guides, career families, motivation and inclusive artwork. Use student questions to introduce career exploration, experiments and learning/goal preparation. Test all three entry journeys, the six-situation disclosure, keyboard/no-JavaScript use and bounded analytics in both base-path modes.
 
 Use `themes-sample.png` as the visual mood reference: cool off-white/navy light theme, midnight-navy dark theme, editorial hero typography, clear mentor and robot silhouettes. Keep the CSE Compass brand and original generated illustrations; do not copy the sample artwork. Use the checked-in assets and provenance in `docs/illustrations.md`.
 
@@ -599,6 +601,10 @@ Use Yarn commands only.
 # Attribution and inspiration
 
 Preserve the attribution/provenance and inspiration requirements already defined in `DESIGN.md`.
+
+Keep roadmap.sh and Architect Prep credits visible in the shared footer, with a localized link to About `#credits`. Credit MD. Amjad Hossain as Creator & Orchestrator, ChatGPT for requirement/design discussions, and Codex for implementation and iteration. Preserve these distinct roles in English and Bangla; do not imply affiliation or endorsement. Keep the acknowledgment compact and secondary to student navigation. Update README and the shared typed credit content together when provenance changes.
+
+For repository cleanup, remove only verified obsolete files. Preserve active illustration masters, the authoritative theme reference, source routes, tests, build configuration and documentation. Retired imagery can remain recoverable through Git history rather than as unused working-tree binaries. Report exactly what was removed and do not claim deployed-byte savings for assets that were never emitted.
 
 Do not copy design, content, or copyrighted material from inspiration websites.
 

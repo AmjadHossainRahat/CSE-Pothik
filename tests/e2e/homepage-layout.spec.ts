@@ -1,4 +1,6 @@
 import { expect, test } from "@playwright/test";
+import { homepageEntries, homepageIntro } from "../../src/data/homepage";
+import { studentSituations } from "../../src/data/situations";
 
 const basePath = (process.env.BASE_PATH ?? "").replace(/\/$/, "");
 const route = (path: string) => `${basePath}${path}`;
@@ -16,12 +18,34 @@ for (const locale of ["en", "bn"] as const) {
     await expect(page.locator(".journey a")).toHaveCount(6);
     await expect(page.locator(".family-map article")).toHaveCount(8);
     await expect(page.locator(".experiment-grid article")).toHaveCount(3);
-    await expect(page.locator(".goal-entry")).toContainText(
-      locale === "en" ? "mind? Global" : "আছে? Global",
+    await expect(page.locator(".entry-list a")).toHaveCount(3);
+    await expect(page.locator(".hero-copy .eyebrow")).toHaveText(
+      homepageIntro.eyebrow[locale],
     );
-    await expect(page.locator(".goal-entry")).toContainText(
-      locale === "en" ? "business. Find" : "business। প্রস্তুতির",
+    await expect(page.locator(".hero-lede")).toHaveText(
+      homepageIntro.description[locale],
     );
+    await expect(page.locator(".hero-outcome")).toHaveText(
+      homepageIntro.outcome[locale],
+    );
+    for (const entry of homepageEntries) {
+      const link = page.locator(`[data-home-entry="${entry.id}"]`);
+      await expect(link).toContainText(entry.label[locale]);
+      await expect(link).toHaveAttribute(
+        "href",
+        route(`${locale === "bn" ? "/bn" : ""}${entry.destination}`),
+      );
+    }
+    await expect(page.locator(".situation-options")).not.toHaveAttribute(
+      "open",
+      "",
+    );
+    await page.locator(".situation-options summary").click();
+    await expect(page.locator(".situation-list a")).toHaveCount(6);
+    for (const situation of studentSituations)
+      await expect(
+        page.locator(`[data-track-param-situation-id="${situation.id}"]`),
+      ).toHaveAttribute("href", route(situation.destination[locale]));
     await expect(page.locator(".mentor-line").last()).toContainText(
       locale === "en" ? "behind? You" : "হচ্ছে? সবার",
     );
@@ -55,7 +79,7 @@ for (const locale of ["en", "bn"] as const) {
       await expect(illustration).toHaveAttribute("width", /\d+/);
       await expect(illustration).toHaveAttribute("height", /\d+/);
     }
-    for (const selector of [".map-copy", ".journey-copy"]) {
+    for (const selector of [".map-copy", ".journey-copy", ".entry-copy"]) {
       const captions = await page.locator(selector).evaluateAll((elements) =>
         elements.map((element) => {
           const title = element
@@ -116,6 +140,12 @@ for (const locale of ["en", "bn"] as const) {
       await page.locator(".hero-copy .button").first().click();
       await expect(page).toHaveURL(/#starting-point$/);
       await expect(page.locator("#starting-title")).toBeInViewport();
+      await page.locator(".situation-options summary").focus();
+      await page.keyboard.press("Enter");
+      await expect(page.locator(".situation-list a")).toHaveCount(6);
+      await page.locator('[data-track-param-situation-id="behind"]').focus();
+      await page.keyboard.press("Enter");
+      await expect(page).toHaveURL(/\/guidance\/feel-behind\/$/);
     } finally {
       await context.close();
     }
@@ -185,7 +215,7 @@ test("homepage and navigation remain useful without JavaScript", async ({
   await expect(page.locator(".nav-details nav")).toBeVisible();
   await page.locator(".nav-details > summary").click();
   await expect(page.locator(".nav-details nav")).toBeHidden();
-  await page.locator(".orientation-note a").nth(1).click();
-  await expect(page).toHaveURL(/\/careers\/$/);
+  await page.locator('.orientation-note a[href$="/roadmaps/"]').click();
+  await expect(page).toHaveURL(/\/roadmaps\/$/);
   await context.close();
 });
