@@ -58,6 +58,28 @@ tests/
 
 `DESIGN.md` is the product/experience authority. `SKILL.md` is the engineering authority. `AI-Prompt.md` defines the full execution and Definition of Done.
 
+### Folder structure and production optimization
+
+The structure follows [Astro’s project conventions](https://docs.astro.build/en/basics/project-structure/), with explicit content, pure-logic, configuration and test boundaries. There is no universal “industry-standard” directory tree: this static site does not need backend controllers, database layers or a monorepo. Generated `dist/`, `.astro/`, dependencies and test reports are ignored, not source-controlled.
+
+The expanded final-year guide keeps stage data in `src/data/final-year-project.ts`, team/quality playbooks and shared template fields in `src/data/project/`, and disclosure UI in `src/components/project/`. The pure Markdown renderer in `src/lib/project-template.ts` serves a thin static download endpoint. English and Bangla share typed resources and components; Astro generates separate localized HTML routes, not separately maintained HTML copies.
+
+Production builds optimize applicable compiled assets:
+
+- Astro 7’s default `compressHTML: "jsx"` compacts template whitespace while preserving meaningful text/preformatted content. It is not a blanket post-processing minifier for everything inside HTML.
+- Vite minifies bundled browser JavaScript (the installed Vite uses Oxc); `astro.config.ts` explicitly selects Lightning CSS for CSS minification.
+- Astro generates responsive WebP variants for imported homepage illustrations. Image encoding/resizing is different from text minification.
+- `public/` files are copied unchanged. `is:inline` scripts bypass bundling/minification; the small early theme initializer is intentionally inline to set the theme before paint. Downloadable Markdown stays readable, and generated XML/robots files are not run through a universal minifier.
+- Gzip/Brotli are HTTP delivery compression, not minification. No hosting compression ratio or live response header is claimed by a local build.
+
+See [the engineering audit](docs/engineering-audit.md) for the source/defaults inspected, output inspection and limitations. Do not add a generic HTML postprocessor that can damage Bangla spacing, inline code or accessible names merely to chase a smaller line count.
+
+### Practical final-year team toolkit
+
+The final-year project page adds seven progressively disclosed working playbooks: team agreements and milestone planning, task decomposition and board management, day-one repository setup, lightweight Git flow, sync-ups, risk-based testing, and CI/release handover. A shared equipment-booking example follows REQ-01 through issue #42, review, TEST-01 and release evidence. Department/supervisor requirements still take priority.
+
+Ten bilingual templates can be previewed on the page and downloaded from the existing `downloads/final-year-project.en.md` / `.bn.md` endpoints: brief/risk register, team agreement, issue, PR, meeting note, decision/traceability, test plan/report, bug report, release/handover and attribution. These are authoring prompts—not fabricated results or a website task tracker. No new client JavaScript, dependency, account or homepage section is added.
+
 ## Prerequisites and Yarn
 
 - Node.js 22.12 or newer (Node 24 in CI)
@@ -89,6 +111,7 @@ yarn test:unit
 yarn test:content
 yarn build
 yarn verify:build
+yarn inspect:build
 yarn playwright install chromium
 yarn test:e2e
 yarn test:a11y

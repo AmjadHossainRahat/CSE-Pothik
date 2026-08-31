@@ -1,0 +1,173 @@
+---
+import { projectPlaybooks } from "@/data/project/playbooks";
+import { guidanceSourceById } from "@/data/guidance-sources";
+import { t } from "@/lib/i18n";
+import type { Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+---
+
+<p>
+  {
+    bn
+      ? "সব একসঙ্গে পড়ার দরকার নেই। আজ যে কাজ আটকে আছে সেটি বেছে নাও; প্রতিটি playbook-এ steps আর একটি worked example আছে।"
+      : "You do not need to read everything now. Choose the job you are tackling today; each playbook has steps and a worked example."
+  }
+</p>
+<nav aria-label={bn ? "Team workflow বেছে নাও" : "Choose a team workflow"}>
+  <ul class="workflow-links">
+    {
+      projectPlaybooks.map((playbook) => (
+        <li>
+          <a href={`#${playbook.id}`}>{t(playbook.title, locale)}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+{
+  projectPlaybooks.map((playbook, index) => (
+    <article class="playbook" id={playbook.id}>
+      <p class="eyebrow">
+        {String(index + 1).padStart(2, "0")} · {t(playbook.when, locale)}
+      </p>
+      <h3>{t(playbook.title, locale)}</h3>
+      <p>{t(playbook.summary, locale)}</p>
+      <details class="playbook-detail">
+        <summary>
+          {bn
+            ? "কীভাবে করবে ও worked example"
+            : "How to do it & worked example"}
+          <span class="sr-only">: {t(playbook.title, locale)}</span>
+        </summary>
+        <ol class="practice-steps">
+          {playbook.steps.map((step) => (
+            <li>
+              <h4>{t(step.title, locale)}</h4>
+              <p>{t(step.body, locale)}</p>
+            </li>
+          ))}
+        </ol>
+        <div class="worked-example">
+          <h4>{t(playbook.example.title, locale)}</h4>
+          {playbook.example.lines.map((line) => (
+            <p>{t(line, locale)}</p>
+          ))}
+          {playbook.example.code && (
+            <pre>
+              <code>{playbook.example.code}</code>
+            </pre>
+          )}
+        </div>
+        <p class="practice-references">
+          {bn ? "আরও জানো: " : "Go deeper: "}
+          {playbook.sourceIds.map((id, sourceIndex) => (
+            <>
+              <a href={`#source-${id}`}>{guidanceSourceById.get(id)!.title}</a>
+              {sourceIndex < playbook.sourceIds.length - 1 ? " · " : ""}
+            </>
+          ))}
+        </p>
+      </details>
+    </article>
+  ))
+}
+<style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+  .workflow-links {
+    display: grid;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin-block: 1.5rem 2rem;
+  }
+  .workflow-links li {
+    margin: 0;
+  }
+  .workflow-links a {
+    display: block;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+  }
+  .playbook {
+    padding-block: 1.75rem;
+    border-top: 1px solid var(--color-border);
+    scroll-margin-top: 6rem;
+    min-width: 0;
+  }
+  .playbook h3 {
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+  }
+  .playbook-detail {
+    margin-top: 1rem;
+  }
+  summary {
+    cursor: pointer;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    background: var(--color-surface);
+  }
+  .practice-steps {
+    padding-inline-start: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .practice-steps li {
+    padding-inline-start: 0.35rem;
+    margin-bottom: 1.5rem;
+  }
+  h4 {
+    font-size: 1.05rem;
+    margin: 0 0 0.5rem;
+  }
+  .practice-steps p {
+    margin: 0;
+  }
+  .worked-example {
+    background: var(--color-surface);
+    border-inline-start: 3px solid var(--color-teal);
+    padding: clamp(0.85rem, 3vw, 1.4rem);
+    margin-top: 1.5rem;
+  }
+  .worked-example p:last-child {
+    margin-bottom: 0;
+  }
+  pre {
+    max-width: 100%;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    padding: 1rem;
+    border: 1px solid var(--color-border-strong);
+    font-size: 0.85rem;
+    line-height: 1.65;
+  }
+  .practice-references {
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+  }
+  .practice-references a {
+    display: inline-block;
+    padding-block: 0.5rem;
+  }
+  @media (min-width: 48rem) {
+    .workflow-links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

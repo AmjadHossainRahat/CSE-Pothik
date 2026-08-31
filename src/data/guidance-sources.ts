@@ -4,6 +4,50 @@ import type { GuidanceSource } from "@/types/content";
 const lastReviewed = "2026-08-31";
 export const guidanceSources: GuidanceSource[] = [
   {
+    id: "github-projects",
+    title: "Best practices for Projects",
+    provider: "GitHub Docs",
+    url: "https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects",
+    scope: l(
+      "Use linked issues, small tasks and shared project views. The board states and student timeboxes in this guide are editorial suggestions, not GitHub requirements.",
+      "Linked issue, ছোট task আর shared project view নাও। Guide-এর board state আর student timebox editorial suggestion, GitHub requirement নয়।",
+    ),
+    lastReviewed: "2026-09-01",
+  },
+  {
+    id: "github-flow",
+    title: "GitHub flow",
+    provider: "GitHub Docs",
+    url: "https://docs.github.com/en/get-started/using-github/github-flow",
+    scope: l(
+      "Learn the branch, pull-request, feedback and merge cycle. Adapt review and branch-protection settings to the team and hosting plan; this is not the heavier Gitflow model.",
+      "Branch, pull-request, feedback আর merge cycle শেখো। Team ও hosting plan অনুযায়ী review এবং branch protection ঠিক করো; এটি ভারী Gitflow model নয়।",
+    ),
+    lastReviewed: "2026-09-01",
+  },
+  {
+    id: "playwright-practices",
+    title: "Best practices for browser testing",
+    provider: "Playwright",
+    url: "https://playwright.dev/docs/best-practices",
+    scope: l(
+      "Use user-visible behavior, test isolation and resilient locators for web E2E tests. This source does not cover all unit, research or hardware testing needs.",
+      "Web E2E-তে user-visible behavior, test isolation আর resilient locator ব্যবহার করো। এই source সব unit, research বা hardware testing-এর প্রয়োজন মেটায় না।",
+    ),
+    lastReviewed: "2026-09-01",
+  },
+  {
+    id: "github-actions",
+    title: "Understanding GitHub Actions",
+    provider: "GitHub Docs",
+    url: "https://docs.github.com/en/actions/get-started/understand-github-actions",
+    scope: l(
+      "Understand event-triggered workflows, runners, jobs and steps. Choose project-specific checks; merely using Actions does not make a project production-ready.",
+      "Event-triggered workflow, runner, job আর step বোঝো। Project অনুযায়ী check নাও; শুধু Actions ব্যবহার করলেই production-ready নয়।",
+    ),
+    lastReviewed: "2026-09-01",
+  },
+  {
     id: "engineering-review",
     title: "Engineering practices: code review",
     provider: "Google Engineering Practices",

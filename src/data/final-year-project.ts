@@ -7,8 +7,8 @@ export const finalYearProject: FinalYearProjectGuide = {
     "Final-year project: শুধু demo নয়, কাজের প্রমাণ বানাও",
   ),
   summary: l(
-    "A student-sized engineering guide from problem selection to handover: requirements, design decisions, teamwork, testing, security, reproducibility and an honest defense.",
-    "সমস্যা বাছা থেকে handover পর্যন্ত student-sized engineering guide: requirement, design decision, teamwork, testing, security, reproducibility আর সৎ defense।",
+    "Build a final-year project you can explain and hand over: task planning, team Git workflow, useful sync-ups, risk-based testing, CI and practical evidence templates.",
+    "Explain আর handover করা যায় এমন final-year project বানাও: task planning, team Git workflow, useful sync-up, risk-based testing, CI আর practical evidence template।",
   ),
   stages: [
     {
@@ -337,6 +337,11 @@ export const finalYearProject: FinalYearProjectGuide = {
     ),
   ],
   sourceIds: [
+    "github-projects",
+    "github-flow",
+    "github-actions",
+    "playwright-practices",
+    "gitlab-communication",
     "engineering-review",
     "owasp-asvs",
     "wai-evaluation",

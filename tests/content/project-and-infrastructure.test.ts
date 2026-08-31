@@ -3,6 +3,8 @@ import { careers, careerFamilies } from "../../src/data/careers";
 import { infrastructureCareers } from "../../src/data/infrastructure-careers";
 import { infrastructureExperiments } from "../../src/data/infrastructure-experiments";
 import { finalYearProject } from "../../src/data/final-year-project";
+import { projectPlaybooks } from "../../src/data/project/playbooks";
+import { projectTemplates } from "../../src/data/project/templates";
 import { guidanceSourceById } from "../../src/data/guidance-sources";
 import { roadmapById } from "../../src/data/roadmaps";
 import { careerIds, locales } from "../../src/types/content";
@@ -23,6 +25,58 @@ function verifyLocalized(value: unknown): void {
 }
 
 describe("complete project and infrastructure guidance", () => {
+  it("provides complete bilingual team operations with valid references", () => {
+    verifyLocalized(projectPlaybooks);
+    expect(projectPlaybooks.map((playbook) => playbook.id)).toEqual([
+      "team-plan",
+      "task-board",
+      "repository",
+      "git-workflow",
+      "team-sync",
+      "test-strategy",
+      "continuous-integration",
+    ]);
+    for (const playbook of projectPlaybooks) {
+      expect(playbook.steps.length).toBeGreaterThanOrEqual(4);
+      expect(playbook.example.lines.length).toBeGreaterThan(0);
+      expect(playbook.summary.en.length).toBeGreaterThan(80);
+      for (const step of playbook.steps)
+        expect(step.body.en.length).toBeGreaterThan(100);
+      for (const id of playbook.sourceIds) {
+        expect(guidanceSourceById.has(id)).toBe(true);
+        expect(finalYearProject.sourceIds).toContain(id);
+      }
+    }
+  });
+
+  it("includes ten usable typed templates and one connected working example", () => {
+    verifyLocalized(projectTemplates);
+    expect(projectTemplates.map((template) => template.id)).toEqual([
+      "brief",
+      "team-agreement",
+      "issue",
+      "pull-request",
+      "sync-note",
+      "decision",
+      "test-plan",
+      "bug-report",
+      "release-record",
+      "attribution",
+    ]);
+    for (const template of projectTemplates)
+      expect(template.fields.length).toBeGreaterThanOrEqual(3);
+    const board = projectPlaybooks.find(
+      (playbook) => playbook.id === "task-board",
+    )!;
+    const testing = projectPlaybooks.find(
+      (playbook) => playbook.id === "test-strategy",
+    )!;
+    expect(board.example.lines.map((line) => line.en).join(" ")).toMatch(
+      /REQ-01[\s\S]*AC-01[\s\S]*TEST-01/,
+    );
+    expect(testing.example.title.en).toContain("TEST-01");
+    expect(testing.example.title.en).toContain("REQ-01");
+  });
   it("keeps every declared career in exactly one matching family and only two languages", () => {
     expect(locales).toEqual(["en", "bn"]);
     expect(careers.map((career) => career.id).sort()).toEqual(

@@ -1,4 +1,41 @@
-# Validation records — 31 August 2026
+# Validation records
+
+## Practical final-year team workflows — 1 September 2026
+
+Added seven bilingual working playbooks and ten reusable template previews/download sections while retaining all seven delivery stages and four project-type adaptations. Coverage includes task-manager setup, vertical slices, Ready/Done, WIP/blockers, day-one repositories, safe Git collaboration, async/sync routines, risk-based tests, defect reports, CI and release/handover. Template fields have one typed source for the page and generated Markdown. No new browser dependency, hydration, persistent state or homepage section was added. README, DESIGN, AI-Prompt and SKILL were updated; `docs/engineering-audit.md` records the folder/minification audit and `yarn inspect:build` makes artifact inspection repeatable.
+
+| Check                                      | Result                                                                                                                                                                                                                          |
+| ------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `yarn install --immutable`                 | PASS; Yarn 4.17.1, no dependency/lockfile changes. Initial user-cache sandbox denial was resolved by the approved cache-access retry.                                                                                           |
+| Formatting, lint, type checking            | PASS; `yarn check`, 128 checked files, zero type errors/warnings/hints.                                                                                                                                                         |
+| Unit tests                                 | PASS; 15 tests across 7 files, including deterministic complete localized toolkit rendering.                                                                                                                                    |
+| Content integrity                          | PASS; 14 tests across 3 files, including all seven playbooks, ten templates, bilingual fields, valid source relationships and connected worked examples.                                                                        |
+| Root production-preview regression suite   | PASS; 86 tests, 40 intentional duplicate viewport skips. This is the final-year/infrastructure subset, not a full-site browser rerun.                                                                                           |
+| Root and `/CSE-Compass/` production builds | PASS; 159 HTML pages / 180 files each. Build output inspected; no warnings.                                                                                                                                                     |
+| Root/project generated output              | PASS; all local routes/assets/anchors and metadata checks, including localized titles/descriptions, canonicals, EN/BN/x-default hreflang, Open Graph, valid JSON-LD, sitemap and robots sitemap URLs.                           |
+| Asset/minification audit                   | PASS; four compact JS and four CSS bundles, six responsive WebP files, no emitted source maps, two byte-for-byte public assets. Inline/public/readable-Markdown exceptions documented; no HTTP compression claim.               |
+| External resource links                    | 53 verified HTTP 200; Linux Journey returned HTTP 403 and remains REVIEW, not a verified success. Initial sandbox-wide network failures were rerun with approved network access. All four new official references returned 200. |
+
+The root suite includes 70 E2E checks and 16 axe checks: closed and fully expanded final-year content, English/Bangla and light/dark under desktop/mobile projects. It exercises native disclosures, task links, all template previews, HTTP downloads and real browser downloads, equivalent-language navigation, no-JavaScript keyboard use, infrastructure-career relationships and comparison, and local-stub analytics without contacting Google. Explicit 320/390/768/1280/1600px matrices cover the guide and infrastructure pages; they run once rather than duplicating under the mobile device project. Console/page-error assertions are clean. No skipped defect is counted as a pass.
+
+Visual inspection of generated screenshots covered desktop English workflow entry/navigation, expanded Git steps, Bangla small-mobile text wrapping and Bangla tablet dark template fields. Additional screenshot framing was improved to capture section headings and closed-overview choices, rather than only the middle of a long expanded article. This is actual screenshot review, not just overflow assertions.
+
+### Project-base and interactive review
+
+The `/CSE-Compass/` production-preview subset also passed all 86 tests, with the same 40 deliberate duplicate viewport skips and 16 axe checks. Both base-path runs used the final corrected content. The local project-base preview was restored after test teardown. The unchanged homepage URL navigation previously blocked by browser policy was not retried; the newly requested final-year guide was accessible through the normal in-app browser.
+
+Direct in-app-browser review confirmed desktop workflow choices/section navigation, disclosure interaction and dark styling, equivalent-guide English-to-Bangla switching, and the expanded Bangla test-plan template at 390px with visible keyboard focus and readable wrapping. The inspected browser error logs were empty. One manual selector initially included the wrong whitespace around a visually hidden label; correcting the selector allowed the existing native disclosure to open, with no application defect or workaround. The Browser skill kept this review on the supported in-app surface.
+
+### Fixes during validation
+
+- Replaced two English-only long field labels in the Bangla toolkit with natural Bangla prompts; kept the bilingual integrity rule intact.
+- Added the explicit Node Buffer import required by lint in the read-only asset inspector.
+- Resolved the Astro formatter’s initial second-pass change, then reran formatting and the complete non-browser suite.
+- Rebuilt and reran the root production subset after the final text correction; earlier successful output was not treated as validation of the corrected artifact.
+
+Browser coverage here is Chromium with desktop/mobile emulation, not Safari/Firefox, physical devices or assistive-technology certification. Axe and keyboard/visual checks do not prove full WCAG conformance. Unchanged homepage/goal journeys were not rerun in this scoped revision. No live GA4-property receipt, live Pages deployment, compression headers, remote branch protection, Git push or hosting changes are claimed. Earlier dated records below retain their original scope and limitations.
+
+## Earlier records — 31 August 2026
 
 ## Three-person computing team with a Chakma QA teammate
 

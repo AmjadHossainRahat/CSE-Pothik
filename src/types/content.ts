@@ -208,3 +208,21 @@ export interface FinalYearProjectGuide {
   releaseChecks: LocalizedText[];
   sourceIds: string[];
 }
+
+/** Static, progressively disclosed team guidance; never a progress tracker. */
+export interface ProjectPlaybook {
+  id: string;
+  title: LocalizedText;
+  when: LocalizedText;
+  summary: LocalizedText;
+  steps: { title: LocalizedText; body: LocalizedText }[];
+  example: { title: LocalizedText; lines: LocalizedText[]; code?: string };
+  sourceIds: string[];
+}
+
+export interface ProjectTemplate {
+  id: string;
+  title: LocalizedText;
+  use: LocalizedText;
+  fields: LocalizedText[];
+}

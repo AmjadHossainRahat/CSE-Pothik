@@ -639,3 +639,11 @@ Do not claim something was tested unless you actually tested it.
 Do not ask me to manually complete work that can reasonably be completed within the repository.
 
 Proceed through implementation, verification, bug fixing, and final quality review until the complete site is ready for me to inspect.
+
+### Final-year team-workflow extension
+
+Preserve the seven-stage final-year project guide and add actionable, bilingual team operations: a realistic milestone plan; one shared task board; outcome-to-task decomposition; Ready/Done criteria; owners, reviewers, dependencies and blockers; day-one Git/repository setup; a lightweight branch/PR/review/merge workflow; safe conflict/recovery practices; async updates, useful sync-up agendas and written decisions; risk-based testing, reproducible defects, regression, CI, release and handover. Distinguish editorial student-sized suggestions from official source requirements. Do not mandate heavyweight Gitflow or paid tools.
+
+Use progressive disclosure and task-oriented anchors so students can find one useful next action without reading everything. Provide ten reusable templates whose on-page fields and English/Bangla Markdown downloads share typed source data. Test expanded content, keyboard/no-JavaScript navigation, downloads, scoped references and bounded analytics. Preserve all previous stages, project-type adaptations, source caveats, route/base behavior and privacy constraints. Do not add a task tracker or large homepage section.
+
+For architecture and optimization questions, inspect the actual repository, installed framework defaults and production output. Explain where the Astro structure follows conventions and where generated assets are optimized; explicitly distinguish bundled JS/CSS and compact HTML from unprocessed public/inline content and HTTP compression. Update README, DESIGN, SKILL and the validation/audit records to match verified behavior; never report a check that was not performed.

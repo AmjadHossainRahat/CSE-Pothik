@@ -21,6 +21,7 @@
     "test:e2e": "playwright test tests/e2e",
     "test:a11y": "playwright test tests/accessibility",
     "verify:build": "node scripts/verify-build.mjs",
+    "inspect:build": "node scripts/inspect-build.mjs",
     "check:external-links": "node scripts/check-external-links.mjs",
     "check": "yarn format:check && yarn lint && yarn typecheck && yarn test"
   },

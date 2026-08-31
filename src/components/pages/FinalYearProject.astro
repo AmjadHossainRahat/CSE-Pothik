@@ -1,5 +1,7 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import TeamPlaybooks from "@/components/project/TeamPlaybooks.astro";
+import { projectTemplates } from "@/data/project/templates";
 import { localePath, withBase } from "@/config/site";
 import { finalYearProject as guide } from "@/data/final-year-project";
 import { guidanceSourceById } from "@/data/guidance-sources";
@@ -14,6 +16,14 @@ const bn = locale === "bn";
 const href = (path: string) => withBase(localePath(locale, path));
 const sections = [
   { id: "start", title: bn ? "কোথা থেকে শুরু" : "Start at your current stage" },
+  {
+    id: "team-workflows",
+    title: bn ? "Team-এর কাজের playbook" : "Team working playbooks",
+  },
+  {
+    id: "templates",
+    title: bn ? "কাজে লাগানোর templates" : "Reusable templates",
+  },
   ...guide.stages.map((stage) => ({
     id: stage.id,
     title: t(stage.title, locale),
@@ -105,11 +115,7 @@ const structuredData = [
         download
         data-track-event="next_step_clicked"
         data-track-param-destination="fyp-evidence-template"
-        >{
-          bn
-            ? "Evidence template ডাউনলোড (.md)"
-            : "Download evidence template (.md)"
-        }</a
+        >{bn ? "Team toolkit ডাউনলোড (.md)" : "Download team toolkit (.md)"}</a
       >
     </div>
   </header>
@@ -142,6 +148,33 @@ const structuredData = [
           }
         </h2>
         <ul class="stage-entry">
+          <li>
+            <a href="#task-board"
+              >{
+                bn
+                  ? "Team-এর কাজ গুছাব → task board ও ছোট task"
+                  : "Organizing team work → task board & small tasks"
+              }</a
+            >
+          </li>
+          <li>
+            <a href="#git-workflow"
+              >{
+                bn
+                  ? "একসঙ্গে code করব → Git review workflow"
+                  : "Coding together → Git review workflow"
+              }</a
+            >
+          </li>
+          <li>
+            <a href="#test-strategy"
+              >{
+                bn
+                  ? "কীভাবে test করব → risk-based test plan"
+                  : "Unsure how to test → a risk-based test plan"
+              }</a
+            >
+          </li>
           <li>
             <a href="#define"
               >{
@@ -189,6 +222,57 @@ const structuredData = [
           </p>
         </div>
       </section>
+      <section id="team-workflows" class="project-section">
+        <h2>
+          {
+            bn
+              ? "কাজের অভ্যাস: ছোট team, পরিষ্কার flow"
+              : "Working habits: small team, clear flow"
+          }
+        </h2>
+        <TeamPlaybooks locale={locale} />
+      </section>
+      <section id="templates" class="project-section">
+        <h2>
+          {
+            bn
+              ? "খালি page নয়, কাজের template নিয়ে শুরু"
+              : "Start with a useful template, not a blank page"
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "দশটি template একই Markdown toolkit-এ আছে। দরকারি section তোমার task manager বা repo-তে copy করো। এগুলো পূরণ করার prompt, completed evidence নয়; এখানে কিছু save বা submit হয় না।"
+              : "Ten templates are included in one Markdown toolkit. Copy the sections you need into your task manager or repository. These are prompts to fill in, not completed evidence; nothing is saved or submitted here."
+          }
+        </p>
+        {
+          projectTemplates.map((template) => (
+            <details class="project-template" id={`template-${template.id}`}>
+              <summary>{t(template.title, locale)}</summary>
+              <p>{t(template.use, locale)}</p>
+              <ul>
+                {template.fields.map((field) => (
+                  <li>{t(field, locale)}</li>
+                ))}
+              </ul>
+            </details>
+          ))
+        }
+        <a
+          class="button toolkit-download"
+          href={withBase(`/downloads/final-year-project.${locale}.md`)}
+          download
+          data-track-event="next_step_clicked"
+          data-track-param-destination="fyp-evidence-template"
+          >{
+            bn
+              ? "পুরো toolkit ডাউনলোড (.md)"
+              : "Download the full toolkit (.md)"
+          }</a
+        >
+      </section>
       {
         guide.stages.map((stage) => (
           <section id={stage.id} class="project-section">
@@ -214,6 +298,26 @@ const structuredData = [
             <a class="reference-link" href={`#source-${stage.sourceId}`}>
               {bn ? "প্রাসঙ্গিক reference" : "Relevant reference"} →
             </a>
+            {stage.id === "build" && (
+              <p>
+                <a href="#team-workflows">
+                  {bn
+                    ? "কীভাবে team-এ করবে: task, Git আর sync-up playbook"
+                    : "How to do this as a team: task, Git & sync-up playbooks"}{" "}
+                  →
+                </a>
+              </p>
+            )}
+            {stage.id === "verify" && (
+              <p>
+                <a href="#test-strategy">
+                  {bn
+                    ? "Test strategy আর TEST-01 example খোলো"
+                    : "Open the test strategy & TEST-01 example"}{" "}
+                  →
+                </a>
+              </p>
+            )}
           </section>
         ))
       }
@@ -362,8 +466,8 @@ const structuredData = [
         <p>
           {
             bn
-              ? "এই guide original editorial synthesis; reference provider-রা পুরো guide endorse করেনি। External reference মূলত English। Checked: 2026-08-31।"
-              : "This guide is original editorial synthesis, not an endorsement by the reference providers. External references are primarily in English. Checked: 2026-08-31."
+              ? "এই guide original editorial synthesis; reference provider-রা পুরো guide endorse করেনি। External reference মূলত English। প্রতিটি source-এর review date আলাদা দেওয়া আছে।"
+              : "This guide is original editorial synthesis, not an endorsement by the reference providers. External references are primarily in English. Each source has its own review date below."
           }
         </p>
         <ul class="project-sources">
@@ -383,6 +487,12 @@ const structuredData = [
                       {source.provider} · {source.title} ↗
                     </a>
                     <p>{t(source.scope, locale)}</p>
+                    <small>
+                      {bn ? "পর্যালোচনা: " : "Reviewed: "}
+                      <time datetime={source.lastReviewed}>
+                        {source.lastReviewed}
+                      </time>
+                    </small>
                   </>
                 </li>
               );
@@ -499,6 +609,22 @@ const structuredData = [
   .project-variant {
     padding-block: 1rem;
     border-bottom: 1px solid var(--color-border);
+  }
+  .project-template {
+    padding-block: 0.65rem;
+    border-bottom: 1px solid var(--color-border);
+    scroll-margin-top: 6rem;
+  }
+  .project-template summary {
+    padding-block: 0.6rem;
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .project-template p {
+    margin-top: 1rem;
+  }
+  .toolkit-download {
+    margin-top: 1.5rem;
   }
   .project-variant summary {
     padding-block: 0.5rem;
