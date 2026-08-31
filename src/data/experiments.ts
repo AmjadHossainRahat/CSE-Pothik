@@ -1,11 +1,12 @@
 import { l } from "@/data/careers";
+import { infrastructureExperiments } from "@/data/infrastructure-experiments";
 import type {
   CareerExperiment,
   CareerId,
   LocalizedText,
 } from "@/types/content";
 
-interface ExperimentSeed {
+export interface ExperimentSeed {
   id: CareerId;
   title: LocalizedText;
   duration: string;
@@ -559,7 +560,10 @@ const commonReflection = [
   ),
 ];
 
-export const experiments: CareerExperiment[] = seeds.map((seed) => ({
+export const experiments: CareerExperiment[] = [
+  ...seeds,
+  ...infrastructureExperiments,
+].map((seed) => ({
   id: seed.id,
   careerId: seed.id,
   title: seed.title,

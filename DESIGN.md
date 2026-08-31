@@ -341,7 +341,7 @@ It must combine two layers:
 
 The required display order is: header → hero with orientation map → **AI Reality** → starting-point navigator → concise misconceptions and veteran voices → career landscape → experiment previews → useful loop → encouraging next step → footer. The topic numbers below identify requirements, not display order. AI Reality must be the first section after the hero; do not place the career grid ahead of it.
 
-The homepage introduces the product; it is not the entire directory. Show three representative experiments and a clear link to all published experiments (currently eleven), keep every career family discoverable, and avoid repeating the same careers in a second featured-card section. Show two veteran perspectives initially and make three more available through a keyboard-accessible native disclosure. The complete career, roadmap and experiment pages remain unchanged in depth.
+The homepage introduces the product; it is not the entire directory. Show three representative experiments and a clear link to all published experiments (currently fourteen), keep every career family discoverable, and avoid repeating the same careers in a second featured-card section. Show two veteran perspectives initially and make three more available through a keyboard-accessible native disclosure. The complete career, roadmap and experiment pages remain unchanged in depth.
 
 Motivation must accompany action: welcome students who are confused or restarting, use a short future-self note, explain that a direction is a draft rather than a verdict, and end with one achievable 20-minute next step. Do not substitute slogans or false guarantees for practical guidance.
 
@@ -527,7 +527,7 @@ Example experiment cards:
 
 Experiments should usually take around 60–120 minutes or a short multi-day period.
 
-The homepage previews Backend, Cybersecurity and ML; the dedicated experiment index exposes all eleven complete experiments, including Mobile App Development and UX/UI Engineering. Not enjoying an experiment is useful evidence, not failure.
+The homepage previews Backend, Cybersecurity and ML; the dedicated experiment index exposes all fourteen complete experiments, including Mobile App Development and UX/UI Engineering. Not enjoying an experiment is useful evidence, not failure.
 
 CTA:
 
@@ -1450,7 +1450,7 @@ Each guide has a visible reality/eligibility note, meaningful branches, starting
 
 UX placement: one compact goal entry inside the homepage starting-point section; By career/By goal entries on Roadmaps; a grouped seven-choice goal hub; contextual links on career/roadmap pages; a goal option in “I’m Lost”; a footer link. Keep the global header uncluttered and AI Reality immediately after the hero. Desktop detail pages use a readable article with a sticky section index; mobile uses a native “On this page” disclosure. Do not hide essential guidance in accordions or require JavaScript to read it.
 
-Career coverage is now eleven careers across the original eight families. Mobile App Development belongs to Build Software and covers Android, Apple and cross-platform choices, state, lifecycle, local persistence, offline behavior, accessibility and release responsibility. Students choose one stack based on tooling access and purpose, not four at once. Setup time is explicit in its experiment.
+Career coverage is now fourteen careers across the original eight families. Mobile App Development belongs to Build Software and covers Android, Apple and cross-platform choices, state, lifecycle, local persistence, offline behavior, accessibility and release responsibility. Students choose one stack based on tooling access and purpose, not four at once. Setup time is explicit in its experiment.
 
 UX/UI Engineering belongs to Technology + People and bridges user research, interaction design and accessible implementation. Explain UX/product design versus UI engineering versus broader frontend engineering; a purely design-focused role is a valid alternative. Include consent-based observation, keyboard and responsive testing, design-system states and honest case studies. Never fabricate research participants or treat attractive screens as validated UX. Both new careers require full comparison, roadmap, experiment, AI and resource coverage.
 
@@ -1479,3 +1479,15 @@ The design is considered correctly implemented when:
 - the site continually provides meaningful next navigation;
 - no login, backend, database or progress tracking has been introduced;
 - the visual result does not look like a generic AI SaaS template.
+
+## Identity and project-readiness revision
+
+Use clear orientation copy: “Understand CSE careers. Find your next step.” The previous “salary reel” expression is retired. The identity is an open circular C with a directional needle and a restrained wordmark, not a mascot badge. Header/footer SVG and favicon share the geometry; the social preview uses the matching navy/off-white editorial palette. Preserve theme contrast, small-size legibility and the existing original mentor/AI illustrations.
+
+English is default and Bangla is the only additional language. No third-language edition, font or translation-fallback experience is included.
+
+The fourteen-career landscape includes Network Engineering in Run Systems, Hardware Engineering in Work Close to Hardware, and Software QA & Testing in Build Software. Explain actual work, role variants, drawbacks and safety boundaries. Networking covers packet paths, routing/switching, troubleshooting and controlled changes; hardware covers electronics, logic, schematics and verification, distinct from embedded firmware or repair; QA covers requirements, risk, exploratory/manual work, reproducible defects and useful automation. Keep all three in discovery, comparison, roadmaps, experiments, AI guidance and relevant goal links. Starter experiments require no paid certificates or physical hardware.
+
+Final-year project preparation is a cross-career guide, not an eighth career goal or a new large homepage section. Link it from Roadmaps, individual roadmap next steps, engineering foundations, goal guides and footer. Use seven stages: define → specify → design → build → verify → release → defend. Each stage explains why, practical actions, enough-for-now evidence, what not to do yet and a scoped reference. Start-at-your-stage links, a desktop section index, mobile native disclosure and project-type disclosures reduce reading effort while keeping content available without JavaScript.
+
+Include a worked requirement-to-acceptance-to-design-to-test-to-release example; adapt evidence for software/mobile, research/ML, hardware/embedded and network/security projects. Supply downloadable English/Bangla Markdown evidence templates for the brief, traceability, decisions, actual test results, reproducibility, contribution/attribution and handover. This is guidance, not a score or completion tracker. Department rubrics, supervisor decisions and ethics/safety requirements take priority. No fake evidence, certification, guaranteed publication or claim that every student prototype is production-ready. Encourage small explainable work and honest limitations.

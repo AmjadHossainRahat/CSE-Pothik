@@ -1,0 +1,546 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import { localePath, withBase } from "@/config/site";
+import { finalYearProject as guide } from "@/data/final-year-project";
+import { guidanceSourceById } from "@/data/guidance-sources";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+const href = (path: string) => withBase(localePath(locale, path));
+const sections = [
+  { id: "start", title: bn ? "কোথা থেকে শুরু" : "Start at your current stage" },
+  ...guide.stages.map((stage) => ({
+    id: stage.id,
+    title: t(stage.title, locale),
+  })),
+  {
+    id: "traceability",
+    title: bn ? "একটি worked example" : "A worked example",
+  },
+  {
+    id: "project-type",
+    title: bn ? "Project অনুযায়ী evidence" : "Adapt to your project",
+  },
+  {
+    id: "handover",
+    title: bn ? "Submission readiness" : "Submission readiness",
+  },
+  { id: "sources", title: bn ? "Source আর next step" : "Sources & next steps" },
+];
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: t(guide.title, locale),
+    description: t(guide.summary, locale),
+    inLanguage: locale,
+    author: { "@type": "Organization", name: "CSE Compass" },
+    isAccessibleForFree: true,
+    mainEntityOfPage: pageUrl,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Roadmaps",
+        item: new URL(href("/roadmaps/"), Astro.site).href,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: bn ? "Final-year project" : "Final-year project",
+        item: pageUrl,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={t(guide.title, locale)}
+  description={t(guide.summary, locale)}
+  structuredData={structuredData}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[
+      { label: "Roadmaps", path: "/roadmaps/" },
+      { label: "Final-year project" },
+    ]}
+  />
+  <header class="page-hero container project-hero">
+    <p class="eyebrow">
+      {
+        bn
+          ? "Student project → engineering practice"
+          : "Student project → engineering practice"
+      }
+    </p>
+    <h1>{t(guide.title, locale)}</h1><p class="lede">
+      {t(guide.summary, locale)}
+    </p>
+    <p>
+      {
+        bn
+          ? "এটি CSE Compass-এর প্রস্তাবিত quality bar—কোনো university rule, accreditation বা certification নয়। Department rubric, supervisor আর ethics/safety requirement আগে মানবে। Scope ছোট করো, evidence নয়।"
+          : "This is a suggested CSE Compass quality bar—not a university rule, accreditation or certification. Your department rubric, supervisor and ethics/safety requirements take priority. Reduce the scope, not the evidence."
+      }
+    </p>
+    <div class="button-row">
+      <a class="button" href="#start"
+        >{bn ? "আমার stage থেকে শুরু" : "Find my starting stage"}</a
+      ><a
+        class="button button--secondary"
+        href={withBase(`/downloads/final-year-project.${bn ? "bn" : "en"}.md`)}
+        download
+        data-track-event="next_step_clicked"
+        data-track-param-destination="fyp-evidence-template"
+        >{
+          bn
+            ? "Evidence template ডাউনলোড (.md)"
+            : "Download evidence template (.md)"
+        }</a
+      >
+    </div>
+  </header>
+  <div class="container project-layout">
+    <aside class="project-index">
+      <details open>
+        <summary>{bn ? "এই guide-এ" : "In this guide"}</summary>
+        <nav
+          aria-label={bn ? "Project guide-এর বিভাগ" : "Project guide sections"}
+        >
+          <ol>
+            {
+              sections.map((section) => (
+                <li>
+                  <a href={`#${section.id}`}>{section.title}</a>
+                </li>
+              ))
+            }
+          </ol>
+        </nav>
+      </details>
+    </aside>
+    <div class="project-content">
+      <section id="start" class="project-section">
+        <h2>
+          {
+            bn
+              ? "যেখানেই আছ, পরের useful evidence বানাও।"
+              : "Wherever you are, build the next useful evidence."
+          }
+        </h2>
+        <ul class="stage-entry">
+          <li>
+            <a href="#define"
+              >{
+                bn
+                  ? "Idea বাছছি → one-page brief"
+                  : "Choosing an idea → a one-page brief"
+              }</a
+            >
+          </li>
+          <li>
+            <a href="#specify"
+              >{
+                bn
+                  ? "Build শুরু করব → acceptance criteria"
+                  : "About to build → acceptance criteria"
+              }</a
+            >
+          </li>
+          <li>
+            <a href="#verify"
+              >{
+                bn
+                  ? "Demo আছে → test আর reproducibility"
+                  : "Have a demo → testing and reproducibility"
+              }</a
+            >
+          </li>
+          <li>
+            <a href="#handover"
+              >{
+                bn
+                  ? "Submission কাছে → evidence audit"
+                  : "Submission is close → an evidence audit"
+              }</a
+            >
+          </li>
+        </ul>
+        <div class="callout">
+          <p class="callout__label">{bn ? "Mentor note" : "Mentor note"}</p><p>
+            {
+              bn
+                ? "পিছিয়ে থাকলে সব rewrite নয়। একটি core journey নাও, risk লিখে failing case ঠিক করো আর অন্য কাউকে run করতে দাও। ছোট কিন্তু explain করা যায় এমন কাজও শক্তিশালী portfolio evidence।"
+                : "If you feel behind, do not rewrite everything. Pick one core journey, name its risks, fix a failure and let someone else run it. Small work you can explain is strong portfolio evidence."
+            }
+          </p>
+        </div>
+      </section>
+      {
+        guide.stages.map((stage) => (
+          <section id={stage.id} class="project-section">
+            <>
+              <h2>{t(stage.title, locale)}</h2>
+              <p class="stage-why">{t(stage.why, locale)}</p>
+            </>
+            <ul>
+              {stage.tasks.map((task) => (
+                <li>{t(task, locale)}</li>
+              ))}
+            </ul>
+            <div class="project-evidence">
+              <>
+                <h3>{bn ? "এখন কতটুকু যথেষ্ট" : "Enough for now"}</h3>
+                <p>{t(stage.evidence, locale)}</p>
+              </>
+            </div>
+            <p>
+              <strong>{bn ? "এখনই নয়: " : "Not yet: "}</strong>
+              {t(stage.notYet, locale)}
+            </p>
+            <a class="reference-link" href={`#source-${stage.sourceId}`}>
+              {bn ? "প্রাসঙ্গিক reference" : "Relevant reference"} →
+            </a>
+          </section>
+        ))
+      }
+      <section id="traceability" class="project-section">
+        <p class="eyebrow">
+          {
+            bn
+              ? "Example · campus equipment booking"
+              : "Example · campus equipment booking"
+          }
+        </p>
+        <h2>
+          {
+            bn
+              ? "একটি requirement, তার evidence পর্যন্ত।"
+              : "One requirement, all the way to evidence."
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "উদাহরণটি শেখার জন্য; তোমার domain আর supervisor অনুযায়ী বদলাবে।"
+              : "This is a teaching example. Adapt it to your domain and supervisor’s expectations."
+          }
+        </p>
+        <dl class="evidence-chain">
+          <div>
+            <dt>REQ-01 · {bn ? "প্রয়োজন" : "Requirement"}</dt><dd>
+              {
+                bn
+                  ? "একই equipment-এর একই সময় দুই confirmed booking হবে না।"
+                  : "Two confirmed bookings must not overlap for the same equipment."
+              }
+            </dd>
+          </div>
+          <div>
+            <dt>AC-01 · {bn ? "গ্রহণযোগ্যতা" : "Acceptance"}</dt><dd>
+              {
+                bn
+                  ? "দুই competing request এলে ঠিক একটিই succeed করবে; অন্যটি পরিষ্কার conflict দেখাবে, duplicate record থাকবে না।"
+                  : "With two competing requests, exactly one succeeds; the other receives a clear conflict, with no duplicate reservation."
+              }
+            </dd>
+          </div>
+          <div>
+            <dt>ADR-01 · {bn ? "সিদ্ধান্ত" : "Decision"}</dt><dd>
+              {
+                bn
+                  ? "শুধু button disable নয়, server/data layer-এ atomic conflict protection; chosen database-এর behavior test দিয়ে যাচাই।"
+                  : "Use atomic conflict protection at the server/data layer, not only a disabled button; verify the chosen database’s behavior with a test."
+              }
+            </dd>
+          </div>
+          <div>
+            <dt>TEST-01 · {bn ? "যাচাই" : "Verification"}</dt><dd>
+              {
+                bn
+                  ? "একই interval-এর concurrent request দিয়ে integration test; পাশাপাশি সময়, cancel আর retry case-ও test।"
+                  : "An integration test sends concurrent requests for the same interval; also test adjacent times, cancellation and retries."
+              }
+            </dd>
+          </div>
+          <div>
+            <dt>REL-01 · {bn ? "হস্তান্তর" : "Handover"}</dt><dd>
+              {
+                bn
+                  ? "Release tag, environment, actual test log আর known limit report-এ যুক্ত করো। নকল screenshot বা বানানো pass result নয়।"
+                  : "Link the release tag, environment, actual test log and known limits in the report. No fabricated screenshots or pass results."
+              }
+            </dd>
+          </div>
+        </dl>
+      </section>
+      <section id="project-type" class="project-section">
+        <h2>
+          {
+            bn
+              ? "Project আলাদা হলে evidence-ও বদলাবে।"
+              : "Different projects need different evidence."
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "শুধু নিজের branch-টি গভীরে পড়ো; সব ধরনের project একসঙ্গে করার দরকার নেই।"
+              : "Go deeper into your own branch. You do not need to build every kind of project."
+          }
+        </p>
+        {
+          guide.variants.map((variant) => (
+            <details class="project-variant">
+              <>
+                <summary>{t(variant.title, locale)}</summary>
+                <p>{t(variant.evidence, locale)}</p>
+                <p class="muted">{t(variant.caution, locale)}</p>
+              </>
+            </details>
+          ))
+        }
+      </section>
+      <section id="handover" class="project-section">
+        <h2>
+          {
+            bn
+              ? "Submission-এর আগে evidence audit"
+              : "The pre-submission evidence audit"
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "এটি score বা tracker নয়। Team review-এ প্রতিটি দাবির evidence দেখাও; gap থাকলে scope কমাও, fix করো অথবা limitation হিসেবে লিখে supervisor-এর সঙ্গে আলোচনা করো।"
+              : "This is not a score or tracker. Show evidence for each claim in a team review. For gaps, reduce scope, fix the issue or document the limitation and discuss it with your supervisor."
+          }
+        </p>
+        <ul>
+          {guide.releaseChecks.map((check) => <li>{t(check, locale)}</li>)}
+        </ul>
+        <h3>{bn ? "এই সপ্তাহে একটি কাজ" : "One action this week"}</h3><p>
+          {
+            bn
+              ? "Template নিয়ে one-page brief আর একটি acceptance criterion লেখো। Peer-কে পাঁচ মিনিটে explain করতে বলো। অস্পষ্ট অংশ বদলাও—এটাই প্রথম useful review।"
+              : "Use the template to write a one-page brief and one acceptance criterion. Ask a peer to explain it back in five minutes. Revise the unclear part—that is your first useful review."
+          }
+        </p>
+        <a
+          href={withBase(
+            `/downloads/final-year-project.${bn ? "bn" : "en"}.md`,
+          )}
+          download
+          >{
+            bn
+              ? "Brief, test report আর handover template (.md)"
+              : "Get the brief, test report and handover template (.md)"
+          }</a
+        >
+      </section>
+      <section id="sources" class="project-section">
+        <h2>
+          {
+            bn
+              ? "Reference, scope আর পরের পদক্ষেপ"
+              : "References, scope and your next step"
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "এই guide original editorial synthesis; reference provider-রা পুরো guide endorse করেনি। External reference মূলত English। Checked: 2026-08-31।"
+              : "This guide is original editorial synthesis, not an endorsement by the reference providers. External references are primarily in English. Checked: 2026-08-31."
+          }
+        </p>
+        <ul class="project-sources">
+          {
+            guide.sourceIds.map((id) => {
+              const source = guidanceSourceById.get(id)!;
+              return (
+                <li id={`source-${id}`}>
+                  <>
+                    <a
+                      href={source.url}
+                      rel="noopener noreferrer"
+                      data-track-event="learning_resource_clicked"
+                      data-track-param-resource-id={id}
+                      data-track-param-provider={source.provider}
+                    >
+                      {source.provider} · {source.title} ↗
+                    </a>
+                    <p>{t(source.scope, locale)}</p>
+                  </>
+                </li>
+              );
+            })
+          }
+        </ul>
+        <div class="button-row">
+          <a
+            class="button"
+            href={href("/guidance/software-engineering-foundations/")}
+            >{bn ? "Engineering foundation" : "Engineering foundations"}</a
+          ><a
+            class="button button--secondary"
+            href={href("/goals/research-publication/")}
+            >{bn ? "Thesis আর research" : "Thesis & research"}</a
+          ><a href={href("/roadmaps/")}
+            >{bn ? "Career roadmap-এ ফিরি" : "Back to career roadmaps"} →</a
+          >
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+<style>
+  .project-hero h1 {
+    max-width: 24ch;
+  }
+  .project-hero > p:not(.eyebrow) {
+    max-width: 52rem;
+  }
+  .project-layout {
+    display: grid;
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+  .project-content {
+    min-width: 0;
+    max-width: 51rem;
+  }
+  .project-index details {
+    border: 1px solid var(--color-border-strong);
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+  }
+  .project-index summary {
+    cursor: pointer;
+    font-weight: 800;
+    min-height: 2rem;
+  }
+  .project-index ol {
+    list-style: none;
+    margin: 0.75rem 0 0;
+    padding: 0;
+  }
+  .project-index li {
+    margin: 0;
+  }
+  .project-index a {
+    display: block;
+    padding-block: 0.55rem;
+    font-size: 0.9rem;
+  }
+  .project-section {
+    padding-block: 2.5rem;
+    border-top: 1px solid var(--color-border);
+    scroll-margin-top: 6rem;
+  }
+  .project-section h2 {
+    font-size: clamp(1.65rem, 3vw, 2.4rem);
+  }
+  .stage-entry {
+    padding-inline-start: 1.25rem;
+  }
+  .stage-entry a {
+    display: inline-block;
+    padding-block: 0.45rem;
+  }
+  .stage-why {
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+  }
+  .project-evidence {
+    margin-block: 1.5rem;
+    padding: 1.25rem;
+    border-inline-start: 3px solid var(--color-teal);
+    background: var(--color-surface);
+  }
+  .project-evidence h3 {
+    font-size: 1rem;
+  }
+  .project-evidence p {
+    margin: 0;
+  }
+  .reference-link {
+    display: inline-block;
+    padding-block: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .evidence-chain {
+    margin: 1.5rem 0 0;
+    border-inline-start: 2px solid var(--color-primary);
+  }
+  .evidence-chain div {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .evidence-chain dt {
+    color: var(--color-primary-strong);
+    font-weight: 800;
+  }
+  .evidence-chain dd {
+    margin: 0.5rem 0 0;
+  }
+  .project-variant {
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .project-variant summary {
+    padding-block: 0.5rem;
+    cursor: pointer;
+    font-weight: 800;
+  }
+  .project-variant p {
+    margin-top: 1rem;
+  }
+  .project-sources {
+    padding-inline-start: 1.25rem;
+  }
+  .project-sources li {
+    padding-block: 0.75rem;
+    scroll-margin-top: 6rem;
+  }
+  .project-sources p {
+    margin-top: 0.5rem;
+    color: var(--color-text-muted);
+  }
+  @media (min-width: 64rem) {
+    .project-layout {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      gap: 3rem;
+    }
+    .project-index details {
+      position: sticky;
+      top: 6rem;
+      max-height: calc(100vh - 7rem);
+      overflow: auto;
+    }
+  }
+  @media print {
+    .project-index,
+    .button-row {
+      display: none;
+    }
+    .project-layout {
+      display: block;
+    }
+    .project-content {
+      max-width: none;
+    }
+  }
+</style>

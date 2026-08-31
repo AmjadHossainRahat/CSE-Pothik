@@ -10,7 +10,7 @@ English is the canonical/default language; natural Bangla routes live under `/bn
 
 CSE Compass includes:
 
-- eight career families and eleven detailed career guides, including Mobile App Development and UX/UI Engineering;
+- eight career families and fourteen detailed career guides, including Mobile App Development, UX/UI Engineering, Network Engineering, Hardware Engineering and Software QA & Testing;
 - seven goal guides for global companies, Bangladesh industry, remote employment, study abroad, research/publication, freelancing and a tech business;
 - career comparison for two or three paths;
 - one safe, time-bounded experiment for every published career;
@@ -21,6 +21,7 @@ CSE Compass includes:
 - fresher and third/fourth-year recovery routes;
 - competitive-programming / ACM / ICPC guidance;
 - mentor-level software-engineering foundations;
+- a complete final-year project standards guide with downloadable English/Bangla evidence templates;
 - English/Bangla parity and light/dark theme parity.
 
 It deliberately has no account, authentication, backend, database, profile, progress tracking, certificate, job promise, LMS behavior, fit score, streak, badge, or chatbot.
@@ -123,7 +124,7 @@ English is the canonical editorial source. Bangla should be rewritten as natural
 ### Add a career
 
 1. Add the stable ID to `careerIds` in `src/types/content.ts`.
-2. Add complete English/Bangla content in `src/data/careers.ts` or its imported `additional-careers.ts` module. Shared localization helpers live in `src/lib/localized.ts` to avoid circular runtime imports.
+2. Add complete English/Bangla content in `src/data/careers.ts` or its imported `additional-careers.ts` / `infrastructure-careers.ts` modules. Shared localization helpers live in `src/lib/localized.ts` to avoid circular runtime imports.
 3. Assign a family and comparison dimensions.
 4. Add three qualitative AI task-exposure entries.
 5. Add a roadmap relationship and an experiment in `src/data/experiments.ts`.
@@ -149,7 +150,19 @@ Mobile and UX/UI have contextual stage overrides: mobile addresses platform choi
 
 `tests/content/goals.test.ts` validates all seven guides, language completeness and relationships. `tests/e2e/goal-guidance.spec.ts` checks routes, new careers, journey links, no-JavaScript keyboard navigation, language equivalents and the five-width/two-language/two-theme layout matrix.
 
-### Add or change an experiment
+### Network, hardware and QA authoring
+
+Network Engineering belongs to Run Systems; Hardware Engineering belongs to Work Close to Hardware; Software QA & Testing belongs to Build Software. These are complete career graphs, not aliases for security, embedded programming or frontend work. `infrastructure-roadmaps.ts` supplies role-specific tasks/evidence and professional practices; `infrastructure-experiments.ts` supplies authorized loopback, simulated logic and owned-app testing exercises. Curated goal connections preserve role relevance. Paid certificates, physical hardware and hosted services are not prerequisites for the starter experiments.
+
+### Final-year project standards
+
+`/guidance/final-year-project/` and its `/bn/` equivalent connect requirements, design decisions, small reviewed changes, CI, tests, security/privacy/accessibility, reproducibility and handover. Seven stages each include why, actions, readiness evidence, not-yet guidance and a scoped source. A worked requirement-to-release example and four project-type disclosures make the standard usable for software/mobile, research/ML, hardware/embedded and network/security projects. Department rubrics, supervisor decisions and ethics/safety requirements take priority; this is not accreditation or certification.
+
+`src/data/final-year-project.ts` is the typed bilingual source, rendered by `FinalYearProject.astro`. The download endpoint `src/pages/downloads/[file].ts` produces real Markdown evidence templates in both languages; the route is explicitly exempted from the temporary-download Git ignore rule. Templates contain authoring prompts, not fabricated results or completed reports. Links live in roadmaps, engineering foundations, goal guides and the footer; the homepage gains no extra section. No checklist state, progress score or client framework is added.
+
+`tests/content/project-and-infrastructure.test.ts` checks full bilingual content, family membership, tailored roadmaps and project-stage references. `tests/e2e/project-and-infrastructure.spec.ts` covers the three careers across four route types, comparison, downloads, equivalent language switching, no-JavaScript keyboard use and the five-width/two-theme/two-language matrix.
+
+### Experiment authoring
 
 Add a complete seed in `src/data/experiments.ts` with timebox, prerequisites, experience goal, at least four steps, attention prompts, reflection prompts, and resource IDs. Cybersecurity work must remain inside deliberately vulnerable, explicitly authorized labs. No experiment stores responses or completion state.
 
@@ -163,7 +176,9 @@ Add metadata in `src/data/resources.ts`: stable ID, provider, HTTPS URL, type, f
 
 The visual mood follows `themes-sample.png`: cool off-white/navy in light mode, midnight navy in dark mode, and an editorial serif hero with system sans-serif body text. The CSE Compass name and compass mark remain the brand; the sample's artwork is not reused.
 
-The homepage follows a focused orientation sequence: illustrated hero/map → AI Reality → starting point (including the compact goal entry) → concise misconceptions/mentor voices → eight career families → three experiment previews → six-step useful loop → a practical, encouraging next step. Additional mentor voices use a native disclosure; all eleven complete experiments remain on the dedicated index. The experiment count is derived from data. Motivation is attached to realistic action, not promises or pressure.
+The refined vector identity uses an open circular C and directional needle with a restrained wordmark. `Logo.astro` and `public/favicon.svg` share the geometry; the mark remains legible in monochrome and both themes. The social card uses matching navy typography and restrained branching paths. The homepage introduction now says “Understand CSE careers. Find your next step.” instead of the unclear “salary reel” expression. English remains default and Bangla is the only additional language; no third-language routes, fonts or fallbacks ship.
+
+The homepage follows a focused orientation sequence: illustrated hero/map → AI Reality → starting point (including the compact goal entry) → concise misconceptions/mentor voices → eight career families → three experiment previews → six-step useful loop → a practical, encouraging next step. Additional mentor voices use a native disclosure; all fourteen complete experiments remain on the dedicated index. The experiment count is derived from data. Motivation is attached to realistic action, not promises or pressure.
 
 Two original transparent illustrations—a hoodie-and-laptop mentor and an AI study partner—are imported from `src/assets/illustrations/` through Astro's responsive image pipeline. WebP variants, intrinsic dimensions, an eager hero and lazy supporting image keep them static and lightweight. See [illustration provenance and generation prompts](docs/illustrations.md).
 

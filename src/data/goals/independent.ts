@@ -182,6 +182,7 @@ export const independentGoals: GoalGuide[] = [
       "mobile-app-development",
       "ux-ui-engineering",
       "data-engineering",
+      "software-quality-assurance",
     ],
     relatedGoalIds: ["tech-business", "remote-employment", "local-industry"],
     sourceIds: ["upwork-start", "gov-research", "gitlab-communication"],

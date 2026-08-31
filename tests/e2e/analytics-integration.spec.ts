@@ -28,6 +28,15 @@ test("homepage actions dispatch bounded GA4 events without contacting Google", a
   await expect
     .poll(() => events)
     .toContainEqual(["event", "theme_switch", { theme: "dark" }]);
+  await page.locator("[data-language-switch]").click();
+  await expect
+    .poll(() => events)
+    .toContainEqual([
+      "event",
+      "language_switch",
+      { from_locale: "en", to_locale: "bn" },
+    ]);
+  await page.goto(route("/"));
   await page
     .getByRole("link", { name: "Find My Starting Point", exact: true })
     .click();
@@ -104,5 +113,26 @@ test("homepage actions dispatch bounded GA4 events without contacting Google", a
       "event",
       "learning_resource_clicked",
       { resource_id: "amazon-interviews", provider: "Amazon Jobs" },
+    ]);
+  await page.goto(route("/roadmaps/"));
+  await page
+    .locator('[data-track-param-destination="final-year-project"]')
+    .click();
+  await expect
+    .poll(() => events)
+    .toContainEqual([
+      "event",
+      "next_step_clicked",
+      { destination: "final-year-project" },
+    ]);
+  const download = page.waitForEvent("download");
+  await page.locator("a[download]").first().click();
+  await download;
+  await expect
+    .poll(() => events)
+    .toContainEqual([
+      "event",
+      "next_step_clicked",
+      { destination: "fyp-evidence-template" },
     ]);
 });

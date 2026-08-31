@@ -4,6 +4,39 @@ import type { GuidanceSource } from "@/types/content";
 const lastReviewed = "2026-08-31";
 export const guidanceSources: GuidanceSource[] = [
   {
+    id: "engineering-review",
+    title: "Engineering practices: code review",
+    provider: "Google Engineering Practices",
+    url: "https://google.github.io/eng-practices/review/",
+    scope: l(
+      "Use the review principles for small, understandable changes and constructive feedback. These are engineering practices, not a university grading rubric.",
+      "ছোট, বোঝা যায় এমন change আর গঠনমূলক feedback-এর review principle নাও। এগুলো engineering practice, university grading rubric নয়।",
+    ),
+    lastReviewed,
+  },
+  {
+    id: "owasp-asvs",
+    title: "Application Security Verification Standard",
+    provider: "OWASP Foundation",
+    url: "https://owasp.org/www-project-application-security-verification-standard/",
+    scope: l(
+      "Select relevant application-security checks with your supervisor and document scope. A student checklist does not establish ASVS compliance or certify security.",
+      "Supervisor-এর সঙ্গে প্রাসঙ্গিক application-security check বেছে scope লেখো। Student checklist মানেই ASVS compliance বা security certification নয়।",
+    ),
+    lastReviewed,
+  },
+  {
+    id: "wai-evaluation",
+    title: "Evaluating Web Accessibility",
+    provider: "W3C Web Accessibility Initiative",
+    url: "https://www.w3.org/WAI/test-evaluate/",
+    scope: l(
+      "Combine automated checks, keyboard/manual checks and appropriate user involvement. No automated tool alone proves accessibility conformance.",
+      "Automated check, keyboard/manual check আর উপযুক্ত user involvement মিলাও। শুধু automated tool accessibility conformance প্রমাণ করে না।",
+    ),
+    lastReviewed,
+  },
+  {
     id: "amazon-interviews",
     title: "Software development interview topics",
     provider: "Amazon Jobs",

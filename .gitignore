@@ -91,6 +91,8 @@ visual-results/
 
 # Temporary downloaded/extracted content
 downloads/
+!/src/pages/downloads/
+!/src/pages/downloads/**
 scratch/
 
 # Never commit secrets or private keys

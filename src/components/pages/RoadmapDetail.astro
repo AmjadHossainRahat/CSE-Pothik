@@ -160,6 +160,19 @@ const career = careerById.get(roadmap.careerId)!;
           )}>{bn ? "Engineering foundation" : "Engineering foundations"}</a
         >
       </div>
+      <p>
+        <a
+          href={withBase(localePath(locale, "/guidance/final-year-project/"))}
+          style="color: inherit"
+          data-track-event="next_step_clicked"
+          data-track-param-destination="final-year-project"
+          >{
+            bn
+              ? "Final-year project-এ engineering practice প্রয়োগ করো"
+              : "Apply engineering practice to your final-year project"
+          } →</a
+        >
+      </p>
     </div>
   </section>
 </BaseLayout>

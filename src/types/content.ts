@@ -16,6 +16,9 @@ export const careerIds = [
   "technical-product-leadership",
   "mobile-app-development",
   "ux-ui-engineering",
+  "network-engineering",
+  "hardware-engineering",
+  "software-quality-assurance",
 ] as const;
 export type CareerId = (typeof careerIds)[number];
 
@@ -190,5 +193,18 @@ export interface GoalGuide {
   thisWeek: LocalizedText;
   careerIds: CareerId[];
   relatedGoalIds: GoalId[];
+  sourceIds: string[];
+}
+
+export interface FinalYearProjectGuide {
+  title: LocalizedText;
+  summary: LocalizedText;
+  stages: GoalStage[];
+  variants: {
+    title: LocalizedText;
+    evidence: LocalizedText;
+    caution: LocalizedText;
+  }[];
+  releaseChecks: LocalizedText[];
   sourceIds: string[];
 }

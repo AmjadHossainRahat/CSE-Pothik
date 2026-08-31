@@ -1,6 +1,6 @@
 # Homepage illustration provenance
 
-The homepage uses two original AI-generated editorial illustrations, created for CSE Compass with the built-in ImageGen tool during the August 2026 visual revision. They are fictional characters, not portraits of real mentors, testimonials or endorsements. `themes-sample.png` informed the visual mood; its artwork was not copied into the site. The existing compass logo and social-sharing card remain separate assets.
+The homepage uses two original AI-generated editorial illustrations, created for CSE Compass with the built-in ImageGen tool during the August 2026 visual revision. They are fictional characters, not portraits of real mentors, testimonials or endorsements. `themes-sample.png` informed the visual mood; its artwork was not copied into the site. The refined vector compass identity and social-sharing card remain separate assets.
 
 | Source asset                                    | Purpose                                                                                | Source dimensions | Delivery                                                  |
 | ----------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------- | --------------------------------------------------------- |
@@ -17,7 +17,15 @@ Use case: illustration-story. Create an original transparent-background PNG illu
 
 Use case: illustration-story. Create an original transparent-background PNG illustration supporting AI literacy, not a logo: an approachable white/navy robot beside a floating code/check panel, thoughtfully checking a result, one hand at its chin and the other at the panel. Genuine alpha transparency, no opaque backdrop. Match the editorial cartoon language: clean ink contours and soft textured shading. Square composition, full robot and panel uncropped. Pale contour against dark backgrounds, ink contour against white. White/navy with academic blue, teal and tiny amber accents. Abstract strokes and a check only, no legible code. No words, letters, numbers, logos, watermarks, extra objects or background. Original design, not a known character.
 
-## Maintenance
+## Refined identity and social preview — 31 August 2026
+
+The website mark is an original code-native SVG: an open circular C with a directional needle and restrained wordmark, shared geometrically by `Logo.astro` and `public/favicon.svg`. It is not a generated bitmap or an external icon. Semantic colors keep the mark usable at small sizes and in both themes.
+
+`public/social/cse-compass-og.png` is the replacement original title card, generated once with the built-in ImageGen tool and visually inspected for exact text. It uses navy typography on cool off-white with blue/teal branching directions; it does not introduce a competing logo or character. Source dimensions: 1731 × 909. It is used for social metadata, not loaded in the homepage body.
+
+Generation prompt: Use case: ads-marketing. Asset type: one landscape social sharing preview brand title card, approximately 1200 × 630 aspect ratio. Create an elegant, professional editorial educational brand card for CSE Compass. Flat cool off-white #f8f9fc background. Large deep navy #102a43 title and a smaller tagline, with small restrained blue and teal branching linework along the right edge representing career directions. Refined contemporary graphic design, restrained modern sans-serif typography, polished clean typesetting. Landscape; ample whitespace and generous safe margins; title and tagline aligned left in the left-to-middle area, branching linework contained near the right edge with no overlap with copy. Exact large title “CSE Compass”; exact smaller tagline “Find your direction in CSE.” Render the two strings once each with exact capitalization and period; no other text. This is a brand title card, not a website screenshot. Avoid logos, compass emblems, characters, badges, tiny copy, salary claims, fake UI, stock SaaS gradients, watermark, 3D and decorative clutter.
+
+## Asset maintenance
 
 - Keep the transparent PNG masters; do not replace them with screenshots containing a baked-in background.
 - Generate edits through ImageGen and inspect the complete silhouette in both themes.

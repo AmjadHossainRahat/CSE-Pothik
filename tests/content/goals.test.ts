@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { finalYearProject } from "../../src/data/final-year-project";
 import { goals } from "../../src/data/goals";
 import { guidanceSources } from "../../src/data/guidance-sources";
 import { careers, careerFamilies } from "../../src/data/careers";
@@ -59,9 +60,10 @@ describe("goal-based guidance", () => {
       ].forEach((id) => expect(sources.has(id)).toBe(true));
     });
     guidanceSources.forEach((source) =>
-      expect(goals.some((goal) => goal.sourceIds.includes(source.id))).toBe(
-        true,
-      ),
+      expect(
+        goals.some((goal) => goal.sourceIds.includes(source.id)) ||
+          finalYearProject.sourceIds.includes(source.id),
+      ).toBe(true),
     );
   });
   it("includes complete mobile and UX/UI paths throughout the content graph", () => {

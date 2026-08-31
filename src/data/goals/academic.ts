@@ -190,6 +190,8 @@ export const academicGoals: GoalGuide[] = [
       "embedded-systems",
       "cybersecurity",
       "ux-ui-engineering",
+      "network-engineering",
+      "hardware-engineering",
     ],
     relatedGoalIds: [
       "research-publication",
@@ -385,6 +387,8 @@ export const academicGoals: GoalGuide[] = [
       "cybersecurity",
       "data-engineering",
       "ux-ui-engineering",
+      "network-engineering",
+      "hardware-engineering",
     ],
     relatedGoalIds: ["study-abroad", "global-companies", "tech-business"],
     sourceIds: ["gov-research", "acm-artifacts", "acm-authorship"],

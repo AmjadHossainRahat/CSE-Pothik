@@ -448,7 +448,7 @@ Required sections:
 5. Concise misconceptions paired with veteran orientation voices; two visible perspectives and three in an accessible native disclosure.
 6. Career landscape reveal: all eight families, no duplicated featured-career grid.
 7. Practical, non-shaming encouragement woven through these sections.
-8. “Try before you choose”: three representative previews linking to the full published experiment index (currently eleven); derive the displayed count from data.
+8. “Try before you choose”: three representative previews linking to the full published experiment index (currently fourteen); derive the displayed count from data.
 9. Understand → Explore → Compare → Try → Prepare → Adapt journey.
 10. Closing orientation message and next-step CTA.
 11. Footer with product links, language/theme support, privacy and attribution/inspiration references as appropriate.
@@ -1422,7 +1422,7 @@ Expand careers, roadmaps, experiments and curated resources without weakening th
 
 ## 44A. Goal guides and mobile / UX/UI implementation
 
-Maintain eleven complete careers across eight families. Mobile App Development and UX/UI Engineering must participate in career comparison, families, five-stage roadmaps, experiments, AI pages and bilingual route generation. Use role-specific stage overrides where generic software tasks or JavaScript testing resources would be misleading. Preserve existing routes and comparison defaults when adding entries.
+Maintain fourteen complete careers across eight families. Mobile App Development and UX/UI Engineering must participate in career comparison, families, five-stage roadmaps, experiments, AI pages and bilingual route generation. Use role-specific stage overrides where generic software tasks or JavaScript testing resources would be misleading. Preserve existing routes and comparison defaults when adding entries.
 
 Use strict `GoalId`, `GoalGuide`, `GoalStage` and `GuidanceSource` contracts. Store seven complete localized guides in typed modules under `src/data/goals/`, indexed by `src/data/goals.ts`; source metadata belongs in `src/data/guidance-sources.ts`. A source is a scoped reference, not a `LearningResource.isFree` claim about applications, tests or publishing. Keep localization helpers free of circular runtime imports.
 
@@ -1433,6 +1433,18 @@ Each guide requires branches; four stages (`foundation`, `evidence`, `applicatio
 Test all seven routes in both languages, the two new careers across career/roadmap/experiment/AI routes, homepage → goal → career-roadmap and lost-flow journeys, equivalent language switching, keyboard/no-JavaScript disclosure, 320/390/768/1280/1600px layouts, both themes, console errors and relevant axe checks. Cover goal/source analytics with the existing bounded `next_step_clicked` and `learning_resource_clicked` abstraction. Extend external-link checks to the guidance-source registry. Run both root and project-Pages production verification; inspect actual viewport screenshots and retain truthful validation records.
 
 ## 45. Definition of Done
+
+### Final-year project and infrastructure-career requirements
+
+Publish fourteen complete careers. `infrastructure-careers.ts`, `infrastructure-experiments.ts` and `infrastructure-roadmaps.ts` carry Network Engineering, Hardware Engineering and Software QA & Testing with role-specific evidence, safe experiments and professional practices. Keep stable IDs, exact family membership, all relationships and natural English/Bangla content. Do not inherit a generic browser-code task or JavaScript-only testing resource for physical/operational engineering.
+
+Use the typed `FinalYearProjectGuide` contract in `src/types/content.ts` and bilingual source in `src/data/final-year-project.ts`. Render the complete seven-stage guide through `FinalYearProject.astro` and thin EN/BN routes. Provide Article/BreadcrumbList metadata, semantic section navigation, native disclosures, a worked traceability example, four project-type adaptations, readiness evidence and useful onward links. Do not add React or persistent checklist state for this static content.
+
+Generate actual Markdown templates from `src/pages/downloads/[file].ts`; preserve the explicit Git ignore exception so source endpoints are committed. Templates are authoring prompts, never fabricated completed reports. Verify both download responses and browser download behavior. Scope source claims and review dates accurately; department requirements override the proposed quality bar.
+
+Retain only English and Bangla routing, resource copy, language controls, metadata and analytics. Refine the shared native SVG logo and matching favicon; keep the professional original social card with provenance. No unused third-language files or fonts should ship.
+
+Extend tests for all new career/roadmap/experiment/AI routes, comparison, project navigation/downloads, content completeness, source IDs, keyboard/no-JavaScript behavior and the five-width/two-theme/two-language matrix. Check actual screenshots, not only overflow. Include new critical routes in axe, verify bounded project-template/navigation events, check root and project-base production output, and update the validation record only after checks actually pass.
 
 The implementation is complete only when all of the following are true.
 

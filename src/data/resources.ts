@@ -5,6 +5,96 @@ const scope = (en: string, bn: string) => ({ en, bn });
 
 export const resources: LearningResource[] = [
   {
+    id: "network-book",
+    title: "An Introduction to Computer Networks",
+    provider: "Peter L. Dordal · Loyola University Chicago",
+    url: "https://intronetworks.cs.luc.edu/current2/html/",
+    type: "book",
+    isFree: true,
+    recommendedScope: scope(
+      "Read the overview, Ethernet, IP and transport introductions. Sketch a packet’s route before deeper routing chapters.",
+      "Overview, Ethernet, IP আর transport introduction পড়ো। গভীর routing chapter-এর আগে packet-এর পথ আঁকো।",
+    ),
+    whyRecommended: scope(
+      "A freely readable university-authored book that explains mechanisms rather than vendor command memorization.",
+      "বিনা খরচে পড়া যায় এমন university-authored বই; vendor command মুখস্থ নয়, mechanism বোঝায়।",
+    ),
+    lastReviewed: reviewed,
+    language: "en",
+  },
+  {
+    id: "wireshark-guide",
+    title: "Wireshark User’s Guide",
+    provider: "Wireshark Foundation",
+    url: "https://www.wireshark.org/docs/wsug_html_chunked/",
+    type: "official-docs",
+    isFree: true,
+    recommendedScope: scope(
+      "Read capture prerequisites, filtering and following streams. Use only your own isolated lab or an explicitly authorized sample; captures may contain secrets.",
+      "Capture prerequisite, filtering আর stream follow পড়ো। শুধু নিজের বিচ্ছিন্ন lab বা স্পষ্ট অনুমোদিত sample ব্যবহার করো; capture-এ secret থাকতে পারে।",
+    ),
+    whyRecommended: scope(
+      "Official, free guidance for inspecting packet evidence and understanding the tool’s limits.",
+      "Packet evidence দেখা আর tool-এর সীমা বোঝার official free guidance।",
+    ),
+    lastReviewed: reviewed,
+    language: "en",
+  },
+  {
+    id: "kicad-start",
+    title: "Getting Started in KiCad",
+    provider: "KiCad",
+    url: "https://docs.kicad.org/9.0/en/getting_started_in_kicad/getting_started_in_kicad.html",
+    type: "official-docs",
+    isFree: true,
+    recommendedScope: scope(
+      "Use the tutorial matching your installed version: schematic, electrical rules and board layout. Software/docs are free; components and fabrication are not included.",
+      "Installed version-এর সঙ্গে মেলা tutorial নাও: schematic, electrical rule আর board layout। Software/docs free; component আর fabrication অন্তর্ভুক্ত নয়।",
+    ),
+    whyRecommended: scope(
+      "Connects an editable circuit design with checks and fabrication outputs without requiring a board purchase.",
+      "Board কেনা বাধ্যতামূলক না করে editable circuit design, check আর fabrication output যুক্ত করে।",
+    ),
+    lastReviewed: reviewed,
+    language: "en",
+  },
+  {
+    id: "istqb-foundation",
+    title: "Foundation Level testing syllabus",
+    provider: "ISTQB",
+    url: "https://istqb.org/certifications/certified-tester-foundation-level-ctfl-v4-0/",
+    type: "article",
+    isFree: true,
+    recommendedScope: scope(
+      "Read the freely downloadable syllabus sections on test design, risk and defect management. Training and the optional certification exam can cost money; neither is required here.",
+      "Free downloadable syllabus-এর test design, risk আর defect management পড়ো। Training আর optional certification exam-এ খরচ হতে পারে; এখানে কোনোটিই বাধ্যতামূলক নয়।",
+    ),
+    whyRecommended: scope(
+      "Provides shared testing vocabulary; pair it with a real app and evidence rather than exam memorization.",
+      "Testing-এর পরিচিত vocabulary দেয়; exam মুখস্থ নয়, real app আর evidence-এর সঙ্গে ব্যবহার করো।",
+    ),
+    lastReviewed: reviewed,
+    language: "en",
+  },
+  {
+    id: "playwright-testing",
+    title: "Writing tests with Playwright",
+    provider: "Microsoft · Playwright",
+    url: "https://playwright.dev/docs/writing-tests",
+    type: "official-docs",
+    isFree: true,
+    recommendedScope: scope(
+      "Write one isolated user-journey test with meaningful locators and assertions; then test a failure state. Use the free local runner, not an optional hosted service.",
+      "Meaningful locator আর assertion দিয়ে একটি isolated user-journey test লেখো; তারপর failure state। Free local runner নাও, optional hosted service নয়।",
+    ),
+    whyRecommended: scope(
+      "Teaches executable checks and observable outcomes without treating automation as the whole of QA.",
+      "Automation-কে QA-এর সবকিছু না ধরে executable check আর দেখা যায় এমন outcome শেখায়।",
+    ),
+    lastReviewed: reviewed,
+    language: "en",
+  },
+  {
     id: "android-compose",
     title: "Android Basics with Compose",
     provider: "Android Developers",

@@ -10,6 +10,7 @@ import type {
 
 import { l } from "@/lib/localized";
 import { additionalCareers } from "@/data/additional-careers";
+import { infrastructureCareers } from "@/data/infrastructure-careers";
 export { l };
 
 export interface CareerSeed {
@@ -1604,30 +1605,32 @@ const seeds: CareerSeed[] = [
   },
 ];
 
-export const careers: Career[] = [...seeds, ...additionalCareers].map(
-  (seed) => ({
-    id: seed.id,
-    slug: seed.id,
-    familyId: seed.familyId,
-    title: seed.title,
-    shortDescription: seed.description,
-    actualWork: seed.work,
-    enjoyIf: seed.enjoy,
-    dislikeIf: seed.dislike,
-    realisticDay: seed.day.map(([time, activity]) => ({ time, activity })),
-    dimensions: seed.dimensions,
-    roadmapId: seed.id,
-    experimentId: seed.id,
-    aiExposure: seed.ai,
-    relatedCareerIds: seed.related,
-    notYet: seed.notYet,
-    foundation: seed.foundation,
-    core: seed.core,
-    practical: seed.practical,
-    later: seed.later,
-    resourceIds: seed.resources,
-  }),
-);
+export const careers: Career[] = [
+  ...seeds,
+  ...additionalCareers,
+  ...infrastructureCareers,
+].map((seed) => ({
+  id: seed.id,
+  slug: seed.id,
+  familyId: seed.familyId,
+  title: seed.title,
+  shortDescription: seed.description,
+  actualWork: seed.work,
+  enjoyIf: seed.enjoy,
+  dislikeIf: seed.dislike,
+  realisticDay: seed.day.map(([time, activity]) => ({ time, activity })),
+  dimensions: seed.dimensions,
+  roadmapId: seed.id,
+  experimentId: seed.id,
+  aiExposure: seed.ai,
+  relatedCareerIds: seed.related,
+  notYet: seed.notYet,
+  foundation: seed.foundation,
+  core: seed.core,
+  practical: seed.practical,
+  later: seed.later,
+  resourceIds: seed.resources,
+}));
 
 export const careerById = new Map(careers.map((career) => [career.id, career]));
 
@@ -1636,13 +1639,14 @@ export const careerFamilies: CareerFamily[] = [
     id: "build-software",
     title: l("Build Software", "Software বানাও"),
     description: l(
-      "Create products and the systems behind them.",
-      "Product আর তার পেছনের system বানাও।",
+      "Build, test and improve products and the systems behind them.",
+      "Product আর তার পেছনের system বানাও, test করো আর উন্নত করো।",
     ),
     careerIds: [
       "backend-engineering",
       "frontend-engineering",
       "mobile-app-development",
+      "software-quality-assurance",
     ],
     accent: "blue",
   },
@@ -1683,17 +1687,17 @@ export const careerFamilies: CareerFamily[] = [
       "Make delivery and operations dependable.",
       "Delivery আর operation dependable করো।",
     ),
-    careerIds: ["devops-sre"],
+    careerIds: ["devops-sre", "network-engineering"],
     accent: "sky",
   },
   {
     id: "close-to-hardware",
     title: l("Work Close to Hardware", "Hardware-এর কাছাকাছি"),
     description: l(
-      "Connect software to the physical world.",
-      "Software-কে physical world-এর সঙ্গে যুক্ত করো।",
+      "Design electronic systems and connect software to the physical world.",
+      "Electronic system design করো; software-কে বাস্তব জগতের সঙ্গে যুক্ত করো।",
     ),
-    careerIds: ["embedded-systems"],
+    careerIds: ["embedded-systems", "hardware-engineering"],
     accent: "amber",
   },
   {

@@ -1,5 +1,6 @@
 import { careers, l } from "@/data/careers";
 import type { LocalizedText, Roadmap, RoadmapStage } from "@/types/content";
+import { refineInfrastructureRoadmap } from "@/data/infrastructure-roadmaps";
 
 const commonStage = (
   id: string,
@@ -240,7 +241,7 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
       "অন্য কেউ component reuse আর behavior explain করতে পারে; সীমাবদ্ধতা-সহ usability evidence আর accessibility check দেখাতে পারো।",
     );
   }
-  return roadmap;
+  return refineInfrastructureRoadmap(roadmap);
 });
 
 export const roadmapById = new Map(
