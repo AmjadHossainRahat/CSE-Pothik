@@ -1,0 +1,13 @@
+---
+import AICareerDetail from "@/components/pages/AICareerDetail.astro";
+import { careers } from "@/data/careers";
+export function getStaticPaths() {
+  return careers.map((career) => ({
+    params: { slug: career.slug },
+    props: { career },
+  }));
+}
+const { career } = Astro.props;
+---
+
+<AICareerDetail career={career} locale="en" />

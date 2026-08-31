@@ -1,0 +1,131 @@
+import { expect, test } from "@playwright/test";
+
+const basePath = (process.env.BASE_PATH ?? "").replace(/\/$/, "");
+const route = (path: string) => `${basePath}${path}`;
+
+for (const locale of ["en", "bn"] as const) {
+  test(`${locale} homepage keeps a compact, illustrated orientation flow`, async ({
+    page,
+  }) => {
+    await page.goto(route(locale === "en" ? "/" : "/bn/"));
+    await expect(page.locator(".homepage > section").nth(1)).toHaveAttribute(
+      "id",
+      "ai-reality",
+    );
+    await expect(page.locator(".orientation-note a")).toHaveCount(4);
+    await expect(page.locator(".journey a")).toHaveCount(6);
+    await expect(page.locator(".family-map article")).toHaveCount(8);
+    await expect(page.locator(".experiment-grid article")).toHaveCount(3);
+    const illustrations = page.locator(".hero-visual img, .ai-art img");
+    await expect(illustrations).toHaveCount(2);
+    for (const illustration of await illustrations.all()) {
+      await illustration.scrollIntoViewIfNeeded();
+      await expect(illustration).toHaveAttribute("alt", /.+/);
+      await expect
+        .poll(() =>
+          illustration.evaluate(
+            (image: HTMLImageElement) =>
+              image.complete && image.naturalWidth > 0,
+          ),
+        )
+        .toBe(true);
+      await expect(illustration).toHaveAttribute("width", /\d+/);
+      await expect(illustration).toHaveAttribute("height", /\d+/);
+    }
+    for (const selector of [".map-copy", ".journey-copy"]) {
+      const captions = await page.locator(selector).evaluateAll((elements) =>
+        elements.map((element) => {
+          const title = element
+            .querySelector("strong")!
+            .getBoundingClientRect();
+          const caption = element
+            .querySelector("small, :scope > span")!
+            .getBoundingClientRect();
+          return {
+            width: caption.width,
+            offset: Math.abs(title.left - caption.left),
+            below: caption.top >= title.bottom - 1,
+          };
+        }),
+      );
+      for (const caption of captions) {
+        expect(caption.width).toBeGreaterThan(95);
+        expect(caption.offset).toBeLessThanOrEqual(1);
+        expect(caption.below).toBe(true);
+      }
+    }
+    const perspectives = page.locator(".more-voices");
+    await expect(perspectives).not.toHaveAttribute("open", "");
+    await perspectives.locator("summary").click();
+    await expect(perspectives.locator("blockquote")).toHaveCount(3);
+    await expect(perspectives.locator("blockquote").last()).toBeVisible();
+  });
+}
+
+test("desktop navigation survives mobile breakpoint changes", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(route("/"));
+  await expect(page.locator(".nav-details nav")).toBeVisible();
+  await expect(page.locator(".nav-details > summary")).toBeHidden();
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.locator(".nav-details nav")).toBeHidden();
+  const menu = page.locator(".nav-details > summary");
+  await menu.focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator(".nav-details nav")).toBeVisible();
+  await page.keyboard.press("Tab");
+  await expect(page.locator(".nav-details a").first()).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(page.locator(".nav-details nav")).toBeHidden();
+  await expect(menu).toBeFocused();
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await expect(page.locator(".nav-details nav")).toBeVisible();
+});
+
+test("breadcrumbs align with page content and have no staggered margins", async ({
+  page,
+}) => {
+  for (const path of [
+    "/careers/backend-engineering/",
+    "/bn/roadmaps/backend-engineering/",
+  ]) {
+    await page.goto(route(path));
+    const geometry = await page.evaluate(() => {
+      const breadcrumb = document.querySelector(".breadcrumb")!;
+      const firstLink = breadcrumb.querySelector("a")!.getBoundingClientRect();
+      const heading = document.querySelector("h1")!.getBoundingClientRect();
+      const items = [...breadcrumb.querySelectorAll("li")];
+      return {
+        offset: Math.abs(firstLink.left - heading.left),
+        margins: items.map((item) => getComputedStyle(item).marginTop),
+        tops: items.map((item) => item.getBoundingClientRect().top),
+        width: innerWidth,
+      };
+    });
+    expect(geometry.offset).toBeLessThanOrEqual(1);
+    expect(geometry.margins.every((margin) => margin === "0px")).toBe(true);
+    if (geometry.width >= 768)
+      expect(
+        Math.max(...geometry.tops) - Math.min(...geometry.tops),
+      ).toBeLessThanOrEqual(1);
+  }
+});
+
+test("homepage and navigation remain useful without JavaScript", async ({
+  browser,
+}) => {
+  const context = await browser.newContext({
+    javaScriptEnabled: false,
+    viewport: { width: 390, height: 844 },
+  });
+  const page = await context.newPage();
+  await page.goto(`http://127.0.0.1:4321${route("/")}`);
+  await expect(page.locator(".nav-details nav")).toBeVisible();
+  await page.locator(".nav-details > summary").click();
+  await expect(page.locator(".nav-details nav")).toBeHidden();
+  await page.locator(".orientation-note a").nth(1).click();
+  await expect(page).toHaveURL(/\/careers\/$/);
+  await context.close();
+});

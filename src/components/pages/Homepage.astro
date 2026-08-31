@@ -1,0 +1,1238 @@
+---
+import { Image } from "astro:assets";
+import mentorImage from "@/assets/illustrations/mentor-guide.png";
+import robotImage from "@/assets/illustrations/ai-study-partner.png";
+import { experimentPath, localePath, withBase } from "@/config/site";
+import { careerById, careerFamilies } from "@/data/careers";
+import { experimentById } from "@/data/experiments";
+import { studentSituations } from "@/data/situations";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { CareerId, Locale } from "@/types/content";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+const copy = (en: string, bangla: string) => (bn ? bangla : en);
+const href = (path: string) => withBase(localePath(locale, path));
+const experimentIds: CareerId[] = [
+  "backend-engineering",
+  "cybersecurity",
+  "machine-learning",
+];
+const mapSteps = [
+  [
+    "See the landscape",
+    "Landscape বোঝো",
+    "CSE is more than one career",
+    "CSE মানে একটাই career নয়",
+    "#landscape",
+  ],
+  [
+    "Meet the real work",
+    "আসল কাজটা দেখো",
+    "Tasks, not impressive titles",
+    "Title নয়, কাজ দিয়ে চিনো",
+    "/careers/",
+  ],
+  [
+    "Try a small version",
+    "ছোট করে try করো",
+    "A little evidence beats a guess",
+    "আন্দাজের চেয়ে experience ভালো",
+    "#experiments",
+  ],
+  [
+    "Take one next step",
+    "একটা next step নাও",
+    "Not a lifetime contract",
+    "সারা জীবনের contract নয়",
+    "#starting-point",
+  ],
+] as const;
+const realityChecks = [
+  [
+    "CSE is a landscape, not one career.",
+    "CSE একটা career নয়—অনেক ধরনের কাজের landscape।",
+  ],
+  [
+    "Programming is a tool. A framework is not a career plan.",
+    "Programming একটা tool। Framework career plan নয়।",
+  ],
+  [
+    "You can explore deliberately without deciding your whole life.",
+    "পুরো জীবনের সিদ্ধান্ত ছাড়াও ভেবেচিন্তে explore করা যায়।",
+  ],
+] as const;
+const voices = [
+  [
+    "Software Engineer",
+    "Learn how software works, not just which framework is trending.",
+    "কোন framework trending শুধু সেটা নয়—software কীভাবে কাজ করে শেখো।",
+  ],
+  [
+    "Cybersecurity Professional",
+    "Start with networking, Linux and systems. The tools come after.",
+    "Networking, Linux আর system দিয়ে শুরু করো। Tool পরে আসবে।",
+  ],
+  [
+    "ML / AI Engineer",
+    "Calling an AI API and understanding machine learning are different skills.",
+    "AI API call করা আর Machine Learning বোঝা আলাদা skill।",
+  ],
+  [
+    "DevOps / SRE Engineer",
+    "Some people love features. Others want to know why the whole system failed.",
+    "কেউ feature বানাতে ভালোবাসে। কেউ জানতে চায়—পুরো system কেন পড়ল।",
+  ],
+  [
+    "Research / Systems",
+    "If you enjoy asking why it works—not only how to use it—look deeper.",
+    "কীভাবে use করতে হয় শুধু নয়, কেন কাজ করে জানতে চাইলে—গভীরে তাকাও।",
+  ],
+] as const;
+const journey = [
+  [
+    "Understand",
+    "বোঝো",
+    "Find your starting point.",
+    "এখন কোথায় আছ, বোঝো।",
+    "#starting-point",
+  ],
+  [
+    "Explore",
+    "দেখো",
+    "Look behind the job title.",
+    "Job title-এর পেছনের কাজ দেখো।",
+    "/careers/",
+  ],
+  [
+    "Compare",
+    "তুলনা করো",
+    "Compare the trade-offs.",
+    "কাজের ভালো-মন্দ মিলিয়ে দেখো।",
+    "/compare/",
+  ],
+  [
+    "Try",
+    "ট্রাই করো",
+    "Get a little real evidence.",
+    "ছোট কাজ করে experience নাও।",
+    "/try/",
+  ],
+  [
+    "Prepare",
+    "প্রস্তুত হও",
+    "Build your foundations.",
+    "Foundation শক্ত করো।",
+    "/roadmaps/",
+  ],
+  [
+    "Adapt",
+    "বদলাও",
+    "Keep learning as work changes.",
+    "কাজ বদলালে শেখাটাও বদলাও।",
+    "/ai/",
+  ],
+] as const;
+const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
+---
+
+<BaseLayout
+  locale={locale}
+  title={copy(
+    "CSE Compass — Find Your Direction in CSE",
+    "CSE Compass — CSE-তে তোমার direction খুঁজে নাও",
+  )}
+  description={copy(
+    "Explore CSE careers, compare real work, try practical experiments, follow focused roadmaps and prepare for an AI-shaped future.",
+    "বাংলাদেশি CSE student-দের জন্য practical career direction, roadmap, experiment আর AI-resilience guidance।",
+  )}
+>
+  <div class="homepage">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">
+              {
+                copy(
+                  "CSE orientation—not another salary reel",
+                  "CSE orientation—salary reel নয়",
+                )
+              }
+            </p>
+            <h1 id="hero-title">
+              {copy("You got into CSE.", "CSE-তে ঢুকেছ।")}<br /><em
+                >{copy("Now what?", "এখন কী?")}</em
+              >
+            </h1>
+            <p class="hero-lede">
+              {
+                copy(
+                  "You do not need a 10-year plan today. You need a clearer picture of the possibilities—and one small place to start.",
+                  "আজই ১০ বছরের plan লাগবে না। কী কী পথ আছে সেটা বোঝো—তারপর ছোট একটা জায়গা থেকে শুরু করো।",
+                )
+              }
+            </p>
+            <div class="button-row">
+              <a
+                class="button"
+                href="#starting-point"
+                data-track-event="next_step_clicked"
+                data-track-param-destination="starting-point"
+                >{copy("Find My Starting Point", "আমার starting point খুঁজি")}
+                <span aria-hidden="true">→</span></a
+              >
+              <a class="button button--secondary" href={href("/careers/")}
+                >{copy("Explore CSE Careers", "CSE career দেখো")}</a
+              >
+            </div>
+            <p class="hero-reassurance">
+              <span aria-hidden="true">✦</span>
+              {
+                copy(
+                  "New, confused, or starting again? You belong here.",
+                  "নতুন, confused, বা আবার শুরু করছ? এই জায়গাটা তোমারও।",
+                )
+              }
+            </p>
+          </div>
+          <figure class="hero-visual">
+            <Image
+              src={mentorImage}
+              alt={copy(
+                "A friendly young computing mentor in a navy hoodie working at a laptop.",
+                "নেভি hoodie পরা হাসিমুখের তরুণ computing mentor laptop-এ কাজ করছে।",
+              )}
+              widths={[400, 640, 900]}
+              sizes="(min-width: 960px) 46vw, 90vw"
+              width={900}
+              format="webp"
+              quality={80}
+              loading="eager"
+              fetchpriority="high"
+            />
+            <figcaption class="mentor-caption">
+              <span
+                >{
+                  copy(
+                    "A note from your future self",
+                    "ভবিষ্যতের তোমার একটা কথা",
+                  )
+                }</span
+              ><p>
+                {
+                  copy(
+                    "“Start small. Future you will be glad you did.”",
+                    "“ছোট করে শুরু করো। পরে নিজেকেই ধন্যবাদ দেবে।”",
+                  )
+                }
+              </p>
+            </figcaption>
+          </figure>
+        </div>
+        <nav class="orientation-note" aria-labelledby="orientation-title">
+          <div class="note-top">
+            <h2 id="orientation-title">
+              {copy("Today’s orientation map", "আজকের orientation map")}
+            </h2><p>
+              {
+                copy(
+                  "Pick a stop. You do not need to read everything.",
+                  "একটা জায়গা বেছে নাও। সবটা একসঙ্গে পড়তে হবে না।",
+                )
+              }
+            </p>
+          </div>
+          <ol role="list">
+            {
+              mapSteps.map(
+                ([en, bangla, description, bnDescription, path], index) => (
+                  <li>
+                    <a href={path.startsWith("#") ? path : href(path)}>
+                      <>
+                        <span class="map-number" aria-hidden="true">
+                          0{index + 1}
+                        </span>
+                        <span class="map-copy">
+                          <>
+                            <strong>{copy(en, bangla)}</strong>
+                            <small>{copy(description, bnDescription)}</small>
+                          </>
+                        </span>
+                        <span class="map-arrow" aria-hidden="true">
+                          →
+                        </span>
+                      </>
+                    </a>
+                  </li>
+                ),
+              )
+            }
+          </ol>
+        </nav>
+      </div>
+    </section>
+
+    <section
+      class="home-section ai-section"
+      id="ai-reality"
+      aria-labelledby="ai-title"
+    >
+      <div class="container ai-layout">
+        <div class="ai-art">
+          <Image
+            src={robotImage}
+            alt={copy(
+              "An AI study partner thoughtfully checking a result.",
+              "একটি AI study partner মন দিয়ে ফলাফল যাচাই করছে।",
+            )}
+            widths={[180, 300, 480]}
+            sizes="(min-width: 960px) 180px, 140px"
+            width={300}
+            format="webp"
+            quality={80}
+            loading="lazy"
+          />
+        </div>
+        <div class="ai-copy">
+          <p class="eyebrow">AI reality</p><h2 id="ai-title">
+            {copy("AI is changing fast.", "AI দ্রুত বদলাচ্ছে।")}<br /><span
+              >{copy("You can grow with it.", "তুমিও এগোতে পারো।")}</span
+            >
+          </h2><p>
+            {
+              copy(
+                "Ignoring AI is not a strategy. Panicking is not one either. Learn to understand the problem, direct the tools, and check the answer.",
+                "AI-কে ignore করা strategy নয়। Panic করাও নয়। Problem বোঝো, tool-কে নির্দেশ দাও, আর উত্তরটা ঠিক কি না যাচাই করো।",
+              )
+            }
+          </p><a
+            class="text-link"
+            href={href("/ai/")}
+            data-track-event="ai_guidance_viewed"
+            data-track-param-career-id="overview"
+            >{copy("Understand AI & My Career", "AI ও আমার career বুঝি")}
+            <span aria-hidden="true">→</span></a
+          >
+        </div>
+        <aside class="ai-note">
+          <p class="eyebrow">
+            {copy("The part you can control", "যেটা তোমার হাতে")}
+          </p><p>
+            {
+              copy(
+                "A career is a bundle of tasks—not a single replacement score. Foundations, judgment, debugging and responsibility still deserve your time.",
+                "Career অনেক task-এর সমষ্টি—একটা replacement score নয়। Foundation, judgment, debugging আর responsibility শেখায় সময় দাও।",
+              )
+            }
+          </p><strong
+            >{
+              copy(
+                "Use AI. Also learn to notice when it is wrong.",
+                "AI ব্যবহার করো। ভুল করলেও যেন ধরতে পারো।",
+              )
+            }</strong
+          >
+        </aside>
+      </div>
+    </section>
+
+    <section
+      class="home-section"
+      id="starting-point"
+      aria-labelledby="starting-title"
+    >
+      <div class="container">
+        <div class="home-section-head">
+          <div>
+            <p class="eyebrow">
+              {copy("Your next step starts here", "এখান থেকেই পরের ধাপ")}
+            </p><h2 id="starting-title">
+              {copy("Where are you right now?", "তুমি এখন কোথায়?")}
+            </h2>
+          </div><p>
+            {
+              copy(
+                "There is no wrong starting point. Choose what sounds like you today—no quiz, account, or score.",
+                "ভুল starting point বলে কিছু নেই। আজ তোমার সঙ্গে যেটা মেলে, বেছে নাও—quiz, account বা score নেই।",
+              )
+            }
+          </p>
+        </div>
+        <div class="situation-list">
+          {
+            studentSituations.map((situation, index) => (
+              <a
+                href={withBase(situation.destination[locale])}
+                data-track-event="starting_point_selected"
+                data-track-param-situation-id={situation.id}
+              >
+                <>
+                  <span class="situation-number" aria-hidden="true">
+                    0{index + 1}
+                  </span>
+                  <span class="situation-copy">
+                    <>
+                      <strong>{t(situation.label, locale)}</strong>
+                      <small>{t(situation.note, locale)}</small>
+                    </>
+                  </span>
+                  <span class="situation-arrow" aria-hidden="true">
+                    →
+                  </span>
+                </>
+              </a>
+            ))
+          }
+        </div>
+        <p class="mentor-line">
+          <strong>{copy("Feeling behind?", "পিছিয়ে পড়েছ মনে হচ্ছে?")}</strong>
+          {
+            copy(
+              "You do not have to catch everyone. You just need to stop standing still.",
+              "সবার সঙ্গে পাল্লা দিতে হবে না। আজ একটা ছোট কাজ দিয়ে শুরু করলেই হয়।",
+            )
+          }
+          <a href={href("/guidance/feel-behind/")}
+            >{
+              copy(
+                "Make a realistic restart →",
+                "বাস্তবসম্মতভাবে আবার শুরু করো →",
+              )
+            }</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <section
+      class="home-section orientation-lessons"
+      aria-labelledby="before-title"
+    >
+      <div class="container lesson-grid">
+        <div>
+          <p class="eyebrow">
+            {copy("Before you choose anything", "কিছু choose করার আগে")}
+          </p><h2 id="before-title">
+            {copy("Take the pressure off.", "চাপটা একটু কমাও।")}
+          </h2><ul class="rule-list">
+            {realityChecks.map(([en, bangla]) => <li>{copy(en, bangla)}</li>)}
+          </ul><p class="small-encouragement">
+            {
+              copy(
+                "Your first direction is a draft, not a verdict.",
+                "প্রথম direction একটা draft—চূড়ান্ত রায় নয়।",
+              )
+            }
+          </p>
+        </div>
+        <div class="voices">
+          <p class="eyebrow">
+            {copy("Veteran orientation voices", "অভিজ্ঞদের ছোট্ট পরামর্শ")}
+          </p><h2>
+            {copy("A little senior perspective.", "একটু senior perspective।")}
+          </h2><p class="voice-disclaimer">
+            {
+              copy(
+                "Common industry lessons, not testimonials or invented professionals.",
+                "পরিচিত industry lesson—testimonial বা বানানো professional-এর কথা নয়।",
+              )
+            }
+          </p>
+          {
+            voices.slice(0, 2).map(([role, en, bangla]) => (
+              <blockquote>
+                <>
+                  <p>“{copy(en, bangla)}”</p>
+                  <cite>{role}</cite>
+                </>
+              </blockquote>
+            ))
+          }
+          <details class="more-voices">
+            <summary
+              >{
+                copy("Three more perspectives", "আরও তিনটি perspective")
+              }</summary
+            >{
+              voices.slice(2).map(([role, en, bangla]) => (
+                <blockquote>
+                  <>
+                    <p>“{copy(en, bangla)}”</p>
+                    <cite>{role}</cite>
+                  </>
+                </blockquote>
+              ))
+            }
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="home-section"
+      id="landscape"
+      aria-labelledby="landscape-title"
+    >
+      <div class="container">
+        <div class="home-section-head">
+          <div>
+            <p class="eyebrow">
+              {copy("The CSE career landscape", "CSE career landscape")}
+            </p><h2 id="landscape-title">
+              {
+                copy(
+                  "Different minds. Different kinds of work.",
+                  "আলাদা আগ্রহ। আলাদা ধরনের কাজ।",
+                )
+              }
+            </h2>
+          </div><p>
+            {
+              copy(
+                "Start with a problem you would like to solve. The job titles can come next.",
+                "কোন ধরনের problem solve করতে ভালো লাগতে পারে, সেটা দিয়ে শুরু করো। Job title পরে আসুক।",
+              )
+            }
+          </p>
+        </div>
+        <div class="family-map">
+          {
+            careerFamilies.map((family, index) => (
+              <article class="family" data-accent={family.accent}>
+                <>
+                  <span class="family-symbol" aria-hidden="true">
+                    {familySymbols[index]}
+                  </span>
+                  <h3>{t(family.title, locale)}</h3>
+                  <p>{t(family.description, locale)}</p>
+                  <div class="family-links">
+                    {family.careerIds.map((id) => {
+                      const career = careerById.get(id)!;
+                      return (
+                        <a
+                          href={href(`/careers/${career.slug}/`)}
+                          data-track-event="career_family_opened"
+                          data-track-param-family-id={family.id}
+                        >
+                          {t(career.title, locale)}{" "}
+                          <span aria-hidden="true">↗</span>
+                        </a>
+                      );
+                    })}
+                  </div>
+                </>
+              </article>
+            ))
+          }
+        </div>
+        <div class="section-footer">
+          <a class="text-link" href={href("/careers/")}
+            >{copy("Explore every career guide →", "সব career guide দেখো →")}</a
+          ><a class="text-link" href={href("/compare/")}
+            >{
+              copy(
+                "Two paths caught your eye? Compare them →",
+                "দুটি path ভালো লাগছে? Compare করো →",
+              )
+            }</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section
+      class="home-section experiment-section"
+      id="experiments"
+      aria-labelledby="try-title"
+    >
+      <div class="container">
+        <div class="home-section-head">
+          <div>
+            <p class="eyebrow">
+              {copy("Try before you choose", "Choose করার আগে try করো")}
+            </p><h2 id="try-title">
+              {
+                copy(
+                  "One small experiment. A much better clue.",
+                  "ছোট একটা experiment। অনেকটা পরিষ্কার ধারণা।",
+                )
+              }
+            </h2>
+          </div><p>
+            {
+              copy(
+                "A salary video cannot tell you whether you enjoy the work. A safe, 60–120 minute experiment can give you a first clue.",
+                "Salary video বলে দেবে না কাজটা তোমার ভালো লাগবে কি না। Safe, ৬০–১২০ মিনিটের experiment একটা ধারণা দেবে।",
+              )
+            }
+          </p>
+        </div>
+        <div class="experiment-grid">
+          {
+            experimentIds.map((id) => {
+              const experiment = experimentById.get(id)!;
+              const career = careerById.get(id)!;
+              return (
+                <article>
+                  <>
+                    <span class="tag">{experiment.duration}</span>
+                    <h3>{t(career.title, locale)}</h3>
+                    <p>{t(experiment.title, locale)}</p>
+                    <a
+                      class="text-link"
+                      href={withBase(experimentPath(locale, career.slug))}
+                      data-track-event="career_experiment_started"
+                      data-track-param-career-id={career.id}
+                    >
+                      {copy("Try this experiment →", "এই experiment করি →")}
+                    </a>
+                  </>
+                </article>
+              );
+            })
+          }
+        </div>
+        <div class="section-footer">
+          <p>
+            {
+              copy(
+                "Not enjoying one is useful information, too. You learned something about yourself.",
+                "একটা ভালো না লাগলেও লাভ আছে। নিজের সম্পর্কে কিছু তো জানলে।",
+              )
+            }
+          </p><a class="button button--secondary" href={href("/try/")}
+            >{
+              copy("See all 9 career experiments", "৯টি career experiment দেখো")
+            }</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section" aria-labelledby="journey-title">
+      <div class="container">
+        <div class="home-section-head">
+          <div>
+            <p class="eyebrow">{copy("A useful loop", "কাজের একটা loop")}</p><h2
+              id="journey-title"
+            >
+              {
+                copy(
+                  "You can change direction. Keep moving.",
+                  "Direction বদলাতেই পারো। এগোতে থাকো।",
+                )
+              }
+            </h2>
+          </div><p class="journey-summary">
+            Understand → Explore → Compare → Try → Prepare → Adapt
+          </p>
+        </div>
+        <ol class="journey" role="list">
+          {
+            journey.map(
+              ([en, bangla, description, bnDescription, path], index) => (
+                <li>
+                  <a href={path.startsWith("#") ? path : href(path)}>
+                    <>
+                      <span class="journey-number" aria-hidden="true">
+                        {index + 1}
+                      </span>
+                      <span class="journey-copy">
+                        <>
+                          <strong>{copy(en, bangla)}</strong>
+                          <span>{copy(description, bnDescription)}</span>
+                        </>
+                      </span>
+                    </>
+                  </a>
+                </li>
+              ),
+            )
+          }
+        </ol>
+      </div>
+    </section>
+
+    <section class="closing" aria-labelledby="closing-title">
+      <div class="container closing-inner">
+        <div>
+          <p class="eyebrow">
+            {
+              copy(
+                "A meaningful next step beats a perfect plan",
+                "Perfect plan-এর চেয়ে একটা useful step ভালো",
+              )
+            }
+          </p><h2 id="closing-title">
+            {
+              copy(
+                "You do not need to have it all figured out.",
+                "সব উত্তর আজই জানতে হবে না।",
+              )
+            }
+          </h2><p>
+            {
+              copy(
+                "Give yourself 20 minutes today: open one career, notice what interests you, and pick one thing to try. That is a real start.",
+                "আজ নিজেকে ২০ মিনিট দাও: একটা career দেখো, কী ভালো লাগে খেয়াল করো, আর try করার একটা কাজ বেছে নাও। এটাও সত্যিকারের শুরু।",
+              )
+            }
+          </p>
+        </div><div class="closing-action">
+          <a
+            class="button"
+            href={href("/im-lost/")}
+            data-track-event="im_lost_used"
+            data-track-param-choice-id="homepage-closing"
+            >{copy("Help Me Find My Next Step", "আমার next step খুঁজে দাও")}
+            <span aria-hidden="true">→</span></a
+          ><span
+            >{
+              copy(
+                "No sign-up. No perfect answer required.",
+                "Sign-up নেই। Perfect answer-ও লাগবে না।",
+              )
+            }</span
+          >
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .homepage h2 {
+    font-size: clamp(1.65rem, 3.2vw, 2.65rem);
+    line-height: 1.18;
+  }
+  .homepage h3 {
+    font-size: 1.12rem;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+  .home-section {
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+    border-top: 1px solid var(--color-border);
+  }
+  .hero {
+    padding-block: clamp(2.5rem, 5vw, 4.5rem) 2rem;
+  }
+  .hero-grid {
+    display: grid;
+    align-items: center;
+    gap: 2rem;
+  }
+  .hero-copy {
+    min-width: 0;
+  }
+  .hero h1 {
+    max-width: 18ch;
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 5.4vw, 4.65rem);
+    line-height: 1.08;
+    letter-spacing: -0.045em;
+  }
+  .hero h1 em {
+    color: var(--color-primary);
+    font-style: normal;
+    text-decoration: underline;
+    text-decoration-color: var(--color-amber);
+    text-decoration-thickness: 0.055em;
+    text-underline-offset: 0.13em;
+  }
+  .hero-lede {
+    max-width: 37rem;
+    margin-block: 1.6rem;
+    color: var(--color-text-muted);
+    font-size: 1.1rem;
+  }
+  .hero-reassurance {
+    margin-top: 1.2rem;
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+  }
+  .hero-reassurance span {
+    color: var(--color-teal);
+    margin-right: 0.3rem;
+  }
+  .hero-visual {
+    position: relative;
+    min-width: 0;
+    margin: 0;
+  }
+  .hero-visual img {
+    width: 100%;
+    height: auto;
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+  .mentor-caption {
+    max-width: 27rem;
+    margin: 0.6rem auto 0;
+    padding: 0.8rem 1rem;
+    border-inline-start: 3px solid var(--color-amber);
+    background: var(--color-surface);
+  }
+  .mentor-caption > span {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    font-weight: 750;
+  }
+  .mentor-caption p {
+    margin: 0.2rem 0 0;
+    font-weight: 650;
+    font-size: 0.95rem;
+  }
+  .orientation-note {
+    margin-top: 2rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+  }
+  .note-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.3rem 1.25rem;
+    padding: 1rem 1.25rem 0.5rem;
+  }
+  .note-top h2 {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .note-top p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.82rem;
+  }
+  .orientation-note ol {
+    display: grid;
+    margin: 0;
+    padding: 0.5rem 1.25rem 1rem;
+    list-style: none;
+    gap: 0.4rem;
+  }
+  .orientation-note li {
+    margin: 0;
+    min-width: 0;
+  }
+  .orientation-note a {
+    display: grid;
+    grid-template-columns: 1.7rem minmax(0, 1fr) auto;
+    gap: 0.6rem;
+    align-items: start;
+    min-height: 3.7rem;
+    padding: 0.6rem 0.4rem;
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+  }
+  .orientation-note a:hover {
+    background: var(--color-code);
+  }
+  .map-number {
+    color: var(--color-primary);
+    font-size: 0.8rem;
+    font-weight: 800;
+    padding-top: 0.1rem;
+  }
+  .map-copy {
+    min-width: 0;
+  }
+  .map-copy strong,
+  .map-copy small {
+    display: block;
+  }
+  .map-copy strong {
+    font-size: 0.88rem;
+  }
+  .map-copy small {
+    margin-top: 0.2rem;
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+  .map-arrow {
+    color: var(--color-primary);
+  }
+  .ai-section {
+    background: var(--color-surface);
+  }
+  .ai-layout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  .ai-art img {
+    width: 8rem;
+    height: auto;
+  }
+  .ai-copy h2 span {
+    color: var(--color-primary);
+  }
+  .ai-copy > p:not(.eyebrow) {
+    max-width: 42rem;
+    color: var(--color-text-muted);
+  }
+  .ai-note {
+    border-inline-start: 3px solid var(--color-amber);
+    padding: 0.3rem 0 0.3rem 1.25rem;
+    font-size: 0.93rem;
+  }
+  .ai-note .eyebrow {
+    color: var(--color-amber);
+  }
+  .ai-note > p:not(.eyebrow) {
+    color: var(--color-text-muted);
+  }
+  .home-section-head {
+    display: grid;
+    gap: 0.7rem 3rem;
+    align-items: end;
+    margin-bottom: 1.75rem;
+  }
+  .home-section-head h2,
+  .home-section-head > p {
+    margin-bottom: 0;
+  }
+  .home-section-head > p {
+    color: var(--color-text-muted);
+    max-width: 40rem;
+    font-size: 0.97rem;
+  }
+  .situation-list {
+    display: grid;
+    gap: 0.8rem;
+  }
+  .situation-list > a {
+    display: grid;
+    grid-template-columns: 1.7rem minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 0.75rem;
+    padding: 1.1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    background: var(--color-surface-raised);
+    text-decoration: none;
+  }
+  .situation-list > a:hover {
+    border-color: var(--color-primary);
+    background: var(--color-code);
+  }
+  .situation-number {
+    color: var(--color-primary);
+    font-size: 0.78rem;
+    font-weight: 800;
+    margin-top: 0.2rem;
+  }
+  .situation-copy strong,
+  .situation-copy small {
+    display: block;
+  }
+  .situation-copy strong {
+    line-height: 1.45;
+    font-size: 0.95rem;
+  }
+  .situation-copy small {
+    margin-top: 0.35rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+    font-size: 0.82rem;
+  }
+  .situation-arrow {
+    align-self: center;
+    color: var(--color-primary);
+  }
+  .mentor-line {
+    margin: 1.2rem 0 0;
+    padding: 1rem 1.2rem;
+    background: var(--color-code);
+    border-radius: var(--radius-sm);
+    font-size: 0.9rem;
+  }
+  .mentor-line a {
+    display: inline-block;
+    font-weight: 700;
+  }
+  .orientation-lessons {
+    background: var(--color-surface);
+  }
+  .lesson-grid {
+    display: grid;
+    gap: 2rem;
+  }
+  .small-encouragement {
+    margin-top: 1.3rem;
+    color: var(--color-teal);
+    font-weight: 700;
+  }
+  .voices h2 {
+    font-size: 1.65rem;
+  }
+  .voice-disclaimer {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+  }
+  .voices blockquote {
+    margin: 0;
+    padding: 0.8rem 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .voices blockquote p {
+    margin: 0 0 0.25rem;
+    font-size: 0.98rem;
+  }
+  .voices cite {
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+    font-style: normal;
+    font-weight: 700;
+  }
+  .more-voices summary {
+    min-height: 2.75rem;
+    padding-block: 0.65rem;
+    color: var(--color-primary-strong);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .family-map {
+    display: grid;
+    gap: 0.85rem;
+  }
+  .family {
+    min-width: 0;
+    padding: 1.15rem;
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--family-color, var(--color-primary));
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+  }
+  .family[data-accent="teal"] {
+    --family-color: var(--color-teal);
+  }
+  .family[data-accent="violet"],
+  .family[data-accent="indigo"] {
+    --family-color: var(--color-violet);
+  }
+  .family[data-accent="warm"],
+  .family[data-accent="coral"] {
+    --family-color: var(--color-warm);
+  }
+  .family[data-accent="sky"] {
+    --family-color: var(--color-sky);
+  }
+  .family[data-accent="amber"] {
+    --family-color: var(--color-amber);
+  }
+  .family-symbol {
+    display: block;
+    color: var(--family-color, var(--color-primary));
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 0.75rem;
+  }
+  .family h3 {
+    margin-bottom: 0.5rem;
+  }
+  .family > p {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .family-links {
+    display: grid;
+    gap: 0.25rem;
+  }
+  .family-links a {
+    font-size: 0.8rem;
+    font-weight: 700;
+    min-height: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+  .section-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 2rem;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.2rem;
+  }
+  .section-footer p {
+    margin: 0;
+    max-width: 40rem;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+  .experiment-section {
+    background: var(--color-surface);
+  }
+  .experiment-grid {
+    display: grid;
+    gap: 1rem;
+  }
+  .experiment-grid article {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 1.35rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+  }
+  .experiment-grid h3 {
+    margin: 0.85rem 0 0.5rem;
+  }
+  .experiment-grid p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+  }
+  .experiment-grid a {
+    margin-top: auto;
+  }
+  .journey {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .journey li {
+    margin: 0;
+    min-width: 0;
+  }
+  .journey a {
+    display: grid;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    gap: 0.8rem;
+    min-height: 5rem;
+    padding: 0.8rem;
+    color: var(--color-text);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+  }
+  .journey a:hover {
+    background: var(--color-code);
+  }
+  .journey-number {
+    display: grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+    font-weight: 800;
+  }
+  .journey-copy strong,
+  .journey-copy > span {
+    display: block;
+  }
+  .journey-copy > span {
+    margin-top: 0.3rem;
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+  .closing {
+    padding-block: clamp(2.5rem, 5vw, 4rem);
+    border-top: 1px solid var(--color-border);
+    background: var(--color-code);
+  }
+  .closing-inner {
+    display: grid;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .closing h2 {
+    max-width: 29ch;
+  }
+  .closing p:not(.eyebrow) {
+    margin: 0;
+    max-width: 44rem;
+    color: var(--color-text-muted);
+  }
+  .closing-action {
+    display: grid;
+    justify-items: start;
+    gap: 0.65rem;
+  }
+  .closing-action > span {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+  }
+  @media (min-width: 40rem) {
+    .orientation-note ol,
+    .situation-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .family-map,
+    .journey {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .experiment-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .ai-layout {
+      grid-template-columns: 8rem minmax(0, 1fr);
+    }
+    .ai-note {
+      grid-column: 2;
+    }
+  }
+  @media (min-width: 60rem) {
+    .hero-grid {
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.5rem;
+    }
+    .orientation-note ol {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .home-section-head {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+    .ai-layout {
+      grid-template-columns: 11rem minmax(0, 1.3fr) minmax(0, 0.9fr);
+      gap: 2rem;
+    }
+    .ai-art img {
+      width: 11rem;
+    }
+    .ai-note {
+      grid-column: auto;
+    }
+    .lesson-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    .family-map {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .journey {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .closing-inner {
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+      gap: 3rem;
+    }
+  }
+  @media (min-width: 74rem) {
+    .journey {
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+    }
+    .journey a {
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+    }
+  }
+</style>

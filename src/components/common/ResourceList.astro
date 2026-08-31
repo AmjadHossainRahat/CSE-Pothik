@@ -1,0 +1,94 @@
+---
+import { ui } from "@/config/site";
+import { resourceById } from "@/data/resources";
+import { t } from "@/lib/i18n";
+import type { Locale } from "@/types/content";
+
+interface Props {
+  locale: Locale;
+  resourceIds: string[];
+  compact?: boolean;
+}
+const { locale, resourceIds, compact = false } = Astro.props;
+const list = resourceIds
+  .map((id) => resourceById.get(id))
+  .filter((item) => item !== undefined);
+---
+
+<div class="resource-list">
+  {
+    list.map((resource, index) => (
+      <article class="resource">
+        <div class="resource__meta">
+          <span class="tag">
+            {index === 0
+              ? locale === "en"
+                ? "Learn"
+                : "শেখো"
+              : index === 1
+                ? locale === "en"
+                  ? "Practice"
+                  : "Practice"
+                : locale === "en"
+                  ? "Go deeper · optional"
+                  : "আরও গভীরে · optional"}
+          </span>
+          <span>{resource.provider}</span>
+          <span>·</span>
+          <span>{resource.type}</span>
+          <span>·</span>
+          <span>{locale === "en" ? "Free" : "Free"}</span>
+        </div>
+        <h3>
+          <a
+            href={resource.url}
+            data-track-event="learning_resource_clicked"
+            data-track-param-resource-id={resource.id}
+            data-track-param-provider={resource.provider}
+          >
+            {resource.title}{" "}
+            <>
+              <span class="visually-hidden">— {ui[locale].external}</span>
+              <span aria-hidden="true"> ↗</span>
+            </>
+          </a>
+        </h3>
+        {!compact && <p>{t(resource.whyRecommended, locale)}</p>}
+        <p class="muted">
+          <strong>{locale === "en" ? "Do this much:" : "এতটুকু করো:"}</strong>{" "}
+          {t(resource.recommendedScope, locale)}
+        </p>
+        {!compact && (
+          <p class="reviewed">
+            {locale === "en" ? "Last reviewed" : "শেষ review"}:{" "}
+            <time datetime={resource.lastReviewed}>
+              {resource.lastReviewed}
+            </time>
+          </p>
+        )}
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  h3 {
+    margin-bottom: 0.35rem;
+    font-size: 1.12rem;
+    letter-spacing: -0.015em;
+  }
+  p {
+    margin-bottom: 0.35rem;
+  }
+  .reviewed {
+    color: var(--color-text-muted);
+    font-size: 0.78rem;
+  }
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+</style>

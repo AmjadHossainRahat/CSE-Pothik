@@ -1,0 +1,108 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import { roadmapPath, withBase } from "@/config/site";
+import { careers } from "@/data/careers";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+---
+
+<BaseLayout
+  locale={locale}
+  title={bn ? "CSE Career Roadmap" : "CSE Career Roadmaps"}
+  description={bn
+    ? "Foundation-first, mentor-guided CSE career roadmap—what to learn, enough for now, practical task আর কী এখন না শিখলেও চলবে।"
+    : "Foundation-first, mentor-guided CSE career roadmaps with practical tasks, curated resources and clear guidance on what not to learn yet."}
+>
+  <Breadcrumbs locale={locale} items={[{ label: "Roadmaps" }]} />
+  <header class="page-hero container">
+    <p class="eyebrow">
+      {bn ? "Mentor-guided sequence" : "Mentor-guided sequences"}
+    </p><h1>
+      {
+        bn
+          ? "Roadmap poster না। শেখার usable order।"
+          : "Not roadmap posters. Usable learning order."
+      }
+    </h1><p class="lede">
+      {
+        bn
+          ? "প্রতিটি stage বলে কেন শিখবে, এখন কতটুকু যথেষ্ট, কী practice করবে আর কোন shiny tool একটু অপেক্ষা করতে পারে।"
+          : "Each stage explains why it matters, what is enough for now, what to practice and which shiny tools can wait."
+      }
+    </p>
+  </header>
+  <section class="section section--tinted">
+    <div class="container roadmap-list">
+      {
+        careers.map((career, index) => (
+          <article>
+            <>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <>
+                  <h2>{t(career.title, locale)}</h2>
+                  <p>{t(career.shortDescription, locale)}</p>
+                  <a
+                    href={withBase(roadmapPath(locale, career.slug))}
+                    data-track-event="next_step_clicked"
+                    data-track-param-destination={`roadmap/${career.id}`}
+                  >
+                    {bn ? "Roadmap খোলো" : "Open roadmap"}{" "}
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </>
+              </div>
+            </>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+  <section class="section">
+    <div class="container callout">
+      <p class="callout__label">{bn ? "How to use" : "How to use these"}</p><h2>
+        {bn ? "সব box tick করতে যেও না।" : "Do not try to tick every box."}
+      </h2><p>
+        {
+          bn
+            ? "Current stage-এর ‘enough for now’ criteria meet করো, practical task শেষ করো, তারপর next stage। Resource list collect করা skill না।"
+            : "Meet the current stage’s ‘enough for now’ criteria, complete its practical task, then move forward. Collecting resource links is not a skill."
+        }
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .roadmap-list {
+    border-top: 1px solid var(--color-border-strong);
+  }
+  .roadmap-list article {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    padding: 1.7rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .roadmap-list article > span {
+    color: var(--color-warm);
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+  .roadmap-list h2 {
+    margin-bottom: 0.4rem;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+  }
+  .roadmap-list p {
+    max-width: 52rem;
+    color: var(--color-text-muted);
+  }
+  .roadmap-list a {
+    font-weight: 750;
+  }
+</style>

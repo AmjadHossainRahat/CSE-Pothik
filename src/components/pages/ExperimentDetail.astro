@@ -1,0 +1,222 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import ResourceList from "@/components/common/ResourceList.astro";
+import { careerPath, roadmapPath, withBase } from "@/config/site";
+import { careerById } from "@/data/careers";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { CareerExperiment, Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+  experiment: CareerExperiment;
+}
+const { locale, experiment } = Astro.props;
+const bn = locale === "bn";
+const career = careerById.get(experiment.careerId)!;
+---
+
+<BaseLayout
+  locale={locale}
+  title={`${t(career.title, locale)} ${bn ? "Career Experiment" : "Career Experiment"}`}
+  description={t(experiment.experienceGoals[0]!, locale)}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[
+      { label: bn ? "Career experiment" : "Try a Career", path: "/try/" },
+      { label: t(career.title, locale) },
+    ]}
+  />
+  <header class="page-hero container experiment-hero">
+    <div>
+      <p class="eyebrow">
+        {t(career.title, locale)} · {experiment.duration}
+      </p><h1>{t(experiment.title, locale)}</h1><p class="lede">
+        {t(experiment.experienceGoals[0]!, locale)}
+      </p><a
+        class="button"
+        href="#setup"
+        data-track-event="career_experiment_started"
+        data-track-param-career-id={career.id}
+        >{bn ? "Experiment শুরু" : "Start the experiment"}</a
+      >
+    </div><aside class="callout">
+      <p class="callout__label">
+        {bn ? "Before you continue" : "Before you continue"}
+      </p><p>
+        {
+          career.id === "cybersecurity"
+            ? bn
+              ? "শুধু explicitly authorized lab বা নিজের system-এ কাজ করবে। Real target test করা এই experiment-এর অংশ না—এবং legalও নাও হতে পারে।"
+              : "Work only in explicitly authorized labs or your own system. Testing real targets is not part of this experiment and may be illegal."
+            : bn
+              ? "Tutorial copy করে finish করা goal না। কোথায় আটকে গেলে, কী evidence দেখে fix করলে—সেটা notice করো।"
+              : "The goal is not tutorial completion. Notice where you get stuck and what evidence helps you move again."
+        }
+      </p>
+    </aside>
+  </header>
+  <section class="section section--tinted" id="setup">
+    <div class="container experiment-layout">
+      <div>
+        <p class="eyebrow">01 · {bn ? "Setup" : "Setup"}</p><h2>
+          {bn ? "যা দরকার" : "What you need"}
+        </h2><ul class="rule-list">
+          {experiment.prerequisites.map((item) => <li>{t(item, locale)}</li>)}
+        </ul><p class="muted">
+          {
+            bn
+              ? "Timebox শেষ হলে থামতে পারো। Incomplete result-ও useful evidence।"
+              : "You may stop when the timebox ends. An incomplete result is still useful evidence."
+          }
+        </p>
+      </div><aside>
+        <h3>{bn ? "Setup resources" : "Setup resources"}</h3><ResourceList
+          locale={locale}
+          resourceIds={experiment.resourceIds}
+          compact
+        />
+      </aside>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">02 · {bn ? "Task" : "Task"}</p><h2>
+        {bn ? "কাজের flow" : "The work sequence"}
+      </h2><ol class="task-steps">
+        {
+          experiment.steps.map((step, index) => (
+            <li>
+              <>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <p>{t(step, locale)}</p>
+              </>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+  <section class="section section--tinted">
+    <div class="container editorial-grid">
+      <div>
+        <p class="eyebrow">03 · {bn ? "Pay attention" : "Pay attention"}</p><h2>
+          {
+            bn
+              ? "Output-এর পাশাপাশি নিজের reaction দেখো"
+              : "Watch your reaction, not only the output"
+          }
+        </h2><ul class="rule-list">
+          {experiment.attention.map((item) => <li>{t(item, locale)}</li>)}
+        </ul>
+      </div><div class="callout callout--amber">
+        <p class="callout__label">{bn ? "Plot twist" : "Plot twist"}</p><p>
+          {
+            bn
+              ? "কঠিন লাগা মানেই career fit না—এটা না। প্রশ্ন হলো: কঠিন হওয়ার পরেও curiosity ফিরেছে কি?"
+              : "Difficulty does not mean the career is a bad fit. The useful question is whether curiosity returned after the difficulty."
+          }
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">04 · {bn ? "Reflect" : "Reflect"}</p><h2>
+        {bn ? "নিজেকে তিনটি honest question" : "Three honest questions"}
+      </h2><div class="reflection-grid">
+        {
+          experiment.reflectionPrompts.map((prompt, index) => (
+            <article>
+              <>
+                <span>0{index + 1}</span>
+                <p>{t(prompt, locale)}</p>
+              </>
+            </article>
+          ))
+        }
+      </div><p class="muted">
+        {
+          bn
+            ? "তোমার answer এই site save করে না। চাইলে notebook-এ লিখে রাখো।"
+            : "This site does not save your answers. Put them in your own notebook if useful."
+        }
+      </p>
+    </div>
+  </section>
+  <section class="section section--tinted">
+    <div class="container">
+      <p class="eyebrow">05 · {bn ? "Where next" : "Where to go next"}</p><h2>
+        {
+          bn
+            ? "Experiment ভালো বা খারাপ—দুটো result-ই useful।"
+            : "Enjoyed it or disliked it—both results are useful."
+        }
+      </h2><div class="next-actions">
+        <a class="button" href={withBase(roadmapPath(locale, career.slug))}
+          >{bn ? "এই career-এর roadmap" : "Prepare with the roadmap"}</a
+        ><a
+          class="button button--secondary"
+          href={withBase(careerPath(locale, career.slug))}
+          >{bn ? "Career overview-এ ফিরি" : "Return to career guide"}</a
+        ><a
+          class="button button--secondary"
+          href={withBase(locale === "bn" ? "/bn/try/" : "/try/")}
+          >{bn ? "অন্য experiment" : "Try another career"}</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .experiment-hero,
+  .experiment-layout {
+    display: grid;
+    gap: 2.5rem;
+  }
+  .task-steps {
+    margin: 2rem 0 0;
+    padding: 0;
+    border-top: 1px solid var(--color-border-strong);
+    list-style: none;
+  }
+  .task-steps li {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .task-steps span {
+    color: var(--color-warm);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+  .task-steps p {
+    margin: 0;
+  }
+  .reflection-grid {
+    display: grid;
+    gap: 1rem;
+    margin-block: 2rem;
+  }
+  .reflection-grid article {
+    padding: 1.3rem;
+    border-top: 3px solid var(--color-primary);
+    background: var(--color-surface);
+  }
+  .reflection-grid span {
+    color: var(--color-warm);
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+  @media (min-width: 48rem) {
+    .experiment-hero,
+    .experiment-layout {
+      grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.7fr);
+    }
+    .reflection-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

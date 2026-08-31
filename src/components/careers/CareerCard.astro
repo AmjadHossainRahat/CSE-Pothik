@@ -1,0 +1,43 @@
+---
+import { careerPath, withBase } from "@/config/site";
+import { t } from "@/lib/i18n";
+import type { Career, Locale } from "@/types/content";
+
+interface Props {
+  career: Career;
+  locale: Locale;
+}
+const { career, locale } = Astro.props;
+---
+
+<article class="card career-card">
+  <span class="tag">{locale === "en" ? "Career guide" : "Career guide"}</span>
+  <h3>
+    <a
+      class="card__link"
+      href={withBase(careerPath(locale, career.slug))}
+      data-track-event="next_step_clicked"
+      data-track-param-destination={`career/${career.id}`}
+      >{t(career.title, locale)}</a
+    >
+  </h3>
+  <p>{t(career.shortDescription, locale)}</p>
+  <span class="arrow" aria-hidden="true">↗</span>
+</article>
+
+<style>
+  .career-card {
+    min-height: 15rem;
+    padding-top: 2rem;
+  }
+  h3 {
+    margin-top: 1.6rem;
+  }
+  .arrow {
+    position: absolute;
+    inset-inline-end: 1.2rem;
+    inset-block-end: 1rem;
+    color: var(--color-primary);
+    font-size: 1.25rem;
+  }
+</style>

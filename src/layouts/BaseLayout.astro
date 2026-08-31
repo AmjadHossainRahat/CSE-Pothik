@@ -1,0 +1,257 @@
+---
+import Footer from "@/components/common/Footer.astro";
+import Header from "@/components/common/Header.astro";
+import {
+  equivalentPath,
+  localeInfo,
+  localePath,
+  siteConfig,
+  ui,
+  withBase,
+} from "@/config/site";
+import type { CareerId, Locale } from "@/types/content";
+import "@/styles/global.css";
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  imageAlt?: string;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  contentView?: { type: "career" | "roadmap"; careerId: CareerId };
+}
+
+const {
+  locale,
+  title,
+  description,
+  imageAlt,
+  noindex = false,
+  structuredData,
+  contentView,
+} = Astro.props;
+const localizedTitle =
+  locale === "bn" && !title.includes("বাংলা") ? `${title} — বাংলা` : title;
+const fullTitle = localizedTitle.includes(siteConfig.name)
+  ? localizedTitle
+  : `${localizedTitle} | ${siteConfig.name}`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const otherLocale: Locale = locale === "en" ? "bn" : "en";
+const equivalent = new URL(
+  withBase(equivalentPath(Astro.url.pathname, otherLocale)),
+  Astro.site,
+);
+const defaultEn = new URL(
+  withBase(equivalentPath(Astro.url.pathname, "en")),
+  Astro.site,
+);
+const socialImage = new URL(withBase(`/${siteConfig.socialImage}`), Astro.site);
+const headerPathname = noindex
+  ? withBase(localePath(locale, "/"))
+  : Astro.url.pathname;
+const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim();
+const baseStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteConfig.name,
+  url: new URL(withBase("/"), Astro.site).href,
+  description: siteConfig.description,
+  inLanguage: ["en", "bn"],
+  isAccessibleForFree: true,
+};
+---
+
+<!doctype html>
+<html
+  lang={localeInfo[locale].htmlLang}
+  dir={localeInfo[locale].direction}
+  data-theme="light"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#f8f9fc" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content={siteConfig.author} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {!noindex && <link rel="canonical" href={canonical} />}
+    {!noindex && <link rel="alternate" hreflang={locale} href={canonical} />}
+    {
+      !noindex && (
+        <link rel="alternate" hreflang={otherLocale} href={equivalent} />
+      )
+    }
+    {!noindex && <link rel="alternate" hreflang="x-default" href={defaultEn} />}
+    <link rel="icon" href={withBase("/favicon.svg")} type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:locale" content={locale === "bn" ? "bn_BD" : "en_US"} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta
+      property="og:image:alt"
+      content={imageAlt ?? `${siteConfig.name} — ${siteConfig.tagline}`}
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <script is:inline>
+      (() => {
+        try {
+          const value = localStorage.getItem("cse-compass-theme");
+          document.documentElement.dataset.theme =
+            value === "dark" ? "dark" : "light";
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+        document
+          .querySelector('meta[name="theme-color"]')
+          ?.setAttribute(
+            "content",
+            document.documentElement.dataset.theme === "dark"
+              ? "#061522"
+              : "#f8f9fc",
+          );
+      })();
+    </script>
+    {
+      gaId && (
+        <script
+          is:inline
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        />
+      )
+    }
+    {
+      gaId && (
+        <script
+          is:inline
+          set:html={`window.dataLayer=window.dataLayer||[];window.gtag=function(){window.dataLayer.push(arguments)};window.gtag("js",new Date());window.gtag("config",${JSON.stringify(gaId)},{anonymize_ip:true,allow_google_signals:false});`}
+        />
+      )
+    }
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(baseStructuredData)}
+    />
+    {
+      structuredData && (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={JSON.stringify(structuredData)}
+        />
+      )
+    }
+  </head>
+  <body
+    data-locale={locale}
+    data-content-view={contentView?.type}
+    data-career-id={contentView?.careerId}
+  >
+    <a class="skip-link" href="#main-content">{ui[locale].skip}</a>
+    <Header locale={locale} pathname={headerPathname} />
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    <script>
+      import {
+        track,
+        trackCareerViewed,
+        trackRoadmapViewed,
+        trackLanguageSwitch,
+        trackThemeSwitch,
+      } from "@/lib/analytics";
+      import { resolveTheme, themeStorageKey } from "@/lib/theme";
+
+      const root = document.documentElement;
+      const {
+        contentView: view,
+        careerId,
+        locale: pageLocale,
+      } = document.body.dataset;
+      if (careerId && view === "career")
+        trackCareerViewed(careerId, pageLocale ?? "en");
+      if (careerId && view === "roadmap") trackRoadmapViewed(careerId);
+      const themeButton = document.querySelector<HTMLButtonElement>(
+        "[data-theme-switch]",
+      );
+      const setThemeLabel = () => {
+        document
+          .querySelector('meta[name="theme-color"]')
+          ?.setAttribute(
+            "content",
+            root.dataset.theme === "dark" ? "#061522" : "#f8f9fc",
+          );
+        const label =
+          themeButton?.querySelector<HTMLElement>("[data-theme-label]");
+        if (!label) return;
+        label.textContent = root.dataset.theme === "dark" ? "Light" : "Dark";
+        themeButton?.setAttribute(
+          "aria-pressed",
+          String(root.dataset.theme === "dark"),
+        );
+      };
+      setThemeLabel();
+      themeButton?.addEventListener("click", () => {
+        const theme = root.dataset.theme === "dark" ? "light" : "dark";
+        root.dataset.theme = theme;
+        try {
+          localStorage.setItem(themeStorageKey, resolveTheme(theme));
+        } catch {
+          /* preference storage is optional */
+        }
+        setThemeLabel();
+        trackThemeSwitch(theme);
+      });
+
+      document
+        .querySelector<HTMLElement>("[data-language-switch]")
+        ?.addEventListener("click", (event) => {
+          const target = event.currentTarget as HTMLElement;
+          trackLanguageSwitch(
+            target.dataset.from ?? "unknown",
+            target.dataset.to ?? "unknown",
+          );
+          try {
+            localStorage.setItem(
+              "cse-compass-language",
+              target.dataset.to ?? "en",
+            );
+          } catch {
+            /* preference storage is optional */
+          }
+        });
+
+      document.addEventListener("click", (event) => {
+        const element = (event.target as Element).closest<HTMLElement>(
+          "[data-track-event]",
+        );
+        if (!element) return;
+        const eventName = element.dataset.trackEvent;
+        if (!eventName) return;
+        const params = Object.fromEntries(
+          Object.entries(element.dataset)
+            .filter(([key]) => key.startsWith("trackParam"))
+            .map(([key, value]) => [
+              key
+                .replace("trackParam", "")
+                .replace(/^[A-Z]/, (letter) => letter.toLowerCase())
+                .replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`),
+              value ?? "",
+            ]),
+        );
+        track(eventName as Parameters<typeof track>[0], params);
+      });
+    </script>
+  </body>
+</html>

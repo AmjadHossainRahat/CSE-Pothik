@@ -1,0 +1,250 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import ResourceList from "@/components/common/ResourceList.astro";
+import { localePath, withBase } from "@/config/site";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+const levels = bn
+  ? [
+      [
+        "Level 1 · Computational Foundation",
+        "প্রায় সব CSE student-এর জন্য। Array, string, recursion, sorting, search, complexity আর regular problem solving।",
+      ],
+      [
+        "Level 2 · Algorithmic Competence",
+        "Stronger DSA, graph, dynamic programming আর interview/relevant career-এর জন্য deliberate practice।",
+      ],
+      [
+        "Level 3 · Competitive Track",
+        "যারা competition সত্যি enjoy করে বা ICPC-level practice চায়। সবার default destination নয়।",
+      ],
+    ]
+  : [
+      [
+        "Level 1 · Computational Foundation",
+        "Useful for nearly every CSE student: arrays, strings, recursion, sorting, search, complexity and regular problem solving.",
+      ],
+      [
+        "Level 2 · Algorithmic Competence",
+        "Stronger DSA, graphs, dynamic programming and deliberate practice for relevant careers and interviews.",
+      ],
+      [
+        "Level 3 · Competitive Track",
+        "For students who genuinely enjoy competition or want ICPC-level practice. It is not everyone’s default destination.",
+      ],
+    ];
+---
+
+<BaseLayout
+  locale={locale}
+  title={bn
+    ? "Competitive Programming / ACM / ICPC Guide"
+    : "Competitive Programming, ACM & ICPC Guide"}
+  description={bn
+    ? "Competitive programming-কে computational thinking-এর gym হিসেবে ব্যবহার করো—পুরো career বা সবার জন্য same track হিসেবে নয়।"
+    : "Use competitive programming as a gym for computational thinking—not the whole sport or the same track for every CSE student."}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[{ label: bn ? "Guidance" : "Guidance" }, { label: "ACM / ICPC" }]}
+  />
+  <header class="page-hero container">
+    <p class="eyebrow">ACM · ICPC · Problem solving</p><h1>
+      {
+        bn
+          ? "Computational thinking-এর gym। পুরো sport না।"
+          : "A gym for computational thinking. Not the whole sport."
+      }
+    </h1><p class="lede">
+      {
+        bn
+          ? "Competitive programming decomposition, algorithm, complexity, edge case আর precision build করে। কিন্তু real software, collaboration, deployment, accessibility বা user problem নিজে থেকে শেখায় না।"
+          : "Competitive programming builds decomposition, algorithms, complexity, edge-case analysis and precision. It does not automatically teach real software, collaboration, deployment, accessibility or user problems."
+      }
+    </p>
+  </header>
+  <section class="section section--tinted">
+    <div class="container editorial-grid">
+      <div>
+        <p class="eyebrow">{bn ? "যা develop করে" : "What it develops"}</p><h2>
+          {bn ? "Reasoning under clear rules" : "Reasoning under clear rules"}
+        </h2><ul class="rule-list">
+          {
+            (bn
+              ? [
+                  "Problem decomposition",
+                  "Data structure ও algorithm",
+                  "Complexity reasoning",
+                  "Mathematical thinking",
+                  "Edge-case analysis",
+                  "Debugging ও precision",
+                ]
+              : [
+                  "Problem decomposition",
+                  "Data structures and algorithms",
+                  "Complexity reasoning",
+                  "Mathematical thinking",
+                  "Edge-case analysis",
+                  "Debugging and precision",
+                ]
+            ).map((item) => <li>{item}</li>)
+          }
+        </ul>
+      </div><div class="callout callout--warm">
+        <p class="callout__label">{bn ? "Reality check" : "Reality check"}</p><p
+        >
+          {
+            bn
+              ? "Online judge-এ accepted solution production-ready software-এর certificate না। Test pass করেছে; maintainability, security, usability আর team fit এখনও open question।"
+              : "An accepted online-judge solution is not a certificate of production-ready engineering. It passed tests; maintainability, security, usability and team fit remain open questions."
+          }
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">
+            {bn ? "Three levels" : "Three useful levels"}
+          </p><h2>
+            {bn ? "তোমার goal অনুযায়ী depth" : "Choose depth by goal"}
+          </h2>
+        </div><p class="lede">
+          {
+            bn
+              ? "Advanced competitor না হওয়া failure নয়। Level 1 solid করে project-এর সঙ্গে combine করা অনেক career-এর জন্য excellent route।"
+              : "Not becoming an advanced competitor is not failure. A strong Level 1 combined with projects is excellent for many careers."
+          }
+        </p>
+      </div><div class="level-list">
+        {
+          levels.map(([title, copy], index) => (
+            <article>
+              <>
+                <span>0{index + 1}</span>
+                <h3>{title}</h3>
+                <p>{copy}</p>
+              </>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="section section--tinted">
+    <div class="container editorial-grid">
+      <div>
+        <p class="eyebrow">{bn ? "AI-era practice" : "AI-era practice"}</p><h2>
+          {
+            bn
+              ? "AI-free solve, AI-assisted review"
+              : "AI-free solve, AI-assisted review"
+          }
+        </h2>
+      </div><div>
+        <article class="mode">
+          <h3>
+            {bn ? "AI-Free Problem Solving" : "AI-Free Problem Solving"}
+          </h3><p>
+            {
+              bn
+                ? "Timer না থাকলেও চলে। আগে নিজে model, invariant, complexity আর edge case বের করো। Foundation reasoning borrow কোরো না।"
+                : "No timer required. First derive the model, invariant, complexity and edge cases yourself. Do not borrow foundational reasoning."
+            }
+          </p>
+        </article><article class="mode">
+          <h3>{bn ? "AI-Assisted Review" : "AI-Assisted Review"}</h3><p>
+            {
+              bn
+                ? "AI-generated solution-এ bug খোঁজো, complexity problem identify করো, counterexample বানাও, alternative compare করো। Explain না পারলে solution তোমার না।"
+                : "Find a bug in an AI-generated solution, identify the complexity problem, construct a counterexample and compare alternatives. If you cannot explain it, it is not yet your solution."
+            }
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container editorial-grid">
+      <div>
+        <p class="eyebrow">{bn ? "Balanced week" : "A balanced week"}</p><h2>
+          {
+            bn
+              ? "Problem solve + কিছু real build"
+              : "Solve problems and build something real"
+          }
+        </h2><p>
+          {
+            bn
+              ? "Example: তিনদিন ৪৫ মিনিট foundation problem, দুদিন project, একদিন review/refactor। Competitive track হলে volume বাড়াও—project পুরো বাদ দিও না।"
+              : "Example: three 45-minute foundation sessions, two project sessions and one review/refactor session. Competitive-track students can increase volume without deleting real engineering practice."
+          }
+        </p>
+      </div><aside>
+        <h3>{bn ? "Selected resources" : "Selected resources"}</h3><ResourceList
+          locale={locale}
+          resourceIds={["algorithms-princeton", "cp-algorithms"]}
+        />
+      </aside>
+    </div>
+  </section>
+  <section class="section section--tinted">
+    <div class="container">
+      <p class="eyebrow">{bn ? "Next step" : "Next step"}</p><h2>
+        {
+          bn
+            ? "তোমার level declare করে ৬ সপ্তাহ test করো।"
+            : "Declare your level and test it for six weeks."
+        }
+      </h2><div class="next-actions">
+        <a
+          class="button"
+          href={withBase(localePath(locale, "/guidance/new-cse-student/"))}
+          >{bn ? "Fresher foundation plan" : "Fresher foundation plan"}</a
+        ><a
+          class="button button--secondary"
+          href={withBase(
+            localePath(locale, "/guidance/software-engineering-foundations/"),
+          )}
+          >{
+            bn ? "Engineering foundation" : "Software engineering foundations"
+          }</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .level-list {
+    display: grid;
+    border-top: 1px solid var(--color-border-strong);
+  }
+  .level-list article {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 0.3rem 1rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .level-list article > span {
+    grid-row: 1 / 3;
+    color: var(--color-warm);
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+  .level-list p {
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+  .mode {
+    padding: 1.2rem 0;
+    border-top: 2px solid var(--color-primary);
+  }
+</style>

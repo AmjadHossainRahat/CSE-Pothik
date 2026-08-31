@@ -1,0 +1,223 @@
+---
+import Logo from "@/components/common/Logo.astro";
+import { equivalentPath, localePath, ui, withBase } from "@/config/site";
+import type { Locale } from "@/types/content";
+
+interface Props {
+  locale: Locale;
+  pathname: string;
+}
+const { locale, pathname } = Astro.props;
+const copy = ui[locale];
+const otherLocale: Locale = locale === "en" ? "bn" : "en";
+const links = [
+  [copy.nav.careers, "/careers/"],
+  [copy.nav.compare, "/compare/"],
+  [copy.nav.try, "/try/"],
+  [copy.nav.roadmaps, "/roadmaps/"],
+  [copy.nav.ai, "/ai/"],
+] as const;
+---
+
+<header class="site-header">
+  <div class="header-inner container">
+    <a
+      class="brand"
+      href={withBase(localePath(locale, "/"))}
+      aria-label={`CSE Compass — ${locale === "en" ? "Home" : "হোম"}`}
+    >
+      <Logo compact />
+    </a>
+
+    <details class="nav-details" open>
+      <summary>{copy.menu}</summary>
+      <nav aria-label={locale === "en" ? "Primary navigation" : "মূল নেভিগেশন"}>
+        <ul>
+          {
+            links.map(([label, path]) => (
+              <li>
+                <a href={withBase(localePath(locale, path))}>{label}</a>
+              </li>
+            ))
+          }
+          <li>
+            <a
+              class="lost-link"
+              href={withBase(localePath(locale, "/im-lost/"))}
+              >{copy.nav.lost}</a
+            >
+          </li>
+        </ul>
+      </nav>
+    </details>
+
+    <div class="header-tools">
+      <a
+        class="language-switch"
+        href={withBase(equivalentPath(pathname, otherLocale))}
+        lang={otherLocale}
+        hreflang={otherLocale}
+        aria-label={copy.language}
+        data-language-switch
+        data-from={locale}
+        data-to={otherLocale}>{otherLocale === "bn" ? "বাংলা" : "EN"}</a
+      >
+      <button
+        class="theme-switch"
+        type="button"
+        data-theme-switch
+        aria-label={copy.theme}
+      >
+        <span aria-hidden="true" data-theme-icon>◐</span>
+        <span class="theme-label" data-theme-label>{copy.dark}</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const navigation = document.querySelector<HTMLDetailsElement>(".nav-details");
+  const desktopNavigation = window.matchMedia("(min-width: 68rem)");
+  const syncNavigation = () => {
+    if (navigation) navigation.open = desktopNavigation.matches;
+  };
+  syncNavigation();
+  desktopNavigation.addEventListener("change", syncNavigation);
+  navigation?.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !desktopNavigation.matches) {
+      navigation.open = false;
+      navigation.querySelector("summary")?.focus();
+    }
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    z-index: 20;
+    top: 0;
+    border-bottom: 1px solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg) 94%, transparent);
+    backdrop-filter: blur(12px);
+  }
+  .header-inner {
+    display: flex;
+    min-height: 4.5rem;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .brand {
+    margin-inline-end: auto;
+    text-decoration: none;
+  }
+  .nav-details {
+    order: 3;
+  }
+  .nav-details summary {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    padding: 0.5rem 0.7rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    font-weight: 750;
+    list-style: none;
+  }
+  .nav-details summary::-webkit-details-marker {
+    display: none;
+  }
+  .nav-details nav {
+    position: absolute;
+    inset-block-start: calc(100% + 1px);
+    inset-inline: 0;
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-surface-raised);
+    box-shadow: var(--shadow-md);
+  }
+  .nav-details ul {
+    display: grid;
+    gap: 0.2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .nav-details li {
+    margin: 0;
+  }
+  .nav-details a {
+    display: flex;
+    min-height: 2.8rem;
+    align-items: center;
+    padding: 0.45rem 0.65rem;
+    color: var(--color-text);
+    font-weight: 680;
+    text-decoration: none;
+  }
+  .nav-details a:hover {
+    background: var(--color-code);
+  }
+  .lost-link {
+    color: var(--color-warm) !important;
+  }
+  .header-tools {
+    display: flex;
+    gap: 0.35rem;
+    align-items: center;
+  }
+  .language-switch,
+  .theme-switch {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.65rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-text);
+    font-weight: 750;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .theme-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  @media (min-width: 68rem) {
+    .header-inner {
+      gap: 1rem;
+    }
+    .nav-details {
+      display: contents;
+    }
+    .nav-details summary {
+      display: none;
+    }
+    .nav-details nav {
+      position: static;
+      order: 2;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+    .nav-details ul {
+      display: flex;
+      align-items: center;
+      gap: 0.15rem;
+    }
+    .nav-details a {
+      min-height: 2.7rem;
+      padding-inline: 0.55rem;
+      font-size: 0.9rem;
+    }
+    .header-tools {
+      order: 3;
+    }
+  }
+</style>

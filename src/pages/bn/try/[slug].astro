@@ -1,0 +1,13 @@
+---
+import ExperimentDetail from "@/components/pages/ExperimentDetail.astro";
+import { experiments } from "@/data/experiments";
+export function getStaticPaths() {
+  return experiments.map((experiment) => ({
+    params: { slug: experiment.id },
+    props: { experiment },
+  }));
+}
+const { experiment } = Astro.props;
+---
+
+<ExperimentDetail experiment={experiment} locale="bn" />

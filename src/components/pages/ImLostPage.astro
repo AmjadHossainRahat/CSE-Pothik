@@ -1,0 +1,181 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import { withBase } from "@/config/site";
+import { lostChoices } from "@/data/situations";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+---
+
+<BaseLayout
+  locale={locale}
+  title={bn
+    ? "আমি দিশেহারা — CSE Next Step"
+    : "I’m Lost — Find Your Next CSE Step"}
+  description={bn
+    ? "আজ কোথায় আটকে আছ বলো; deterministic, private CSE guidance path তোমাকে useful next step-এ নেবে।"
+    : "Choose where you are stuck today and follow a deterministic, private CSE guidance path to a useful next step."}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[{ label: bn ? "আমি দিশেহারা" : "I’m Lost" }]}
+  />
+  <header class="page-hero container">
+    <p class="eyebrow">
+      {
+        bn
+          ? "No account · No score · No shame"
+          : "No account · No score · No shame"
+      }
+    </p><h1>
+      {
+        bn
+          ? "Confused? আজকের problem-টা বেছে নাও।"
+          : "Confused? Choose today’s problem."
+      }
+    </h1><p class="lede">
+      {
+        bn
+          ? "এটা personality test বা AI prediction নয়। তুমি কী নিয়ে stuck সেটা বললে site একটা relevant route দেখাবে। কোনো answer save হবে না।"
+          : "This is not a personality test or AI prediction. Tell the site where you are stuck and it will reveal a relevant route. No answer is saved."
+      }
+    </p>
+  </header>
+  <section class="section section--tinted">
+    <div class="container lost-shell">
+      <div>
+        <h2>
+          {bn ? "কোনটা এখন সবচেয়ে কাছের?" : "Which feels closest right now?"}
+        </h2><div
+          class="choice-grid"
+          role="group"
+          aria-label={bn ? "Current problem" : "Current problem"}
+        >
+          {
+            lostChoices.map((choice) => (
+              <button
+                class="choice"
+                type="button"
+                data-lost-choice={choice.id}
+                data-response={t(choice.response, locale)}
+                data-destination={withBase(choice.destination[locale])}
+                aria-pressed="false"
+              >
+                {t(choice.prompt, locale)}
+              </button>
+            ))
+          }
+        </div>
+      </div><div class="reveal-panel" data-lost-result hidden tabindex="-1">
+        <p class="eyebrow">
+          {bn ? "তোমার next meaningful step" : "Your next meaningful step"}
+        </p><h2 data-result-title>
+          {bn ? "একটা choice বেছে নাও" : "Choose one situation"}
+        </h2><p data-result-copy></p><a class="button" data-result-link href="#"
+          >{bn ? "এই route-এ যাই" : "Take this route"}</a
+        ><button class="reset" type="button" data-lost-reset
+          >{bn ? "অন্য answer" : "Choose another answer"}</button
+        >
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container editorial-grid">
+      <div>
+        <p class="eyebrow">
+          {bn ? "If you feel behind" : "If you feel behind"}
+        </p><h2>
+          {
+            bn
+              ? "তিন বছরের gap তিন সপ্তাহে যাবে না।"
+              : "You cannot recover three years in three weeks."
+          }
+        </h2>
+      </div><div>
+        <p class="lede">
+          {
+            bn
+              ? "কিন্তু পরের তিন মাস নষ্ট হওয়া আজই বন্ধ করতে পারো। Narrow target, daily foundation, one project, feedback—এই boring plan-টাই কাজ করে।"
+              : "But you can stop losing the next three months. A narrow target, daily foundations, one project and feedback—the boring plan is the useful one."
+          }
+        </p><a
+          class="text-link"
+          href={withBase(
+            lostChoices.find((choice) => choice.id === "behind")!.destination[
+              locale
+            ],
+          )}>{bn ? "Recovery route খোলো →" : "Open the recovery route →"}</a
+        >
+      </div>
+    </div>
+  </section>
+  <script>
+    import { trackImLostUsed } from "@/lib/analytics";
+    const choices = [
+      ...document.querySelectorAll<HTMLButtonElement>("[data-lost-choice]"),
+    ];
+    const panel = document.querySelector<HTMLElement>("[data-lost-result]");
+    const copy = panel?.querySelector<HTMLElement>("[data-result-copy]");
+    const link = panel?.querySelector<HTMLAnchorElement>("[data-result-link]");
+    choices.forEach((choice) =>
+      choice.addEventListener("click", () => {
+        choices.forEach((item) =>
+          item.setAttribute("aria-pressed", String(item === choice)),
+        );
+        if (copy) copy.textContent = choice.dataset.response ?? "";
+        if (link) link.href = choice.dataset.destination ?? "#";
+        if (panel) {
+          panel.hidden = false;
+          panel.focus();
+        }
+        const url = new URL(window.location.href);
+        url.hash = choice.dataset.lostChoice ?? "";
+        history.replaceState({}, "", url);
+        trackImLostUsed(choice.dataset.lostChoice ?? "unknown");
+      }),
+    );
+    document
+      .querySelector<HTMLButtonElement>("[data-lost-reset]")
+      ?.addEventListener("click", () => {
+        if (panel) panel.hidden = true;
+        choices.forEach((item) => item.setAttribute("aria-pressed", "false"));
+        choices[0]?.focus();
+      });
+    const initial = window.location.hash.slice(1);
+    if (initial)
+      choices.find((item) => item.dataset.lostChoice === initial)?.click();
+  </script>
+</BaseLayout>
+<style>
+  .lost-shell {
+    display: grid;
+    gap: 2rem;
+  }
+  .reveal-panel {
+    align-self: start;
+  }
+  .reset {
+    display: block;
+    min-height: 2.75rem;
+    margin-top: 1rem;
+    border: 0;
+    background: transparent;
+    color: var(--color-primary-strong);
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  @media (min-width: 56rem) {
+    .lost-shell {
+      grid-template-columns: minmax(0, 1.2fr) minmax(20rem, 0.8fr);
+    }
+    .choice-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

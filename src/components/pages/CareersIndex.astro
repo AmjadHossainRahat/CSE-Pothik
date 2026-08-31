@@ -1,0 +1,88 @@
+---
+import CareerCard from "@/components/careers/CareerCard.astro";
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import { careerFamilies, careerById } from "@/data/careers";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+---
+
+<BaseLayout
+  locale={locale}
+  title={bn ? "CSE Career Landscape" : "Explore CSE Careers"}
+  description={bn
+    ? "আটটি broad work family দিয়ে CSE career explore করো; real কাজ, drawback, roadmap, experiment আর AI exposure দেখো।"
+    : "Explore CSE careers through eight broad work families, with realistic work, drawbacks, roadmaps, experiments and AI task exposure."}
+>
+  <Breadcrumbs locale={locale} items={[{ label: bn ? "Career" : "Careers" }]} />
+  <header class="page-hero container">
+    <p class="eyebrow">{bn ? "Career landscape" : "Career landscape"}</p>
+    <h1>
+      {
+        bn
+          ? "Title কম, real work বেশি।"
+          : "Less job-title noise. More real work."
+      }
+    </h1>
+    <p class="lede">
+      {
+        bn
+          ? "কোন career ‘best’—এই page তার ranking নয়। কোন ধরনের problem, pressure আর responsibility তোমার curiosity ধরে রাখে—সেটা explore করার জায়গা।"
+          : "This is not a ranking of the ‘best’ career. Explore which problems, pressures and responsibilities can hold your curiosity."
+      }
+    </p>
+  </header>
+  {
+    careerFamilies.map((family, index) => (
+      <section
+        class:list={["section", { "section--tinted": index % 2 === 0 }]}
+        id={family.id}
+      >
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <>
+                <p class="eyebrow">
+                  {String(index + 1).padStart(2, "0")} ·{" "}
+                  {t(family.title, locale)}
+                </p>
+                <h2>{t(family.title, locale)}</h2>
+              </>
+            </div>
+            <p class="lede">{t(family.description, locale)}</p>
+          </div>
+          <div class="card-grid">
+            {family.careerIds.map((id) => (
+              <CareerCard career={careerById.get(id)!} locale={locale} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+  <section class="section">
+    <div class="container callout callout--warm">
+      <p class="callout__label">
+        {bn ? "Try this instead" : "Try this instead"}
+      </p><h2>
+        {
+          bn
+            ? "দুটির মধ্যে stuck? দুটোই ছোট করে try করো।"
+            : "Stuck between two paths? Try both in miniature."
+        }
+      </h2><p>
+        {
+          bn
+            ? "Comparison তোমাকে language দেবে। Experiment evidence দেবে। কোনো quiz তোমাকে final identity দেবে না।"
+            : "Comparison gives you language. Experiments give you evidence. No quiz gives you a final identity."
+        }
+      </p>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+import { localePath, withBase } from "@/config/site";
+import type { Locale } from "@/types/content";
+
+interface Crumb {
+  label: string;
+  path?: string;
+}
+interface Props {
+  locale: Locale;
+  items: Crumb[];
+}
+const { locale, items } = Astro.props;
+---
+
+<nav
+  class="breadcrumb container"
+  aria-label={locale === "en" ? "Breadcrumb" : "পাতার অবস্থান"}
+>
+  <ol>
+    <li>
+      <a href={withBase(localePath(locale, "/"))}
+        >{locale === "en" ? "Home" : "হোম"}</a
+      >
+    </li>
+    {
+      items.map((item) => (
+        <li>
+          {item.path ? (
+            <a href={withBase(localePath(locale, item.path))}>{item.label}</a>
+          ) : (
+            <span aria-current="page">{item.label}</span>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</nav>

@@ -1,0 +1,123 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import { experimentPath, withBase } from "@/config/site";
+import { careerById } from "@/data/careers";
+import { experiments } from "@/data/experiments";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+---
+
+<BaseLayout
+  locale={locale}
+  title={bn
+    ? "Career Experiment — Try Before You Choose"
+    : "Career Experiments — Try Before You Choose"}
+  description={bn
+    ? "Safe, beginner-friendly, time-bounded CSE career experiment করে real কাজের ছোট taste নাও।"
+    : "Safe, beginner-friendly, time-bounded CSE career experiments that let you feel a small version of the real work."}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[{ label: bn ? "Career experiment" : "Try a Career" }]}
+  />
+  <header class="page-hero container">
+    <p class="eyebrow">
+      {bn ? "Try before you choose" : "Try before you choose"}
+    </p><h1>
+      {
+        bn
+          ? "Career title পছন্দের আগে কাজটা try করো।"
+          : "Try the work before you fall for the title."
+      }
+    </h1><p class="lede">
+      {
+        bn
+          ? "এগুলো course না, assessment-ও না। ৬০–১২০ মিনিটের focused experience—কোন problem আবার করতে ইচ্ছে হয় সেটা notice করার জন্য।"
+          : "These are not courses or assessments. They are focused 60–120 minute experiences for noticing which problems you want to revisit."
+      }
+    </p>
+  </header>
+  <section class="section section--tinted">
+    <div class="container experiment-list">
+      {
+        experiments.map((experiment, index) => {
+          const career = careerById.get(experiment.careerId)!;
+          return (
+            <article>
+              <>
+                <span class="index">{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <>
+                    <p class="tag">{experiment.duration}</p>
+                    <h2>{t(experiment.title, locale)}</h2>
+                    <p>
+                      <strong>{t(career.title, locale)}</strong> ·{" "}
+                      {t(experiment.experienceGoals[0]!, locale)}
+                    </p>
+                    <a
+                      href={withBase(experimentPath(locale, career.slug))}
+                      data-track-event="career_experiment_started"
+                      data-track-param-career-id={career.id}
+                    >
+                      {bn ? "Experiment খোলো" : "Open experiment"}{" "}
+                      <span aria-hidden="true">→</span>
+                    </a>
+                  </>
+                </div>
+              </>
+            </article>
+          );
+        })
+      }
+    </div>
+  </section>
+  <section class="section">
+    <div class="container callout callout--warm">
+      <p class="callout__label">
+        {bn ? "Reflection rule" : "Reflection rule"}
+      </p><h2>
+        {
+          bn
+            ? "Finish করা success না; কিছু honest notice করা success।"
+            : "Finishing is not the success. Noticing something honest is."
+        }
+      </h2><p>
+        {
+          bn
+            ? "কোন অংশে time দ্রুত গেছে? কোনটা drain করেছে? আরও পাঁচ ঘণ্টা দিতে চাইবে? উত্তর save হবে না—নিজের জন্য লিখে রাখো।"
+            : "Where did time move quickly? What drained you? Would you spend five more hours here? Nothing is saved; write the answer for yourself."
+        }
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .experiment-list {
+    border-top: 1px solid var(--color-border-strong);
+  }
+  .experiment-list article {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+    padding: 1.8rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .index {
+    color: var(--color-warm);
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+  .experiment-list h2 {
+    margin: 1rem 0 0.5rem;
+    font-size: clamp(1.4rem, 3vw, 2.2rem);
+  }
+  .experiment-list a {
+    font-weight: 750;
+  }
+</style>

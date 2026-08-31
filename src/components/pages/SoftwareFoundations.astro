@@ -1,0 +1,328 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import ResourceList from "@/components/common/ResourceList.astro";
+import { localePath, withBase } from "@/config/site";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+const topics = bn
+  ? [
+      [
+        "Readable Code",
+        "নাম, ছোট coherent unit আর obvious flow team-কে change করতে সাহায্য করে।",
+        "দুই-তিনটি ছোট program বানানোর পর থেকেই।",
+        "নিজের project-এর confusing function rename/split করো।",
+        "‘Clean’ করতে গিয়ে clever abstraction বানিও না।",
+      ],
+      [
+        "Code Smells",
+        "Smell bug না; change কঠিন হওয়ার signal।",
+        "একই pain বারবার দেখলে।",
+        "Duplicate logic বা long parameter list খুঁজে cost লিখো।",
+        "Smell catalogue মুখস্থ করে প্রতিটি code-কে অপরাধী বানিও না।",
+      ],
+      [
+        "Refactoring",
+        "Behavior না বদলে design improve করার disciplined পদ্ধতি।",
+        "Testable working code হওয়ার পরে।",
+        "Characterization test দিয়ে একটি function simplify করো।",
+        "Broken behavior আর architecture একসঙ্গে rewrite কোরো না।",
+      ],
+      [
+        "SOLID",
+        "Dependency আর responsibility নিয়ে discussion-এর vocabulary।",
+        "Small application build করে change pain দেখার পরে।",
+        "একটি class-এর responsibility split justified কি না explain করো।",
+        "প্রতিটি letter-এর জন্য interface বানিও না।",
+      ],
+      [
+        "Design Principles",
+        "Cohesion, coupling, information hiding আর dependency direction change cost কমায়।",
+        "Multiple module-এর project-এ।",
+        "একটি dependency arrow উল্টে testability improve করো।",
+        "Diagram সুন্দর হলেই design ভালো ধরে নিও না।",
+      ],
+      [
+        "Design Patterns",
+        "Recurring design pressure-এর shared vocabulary।",
+        "Problem firsthand দেখার পরে।",
+        "Strategy বা Adapter দিয়ে existing pain solve করে alternative compare করো।",
+        "২৩টি GoF pattern মুখস্থ করে breakfast-এ Factory দেখো না।",
+      ],
+      [
+        "Testing & Testability",
+        "Change confidence আর design feedback দেয়।",
+        "Business rule বা repeated regression শুরু হলেই।",
+        "Happy path, edge case আর failure behavior-এর test দাও।",
+        "Coverage percentage-কে quality score বানিও না।",
+      ],
+      [
+        "Architectural Boundaries",
+        "Policy-কে framework, UI আর external service থেকে আলাদা রাখে।",
+        "Project-এর change reason আলাদা হতে শুরু করলে।",
+        "Core rule-কে I/O ছাড়া testable module-এ নাও।",
+        "Tiny CRUD app-এ enterprise clean architecture cosplay কোরো না।",
+      ],
+    ]
+  : [
+      [
+        "Readable Code",
+        "Names, coherent units and obvious flow help a team change software safely.",
+        "Start after building two or three small programs.",
+        "Rename and split one confusing function in your project.",
+        "Do not create clever abstractions in the name of ‘clean.’",
+      ],
+      [
+        "Code Smells",
+        "A smell is not a bug; it is a signal that change may be getting expensive.",
+        "Learn when the same pain repeats.",
+        "Find duplicate logic or a long parameter list and describe its cost.",
+        "Do not memorize a smell catalogue and put every line on trial.",
+      ],
+      [
+        "Refactoring",
+        "A disciplined way to improve design without changing behavior.",
+        "After the code works and can be protected by tests.",
+        "Add a characterization test, then simplify one function.",
+        "Do not rewrite broken behavior and architecture at the same time.",
+      ],
+      [
+        "SOLID",
+        "Vocabulary for discussing dependencies and responsibilities.",
+        "After building a small application and feeling change pain.",
+        "Explain whether splitting one responsibility improves a real change.",
+        "Do not create an interface for every letter and call it architecture.",
+      ],
+      [
+        "Design Principles",
+        "Cohesion, coupling, information hiding and dependency direction reduce change cost.",
+        "When projects have multiple modules and change reasons.",
+        "Reverse one dependency arrow to improve testability.",
+        "A beautiful diagram is not evidence of a good design.",
+      ],
+      [
+        "Design Patterns",
+        "Shared vocabulary for recurring design pressures.",
+        "After meeting the problem firsthand.",
+        "Use Strategy or Adapter on a real pain and compare an alternative.",
+        "Do not memorize all 23 GoF patterns and see Factory in your breakfast.",
+      ],
+      [
+        "Testing & Testability",
+        "Tests create change confidence and expose design friction.",
+        "As soon as business rules or regressions appear.",
+        "Test a happy path, edge case and failure behavior.",
+        "Do not turn coverage percentage into a quality score.",
+      ],
+      [
+        "Architectural Boundaries",
+        "Boundaries separate policy from UI, frameworks and external services.",
+        "When parts of a project change for different reasons.",
+        "Move one core rule into an I/O-free, testable module.",
+        "Do not perform enterprise architecture cosplay in a tiny CRUD app.",
+      ],
+    ];
+---
+
+<BaseLayout
+  locale={locale}
+  title={bn
+    ? "Software Engineering Foundation"
+    : "Software Engineering Foundations"}
+  description={bn
+    ? "Readable code, code smell, refactoring, SOLID, design principle, pattern, testing আর architectural boundary—কখন, কেন, কতটুকু।"
+    : "Mentor-level guidance on readable code, code smells, refactoring, SOLID, design principles, patterns, testing and architectural boundaries."}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[
+      { label: bn ? "Guidance" : "Guidance" },
+      {
+        label: bn
+          ? "Software engineering foundation"
+          : "Software engineering foundations",
+      },
+    ]}
+  />
+  <header class="page-hero container">
+    <p class="eyebrow">{bn ? "Design literacy" : "Design literacy"}</p><h1>
+      {
+        bn
+          ? "Problem দেখার আগে pattern worship কোরো না।"
+          : "Experience the design problem before worshipping the pattern."
+      }
+    </h1><p class="lede">
+      {
+        bn
+          ? "এই page tutorial library না। প্রতিটি concept কেন লাগে, কখন শেখা উচিত, এখন কতটা depth দরকার আর ছোট practice কী—সেটা বলে।"
+          : "This is not a tutorial library. It explains why each idea matters, when to learn it, how deep to go now and what small practice makes it real."
+      }
+    </p>
+  </header>
+  <section class="section section--tinted">
+    <div class="container callout callout--warm">
+      <p class="callout__label">
+        {bn ? "Before you continue" : "Before you continue"}
+      </p><h2>
+        {
+          bn
+            ? "আগে software বানাও। তারপর design pain-এর নাম শিখো।"
+            : "Build software first. Then learn the names of its design pain."
+        }
+      </h2><p>
+        {
+          bn
+            ? "Foundation-first মানে design ignore করা না। Real change, bug আর test friction দেখার পরে concept-এর context তৈরি হয়।"
+            : "Foundation-first does not mean ignoring design. Real changes, bugs and test friction create the context that makes the concepts useful."
+        }
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container foundation-list">
+      {
+        topics.map(([name, why, when, practice, avoid], index) => (
+          <article
+            id={String(name)
+              .toLowerCase()
+              .replaceAll(/[^a-z]+/g, "-")}
+          >
+            <>
+              <div class="topic-title">
+                <>
+                  <span>{String(index + 1).padStart(2, "0")}</span>
+                  <h2>{name}</h2>
+                </>
+              </div>
+              <dl>
+                <>
+                  <div>
+                    <>
+                      <dt>{bn ? "কেন matters" : "Why it matters"}</dt>
+                      <dd>{why}</dd>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <dt>{bn ? "কখন শিখবে" : "When to learn it"}</dt>
+                      <dd>{when}</dd>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <dt>{bn ? "এখন কতটা" : "Enough for now"}</dt>
+                      <dd>
+                        {bn
+                          ? "Problem recognize, vocabulary explain আর একটি small project-এ deliberateভাবে apply করতে পারা।"
+                          : "Recognize the problem, explain the vocabulary and apply it deliberately once in a small project."}
+                      </dd>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <dt>{bn ? "Small practice" : "Small practice"}</dt>
+                      <dd>{practice}</dd>
+                    </>
+                  </div>
+                  <div>
+                    <>
+                      <dt>{bn ? "যা avoid করবে" : "Avoid"}</dt>
+                      <dd>{avoid}</dd>
+                    </>
+                  </div>
+                </>
+              </dl>
+            </>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+  <section class="section section--tinted">
+    <div class="container editorial-grid">
+      <div>
+        <p class="eyebrow">
+          {bn ? "Selected learning" : "Selected learning"}
+        </p><h2>
+          {bn ? "Read কম, refactor বেশি" : "Read less. Refactor more."}
+        </h2><p class="lede">
+          {
+            bn
+              ? "Concept পড়ার পরে নিজের code-এ একটি pain খুঁজে testসহ improve করো। তখন vocabulary মনে থাকে।"
+              : "After reading a concept, find one pain in your code and improve it with tests. That is when the vocabulary becomes durable."
+          }
+        </p>
+      </div><ResourceList
+        locale={locale}
+        resourceIds={["refactoring-guru", "testing-js"]}
+      />
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">{bn ? "Next step" : "Next step"}</p><h2>
+        {
+          bn
+            ? "একটা working project বেছে characterization test দাও।"
+            : "Choose one working project and add a characterization test."
+        }
+      </h2><div class="next-actions">
+        <a class="button" href={withBase(localePath(locale, "/roadmaps/"))}
+          >{bn ? "Career roadmap-এ ফিরি" : "Return to career roadmaps"}</a
+        ><a
+          class="button button--secondary"
+          href={withBase(
+            localePath(locale, "/guidance/competitive-programming/"),
+          )}>{bn ? "Problem-solving guidance" : "Problem-solving guidance"}</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .foundation-list {
+    border-top: 1px solid var(--color-border-strong);
+  }
+  .foundation-list article {
+    padding: 2.2rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .topic-title {
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    gap: 1rem;
+  }
+  .topic-title span {
+    color: var(--color-warm);
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+  .foundation-list dl {
+    display: grid;
+    gap: 1rem;
+    margin: 1.5rem 0 0 3.5rem;
+  }
+  .foundation-list dl div {
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--color-border);
+  }
+  dt {
+    color: var(--color-primary-strong);
+    font-size: 0.78rem;
+    font-weight: 850;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  dd {
+    margin: 0.25rem 0 0;
+  }
+  @media (min-width: 48rem) {
+    .foundation-list dl {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

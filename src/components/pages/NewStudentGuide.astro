@@ -1,0 +1,154 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import { localePath, withBase } from "@/config/site";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+const plan = bn
+  ? [
+      [
+        "Week 1–2",
+        "একটি language দিয়ে variables, control flow, function আর debugging।",
+      ],
+      [
+        "Week 3–4",
+        "Array, string, basic data structure আর ১২–১৫টি small problem।",
+      ],
+      ["Week 5–6", "Git, shell, file, HTTP—computer কী করছে সেটা observe করো।"],
+      ["Week 7–9", "একটি tiny project: input, data, error আর README।"],
+      [
+        "Week 10–12",
+        "দুটি career guide, দুটি experiment, একটি provisional direction।",
+      ],
+    ]
+  : [
+      [
+        "Weeks 1–2",
+        "Use one language for variables, control flow, functions and debugging.",
+      ],
+      [
+        "Weeks 3–4",
+        "Arrays, strings, basic data structures and 12–15 small problems.",
+      ],
+      [
+        "Weeks 5–6",
+        "Git, shell, files and HTTP—observe what the computer is doing.",
+      ],
+      ["Weeks 7–9", "One tiny project with input, data, errors and a README."],
+      [
+        "Weeks 10–12",
+        "Two career guides, two experiments and one provisional direction.",
+      ],
+    ];
+---
+
+<BaseLayout
+  locale={locale}
+  title={bn
+    ? "নতুন CSE Student-এর Starting Guide"
+    : "New CSE Student Starting Guide"}
+  description={bn
+    ? "CSE fresher-এর জন্য calm 12-week starting plan: programming, problem solving, Git, project আর deliberate career exploration।"
+    : "A calm 12-week starting plan for CSE freshers: programming, problem solving, Git, one project and deliberate career exploration."}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[
+      { label: bn ? "Guidance" : "Guidance" },
+      { label: bn ? "নতুন CSE student" : "New CSE student" },
+    ]}
+  />
+  <header class="page-hero container">
+    <p class="eyebrow">{bn ? "Fresher route" : "Fresher route"}</p><h1>
+      {
+        bn
+          ? "প্রথম semester-এ সবকিছু শিখতে হবে না।"
+          : "You do not need to learn everything in semester one."
+      }
+    </h1><p class="lede">
+      {
+        bn
+          ? "Goal হলো random tutorial loop থামানো: একটি language, computational foundation, Git, একটি small build আর career landscape-এর first look।"
+          : "The goal is to stop the random-tutorial loop: one language, computational foundations, Git, one small build and a first look at the career landscape."
+      }
+    </p>
+  </header>
+  <section class="section section--tinted">
+    <div class="container">
+      <p class="eyebrow">
+        {bn ? "12-week orientation" : "A 12-week orientation"}
+      </p><h2>
+        {bn ? "Small, boring, compounding" : "Small, boring and compounding"}
+      </h2><ol class="timeline">
+        {
+          plan.map(([period, task]) => (
+            <li>
+              <>
+                <h3>{period}</h3>
+                <p>{task}</p>
+              </>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container editorial-grid">
+      <div>
+        <p class="eyebrow">
+          {bn ? "What not to learn yet" : "What not to learn yet"}
+        </p><h2>{bn ? "Noise একটু কমাও" : "Reduce the noise"}</h2><ul
+          class="rule-list"
+        >
+          {
+            (bn
+              ? [
+                  "একসঙ্গে React, Flutter, AI, Cybersecurity আর Blockchain।",
+                  "Foundation ছাড়া advanced cloud certification।",
+                  "Project ছাড়া tutorial playlist collect।",
+                  "AI দিয়ে assignment finish করে line 12 explain না পারা।",
+                ]
+              : [
+                  "React, Flutter, AI, cybersecurity and blockchain at the same time.",
+                  "Advanced cloud certification without foundations.",
+                  "Collecting tutorial playlists without a project.",
+                  "Letting AI finish an assignment when you cannot explain line 12.",
+                ]
+            ).map((item) => <li>{item}</li>)
+          }
+        </ul>
+      </div><div class="callout callout--amber">
+        <p class="callout__label">
+          {bn ? "Future You says" : "Future You says"}
+        </p><p>
+          {
+            bn
+              ? "‘Please, Git এখনই শিখে রাখো। final.zip, final-2.zip, final-real.zip জীবন না।’"
+              : "“Please learn Git now. final.zip, final-2.zip and final-real.zip are not a version-control strategy.”"
+          }
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section section--tinted">
+    <div class="container">
+      <h2>{bn ? "এরপর landscape দেখো" : "Then see the landscape"}</h2><div
+        class="next-actions"
+      >
+        <a class="button" href={withBase(localePath(locale, "/careers/"))}
+          >{bn ? "Career family explore" : "Explore career families"}</a
+        ><a
+          class="button button--secondary"
+          href={withBase(
+            localePath(locale, "/guidance/competitive-programming/"),
+          )}>{bn ? "ACM / ICPC কতটা?" : "How much ACM / ICPC?"}</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>

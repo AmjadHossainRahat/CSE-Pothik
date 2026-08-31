@@ -1,0 +1,101 @@
+import { expect, test } from "@playwright/test";
+
+const basePath = (process.env.BASE_PATH ?? "").replace(/\/$/, "");
+const route = (path: string) => `${basePath}${path}`;
+
+const viewports = [
+  { name: "small-mobile", width: 320, height: 720 },
+  { name: "mobile", width: 390, height: 844 },
+  { name: "tablet", width: 768, height: 1024 },
+  { name: "desktop", width: 1280, height: 800 },
+  { name: "wide", width: 1600, height: 900 },
+];
+
+for (const viewport of viewports) {
+  for (const locale of ["en", "bn"] as const) {
+    for (const theme of ["light", "dark"] as const) {
+      test(`${locale} ${theme} homepage fits ${viewport.name} without console errors`, async ({
+        page,
+      }, testInfo) => {
+        test.skip(
+          testInfo.project.name === "mobile",
+          "explicit viewport matrix runs once",
+        );
+        const consoleErrors: string[] = [];
+        const pageErrors: string[] = [];
+        page.on("console", (message) => {
+          if (message.type() === "error") consoleErrors.push(message.text());
+        });
+        page.on("pageerror", (error) => pageErrors.push(error.message));
+        await page.setViewportSize(viewport);
+        await page.addInitScript(
+          (value) => localStorage.setItem("cse-compass-theme", value),
+          theme,
+        );
+        await page.goto(route(locale === "en" ? "/" : "/bn/"));
+        await expect(page.locator("html")).toHaveAttribute("lang", locale);
+        await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
+        await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+        const overflow = await page.evaluate(
+          () =>
+            document.documentElement.scrollWidth -
+            document.documentElement.clientWidth,
+        );
+        expect(overflow).toBeLessThanOrEqual(1);
+        const mapItems = await page
+          .locator(".map-copy small")
+          .evaluateAll((elements) =>
+            elements.map((element) => element.getBoundingClientRect().width),
+          );
+        expect(mapItems.every((width) => width > 95)).toBe(true);
+        if (viewport.width >= 1088)
+          await expect(page.locator(".nav-details nav")).toBeVisible();
+        expect(consoleErrors).toEqual([]);
+        expect(pageErrors).toEqual([]);
+        await page.screenshot({
+          path: testInfo.outputPath(
+            `homepage-${locale}-${theme}-${viewport.name}.png`,
+          ),
+          fullPage: true,
+        });
+      });
+    }
+  }
+}
+
+test("Bangla, dark theme, compare and roadmap remain usable on tablet", async ({
+  page,
+}, testInfo) => {
+  test.skip(
+    testInfo.project.name === "mobile",
+    "explicit viewport matrix runs once",
+  );
+  const errors: string[] = [];
+  page.on("console", (message) => {
+    if (message.type() === "error") errors.push(message.text());
+  });
+  await page.setViewportSize({ width: 768, height: 1024 });
+  await page.addInitScript(() =>
+    localStorage.setItem("cse-compass-theme", "dark"),
+  );
+  for (const path of [
+    "/bn/",
+    "/bn/compare/",
+    "/bn/roadmaps/backend-engineering/",
+  ]) {
+    await page.goto(route(path));
+    await expect(page.locator("html")).toHaveAttribute("lang", "bn");
+    await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+    const overflow = await page.evaluate(
+      () =>
+        document.documentElement.scrollWidth -
+        document.documentElement.clientWidth,
+    );
+    expect(overflow).toBeLessThanOrEqual(1);
+  }
+  expect(errors).toEqual([]);
+  await page.screenshot({
+    path: testInfo.outputPath("bangla-dark-roadmap.png"),
+    fullPage: true,
+  });
+});

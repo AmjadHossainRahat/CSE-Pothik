@@ -1,0 +1,132 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import {
+  careerPath,
+  experimentPath,
+  roadmapPath,
+  withBase,
+} from "@/config/site";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Career, Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+  career: Career;
+}
+const { locale, career } = Astro.props;
+const bn = locale === "bn";
+---
+
+<BaseLayout
+  locale={locale}
+  title={`AI & ${t(career.title, locale)}`}
+  description={bn
+    ? `${t(career.title, locale)}-এ কোন task বেশি exposed, কোথায় AI accelerator, আর কোন capability independently build করবে।`
+    : `See which ${t(career.title, locale)} tasks have higher automation exposure, where AI accelerates work and which capabilities to build independently.`}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[
+      { label: bn ? "AI ও career" : "AI & Your Career", path: "/ai/" },
+      { label: t(career.title, locale) },
+    ]}
+  />
+  <header class="page-hero container">
+    <p class="eyebrow">
+      {bn ? "Career-specific AI guide" : "Career-specific AI guide"}
+    </p><h1>AI & {t(career.title, locale)}</h1><p class="lede">
+      {
+        bn
+          ? "Replacement score নেই। এই career-এর taskগুলো আলাদা করে দেখে কোথায় AI-কে direct করবে আর কোথায় নিজে reasoning ধরে রাখবে বোঝো।"
+          : "No replacement score. Separate the career’s tasks to see where to direct AI and where to preserve independent reasoning."
+      }
+    </p>
+  </header>
+  <section class="section section--tinted">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Task Automation Exposure</p><h2>
+            {
+              bn
+                ? "Task, explanation, student response"
+                : "Task, explanation, student response"
+            }
+          </h2>
+        </div><p class="lede">
+          {
+            bn
+              ? "Lower মানে permanent safe নয়; higher মানে career useless-ও নয়। Task mix আর responsibility বদলায়।"
+              : "Lower never means permanently safe; higher never means the career is useless. Task mix and responsibility change."
+          }
+        </p>
+      </div><div class="exposure">
+        {
+          career.aiExposure.map((item) => (
+            <article class="exposure__item" data-level={item.exposure}>
+              <>
+                <span class="tag">{item.exposure}</span>
+                <h3>{t(item.task, locale)}</h3>
+                <p>{t(item.explanation, locale)}</p>
+                <p>
+                  <strong>{bn ? "তুমি যা করবে:" : "Your response:"}</strong>{" "}
+                  {t(item.studentResponse, locale)}
+                </p>
+              </>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container editorial-grid">
+      <div>
+        <p class="eyebrow">
+          {bn ? "Independent capability" : "Independent capability"}
+        </p><h2>
+          {
+            bn
+              ? "AI ছাড়া কী পারা উচিত?"
+              : "What should you still be able to do?"
+          }
+        </h2><ul class="rule-list">
+          {
+            career.foundation
+              .concat(career.core.slice(0, 2))
+              .map((item) => <li>{t(item, locale)}</li>)
+          }
+        </ul>
+      </div><div class="callout callout--warm">
+        <p class="callout__label">
+          {bn ? "Verification drill" : "Verification drill"}
+        </p><p>
+          {
+            bn
+              ? "AI-generated solution-এ একটা bug, একটা unproven assumption, একটা missing edge case আর একটা simpler alternative খুঁজে লেখো।"
+              : "In an AI-generated solution, identify one bug, one unproven assumption, one missing edge case and one simpler alternative."
+          }
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section section--tinted">
+    <div class="container">
+      <p class="eyebrow">{bn ? "Next choices" : "Next choices"}</p><h2>
+        {bn ? "ভয় থেকে practice-এ যাও" : "Move from fear to practice"}
+      </h2><div class="next-actions">
+        <a class="button" href={withBase(experimentPath(locale, career.slug))}
+          >{bn ? "Career experiment" : "Run the career experiment"}</a
+        ><a
+          class="button button--secondary"
+          href={withBase(roadmapPath(locale, career.slug))}
+          >{bn ? "Roadmap" : "Open the roadmap"}</a
+        ><a
+          class="button button--secondary"
+          href={withBase(careerPath(locale, career.slug))}
+          >{bn ? "Career overview" : "Career overview"}</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>

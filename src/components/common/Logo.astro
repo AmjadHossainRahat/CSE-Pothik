@@ -1,0 +1,52 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<span class="brand-lockup">
+  <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+    <path
+      d="M20 2.5 35 20 20 37.5 5 20 20 2.5Z"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.4"></path>
+    <path d="m25.8 11.2-3.1 11.5-11.5 3.1 6.1-8.5 8.5-6.1Z" fill="currentColor"
+    ></path>
+    <circle cx="20" cy="20" r="2.2" fill="var(--color-bg)"></circle>
+  </svg>
+  <span class:list={["brand-name", { "visually-compact": compact }]}
+    >CSE Compass</span
+  >
+</span>
+
+<style>
+  .brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    color: var(--color-text);
+  }
+  .brand-mark {
+    width: 2rem;
+    height: 2rem;
+    flex: none;
+    color: var(--color-primary);
+  }
+  .brand-name {
+    font-size: 1.05rem;
+    font-weight: 850;
+    letter-spacing: -0.025em;
+    white-space: nowrap;
+  }
+  @media (max-width: 23rem) {
+    .visually-compact {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+  }
+</style>

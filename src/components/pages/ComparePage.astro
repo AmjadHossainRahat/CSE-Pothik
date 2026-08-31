@@ -1,0 +1,302 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import { careerPath, roadmapPath, withBase } from "@/config/site";
+import { careers } from "@/data/careers";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+const dimensionRows = [
+  ["coding", bn ? "Coding" : "Coding"],
+  ["mathematics", bn ? "Math" : "Mathematics"],
+  ["systems", bn ? "Systems depth" : "Systems depth"],
+  ["investigation", bn ? "Investigation" : "Investigation"],
+  ["creativity", bn ? "Creativity" : "Visual / creative work"],
+  ["communication", bn ? "Communication" : "Communication"],
+  ["production", bn ? "Production ownership" : "Production responsibility"],
+] as const;
+const level = (value: number) =>
+  value === 3
+    ? bn
+      ? "High"
+      : "High"
+    : value === 2
+      ? bn
+        ? "Medium"
+        : "Medium"
+      : bn
+        ? "Lower"
+        : "Lower";
+---
+
+<BaseLayout
+  locale={locale}
+  title={bn ? "CSE Career Compare" : "Compare CSE Careers"}
+  description={bn
+    ? "২–৩টি CSE career-এর real কাজ, pressure, AI exposure, roadmap আর experiment mobile-friendlyভাবে compare করো।"
+    : "Compare 2–3 CSE careers by real work, pressure, AI exposure, roadmaps and experiments in a mobile-friendly format."}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[{ label: bn ? "Career compare" : "Compare" }]}
+  />
+  <header class="page-hero container">
+    <p class="eyebrow">
+      {bn ? "Compare for fit—not rank" : "Compare for fit—not rank"}
+    </p><h1>
+      {
+        bn
+          ? "‘High’ ভালো না। শুধু কাজের nature আলাদা।"
+          : "High is not better. The work is simply different."
+      }
+    </h1><p class="lede">
+      {
+        bn
+          ? "২–৩টি career বেছে work style, uncomfortable part আর next evidence compare করো। Fit score নেই—কারণ career decision spreadsheet formula না।"
+          : "Choose 2–3 careers and compare work style, uncomfortable parts and next evidence. There is no fit score because career decisions are not spreadsheet formulas."
+      }
+    </p>
+  </header>
+  <section class="section section--tinted">
+    <div class="container">
+      <fieldset class="compare-picker">
+        <legend>{bn ? "২–৩টি career বেছে নাও" : "Choose 2–3 careers"}</legend><p
+          id="compare-help"
+          class="muted"
+        >
+          {
+            bn
+              ? "Minimum 2, maximum 3। URL update হবে—share করা যাবে।"
+              : "Minimum 2, maximum 3. The URL updates so you can share the comparison."
+          }
+        </p><div class="career-options">
+          {
+            careers.map((career, index) => (
+              <label>
+                <>
+                  <input
+                    type="checkbox"
+                    value={career.id}
+                    checked={index < 2}
+                    aria-describedby="compare-help"
+                  />
+                  <span>{t(career.title, locale)}</span>
+                </>
+              </label>
+            ))
+          }
+        </div>
+      </fieldset><p
+        id="compare-status"
+        class="compare-status"
+        aria-live="polite"
+      >
+      </p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container compare-shell">
+      <h2>{bn ? "Work-pressure comparison" : "Work-pressure comparison"}</h2><p
+        class="muted"
+      >
+        {
+          bn
+            ? "Level scientific score নয়; content model-এর editorial summary।"
+            : "Levels are editorial summaries, not scientific scores."
+        }
+      </p><table class="compare-table" data-compare-table>
+        <thead
+          ><tr
+            ><th scope="col">{bn ? "Dimension" : "Dimension"}</th>{
+              careers.map((career) => (
+                <th scope="col" data-career-column={career.id}>
+                  {t(career.title, locale)}
+                </th>
+              ))
+            }</tr
+          ></thead
+        ><tbody
+          >{
+            dimensionRows.map(([key, label]) => (
+              <tr>
+                <th scope="row">{label}</th>
+                {careers.map((career) => (
+                  <td
+                    data-career-column={career.id}
+                    data-career={t(career.title, locale)}
+                  >
+                    <strong>{level(career.dimensions[key])}</strong>
+                    <span class="dot-text" aria-hidden="true">
+                      {"●".repeat(career.dimensions[key])}
+                      {"○".repeat(3 - career.dimensions[key])}
+                    </span>
+                  </td>
+                ))}
+              </tr>
+            ))
+          }<tr
+            ><th scope="row">{bn ? "AI task exposure" : "AI task exposure"}</th
+            >{
+              careers.map((career) => (
+                <td
+                  data-career-column={career.id}
+                  data-career={t(career.title, locale)}
+                >
+                  {career.aiExposure.map((item) => item.exposure).join(" · ")}
+                </td>
+              ))
+            }</tr
+          ><tr
+            ><th scope="row"
+              >{bn ? "Uncomfortable part" : "Uncomfortable part"}</th
+            >{
+              careers.map((career) => (
+                <td
+                  data-career-column={career.id}
+                  data-career={t(career.title, locale)}
+                >
+                  {t(career.dislikeIf[0]!, locale)}
+                </td>
+              ))
+            }</tr
+          ><tr
+            ><th scope="row">{bn ? "Next evidence" : "Next evidence"}</th>{
+              careers.map((career) => (
+                <td
+                  data-career-column={career.id}
+                  data-career={t(career.title, locale)}
+                >
+                  <a href={withBase(careerPath(locale, career.slug))}>
+                    {bn ? "Guide" : "Guide"}
+                  </a>{" "}
+                  ·{" "}
+                  <a href={withBase(roadmapPath(locale, career.slug))}>
+                    {bn ? "Roadmap" : "Roadmap"}
+                  </a>
+                </td>
+              ))
+            }</tr
+          ></tbody
+        >
+      </table>
+    </div>
+  </section>
+  <section class="section section--tinted">
+    <div class="container callout callout--amber">
+      <p class="callout__label">
+        {bn ? "Try this instead" : "Try this instead"}
+      </p><h2>
+        {
+          bn
+            ? "Table close হলে দুটো experiment চালাও।"
+            : "If the table feels close, run two experiments."
+        }
+      </h2><p>
+        {
+          bn
+            ? "Career compare decision তৈরি করে না—better question তৈরি করে। Real কাজের ছোট version সেই question-এ evidence যোগ করে।"
+            : "Comparison does not manufacture a decision; it produces better questions. Small versions of the real work add evidence."
+        }
+      </p>
+    </div>
+  </section>
+  <script>
+    import { trackCareerCompared } from "@/lib/analytics";
+    const checkboxes = [
+      ...document.querySelectorAll<HTMLInputElement>(".career-options input"),
+    ];
+    const columns = [
+      ...document.querySelectorAll<HTMLElement>("[data-career-column]"),
+    ];
+    const status = document.querySelector<HTMLElement>("#compare-status");
+    const update = (announce = false) => {
+      const selected = checkboxes
+        .filter((item) => item.checked)
+        .map((item) => item.value);
+      checkboxes.forEach((item) => {
+        item.disabled = selected.length >= 3 && !item.checked;
+      });
+      columns.forEach((column) => {
+        column.hidden = !selected.includes(column.dataset.careerColumn ?? "");
+      });
+      if (status)
+        status.textContent =
+          selected.length < 2
+            ? "Choose at least two careers."
+            : `${selected.length} careers selected.`;
+      const url = new URL(window.location.href);
+      url.searchParams.set("careers", selected.join(","));
+      history.replaceState({}, "", url);
+      if (announce && selected.length >= 2)
+        trackCareerCompared(selected.join(","));
+    };
+    const query = new URL(window.location.href).searchParams
+      .get("careers")
+      ?.split(",")
+      .filter(Boolean);
+    if (query && query.length >= 2 && query.length <= 3)
+      checkboxes.forEach((item) => {
+        item.checked = query.includes(item.value);
+      });
+    checkboxes.forEach((item) =>
+      item.addEventListener("change", () => update(true)),
+    );
+    update();
+  </script>
+</BaseLayout>
+<style>
+  .compare-picker {
+    padding: 0;
+    border: 0;
+  }
+  .compare-picker legend {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 780;
+  }
+  .career-options {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 1.3rem;
+  }
+  .career-options label {
+    display: flex;
+    min-height: 3.1rem;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-raised);
+    cursor: pointer;
+  }
+  .career-options input {
+    width: 1.2rem;
+    height: 1.2rem;
+    accent-color: var(--color-primary);
+  }
+  .career-options label:has(input:checked) {
+    border-color: var(--color-primary);
+    background: var(--color-code);
+  }
+  .compare-status {
+    min-height: 1.6rem;
+    margin-top: 1rem;
+    color: var(--color-text-muted);
+  }
+  .dot-text {
+    display: block;
+    color: var(--color-primary);
+    letter-spacing: 0.15em;
+  }
+  [hidden] {
+    display: none !important;
+  }
+  @media (min-width: 40rem) {
+    .career-options {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

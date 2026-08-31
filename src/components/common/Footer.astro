@@ -1,0 +1,155 @@
+---
+import Logo from "@/components/common/Logo.astro";
+import { localePath, siteConfig, withBase } from "@/config/site";
+import type { Locale } from "@/types/content";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-intro">
+      <Logo />
+      <p>
+        {
+          bn
+            ? "CSE-তে কোন দিকে এগোবে—সেটা বুঝতে practical mentor."
+            : siteConfig.description
+        }
+      </p>
+      <p class="muted">
+        {
+          bn
+            ? "Free educational resource. কোনো account, progress tracker বা career promise নেই।"
+            : "A free educational resource. No accounts, progress tracking or career promises."
+        }
+      </p>
+    </div>
+    <nav aria-label={bn ? "ফুটার নেভিগেশন" : "Footer navigation"}>
+      <h2>{bn ? "পরের দিক" : "Keep exploring"}</h2>
+      <ul>
+        <li>
+          <a href={withBase(localePath(locale, "/careers/"))}
+            >{bn ? "Career দেখো" : "Explore careers"}</a
+          >
+        </li>
+        <li>
+          <a
+            href={withBase(
+              localePath(locale, "/guidance/competitive-programming/"),
+            )}>ACM / ICPC</a
+          >
+        </li>
+        <li>
+          <a
+            href={withBase(
+              localePath(locale, "/guidance/software-engineering-foundations/"),
+            )}
+            >{
+              bn
+                ? "Software engineering foundation"
+                : "Software engineering foundations"
+            }</a
+          >
+        </li>
+        <li>
+          <a href={withBase(localePath(locale, "/resources/"))}
+            >{bn ? "Learning resources" : "Learning resources"}</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <nav aria-label={bn ? "Project links" : "Project links"}>
+      <h2>{bn ? "প্রজেক্ট" : "Project"}</h2>
+      <ul>
+        <li>
+          <a href={withBase(localePath(locale, "/about/"))}
+            >{bn ? "About ও attribution" : "About & attribution"}</a
+          >
+        </li>
+        <li>
+          <a href={withBase(localePath(locale, "/privacy/"))}
+            >{bn ? "Privacy ও analytics" : "Privacy & analytics"}</a
+          >
+        </li>
+        <li>
+          <a href={siteConfig.repository} rel="noopener noreferrer"
+            >GitHub <span aria-hidden="true">↗</span></a
+          >
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="container footer-base">
+    <p>© {new Date().getFullYear()} CSE Compass · MIT License</p>
+    <p>
+      {
+        bn
+          ? "ভালো direction মানে final destination নয়—এখনকার meaningful next step।"
+          : "A direction is not a lifetime contract. It is a meaningful next step."
+      }
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    padding-block: 4rem 2rem;
+    border-top: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+  .footer-grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+  .footer-intro {
+    max-width: 29rem;
+  }
+  .site-footer h2 {
+    margin-bottom: 0.8rem;
+    font-size: 0.84rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .site-footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .site-footer li {
+    margin: 0;
+  }
+  .site-footer a {
+    display: inline-flex;
+    min-height: 2.6rem;
+    align-items: center;
+    color: var(--color-text);
+  }
+  .footer-base {
+    display: grid;
+    gap: 0.3rem;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+  }
+  .footer-base p {
+    margin: 0;
+  }
+  @media (min-width: 48rem) {
+    .footer-grid {
+      grid-template-columns: minmax(20rem, 1.4fr) 1fr 1fr;
+    }
+    .footer-base {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-base p:last-child {
+      text-align: end;
+    }
+  }
+</style>

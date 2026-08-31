@@ -1,0 +1,13 @@
+---
+import CareerDetail from "@/components/pages/CareerDetail.astro";
+import { careers } from "@/data/careers";
+export function getStaticPaths() {
+  return careers.map((career) => ({
+    params: { slug: career.slug },
+    props: { career },
+  }));
+}
+const { career } = Astro.props;
+---
+
+<CareerDetail career={career} locale="en" />

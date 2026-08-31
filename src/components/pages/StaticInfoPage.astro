@@ -1,0 +1,320 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import ResourceList from "@/components/common/ResourceList.astro";
+import { siteConfig } from "@/config/site";
+import { resources } from "@/data/resources";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+type Kind = "resources" | "privacy" | "about";
+interface Props {
+  locale: Locale;
+  kind: Kind;
+}
+const { locale, kind } = Astro.props;
+const bn = locale === "bn";
+const metadata = {
+  resources: {
+    title: bn
+      ? "Curated Free Learning Resources"
+      : "Curated Free Learning Resources",
+    description: bn
+      ? "CSE Compass roadmap-এ ব্যবহৃত carefully selected free official docs, university course, lab, book আর practice resource।"
+      : "Carefully selected free official documentation, university courses, labs, books and practice resources used across CSE Compass roadmaps.",
+  },
+  privacy: {
+    title: bn ? "Privacy ও Analytics" : "Privacy & Analytics",
+    description: bn
+      ? "CSE Compass account, profile বা progress collect করে না; optional aggregate GA4 analytics আর local preference কীভাবে কাজ করে জানো।"
+      : "Learn how CSE Compass uses optional aggregate GA4 analytics and local preferences without accounts, profiles or progress tracking.",
+  },
+  about: {
+    title: bn ? "About CSE Compass" : "About CSE Compass",
+    description: bn
+      ? "CSE Compass-এর mission, non-goal, provenance, inspiration আর free educational community philosophy।"
+      : "The mission, non-goals, provenance, inspiration and free educational community philosophy behind CSE Compass.",
+  },
+}[kind];
+---
+
+<BaseLayout
+  locale={locale}
+  title={metadata.title}
+  description={metadata.description}
+>
+  <Breadcrumbs locale={locale} items={[{ label: metadata.title }]} />
+  {
+    kind === "resources" && (
+      <>
+        <header class="page-hero container">
+          <>
+            <p class="eyebrow">
+              {bn ? "Quality over quantity" : "Quality over quantity"}
+            </p>
+            <h1>
+              {bn
+                ? "Resource directory না। Curated starting points।"
+                : "Not a resource directory. Curated starting points."}
+            </h1>
+            <p class="lede">
+              {bn
+                ? "Roadmap-এ contextসহ resource ব্যবহার করাই best। এই index maintainers আর students-কে selection, scope আর review date এক জায়গায় দেখতে দেয়।"
+                : "Resources work best in roadmap context. This index lets students and maintainers inspect selection, scope and review dates in one place."}
+            </p>
+          </>
+        </header>
+        <section class="section section--tinted">
+          <div class="container">
+            <>
+              <div class="callout">
+                <>
+                  <p class="callout__label">
+                    {bn ? "Use the pattern" : "Use the pattern"}
+                  </p>
+                  <h2>Learn → Practice → Go deeper (optional)</h2>
+                  <p>
+                    {bn
+                      ? "একটি primary resource-এর recommended scope শেষ করো, কিছু build করো, তারপর deeper resource দরকার কি না দেখো।"
+                      : "Finish the recommended scope of one primary resource, build something, then decide whether deeper material is needed."}
+                  </p>
+                </>
+              </div>
+              <div class="resource-index">
+                <ResourceList
+                  locale={locale}
+                  resourceIds={resources.map((resource) => resource.id)}
+                />
+              </div>
+            </>
+          </div>
+        </section>
+      </>
+    )
+  }
+  {
+    kind === "privacy" && (
+      <>
+        <header class="page-hero container">
+          <>
+            <p class="eyebrow">
+              {bn
+                ? "Privacy-conscious by design"
+                : "Privacy-conscious by design"}
+            </p>
+            <h1>
+              {bn
+                ? "Mentoring experience-এ কোনো account বা profile নেই।"
+                : "No account or profile sits behind the mentoring experience."}
+            </h1>
+            <p class="lede">
+              {bn
+                ? "CSE Compass static site। তোমার answer, roadmap progress, career score, email বা name collect করার form নেই।"
+                : "CSE Compass is static. There is no form collecting your answers, roadmap progress, career score, email or name."}
+            </p>
+          </>
+        </header>
+        <section class="section section--tinted">
+          <div class="container policy">
+            <>
+              <article>
+                <>
+                  <h2>
+                    {bn
+                      ? "এই device-এ যা থাকতে পারে"
+                      : "What may stay on this device"}
+                  </h2>
+                  <p>
+                    {bn
+                      ? "Theme (light/dark) আর language preference browser localStorage-এ রাখা হতে পারে। এটা profile বা progress না; browser settings থেকে clear করা যায়।"
+                      : "Theme (light/dark) and language preferences may be stored in browser localStorage. They are not a profile or progress and can be cleared in browser settings."}
+                  </p>
+                </>
+              </article>
+              <article>
+                <>
+                  <h2>{bn ? "Aggregate analytics" : "Aggregate analytics"}</h2>
+                  <p>
+                    {bn
+                      ? "Production owner GA4 measurement ID configure করলে page ও product interaction-এর aggregate event পাঠানো হয়—যেমন language switch, career view, experiment start আর resource click। Local/test build-এ ID না থাকলে analytics load হয় না।"
+                      : "If the production owner configures a GA4 measurement ID, aggregate page and product-interaction events are sent, such as language switching, career views, experiment starts and resource clicks. Analytics does not load in local/test builds without an ID."}
+                  </p>
+                </>
+              </article>
+              <article>
+                <>
+                  <h2>
+                    {bn
+                      ? "যা intentionally পাঠাই না"
+                      : "What we intentionally do not send"}
+                  </h2>
+                  <ul>
+                    <>
+                      <li>
+                        {bn ? "Name বা email" : "Names or email addresses"}
+                      </li>
+                      <li>
+                        {bn
+                          ? "Free-form student answer"
+                          : "Free-form student answers"}
+                      </li>
+                      <li>
+                        {bn
+                          ? "Personal learning profile বা hidden user ID"
+                          : "Personal learning profiles or hidden user IDs"}
+                      </li>
+                      <li>
+                        {bn
+                          ? "Roadmap progress, streak বা assessment history"
+                          : "Roadmap progress, streaks or assessment history"}
+                      </li>
+                    </>
+                  </ul>
+                </>
+              </article>
+              <article>
+                <>
+                  <h2>{bn ? "External resources" : "External resources"}</h2>
+                  <p>
+                    {bn
+                      ? "Learning-resource link খুললে সেই provider-এর privacy policy প্রযোজ্য। CSE Compass resource ID/provider দিয়ে click count করতে পারে; URL query বা তোমার free text পাঠায় না।"
+                      : "When you open a learning resource, that provider’s privacy policy applies. CSE Compass may count the click using a resource ID/provider; it does not send URL queries or your free text."}
+                  </p>
+                </>
+              </article>
+            </>
+          </div>
+        </section>
+      </>
+    )
+  }
+  {
+    kind === "about" && (
+      <>
+        <header class="page-hero container">
+          <>
+            <p class="eyebrow">{siteConfig.tagline}</p>
+            <h1>
+              {bn
+                ? "CSE student-এর জন্য practical career compass।"
+                : "A practical career compass for CSE students."}
+            </h1>
+            <p class="lede">
+              {bn
+                ? "CSE Compass fresher থেকে final-year student-কে landscape বুঝতে, real কাজ try করতে, common mistake এড়াতে আর AI era-তে next meaningful step নিতে সাহায্য করে।"
+                : "CSE Compass helps students—from freshers to final year—understand the landscape, try real work, avoid common mistakes and take a meaningful next step in the AI era."}
+            </p>
+          </>
+        </header>
+        <section class="section section--tinted">
+          <div class="container editorial-grid">
+            <>
+              <div>
+                <>
+                  <p class="eyebrow">{bn ? "What this is" : "What this is"}</p>
+                  <h2>
+                    {bn
+                      ? "Orientation publication + practical mentor"
+                      : "Orientation publication + practical mentor"}
+                  </h2>
+                  <p>
+                    {bn
+                      ? "Career family, detailed guide, comparison, experiment, roadmap, AI exposure আর recovery route—সব static, free এবং account ছাড়াই।"
+                      : "Career families, detailed guides, comparisons, experiments, roadmaps, AI exposure and recovery routes—static, free and usable without an account."}
+                  </p>
+                </>
+              </div>
+              <div>
+                <>
+                  <p class="eyebrow">
+                    {bn ? "What this is not" : "What this is not"}
+                  </p>
+                  <h2>
+                    {bn
+                      ? "LMS, job board বা prediction machine না"
+                      : "Not an LMS, job board or prediction machine"}
+                  </h2>
+                  <p>
+                    {bn
+                      ? "কোনো certificate, job promise, personality score, AI-proof claim, progress dashboard বা paid learning funnel নেই।"
+                      : "There are no certificates, job promises, personality scores, AI-proof claims, progress dashboards or paid-learning funnels."}
+                  </p>
+                </>
+              </div>
+            </>
+          </div>
+        </section>
+        <section class="section">
+          <div class="container editorial-grid">
+            <>
+              <div>
+                <>
+                  <p class="eyebrow">{bn ? "Inspiration" : "Inspiration"}</p>
+                  <h2>
+                    {bn
+                      ? "Principle নেওয়া, content copy নয়"
+                      : "Principles, never copied content"}
+                  </h2>
+                  <p>
+                    {bn
+                      ? "roadmap.sh-এর structured role/skill navigation আর Architect Prep-এর focused technical navigation conceptually inspire করেছে। Visual system, copy, roadmap আর mentoring model original।"
+                      : "The structured role/skill navigation of roadmap.sh and focused technical navigation of Architect Prep offered conceptual inspiration. The visual system, copy, roadmaps and mentoring model are original."}
+                  </p>
+                  <ul>
+                    <>
+                      <li>
+                        <a href="https://roadmap.sh/" rel="noopener noreferrer">
+                          roadmap.sh ↗
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://mayurjp.github.io/architect-prep/"
+                          rel="noopener noreferrer"
+                        >
+                          Architect Prep ↗
+                        </a>
+                      </li>
+                    </>
+                  </ul>
+                </>
+              </div>
+              <div>
+                <>
+                  <p class="eyebrow">{bn ? "Provenance" : "Provenance"}</p>
+                  <h2>{bn ? "Project history" : "Project history"}</h2>
+                  <p>
+                    {bn
+                      ? "Full-site requirement engineering আর product/design planning ChatGPT দিয়ে করা হয়েছে; development Codex করেছে। Original project ও contributor attribution preserve করতে হবে।"
+                      : "Full-site requirement engineering and product/design planning were done with ChatGPT; development was done by Codex. Attribution to the original project and contributors should be preserved."}
+                  </p>
+                  <p>
+                    {bn
+                      ? "Repository MIT License-এর অধীনে। Student-facing resource free ও accessible রাখার community philosophy-কে সম্মান করা encouraged।"
+                      : "The repository is MIT licensed. Contributors are encouraged to honor the community philosophy of keeping student-facing resources free and accessible."}
+                  </p>
+                </>
+              </div>
+            </>
+          </div>
+        </section>
+      </>
+    )
+  }
+</BaseLayout>
+<style>
+  .resource-index {
+    margin-top: 3rem;
+  }
+  .policy {
+    display: grid;
+    gap: 2rem;
+  }
+  .policy article {
+    padding-top: 1rem;
+    border-top: 3px solid var(--color-primary);
+  }
+  @media (min-width: 48rem) {
+    .policy {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

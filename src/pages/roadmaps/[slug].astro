@@ -1,0 +1,13 @@
+---
+import RoadmapDetail from "@/components/pages/RoadmapDetail.astro";
+import { roadmaps } from "@/data/roadmaps";
+export function getStaticPaths() {
+  return roadmaps.map((roadmap) => ({
+    params: { slug: roadmap.id },
+    props: { roadmap },
+  }));
+}
+const { roadmap } = Astro.props;
+---
+
+<RoadmapDetail roadmap={roadmap} locale="en" />

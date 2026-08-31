@@ -1,0 +1,237 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import ResourceList from "@/components/common/ResourceList.astro";
+import {
+  careerPath,
+  experimentPath,
+  localePath,
+  withBase,
+} from "@/config/site";
+import { careerById } from "@/data/careers";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale, Roadmap } from "@/types/content";
+interface Props {
+  locale: Locale;
+  roadmap: Roadmap;
+}
+const { locale, roadmap } = Astro.props;
+const bn = locale === "bn";
+const career = careerById.get(roadmap.careerId)!;
+---
+
+<BaseLayout
+  locale={locale}
+  contentView={{ type: "roadmap", careerId: career.id }}
+  title={`${t(career.title, locale)} ${bn ? "Roadmap" : "Learning Roadmap"}`}
+  description={bn
+    ? `${t(career.title, locale)}-এর foundation-first roadmap: কী শিখবে, কেন, এখন কতটুকু যথেষ্ট আর কী পরে।`
+    : `A foundation-first ${t(career.title, locale)} roadmap: what to learn, why it matters, what is enough and what can wait.`}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[
+      { label: "Roadmaps", path: "/roadmaps/" },
+      { label: t(career.title, locale) },
+    ]}
+  />
+  <header class="page-hero container">
+    <p class="eyebrow">{bn ? "Five-stage roadmap" : "Five-stage roadmap"}</p><h1
+    >
+      {t(career.title, locale)}
+    </h1><p class="lede">
+      {
+        bn
+          ? "এক stage-এ enough হওয়ার আগে next stage-এর tool collect করা লাগবে না। Sequence তোমাকে slow করে না; random detour কমায়।"
+          : "You do not need to collect next-stage tools before you are ready. Sequence does not slow you down; it removes random detours."
+      }
+    </p><div class="button-row">
+      <a class="button" href="#stage-foundation"
+        >{bn ? "Foundation থেকে শুরু" : "Start at foundation"}</a
+      ><a
+        class="button button--secondary"
+        href={withBase(careerPath(locale, career.slug))}
+        >{bn ? "Career overview" : "Career overview"}</a
+      >
+    </div>
+  </header>
+  <section class="section section--tinted">
+    <div class="container roadmap-path">
+      <ol>
+        {
+          roadmap.stages.map((stage) => (
+            <li>
+              <>
+                <a href={`#stage-${stage.id}`}>{t(stage.title, locale)}</a>
+                <small>{t(stage.intent, locale)}</small>
+              </>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+  {
+    roadmap.stages.map((stage, index) => (
+      <section
+        class:list={["section", { "section--tinted": index % 2 === 1 }]}
+        id={`stage-${stage.id}`}
+      >
+        <div class="container stage-layout">
+          <div class="stage-main">
+            <>
+              <p class="eyebrow">{bn ? "Roadmap stage" : "Roadmap stage"}</p>
+              <h2>{t(stage.title, locale)}</h2>
+              <p class="lede">{t(stage.intent, locale)}</p>
+              <h3>{bn ? "Focus" : "What to learn"}</h3>
+              <ul class="rule-list">
+                {stage.topics.map((topic) => (
+                  <li>{t(topic, locale)}</li>
+                ))}
+              </ul>
+              <div class="enough">
+                <>
+                  <p class="callout__label">
+                    {bn ? "Enough for now" : "Enough for now"}
+                  </p>
+                  <p>{t(stage.enoughForNow, locale)}</p>
+                </>
+              </div>
+              <h3>{bn ? "Practical task" : "Practical task"}</h3>
+              <p>{t(stage.practicalTask, locale)}</p>
+            </>
+          </div>
+          <aside>
+            <div class="callout callout--amber">
+              <>
+                <p class="callout__label">
+                  {bn ? "এখনই নয়" : "What not to learn yet"}
+                </p>
+                <ul>
+                  {stage.notYet.map((item) => (
+                    <li>{t(item, locale)}</li>
+                  ))}
+                </ul>
+              </>
+            </div>
+            {stage.resourceIds.length > 0 && (
+              <div class="stage-resources">
+                <h3>{bn ? "Selected resource" : "Selected resources"}</h3>
+                <ResourceList
+                  locale={locale}
+                  resourceIds={stage.resourceIds}
+                  compact
+                />
+              </div>
+            )}
+          </aside>
+        </div>
+      </section>
+    ))
+  }
+  <section class="section closing-stage">
+    <div class="container">
+      <p class="eyebrow">
+        {
+          bn
+            ? "Roadmap পড়া হলো—এখন evidence"
+            : "You read the roadmap—now gather evidence"
+        }
+      </p><h2>
+        {
+          bn
+            ? "এই কাজ সত্যি ভালো লাগে কি না, ছোট করে test করো।"
+            : "Test whether you actually like the work."
+        }
+      </h2><div class="button-row">
+        <a
+          class="button"
+          href={withBase(experimentPath(locale, career.slug))}
+          data-track-event="career_experiment_started"
+          data-track-param-career-id={career.id}
+          >{bn ? "Career experiment" : "Start the career experiment"}</a
+        ><a
+          class="button button--secondary"
+          href={withBase(
+            localePath(locale, "/guidance/software-engineering-foundations/"),
+          )}>{bn ? "Engineering foundation" : "Engineering foundations"}</a
+        >
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+<style>
+  .roadmap-path ol {
+    display: grid;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid var(--color-border-strong);
+    list-style: none;
+  }
+  .roadmap-path li {
+    margin: 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .roadmap-path a {
+    display: block;
+    color: var(--color-text);
+    font-weight: 800;
+  }
+  .roadmap-path small {
+    display: block;
+    color: var(--color-text-muted);
+  }
+  .stage-layout {
+    display: grid;
+    gap: 2.5rem;
+  }
+  .stage-main {
+    max-width: 47rem;
+  }
+  .stage-main h3 {
+    margin-top: 2rem;
+  }
+  .enough {
+    margin: 2rem 0;
+    padding: 1.3rem;
+    border-inline-start: 0.3rem solid var(--color-teal);
+    background: var(--color-code);
+  }
+  .enough p:last-child {
+    margin: 0;
+  }
+  .stage-resources {
+    margin-top: 2rem;
+  }
+  .closing-stage {
+    border-block: 1px solid var(--color-border);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+  .closing-stage .eyebrow {
+    color: var(--color-on-primary);
+  }
+  .closing-stage .button {
+    border-color: var(--color-on-primary);
+    background: var(--color-on-primary);
+    color: var(--color-primary-strong);
+  }
+  .closing-stage .button--secondary {
+    background: transparent;
+    color: var(--color-on-primary);
+  }
+  @media (min-width: 48rem) {
+    .roadmap-path ol {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    .roadmap-path li {
+      padding-inline: 1rem;
+      border-inline-end: 1px solid var(--color-border);
+    }
+    .stage-layout {
+      grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.7fr);
+    }
+  }
+</style>
