@@ -366,7 +366,9 @@ Secondary CTA:
 
 The hero should feel open, calm and editorial—not like a dashboard.
 
-Use the original hoodie-and-laptop mentor/student illustration, not stock photography. It should retain a clear silhouette in both themes. The future-self caption is an editorial encouragement, not an endorsement by a real professional.
+Use the original three-person study-partners illustration, not stock photography: a Chakma Bangladeshi woman standing in the centre with a QA checklist tablet and stylus, between a woman and man each using a laptop. They are equal computing teammates, each contributing to building and checking a product. Give all three equal visual prominence and retain their complete visible composition on every screen size and in both themes. Show them together in one static scene, not alternating gender- or ethnicity-specific carousel slides. The future-self caption is an editorial encouragement, not an endorsement by a real professional.
+
+Make the scene welcoming and unambiguously about technology: all three glance toward the viewer with relaxed, casual smiles and clear personal space. The seated woman keeps her hands at her laptop and wears a teal hoodie and neatly draped ivory orna covering all her hair; the man retains his navy hoodie, glasses and keyboard posture. The centre teammate holds a visible test checklist tablet and stylus, wearing a cream blouse with a restrained Chakma-textile-inspired shoulder cloth. Use documented weaving references and contemporary styling, without inventing ceremonial costume, exaggerating facial features or claiming that one outfit defines a community. QA is her illustrative activity, not a role assigned to any ethnicity or gender. Preserve the notebook's technical flow diagram, coffee, water bottle and small indoor plant, visibly resting on the desk. Keep devices physically consistent. Avoid mutual gazing, inward leaning or romantic posing; friendliness is directed toward the visitor. Ethnic representation does not change the English/Bangla-only language scope.
 
 “Today’s orientation map” is four working links with a number, grouped title and caption, and directional arrow. The caption must sit beneath its own title, never in the narrow number column. Use one column on small phones, two on tablets, and four when space permits.
 
@@ -1169,7 +1171,7 @@ Avoid associating dark mode exclusively with cybersecurity.
 
 Dark-theme illustrations must use lighter clothing/accent separation where needed so silhouettes remain visible.
 
-Required homepage assets are the original young South Asian hoodie-and-laptop mentor and the original AI study partner checking a result. Keep transparent source PNGs under `src/assets/illustrations/`; generate responsive WebP through Astro's image pipeline. Reserve intrinsic image dimensions, load the hero eagerly, and lazy-load the supporting robot. Generation provenance and prompts are recorded in `docs/illustrations.md`.
+Required homepage assets are the original three-person Bangladeshi computing team (a Chakma woman using a QA checklist tablet between two teammates at laptops) and the original AI study partner checking a result. All three people are peers with visible technical participation; avoid stereotyped roles and keep everyone visible without interaction. The study-partners scene uses an intentional soft blue-gray editorial backdrop with a theme-aware border, while the robot retains its transparent background. Do not ship a simulated transparency checkerboard. Keep source PNGs under `src/assets/illustrations/`; generate responsive WebP through Astro's image pipeline. Reserve intrinsic image dimensions, load the hero eagerly, and lazy-load the supporting robot. Generation provenance, cultural-reference limitations and prompts are recorded in `docs/illustrations.md`.
 
 Breadcrumbs must use the same content container as the page heading, aligned text baselines, and zero inherited prose-list margins. Long labels wrap within the available width. Primary navigation must remain visible on desktop, including after resizing from the mobile menu; never hide a closed disclosure's summary and its only route to navigation.
 
@@ -1482,7 +1484,7 @@ The design is considered correctly implemented when:
 
 ## Identity and project-readiness revision
 
-Use clear orientation copy: “Understand CSE careers. Find your next step.” The previous “salary reel” expression is retired. The identity is an open circular C with a directional needle and a restrained wordmark, not a mascot badge. Header/footer SVG and favicon share the geometry; the social preview uses the matching navy/off-white editorial palette. Preserve theme contrast, small-size legibility and the existing original mentor/AI illustrations.
+Use clear orientation copy: “Understand CSE careers. Find your next step.” The previous “salary reel” expression is retired. The identity is an open circular C with a directional needle and a restrained wordmark, not a mascot badge. Header/footer SVG and favicon share the geometry; the social preview uses the matching navy/off-white editorial palette. Preserve theme contrast, small-size legibility and the original study-partners/AI illustration style.
 
 English is default and Bangla is the only additional language. No third-language edition, font or translation-fallback experience is included.
 

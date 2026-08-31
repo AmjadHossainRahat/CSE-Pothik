@@ -27,6 +27,20 @@ for (const locale of ["en", "bn"] as const) {
     );
     const illustrations = page.locator(".hero-visual img, .ai-art img");
     await expect(illustrations).toHaveCount(2);
+    const studyPartners = page.locator(".hero-visual img");
+    await expect(studyPartners).toHaveAttribute(
+      "alt",
+      locale === "en"
+        ? "A Chakma woman holds a QA checklist tablet between two teammates at laptops, all three smiling toward you."
+        : "ল্যাপটপে কাজ করা দুই সতীর্থের মাঝে দাঁড়িয়ে ট্যাবলেটে সফটওয়্যার পরীক্ষার তালিকা দেখাচ্ছে এক চাকমা তরুণী; তিনজনই তোমার দিকে তাকিয়ে হাসছে।",
+    );
+    await expect(studyPartners).toHaveAttribute("loading", "eager");
+    await expect(studyPartners).toHaveAttribute("fetchpriority", "high");
+    await expect(studyPartners).toHaveAttribute("srcset", /400w.+640w.+900w/);
+    await expect(page.locator(".ai-art img")).toHaveAttribute(
+      "loading",
+      "lazy",
+    );
     for (const illustration of await illustrations.all()) {
       await illustration.scrollIntoViewIfNeeded();
       await expect(illustration).toHaveAttribute("alt", /.+/);
@@ -68,6 +82,43 @@ for (const locale of ["en", "bn"] as const) {
     await perspectives.locator("summary").click();
     await expect(perspectives.locator("blockquote")).toHaveCount(3);
     await expect(perspectives.locator("blockquote").last()).toBeVisible();
+  });
+
+  test(`${locale} study partners remain available without JavaScript and with reduced motion`, async ({
+    browser,
+  }) => {
+    const context = await browser.newContext({
+      javaScriptEnabled: false,
+      reducedMotion: "reduce",
+      viewport: { width: 320, height: 720 },
+    });
+    try {
+      const page = await context.newPage();
+      await page.goto(
+        `http://127.0.0.1:4321${route(locale === "en" ? "/" : "/bn/")}`,
+      );
+      const artwork = page.locator(".hero-visual img");
+      await artwork.scrollIntoViewIfNeeded();
+      await expect(artwork).toBeVisible();
+      await expect(artwork).toHaveAttribute(
+        "alt",
+        locale === "en" ? /Chakma woman.*all three/ : /চাকমা তরুণী.*তিনজনই/,
+      );
+      await expect
+        .poll(() =>
+          artwork.evaluate(
+            (image: HTMLImageElement) =>
+              image.complete && image.naturalWidth > 0,
+          ),
+        )
+        .toBe(true);
+      await expect(page.locator(".mentor-caption")).toBeVisible();
+      await page.locator(".hero-copy .button").first().click();
+      await expect(page).toHaveURL(/#starting-point$/);
+      await expect(page.locator("#starting-title")).toBeInViewport();
+    } finally {
+      await context.close();
+    }
   });
 }
 

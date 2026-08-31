@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import mentorImage from "@/assets/illustrations/mentor-guide.png";
+import studyPartnersImage from "@/assets/illustrations/study-partners.png";
 import robotImage from "@/assets/illustrations/ai-study-partner.png";
 import { experimentPath, localePath, withBase } from "@/config/site";
 import { careerById, careerFamilies } from "@/data/careers";
@@ -202,10 +202,10 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
           </div>
           <figure class="hero-visual">
             <Image
-              src={mentorImage}
+              src={studyPartnersImage}
               alt={copy(
-                "A friendly young computing mentor in a navy hoodie working at a laptop.",
-                "নেভি hoodie পরা হাসিমুখের তরুণ computing mentor laptop-এ কাজ করছে।",
+                "A Chakma woman holds a QA checklist tablet between two teammates at laptops, all three smiling toward you.",
+                "ল্যাপটপে কাজ করা দুই সতীর্থের মাঝে দাঁড়িয়ে ট্যাবলেটে সফটওয়্যার পরীক্ষার তালিকা দেখাচ্ছে এক চাকমা তরুণী; তিনজনই তোমার দিকে তাকিয়ে হাসছে।",
               )}
               widths={[400, 640, 900]}
               sizes="(min-width: 960px) 46vw, 90vw"
@@ -796,6 +796,10 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
     height: auto;
     max-width: 36rem;
     margin-inline: auto;
+    object-fit: contain;
+    border-radius: var(--radius-md);
+    outline: 1px solid var(--color-border);
+    outline-offset: -1px;
   }
   .mentor-caption {
     max-width: 27rem;

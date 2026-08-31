@@ -36,6 +36,40 @@ for (const viewport of viewports) {
         await expect(page.locator("html")).toHaveAttribute("lang", locale);
         await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
         await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+        const artwork = page.locator(".hero-visual img");
+        await expect
+          .poll(() =>
+            artwork.evaluate(
+              (image: HTMLImageElement) =>
+                image.complete && image.naturalWidth > 0,
+            ),
+          )
+          .toBe(true);
+        const illustrationGeometry = await artwork.evaluate(
+          (image: HTMLImageElement) => {
+            const bounds = image.getBoundingClientRect();
+            const figure = image.closest("figure")!.getBoundingClientRect();
+            return {
+              aspectError: Math.abs(
+                bounds.width / bounds.height -
+                  image.naturalWidth / image.naturalHeight,
+              ),
+              left: bounds.left,
+              right: bounds.right,
+              figureLeft: figure.left,
+              figureRight: figure.right,
+              objectFit: getComputedStyle(image).objectFit,
+            };
+          },
+        );
+        expect(illustrationGeometry.aspectError).toBeLessThan(0.01);
+        expect(illustrationGeometry.left).toBeGreaterThanOrEqual(
+          illustrationGeometry.figureLeft - 1,
+        );
+        expect(illustrationGeometry.right).toBeLessThanOrEqual(
+          illustrationGeometry.figureRight + 1,
+        );
+        expect(illustrationGeometry.objectFit).toBe("contain");
         const overflow = await page.evaluate(
           () =>
             document.documentElement.scrollWidth -
