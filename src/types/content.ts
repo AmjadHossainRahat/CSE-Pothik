@@ -19,6 +19,9 @@ export const careerIds = [
   "network-engineering",
   "hardware-engineering",
   "software-quality-assurance",
+  "data-analytics-bi",
+  "ai-engineering",
+  "application-security",
 ] as const;
 export type CareerId = (typeof careerIds)[number];
 
@@ -111,6 +114,11 @@ export interface CareerFamily {
   description: LocalizedText;
   careerIds: CareerId[];
   accent: string;
+  practiceTrack?: {
+    title: LocalizedText;
+    description: LocalizedText;
+    path: string;
+  };
 }
 
 export interface RoadmapStage {

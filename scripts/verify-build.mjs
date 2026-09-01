@@ -62,6 +62,9 @@ for (const file of htmlFiles) {
   for (const credit of [
     "https://roadmap.sh/",
     "https://mayurjp.github.io/architect-prep/",
+    "https://amirulislamalmamun.com/",
+    "https://github.com/AmjadHossainRahat",
+    "Amjad Hossain",
     "Orchestrator",
     "ChatGPT",
     "Codex",

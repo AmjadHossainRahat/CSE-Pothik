@@ -441,14 +441,14 @@ Implement the homepage sections in the order and spirit defined in `DESIGN.md`.
 
 Required sections:
 
-1. Header/navigation with the `CSE Compass` wordmark/brand mark, language switch and theme switch.
+1. Shared responsive navigation with the `CSE Compass` wordmark/brand mark, language switch and theme switch: a persistent labeled sidebar on wide screens and a compact header plus grouped native drawer on phones/tablets.
 2. Purpose-first illustrated hero: free CSE career guidance, the “You got into CSE. Now what?” punch line, a concise attraction → orientation gap → hopeful recovery story, clear outcomes and a prominent next-step action; preserve the future-self note and four-stop orientation map.
 3. AI reality / resilience section immediately after the hero, with the original AI study-partner illustration.
 4. Three visible starting intentions and six detailed situations in a native disclosure, with recovery encouragement.
 5. Concise misconceptions paired with veteran orientation voices; two visible perspectives and three in an accessible native disclosure.
 6. Career landscape reveal: all eight families, no duplicated featured-career grid.
 7. Practical, non-shaming encouragement woven through these sections.
-8. “Try before you choose”: three representative previews linking to the full published experiment index (currently fourteen); derive the displayed count from data.
+8. “Try before you choose”: three immediately visible representative previews plus Data Analytics & BI, AI Engineering and Application Security in a native disclosure, linking to the full published experiment index (currently seventeen); derive the displayed count from data.
 9. Understand → Explore → Compare → Try → Prepare → Adapt journey.
 10. Closing orientation message and next-step CTA.
 11. Footer with product links, language/theme support, privacy and attribution/inspiration references as appropriate.
@@ -461,7 +461,7 @@ The hero uses one inclusive three-person study-partners scene: a Chakma Banglade
 
 Manually inspect each replacement for three equally prominent teammates, relaxed viewer-directed smiles, personal space, keyboard hands and a visible QA tablet/stylus. The seated woman's teal hoodie and neatly head-draped orna must remain recognizable, with all hair covered. Document references for the centre teammate's contemporary Chakma-textile-inspired clothing; do not claim exact cultural authenticity from a generated image or infer identity from facial features. Check that coffee, water bottle and small indoor plant rest on the desk beside the notebook, and that devices face physically consistent directions. Do not mistake image-load/alt-text tests for proof of visual representation or the absence of romantic posing. Keep actual content and localized descriptions consistent; role and ethnicity do not imply one another.
 
-Orientation-map and useful-loop labels/captions must share an explicit content wrapper. Reset prose `li + li` margins in navigation, breadcrumbs and grid/timeline lists. Breadcrumbs share the page-heading container and align on a text baseline. Desktop navigation must be available even when its mobile disclosure was previously closed; test resizing in both directions. With JavaScript disabled, the native menu and all essential content links must still work.
+Orientation-map and useful-loop labels/captions must share an explicit content wrapper. Reset prose `li + li` margins in navigation, breadcrumbs and grid/timeline lists. Breadcrumbs share the page-heading container and align on a text baseline. `src/data/navigation.ts` is the typed bilingual source for five problem-oriented groups and active-route matching. Start here must include an explicit bilingual Home item; the homepage section jump remains a separate non-current destination so only Home receives `aria-current` at `/`. `Header.astro` renders that model as a persistent wide-screen sidebar or a compact sticky header/native drawer; the mobile toggle is icon-only visually but retains a localized accessible name. Active links use `aria-current`, the page frame is offset by the shared sidebar-width token, and the drawer remains viewport-bounded and scrollable. The desktop sidebar must be available even when its mobile disclosure was previously closed; test resizing in both directions. With JavaScript disabled, the native menu and all essential content links must still work. The footer retains compact project/policy/provenance links rather than duplicating global navigation.
 
 ---
 
@@ -655,6 +655,8 @@ Must communicate:
 - AI-free and AI-assisted-review practice both have value.
 
 Avoid shaming students who do not compete.
+
+Render ACM Programming / ICPC as a distinct practice-track callout under Understand Computing Deeply, not as a career ID. The dedicated guide needs a bounded six-week learn → honest attempt → submit/debug/log → review/transfer loop and must retain real-project practice. Curate Shafaet's Planet and Amirul Islam's Bangla programming writing with scoped resource metadata and visible outbound links; paraphrase the learning approach and never copy a curriculum or imply endorsement.
 
 ---
 
@@ -1008,7 +1010,7 @@ Do not make every normal build depend on hundreds of live external requests.
 
 ### 29.4 E2E tests
 
-Homepage visual regression coverage must include AI section order, the four map links, all six useful-loop links, eight career families, three experiment previews, loaded illustrations, grouped caption geometry, breadcrumb alignment, keyboard menu/Escape behavior, breakpoint navigation continuity and no-JavaScript navigation. Test both English and Bangla.
+Homepage visual regression coverage must include AI section order, the four map links, all six useful-loop links, eight career families, three primary experiment previews, the three-item expanding-path disclosure, the ACM/ICPC practice-track link, loaded illustrations, grouped caption geometry, breadcrumb alignment, sidebar/frame separation, active-route indication, all five bilingual intent groups, keyboard drawer/Escape behavior, breakpoint navigation continuity and no-JavaScript navigation. Test both English and Bangla.
 
 At minimum cover:
 
@@ -1348,7 +1350,7 @@ Create a clear `README.md` containing:
 - contribution workflow;
 - attribution/inspiration link to the relevant section of `DESIGN.md`.
 
-Visible attribution is implemented as static shared-footer content and localized About `#credits`, backed by typed bilingual `src/data/credits.ts` and the creator name in `src/config/site.ts`. Keep both inspiration URLs and the distinct Orchestrator/ChatGPT/Codex roles in content-integrity coverage. Verify footer-to-About base-path links, keyboard/no-JavaScript use, English/Bangla, both themes and narrow-screen wrapping. Build verification must confirm footer credits on all generated HTML pages and the target anchors. Do not add client hydration or analytics just for credits.
+Visible attribution is implemented as static shared-footer content and localized About `#credits`, backed by typed bilingual `src/data/credits.ts` and the creator identity/portfolio URL in `src/config/site.ts`. Render Amjad Hossain's name as a new-tab link to the verified GitHub profile at `https://github.com/AmjadHossainRahat` with safe `rel` attributes. Keep all three inspiration URLs (roadmap.sh, Architect Prep and Amirul Islam) and the distinct Orchestrator/ChatGPT/Codex roles in content-integrity coverage. Verify footer-to-About base-path links, creator-link semantics, keyboard/no-JavaScript use, English/Bangla, both themes and narrow-screen wrapping. Build verification must confirm footer credits on all generated HTML pages and the target anchors. Do not add client hydration or analytics just for credits.
 
 Cleanup must follow reference and entry-point checks, not simply remove files lacking imports: Astro routes, public assets, scripts, tests and configuration are legitimate entry points. Preserve current PNG masters and design references; retire only confirmed obsolete assets with recoverable history and synchronized provenance documentation.
 
@@ -1436,7 +1438,7 @@ Expand careers, roadmaps, experiments and curated resources without weakening th
 
 ## 44A. Goal guides and mobile / UX/UI implementation
 
-Maintain fourteen complete careers across eight families. Mobile App Development and UX/UI Engineering must participate in career comparison, families, five-stage roadmaps, experiments, AI pages and bilingual route generation. Use role-specific stage overrides where generic software tasks or JavaScript testing resources would be misleading. Preserve existing routes and comparison defaults when adding entries.
+Maintain seventeen complete careers across eight families. Mobile App Development and UX/UI Engineering must participate in career comparison, families, five-stage roadmaps, experiments, AI pages and bilingual route generation. Data Analytics & BI, AI Engineering and Application Security require the same complete graph and role-specific professional stages. Use role-specific stage overrides where generic software tasks or JavaScript testing resources would be misleading. Preserve existing routes and comparison defaults when adding entries.
 
 Use strict `GoalId`, `GoalGuide`, `GoalStage` and `GuidanceSource` contracts. Store seven complete localized guides in typed modules under `src/data/goals/`, indexed by `src/data/goals.ts`; source metadata belongs in `src/data/guidance-sources.ts`. A source is a scoped reference, not a `LearningResource.isFree` claim about applications, tests or publishing. Keep localization helpers free of circular runtime imports.
 
@@ -1450,7 +1452,7 @@ Test all seven routes in both languages, the two new careers across career/roadm
 
 ### Final-year project and infrastructure-career requirements
 
-Publish fourteen complete careers. `infrastructure-careers.ts`, `infrastructure-experiments.ts` and `infrastructure-roadmaps.ts` carry Network Engineering, Hardware Engineering and Software QA & Testing with role-specific evidence, safe experiments and professional practices. Keep stable IDs, exact family membership, all relationships and natural English/Bangla content. Do not inherit a generic browser-code task or JavaScript-only testing resource for physical/operational engineering.
+Publish seventeen complete careers. `infrastructure-careers.ts`, `infrastructure-experiments.ts` and `infrastructure-roadmaps.ts` carry Network Engineering, Hardware Engineering and Software QA & Testing with role-specific evidence, safe experiments and professional practices. `specialist-careers.ts`, `specialist-experiments.ts` and `specialist-roadmaps.ts` carry Data Analytics & BI, AI Engineering and Application Security with reproducible metrics, evaluation/release evidence and authorized remediation. Keep stable IDs, exact family membership, all relationships and natural English/Bangla content. Do not inherit a generic browser-code task or JavaScript-only testing resource where it would misrepresent physical, operational, analytical, AI or security engineering.
 
 Use the typed `FinalYearProjectGuide` contract in `src/types/content.ts` and bilingual source in `src/data/final-year-project.ts`. Render the complete seven-stage guide through `FinalYearProject.astro` and thin EN/BN routes. Provide Article/BreadcrumbList metadata, semantic section navigation, native disclosures, a worked traceability example, four project-type adaptations, readiness evidence and useful onward links. Do not add React or persistent checklist state for this static content.
 

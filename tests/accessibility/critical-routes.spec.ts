@@ -24,6 +24,10 @@ for (const route of [
   "/bn/careers/hardware-engineering/",
   "/careers/software-quality-assurance/",
   "/bn/roadmaps/software-quality-assurance/",
+  "/careers/ai-engineering/",
+  "/try/application-security/",
+  "/guidance/competitive-programming/",
+  "/bn/guidance/competitive-programming/",
 ]) {
   test(`has no detectable WCAG A/AA violations: ${route}`, async ({ page }) => {
     await page.goto(withBase(route));
@@ -51,6 +55,9 @@ for (const route of [
   "/careers/hardware-engineering/",
   "/bn/careers/software-quality-assurance/",
   "/try/network-engineering/",
+  "/bn/careers/data-analytics-bi/",
+  "/roadmaps/application-security/",
+  "/bn/guidance/competitive-programming/",
 ]) {
   test(`has no detectable dark-theme WCAG A/AA violations: ${route}`, async ({
     page,

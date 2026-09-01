@@ -9,6 +9,7 @@ interface Inspiration {
 
 interface Collaborator {
   name: string;
+  url?: string;
   role: LocalizedText;
   contribution: LocalizedText;
 }
@@ -30,11 +31,20 @@ export const inspirations: Inspiration[] = [
       bn: "বিষয়ভিত্তিক technical preparation আর focused navigation-এর ধারণায় অনুপ্রেরণা দিয়েছে।",
     },
   },
+  {
+    name: "Amirul Islam",
+    url: "https://amirulislamalmamun.com/",
+    contribution: {
+      en: "Inspired staged, build-centred learning roadmaps that connect technical depth with practical engineering evidence.",
+      bn: "ধাপে সাজানো, build-কেন্দ্রিক learning roadmap দিয়ে technical depth-কে practical engineering evidence-এর সঙ্গে যুক্ত করার অনুপ্রেরণা দিয়েছে।",
+    },
+  },
 ];
 
 export const collaborators: Collaborator[] = [
   {
     name: siteConfig.creator,
+    url: siteConfig.creatorUrl,
     role: { en: "Creator & Orchestrator", bn: "উদ্যোক্তা ও Orchestrator" },
     contribution: {
       en: "Shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed Codex through implementation and refinement.",

@@ -47,10 +47,16 @@ for (const locale of ["en", "bn"] as const) {
     }
     expect(errors).toEqual([]);
   });
-  test(`${locale} new careers connect roadmap, experiment, AI and goals`, async ({
+  test(`${locale} expanded careers connect roadmap, experiment, AI and goals`, async ({
     page,
   }) => {
-    for (const id of ["mobile-app-development", "ux-ui-engineering"]) {
+    for (const id of [
+      "mobile-app-development",
+      "ux-ui-engineering",
+      "data-analytics-bi",
+      "ai-engineering",
+      "application-security",
+    ]) {
       for (const section of ["careers", "roadmaps", "try", "ai"]) {
         await page.goto(route(`${prefix}/${section}/${id}/`));
         await expect(page.getByRole("heading", { level: 1 })).toBeVisible();

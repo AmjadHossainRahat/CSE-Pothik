@@ -299,18 +299,19 @@ Use sparingly.
 
 Primary navigation should be **problem-oriented**, not just conventional site taxonomy.
 
-Recommended global navigation:
+Use one problem-oriented navigation model at every viewport. On wide screens it is a persistent labeled left sidebar; on phones and tablets it becomes a compact sticky header and native full-width menu drawer. Group links by student intent rather than exposing an unexplained taxonomy:
 
-- **Explore Careers**
-- **Compare**
-- **Try a Career**
-- **Roadmaps**
-- **AI & Your Career**
-- **I’m Lost**
-- Language switch: **EN | বাংলা**
-- Theme switch: **Light | Dark**
+- **Start here:** Home, Find my next step, New to CSE, I’m Lost;
+- **Discover:** Career paths, Compare careers, Try real work;
+- **Prepare:** Learning roadmaps, Goal plans, Final-year project;
+- **Future:** AI & your career;
+- **About:** Why CSE Compass?, Learning resources.
 
-On smaller screens, use an accessible menu, but keep **I’m Lost** easy to reach.
+Keep the current section visibly marked with `aria-current`, a non-color-only border/background treatment and the same grouping in English and Bangla. The wide sidebar includes the CSE Compass brand plus language and theme controls. It may scroll independently on shorter laptop screens; it must never reduce the article below a usable reading width or overlap page content. Do not collapse it to unexplained icons.
+
+On smaller screens, retain a compact top bar containing the mark, language control, theme control and an icon-only menu toggle with a localized accessible name. The native drawer must work with keyboard and JavaScript disabled, close with Escape when JavaScript is available, constrain its height to the viewport and permit scrolling to every group. Keep **I’m Lost** visually prominent.
+
+The footer remains, but it is no longer a duplicate global navigator. Keep a compact product explanation, Why CSE Compass, final-year guide, privacy, repository, inspiration and collaboration credits there. The footer is required for provenance and policy even when desktop navigation is persistent.
 
 ### 9.1 Persistent “I’m Lost” path
 
@@ -339,9 +340,9 @@ It must combine two layers:
 - **Emotional layer:** veteran mentor orientation.
 - **Functional layer:** immediate guided navigation.
 
-The required display order is: header → hero with orientation map → **AI Reality** → starting-point navigator → concise misconceptions and veteran voices → career landscape → experiment previews → useful loop → encouraging next step → footer. The topic numbers below identify requirements, not display order. AI Reality must be the first section after the hero; do not place the career grid ahead of it.
+The required display order is: responsive global navigation → hero with orientation map → **AI Reality** → starting-point navigator → concise misconceptions and veteran voices → career landscape → experiment previews → useful loop → encouraging next step → footer. The navigation is a wide-screen sidebar or compact mobile/tablet header and drawer; it does not alter the content order. The topic numbers below identify requirements, not display order. AI Reality must be the first section after the hero; do not place the career grid ahead of it.
 
-The homepage introduces the product; it is not the entire directory. Show three representative experiments and a clear link to all published experiments (currently fourteen), keep every career family discoverable, and avoid repeating the same careers in a second featured-card section. Show two veteran perspectives initially and make three more available through a keyboard-accessible native disclosure. The complete career, roadmap and experiment pages remain unchanged in depth.
+The homepage introduces the product; it is not the entire directory. Show Backend, Cybersecurity and ML as three immediately visible representative experiments; place Data Analytics & BI, AI Engineering and Application Security in a clearly labelled native disclosure; and link to all published experiments (currently seventeen). Keep every career family discoverable and avoid repeating the same careers in a second featured-card section. Show two veteran perspectives initially and make three more available through a keyboard-accessible native disclosure. The complete career, roadmap and experiment pages remain unchanged in depth.
 
 Motivation must accompany action: welcome students who are confused or restarting, use a short future-self note, explain that a direction is a draft rather than a verdict, and end with one achievable 20-minute next step. Do not substitute slogans or false guarantees for practical guidance.
 
@@ -540,7 +541,7 @@ Example experiment cards:
 
 Experiments should usually take around 60–120 minutes or a short multi-day period.
 
-The homepage previews Backend, Cybersecurity and ML; the dedicated experiment index exposes all fourteen complete experiments, including Mobile App Development and UX/UI Engineering. Not enjoying an experiment is useful evidence, not failure.
+The homepage previews Backend, Cybersecurity and ML immediately, then offers Data Analytics & BI, AI Engineering and Application Security through a native disclosure. The dedicated experiment index exposes all seventeen complete experiments, including Mobile App Development and UX/UI Engineering. Not enjoying an experiment is useful evidence, not failure.
 
 CTA:
 
@@ -857,6 +858,8 @@ Use AI but require explanation of correctness, complexity, alternatives, edge ca
 Recommended exercise pattern:
 
 > Here is an AI-generated solution. Find the bug, identify the complexity problem, or construct a counterexample.
+
+Treat **ACM Programming / ICPC practice** as a separate practice track within Understand Computing Deeply—not a conventional career card. Provide a six-week learn → honest attempt → submit/debug/log → review/transfer loop, preserve a real-project balance, and make beginner volume deliberately modest. Curate Shafaet's Planet's Bangla algorithm notes and Amirul Islam's Bangla programming writing as complementary starting references. Link and scope them; do not copy their wording, curriculum or visual presentation.
 
 ---
 
@@ -1184,7 +1187,7 @@ Dark-theme illustrations must use lighter clothing/accent separation where neede
 
 Required homepage assets are the original three-person Bangladeshi computing team (a Chakma woman using a QA checklist tablet between two teammates at laptops) and the original AI study partner checking a result. All three people are peers with visible technical participation; avoid stereotyped roles and keep everyone visible without interaction. The study-partners scene uses an intentional soft blue-gray editorial backdrop with a theme-aware border, while the robot retains its transparent background. Do not ship a simulated transparency checkerboard. Keep source PNGs under `src/assets/illustrations/`; generate responsive WebP through Astro's image pipeline. Reserve intrinsic image dimensions, load the hero eagerly, and lazy-load the supporting robot. Generation provenance, cultural-reference limitations and prompts are recorded in `docs/illustrations.md`.
 
-Breadcrumbs must use the same content container as the page heading, aligned text baselines, and zero inherited prose-list margins. Long labels wrap within the available width. Primary navigation must remain visible on desktop, including after resizing from the mobile menu; never hide a closed disclosure's summary and its only route to navigation.
+Breadcrumbs must use the same content container as the page heading, aligned text baselines, and zero inherited prose-list margins. Long labels wrap within the available width. The persistent sidebar must remain visible on wide screens, including after resizing from the mobile drawer; page content begins after the sidebar and never sits beneath it. Never hide a closed disclosure's summary and its only route to navigation.
 
 ---
 
@@ -1199,6 +1202,8 @@ Requirements:
 - no roadmap that requires pinch-zoom;
 - no comparison table that becomes unusable;
 - accessible menu;
+- persistent labeled sidebar only where content width remains comfortable;
+- grouped mobile/tablet drawer with every destination reachable by scrolling;
 - language and theme controls reachable;
 - “I’m Lost” easy to find;
 - headings should not consume the whole viewport;
@@ -1439,11 +1444,14 @@ This site is inspired in part by:
 2. **Architect Prep** — https://mayurjp.github.io/architect-prep/  
    Inspiration: compact topic-oriented navigation and focused technical preparation/review.
 
+3. **Amirul Islam** — https://amirulislamalmamun.com/
+   Inspiration: staged, build-centred engineering roadmaps that connect technical depth with practical evidence.
+
 The site must remain visually and editorially original and must not reproduce their content.
 
-**Project provenance:** MD. Amjad Hossain is the Creator & Orchestrator. He shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. ChatGPT assisted with requirement engineering and product/design planning; Codex was used to build the site and assist with testing, fixes and iteration. Preserve human agency and distinguish these roles; do not imply affiliation or endorsement by the inspiration projects or AI providers.
+**Project provenance:** [Amjad Hossain](https://github.com/AmjadHossainRahat) is the Creator & Orchestrator. He shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. His name links to his verified GitHub profile in a new tab on the rendered site. ChatGPT assisted with requirement engineering and product/design planning; Codex was used to build the site and assist with testing, fixes and iteration. Preserve human agency and distinguish these roles; do not imply affiliation or endorsement by the inspiration projects or AI providers.
 
-Make this acknowledgment discoverable, not hidden behind an ambiguous label: every localized page has a compact footer section with direct roadmap.sh and Architect Prep links, the three contribution roles, and a “Full credits” link to localized About `#credits`. About includes a direct jump link, contextual inspiration explanations and fuller collaboration history. Keep student navigation ahead of credits in the footer and do not add another homepage content section or a primary-navigation item solely for attribution. All credit copy must have English/Bangla parity and remain readable in both themes without JavaScript.
+Make this acknowledgment discoverable, not hidden behind an ambiguous label: every localized page has a compact footer section with direct roadmap.sh, Architect Prep and Amirul Islam links, the three contribution roles, and a “Full credits” link to localized About `#credits`. About includes a direct jump link, contextual inspiration explanations and fuller collaboration history. Keep student navigation ahead of credits in the footer and do not add another homepage content section or a primary-navigation item solely for attribution. All credit copy must have English/Bangla parity and remain readable in both themes without JavaScript.
 
 The 1 September 2026 fresher UX assessment is recorded in `docs/ux-review.md`. Its unimplemented navigation proposals are recommendations, not a claim that a redesign or real-user study has already taken place.
 
@@ -1467,7 +1475,7 @@ Each guide has a visible reality/eligibility note, meaningful branches, starting
 
 UX placement: goal preparation is one of the three primary homepage starting intentions; By career/By goal entries on Roadmaps; a grouped seven-choice goal hub; contextual links on career/roadmap pages; a goal option in “I’m Lost”; a footer link. Keep the global header uncluttered and AI Reality immediately after the hero. Desktop detail pages use a readable article with a sticky section index; mobile uses a native “On this page” disclosure. Do not hide essential guidance in accordions or require JavaScript to read it.
 
-Career coverage is now fourteen careers across the original eight families. Mobile App Development belongs to Build Software and covers Android, Apple and cross-platform choices, state, lifecycle, local persistence, offline behavior, accessibility and release responsibility. Students choose one stack based on tooling access and purpose, not four at once. Setup time is explicit in its experiment.
+Career coverage is now seventeen careers across the original eight families. Mobile App Development belongs to Build Software and covers Android, Apple and cross-platform choices, state, lifecycle, local persistence, offline behavior, accessibility and release responsibility. Students choose one stack based on tooling access and purpose, not four at once. Setup time is explicit in its experiment.
 
 UX/UI Engineering belongs to Technology + People and bridges user research, interaction design and accessible implementation. Explain UX/product design versus UI engineering versus broader frontend engineering; a purely design-focused role is a valid alternative. Include consent-based observation, keyboard and responsive testing, design-system states and honest case studies. Never fabricate research participants or treat attractive screens as validated UX. Both new careers require full comparison, roadmap, experiment, AI and resource coverage.
 
@@ -1503,7 +1511,9 @@ Use the purpose-first orientation copy in §10.1, beginning “Free career guida
 
 English is default and Bangla is the only additional language. No third-language edition, font or translation-fallback experience is included.
 
-The fourteen-career landscape includes Network Engineering in Run Systems, Hardware Engineering in Work Close to Hardware, and Software QA & Testing in Build Software. Explain actual work, role variants, drawbacks and safety boundaries. Networking covers packet paths, routing/switching, troubleshooting and controlled changes; hardware covers electronics, logic, schematics and verification, distinct from embedded firmware or repair; QA covers requirements, risk, exploratory/manual work, reproducible defects and useful automation. Keep all three in discovery, comparison, roadmaps, experiments, AI guidance and relevant goal links. Starter experiments require no paid certificates or physical hardware.
+The seventeen-career landscape includes Network Engineering in Run Systems, Hardware Engineering in Work Close to Hardware, and Software QA & Testing in Build Software. Explain actual work, role variants, drawbacks and safety boundaries. Networking covers packet paths, routing/switching, troubleshooting and controlled changes; hardware covers electronics, logic, schematics and verification, distinct from embedded firmware or repair; QA covers requirements, risk, exploratory/manual work, reproducible defects and useful automation. Keep all three in discovery, comparison, roadmaps, experiments, AI guidance and relevant goal links. Starter experiments require no paid certificates or physical hardware.
+
+Data Analytics & BI belongs to Work With Data and centres metric definitions, validation, reproducible analysis and decision communication rather than pipeline ownership. AI Engineering belongs to Build Intelligence and centres retrieval/generation boundaries, evaluation, privacy, cost, monitoring and rollback rather than treating an API demo as a product. Application Security belongs to Protect Systems and centres threat modelling, secure design, authorized evidence, remediation and regression checks rather than broad SOC or infrastructure operations. Give all three complete bilingual career, comparison, roadmap, experiment, AI and goal coverage with role-specific professional evidence. Paid model access and public-target testing are never prerequisites.
 
 Final-year project preparation is a cross-career guide, not an eighth career goal or a new large homepage section. Link it from Roadmaps, individual roadmap next steps, engineering foundations, goal guides and footer. Use seven stages: define → specify → design → build → verify → release → defend. Each stage explains why, practical actions, enough-for-now evidence, what not to do yet and a scoped reference. Start-at-your-stage links, a desktop section index, mobile native disclosure and project-type disclosures reduce reading effort while keeping content available without JavaScript.
 

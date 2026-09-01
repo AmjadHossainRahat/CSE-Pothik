@@ -19,7 +19,7 @@ Do not simplify, omit, reinterpret away, or replace requirements from these docu
 
 Keep English as default and Bangla as the sole additional language. Do not introduce third-language routes, translation fallbacks or fonts. Replace the unclear homepage “salary reel” wording with direct career-orientation language. Use the refined C-shaped compass vector identity consistently in the site and favicon; preserve an original, professional social-sharing image and document its provenance.
 
-Maintain fourteen complete careers across eight families. Network Engineering, Hardware Engineering and Software QA & Testing require the same career, comparison, five-stage roadmap, experiment, AI exposure, localized content and curated-resource depth as the other paths. Distinguish network operations from cybersecurity, electronic hardware design from embedded software/repair, and QA judgment from merely clicking screens or writing automated tests. Use role-specific roadmap tasks/resources. Keep networking exercises explicitly authorized, hardware experiments simulator-first, and QA work scoped to owned apps. Do not require paid exams, equipment or hosted services for starter experiments.
+Maintain seventeen complete careers across eight families. Network Engineering, Hardware Engineering and Software QA & Testing require the same career, comparison, five-stage roadmap, experiment, AI exposure, localized content and curated-resource depth as the other paths. The same applies to Data Analytics & BI, AI Engineering and Application Security. Distinguish analytics from data-pipeline ownership, AI product/evaluation engineering from ML modelling/research, and application security from broad security operations. Use role-specific roadmap tasks/resources. Keep all security exercises explicitly authorized, hardware experiments simulator-first, and QA work scoped to owned apps. Do not require paid exams, equipment, model APIs or hosted services for starter experiments.
 
 Publish a complete bilingual final-year project standards guide at `/guidance/final-year-project/`, with equivalent `/bn/` navigation. Cover problem definition, testable requirements, design trade-offs, reviewed version-controlled changes, CI, testing and relevant accessibility/security/privacy, reproducibility, recovery, reports, defense and handover. Provide a worked requirement-to-evidence example, project-type adaptations, a readiness audit and actual downloadable English/Bangla evidence templates. Department rubrics, supervisor decisions and ethics/safety rules take priority; the guide is not certification. Link it contextually from roadmaps, foundations, goals and footer without adding a large homepage section or progress tracking.
 
@@ -127,7 +127,7 @@ Nothing important may visually merge into the background.
 
 Implement the complete homepage experience from `DESIGN.md`, including:
 
-1. Header/navigation
+1. Responsive problem-oriented navigation: a persistent labeled sidebar on wide screens, and a compact sticky header with the same grouped native drawer on phones/tablets
 2. Purpose-first illustrated hero: “Free career guidance for CSE students” followed by the student-problem-first punch line “You got into CSE. Now what?” Explain useful outcomes, include practical reassurance, a prominent “Help me find my next step” action, future-self encouragement and a four-stop orientation map
 3. AI reality / AI-resilience section immediately after the hero, with the AI study-partner illustration
 4. Three visible starting intentions (new/unsure → fresher guide; explore careers → career index; prepare for a goal → goal hub), with all six detailed situations inside a native disclosure and visible practical reassurance for students restarting
@@ -151,7 +151,7 @@ The hero artwork must welcome students of different genders and ethnicities: sho
 
 The teammates must look welcoming and engaged in technology, not romance: all look toward the viewer with relaxed casual smiles and clear personal space. The seated woman wears a teal hoodie and a stylishly draped ivory orna covering all her hair; the man retains his navy hoodie and glasses. The Chakma teammate wears contemporary professional clothing with a restrained Chakma-textile-inspired shoulder cloth; document the reference and do not claim exact traditional-dress authenticity or infer identity from facial features. Her visible checklist/stylus communicates active QA work, not a decorative observer or supervisory hierarchy. No career role is prescribed by gender or ethnicity. Keep the notebook's technical diagram, coffee, water bottle and small indoor plant on the desk. Preserve coherent devices and grounded props; avoid mutual gazing, inward leaning or romantic posing. Verify the actual artwork, not only its alt text. This three-person, viewer-facing direction supersedes earlier two-person/downward-gaze requirements.
 
-Keep the homepage focused: preview three experiments and link to the complete published experiment index (currently fourteen); derive counts from data and do not reduce the detail pages. In the orientation map and useful loop, group every caption with its title and make every step a working link. Reset inherited list margins for grid/flex components. Breadcrumbs must align with the page content, and desktop navigation must remain visible after mobile breakpoint changes.
+Keep the homepage focused: show three representative experiments immediately, place the Data Analytics & BI, AI Engineering and Application Security previews in a native progressive disclosure, and link to the complete published experiment index (currently seventeen); derive counts from data and do not reduce the detail pages. In the orientation map and useful loop, group every caption with its title and make every step a working link. Reset inherited list margins for grid/flex components. Breadcrumbs must align with the page content, and desktop navigation must remain visible after mobile breakpoint changes.
 
 ## Goal-based guidance expansion
 
@@ -159,7 +159,7 @@ Implement and preserve the complete seven-goal preparation layer specified in DE
 
 Career roadmaps answer what to learn; goal guides answer how to apply it. Integrate a compact homepage starting-point entry, By career/By goal Roadmaps navigation, contextual career/roadmap links and the “I’m Lost” goal choice. Keep the homepage focused and AI Reality immediately after the hero. Use static Astro templates, native anchors/disclosure and complete English/Bangla parity, without accounts, scores or progress storage.
 
-Publish full Mobile App Development and UX/UI Engineering careers, including roadmaps, experiments, comparison, AI guidance and free learning resources. Distinguish native/cross-platform mobile choices and UX/product design/UI engineering/frontend responsibilities. Do not require every mobile stack or paid design tooling. Maintain the original eight career families with fourteen complete careers.
+Publish full Mobile App Development and UX/UI Engineering careers, including roadmaps, experiments, comparison, AI guidance and free learning resources. Distinguish native/cross-platform mobile choices and UX/product design/UI engineering/frontend responsibilities. Do not require every mobile stack or paid design tooling. Maintain the original eight career families with seventeen complete careers.
 
 Verify all new journeys, sources, bilingual metadata, structured data, keyboard/no-JavaScript use, mobile/tablet/desktop, both themes and root/project-Pages builds. Extend content-integrity, E2E, accessibility and bounded analytics tests. Update README.md, DESIGN.md, SKILL.md and validation records truthfully; do not substitute documentation updates for completed functionality or real test execution.
 
@@ -184,6 +184,8 @@ Implement the complete site experiences described in the specifications:
 - realistic career drawbacks;
 - relevant next-step navigation;
 - recovery guidance for students who feel behind.
+
+Expose Competitive Programming (ACM / ICPC) as a distinct practice track under Understand Computing Deeply, not as a conventional career ID. Give it a bounded six-week learn → honest attempt → submit/debug/log → review/transfer loop, retain real-project practice and curate the user-supplied Shafaet's Planet and Amirul Islam Bangla programming references without copying their curriculum or implying endorsement.
 
 Do not turn these into long tutorial courses.
 
@@ -268,6 +270,8 @@ Ensure:
 # Responsive implementation
 
 Treat responsiveness as a primary requirement.
+
+Use the shared bilingual intent groups for desktop and mobile navigation. The wide sidebar must show active location, preserve article width and scroll independently when needed. The mobile/tablet drawer must remain a native keyboard/no-JavaScript control with every destination reachable, while language, theme and “I’m Lost” stay obvious. Keep the footer for compact project/policy/provenance links rather than duplicating the entire global navigation.
 
 Test and intentionally design for:
 
@@ -604,7 +608,7 @@ Use Yarn commands only.
 
 Preserve the attribution/provenance and inspiration requirements already defined in `DESIGN.md`.
 
-Keep roadmap.sh and Architect Prep credits visible in the shared footer, with a localized link to About `#credits`. Credit MD. Amjad Hossain as Creator & Orchestrator, ChatGPT for requirement/design discussions, and Codex for implementation and iteration. Preserve these distinct roles in English and Bangla; do not imply affiliation or endorsement. Keep the acknowledgment compact and secondary to student navigation. Update README and the shared typed credit content together when provenance changes.
+Keep roadmap.sh, Architect Prep and Amirul Islam credits visible in the shared footer, with a localized link to About `#credits`. Credit Amjad Hossain as Creator & Orchestrator and link his name to his verified GitHub profile at `https://github.com/AmjadHossainRahat` in a new tab; credit ChatGPT for requirement/design discussions and Codex for implementation and iteration. Preserve these distinct roles in English and Bangla; do not imply affiliation or endorsement. Keep the acknowledgment compact and secondary to student navigation. Update README and the shared typed credit content together when provenance changes.
 
 For repository cleanup, remove only verified obsolete files. Preserve active illustration masters, the authoritative theme reference, source routes, tests, build configuration and documentation. Retired imagery can remain recoverable through Git history rather than as unused working-tree binaries. Report exactly what was removed and do not claim deployed-byte savings for assets that were never emitted.
 

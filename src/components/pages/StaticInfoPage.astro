@@ -385,7 +385,20 @@ const metadata = {
                     {collaborators.map((person) => (
                       <div>
                         <dt>
-                          <strong>{person.name}</strong>
+                          <strong>
+                            {person.url ? (
+                              <a
+                                class="text-link"
+                                href={person.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                {person.name} <span aria-hidden="true">↗</span>
+                              </a>
+                            ) : (
+                              person.name
+                            )}
+                          </strong>
                           <span>{person.role[locale]}</span>
                         </dt>
                         <dd>{person.contribution[locale]}</dd>

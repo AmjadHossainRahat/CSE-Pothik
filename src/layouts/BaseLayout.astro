@@ -159,10 +159,12 @@ const baseStructuredData = {
   >
     <a class="skip-link" href="#main-content">{ui[locale].skip}</a>
     <Header locale={locale} pathname={headerPathname} />
-    <main id="main-content" tabindex="-1">
-      <slot />
-    </main>
-    <Footer locale={locale} />
+    <div class="site-frame">
+      <main id="main-content" tabindex="-1">
+        <slot />
+      </main>
+      <Footer locale={locale} />
+    </div>
     <script>
       import {
         track,
@@ -194,8 +196,11 @@ const baseStructuredData = {
           );
         const label =
           themeButton?.querySelector<HTMLElement>("[data-theme-label]");
-        if (!label) return;
-        label.textContent = root.dataset.theme === "dark" ? "Light" : "Dark";
+        if (!label || !themeButton) return;
+        label.textContent =
+          root.dataset.theme === "dark"
+            ? (themeButton.dataset.lightLabel ?? "Light")
+            : (themeButton.dataset.darkLabel ?? "Dark");
         themeButton?.setAttribute(
           "aria-pressed",
           String(root.dataset.theme === "dark"),

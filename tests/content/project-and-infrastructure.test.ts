@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import { careers, careerFamilies } from "../../src/data/careers";
 import { infrastructureCareers } from "../../src/data/infrastructure-careers";
 import { infrastructureExperiments } from "../../src/data/infrastructure-experiments";
+import { specialistCareers } from "../../src/data/specialist-careers";
+import { specialistExperiments } from "../../src/data/specialist-experiments";
 import { finalYearProject } from "../../src/data/final-year-project";
 import { projectPlaybooks } from "../../src/data/project/playbooks";
 import { projectTemplates } from "../../src/data/project/templates";
@@ -110,6 +112,34 @@ describe("complete project and infrastructure guidance", () => {
       )!;
       expect(experiment.steps.length).toBeGreaterThanOrEqual(5);
       expect(experiment.prerequisites[0]!.en).toMatch(/setup|Installation/i);
+    }
+  });
+
+  it("keeps the three specialist expansions complete and role-specific", () => {
+    expect(specialistCareers.map((career) => career.id)).toEqual([
+      "data-analytics-bi",
+      "ai-engineering",
+      "application-security",
+    ]);
+    expect(specialistExperiments.map((experiment) => experiment.id)).toEqual(
+      specialistCareers.map((career) => career.id),
+    );
+    verifyLocalized(specialistCareers);
+    verifyLocalized(specialistExperiments);
+    for (const career of specialistCareers) {
+      expect(career.ai.map((task) => task.exposure).sort()).toEqual([
+        "higher",
+        "lower",
+        "medium",
+      ]);
+      const roadmap = roadmapById.get(career.id)!;
+      verifyLocalized(roadmap);
+      expect(roadmap.stages).toHaveLength(5);
+      expect(roadmap.stages[3]!.resourceIds).not.toContain("testing-js");
+      const experiment = specialistExperiments.find(
+        (item) => item.id === career.id,
+      )!;
+      expect(experiment.steps.length).toBeGreaterThanOrEqual(5);
     }
   });
 

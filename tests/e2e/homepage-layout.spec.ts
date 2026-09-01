@@ -17,7 +17,24 @@ for (const locale of ["en", "bn"] as const) {
     await expect(page.locator(".orientation-note a")).toHaveCount(4);
     await expect(page.locator(".journey a")).toHaveCount(6);
     await expect(page.locator(".family-map article")).toHaveCount(8);
-    await expect(page.locator(".experiment-grid article")).toHaveCount(3);
+    await expect(
+      page.locator(".experiment-grid--featured article"),
+    ).toHaveCount(3);
+    const expandingExperiments = page.locator(".more-experiments");
+    await expect(expandingExperiments).not.toHaveAttribute("open", "");
+    await expandingExperiments.locator("summary").click();
+    await expect(
+      expandingExperiments.locator(".experiment-grid article"),
+    ).toHaveCount(3);
+    await expect(
+      expandingExperiments.locator(".experiment-grid article").last(),
+    ).toBeVisible();
+    await expect(page.locator(".family-track a")).toHaveAttribute(
+      "href",
+      route(
+        `${locale === "en" ? "" : "/bn"}/guidance/competitive-programming/`,
+      ),
+    );
     await expect(page.locator(".entry-list a")).toHaveCount(3);
     await expect(page.locator(".hero-copy .eyebrow")).toHaveText(
       homepageIntro.eyebrow[locale],
@@ -121,6 +138,9 @@ for (const locale of ["en", "bn"] as const) {
       await page.goto(
         `http://127.0.0.1:4321${route(locale === "en" ? "/" : "/bn/")}`,
       );
+      await expect(page.locator(".nav-details nav")).toBeVisible();
+      await page.locator(".nav-details > summary").click();
+      await expect(page.locator(".nav-details nav")).toBeHidden();
       const artwork = page.locator(".hero-visual img");
       await artwork.scrollIntoViewIfNeeded();
       await expect(artwork).toBeVisible();
@@ -152,16 +172,49 @@ for (const locale of ["en", "bn"] as const) {
   });
 }
 
-test("desktop navigation survives mobile breakpoint changes", async ({
+test("desktop sidebar and mobile drawer preserve the same navigation", async ({
   page,
 }) => {
   await page.setViewportSize({ width: 1280, height: 900 });
   await page.goto(route("/"));
   await expect(page.locator(".nav-details nav")).toBeVisible();
   await expect(page.locator(".nav-details > summary")).toBeHidden();
+  await expect(page.locator(".nav-group")).toHaveCount(5);
+  await expect(page.locator('[data-nav-item="home"]')).toHaveAttribute(
+    "aria-current",
+    "page",
+  );
+  await expect(page.locator('[data-nav-item="next-step"]')).not.toHaveAttribute(
+    "aria-current",
+    "page",
+  );
+  await expect(page.locator('[data-nav-item="why"]')).toHaveAttribute(
+    "href",
+    route("/about/#why-this-exists"),
+  );
+  const desktopGeometry = await page.evaluate(() => {
+    const sidebar = document
+      .querySelector(".site-header")!
+      .getBoundingClientRect();
+    const frame = document
+      .querySelector(".site-frame")!
+      .getBoundingClientRect();
+    return {
+      position: getComputedStyle(document.querySelector(".site-header")!)
+        .position,
+      sidebarRight: sidebar.right,
+      frameLeft: frame.left,
+    };
+  });
+  expect(desktopGeometry.position).toBe("fixed");
+  expect(
+    Math.abs(desktopGeometry.sidebarRight - desktopGeometry.frameLeft),
+  ).toBeLessThanOrEqual(1);
   await page.setViewportSize({ width: 390, height: 844 });
   await expect(page.locator(".nav-details nav")).toBeHidden();
   const menu = page.locator(".nav-details > summary");
+  await expect(menu).toHaveAccessibleName("Menu");
+  await expect(menu).toHaveText("☰");
   await menu.focus();
   await page.keyboard.press("Enter");
   await expect(page.locator(".nav-details nav")).toBeVisible();
@@ -172,6 +225,20 @@ test("desktop navigation survives mobile breakpoint changes", async ({
   await expect(menu).toBeFocused();
   await page.setViewportSize({ width: 1280, height: 900 });
   await expect(page.locator(".nav-details nav")).toBeVisible();
+});
+
+test("purpose is discoverable globally and the current section is identified", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(route("/careers/backend-engineering/"));
+  await expect(page.locator('[data-nav-item="careers"]')).toHaveAttribute(
+    "aria-current",
+    "page",
+  );
+  await page.locator('[data-nav-item="why"]').click();
+  await expect(page).toHaveURL(/\/about\/#why-this-exists$/);
+  await expect(page.locator("#why-title")).toBeInViewport();
 });
 
 test("breadcrumbs align with page content and have no staggered margins", async ({

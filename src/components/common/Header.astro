@@ -1,6 +1,14 @@
 ---
 import Logo from "@/components/common/Logo.astro";
-import { equivalentPath, localePath, ui, withBase } from "@/config/site";
+import {
+  equivalentPath,
+  localePath,
+  stripLocale,
+  ui,
+  withBase,
+} from "@/config/site";
+import { isNavigationItemActive, navigationGroups } from "@/data/navigation";
+import { t } from "@/lib/i18n";
 import type { Locale } from "@/types/content";
 
 interface Props {
@@ -10,13 +18,7 @@ interface Props {
 const { locale, pathname } = Astro.props;
 const copy = ui[locale];
 const otherLocale: Locale = locale === "en" ? "bn" : "en";
-const links = [
-  [copy.nav.careers, "/careers/"],
-  [copy.nav.compare, "/compare/"],
-  [copy.nav.try, "/try/"],
-  [copy.nav.roadmaps, "/roadmaps/"],
-  [copy.nav.ai, "/ai/"],
-] as const;
+const currentPath = stripLocale(pathname);
 ---
 
 <header class="site-header">
@@ -30,24 +32,45 @@ const links = [
     </a>
 
     <details class="nav-details" open>
-      <summary>{copy.menu}</summary>
+      <summary aria-label={copy.menu} title={copy.menu}>
+        <span aria-hidden="true" class="menu-icon">☰</span>
+      </summary>
       <nav aria-label={locale === "en" ? "Primary navigation" : "মূল নেভিগেশন"}>
-        <ul>
+        <div class="nav-groups">
           {
-            links.map(([label, path]) => (
-              <li>
-                <a href={withBase(localePath(locale, path))}>{label}</a>
-              </li>
+            navigationGroups.map((group) => (
+              <section
+                class="nav-group"
+                aria-labelledby={`nav-group-${group.id}`}
+              >
+                <h2 id={`nav-group-${group.id}`}>{t(group.label, locale)}</h2>
+                <ul>
+                  {group.items.map((item) => {
+                    const active = isNavigationItemActive(currentPath, item);
+                    return (
+                      <li>
+                        <a
+                          class:list={[
+                            "nav-link",
+                            { "nav-link--emphasis": item.emphasis },
+                          ]}
+                          href={withBase(localePath(locale, item.path))}
+                          aria-current={active ? "page" : undefined}
+                          data-nav-item={item.id}
+                        >
+                          <span>{t(item.label, locale)}</span>
+                          <span class="nav-arrow" aria-hidden="true">
+                            →
+                          </span>
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </section>
             ))
           }
-          <li>
-            <a
-              class="lost-link"
-              href={withBase(localePath(locale, "/im-lost/"))}
-              >{copy.nav.lost}</a
-            >
-          </li>
-        </ul>
+        </div>
       </nav>
     </details>
 
@@ -66,6 +89,8 @@ const links = [
         class="theme-switch"
         type="button"
         data-theme-switch
+        data-light-label={copy.light}
+        data-dark-label={copy.dark}
         aria-label={copy.theme}
       >
         <span aria-hidden="true" data-theme-icon>◐</span>
@@ -104,7 +129,7 @@ const links = [
     display: flex;
     min-height: 4.5rem;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.65rem;
   }
   .brand {
     margin-inline-end: auto;
@@ -115,9 +140,11 @@ const links = [
   }
   .nav-details summary {
     display: inline-flex;
+    width: 2.75rem;
     min-height: 2.75rem;
     align-items: center;
-    padding: 0.5rem 0.7rem;
+    justify-content: center;
+    padding: 0.5rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
     cursor: pointer;
@@ -127,39 +154,75 @@ const links = [
   .nav-details summary::-webkit-details-marker {
     display: none;
   }
+  .menu-icon {
+    font-size: 1.05rem;
+    line-height: 1;
+  }
   .nav-details nav {
     position: absolute;
     inset-block-start: calc(100% + 1px);
     inset-inline: 0;
-    padding: 1rem;
+    max-height: calc(100dvh - 4.5rem);
+    overflow-y: auto;
+    padding: 1.1rem max(1rem, calc((100vw - var(--container)) / 2));
     border-bottom: 1px solid var(--color-border);
     background: var(--color-surface-raised);
     box-shadow: var(--shadow-md);
   }
-  .nav-details ul {
+  .nav-groups {
     display: grid;
-    gap: 0.2rem;
+    gap: 1.25rem;
+  }
+  .nav-group h2 {
+    margin: 0 0 0.35rem;
+    color: var(--color-text-muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.11em;
+    text-transform: uppercase;
+  }
+  body[data-locale="bn"] .nav-group h2 {
+    letter-spacing: 0.035em;
+  }
+  .nav-group ul {
+    display: grid;
+    gap: 0.1rem;
     margin: 0;
     padding: 0;
     list-style: none;
   }
-  .nav-details li {
+  .nav-group li {
     margin: 0;
   }
-  .nav-details a {
+  .nav-link {
     display: flex;
-    min-height: 2.8rem;
+    min-height: 2.75rem;
     align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
     padding: 0.45rem 0.65rem;
+    border-inline-start: 3px solid transparent;
     color: var(--color-text);
     font-weight: 680;
+    line-height: 1.35;
     text-decoration: none;
   }
-  .nav-details a:hover {
+  .nav-link:hover {
     background: var(--color-code);
   }
-  .lost-link {
-    color: var(--color-warm) !important;
+  .nav-link[aria-current="page"] {
+    border-inline-start-color: var(--color-primary);
+    background: var(--color-code);
+    color: var(--color-primary-strong);
+  }
+  .nav-link--emphasis {
+    color: var(--color-warm);
+  }
+  .nav-arrow {
+    color: var(--color-border-strong);
+  }
+  .nav-link:hover .nav-arrow,
+  .nav-link[aria-current="page"] .nav-arrow {
+    color: currentColor;
   }
   .header-tools {
     display: flex;
@@ -172,6 +235,7 @@ const links = [
     min-height: 2.75rem;
     align-items: center;
     justify-content: center;
+    gap: 0.45rem;
     padding: 0.45rem 0.65rem;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-sm);
@@ -188,36 +252,82 @@ const links = [
     overflow: hidden;
     clip: rect(0 0 0 0);
   }
+
+  @media (min-width: 36rem) {
+    .nav-groups {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
   @media (min-width: 68rem) {
+    .site-header {
+      position: fixed;
+      inset-block: 0;
+      inset-inline-start: 0;
+      width: var(--sidebar-width);
+      overflow-y: auto;
+      border-bottom: 0;
+      border-inline-end: 1px solid var(--color-border);
+      background: var(--color-surface);
+      backdrop-filter: none;
+    }
     .header-inner {
-      gap: 1rem;
+      width: 100%;
+      min-height: 100%;
+      margin: 0;
+      padding: 1.4rem 1.15rem;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1.2rem;
+    }
+    .brand {
+      margin: 0;
+      padding-inline: 0.35rem;
     }
     .nav-details {
-      display: contents;
+      display: block;
+      width: 100%;
+      flex: 1;
+      order: 2;
     }
     .nav-details summary {
       display: none;
     }
     .nav-details nav {
       position: static;
-      order: 2;
+      max-height: none;
+      overflow: visible;
       padding: 0;
       border: 0;
       background: transparent;
       box-shadow: none;
     }
-    .nav-details ul {
-      display: flex;
-      align-items: center;
-      gap: 0.15rem;
+    .nav-groups {
+      grid-template-columns: 1fr;
+      gap: 1.05rem;
     }
-    .nav-details a {
-      min-height: 2.7rem;
-      padding-inline: 0.55rem;
+    .nav-link {
+      min-height: 2.35rem;
+      padding-block: 0.3rem;
       font-size: 0.9rem;
     }
     .header-tools {
+      width: 100%;
+      padding-top: 1rem;
+      border-top: 1px solid var(--color-border);
       order: 3;
+    }
+    .language-switch,
+    .theme-switch {
+      min-width: 0;
+      flex: 1;
+    }
+    .theme-label {
+      position: static;
+      width: auto;
+      height: auto;
+      overflow: visible;
+      clip: auto;
     }
   }
 </style>

@@ -1,5 +1,6 @@
 import { l } from "@/data/careers";
 import { infrastructureExperiments } from "@/data/infrastructure-experiments";
+import { specialistExperiments } from "@/data/specialist-experiments";
 import type {
   CareerExperiment,
   CareerId,
@@ -563,6 +564,7 @@ const commonReflection = [
 export const experiments: CareerExperiment[] = [
   ...seeds,
   ...infrastructureExperiments,
+  ...specialistExperiments,
 ].map((seed) => ({
   id: seed.id,
   careerId: seed.id,

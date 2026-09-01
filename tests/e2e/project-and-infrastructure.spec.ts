@@ -71,7 +71,7 @@ for (const locale of ["en", "bn"]) {
       "",
     );
     const template = await request.get(
-      `${base}/downloads/final-year-project.${locale}.md`,
+      `${base}/downloads/final-year-project.${locale}.md/`,
     );
     expect(template.ok()).toBe(true);
     expect(await template.text()).toContain(

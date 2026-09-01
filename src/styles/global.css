@@ -29,6 +29,10 @@ body[data-locale="bn"] {
   line-height: 1.78;
 }
 
+.site-frame {
+  min-width: 0;
+}
+
 img,
 svg {
   display: block;
@@ -533,6 +537,16 @@ body[data-locale="bn"] .eyebrow {
   }
 }
 
+@media (min-width: 68rem) {
+  html {
+    scroll-padding-top: 2rem;
+  }
+
+  .site-frame {
+    margin-inline-start: var(--sidebar-width);
+  }
+}
+
 @media (max-width: 43.99rem) {
   .compare-shell {
     overflow: visible;
@@ -590,6 +604,9 @@ body[data-locale="bn"] .eyebrow {
   body {
     background: white;
     color: black;
+  }
+  .site-frame {
+    margin-inline-start: 0;
   }
   a {
     color: black;

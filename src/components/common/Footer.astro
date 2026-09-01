@@ -30,59 +30,18 @@ const bn = locale === "bn";
         }
       </p>
     </div>
-    <nav aria-label={bn ? "ফুটার নেভিগেশন" : "Footer navigation"}>
-      <h2>{bn ? "পরের দিক" : "Keep exploring"}</h2>
-      <ul>
+    <nav aria-label={bn ? "প্রজেক্ট ও নীতিমালা" : "Project and policy"}>
+      <h2>{bn ? "প্রজেক্ট ও নীতিমালা" : "Project & policy"}</h2>
+      <ul class="utility-links">
+        <li>
+          <a href={withBase(localePath(locale, "/about/#why-this-exists"))}
+            >{bn ? "CSE Compass কেন?" : "Why CSE Compass?"}</a
+          >
+        </li>
         <li>
           <a
             href={withBase(localePath(locale, "/guidance/final-year-project/"))}
-            >{
-              bn ? "Final-year project-এর মান" : "Final-year project standards"
-            }</a
-          >
-        </li>
-        <li>
-          <a href={withBase(localePath(locale, "/goals/"))}
-            >{bn ? "লক্ষ্যভিত্তিক প্রস্তুতি" : "Goal-based preparation"}</a
-          >
-        </li>
-        <li>
-          <a href={withBase(localePath(locale, "/careers/"))}
-            >{bn ? "Career দেখো" : "Explore careers"}</a
-          >
-        </li>
-        <li>
-          <a
-            href={withBase(
-              localePath(locale, "/guidance/competitive-programming/"),
-            )}>ACM / ICPC</a
-          >
-        </li>
-        <li>
-          <a
-            href={withBase(
-              localePath(locale, "/guidance/software-engineering-foundations/"),
-            )}
-            >{
-              bn
-                ? "Software engineering foundation"
-                : "Software engineering foundations"
-            }</a
-          >
-        </li>
-        <li>
-          <a href={withBase(localePath(locale, "/resources/"))}
-            >{bn ? "Learning resources" : "Learning resources"}</a
-          >
-        </li>
-      </ul>
-    </nav>
-    <nav aria-label={bn ? "Project links" : "Project links"}>
-      <h2>{bn ? "প্রজেক্ট" : "Project"}</h2>
-      <ul>
-        <li>
-          <a href={withBase(localePath(locale, "/about/"))}
-            >{bn ? "সাইট সম্পর্কে" : "About CSE Compass"}</a
+            >{bn ? "Final-year project guide" : "Final-year project guide"}</a
           >
         </li>
         <li>
@@ -130,7 +89,21 @@ const bn = locale === "bn";
         {
           collaborators.map((person) => (
             <li>
-              <strong>{person.name}</strong> — {person.role[locale]}
+              <strong>
+                {person.url ? (
+                  <a
+                    class="credit-person-link"
+                    href={person.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {person.name} <span aria-hidden="true">↗</span>
+                  </a>
+                ) : (
+                  person.name
+                )}
+              </strong>{" "}
+              — {person.role[locale]}
             </li>
           ))
         }
@@ -228,13 +201,18 @@ const bn = locale === "bn";
   .collaborators li + li {
     margin-top: 0.4rem;
   }
+  .collaborators .credit-person-link {
+    min-height: 2.75rem;
+    gap: 0.25rem;
+  }
   @media (min-width: 48rem) {
     .credits-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 2rem;
     }
     .footer-grid {
-      grid-template-columns: minmax(20rem, 1.4fr) 1fr 1fr;
+      grid-template-columns: minmax(20rem, 1.4fr) minmax(16rem, 0.8fr);
+      align-items: start;
     }
     .footer-base {
       grid-template-columns: 1fr 1fr;

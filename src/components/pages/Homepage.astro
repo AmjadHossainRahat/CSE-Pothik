@@ -23,6 +23,11 @@ const experimentIds: CareerId[] = [
   "cybersecurity",
   "machine-learning",
 ];
+const moreExperimentIds: CareerId[] = [
+  "data-analytics-bi",
+  "ai-engineering",
+  "application-security",
+];
 const mapSteps = [
   [
     "Explore careers",
@@ -557,6 +562,20 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
                       );
                     })}
                   </div>
+                  {family.practiceTrack && (
+                    <aside class="family-track">
+                      <span>
+                        {copy(
+                          "Practice track · not a job title",
+                          "Practice track · job title নয়",
+                        )}
+                      </span>
+                      <a href={href(family.practiceTrack.path)}>
+                        {t(family.practiceTrack.title, locale)} →
+                      </a>
+                      <p>{t(family.practiceTrack.description, locale)}</p>
+                    </aside>
+                  )}
                 </>
               </article>
             ))
@@ -604,7 +623,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             }
           </p>
         </div>
-        <div class="experiment-grid">
+        <div class="experiment-grid experiment-grid--featured">
           {
             experimentIds.map((id) => {
               const experiment = experimentById.get(id)!;
@@ -629,6 +648,39 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             })
           }
         </div>
+        <details class="more-experiments">
+          <summary>
+            {
+              copy(
+                "Try three expanding paths: analytics, AI and application security",
+                "আরও তিনটি growing path try করো: analytics, AI আর application security",
+              )
+            }
+          </summary>
+          <div class="experiment-grid">
+            {
+              moreExperimentIds.map((id) => {
+                const experiment = experimentById.get(id)!;
+                const career = careerById.get(id)!;
+                return (
+                  <article>
+                    <span class="tag">{experiment.duration}</span>
+                    <h3>{t(career.title, locale)}</h3>
+                    <p>{t(experiment.title, locale)}</p>
+                    <a
+                      class="text-link"
+                      href={withBase(experimentPath(locale, career.slug))}
+                      data-track-event="career_experiment_started"
+                      data-track-param-career-id={career.id}
+                    >
+                      {copy("Try this experiment →", "এই experiment করি →")}
+                    </a>
+                  </article>
+                );
+              })
+            }
+          </div>
+        </details>
         <div class="section-footer">
           <p>
             {
@@ -1187,6 +1239,32 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
     align-items: center;
     gap: 0.25rem;
   }
+  .family-track {
+    margin-top: 0.8rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed var(--color-border-strong);
+  }
+  .family-track > span {
+    display: block;
+    color: var(--color-text-muted);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .family-track a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+  .family-track p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
   .section-footer {
     display: flex;
     flex-wrap: wrap;
@@ -1226,6 +1304,28 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
   }
   .experiment-grid a {
     margin-top: auto;
+  }
+  .more-experiments {
+    margin-top: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+  }
+  .more-experiments summary {
+    display: flex;
+    align-items: center;
+    min-height: 3rem;
+    padding: 0.75rem 1rem;
+    color: var(--color-primary-strong);
+    font-size: 0.9rem;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .more-experiments[open] summary {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .more-experiments .experiment-grid {
+    padding: 1rem;
   }
   .journey {
     display: grid;

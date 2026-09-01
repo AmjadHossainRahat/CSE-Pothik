@@ -10,7 +10,7 @@ English is the canonical/default language; natural Bangla routes live under `/bn
 
 CSE Compass includes:
 
-- eight career families and fourteen detailed career guides, including Mobile App Development, UX/UI Engineering, Network Engineering, Hardware Engineering and Software QA & Testing;
+- eight career families and seventeen detailed career guides, including Mobile App Development, UX/UI Engineering, Network Engineering, Hardware Engineering, Software QA & Testing, Data Analytics & BI, AI Engineering and Application Security;
 - seven goal guides for global companies, Bangladesh industry, remote employment, study abroad, research/publication, freelancing and a tech business;
 - career comparison for two or three paths;
 - one safe, time-bounded experiment for every published career;
@@ -32,6 +32,7 @@ It deliberately has no account, authentication, backend, database, profile, prog
 - Strict TypeScript models stable, language-neutral content IDs.
 - Small framework-free browser scripts handle theme, navigation, comparison, and analytics. Static prose is never hydrated.
 - Typed content lives under `src/data/`; reusable editorial and page components live under `src/components/`.
+- `src/data/navigation.ts` defines one bilingual problem-oriented navigation model and active-route matching for both desktop and mobile.
 - `src/config/site.ts` centralizes brand, locale, and routes.
 - `src/lib/analytics.ts` is the analytics abstraction.
 - Semantic CSS tokens provide designed light and dark themes.
@@ -147,7 +148,7 @@ English is the canonical editorial source. Bangla should be rewritten as natural
 ### Add a career
 
 1. Add the stable ID to `careerIds` in `src/types/content.ts`.
-2. Add complete English/Bangla content in `src/data/careers.ts` or its imported `additional-careers.ts` / `infrastructure-careers.ts` modules. Shared localization helpers live in `src/lib/localized.ts` to avoid circular runtime imports.
+2. Add complete English/Bangla content in `src/data/careers.ts` or its focused imported modules: `additional-careers.ts`, `infrastructure-careers.ts`, or `specialist-careers.ts`. Shared localization helpers live in `src/lib/localized.ts` to avoid circular runtime imports.
 3. Assign a family and comparison dimensions.
 4. Add three qualitative AI task-exposure entries.
 5. Add a roadmap relationship and an experiment in `src/data/experiments.ts`.
@@ -163,9 +164,11 @@ Roadmaps are generated from career learning layers in `src/data/roadmaps.ts`. Ev
 
 Mobile and UX/UI have contextual stage overrides: mobile addresses platform choice, state, persistence and release safety; UX/UI addresses research, accessible interactions and reusable components. `ResourceList` has an alternatives mode so mobile platforms are labelled as choices, not sequential Learn/Practice/Go Deeper levels or a requirement to learn four stacks. UX/product design, UI engineering and broader frontend development are distinguished in the career copy.
 
+Data Analytics & BI, AI Engineering and Application Security use `specialist-roadmaps.ts` so their professional evidence is metric lineage and decision communication, evaluated/releasable AI behavior, or authorized risk remediation—not generic browser-code refactoring. Their complete career and experiment seeds live in `specialist-careers.ts` and `specialist-experiments.ts`.
+
 ### Goal guides: where skills lead
 
-`/roadmaps/` offers **By career** (what to learn) and **By goal** (how to apply it). `/goals/` groups seven complete guides into industry, academic and independent paths. Every route has a `/bn/` equivalent. Goal preparation is one of the homepage's three starting intentions; the header retains Roadmaps. Career/roadmap pages and “I’m Lost” provide contextual entry points.
+`/roadmaps/` offers **By career** (what to learn) and **By goal** (how to apply it). `/goals/` groups seven complete guides into industry, academic and independent paths. Every route has a `/bn/` equivalent. Goal preparation is one of the homepage's three starting intentions and appears under the global **Prepare** navigation group beside roadmaps and the final-year project. Career/roadmap pages and “I’m Lost” provide contextual entry points.
 
 `src/data/goals.ts` combines typed modules under `src/data/goals/`. Add a goal ID, complete localized content, branches, four stages (`foundation`, `evidence`, `application`, `adapt`), pitfalls, responsible AI use, a concrete action this week, related goals and curated career IDs. Each stage needs why, practical tasks, enough-for-now evidence, what not to do yet and a source reference. `GoalDetail.astro` renders the shared static template; desktop has a sticky section index and mobile has a native disclosure. Essential guidance is always rendered, including with JavaScript disabled. No state, assessment, deadline promise or completion tracking is added.
 
@@ -177,6 +180,12 @@ Mobile and UX/UI have contextual stage overrides: mobile addresses platform choi
 
 Network Engineering belongs to Run Systems; Hardware Engineering belongs to Work Close to Hardware; Software QA & Testing belongs to Build Software. These are complete career graphs, not aliases for security, embedded programming or frontend work. `infrastructure-roadmaps.ts` supplies role-specific tasks/evidence and professional practices; `infrastructure-experiments.ts` supplies authorized loopback, simulated logic and owned-app testing exercises. Curated goal connections preserve role relevance. Paid certificates, physical hardware and hosted services are not prerequisites for the starter experiments.
 
+### Data, AI and application-security expansion
+
+The seventeen-career landscape now includes Data Analytics & BI under Work With Data, AI Engineering under Build Intelligence, and Application Security under Protect Systems. Analytics is distinguished from pipeline ownership, AI engineering from ML modelling/research, and application security from broad security operations. All three participate in comparison, five-stage roadmaps, experiments, AI task exposure, goals and English/Bangla routes. The homepage retains three fast representative experiments and offers the three expanding paths in a native disclosure; the complete index remains the source of truth.
+
+Competitive Programming (ACM / ICPC) is a separate practice track under Understand Computing Deeply, not a job title. The guide combines a six-week learn → attempt → submit/debug → review/transfer loop with real-project practice. Shafaet's Planet and Amirul Islam's Bangla writing are curated starting references; their curricula and wording are not copied.
+
 ### Final-year project standards
 
 `/guidance/final-year-project/` and its `/bn/` equivalent connect requirements, design decisions, small reviewed changes, CI, tests, security/privacy/accessibility, reproducibility and handover. Seven stages each include why, actions, readiness evidence, not-yet guidance and a scoped source. A worked requirement-to-release example and four project-type disclosures make the standard usable for software/mobile, research/ML, hardware/embedded and network/security projects. Department rubrics, supervisor decisions and ethics/safety requirements take priority; this is not accreditation or certification.
@@ -187,7 +196,7 @@ Network Engineering belongs to Run Systems; Hardware Engineering belongs to Work
 
 ### Experiment authoring
 
-Add a complete seed in `src/data/experiments.ts` with timebox, prerequisites, experience goal, at least four steps, attention prompts, reflection prompts, and resource IDs. Cybersecurity work must remain inside deliberately vulnerable, explicitly authorized labs. No experiment stores responses or completion state.
+Add a complete seed in `src/data/experiments.ts` or one of its focused imported experiment modules with timebox, prerequisites, experience goal, at least four steps, attention prompts, reflection prompts, and resource IDs. Security work must remain inside owned systems or deliberately vulnerable, explicitly authorized labs. No experiment stores responses or completion state.
 
 ### Add a learning resource
 
@@ -201,7 +210,7 @@ The visual mood follows `themes-sample.png`: cool off-white/navy in light mode, 
 
 The refined vector identity uses an open circular C and directional needle with a restrained wordmark. `Logo.astro` and `public/favicon.svg` share the geometry; the mark remains legible in monochrome and both themes. The social card uses matching navy typography and restrained branching paths. The homepage begins “Free career guidance for CSE students” followed by the stronger student-problem-first punch line “You got into CSE. Now what?” The unclear “salary reel” expression remains retired. English remains default and Bangla is the only additional language; no third-language routes, fonts or fallbacks ship.
 
-The homepage follows a focused orientation sequence: purpose-first illustrated hero/map → AI Reality → three starting intentions → concise misconceptions/mentor voices → eight career families → three experiment previews → six-step useful loop → a practical, encouraging next step. `src/data/homepage.ts` supplies typed bilingual introduction, origin/purpose and entry copy. The hero distills the story into attraction to CSE, the cost of missing early orientation and a hopeful recovery: the visitor has not missed the chance to build direction. The localized About page carries the full, nonjudgmental story as attraction → orientation gap → drift/frustration → direction, followed by explicit Purpose and Goal panels and a note for independent or orientation-class use. The primary action jumps to choices for new/unsure students, career exploration and goal preparation; each goes directly to useful guidance. The six more-specific situations remain inside a native disclosure, with recovery encouragement always visible. The hero explains practical outcomes before navigation and puts the main action before artwork on phones. Section introductions answer student questions; career learning paths and goal preparation are explicitly distinguished. Additional mentor voices use a native disclosure; all fourteen complete experiments remain on the dedicated index. The experiment count is derived from data. Motivation is attached to realistic action, not promises or pressure. No new client JavaScript, dependency, route or personalization is needed.
+The homepage follows a focused orientation sequence: purpose-first illustrated hero/map → AI Reality → three starting intentions → concise misconceptions/mentor voices → eight career families → three primary experiment previews plus three expanding-path previews in a native disclosure → six-step useful loop → a practical, encouraging next step. `src/data/homepage.ts` supplies typed bilingual introduction, origin/purpose and entry copy. The hero distills the story into attraction to CSE, the cost of missing early orientation and a hopeful recovery: the visitor has not missed the chance to build direction. The localized About page carries the full, nonjudgmental story as attraction → orientation gap → drift/frustration → direction, followed by explicit Purpose and Goal panels and a note for independent or orientation-class use. The primary action jumps to choices for new/unsure students, career exploration and goal preparation; each goes directly to useful guidance. The six more-specific situations remain inside a native disclosure, with recovery encouragement always visible. The hero explains practical outcomes before navigation and puts the main action before artwork on phones. Section introductions answer student questions; career learning paths and goal preparation are explicitly distinguished. Additional mentor voices use a native disclosure; all seventeen complete experiments remain on the dedicated index. The experiment count is derived from data. Motivation is attached to realistic action, not promises or pressure. No new client JavaScript, dependency, route or personalization is needed.
 
 Two original illustrations—a three-person computing team and an AI study partner—are imported from `src/assets/illustrations/` through Astro's responsive image pipeline. In the hero, a Chakma Bangladeshi woman with a QA checklist tablet stands between two teammates using laptops. One static scene keeps all three equally visible, without carousel motion, controls or JavaScript. Its intentional blue-gray editorial backdrop and theme-aware border preserve contrast in both themes; the supporting robot retains transparency. Preserve the full composition on phones without cropping any teammate. WebP variants, intrinsic dimensions, an eager hero and lazy supporting image keep them static and lightweight. See [illustration provenance, textile references and generation prompt](docs/illustrations.md).
 
@@ -211,7 +220,9 @@ Light is the default. Only an explicit theme and language choice may be stored i
 
 Layouts are mobile-first. Comparison becomes labelled stacked records on narrow screens; roadmaps remain readable without pinch zoom. No essential interaction depends on hover.
 
-The orientation map and useful loop explicitly group titles with captions. Breadcrumbs use the same container as the page heading and reset inherited list margins. The desktop navigation is always visible at its breakpoint; the mobile menu supports keyboard opening and Escape-to-close, and remains a native disclosure without JavaScript.
+The orientation map and useful loop explicitly group titles with captions. Breadcrumbs use the same container as the page heading and reset inherited list margins.
+
+Global navigation is responsive but structurally consistent. At `68rem` and above, `Header.astro` becomes a fixed 16.75rem labeled sidebar containing five intent groups: Start here, Discover, Prepare, Future and About. Start here begins with an explicit bilingual Home destination; its separate “Find my next step” link jumps to the homepage orientation choices without competing for the current-page marker. The shared `--sidebar-width` token offsets the page frame, so content never sits beneath the sidebar; the rail can scroll on short screens. Current routes receive `aria-current="page"` plus border/background emphasis. Below that breakpoint, the same links appear in a viewport-bounded native drawer beneath a compact sticky top bar. Its menu control is icon-only visually and retains a localized accessible name. It works without JavaScript, supports Escape-to-close when enhanced, and keeps language/theme controls outside the drawer. The footer is intentionally smaller: project purpose, final-year guidance, privacy, repository and provenance remain, while career navigation is not duplicated.
 
 `tests/e2e/homepage-layout.spec.ts` protects section order, content density, illustrations, caption/breadcrumb geometry, progressive disclosure, breakpoint navigation continuity and no-JavaScript navigation. `tests/e2e/homepage-entry.spec.ts` follows all three intentions to useful guidance, checks bounded analytics and repeats keyboard navigation without JavaScript. Content-integrity tests protect bilingual introduction/entry data and the six preserved situations; accessibility tests cover the expanded disclosure. The responsive suite covers 320, 390, 768, 1280 and 1600px, verifies initial-viewport action visibility and waits for anchor scrolling to settle before capturing the entry section. Accessibility tests include English/Bangla and light/dark. A release also requires actual viewport-sized visual review, not only automated overflow checks.
 
@@ -280,11 +291,11 @@ Internal links, assets, canonical URLs, hreflang, sitemap, and robots output hon
 
 ## Attribution and community use
 
-CSE Compass was conceptually inspired by [roadmap.sh](https://roadmap.sh/) for structured role/skill navigation and [Architect Prep](https://mayurjp.github.io/architect-prep/) for focused technical navigation. Its visual system, content, mentoring model, roadmaps, and implementation are original.
+CSE Compass was conceptually inspired by [roadmap.sh](https://roadmap.sh/) for structured role/skill navigation, [Architect Prep](https://mayurjp.github.io/architect-prep/) for focused technical navigation, and [Amirul Islam](https://amirulislamalmamun.com/) for staged, build-centred engineering roadmaps. Its visual system, content, mentoring model, roadmaps, and implementation are original.
 
-**MD. Amjad Hossain — Creator & Orchestrator:** shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. **ChatGPT** assisted with requirement engineering and product/design planning. **Codex** was used to build the site and assist with tests, bug fixes and iteration. These acknowledgments do not imply affiliation or endorsement.
+**[Amjad Hossain](https://github.com/AmjadHossainRahat) — Creator & Orchestrator:** shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. His linked name opens the verified GitHub profile in a new tab on the site. **ChatGPT** assisted with requirement engineering and product/design planning. **Codex** was used to build the site and assist with tests, bug fixes and iteration. These acknowledgments do not imply affiliation or endorsement.
 
-Both inspiration links and the three distinct contributions are visible in every page's footer. “Full credits” opens the localized `/about/#credits` or `/bn/about/#credits` section; About also has a direct jump link. Shared bilingual copy lives in `src/data/credits.ts`, with the creator's name in `src/config/site.ts`. Credits are static HTML, accessible without JavaScript, and add no dependency or tracking event.
+All three inspiration links and the three distinct contributions are visible in every page's footer. “Full credits” opens the localized `/about/#credits` or `/bn/about/#credits` section; About also has a direct jump link. Shared bilingual copy lives in `src/data/credits.ts`, with the creator's name in `src/config/site.ts`. Credits are static HTML, accessible without JavaScript, and add no dependency or tracking event.
 
 See [the fresher UX review and safe repository cleanup](docs/ux-review.md) for evidence, prioritized recommendations and the distinction between this review and real-user testing. The obsolete lone-boy `mentor-guide.png` was removed; the active three-person and robot PNG masters and `themes-sample.png` are intentionally retained. Git history preserves the retired asset.
 

@@ -11,6 +11,7 @@ import type {
 import { l } from "@/lib/localized";
 import { additionalCareers } from "@/data/additional-careers";
 import { infrastructureCareers } from "@/data/infrastructure-careers";
+import { specialistCareers } from "@/data/specialist-careers";
 export { l };
 
 export interface CareerSeed {
@@ -1609,6 +1610,7 @@ export const careers: Career[] = [
   ...seeds,
   ...additionalCareers,
   ...infrastructureCareers,
+  ...specialistCareers,
 ].map((seed) => ({
   id: seed.id,
   slug: seed.id,
@@ -1657,7 +1659,7 @@ export const careerFamilies: CareerFamily[] = [
       "Make data reliable, useful and available.",
       "Data-কে reliable, useful আর available করো।",
     ),
-    careerIds: ["data-engineering"],
+    careerIds: ["data-engineering", "data-analytics-bi"],
     accent: "teal",
   },
   {
@@ -1667,7 +1669,7 @@ export const careerFamilies: CareerFamily[] = [
       "Design and evaluate learning systems.",
       "Learning system design আর evaluate করো।",
     ),
-    careerIds: ["machine-learning"],
+    careerIds: ["machine-learning", "ai-engineering"],
     accent: "violet",
   },
   {
@@ -1677,7 +1679,7 @@ export const careerFamilies: CareerFamily[] = [
       "Understand threats and reduce real risk.",
       "Threat বুঝে real risk কমাও।",
     ),
-    careerIds: ["cybersecurity"],
+    careerIds: ["cybersecurity", "application-security"],
     accent: "coral",
   },
   {
@@ -1709,6 +1711,17 @@ export const careerFamilies: CareerFamily[] = [
     ),
     careerIds: ["systems-research"],
     accent: "indigo",
+    practiceTrack: {
+      title: l(
+        "Competitive Programming (ACM / ICPC)",
+        "Competitive Programming (ACM / ICPC)",
+      ),
+      description: l(
+        "A structured problem-solving and contest track—not a job title or a substitute for engineering projects.",
+        "Structured problem-solving আর contest-এর track—job title নয়, engineering project-এর বিকল্পও নয়।",
+      ),
+      path: "/guidance/competitive-programming/",
+    },
   },
   {
     id: "technology-people",

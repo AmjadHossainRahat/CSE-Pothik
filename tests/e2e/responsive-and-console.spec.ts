@@ -101,8 +101,19 @@ for (const viewport of viewports) {
             elements.map((element) => element.getBoundingClientRect().width),
           );
         expect(mapItems.every((width) => width > 95)).toBe(true);
-        if (viewport.width >= 1088)
+        if (viewport.width >= 1088) {
           await expect(page.locator(".nav-details nav")).toBeVisible();
+        } else {
+          await page.locator(".nav-details > summary").click();
+          await expect(page.locator(".nav-details nav")).toBeVisible();
+          await page.screenshot({
+            path: testInfo.outputPath(
+              `navigation-${locale}-${theme}-${viewport.name}.png`,
+            ),
+          });
+          await page.locator(".nav-details > summary").click();
+          await expect(page.locator(".nav-details nav")).toBeHidden();
+        }
         await page.locator('.hero-copy a[href="#starting-point"]').click();
         await expect(page.locator("#starting-title")).toBeInViewport();
         // Wait for the native smooth anchor scroll before taking a visual record.

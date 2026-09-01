@@ -3,12 +3,16 @@ import { siteConfig } from "../../src/config/site";
 import { collaborators, inspirations } from "../../src/data/credits";
 
 describe("project credits", () => {
-  it("preserves both original inspiration links", () => {
+  it("preserves every required inspiration link", () => {
     expect(inspirations.map(({ name, url }) => ({ name, url }))).toEqual([
       { name: "roadmap.sh", url: "https://roadmap.sh/" },
       {
         name: "Architect Prep",
         url: "https://mayurjp.github.io/architect-prep/",
+      },
+      {
+        name: "Amirul Islam",
+        url: "https://amirulislamalmamun.com/",
       },
     ]);
   });
@@ -20,6 +24,8 @@ describe("project credits", () => {
       "Codex",
     ]);
     expect(collaborators[0]!.role.en).toContain("Orchestrator");
+    expect(collaborators[0]!.name).toBe("Amjad Hossain");
+    expect(collaborators[0]!.url).toBe(siteConfig.creatorUrl);
     expect(collaborators[1]!.role.en).toBe("Requirements & design");
     expect(collaborators[2]!.role.en).toBe("Implementation & iteration");
   });

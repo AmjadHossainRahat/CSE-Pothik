@@ -4,8 +4,9 @@ export const siteConfig = {
   name: "CSE Compass",
   tagline: "Find your direction in CSE.",
   description: "A practical career compass for CSE students in the AI era.",
-  author: "MD. Amjad Hossain and contributors",
-  creator: "MD. Amjad Hossain",
+  author: "Amjad Hossain and contributors",
+  creator: "Amjad Hossain",
+  creatorUrl: "https://github.com/AmjadHossainRahat",
   repository: "https://github.com/AmjadHossainRahat/CSE-Compass",
   socialImage: "social/cse-compass-og.png",
 } as const;

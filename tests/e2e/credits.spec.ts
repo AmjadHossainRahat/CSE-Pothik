@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { siteConfig } from "../../src/config/site";
 import { collaborators, inspirations } from "../../src/data/credits";
 import { sitePurpose } from "../../src/data/homepage";
 
@@ -46,6 +47,12 @@ for (const locale of ["en", "bn"] as const) {
         person.contribution[locale],
       );
     }
+    const creatorLink = page
+      .locator("#credits")
+      .getByRole("link", { name: siteConfig.creator });
+    await expect(creatorLink).toHaveAttribute("href", siteConfig.creatorUrl);
+    await expect(creatorLink).toHaveAttribute("target", "_blank");
+    await expect(creatorLink).toHaveAttribute("rel", "noopener noreferrer");
     for (const source of inspirations)
       await expect(
         page

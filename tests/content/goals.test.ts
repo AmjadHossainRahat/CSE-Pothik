@@ -92,4 +92,22 @@ describe("goal-based guidance", () => {
       [...careerIds].sort(),
     );
   });
+
+  it("connects every specialist expansion to multiple realistic goals", () => {
+    for (const id of [
+      "data-analytics-bi",
+      "ai-engineering",
+      "application-security",
+    ] as const) {
+      expect(goals.filter((goal) => goal.careerIds.includes(id)).length).toBe(
+        7,
+      );
+      expect(
+        roadmaps.find((roadmap) => roadmap.id === id)?.stages,
+      ).toHaveLength(5);
+      expect(
+        experiments.find((experiment) => experiment.id === id)?.steps.length,
+      ).toBeGreaterThanOrEqual(5);
+    }
+  });
 });

@@ -111,8 +111,8 @@ const structuredData = [
         >{bn ? "আমার stage থেকে শুরু" : "Find my starting stage"}</a
       ><a
         class="button button--secondary"
-        href={withBase(`/downloads/final-year-project.${bn ? "bn" : "en"}.md`)}
-        download
+        href={withBase(`/downloads/final-year-project.${bn ? "bn" : "en"}.md/`)}
+        download={`final-year-project.${bn ? "bn" : "en"}.md`}
         data-track-event="next_step_clicked"
         data-track-param-destination="fyp-evidence-template"
         >{bn ? "Team toolkit ডাউনলোড (.md)" : "Download team toolkit (.md)"}</a
@@ -262,8 +262,8 @@ const structuredData = [
         }
         <a
           class="button toolkit-download"
-          href={withBase(`/downloads/final-year-project.${locale}.md`)}
-          download
+          href={withBase(`/downloads/final-year-project.${locale}.md/`)}
+          download={`final-year-project.${locale}.md`}
           data-track-event="next_step_clicked"
           data-track-param-destination="fyp-evidence-template"
           >{
@@ -445,9 +445,9 @@ const structuredData = [
         </p>
         <a
           href={withBase(
-            `/downloads/final-year-project.${bn ? "bn" : "en"}.md`,
+            `/downloads/final-year-project.${bn ? "bn" : "en"}.md/`,
           )}
-          download
+          download={`final-year-project.${bn ? "bn" : "en"}.md`}
           >{
             bn
               ? "Brief, test report আর handover template (.md)"

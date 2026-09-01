@@ -105,6 +105,7 @@ test("mobile navigation and outbound resource links work", async ({
   await page.goto(route("/"));
   await page.locator(".nav-details > summary").click();
   await expect(page.getByRole("link", { name: "I’m Lost" })).toBeVisible();
+  await expect(page.locator('[data-nav-item="why"]')).toBeVisible();
   await page.goto(route("/resources/"));
   const resource = page
     .locator('[data-track-event="learning_resource_clicked"]')
