@@ -353,7 +353,7 @@ Core direction:
 
 # You got into CSE. Now what?
 
-Begin with the explicit purpose: **Free career guidance for CSE students**. Follow it with the student-problem-first punch line **“You got into CSE. Now what?”** Explain that visitors can explore careers, try real work and follow clear learning paths for jobs, higher studies, research, freelancing or a tech business. Do not assume that a first-time visitor already knows what the site does.
+Begin with the explicit purpose: **Free career guidance for CSE students**. Follow it with the student-problem-first punch line **“You got into CSE. Now what?”** Distill the origin story into a short, nonjudgmental arc: students may arrive through popularity, earning potential or hopes of opportunities abroad, then discover a field much broader than the few familiar roles; without early orientation, trends and disconnected tutorials can consume semesters; even then, the opportunity to build direction is not gone. Resolve immediately into useful action: understand the options, try the real work and choose one next step. Do not use unsupported prevalence claims, blame students, demean any legitimate career, or suggest that someone has permanently “missed the train.”
 
 Reassure without pressure: “You don’t need your whole future figured out. Start with one useful next step.” Explain the practical outcome: a path to explore, a learning order and something to try. Do not promise employment, admissions or a personalized assessment.
 
@@ -368,6 +368,8 @@ Secondary CTA:
 The hero should feel open, calm and editorial—not like a dashboard.
 
 On phones, place the purpose, headline, explanation and primary action before the artwork. Keep the primary action fully visible in the tested 320×720 and 390×844 initial viewports, in English and Bangla; do not shrink text below readable sizes or hide the artwork to achieve this. Use shared typed bilingual copy from `src/data/homepage.ts`.
+
+The localized About page carries the complete origin story, not the homepage. Present attraction → orientation gap → drift/frustration → direction as a compact four-stage visual sequence, then state Purpose and Goal explicitly. Purpose: make career orientation available early and recovery possible later. Goal: show career breadth, explain work behind titles, encourage small experiments and connect students to a practical learning or preparation path. Mention independent and orientation-class use without implying university endorsement. Keep the story, homepage summary and tests grounded in shared bilingual `sitePurpose` data.
 
 Use the original three-person study-partners illustration, not stock photography: a Chakma Bangladeshi woman standing in the centre with a QA checklist tablet and stylus, between a woman and man each using a laptop. They are equal computing teammates, each contributing to building and checking a product. Give all three equal visual prominence and retain their complete visible composition on every screen size and in both themes. Show them together in one static scene, not alternating gender- or ethnicity-specific carousel slides. The future-self caption is an editorial encouragement, not an endorsement by a real professional.
 

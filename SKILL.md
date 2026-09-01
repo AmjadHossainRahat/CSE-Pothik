@@ -442,7 +442,7 @@ Implement the homepage sections in the order and spirit defined in `DESIGN.md`.
 Required sections:
 
 1. Header/navigation with the `CSE Compass` wordmark/brand mark, language switch and theme switch.
-2. Purpose-first illustrated hero: free CSE career guidance, clear outcomes, practical reassurance and a prominent next-step action; preserve the future-self note and four-stop orientation map.
+2. Purpose-first illustrated hero: free CSE career guidance, the “You got into CSE. Now what?” punch line, a concise attraction → orientation gap → hopeful recovery story, clear outcomes and a prominent next-step action; preserve the future-self note and four-stop orientation map.
 3. AI reality / resilience section immediately after the hero, with the original AI study-partner illustration.
 4. Three visible starting intentions and six detailed situations in a native disclosure, with recovery encouragement.
 5. Concise misconceptions paired with veteran orientation voices; two visible perspectives and three in an accessible native disclosure.
@@ -729,6 +729,8 @@ Requirements:
 Implement the homepage starting-point selector as a prominent component.
 
 Keep bilingual hero and three-entry copy in `src/data/homepage.ts`. Render static linked rows for new/unsure students, career exploration and goal preparation, pointing respectively to the fresher guide, career index and goal hub. All links must use the locale/base-path helpers; analytics use existing bounded `next_step_clicked` destinations.
+
+Keep repeated origin, Purpose and Goal copy in the typed bilingual `sitePurpose` object. Render only its concise resolution in the homepage hero; render the full narrative and four-stage sequence on localized About pages. Use static Astro markup and shared tokens, preserve mobile wrapping and theme contrast, and do not add client hydration. Test data completeness, both rendered languages, the native About anchors, no-JavaScript availability, axe results and the five-width visual matrix.
 
 Keep these six detailed choices in the static HTML inside an accessible native disclosure:
 

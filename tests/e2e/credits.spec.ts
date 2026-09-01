@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { collaborators, inspirations } from "../../src/data/credits";
+import { sitePurpose } from "../../src/data/homepage";
 
 const base = (process.env.BASE_PATH ?? "").replace(/\/$/, "");
 const route = (locale: string, path: string) =>
@@ -34,6 +35,10 @@ for (const locale of ["en", "bn"] as const) {
         })
         .first(),
     ).toBeVisible();
+    const story = page.locator("#why-this-exists");
+    await expect(story).toContainText(sitePurpose.purpose[locale]);
+    await expect(story).toContainText(sitePurpose.goal[locale]);
+    await expect(story.locator(".story-arc li")).toHaveCount(4);
     for (const person of collaborators) {
       await expect(page.locator("#credits")).toContainText(person.name);
       await expect(page.locator("#credits")).toContainText(person.role[locale]);
@@ -76,6 +81,9 @@ for (const locale of ["en", "bn"] as const) {
       ),
     ).not.toBe("none");
     await expect(page.locator("#credits")).toContainText("Orchestrator");
+    await expect(page.locator("#why-this-exists")).toContainText(
+      sitePurpose.purpose[locale],
+    );
     await expect(page.locator(".footer-credits")).toContainText("ChatGPT");
     await context.close();
   });
@@ -101,7 +109,7 @@ for (const width of [320, 390, 768, 1280, 1600])
         page.on("console", (message) => {
           if (message.type() === "error") errors.push(message.text());
         });
-        await page.goto(route(locale, "/about/#credits"));
+        await page.goto(route(locale, "/about/"));
         await expect(page.locator("html")).toHaveAttribute("lang", locale);
         await expect(page.locator("html")).toHaveAttribute("data-theme", theme);
         expect(
@@ -109,12 +117,31 @@ for (const width of [320, 390, 768, 1280, 1600])
             () => document.documentElement.scrollWidth <= innerWidth + 1,
           ),
         ).toBe(true);
-        for (const selector of ["#credits h2", ".footer-credits"]) {
+        await page.locator('.page-hero a[href="#why-this-exists"]').click();
+        await expect(page.locator("#why-title")).toBeInViewport();
+        await expect
+          .poll(() =>
+            page.locator("#why-this-exists").evaluate((element) => {
+              const scrollPadding = Number.parseFloat(
+                getComputedStyle(document.documentElement).scrollPaddingTop,
+              );
+
+              return Math.abs(
+                element.getBoundingClientRect().top - scrollPadding,
+              );
+            }),
+          )
+          .toBeLessThan(2);
+        await page.screenshot({
+          path: info.outputPath(`story-intro-${locale}-${theme}-${width}.png`),
+        });
+        for (const { selector, name } of [
+          { selector: "#credits h2", name: "about" },
+          { selector: ".footer-credits", name: "footer" },
+        ]) {
           await page.locator(selector).scrollIntoViewIfNeeded();
           await page.screenshot({
-            path: info.outputPath(
-              `${selector.startsWith("#") ? "about" : "footer"}-${locale}-${theme}-${width}.png`,
-            ),
+            path: info.outputPath(`${name}-${locale}-${theme}-${width}.png`),
           });
         }
         for (const link of await page.locator(".footer-credits a").all()) {

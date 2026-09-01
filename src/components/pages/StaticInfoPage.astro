@@ -3,7 +3,9 @@ import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
 import ResourceList from "@/components/common/ResourceList.astro";
 import { siteConfig } from "@/config/site";
 import { collaborators, inspirations } from "@/data/credits";
+import { sitePurpose } from "@/data/homepage";
 import { resources } from "@/data/resources";
+import { t } from "@/lib/i18n";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { Locale } from "@/types/content";
 type Kind = "resources" | "privacy" | "about";
@@ -33,8 +35,8 @@ const metadata = {
       ? "CSE Compass সম্পর্কে ও কৃতজ্ঞতা"
       : "About CSE Compass & Credits",
     description: bn
-      ? "CSE Compass-এর উদ্দেশ্য, roadmap.sh ও Architect Prep-এর অনুপ্রেরণা এবং উদ্যোক্তা, ChatGPT ও Codex-এর ভূমিকা জানো।"
-      : "The purpose of CSE Compass, inspiration from roadmap.sh and Architect Prep, and the roles of its creator, ChatGPT and Codex.",
+      ? "CSE Compass কেন তৈরি, early career orientation ও recovery-র উদ্দেশ্য, এর অনুপ্রেরণা এবং নির্মাণে মানুষের ও AI-এর ভূমিকা জানো।"
+      : "Why CSE Compass exists, its purpose of early career orientation and later recovery, its inspiration, and the human and AI roles behind it.",
   },
 }[kind];
 ---
@@ -205,14 +207,91 @@ const metadata = {
                 ? "CSE Compass fresher থেকে final-year student-কে landscape বুঝতে, real কাজ try করতে, common mistake এড়াতে আর AI era-তে next meaningful step নিতে সাহায্য করে।"
                 : "CSE Compass helps students—from freshers to final year—understand the landscape, try real work, avoid common mistakes and take a meaningful next step in the AI era."}
             </p>
-            <a class="button button--secondary" href="#credits">
-              {bn
-                ? "অনুপ্রেরণা ও নির্মাণের গল্প"
-                : "Inspiration & how this was built"}
-            </a>
+            <div class="about-actions">
+              <a class="button" href="#why-this-exists">
+                {bn ? "কেন এই site" : "Read why this exists"}
+              </a>
+              <a class="button button--secondary" href="#credits">
+                {bn
+                  ? "অনুপ্রেরণা ও নির্মাণের গল্প"
+                  : "Inspiration & how this was built"}
+              </a>
+            </div>
           </>
         </header>
-        <section class="section section--tinted">
+        <section
+          class="section section--tinted"
+          id="why-this-exists"
+          aria-labelledby="why-title"
+        >
+          <div class="container origin-story">
+            <div class="origin-heading">
+              <p class="eyebrow">{bn ? "এই site কেন" : "Why this exists"}</p>
+              <h2 id="why-title">
+                {bn
+                  ? "ভর্তি থেকে direction—মাঝখানের gap-টাই আসল সমস্যা।"
+                  : "The difficult part is the gap between admission and direction."}
+              </h2>
+            </div>
+            <div class="origin-narrative">
+              <p>{t(sitePurpose.premise, locale)}</p>
+              <p>{t(sitePurpose.drift, locale)}</p>
+              <p class="recovery-note">
+                <strong>{t(sitePurpose.recovery, locale)}</strong>
+              </p>
+            </div>
+            <ol class="story-arc" role="list">
+              {[
+                [
+                  bn ? "আকর্ষণ" : "Attraction",
+                  bn
+                    ? "জনপ্রিয়তা, আয়ের সম্ভাবনা, বিদেশে কাজের আশা।"
+                    : "Popularity, earning potential and opportunities abroad.",
+                ],
+                [
+                  bn ? "Orientation gap" : "Orientation gap",
+                  bn
+                    ? "Field-এর বিস্তৃতি আর আসল কাজ পরিষ্কার নয়।"
+                    : "The breadth of the field and its real work stay unclear.",
+                ],
+                [
+                  bn ? "Drift ও frustration" : "Drift and frustration",
+                  bn
+                    ? "Trend, random tutorial আর rushed decision সময় নেয়।"
+                    : "Trends, random tutorials and rushed choices consume time.",
+                ],
+                [
+                  bn ? "Direction" : "Direction",
+                  bn
+                    ? "পথ বোঝো, ছোট করে try করো, তারপর plan বেছে নাও।"
+                    : "See the paths, try the work, then choose a plan.",
+                ],
+              ].map(([title, description], index) => (
+                <li>
+                  <span aria-hidden="true">0{index + 1}</span>
+                  <strong>{title}</strong>
+                  <small>{description}</small>
+                </li>
+              ))}
+            </ol>
+            <div class="purpose-goals">
+              <article>
+                <p class="eyebrow">{bn ? "Purpose" : "Purpose"}</p>
+                <h3>{t(sitePurpose.purpose, locale)}</h3>
+              </article>
+              <article>
+                <p class="eyebrow">{bn ? "Goal" : "Goal"}</p>
+                <h3>{t(sitePurpose.goal, locale)}</h3>
+              </article>
+            </div>
+            <p class="orientation-use">
+              {bn
+                ? "একজন student নিজে ব্যবহার করুক বা orientation class-এ guide হিসেবে ব্যবহার হোক—লক্ষ্য একই: confusion জমে ওঠার আগেই একটা useful next step দেখা।"
+                : "Whether a student uses it independently or an educator uses it during orientation, the aim is the same: make one useful next step visible before confusion compounds."}
+            </p>
+          </div>
+        </section>
+        <section class="section">
           <div class="container editorial-grid">
             <>
               <div>
@@ -331,6 +410,78 @@ const metadata = {
   .credits-intro {
     margin-bottom: 2.5rem;
   }
+  .origin-heading {
+    max-width: 52rem;
+  }
+  .about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .origin-narrative {
+    max-width: 62rem;
+    margin-top: 2rem;
+  }
+  .recovery-note {
+    padding: 1rem 1.25rem;
+    border-inline-start: 3px solid var(--color-amber);
+    background: var(--color-surface);
+  }
+  .story-arc {
+    display: grid;
+    gap: 0;
+    margin: 2rem 0;
+    padding: 0;
+    list-style: none;
+    border-block: 1px solid var(--color-border-strong);
+  }
+  .story-arc li {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: 0.25rem 0.75rem;
+    margin: 0;
+    padding: 1rem 0.25rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .story-arc li:last-child {
+    border-bottom: 0;
+  }
+  .story-arc li > span {
+    grid-row: 1 / span 2;
+    color: var(--color-primary-strong);
+    font-size: 0.78rem;
+    font-weight: 800;
+  }
+  .story-arc strong,
+  .story-arc small {
+    display: block;
+  }
+  .story-arc small {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+  .purpose-goals {
+    display: grid;
+    gap: 1rem;
+  }
+  .purpose-goals article {
+    padding: 1.25rem;
+    border: 1px solid var(--color-border-strong);
+    border-top: 3px solid var(--color-primary);
+    background: var(--color-surface);
+  }
+  .purpose-goals article:last-child {
+    border-top-color: var(--color-teal);
+  }
+  .purpose-goals h3 {
+    margin-bottom: 0;
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+  }
+  .orientation-use {
+    max-width: 58rem;
+    margin: 1.5rem 0 0;
+    color: var(--color-text-muted);
+  }
   .inspiration-list {
     margin: 1.5rem 0;
     padding: 0;
@@ -366,6 +517,20 @@ const metadata = {
   @media (min-width: 48rem) {
     .policy {
       grid-template-columns: repeat(2, 1fr);
+    }
+    .story-arc {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .story-arc li {
+      grid-template-columns: 2rem minmax(0, 1fr);
+      border-inline-end: 1px solid var(--color-border);
+      border-bottom: 0;
+    }
+    .story-arc li:last-child {
+      border-inline-end: 0;
+    }
+    .purpose-goals {
+      grid-template-columns: 0.8fr 1.2fr;
     }
   }
 </style>

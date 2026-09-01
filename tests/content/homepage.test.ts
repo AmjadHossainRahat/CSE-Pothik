@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { homepageEntries, homepageIntro } from "../../src/data/homepage";
+import {
+  homepageEntries,
+  homepageIntro,
+  sitePurpose,
+} from "../../src/data/homepage";
 import { studentSituations } from "../../src/data/situations";
 
 describe("purpose-first homepage", () => {
@@ -14,9 +18,32 @@ describe("purpose-first homepage", () => {
     expect(homepageIntro.title.en).toBe("You got into CSE.");
     expect(homepageIntro.emphasis.en).toBe("Now what?");
     expect(homepageIntro.description.en).toMatch(
-      /careers.*real work.*learning paths/,
+      /popularity.*earning potential.*abroad/,
     );
-    expect(homepageIntro.outcome.en).toContain("practical");
+    expect(homepageIntro.reassurance.en).toMatch(
+      /orientation.*semesters.*not missed your chance/,
+    );
+    expect(homepageIntro.outcome.en).toMatch(
+      /understand the options.*real work.*useful next step/,
+    );
+  });
+
+  it("states the origin, recovery principle, purpose and goal without narrowing CSE to a few roles", () => {
+    for (const text of Object.values(sitePurpose)) {
+      expect(text.en.trim().length).toBeGreaterThan(60);
+      expect(text.bn).toMatch(/[\u0980-\u09ff]/);
+    }
+    expect(sitePurpose.drift.en).toMatch(
+      /Software engineering.*QA.*competitive programming.*research/,
+    );
+    expect(sitePurpose.drift.en).toContain("not the whole landscape");
+    expect(sitePurpose.recovery.en).toMatch(
+      /frustration.*clear map.*Direction can be built early—and rebuilt later/,
+    );
+    expect(sitePurpose.purpose.en).toMatch(/orientation.*recovery/);
+    expect(sitePurpose.goal.en).toMatch(
+      /breadth.*real work|breadth.*work behind the titles/,
+    );
   });
 
   it("routes the three intentions directly to distinct existing guidance pages", () => {
