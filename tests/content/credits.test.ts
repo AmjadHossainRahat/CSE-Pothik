@@ -26,6 +26,7 @@ describe("project credits", () => {
     expect(collaborators[0]!.role.en).toContain("Orchestrator");
     expect(collaborators[0]!.name).toBe("Amjad Hossain");
     expect(collaborators[0]!.url).toBe(siteConfig.creatorUrl);
+    expect(siteConfig.creatorUrl).toBe("https://amjadhossainrahat.github.io/");
     expect(collaborators[1]!.role.en).toBe("Requirements & design");
     expect(collaborators[2]!.role.en).toBe("Implementation & iteration");
   });

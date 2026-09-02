@@ -1184,6 +1184,10 @@ Use:
 - restrained category accents;
 - strong content hierarchy.
 
+At `56rem` and above, non-homepage heroes must use a shared two-column composition: title on the primary side and supporting explanation/actions on the secondary side. Do not treat a full-width container as successfully used when all meaningful content is stacked on the left. Career and experiment detail heroes may keep their purpose-built copy/context split. Below the breakpoint, restore ordinary single-column document flow. The generated-route layout test must verify both column origins on every English and Bangla page that has a `.page-hero`, in addition to bounds, alignment and overflow.
+
+For the AI overview's task-model spectrum, use a dedicated desktop section-head treatment rather than forcing the normal two-column section heading to contain the sequence. At the sidebar breakpoint and above, the complete **Higher exposure → AI-assisted → responsibility-heavy** title must occupy one line at a responsive display size with no overflow. Restore normal wrapping below that breakpoint. Verify both locales at the minimum desktop breakpoint, standard desktop and wide desktop, plus a narrow mobile overflow check.
+
 ---
 
 ## 36. Dark Theme Rules
@@ -1375,7 +1379,7 @@ Create a clear `README.md` containing:
 - contribution workflow;
 - attribution/inspiration link to the relevant section of `DESIGN.md`.
 
-Visible attribution is implemented as static shared-footer content and localized About `#credits`, backed by typed bilingual `src/data/credits.ts` and the creator identity/portfolio URL in `src/config/site.ts`. Render Amjad Hossain's name as a new-tab link to the verified GitHub profile at `https://github.com/AmjadHossainRahat` with safe `rel` attributes. Keep all three inspiration URLs (roadmap.sh, Architect Prep and Amirul Islam) and the distinct Orchestrator/ChatGPT/Codex roles in content-integrity coverage. Verify footer-to-About base-path links, creator-link semantics, keyboard/no-JavaScript use, English/Bangla, both themes and narrow-screen wrapping. Build verification must confirm footer credits on all generated HTML pages and the target anchors. Do not add client hydration or analytics just for credits.
+Visible attribution is implemented as static shared-footer content and localized About `#credits`, backed by typed bilingual `src/data/credits.ts` and the creator identity/portfolio URL in `src/config/site.ts`. Render Amjad Hossain's name as a new-tab link to the intended GitHub Pages portfolio at `https://amjadhossainrahat.github.io/` with safe `rel` attributes; retain this canonical destination even while the portfolio is not yet published. Keep all three inspiration URLs (roadmap.sh, Architect Prep and Amirul Islam) and the distinct Orchestrator/ChatGPT/Codex roles in content-integrity coverage. Verify footer-to-About base-path links, creator-link semantics, keyboard/no-JavaScript use, English/Bangla, both themes and narrow-screen wrapping. Build verification must confirm footer credits on all generated HTML pages and the target anchors. Do not add client hydration or analytics just for credits.
 
 Cleanup must follow reference and entry-point checks, not simply remove files lacking imports: Astro routes, public assets, scripts, tests and configuration are legitimate entry points. Preserve current PNG masters and design references; retire only confirmed obsolete assets with recoverable history and synchronized provenance documentation.
 
@@ -1565,6 +1569,8 @@ The implementation is complete only when all of the following are true.
 ### UX
 
 - mobile-first layouts are usable.
+- desktop containers, breadcrumbs and section boundaries align across every generated UI route.
+- conditional two-column layouts collapse while a panel is hidden, then use both columns once revealed.
 - keyboard navigation works.
 - focus states are visible.
 - reduced motion is respected.

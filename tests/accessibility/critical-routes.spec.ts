@@ -7,6 +7,8 @@ const withBase = (path: string) => `${basePath}${path}`;
 for (const route of [
   "/",
   "/bn/",
+  "/ai/",
+  "/bn/ai/",
   "/careers/backend-engineering/",
   "/compare/",
   "/im-lost/",
@@ -44,6 +46,7 @@ for (const route of [
 for (const route of [
   "/",
   "/bn/",
+  "/ai/",
   "/careers/backend-engineering/",
   "/compare/",
   "/goals/",

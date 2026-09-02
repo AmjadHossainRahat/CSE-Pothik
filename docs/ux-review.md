@@ -58,6 +58,14 @@ No critical heuristic issue remains from that review. The next appropriate step
 is real-student usability research rather than another speculative navigation
 layer.
 
+## Completed: balanced spacing across the site
+
+A generated-route desktop audit now visits every English and Bangla UI page and checks horizontal overflow, top-level container bounds, breadcrumb-to-hero alignment and whether each non-homepage hero actually uses both desktop columns. Shared readable text measures remain intentionally narrower than the page frame; they improve scanning and are paired with meaningful content rather than being stretched merely to occupy space.
+
+The first audit confirmed one real conditional-layout imbalance on “I’m Lost”: while the result panel was hidden, its grid column still reserved roughly forty percent of the desktop section. A follow-up review then identified a broader top-section issue that the original bounds-only assertion could not detect: most page heroes were technically full-width containers while their heading and explanation remained stacked on the left. All non-homepage hero templates now use a shared title/support split at desktop widths; career and experiment details retain their existing copy/context split. The “I’m Lost” initial state still uses the complete section width with a two-column choice grid, changing to a balanced chooser/result split after selection. Mobile remains ordinary single-column flow. Automated geometry checks now require both hero column origins on every applicable English and Bangla route.
+
+The AI overview's task-model sequence is a deliberate exception to the usual split section heading. On desktop it spans the available content width at a controlled size so “Higher exposure → AI-assisted → responsibility-heavy” reads on one line as a progression. It returns to normal wrapping on smaller screens. Geometry coverage verifies one-line rendering at 1088, 1280 and 1600px in both locales and checks mobile containment at 390px.
+
 For a future usability study, ask freshers to find their first-week starting point, compare two careers, find a beginner experiment, locate remote-work preparation and find a final-year test-plan template. Observe first clicks, backtracking, time to a useful destination and the participant's explanation of the next step. Do not use invented success percentages or collect unnecessary personal data.
 
 ## Completed: discoverable credits
@@ -66,7 +74,7 @@ The original two inspiration links and ChatGPT/Codex provenance already existed 
 
 Shared typed bilingual data now distinguishes:
 
-- [Amjad Hossain](https://github.com/AmjadHossainRahat): Creator & Orchestrator; vision, final requirements/design and direction of the build. The rendered credit opens his verified GitHub profile in a new tab.
+- [Amjad Hossain](https://amjadhossainrahat.github.io/): Creator & Orchestrator; vision, final requirements/design and direction of the build. The rendered credit opens his intended GitHub Pages portfolio in a new tab, using the canonical URL even before that separate site is published.
 - ChatGPT: conversation-assisted requirements and design.
 - Codex: implementation, testing assistance, fixes and iteration under the creator's direction.
 

@@ -23,12 +23,18 @@ function attr(html, selector) {
 }
 
 function localTargetExists(rawUrl) {
-  const withoutOrigin = rawUrl.startsWith(expectedSite)
+  const isAbsoluteSiteUrl = rawUrl.startsWith(expectedSite);
+  const withoutOrigin = isAbsoluteSiteUrl
     ? rawUrl.slice(expectedSite.length)
     : rawUrl;
   const clean = withoutOrigin.split(/[?#]/, 1)[0];
   if (!clean.startsWith("/")) return true;
-  if (base && clean !== base && !clean.startsWith(`${base}/`)) return false;
+  if (base && clean !== base && !clean.startsWith(`${base}/`)) {
+    // A same-host absolute URL can intentionally point to another GitHub Pages
+    // site (for example, the account-level portfolio). Root-relative URLs that
+    // escape this project's base remain defects.
+    return isAbsoluteSiteUrl;
+  }
   const route = (base ? clean.slice(base.length) : clean) || "/";
   const decoded = decodeURIComponent(route).replace(/^\/+/, "");
   const candidates = [
@@ -69,7 +75,7 @@ for (const file of htmlFiles) {
     "https://roadmap.sh/",
     "https://mayurjp.github.io/architect-prep/",
     "https://amirulislamalmamun.com/",
-    "https://github.com/AmjadHossainRahat",
+    "https://amjadhossainrahat.github.io/",
     "Amjad Hossain",
     "Orchestrator",
     "ChatGPT",

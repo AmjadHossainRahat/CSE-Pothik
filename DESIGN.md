@@ -877,6 +877,8 @@ Instead:
 
 ### 18.1 Career pages should discuss tasks, not jobs as indivisible units
 
+On the AI overview, present the progression **Higher exposure → AI-assisted → responsibility-heavy** as one continuous line at desktop widths so it reads as a spectrum rather than three disconnected headings. Use a smaller responsive display size for this sequence; allow natural wrapping on tablet and mobile without horizontal scrolling.
+
 Example categories:
 
 **Higher exposure**
@@ -1464,7 +1466,7 @@ This site is inspired in part by:
 
 The site must remain visually and editorially original and must not reproduce their content.
 
-**Project provenance:** [Amjad Hossain](https://github.com/AmjadHossainRahat) is the Creator & Orchestrator. He shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. His name links to his verified GitHub profile in a new tab on the rendered site. ChatGPT assisted with requirement engineering and product/design planning; Codex was used to build the site and assist with testing, fixes and iteration. Preserve human agency and distinguish these roles; do not imply affiliation or endorsement by the inspiration projects or AI providers.
+**Project provenance:** [Amjad Hossain](https://amjadhossainrahat.github.io/) is the Creator & Orchestrator. He shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. His name links in a new tab to his intended GitHub Pages portfolio; keep that canonical portfolio URL even while the separate portfolio site is not yet published. ChatGPT assisted with requirement engineering and product/design planning; Codex was used to build the site and assist with testing, fixes and iteration. Preserve human agency and distinguish these roles; do not imply affiliation or endorsement by the inspiration projects or AI providers.
 
 Make this acknowledgment discoverable, not hidden behind an ambiguous label: every localized page has a compact footer section with direct roadmap.sh, Architect Prep and Amirul Islam links, the three contribution roles, and a “Full credits” link to localized About `#credits`. About includes a direct jump link, contextual inspiration explanations and fuller collaboration history. Keep student navigation ahead of credits in the footer and do not add another homepage content section or a primary-navigation item solely for attribution. All credit copy must have English/Bangla parity and remain readable in both themes without JavaScript.
 
@@ -1516,6 +1518,7 @@ The design is considered correctly implemented when:
 - light mode is the default;
 - dark mode has clear contrast and no illustration/background merging;
 - mobile UX is fully usable;
+- desktop content uses the available frame purposefully: readable text measures are intentional, top-level sections align, every non-homepage hero pairs its title with supporting copy/actions/context across two columns, and hidden panels do not leave empty columns;
 - accessibility is WCAG 2.2 AA-oriented;
 - humor, motivation and suspense feel intentional but never gimmicky;
 - the site continually provides meaningful next navigation;
