@@ -5,13 +5,14 @@ const source = ["src/data/resources.ts", "src/data/guidance-sources.ts"]
   .join("\n");
 const urls = [...new Set(source.match(/https:\/\/[^"'\s]+/g) ?? [])].sort();
 const acceptedRestrictions = new Set([401, 403, 405, 429]);
+const requestTimeoutMs = 30_000;
 
 async function check(url) {
   try {
     const response = await fetch(url, {
       method: "HEAD",
       redirect: "follow",
-      signal: AbortSignal.timeout(15_000),
+      signal: AbortSignal.timeout(requestTimeoutMs),
       headers: { "user-agent": "CSE-Compass-Link-Check/1.0" },
     });
     if (response.ok) {
@@ -21,7 +22,7 @@ async function check(url) {
     const fallback = await fetch(url, {
       method: "GET",
       redirect: "follow",
-      signal: AbortSignal.timeout(15_000),
+      signal: AbortSignal.timeout(requestTimeoutMs),
       headers: { "user-agent": "CSE-Compass-Link-Check/1.0" },
     });
     return {

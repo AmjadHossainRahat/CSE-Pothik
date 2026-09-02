@@ -1,6 +1,6 @@
 # Fresher UX review and repository cleanup
 
-Reviewed 1 September 2026. This is a source-informed heuristic review, with targeted browser validation of the changed credits experience. It is not a usability study, measured conversion result or “best UX” certification. Actual test results and browser limitations are recorded in [validation.md](validation.md).
+Reviewed 1–2 September 2026. This is a source-informed heuristic review, with targeted browser validation of the changed navigation, directories, search and recovery experience. It is not a usability study, measured conversion result or “best UX” certification. Actual test results and browser limitations are recorded in [validation.md](validation.md).
 
 ## Verdict
 
@@ -14,7 +14,7 @@ The subsequent authorized homepage revision leads with “Free career guidance f
 
 Question-led section introductions explain what work involves, whether the visitor might enjoy it and what to learn next. The orientation map links exploration, experiments, roadmaps and goals. A short distinction between learning paths and goal preparation supports onward navigation. Existing AI placement, complete content, inclusive artwork and practical motivation are preserved. Shared bilingual data prevents entry labels and destination meanings from drifting. The mobile hero prioritizes purpose and the main action before artwork; tests protect initial-viewport action visibility, entry journeys and expanded disclosure accessibility.
 
-This addresses homepage first impressions. The subsequent responsive-navigation revision below addresses global discovery and deep-link wayfinding; search and the no-JavaScript “I'm Lost” enhancement remain separate. Validation results belong in `validation.md`; no improved conversion or measured student comprehension is claimed.
+This addresses homepage first impressions. The subsequent responsive-navigation and findability revisions below address global discovery, deep-link wayfinding, search and no-JavaScript recovery. Validation results belong in `validation.md`; no improved conversion or measured student comprehension is claimed.
 
 ## Completed: intent-based sidebar and mobile drawer
 
@@ -30,14 +30,33 @@ Work With Data now exposes Data Engineering and Data Analytics & BI; Build Intel
 
 Understand Computing Deeply now distinguishes its career guide from an ACM Programming / ICPC **practice track**. The separate callout explicitly says it is not a job title or substitute for projects. Its guide adds a finite six-week loop and Bangla starting shelf instead of turning the family card into a dense syllabus. Automated and manual mobile checks confirm that the callout, disclosure and mixed English/Bangla technical terms wrap without horizontal overflow. This is a heuristic UX improvement, not evidence that students now choose careers more accurately.
 
-## Remaining priority recommendations — outside the homepage revision
+## Completed: directory findability, search and resilient recovery
 
-| Priority        | Evidence in the current source                                                                                                                                                                               | Likely fresher friction                                                                                            | Recommended next change                                                                                                                                      |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| High            | `CareersIndex.astro` renders eight consecutive families; `ExperimentsIndex.astro` renders seventeen experiments without a jump index.                                                                        | Finding a named path requires scanning a long page.                                                                | Add native family/topic jump links first. Consider a lightweight bilingual static search only after checking whether these links solve the problem.          |
-| High resilience | `ImLostPage.astro` uses JavaScript buttons to reveal routes and has no equivalent no-JavaScript choice list. The revealed heading still says “Choose one situation”, and reset leaves the previous URL hash. | With scripts unavailable, most choices are inert; after choosing, the unchanged prompt/reset URL can be confusing. | Use progressively enhanced links or a native fallback; update the result heading and clear stale hash on reset. Keep its privacy and deterministic behavior. |
+The career, experiment and roadmap indexes now expose native family jump links
+and group their entries under the same eight-family mental model. The resource
+index is divided into official documentation, course/university material,
+lab/practice and book/article groups. Its metadata labels describe actual
+resource types instead of incorrectly treating one global 44-item list as a
+single Learn → Practice → Go Deeper sequence. Task-oriented index heroes are
+more compact, and their closing guidance now provides actionable onward links.
 
-The remaining proposals need separate implementation and validation. The navigation redesign adds no search dependency and does not claim to fix the existing JavaScript-dependent “I'm Lost” result interaction. Preserve the required homepage order, existing motivation and inclusive static artwork.
+Learning Resources moved from About to Prepare. Search appears under Start here
+as a secondary quick-find path, backed by typed bilingual data for careers,
+families, roadmaps, experiments, AI guidance, goals, major guides and curated
+resources. Filtering happens in the browser; query text is not persisted or sent
+through analytics. Search retains a small set of direct mentor-path links without
+JavaScript, uses `noindex, follow` and is omitted from the sitemap.
+
+“I’m Lost” choices are now real destination links that JavaScript progressively
+enhances into the existing explanation panel. The selected prompt becomes the
+result heading, the hash deep-links the choice, and reset clears both state and
+hash. Bangla comparison feedback is localized, and its seventeen choices are
+grouped by family. These changes address the two high-priority findings from the
+first review; they do not claim measured comprehension gains.
+
+No critical heuristic issue remains from that review. The next appropriate step
+is real-student usability research rather than another speculative navigation
+layer.
 
 For a future usability study, ask freshers to find their first-week starting point, compare two careers, find a beginner experiment, locate remote-work preparation and find a final-year test-plan template. Observe first clicks, backtracking, time to a useful destination and the participant's explanation of the next step. Do not use invented success percentages or collect unnecessary personal data.
 

@@ -1,0 +1,303 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import { localePath, withBase } from "@/config/site";
+import { searchEntries } from "@/data/search";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const bn = locale === "bn";
+const otherLocale: Locale = bn ? "en" : "bn";
+const href = (path: string) => withBase(localePath(locale, path));
+const typeLabels = {
+  career: bn ? "Career guide" : "Career guide",
+  roadmap: bn ? "Roadmap" : "Roadmap",
+  experiment: bn ? "Experiment" : "Experiment",
+  ai: bn ? "AI guide" : "AI guide",
+  goal: bn ? "Goal guide" : "Goal guide",
+  guidance: bn ? "Guidance" : "Guidance",
+  resource: bn ? "Learning resource" : "Learning resource",
+  directory: bn ? "Directory" : "Directory",
+};
+const index = searchEntries.map((entry) => ({
+  id: entry.id,
+  type: typeLabels[entry.type],
+  title: t(entry.title, locale),
+  description: t(entry.description, locale),
+  keywords: `${t(entry.keywords, locale)} ${t(entry.keywords, otherLocale)} ${t(entry.title, otherLocale)} ${t(entry.description, otherLocale)}`,
+  url: href(entry.path),
+}));
+const serializedIndex = JSON.stringify(index).replace(/</g, "\\u003c");
+const quickLinks: [string, string][] = [
+  [bn ? "Career path" : "Career paths", "/careers/"],
+  [bn ? "Career experiment" : "Career experiments", "/try/"],
+  [bn ? "Learning roadmap" : "Learning roadmaps", "/roadmaps/"],
+  [bn ? "Goal-এর plan" : "Goal plans", "/goals/"],
+  [bn ? "AI ও career" : "AI & careers", "/ai/"],
+  [
+    bn ? "Final-year project" : "Final-year project",
+    "/guidance/final-year-project/",
+  ],
+  [bn ? "আমি দিশেহারা" : "I’m Lost", "/im-lost/"],
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={bn ? "CSE Compass-এ খুঁজে দেখো" : "Search CSE Compass"}
+  description={bn
+    ? "Career, roadmap, experiment, goal, guidance আর curated learning resource খুঁজে নাও।"
+    : "Search CSE Compass careers, roadmaps, experiments, goals, guidance and curated learning resources."}
+  noindex
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[{ label: bn ? "খুঁজে দেখো" : "Search" }]}
+  />
+  <header class="page-hero page-hero--compact container">
+    <p class="eyebrow">{bn ? "দ্রুত খুঁজে নাও" : "Quick find"}</p>
+    <h1>{bn ? "কী খুঁজছ?" : "What are you looking for?"}</h1>
+    <p class="lede">
+      {
+        bn
+          ? "Career title, skill, goal বা topic লেখো। Search mentor path-এর বিকল্প নয়—কিন্তু পরিচিত নামের page দ্রুত খুঁজে দেয়।"
+          : "Enter a career title, skill, goal or topic. Search does not replace the mentor paths, but it can find a page whose name you already know."
+      }
+    </p>
+  </header>
+  <section class="section section--tinted search-section">
+    <div class="container search-shell">
+      <form role="search" class="site-search" data-site-search>
+        <label for="site-search-input">
+          {bn ? "Career, skill বা topic" : "Career, skill or topic"}
+        </label>
+        <div class="search-control">
+          <input
+            id="site-search-input"
+            type="search"
+            name="q"
+            autocomplete="off"
+            enterkeyhint="search"
+            placeholder={bn
+              ? "যেমন: network, QA, research"
+              : "For example: network, QA, research"}
+            data-search-input
+          />
+          <button class="button" type="submit"
+            >{bn ? "খুঁজে দেখো" : "Search"}</button
+          >
+        </div>
+      </form>
+      <p class="search-privacy">
+        {
+          bn
+            ? "তোমার search এই browser-এই filter হয়; analytics-এ search text পাঠানো হয় না।"
+            : "Filtering happens in this browser. Search text is not sent to analytics."
+        }
+      </p>
+      <p class="search-status" data-search-status aria-live="polite">
+        {bn ? "কমপক্ষে ২টি অক্ষর লেখো।" : "Type at least 2 characters."}
+      </p>
+      <ul class="search-results" data-search-results role="list"></ul>
+      <script
+        is:inline
+        type="application/json"
+        id="search-index"
+        set:html={serializedIndex}
+      />
+    </div>
+  </section>
+  <section class="section">
+    <div class="container quick-links">
+      <p class="eyebrow">{bn ? "Browse করতে চাইলে" : "Prefer to browse?"}</p>
+      <h2>
+        {bn ? "একটি mentor path দিয়ে শুরু করো" : "Start with a mentor path"}
+      </h2>
+      <ul role="list">
+        {
+          quickLinks.map(([label, path]) => (
+            <li>
+              <a href={href(path)}>
+                {label} <span aria-hidden="true">→</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+  <script is:inline define:vars={{ bn }}>
+    const form = document.querySelector("[data-site-search]");
+    const input = document.querySelector("[data-search-input]");
+    const status = document.querySelector("[data-search-status]");
+    const results = document.querySelector("[data-search-results]");
+    const source = document.querySelector("#search-index");
+    const entries = source ? JSON.parse(source.textContent ?? "[]") : [];
+    const normalize = (value) =>
+      value
+        .normalize("NFKC")
+        .toLocaleLowerCase(bn ? "bn" : "en")
+        .trim();
+    const render = () => {
+      if (!input || !status || !results) return;
+      const query = normalize(input.value);
+      results.replaceChildren();
+      if (query.length < 2) {
+        status.textContent = bn
+          ? "কমপক্ষে ২টি অক্ষর লেখো।"
+          : "Type at least 2 characters.";
+        return;
+      }
+      const terms = query.split(/\s+/).filter(Boolean);
+      const matches = entries
+        .map((entry) => {
+          const title = normalize(entry.title);
+          const haystack = normalize(
+            `${entry.title} ${entry.description} ${entry.keywords} ${entry.type}`,
+          );
+          if (!terms.every((term) => haystack.includes(term))) return null;
+          const score =
+            title === query
+              ? 0
+              : title.startsWith(query)
+                ? 1
+                : title.includes(query)
+                  ? 2
+                  : 3;
+          return { entry, score };
+        })
+        .filter(Boolean)
+        .sort(
+          (a, b) =>
+            a.score - b.score || a.entry.title.localeCompare(b.entry.title),
+        )
+        .slice(0, 30);
+      status.textContent = matches.length
+        ? bn
+          ? `${matches.length}টি ফল পাওয়া গেছে।`
+          : `${matches.length} results found.`
+        : bn
+          ? "কিছু পাওয়া যায়নি। অন্য title, skill বা goal লিখে দেখো।"
+          : "No results. Try another title, skill or goal.";
+      for (const match of matches) {
+        const item = document.createElement("li");
+        const article = document.createElement("article");
+        const type = document.createElement("p");
+        const heading = document.createElement("h2");
+        const link = document.createElement("a");
+        const description = document.createElement("p");
+        type.className = "tag";
+        type.textContent = match.entry.type;
+        link.href = match.entry.url;
+        link.textContent = match.entry.title;
+        description.textContent = match.entry.description;
+        heading.append(link);
+        article.append(type, heading, description);
+        item.append(article);
+        results.append(item);
+      }
+    };
+    form?.addEventListener("submit", (event) => {
+      event.preventDefault();
+      render();
+    });
+    input?.addEventListener("input", render);
+  </script>
+</BaseLayout>
+
+<style>
+  .search-section {
+    padding-block: clamp(2.5rem, 6vw, 5rem);
+  }
+  .search-shell {
+    max-width: 58rem;
+  }
+  .site-search label {
+    display: block;
+    margin-bottom: 0.65rem;
+    font-weight: 800;
+  }
+  .search-control {
+    display: grid;
+    gap: 0.7rem;
+  }
+  input[type="search"] {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem 0.9rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font: inherit;
+  }
+  .search-privacy,
+  .search-status {
+    color: var(--color-text-muted);
+  }
+  .search-privacy {
+    margin: 0.8rem 0 0;
+    font-size: 0.86rem;
+  }
+  .search-status {
+    min-height: 1.6rem;
+    margin: 1.5rem 0 0;
+    font-weight: 700;
+  }
+  .search-results {
+    display: grid;
+    gap: 0;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--color-border-strong);
+  }
+  .search-results li {
+    margin: 0;
+  }
+  .search-results article {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .search-results h2 {
+    margin: 0.45rem 0 0.35rem;
+    font-size: clamp(1.2rem, 3vw, 1.55rem);
+  }
+  .search-results p:last-child {
+    margin-bottom: 0;
+    color: var(--color-text-muted);
+  }
+  .quick-links {
+    max-width: 58rem;
+  }
+  .quick-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .quick-links li {
+    margin: 0;
+  }
+  .quick-links a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+  }
+  @media (min-width: 36rem) {
+    .search-control {
+      grid-template-columns: minmax(0, 1fr) auto;
+    }
+  }
+</style>

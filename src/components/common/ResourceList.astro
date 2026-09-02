@@ -9,12 +9,14 @@ interface Props {
   resourceIds: string[];
   compact?: boolean;
   alternatives?: boolean;
+  directory?: boolean;
 }
 const {
   locale,
   resourceIds,
   compact = false,
   alternatives = false,
+  directory = false,
 } = Astro.props;
 const list = resourceIds
   .map((id) => resourceById.get(id))
@@ -33,29 +35,31 @@ const list = resourceIds
   }
   {
     list.map((resource, index) => (
-      <article class="resource">
+      <article class="resource" id={`resource-${resource.id}`}>
         <div class="resource__meta">
           <span class="tag">
-            {alternatives
-              ? locale === "en"
-                ? "Platform option"
-                : "Platform-এর বিকল্প"
-              : index === 0
+            {directory
+              ? resource.type
+              : alternatives
                 ? locale === "en"
-                  ? "Learn"
-                  : "শেখো"
-                : index === 1
+                  ? "Platform option"
+                  : "Platform-এর বিকল্প"
+                : index === 0
                   ? locale === "en"
-                    ? "Practice"
-                    : "Practice"
-                  : locale === "en"
-                    ? "Go deeper · optional"
-                    : "আরও গভীরে · optional"}
+                    ? "Learn"
+                    : "শেখো"
+                  : index === 1
+                    ? locale === "en"
+                      ? "Practice"
+                      : "Practice"
+                    : locale === "en"
+                      ? "Go deeper · optional"
+                      : "আরও গভীরে · optional"}
           </span>
           <span>{resource.provider}</span>
           <span>·</span>
-          <span>{resource.type}</span>
-          <span>·</span>
+          {!directory && <span>{resource.type}</span>}
+          {!directory && <span>·</span>}
           <span>{locale === "en" ? "Free" : "Free"}</span>
         </div>
         <h3>

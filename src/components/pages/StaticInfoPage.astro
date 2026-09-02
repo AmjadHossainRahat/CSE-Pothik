@@ -1,13 +1,15 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import DirectoryJumpNav from "@/components/common/DirectoryJumpNav.astro";
 import ResourceList from "@/components/common/ResourceList.astro";
-import { siteConfig } from "@/config/site";
+import { localePath, siteConfig, withBase } from "@/config/site";
 import { collaborators, inspirations } from "@/data/credits";
 import { sitePurpose } from "@/data/homepage";
 import { resources } from "@/data/resources";
 import { t } from "@/lib/i18n";
+import { collectionStructuredData } from "@/lib/seo";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import type { Locale } from "@/types/content";
+import type { LearningResource, Locale } from "@/types/content";
 type Kind = "resources" | "privacy" | "about";
 interface Props {
   locale: Locale;
@@ -39,18 +41,81 @@ const metadata = {
       : "Why CSE Compass exists, its purpose of early career orientation and later recovery, its inspiration, and the human and AI roles behind it.",
   },
 }[kind];
+const resourceGroupDefinitions: Array<{
+  id: string;
+  title: string;
+  description: string;
+  types: LearningResource["type"][];
+}> = [
+  {
+    id: "official-reference",
+    title: bn ? "Official documentation" : "Official documentation",
+    description: bn
+      ? "Tool, platform আর standard-এর maintained primary reference।"
+      : "Maintained primary references for tools, platforms and standards.",
+    types: ["official-docs"],
+  },
+  {
+    id: "courses-university",
+    title: bn
+      ? "Course ও university material"
+      : "Courses & university material",
+    description: bn
+      ? "Foundation বা guided sequence-এর জন্য structured learning material।"
+      : "Structured learning material for foundations and guided sequences.",
+    types: ["course", "university"],
+  },
+  {
+    id: "labs-practice",
+    title: bn ? "Lab ও practice" : "Labs & practice",
+    description: bn
+      ? "পড়া knowledge-কে ছোট, safe evidence-এ বদলানোর জায়গা।"
+      : "Places to turn reading into small, safe evidence.",
+    types: ["lab", "practice"],
+  },
+  {
+    id: "books-articles",
+    title: bn ? "Book ও focused article" : "Books & focused articles",
+    description: bn
+      ? "Context, deeper reasoning বা নির্দিষ্ট topic-এর carefully scoped reading।"
+      : "Carefully scoped reading for context, deeper reasoning or a focused topic.",
+    types: ["book", "article"],
+  },
+];
+const resourceGroups = resourceGroupDefinitions.map((group) => ({
+  ...group,
+  resources: resources.filter((resource) =>
+    group.types.includes(resource.type),
+  ),
+}));
+const structuredData =
+  kind === "resources"
+    ? collectionStructuredData({
+        title: metadata.title,
+        description: metadata.description,
+        url: Astro.url.href,
+        locale,
+        homeUrl: new URL(withBase(localePath(locale, "/")), Astro.site).href,
+        homeLabel: bn ? "হোম" : "Home",
+        items: resources.map((resource) => ({
+          name: resource.title,
+          url: `${Astro.url.href}#resource-${resource.id}`,
+        })),
+      })
+    : undefined;
 ---
 
 <BaseLayout
   locale={locale}
   title={metadata.title}
   description={metadata.description}
+  structuredData={structuredData}
 >
   <Breadcrumbs locale={locale} items={[{ label: metadata.title }]} />
   {
     kind === "resources" && (
       <>
-        <header class="page-hero container">
+        <header class="page-hero page-hero--compact container">
           <>
             <p class="eyebrow">
               {bn ? "Quality over quantity" : "Quality over quantity"}
@@ -67,7 +132,7 @@ const metadata = {
             </p>
           </>
         </header>
-        <section class="section section--tinted">
+        <section class="section section--tinted resource-orientation">
           <div class="container">
             <>
               <div class="callout">
@@ -83,15 +148,62 @@ const metadata = {
                   </p>
                 </>
               </div>
-              <div class="resource-index">
-                <ResourceList
-                  locale={locale}
-                  resourceIds={resources.map((resource) => resource.id)}
-                />
+              <div class="button-row">
+                <a
+                  class="button"
+                  href={withBase(localePath(locale, "/roadmaps/"))}
+                >
+                  {bn
+                    ? "Roadmap থেকে resource বেছে নিই"
+                    : "Choose resources through a roadmap"}
+                </a>
+                <a
+                  class="button button--secondary"
+                  href={withBase(localePath(locale, "/search/"))}
+                >
+                  {bn ? "নির্দিষ্ট topic খুঁজি" : "Search for a specific topic"}
+                </a>
               </div>
             </>
           </div>
         </section>
+        <DirectoryJumpNav
+          eyebrow={bn ? "Resource-এর ধরনে যাও" : "Jump by resource type"}
+          label={bn ? "Resource type index" : "Resource type index"}
+          items={resourceGroups.map((group) => ({
+            id: group.id,
+            label: group.title,
+            count: group.resources.length,
+          }))}
+        />
+        {resourceGroups.map((group, index) => (
+          <section
+            class:list={[
+              "section",
+              "directory-target",
+              { "section--tinted": index % 2 === 1 },
+            ]}
+            id={group.id}
+          >
+            <div class="container">
+              <div class="resource-group-heading">
+                <p class="eyebrow">
+                  {group.resources.length}{" "}
+                  {bn ? "টি curated resource" : "curated resources"}
+                </p>
+                <h2>{group.title}</h2>
+                <p class="lede">{group.description}</p>
+              </div>
+              <div class="resource-index">
+                <ResourceList
+                  locale={locale}
+                  resourceIds={group.resources.map((resource) => resource.id)}
+                  directory
+                />
+              </div>
+            </div>
+          </section>
+        ))}
       </>
     )
   }
@@ -517,7 +629,13 @@ const metadata = {
     margin: 0.5rem 0 0;
   }
   .resource-index {
-    margin-top: 3rem;
+    margin-top: 2rem;
+  }
+  .resource-orientation .button-row {
+    margin-top: 1.25rem;
+  }
+  .resource-group-heading {
+    max-width: 50rem;
   }
   .policy {
     display: grid;

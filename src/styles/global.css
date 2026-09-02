@@ -382,6 +382,19 @@ body[data-locale="bn"] .eyebrow {
   font-size: clamp(2.5rem, 8vw, 5.3rem);
 }
 
+.page-hero--compact {
+  padding-block: clamp(2.25rem, 5vw, 4rem);
+}
+
+.page-hero--compact h1 {
+  max-width: 22ch;
+  font-size: clamp(2.3rem, 6vw, 4.25rem);
+}
+
+.directory-target {
+  scroll-margin-top: 5.5rem;
+}
+
 .metric-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
@@ -501,7 +514,7 @@ body[data-locale="bn"] .eyebrow {
 }
 
 .choice:hover,
-.choice[aria-pressed="true"] {
+.choice[aria-expanded="true"] {
   border-color: var(--color-primary);
   background: var(--color-code);
 }

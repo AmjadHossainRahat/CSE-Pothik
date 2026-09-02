@@ -16,7 +16,19 @@ export default defineConfig({
   output: "static",
   trailingSlash: "always",
   devToolbar: { enabled: false },
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      filter: (page) => {
+        const pathname = new URL(page).pathname.replace(/\/+$/, "") || "/";
+        const basePath = base.replace(/\/+$/, "");
+        const route =
+          basePath && pathname.startsWith(basePath)
+            ? pathname.slice(basePath.length) || "/"
+            : pathname;
+        return route !== "/search" && route !== "/bn/search";
+      },
+    }),
+  ],
   build: {
     format: "directory",
   },

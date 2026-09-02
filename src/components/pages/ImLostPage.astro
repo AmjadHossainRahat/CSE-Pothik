@@ -58,20 +58,28 @@ const bn = locale === "bn";
         >
           {
             lostChoices.map((choice) => (
-              <button
+              <a
                 class="choice"
-                type="button"
+                href={withBase(choice.destination[locale])}
                 data-lost-choice={choice.id}
+                data-title={t(choice.prompt, locale)}
                 data-response={t(choice.response, locale)}
                 data-destination={withBase(choice.destination[locale])}
-                aria-pressed="false"
+                aria-controls="lost-result"
+                aria-expanded="false"
               >
                 {t(choice.prompt, locale)}
-              </button>
+              </a>
             ))
           }
         </div>
-      </div><div class="reveal-panel" data-lost-result hidden tabindex="-1">
+      </div><div
+        class="reveal-panel"
+        id="lost-result"
+        data-lost-result
+        hidden
+        tabindex="-1"
+      >
         <p class="eyebrow">
           {bn ? "তোমার next meaningful step" : "Your next meaningful step"}
         </p><h2 data-result-title>
@@ -117,16 +125,19 @@ const bn = locale === "bn";
   <script>
     import { trackImLostUsed } from "@/lib/analytics";
     const choices = [
-      ...document.querySelectorAll<HTMLButtonElement>("[data-lost-choice]"),
+      ...document.querySelectorAll<HTMLAnchorElement>("[data-lost-choice]"),
     ];
     const panel = document.querySelector<HTMLElement>("[data-lost-result]");
     const copy = panel?.querySelector<HTMLElement>("[data-result-copy]");
     const link = panel?.querySelector<HTMLAnchorElement>("[data-result-link]");
     choices.forEach((choice) =>
-      choice.addEventListener("click", () => {
+      choice.addEventListener("click", (event) => {
+        event.preventDefault();
         choices.forEach((item) =>
-          item.setAttribute("aria-pressed", String(item === choice)),
+          item.setAttribute("aria-expanded", String(item === choice)),
         );
+        const title = panel?.querySelector<HTMLElement>("[data-result-title]");
+        if (title) title.textContent = choice.dataset.title ?? "";
         if (copy) copy.textContent = choice.dataset.response ?? "";
         if (link) link.href = choice.dataset.destination ?? "#";
         if (panel) {
@@ -143,7 +154,10 @@ const bn = locale === "bn";
       .querySelector<HTMLButtonElement>("[data-lost-reset]")
       ?.addEventListener("click", () => {
         if (panel) panel.hidden = true;
-        choices.forEach((item) => item.setAttribute("aria-pressed", "false"));
+        choices.forEach((item) => item.setAttribute("aria-expanded", "false"));
+        const url = new URL(window.location.href);
+        url.hash = "";
+        history.replaceState({}, "", url);
         choices[0]?.focus();
       });
     const initial = window.location.hash.slice(1);
@@ -169,6 +183,12 @@ const bn = locale === "bn";
     font-weight: 700;
     text-decoration: underline;
     cursor: pointer;
+  }
+  .choice {
+    display: block;
+    color: var(--color-text);
+    font-weight: 700;
+    text-decoration: none;
   }
   @media (min-width: 56rem) {
     .lost-shell {

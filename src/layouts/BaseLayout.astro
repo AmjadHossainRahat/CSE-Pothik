@@ -4,7 +4,6 @@ import Header from "@/components/common/Header.astro";
 import {
   equivalentPath,
   localeInfo,
-  localePath,
   siteConfig,
   ui,
   withBase,
@@ -18,6 +17,7 @@ interface Props {
   description: string;
   imageAlt?: string;
   noindex?: boolean;
+  headerPathname?: string;
   structuredData?: Record<string, unknown> | Record<string, unknown>[];
   contentView?: { type: "career" | "roadmap"; careerId: CareerId };
 }
@@ -28,6 +28,7 @@ const {
   description,
   imageAlt,
   noindex = false,
+  headerPathname = Astro.url.pathname,
   structuredData,
   contentView,
 } = Astro.props;
@@ -47,9 +48,6 @@ const defaultEn = new URL(
   Astro.site,
 );
 const socialImage = new URL(withBase(`/${siteConfig.socialImage}`), Astro.site);
-const headerPathname = noindex
-  ? withBase(localePath(locale, "/"))
-  : Astro.url.pathname;
 const gaId = import.meta.env.PUBLIC_GA_MEASUREMENT_ID?.trim();
 const baseStructuredData = {
   "@context": "https://schema.org",
@@ -76,7 +74,7 @@ const baseStructuredData = {
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content={siteConfig.author} />
-    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    {noindex && <meta name="robots" content="noindex, follow" />}
     {!noindex && <link rel="canonical" href={canonical} />}
     {!noindex && <link rel="alternate" hreflang={locale} href={canonical} />}
     {
@@ -89,6 +87,10 @@ const baseStructuredData = {
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:locale" content={locale === "bn" ? "bn_BD" : "en_US"} />
+    <meta
+      property="og:locale:alternate"
+      content={locale === "bn" ? "en_US" : "bn_BD"}
+    />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -101,6 +103,10 @@ const baseStructuredData = {
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
+    <meta
+      name="twitter:image:alt"
+      content={imageAlt ?? `${siteConfig.name} — ${siteConfig.tagline}`}
+    />
     <script is:inline>
       (() => {
         try {

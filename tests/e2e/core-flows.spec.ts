@@ -57,8 +57,11 @@ test("starting point and lost flow route to useful guidance", async ({
   await page.getByRole("link", { name: /close to graduation/i }).click();
   await expect(page).toHaveURL(/\/guidance\/feel-behind\/$/);
   await page.goto(route("/im-lost/"));
-  await page.getByRole("button", { name: /worried about AI/i }).click();
+  await page.getByRole("link", { name: /worried about AI/i }).click();
   await expect(page.locator("[data-lost-result]")).toBeVisible();
+  await expect(page.locator("[data-result-title]")).toContainText(
+    /worried about AI/i,
+  );
   await page.locator("[data-result-link]").click();
   await expect(page).toHaveURL(/\/ai\/$/);
 });

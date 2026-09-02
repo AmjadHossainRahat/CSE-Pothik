@@ -184,6 +184,9 @@ Implement the complete site experiences described in the specifications:
 - realistic career drawbacks;
 - relevant next-step navigation;
 - recovery guidance for students who feel behind.
+- bilingual static search across careers, roadmaps, experiments, goals,
+  guidance and curated resources, with mentor-path fallbacks and no query
+  analytics;
 
 Expose Competitive Programming (ACM / ICPC) as a distinct practice track under Understand Computing Deeply, not as a conventional career ID. Give it a bounded six-week learn → honest attempt → submit/debug/log → review/transfer loop, retain real-project practice and curate the user-supplied Shafaet's Planet and Amirul Islam Bangla programming references without copying their curriculum or implying endorsement.
 
@@ -347,6 +350,13 @@ Implement and verify:
 - no unnecessary client-side rendering;
 - no duplicate-content problems;
 - correct GitHub Pages base-path behavior.
+
+Keep task directories crawlable and scannable: group careers, experiments and
+roadmaps by family, group the resource index by truthful resource type, provide
+native jump links and use compact task-page heroes. The search routes are a
+secondary browser-filtered utility, use `noindex, follow`, and must not appear in
+the sitemap. Add accurate CollectionPage/ItemList and BreadcrumbList structured
+data to editorial indexes where applicable; do not add schema merely for volume.
 
 Review SEO for:
 

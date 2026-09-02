@@ -301,11 +301,11 @@ Primary navigation should be **problem-oriented**, not just conventional site ta
 
 Use one problem-oriented navigation model at every viewport. On wide screens it is a persistent labeled left sidebar; on phones and tablets it becomes a compact sticky header and native full-width menu drawer. Group links by student intent rather than exposing an unexplained taxonomy:
 
-- **Start here:** Home, Find my next step, New to CSE, I’m Lost;
+- **Start here:** Home, Find my next step, Search this site, New to CSE, I’m Lost;
 - **Discover:** Career paths, Compare careers, Try real work;
-- **Prepare:** Learning roadmaps, Goal plans, Final-year project;
+- **Prepare:** Learning roadmaps, Goal plans, Final-year project, Learning resources;
 - **Future:** AI & your career;
-- **About:** Why CSE Compass?, Learning resources.
+- **About:** Why CSE Compass?
 
 Keep the current section visibly marked with `aria-current`, a non-color-only border/background treatment and the same grouping in English and Bangla. The wide sidebar includes the CSE Compass brand plus language and theme controls. It may scroll independently on shorter laptop screens; it must never reduce the article below a usable reading width or overlap page content. Do not collapse it to unexplained icons.
 
@@ -1290,7 +1290,12 @@ Every item should have a stable ID/slug and bilingual content.
 
 ## 29. Search and Discovery
 
-A lightweight static search is acceptable and useful when the content grows.
+A lightweight bilingual static search is available as a secondary quick-find
+tool now that the site contains many parallel career, roadmap, experiment, AI,
+goal, guidance and resource routes. It uses a typed build-time index and filters
+inside the browser without a backend, account, saved history or analytics event
+containing the query. The route also retains useful mentor-path links when
+JavaScript is unavailable.
 
 Search may cover:
 
@@ -1301,6 +1306,10 @@ Search may cover:
 - guidance.
 
 Search should not become the primary navigation. The mentor paths remain primary.
+
+The search routes are `noindex, follow` and excluded from the sitemap because
+search-result interfaces are not canonical editorial landing pages. Their
+linked destination pages remain crawlable and indexable.
 
 ---
 
@@ -1358,6 +1367,12 @@ Requirements:
 - hreflang where appropriate;
 - meaningful route slugs;
 - no client-only rendering for essential content.
+
+Career, experiment, roadmap, goal and resource indexes use `CollectionPage`
+with a nested `ItemList`, plus `BreadcrumbList`, where those entities accurately
+describe the visible page. Internal search is `noindex, follow` and omitted from
+the sitemap. Open Graph includes localized alternate locale metadata; the social
+image has accessible alt metadata for both Open Graph and X cards.
 
 Career and roadmap pages should be shareable directly.
 
@@ -1453,7 +1468,9 @@ The site must remain visually and editorially original and must not reproduce th
 
 Make this acknowledgment discoverable, not hidden behind an ambiguous label: every localized page has a compact footer section with direct roadmap.sh, Architect Prep and Amirul Islam links, the three contribution roles, and a “Full credits” link to localized About `#credits`. About includes a direct jump link, contextual inspiration explanations and fuller collaboration history. Keep student navigation ahead of credits in the footer and do not add another homepage content section or a primary-navigation item solely for attribution. All credit copy must have English/Bangla parity and remain readable in both themes without JavaScript.
 
-The 1 September 2026 fresher UX assessment is recorded in `docs/ux-review.md`. Its unimplemented navigation proposals are recommendations, not a claim that a redesign or real-user study has already taken place.
+The 1–2 September 2026 fresher UX assessment and implemented follow-up are
+recorded in `docs/ux-review.md`. The repository review and automated/visual checks
+are not a substitute for moderated research with real students.
 
 ---
 

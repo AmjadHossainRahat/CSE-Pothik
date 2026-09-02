@@ -1,0 +1,85 @@
+---
+interface JumpItem {
+  id: string;
+  label: string;
+  count?: number;
+}
+
+interface Props {
+  eyebrow: string;
+  label: string;
+  items: JumpItem[];
+}
+
+const { eyebrow, label, items } = Astro.props;
+---
+
+<nav class="directory-jump" aria-label={label}>
+  <div class="container">
+    <p class="eyebrow">{eyebrow}</p>
+    <ul role="list">
+      {
+        items.map((item) => (
+          <li>
+            <a href={`#${item.id}`}>
+              <span>{item.label}</span>
+              {item.count !== undefined && <small>{item.count}</small>}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .directory-jump {
+    padding-block: 1.35rem;
+    border-block: 1px solid var(--color-border);
+    background: var(--color-surface);
+  }
+  .directory-jump .eyebrow {
+    margin-bottom: 0.75rem;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    margin: 0;
+  }
+  a {
+    display: inline-flex;
+    min-height: 2.75rem;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 0.8rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.25;
+    text-decoration: none;
+  }
+  a:hover {
+    border-color: var(--color-primary);
+    background: var(--color-code);
+    color: var(--color-primary-strong);
+  }
+  small {
+    display: inline-grid;
+    min-width: 1.55rem;
+    min-height: 1.55rem;
+    place-items: center;
+    border-radius: 999px;
+    background: var(--color-code);
+    color: var(--color-text-muted);
+    font-size: 0.72rem;
+  }
+</style>

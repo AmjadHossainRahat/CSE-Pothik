@@ -58,6 +58,12 @@ for (const file of htmlFiles) {
   );
   const canonical = attr(html, /<link\s+rel="canonical"\s+href="([^"]+)"/i);
   const noindex = /<meta\s+name="robots"\s+content="noindex/i.test(html);
+  if (
+    noindex &&
+    !/<meta\s+name="robots"\s+content="noindex, follow"/i.test(html)
+  ) {
+    failures.push(`${label}: noindex page should preserve crawlable links`);
+  }
   const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i)?.[0] ?? "";
   for (const credit of [
     "https://roadmap.sh/",
@@ -177,6 +183,11 @@ const sitemap = readFileSync(join(root, "sitemap-0.xml"), "utf8");
 for (const canonical of canonicalUrls) {
   if (!canonical.endsWith("/404/") && !sitemap.includes(canonical)) {
     failures.push(`sitemap missing ${canonical}`);
+  }
+}
+for (const excluded of [`${base}/search/`, `${base}/bn/search/`]) {
+  if (sitemap.includes(`${expectedSite}${excluded}`)) {
+    failures.push(`sitemap should exclude noindex search route ${excluded}`);
   }
 }
 

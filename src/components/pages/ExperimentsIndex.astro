@@ -1,9 +1,11 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
-import { experimentPath, withBase } from "@/config/site";
-import { careerById } from "@/data/careers";
+import DirectoryJumpNav from "@/components/common/DirectoryJumpNav.astro";
+import { experimentPath, localePath, withBase } from "@/config/site";
+import { careerById, careerFamilies } from "@/data/careers";
 import { experiments } from "@/data/experiments";
 import { t } from "@/lib/i18n";
+import { collectionStructuredData } from "@/lib/seo";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { Locale } from "@/types/content";
 interface Props {
@@ -11,22 +13,49 @@ interface Props {
 }
 const { locale } = Astro.props;
 const bn = locale === "bn";
+const title = bn
+  ? "Career Experiment — Try Before You Choose"
+  : "Career Experiments — Try Before You Choose";
+const description = bn
+  ? "Safe, beginner-friendly, time-bounded CSE career experiment করে real কাজের ছোট taste নাও।"
+  : "Safe, beginner-friendly, time-bounded CSE career experiments that let you feel a small version of the real work.";
+const groupedExperiments = careerFamilies.map((family) => ({
+  family,
+  experiments: family.careerIds
+    .map((careerId) =>
+      experiments.find((experiment) => experiment.careerId === careerId),
+    )
+    .filter((experiment) => experiment !== undefined),
+}));
+const structuredData = collectionStructuredData({
+  title,
+  description,
+  url: Astro.url.href,
+  locale,
+  homeUrl: new URL(withBase(localePath(locale, "/")), Astro.site).href,
+  homeLabel: bn ? "হোম" : "Home",
+  items: experiments.map((experiment) => {
+    const career = careerById.get(experiment.careerId)!;
+    return {
+      name: t(experiment.title, locale),
+      url: new URL(withBase(experimentPath(locale, career.slug)), Astro.site)
+        .href,
+    };
+  }),
+});
 ---
 
 <BaseLayout
   locale={locale}
-  title={bn
-    ? "Career Experiment — Try Before You Choose"
-    : "Career Experiments — Try Before You Choose"}
-  description={bn
-    ? "Safe, beginner-friendly, time-bounded CSE career experiment করে real কাজের ছোট taste নাও।"
-    : "Safe, beginner-friendly, time-bounded CSE career experiments that let you feel a small version of the real work."}
+  title={title}
+  description={description}
+  structuredData={structuredData}
 >
   <Breadcrumbs
     locale={locale}
     items={[{ label: bn ? "Career experiment" : "Try a Career" }]}
   />
-  <header class="page-hero container">
+  <header class="page-hero page-hero--compact container">
     <p class="eyebrow">
       {bn ? "Try before you choose" : "Try before you choose"}
     </p><h1>
@@ -43,19 +72,41 @@ const bn = locale === "bn";
       }
     </p>
   </header>
-  <section class="section section--tinted">
-    <div class="container experiment-list">
-      {
-        experiments.map((experiment, index) => {
-          const career = careerById.get(experiment.careerId)!;
-          return (
-            <article>
-              <>
-                <span class="index">{String(index + 1).padStart(2, "0")}</span>
-                <div>
-                  <>
+  <DirectoryJumpNav
+    eyebrow={bn ? "কাজের ধরনে যাও" : "Jump by work family"}
+    label={bn ? "Experiment family index" : "Experiment family index"}
+    items={groupedExperiments.map(({ family, experiments: items }) => ({
+      id: `experiments-${family.id}`,
+      label: t(family.title, locale),
+      count: items.length,
+    }))}
+  />
+  {
+    groupedExperiments.map(({ family, experiments: items }, familyIndex) => (
+      <section
+        class:list={[
+          "section",
+          "directory-target",
+          { "section--tinted": familyIndex % 2 === 0 },
+        ]}
+        id={`experiments-${family.id}`}
+      >
+        <div class="container">
+          <div class="directory-heading">
+            <p class="eyebrow">{t(family.title, locale)}</p>
+            <h2>{t(family.description, locale)}</h2>
+          </div>
+          <div class="experiment-list">
+            {items.map((experiment, index) => {
+              const career = careerById.get(experiment.careerId)!;
+              return (
+                <article>
+                  <span class="index">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
                     <p class="tag">{experiment.duration}</p>
-                    <h2>{t(experiment.title, locale)}</h2>
+                    <h3>{t(experiment.title, locale)}</h3>
                     <p>
                       <strong>{t(career.title, locale)}</strong> ·{" "}
                       {t(experiment.experienceGoals[0]!, locale)}
@@ -68,15 +119,15 @@ const bn = locale === "bn";
                       {bn ? "Experiment খোলো" : "Open experiment"}{" "}
                       <span aria-hidden="true">→</span>
                     </a>
-                  </>
-                </div>
-              </>
-            </article>
-          );
-        })
-      }
-    </div>
-  </section>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+    ))
+  }
   <section class="section">
     <div class="container callout callout--warm">
       <p class="callout__label">
@@ -94,12 +145,30 @@ const bn = locale === "bn";
             : "Where did time move quickly? What drained you? Would you spend five more hours here? Nothing is saved; write the answer for yourself."
         }
       </p>
+      <div class="button-row">
+        <a class="button" href={withBase(localePath(locale, "/careers/"))}>
+          {bn ? "Career family-তে ফিরি" : "Explore career families"}
+        </a>
+        <a
+          class="button button--secondary"
+          href={withBase(localePath(locale, "/compare/"))}
+        >
+          {bn ? "দুটি career compare করি" : "Compare two careers"}
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
 <style>
   .experiment-list {
     border-top: 1px solid var(--color-border-strong);
+  }
+  .directory-heading {
+    max-width: 52rem;
+    margin-bottom: 2rem;
+  }
+  .directory-heading h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
   }
   .experiment-list article {
     display: grid;
@@ -113,11 +182,14 @@ const bn = locale === "bn";
     font-size: 0.75rem;
     font-weight: 800;
   }
-  .experiment-list h2 {
+  .experiment-list h3 {
     margin: 1rem 0 0.5rem;
     font-size: clamp(1.4rem, 3vw, 2.2rem);
   }
   .experiment-list a {
     font-weight: 750;
+  }
+  .callout .button-row {
+    margin-top: 1.25rem;
   }
 </style>

@@ -18,6 +18,8 @@ CSE Compass includes:
 - curated free learning resources with scope and review metadata;
 - task-based AI exposure and AI-resilience guidance;
 - deterministic “I’m Lost” and starting-point navigation;
+- bilingual static search across career, roadmap, experiment, goal, guidance
+  and resource content, without transmitting query text to analytics;
 - fresher and third/fourth-year recovery routes;
 - competitive-programming / ACM / ICPC guidance;
 - mentor-level software-engineering foundations;
@@ -32,12 +34,13 @@ It deliberately has no account, authentication, backend, database, profile, prog
 - Strict TypeScript models stable, language-neutral content IDs.
 - Small framework-free browser scripts handle theme, navigation, comparison, and analytics. Static prose is never hydrated.
 - Typed content lives under `src/data/`; reusable editorial and page components live under `src/components/`.
-- `src/data/navigation.ts` defines one bilingual problem-oriented navigation model and active-route matching for both desktop and mobile.
+- `src/data/navigation.ts` defines one bilingual problem-oriented navigation model and active-route matching for both desktop and mobile. Search is a secondary Start-here tool; Learning Resources sits under Prepare.
+- `src/data/search.ts` builds the bilingual search index from the same typed career, goal, experiment and resource sources used by the rendered pages.
 - `src/config/site.ts` centralizes brand, locale, and routes.
 - `src/lib/analytics.ts` is the analytics abstraction.
 - Semantic CSS tokens provide designed light and dark themes.
 - Vitest covers domain/content integrity; Playwright covers journeys and accessibility.
-- Astro sitemap generation, a robots endpoint, canonical URLs, hreflang, Open Graph, social metadata, and JSON-LD provide the SEO layer.
+- Astro sitemap generation, a robots endpoint, canonical URLs, hreflang, Open Graph, social metadata, and JSON-LD provide the SEO layer. Editorial indexes expose CollectionPage/ItemList and breadcrumb schema; noindex search routes are omitted from the sitemap.
 
 ```text
 src/
@@ -222,7 +225,15 @@ Layouts are mobile-first. Comparison becomes labelled stacked records on narrow 
 
 The orientation map and useful loop explicitly group titles with captions. Breadcrumbs use the same container as the page heading and reset inherited list margins.
 
-Global navigation is responsive but structurally consistent. At `68rem` and above, `Header.astro` becomes a fixed 16.75rem labeled sidebar containing five intent groups: Start here, Discover, Prepare, Future and About. Start here begins with an explicit bilingual Home destination; its separate “Find my next step” link jumps to the homepage orientation choices without competing for the current-page marker. The shared `--sidebar-width` token offsets the page frame, so content never sits beneath the sidebar; the rail can scroll on short screens. Current routes receive `aria-current="page"` plus border/background emphasis. Below that breakpoint, the same links appear in a viewport-bounded native drawer beneath a compact sticky top bar. Its menu control is icon-only visually and retains a localized accessible name. It works without JavaScript, supports Escape-to-close when enhanced, and keeps language/theme controls outside the drawer. The footer is intentionally smaller: project purpose, final-year guidance, privacy, repository and provenance remain, while career navigation is not duplicated.
+Global navigation is responsive but structurally consistent. At `68rem` and above, `Header.astro` becomes a fixed 16.75rem labeled sidebar containing five intent groups: Start here, Discover, Prepare, Future and About. Start here begins with explicit bilingual Home and Search destinations; its separate “Find my next step” link jumps to the homepage orientation choices without competing for the current-page marker. Learning Resources belongs to Prepare, not About. The shared `--sidebar-width` token offsets the page frame, so content never sits beneath the sidebar; the rail can scroll on short screens. Current routes receive `aria-current="page"` plus border/background emphasis. Below that breakpoint, the same links appear in a viewport-bounded native drawer beneath a compact sticky top bar. Its menu control is icon-only visually and retains a localized accessible name. It works without JavaScript, supports Escape-to-close when enhanced, and keeps language/theme controls outside the drawer. The footer is intentionally smaller: project purpose, final-year guidance, privacy, repository and provenance remain, while career navigation is not duplicated.
+
+Career, experiment and roadmap indexes are grouped by the same eight families
+and expose native jump links. The resource index uses four truthful resource-type
+groups rather than labelling one global list as a single learning sequence.
+Task-oriented indexes use a compact hero and finish with onward actions. The
+English and Bangla `/search/` routes filter a typed static index in the browser;
+query text is neither persisted nor included in analytics. Without JavaScript,
+the search page still provides direct mentor-path links.
 
 `tests/e2e/homepage-layout.spec.ts` protects section order, content density, illustrations, caption/breadcrumb geometry, progressive disclosure, breakpoint navigation continuity and no-JavaScript navigation. `tests/e2e/homepage-entry.spec.ts` follows all three intentions to useful guidance, checks bounded analytics and repeats keyboard navigation without JavaScript. Content-integrity tests protect bilingual introduction/entry data and the six preserved situations; accessibility tests cover the expanded disclosure. The responsive suite covers 320, 390, 768, 1280 and 1600px, verifies initial-viewport action visibility and waits for anchor scrolling to settle before capturing the entry section. Accessibility tests include English/Bangla and light/dark. A release also requires actual viewport-sized visual review, not only automated overflow checks.
 
@@ -257,7 +268,7 @@ Parameters are bounded scalar IDs. Do not add names, emails, free text, sensitiv
 
 ## SEO
 
-`BaseLayout.astro` creates unique localized titles/descriptions, canonical URLs, equivalent `hreflang`, `x-default`, Open Graph, X card metadata, and WebSite JSON-LD. Career and goal detail pages add Article and breadcrumb structured data.
+`BaseLayout.astro` creates unique localized titles/descriptions, canonical URLs, equivalent `hreflang`, `x-default`, Open Graph (including alternate locale), X card metadata with image alt text, and WebSite JSON-LD. Career and goal detail pages add Article and breadcrumb structured data; career, experiment, roadmap, goal and resource indexes add accurate CollectionPage/ItemList and breadcrumb data. Search routes use `noindex, follow` and are excluded from the sitemap while their destination links remain crawlable.
 
 The build produces static essential content, `sitemap-index.xml`, base-aware `robots.txt`, the project social card at `public/social/cse-compass-og.png`, an SVG favicon, and directory-format trailing-slash URLs. Every new primary route needs an equivalent under `src/pages/bn/` and localized metadata.
 

@@ -3,6 +3,7 @@ import { careers, careerFamilies } from "../../src/data/careers";
 import { experiments } from "../../src/data/experiments";
 import { resources } from "../../src/data/resources";
 import { roadmaps } from "../../src/data/roadmaps";
+import { searchEntries } from "../../src/data/search";
 import { lostChoices, studentSituations } from "../../src/data/situations";
 import { exposureLevels } from "../../src/types/content";
 
@@ -139,6 +140,33 @@ describe("content integrity", () => {
     expect(
       lostChoices.every(
         (item) => item.destination.bn === `/bn${item.destination.en}`,
+      ),
+    ).toBe(true);
+  });
+
+  it("keeps the static search index complete, unique and bilingual", () => {
+    expect(unique(searchEntries.map((entry) => entry.id))).toBe(true);
+    expect(searchEntries.every((entry) => entry.path.startsWith("/"))).toBe(
+      true,
+    );
+    expect(
+      searchEntries.every(
+        (entry) =>
+          hasLocalizedCopy(entry.title) &&
+          hasLocalizedCopy(entry.description) &&
+          hasLocalizedCopy(entry.keywords),
+      ),
+    ).toBe(true);
+    for (const career of careers) {
+      expect(
+        ["career", "roadmap", "experiment", "ai"].every((type) =>
+          searchEntries.some((entry) => entry.id === `${type}-${career.id}`),
+        ),
+      ).toBe(true);
+    }
+    expect(
+      resources.every((resource) =>
+        searchEntries.some((entry) => entry.id === `resource-${resource.id}`),
       ),
     ).toBe(true);
   });

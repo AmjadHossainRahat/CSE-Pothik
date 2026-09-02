@@ -461,7 +461,7 @@ The hero uses one inclusive three-person study-partners scene: a Chakma Banglade
 
 Manually inspect each replacement for three equally prominent teammates, relaxed viewer-directed smiles, personal space, keyboard hands and a visible QA tablet/stylus. The seated woman's teal hoodie and neatly head-draped orna must remain recognizable, with all hair covered. Document references for the centre teammate's contemporary Chakma-textile-inspired clothing; do not claim exact cultural authenticity from a generated image or infer identity from facial features. Check that coffee, water bottle and small indoor plant rest on the desk beside the notebook, and that devices face physically consistent directions. Do not mistake image-load/alt-text tests for proof of visual representation or the absence of romantic posing. Keep actual content and localized descriptions consistent; role and ethnicity do not imply one another.
 
-Orientation-map and useful-loop labels/captions must share an explicit content wrapper. Reset prose `li + li` margins in navigation, breadcrumbs and grid/timeline lists. Breadcrumbs share the page-heading container and align on a text baseline. `src/data/navigation.ts` is the typed bilingual source for five problem-oriented groups and active-route matching. Start here must include an explicit bilingual Home item; the homepage section jump remains a separate non-current destination so only Home receives `aria-current` at `/`. `Header.astro` renders that model as a persistent wide-screen sidebar or a compact sticky header/native drawer; the mobile toggle is icon-only visually but retains a localized accessible name. Active links use `aria-current`, the page frame is offset by the shared sidebar-width token, and the drawer remains viewport-bounded and scrollable. The desktop sidebar must be available even when its mobile disclosure was previously closed; test resizing in both directions. With JavaScript disabled, the native menu and all essential content links must still work. The footer retains compact project/policy/provenance links rather than duplicating global navigation.
+Orientation-map and useful-loop labels/captions must share an explicit content wrapper. Reset prose `li + li` margins in navigation, breadcrumbs and grid/timeline lists. Breadcrumbs share the page-heading container and align on a text baseline. `src/data/navigation.ts` is the typed bilingual source for five problem-oriented groups and active-route matching. Start here must include explicit bilingual Home and Search destinations; the homepage section jump remains a separate non-current destination so only Home receives `aria-current` at `/`. Learning resources belong under Prepare rather than About because they are a student task; About remains focused on purpose and provenance. `Header.astro` renders that model as a persistent wide-screen sidebar or a compact sticky header/native drawer; the mobile toggle is icon-only visually but retains a localized accessible name. Active links use `aria-current`, the page frame is offset by the shared sidebar-width token, and the drawer remains viewport-bounded and scrollable. The desktop sidebar must be available even when its mobile disclosure was previously closed; test resizing in both directions. With JavaScript disabled, the native menu and all essential content links must still work. The footer retains compact project/policy/provenance links rather than duplicating global navigation.
 
 ---
 
@@ -724,6 +724,12 @@ Requirements:
 - no required persistence;
 - no fake “assessment accuracy” claims.
 
+Render each initial choice as a real localized destination link. JavaScript may
+progressively enhance those links into an in-page explanation, but it must not be
+the only route to the result. The selected prompt becomes the result heading,
+the hash identifies the selected state, and reset must hide the panel, restore
+control state and clear that hash.
+
 ---
 
 ## 19. “Where Are You Right Now?” Navigator
@@ -771,7 +777,7 @@ Avoid pseudo-scientific “fit scores” unless the methodology is explicit and 
 
 ## 21. Search
 
-If content volume justifies search, use a static search approach.
+The current content volume justifies a secondary static search experience.
 
 Possible approaches:
 
@@ -782,6 +788,20 @@ Possible approaches:
 Do not require an external search backend.
 
 Search must support English and Bangla content reasonably.
+
+Use a typed build-time index covering careers, families, roadmaps, experiments,
+AI guidance, goals, major guidance and curated resources. Filter locally in a
+small framework-free script; do not transmit or track free-form query text. Keep
+mentor-path quick links available without JavaScript. Search routes use
+`noindex, follow` and are excluded from the sitemap; destination pages remain
+normal crawlable static pages.
+
+Search is not a substitute for scannable directories. Career, experiment and
+roadmap indexes need native family jump links and grouped sections; the resource
+index needs truthful type groups instead of treating an entire directory as one
+Learn → Practice → Go Deeper sequence. Task indexes use a compact hero and end
+with meaningful onward actions. Every jump link and target must work without
+JavaScript and under a GitHub Pages project base.
 
 ---
 
@@ -868,6 +888,11 @@ Implement:
 - structured internal links;
 - descriptive slugs;
 - static-rendered essential content.
+
+Use accurate `CollectionPage`/`ItemList` and `BreadcrumbList` structured data on
+the career, experiment, roadmap, goal and resource indexes. Include localized
+Open Graph alternate-locale metadata and alt metadata for both Open Graph and X
+social images. Do not put noindex search interfaces in the sitemap.
 
 Create reusable SEO helpers/layout props.
 

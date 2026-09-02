@@ -31,6 +31,17 @@ describe("global navigation", () => {
     expect(new Set(items.map((item) => item.id)).size).toBe(items.length);
     expect(items.find((item) => item.id === "lost")?.emphasis).toBe(true);
     expect(items.find((item) => item.id === "home")?.path).toBe("/");
+    expect(items.find((item) => item.id === "search")?.path).toBe("/search/");
+    expect(
+      navigationGroups
+        .find((group) => group.id === "prepare")
+        ?.items.some((item) => item.id === "resources"),
+    ).toBe(true);
+    expect(
+      navigationGroups
+        .find((group) => group.id === "about")
+        ?.items.some((item) => item.id === "resources"),
+    ).toBe(false);
     expect(items.find((item) => item.id === "why")?.path).toBe(
       "/about/#why-this-exists",
     );

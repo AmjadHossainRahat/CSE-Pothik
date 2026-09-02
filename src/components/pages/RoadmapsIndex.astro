@@ -1,8 +1,10 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import DirectoryJumpNav from "@/components/common/DirectoryJumpNav.astro";
 import { localePath, roadmapPath, withBase } from "@/config/site";
-import { careers } from "@/data/careers";
+import { careerById, careerFamilies, careers } from "@/data/careers";
 import { t } from "@/lib/i18n";
+import { collectionStructuredData } from "@/lib/seo";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { Locale } from "@/types/content";
 interface Props {
@@ -10,17 +12,36 @@ interface Props {
 }
 const { locale } = Astro.props;
 const bn = locale === "bn";
+const title = bn ? "CSE Career Roadmap" : "CSE Career Roadmaps";
+const description = bn
+  ? "Foundation-first, mentor-guided CSE career roadmap—what to learn, enough for now, practical task আর কী এখন না শিখলেও চলবে।"
+  : "Foundation-first, mentor-guided CSE career roadmaps with practical tasks, curated resources and clear guidance on what not to learn yet.";
+const groupedCareers = careerFamilies.map((family) => ({
+  family,
+  careers: family.careerIds.map((id) => careerById.get(id)!),
+}));
+const structuredData = collectionStructuredData({
+  title,
+  description,
+  url: Astro.url.href,
+  locale,
+  homeUrl: new URL(withBase(localePath(locale, "/")), Astro.site).href,
+  homeLabel: bn ? "হোম" : "Home",
+  items: careers.map((career) => ({
+    name: `${t(career.title, locale)} ${bn ? "roadmap" : "roadmap"}`,
+    url: new URL(withBase(roadmapPath(locale, career.slug)), Astro.site).href,
+  })),
+});
 ---
 
 <BaseLayout
   locale={locale}
-  title={bn ? "CSE Career Roadmap" : "CSE Career Roadmaps"}
-  description={bn
-    ? "Foundation-first, mentor-guided CSE career roadmap—what to learn, enough for now, practical task আর কী এখন না শিখলেও চলবে।"
-    : "Foundation-first, mentor-guided CSE career roadmaps with practical tasks, curated resources and clear guidance on what not to learn yet."}
+  title={title}
+  description={description}
+  structuredData={structuredData}
 >
   <Breadcrumbs locale={locale} items={[{ label: "Roadmaps" }]} />
-  <header class="page-hero container">
+  <header class="page-hero page-hero--compact container">
     <p class="eyebrow">
       {bn ? "Mentor-guided sequence" : "Mentor-guided sequences"}
     </p><h1>
@@ -37,6 +58,15 @@ const bn = locale === "bn";
       }
     </p>
   </header>
+  <DirectoryJumpNav
+    eyebrow={bn ? "Career family-তে যাও" : "Jump to a career family"}
+    label={bn ? "Roadmap family index" : "Roadmap family index"}
+    items={groupedCareers.map(({ family, careers: items }) => ({
+      id: `roadmaps-${family.id}`,
+      label: t(family.title, locale),
+      count: items.length,
+    }))}
+  />
   <section
     class="section route-choices"
     aria-label={bn ? "Roadmap-এর ধরন" : "Choose a roadmap type"}
@@ -104,15 +134,28 @@ const bn = locale === "bn";
         } →</a
       >
     </div>
-    <div class="container roadmap-list">
-      {
-        careers.map((career, index) => (
-          <article>
-            <>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div>
-                <>
-                  <h2>{t(career.title, locale)}</h2>
+  </section>
+  {
+    groupedCareers.map(({ family, careers: items }, familyIndex) => (
+      <section
+        class:list={[
+          "section",
+          "directory-target",
+          { "section--tinted": familyIndex % 2 === 1 },
+        ]}
+        id={`roadmaps-${family.id}`}
+      >
+        <div class="container">
+          <div class="directory-heading">
+            <p class="eyebrow">{t(family.title, locale)}</p>
+            <h2>{t(family.description, locale)}</h2>
+          </div>
+          <div class="roadmap-list">
+            {items.map((career, index) => (
+              <article>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h3>{t(career.title, locale)}</h3>
                   <p>{t(career.shortDescription, locale)}</p>
                   <a
                     href={withBase(roadmapPath(locale, career.slug))}
@@ -122,14 +165,14 @@ const bn = locale === "bn";
                     {bn ? "Roadmap খোলো" : "Open roadmap"}{" "}
                     <span aria-hidden="true">→</span>
                   </a>
-                </>
-              </div>
-            </>
-          </article>
-        ))
-      }
-    </div>
-  </section>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
   <section class="section">
     <div class="container callout">
       <p class="callout__label">{bn ? "How to use" : "How to use these"}</p><h2>
@@ -141,6 +184,17 @@ const bn = locale === "bn";
             : "Meet the current stage’s ‘enough for now’ criteria, complete its practical task, then move forward. Collecting resource links is not a skill."
         }
       </p>
+      <div class="button-row">
+        <a class="button" href={withBase(localePath(locale, "/careers/"))}>
+          {bn ? "Career family দেখি" : "Explore career families"}
+        </a>
+        <a
+          class="button button--secondary"
+          href={withBase(localePath(locale, "/goals/"))}
+        >
+          {bn ? "Goal guide বেছে নিই" : "Choose a goal guide"}
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -166,6 +220,13 @@ const bn = locale === "bn";
   .route-choice-grid h2 {
     font-size: 2rem;
   }
+  .directory-heading {
+    max-width: 52rem;
+    margin-bottom: 2rem;
+  }
+  .directory-heading h2 {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+  }
   @media (min-width: 48rem) {
     .route-choice-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -186,7 +247,7 @@ const bn = locale === "bn";
     font-size: 0.75rem;
     font-weight: 800;
   }
-  .roadmap-list h2 {
+  .roadmap-list h3 {
     margin-bottom: 0.4rem;
     font-size: clamp(1.4rem, 3vw, 2rem);
   }
@@ -196,5 +257,8 @@ const bn = locale === "bn";
   }
   .roadmap-list a {
     font-weight: 750;
+  }
+  .callout .button-row {
+    margin-top: 1.25rem;
   }
 </style>

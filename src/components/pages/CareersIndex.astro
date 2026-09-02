@@ -1,9 +1,11 @@
 ---
 import CareerCard from "@/components/careers/CareerCard.astro";
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import DirectoryJumpNav from "@/components/common/DirectoryJumpNav.astro";
 import { localePath, withBase } from "@/config/site";
 import { careerFamilies, careerById } from "@/data/careers";
 import { t } from "@/lib/i18n";
+import { collectionStructuredData } from "@/lib/seo";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { Locale } from "@/types/content";
 
@@ -12,17 +14,40 @@ interface Props {
 }
 const { locale } = Astro.props;
 const bn = locale === "bn";
+const title = bn ? "CSE Career Landscape" : "Explore CSE Careers";
+const description = bn
+  ? "আটটি broad work family দিয়ে CSE career explore করো; real কাজ, drawback, roadmap, experiment আর AI exposure দেখো।"
+  : "Explore CSE careers through eight broad work families, with realistic work, drawbacks, roadmaps, experiments and AI task exposure.";
+const structuredData = collectionStructuredData({
+  title,
+  description,
+  url: Astro.url.href,
+  locale,
+  homeUrl: new URL(withBase(localePath(locale, "/")), Astro.site).href,
+  homeLabel: bn ? "হোম" : "Home",
+  items: careerFamilies.flatMap((family) =>
+    family.careerIds.map((id) => {
+      const career = careerById.get(id)!;
+      return {
+        name: t(career.title, locale),
+        url: new URL(
+          withBase(localePath(locale, `/careers/${career.slug}/`)),
+          Astro.site,
+        ).href,
+      };
+    }),
+  ),
+});
 ---
 
 <BaseLayout
   locale={locale}
-  title={bn ? "CSE Career Landscape" : "Explore CSE Careers"}
-  description={bn
-    ? "আটটি broad work family দিয়ে CSE career explore করো; real কাজ, drawback, roadmap, experiment আর AI exposure দেখো।"
-    : "Explore CSE careers through eight broad work families, with realistic work, drawbacks, roadmaps, experiments and AI task exposure."}
+  title={title}
+  description={description}
+  structuredData={structuredData}
 >
   <Breadcrumbs locale={locale} items={[{ label: bn ? "Career" : "Careers" }]} />
-  <header class="page-hero container">
+  <header class="page-hero page-hero--compact container">
     <p class="eyebrow">{bn ? "Career landscape" : "Career landscape"}</p>
     <h1>
       {
@@ -39,10 +64,23 @@ const bn = locale === "bn";
       }
     </p>
   </header>
+  <DirectoryJumpNav
+    eyebrow={bn ? "Career family-তে যাও" : "Jump to a career family"}
+    label={bn ? "Career family index" : "Career family index"}
+    items={careerFamilies.map((family) => ({
+      id: family.id,
+      label: t(family.title, locale),
+      count: family.careerIds.length,
+    }))}
+  />
   {
     careerFamilies.map((family, index) => (
       <section
-        class:list={["section", { "section--tinted": index % 2 === 0 }]}
+        class:list={[
+          "section",
+          "directory-target",
+          { "section--tinted": index % 2 === 0 },
+        ]}
         id={family.id}
       >
         <div class="container">
@@ -103,6 +141,24 @@ const bn = locale === "bn";
             : "Comparison gives you language. Experiments give you evidence. No quiz gives you a final identity."
         }
       </p>
+      <div class="button-row">
+        <a
+          class="button"
+          href={withBase(localePath(locale, "/compare/"))}
+          data-track-event="next_step_clicked"
+          data-track-param-destination="compare"
+        >
+          {bn ? "দুটি career compare করি" : "Compare two careers"}
+        </a>
+        <a
+          class="button button--secondary"
+          href={withBase(localePath(locale, "/try/"))}
+          data-track-event="next_step_clicked"
+          data-track-param-destination="experiments"
+        >
+          {bn ? "ছোট experiment বেছে নিই" : "Choose a small experiment"}
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
@@ -127,6 +183,9 @@ const bn = locale === "bn";
   }
   .practice-track .button {
     justify-self: start;
+  }
+  .callout .button-row {
+    margin-top: 1.25rem;
   }
   @media (min-width: 48rem) {
     .practice-track {

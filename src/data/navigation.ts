@@ -33,6 +33,12 @@ export const navigationGroups: NavigationGroup[] = [
         match: "none",
       },
       {
+        id: "search",
+        label: l("Search this site", "সাইটে খুঁজে দেখো"),
+        path: "/search/",
+        match: "exact",
+      },
+      {
         id: "new-student",
         label: l("New to CSE", "CSE-তে নতুন"),
         path: "/guidance/new-cse-student/",
@@ -93,6 +99,12 @@ export const navigationGroups: NavigationGroup[] = [
         path: "/guidance/final-year-project/",
         match: "exact",
       },
+      {
+        id: "resources",
+        label: l("Learning resources", "Learning resources"),
+        path: "/resources/",
+        match: "exact",
+      },
     ],
   },
   {
@@ -115,12 +127,6 @@ export const navigationGroups: NavigationGroup[] = [
         id: "why",
         label: l("Why CSE Compass?", "CSE Compass কেন?"),
         path: "/about/#why-this-exists",
-        match: "exact",
-      },
-      {
-        id: "resources",
-        label: l("Learning resources", "Learning resources"),
-        path: "/resources/",
         match: "exact",
       },
     ],

@@ -1,7 +1,7 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
 import { careerPath, roadmapPath, withBase } from "@/config/site";
-import { careers } from "@/data/careers";
+import { careerById, careerFamilies, careers } from "@/data/careers";
 import { t } from "@/lib/i18n";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { Locale } from "@/types/content";
@@ -10,6 +10,10 @@ interface Props {
 }
 const { locale } = Astro.props;
 const bn = locale === "bn";
+const groupedCareers = careerFamilies.map((family) => ({
+  family,
+  careers: family.careerIds.map((id) => careerById.get(id)!),
+}));
 const dimensionRows = [
   ["coding", bn ? "Coding" : "Coding"],
   ["mathematics", bn ? "Math" : "Mathematics"],
@@ -44,7 +48,7 @@ const level = (value: number) =>
     locale={locale}
     items={[{ label: bn ? "Career compare" : "Compare" }]}
   />
-  <header class="page-hero container">
+  <header class="page-hero page-hero--compact container">
     <p class="eyebrow">
       {bn ? "Compare for fit—not rank" : "Compare for fit—not rank"}
     </p><h1>
@@ -73,20 +77,36 @@ const level = (value: number) =>
               ? "Minimum 2, maximum 3। URL update হবে—share করা যাবে।"
               : "Minimum 2, maximum 3. The URL updates so you can share the comparison."
           }
-        </p><div class="career-options">
+        </p><div class="career-option-groups">
           {
-            careers.map((career, index) => (
-              <label>
-                <>
-                  <input
-                    type="checkbox"
-                    value={career.id}
-                    checked={index < 2}
-                    aria-describedby="compare-help"
-                  />
-                  <span>{t(career.title, locale)}</span>
-                </>
-              </label>
+            groupedCareers.map(({ family, careers: familyCareers }) => (
+              <section
+                class="career-option-group"
+                role="group"
+                aria-labelledby={`compare-family-${family.id}`}
+              >
+                <h2 id={`compare-family-${family.id}`}>
+                  {t(family.title, locale)}
+                </h2>
+                <div class="career-options">
+                  {familyCareers.map((career) => {
+                    const index = careers.findIndex(
+                      (item) => item.id === career.id,
+                    );
+                    return (
+                      <label>
+                        <input
+                          type="checkbox"
+                          value={career.id}
+                          checked={index < 2}
+                          aria-describedby="compare-help"
+                        />
+                        <span>{t(career.title, locale)}</span>
+                      </label>
+                    );
+                  })}
+                </div>
+              </section>
             ))
           }
         </div>
@@ -94,6 +114,12 @@ const level = (value: number) =>
         id="compare-status"
         class="compare-status"
         aria-live="polite"
+        data-minimum={bn
+          ? "কমপক্ষে দুটি career বেছে নাও।"
+          : "Choose at least two careers."}
+        data-selected={bn
+          ? "{count}টি career বেছে নেওয়া হয়েছে।"
+          : "{count} careers selected."}
       >
       </p>
     </div>
@@ -226,8 +252,11 @@ const level = (value: number) =>
       if (status)
         status.textContent =
           selected.length < 2
-            ? "Choose at least two careers."
-            : `${selected.length} careers selected.`;
+            ? (status.dataset.minimum ?? "")
+            : (status.dataset.selected ?? "").replace(
+                "{count}",
+                String(selected.length),
+              );
       const url = new URL(window.location.href);
       url.searchParams.set("careers", selected.join(","));
       history.replaceState({}, "", url);
@@ -260,7 +289,19 @@ const level = (value: number) =>
   .career-options {
     display: grid;
     gap: 0.5rem;
-    margin-top: 1.3rem;
+  }
+  .career-option-groups {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .career-option-group {
+    padding-top: 1rem;
+    border-top: 2px solid var(--color-border-strong);
+  }
+  .career-option-group h2 {
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
   }
   .career-options label {
     display: flex;
@@ -295,8 +336,11 @@ const level = (value: number) =>
     display: none !important;
   }
   @media (min-width: 40rem) {
+    .career-option-groups {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
     .career-options {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
     }
   }
 </style>

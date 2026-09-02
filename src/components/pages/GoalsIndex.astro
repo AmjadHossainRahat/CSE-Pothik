@@ -3,6 +3,7 @@ import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
 import { localePath, withBase } from "@/config/site";
 import { goals } from "@/data/goals";
 import { t } from "@/lib/i18n";
+import { collectionStructuredData } from "@/lib/seo";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { Locale } from "@/types/content";
 interface Props {
@@ -11,6 +12,12 @@ interface Props {
 const { locale } = Astro.props;
 const bn = locale === "bn";
 const href = (path: string) => withBase(localePath(locale, path));
+const title = bn
+  ? "সাত লক্ষ্য, বাস্তব প্রস্তুতি"
+  : "Seven goals, practical preparation";
+const description = bn
+  ? "Global company, বাংলাদেশের industry, remote চাকরি, বিদেশে উচ্চশিক্ষা, research, freelancing আর tech business-এর বাস্তব প্রস্তুতি ও roadmap।"
+  : "Practical preparation for global companies, Bangladesh industry, remote jobs, study abroad, research, freelancing and a tech business.";
 const groups = [
   {
     title: bn ? "Industry-তে কাজ" : "Work in industry",
@@ -32,16 +39,25 @@ const groups = [
     items: goals.slice(5),
   },
 ];
+const structuredData = collectionStructuredData({
+  title,
+  description,
+  url: Astro.url.href,
+  locale,
+  homeUrl: new URL(href("/"), Astro.site).href,
+  homeLabel: bn ? "হোম" : "Home",
+  items: goals.map((goal) => ({
+    name: t(goal.title, locale),
+    url: new URL(href(`/goals/${goal.id}/`), Astro.site).href,
+  })),
+});
 ---
 
 <BaseLayout
   locale={locale}
-  title={bn
-    ? "সাত লক্ষ্য, বাস্তব প্রস্তুতি"
-    : "Seven goals, practical preparation"}
-  description={bn
-    ? "Global company, বাংলাদেশের industry, remote চাকরি, বিদেশে উচ্চশিক্ষা, research, freelancing আর tech business-এর বাস্তব প্রস্তুতি ও roadmap।"
-    : "Practical preparation for global companies, Bangladesh industry, remote jobs, study abroad, research, freelancing and a tech business."}
+  title={title}
+  description={description}
+  structuredData={structuredData}
 >
   <Breadcrumbs
     locale={locale}
@@ -50,7 +66,7 @@ const groups = [
       { label: bn ? "লক্ষ্যভিত্তিক পথ" : "Goal guides" },
     ]}
   />
-  <header class="page-hero container goals-hero">
+  <header class="page-hero page-hero--compact container goals-hero">
     <p class="eyebrow">
       {bn ? "একটি লক্ষ্য দিয়ে শুরু" : "Start with one direction"}
     </p>

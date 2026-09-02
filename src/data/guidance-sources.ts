@@ -194,7 +194,7 @@ export const guidanceSources: GuidanceSource[] = [
     id: "erasmus-mundus",
     title: "Erasmus Mundus Joint Masters",
     provider: "European Commission",
-    url: "https://erasmus-plus.ec.europa.eu/opportunities/opportunities-for-individuals/students/erasmus-mundus-joint-masters",
+    url: "https://erasmus-plus.ec.europa.eu/opportunities/individuals/students/erasmus-mundus-joint-masters",
     scope: l(
       "Explore joint master's programs and funding information; the program's own call determines eligibility and deadlines.",
       "Joint master's program আর funding information দেখো; eligibility আর deadline program-এর নিজস্ব call ঠিক করে।",
