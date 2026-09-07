@@ -164,6 +164,9 @@ const baseStructuredData = {
     data-career-id={contentView?.careerId}
   >
     <a class="skip-link" href="#main-content">{ui[locale].skip}</a>
+    <span class="visually-hidden" id="external-link-description">
+      {locale === "bn" ? "নতুন tab-এ খুলবে" : "Opens in a new tab"}
+    </span>
     <Header locale={locale} pathname={headerPathname} />
     <div class="site-frame">
       <main id="main-content" tabindex="-1">

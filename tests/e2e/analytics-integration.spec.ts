@@ -53,6 +53,7 @@ test("homepage actions dispatch bounded GA4 events without contacting Google", a
     .poll(() => events.some((event) => event[1] === "starting_point_selected"))
     .toBe(true);
   await page.goto(route("/"));
+  await page.locator(".family-paths summary").first().click();
   await page.locator(".family-links a").first().click();
   await expect
     .poll(() => events.some((event) => event[1] === "career_family_opened"))
@@ -85,7 +86,7 @@ test("homepage actions dispatch bounded GA4 events without contacting Google", a
     )
     .toBe(true);
   await page.goto(route("/"));
-  await page.locator(".ai-copy a").click();
+  await page.locator('[data-track-event="ai_guidance_viewed"]').click();
   await expect
     .poll(() => events)
     .toContainEqual(["event", "ai_guidance_viewed", { career_id: "overview" }]);

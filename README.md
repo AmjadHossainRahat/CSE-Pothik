@@ -24,6 +24,7 @@ CSE Compass includes:
 - competitive-programming / ACM / ICPC guidance;
 - mentor-level software-engineering foundations;
 - a complete final-year project standards guide with downloadable English/Bangla evidence templates;
+- a first-software-role transition for final-semester students, recent graduates and other early-career entrants who already have a project or target;
 - English/Bangla parity and light/dark theme parity.
 
 It deliberately has no account, authentication, backend, database, profile, progress tracking, certificate, job promise, LMS behavior, fit score, streak, badge, or chatbot.
@@ -84,6 +85,26 @@ The final-year project page adds seven progressively disclosed working playbooks
 
 Ten bilingual templates can be previewed on the page and downloaded from the existing `downloads/final-year-project.en.md` / `.bn.md` endpoints: brief/risk register, team agreement, issue, PR, meeting note, decision/traceability, test plan/report, bug report, release/handover and attribution. These are authoring prompts—not fabricated results or a website task tracker. No new client JavaScript, dependency, account or homepage section is added.
 
+### From an existing project to a first software role
+
+`/guidance/first-software-role/` and its `/bn/` equivalent provide a generic bridge from an existing academic or personal project to internship, trainee and junior software applications. Students can enter at one of five current bottlenecks—project, presentation, interview, applications or feedback—then use the six-stage Target → Strengthen → Present → Practise → Apply → Improve loop. The guide treats CGPA as one supporting signal and ACM/ICPC as useful but optional evidence, not universal entry requirements.
+
+The shared typed content lives in `src/data/first-software-role.ts` and is rendered by `FirstSoftwareRole.astro` as static HTML with Article and BreadcrumbList structured data. It teaches one honest project improvement through issue, branch, test, review and release; three project walkthrough lengths; role-relevant interview practice; a private application log; and feedback diagnosis that changes one variable at a time. It does not fabricate teamwork, scrape vacancies, score users, store progress or promise employment. Contextual links connect the guide to the homepage, navigation, search, situation/recovery paths, final-year guidance, employment goals and relevant software careers and roadmaps.
+
+Content-integrity tests protect the guide’s bilingual structure, source and role relationships, and honesty/ACM/CGPA boundaries. Browser coverage checks discoverability, language switching, no-JavaScript access, responsive widths, both themes, both deployment base paths and accessibility-critical routes.
+
+### AI-era homepage guidance
+
+The first section after the homepage hero now answers the student's immediate AI anxiety with a static bilingual **Frame → Verify → Own** decision tree. It explains why core principles, analytical problem-solving, creativity, product context and accountable judgment become more valuable when code generation becomes cheap. A native disclosure compares a fresher working with thin AI context, rich team context they cannot yet review, and strong foundations plus bounded AI assistance. The examples discuss plausible review, defect, security, complexity and dependency costs without making universal productivity or job-safety claims.
+
+To keep the homepage useful as a router, not a textbook, all eight career-family summaries remain visible while their individual paths are progressively disclosed; the six-step useful loop is also a native disclosure. Both work without JavaScript. The two original illustrations remain the visual anchors, with only restrained CSS micro-motion that is disabled by reduced-motion preferences.
+
+### Bangladesh technology voices
+
+The former anonymous “veteran voice” examples have been replaced by nine supplied public videos and podcast episodes from Bangladesh technology practitioners, leaders and educators. Two perspectives appear on the homepage; the complete sequence lives at `/resources/#industry-voices` and moves through **Ground yourself → Strengthen how you think → Read the working world**. Each item has typed English/Bangla editorial context, verified YouTube title/publisher metadata, a stable search anchor and bounded resource-click analytics.
+
+The page explicitly treats speakers as perspectives rather than authorities or endorsements. A four-question advice filter asks students to inspect context, concrete trade-offs, corroboration and the next safe action. YouTube links open in a new tab; there are no embeds, autoplay requests, remote thumbnails or new client-side dependencies. `src/data/industry-voices.ts` is rendered by the shared `IndustryVoices.astro` component and covered by content-integrity, search, E2E, no-JavaScript and accessibility tests. The live `yarn check:external-links` audit includes this catalog alongside roadmap and guidance sources.
+
 ## Prerequisites and Yarn
 
 - Node.js 22.12 or newer (Node 24 in CI)
@@ -142,7 +163,7 @@ Content tests reject duplicate IDs, invalid slugs, missing bilingual copy, missi
 
 ## Content architecture
 
-Published entities use stable language-neutral IDs. Localized copy uses `{ en, bn }` fields so route parity and required translations can be validated. Core types in `src/types/content.ts` include `CareerFamily`, `Career`, `Roadmap`, `RoadmapStage`, `CareerExperiment`, `LearningResource`, `AITaskExposure`, `StudentSituation`, `GoalGuide`, `GoalStage`, and `GuidanceSource`.
+Published entities use stable language-neutral IDs. Localized copy uses `{ en, bn }` fields so route parity and required translations can be validated. Core types in `src/types/content.ts` include `CareerFamily`, `Career`, `Roadmap`, `RoadmapStage`, `CareerExperiment`, `LearningResource`, `AITaskExposure`, `StudentSituation`, `GoalGuide`, `GoalStage`, `FirstRoleGuide`, and `GuidanceSource`.
 
 Language implementation combines shared resources and separate generated HTML: typed bilingual data/UI copy and shared Astro templates are the source; thin English and `/bn/` route wrappers select the locale at build time. We do not maintain two hand-written HTML copies of each page or translate essential content in the browser. Some page-specific editorial copy is colocated as English/Bangla pairs inside the shared template.
 
@@ -175,7 +196,7 @@ Data Analytics & BI, AI Engineering and Application Security use `specialist-roa
 
 `src/data/goals.ts` combines typed modules under `src/data/goals/`. Add a goal ID, complete localized content, branches, four stages (`foundation`, `evidence`, `application`, `adapt`), pitfalls, responsible AI use, a concrete action this week, related goals and curated career IDs. Each stage needs why, practical tasks, enough-for-now evidence, what not to do yet and a source reference. `GoalDetail.astro` renders the shared static template; desktop has a sticky section index and mobile has a native disclosure. Essential guidance is always rendered, including with JavaScript disabled. No state, assessment, deadline promise or completion tracking is added.
 
-`src/data/guidance-sources.ts` holds dated, scoped references to official hiring, admission, research and business guidance. These are **not** `LearningResource.isFree` entries: reading a reference may be free while applications, tests, tools, publishing or participation have costs. The guide is our editorial synthesis, not an employer/university endorsement. Recheck changing requirements before revising claims, especially NASA eligibility, work authorization, admission/funding and venue AI policies. `yarn check:external-links` covers both source registries.
+`src/data/guidance-sources.ts` holds dated, scoped references to official hiring, admission, research and business guidance. These are **not** `LearningResource.isFree` entries: reading a reference may be free while applications, tests, tools, publishing or participation have costs. The guide is our editorial synthesis, not an employer/university endorsement. Recheck changing requirements before revising claims, especially NASA eligibility, work authorization, admission/funding and venue AI policies. `yarn check:external-links` covers learning resources, guidance sources and the industry-voices catalog.
 
 `tests/content/goals.test.ts` validates all seven guides, language completeness and relationships. `tests/e2e/goal-guidance.spec.ts` checks routes, new careers, journey links, no-JavaScript keyboard navigation, language equivalents and the five-width/two-language/two-theme layout matrix.
 
@@ -203,7 +224,7 @@ Add a complete seed in `src/data/experiments.ts` or one of its focused imported 
 
 ### Add a learning resource
 
-Add metadata in `src/data/resources.ts`: stable ID, provider, HTTPS URL, type, free-access status, bilingual recommended scope/reason, language availability, and review date. Prefer official documentation, respected university material, open courses, trusted labs, open books, and established practice platforms. Link to teaching; do not copy it.
+Add metadata in `src/data/resources.ts`: stable ID, provider, HTTPS URL, type, free-access status, bilingual recommended scope/reason, language availability, and review date. Prefer official documentation, respected university material, open courses, trusted labs, open books, and established practice platforms. Link to teaching; do not copy it. Shared renderers open outbound resources and guidance sources in a new tab with `noopener noreferrer` and an external-link indicator; internal CSE Compass navigation remains in the current tab. Generated-output verification rejects an unsafe or same-tab outbound anchor.
 
 ## Themes and responsive design
 
@@ -235,7 +256,7 @@ English and Bangla `/search/` routes filter a typed static index in the browser;
 query text is neither persisted nor included in analytics. Without JavaScript,
 the search page still provides direct mentor-path links.
 
-`tests/e2e/homepage-layout.spec.ts` protects section order, content density, illustrations, caption/breadcrumb geometry, progressive disclosure, breakpoint navigation continuity and no-JavaScript navigation. `tests/e2e/homepage-entry.spec.ts` follows all three intentions to useful guidance, checks bounded analytics and repeats keyboard navigation without JavaScript. Content-integrity tests protect bilingual introduction/entry data and the six preserved situations; accessibility tests cover the expanded disclosure. The responsive suite covers 320, 390, 768, 1280 and 1600px, verifies initial-viewport action visibility and waits for anchor scrolling to settle before capturing the entry section. Accessibility tests include English/Bangla and light/dark. A release also requires actual viewport-sized visual review, not only automated overflow checks.
+`tests/e2e/homepage-layout.spec.ts` protects section order, content density, illustrations, caption/breadcrumb geometry, progressive disclosure, breakpoint navigation continuity and no-JavaScript navigation. `tests/e2e/homepage-entry.spec.ts` follows all three intentions to useful guidance, checks bounded analytics and repeats keyboard navigation without JavaScript. Content-integrity tests protect bilingual introduction/entry data and the seven preserved situations; accessibility tests cover the expanded disclosure. The responsive suite covers 320, 390, 768, 1280 and 1600px, verifies initial-viewport action visibility and waits for anchor scrolling to settle before capturing the entry section. Accessibility tests include English/Bangla and light/dark. A release also requires actual viewport-sized visual review, not only automated overflow checks.
 
 `tests/e2e/spacing-and-layout.spec.ts` visits every English and Bangla public UI route at the desktop breakpoint to catch overflow, out-of-frame top-level containers, breadcrumb/hero misalignment and top sections that fail to use both desktop columns. Shared heroes pair the title with supporting copy, actions or context; already-composed career/experiment heroes retain their contextual panels. The test also protects the “I’m Lost” state transition: before a choice, the chooser uses the full container in two columns; after a choice, the explanation panel receives a real second column. Mobile stays single-column.
 
@@ -308,7 +329,7 @@ Internal links, assets, canonical URLs, hreflang, sitemap, and robots output hon
 
 CSE Compass was conceptually inspired by [roadmap.sh](https://roadmap.sh/) for structured role/skill navigation, [Architect Prep](https://mayurjp.github.io/architect-prep/) for focused technical navigation, and [Amirul Islam](https://amirulislamalmamun.com/) for staged, build-centred engineering roadmaps. Its visual system, content, mentoring model, roadmaps, and implementation are original.
 
-**[Amjad Hossain](https://amjadhossainrahat.github.io/) — Creator & Orchestrator:** shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. His linked name opens his intended GitHub Pages portfolio in a new tab; the canonical link is retained even while that separate portfolio site is not yet published. **ChatGPT** assisted with requirement engineering and product/design planning. **Codex** was used to build the site and assist with tests, bug fixes and iteration. These acknowledgments do not imply affiliation or endorsement.
+**[Amjad Hossain](https://amjadhossainrahat.github.io/) — Creator & Orchestrator:** shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. His linked name opens his intended GitHub Pages portfolio in a new tab; the canonical link is retained even while that separate portfolio site is not yet published. **ChatGPT** assisted with requirement engineering and product/design planning. **Codex using GPT-5.6 Sol (High)** was used to build the site and assist with tests, bug fixes and iteration. These acknowledgments do not imply affiliation or endorsement.
 
 All three inspiration links and the three distinct contributions are visible in every page's footer. “Full credits” opens the localized `/about/#credits` or `/bn/about/#credits` section; About also has a direct jump link. Shared bilingual copy lives in `src/data/credits.ts`, with the creator's name in `src/config/site.ts`. Credits are static HTML, accessible without JavaScript, and add no dependency or tracking event.
 

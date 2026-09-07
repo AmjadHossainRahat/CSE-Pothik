@@ -1,0 +1,545 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import { careerById } from "@/data/careers";
+import { firstSoftwareRoleGuide as guide } from "@/data/first-software-role";
+import { guidanceSourceById } from "@/data/guidance-sources";
+import { careerPath, localePath, roadmapPath, withBase } from "@/config/site";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const bn = locale === "bn";
+const href = (path: string) => withBase(localePath(locale, path));
+const sections = [
+  { id: "start", title: bn ? "নিজের জায়গা থেকে শুরু" : "Start where you are" },
+  ...guide.stages.map((stage) => ({
+    id: `stage-${stage.id}`,
+    title: t(stage.title, locale),
+  })),
+  {
+    id: "interview-baseline",
+    title: bn ? "Interview baseline" : "Interview baseline",
+  },
+  {
+    id: "feedback-loop",
+    title: bn ? "Response বুঝে বদলাও" : "Read the response",
+  },
+  { id: "traps", title: bn ? "যে ফাঁদগুলো এড়াবে" : "Traps to avoid" },
+  { id: "this-week", title: bn ? "এই সপ্তাহের cycle" : "This week's cycle" },
+  { id: "sources", title: bn ? "Source ও পরের পথ" : "Sources & next paths" },
+];
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: t(guide.title, locale),
+    description: t(guide.summary, locale),
+    inLanguage: locale,
+    isAccessibleForFree: true,
+    author: { "@type": "Organization", name: "CSE Compass" },
+    mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).href,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: bn ? "Guidance" : "Guidance",
+        item: new URL(href("/guidance/feel-behind/"), Astro.site).href,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t(guide.title, locale),
+        item: new URL(Astro.url.pathname, Astro.site).href,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={t(guide.title, locale)}
+  description={t(guide.summary, locale)}
+  structuredData={structuredData}
+>
+  <Breadcrumbs
+    locale={locale}
+    items={[
+      { label: bn ? "Guidance" : "Guidance" },
+      { label: bn ? "প্রথম software role" : "First software role" },
+    ]}
+  />
+  <header class="page-hero container first-role-hero">
+    <p class="eyebrow">
+      {
+        bn
+          ? "Final semester · recent graduate · career transition"
+          : "Final semester · recent graduate · career transition"
+      }
+    </p>
+    <h1>{t(guide.title, locale)}</h1>
+    <p class="lede">{t(guide.summary, locale)}</p>
+    <div class="button-row">
+      <a class="button" href="#start"
+        >{bn ? "আমার জায়গা থেকে শুরু" : "Start from my situation"}</a
+      ><a class="button button--secondary" href="#this-week"
+        >{bn ? "এই সপ্তাহের plan" : "Give me this week's plan"}</a
+      >
+    </div>
+  </header>
+
+  <div class="container role-layout">
+    <aside class="role-index">
+      <details open>
+        <summary>{bn ? "এই guide-এ" : "In this guide"}</summary>
+        <nav aria-label={bn ? "Guide-এর section" : "Guide sections"}>
+          <ol>
+            {
+              sections.map((section) => (
+                <li>
+                  <a href={`#${section.id}`}>{section.title}</a>
+                </li>
+              ))
+            }
+          </ol>
+        </nav>
+      </details>
+    </aside>
+
+    <div class="role-content">
+      <section class="role-section" id="start">
+        <p class="eyebrow">
+          {bn ? "এটি readiness score নয়" : "Not a readiness score"}
+        </p>
+        <h2>
+          {bn ? "আজ কোথায় আটকে আছ?" : "Where is the process stuck today?"}
+        </h2>
+        <p>{t(guide.reality, locale)}</p>
+        <nav
+          aria-label={bn ? "নিজের starting point" : "Choose a starting point"}
+        >
+          <ul class="start-list">
+            {
+              guide.starts.map((start) => (
+                <li>
+                  <a
+                    href={`#${start.destination}`}
+                    data-track-event="next_step_clicked"
+                    data-track-param-destination={`first-role/${start.id}`}
+                  >
+                    <span>
+                      <strong>{t(start.title, locale)}</strong>
+                      <small>{t(start.note, locale)}</small>
+                    </span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+        <div class="reality-note">
+          <strong>{bn ? "মূল কথা:" : "The core idea:"}</strong>{" "}
+          {
+            bn
+              ? "আবার শূন্য থেকে শুরু নয়। যা আছে সেটিকে honest, reviewable evidence-এ বদলে একটি focused hiring cycle চালাও।"
+              : "Do not restart from zero. Turn what you have into honest, reviewable evidence and run one focused hiring cycle."
+          }
+        </div>
+      </section>
+
+      {
+        guide.stages.map((stage, index) => (
+          <section class="role-section role-stage" id={`stage-${stage.id}`}>
+            <p class="eyebrow">
+              {bn
+                ? `ধাপ ${index + 1} / ${guide.stages.length}`
+                : `Stage ${index + 1} / ${guide.stages.length}`}
+            </p>
+            <h2>{t(stage.title, locale)}</h2>
+            <p class="stage-why">{t(stage.why, locale)}</p>
+            <h3>{bn ? "যা করবে" : "What to do"}</h3>
+            <ul class="task-list">
+              {stage.tasks.map((task) => (
+                <li>{t(task, locale)}</li>
+              ))}
+            </ul>
+            <div class="evidence-note">
+              <h3>{bn ? "এখন যথেষ্ট যখন…" : "Enough for now when…"}</h3>
+              <p>{t(stage.evidence, locale)}</p>
+            </div>
+            <p class="not-yet">
+              <strong>{bn ? "এখনই নয়: " : "Not yet: "}</strong>
+              {t(stage.notYet, locale)}
+            </p>
+            <a class="reference-link" href={`#source-${stage.sourceId}`}>
+              {bn ? "এই ধাপের reference" : "Reference for this stage"} ↓
+            </a>
+          </section>
+        ))
+      }
+
+      <section class="role-section" id="interview-baseline">
+        <p class="eyebrow">{bn ? "ACM নিয়ে বাস্তবতা" : "The ACM reality"}</p>
+        <h2>
+          {
+            bn
+              ? "Competitive programming না করলেও preparation শুরু করা যায়।"
+              : "You can start preparing without a competitive-programming record."
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "কিছু employer strong algorithmic interview নেয়, অন্যরা role knowledge, debugging, project discussion বা take-home work-এ বেশি জোর দেয়। Actual vacancy আর recruiter-এর format দেখে depth ঠিক করো। ACM/ICPC valuable practice track—universal junior-job prerequisite নয়।"
+              : "Some employers use strong algorithmic interviews; others emphasize role knowledge, debugging, project discussion or take-home work. Let the actual vacancy and recruiter-confirmed format determine the depth. ACM/ICPC is a valuable practice track—not a universal junior-job prerequisite."
+          }
+        </p>
+        <div class="baseline-grid">
+          {
+            guide.interviewBaseline.map((item) => (
+              <article>
+                <h3>{t(item.title, locale)}</h3>
+                <p>{t(item.description, locale)}</p>
+              </article>
+            ))
+          }
+        </div>
+        <p>
+          <a href={href("/guidance/competitive-programming/")}
+            >{
+              bn
+                ? "DSA foundation আর optional competitive track আলাদা করে দেখো"
+                : "See the difference between a DSA foundation and the optional competitive track"
+            } →</a
+          >
+        </p>
+      </section>
+
+      <section class="role-section" id="feedback-loop">
+        <p class="eyebrow">
+          {bn ? "Rejection = incomplete data" : "Rejection = incomplete data"}
+        </p>
+        <h2>
+          {
+            bn
+              ? "Process কোথায় থামছে, সেটা দেখো।"
+              : "Notice where the process stops."
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "একটি result দিয়ে diagnosis হয় না। কয়েকটি suitable attempt-এর pattern দেখো, fact আর guess আলাদা করো, তারপর একটি variable বদলাও।"
+              : "One result is not a diagnosis. Look for a pattern across several suitable attempts, separate facts from guesses, then change one variable."
+          }
+        </p>
+        <div class="feedback-list">
+          {
+            guide.feedbackSignals.map((item) => (
+              <article>
+                <h3>{t(item.signal, locale)}</h3>
+                <p>
+                  <strong>{bn ? "সম্ভাব্য gap: " : "Possible gap: "}</strong>
+                  {t(item.likelyGap, locale)}
+                </p>
+                <p>
+                  <strong>{bn ? "পরের test: " : "Next test: "}</strong>
+                  {t(item.nextAction, locale)}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <section class="role-section" id="traps">
+        <p class="eyebrow">{bn ? "What not to do" : "What not to do"}</p>
+        <h2>
+          {
+            bn
+              ? "Busy দেখায়, কিন্তু direction দেয় না।"
+              : "Activity that looks busy but adds little signal."
+          }
+        </h2>
+        <ul class="task-list">
+          {guide.pitfalls.map((pitfall) => <li>{t(pitfall, locale)}</li>)}
+        </ul>
+      </section>
+
+      <section class="role-section" id="this-week">
+        <div class="week-card">
+          <p class="eyebrow">
+            {bn ? "একটি complete mini-cycle" : "One complete mini-cycle"}
+          </p>
+          <h2>{bn ? "এই সপ্তাহে এটুকুই করো।" : "Make this week concrete."}</h2>
+          <p>{t(guide.thisWeek, locale)}</p>
+        </div>
+      </section>
+
+      <section class="role-section" id="sources">
+        <p class="eyebrow">
+          {bn ? "Source ও verification" : "Sources & verification"}
+        </p>
+        <h2>
+          {
+            bn
+              ? "Rule বদলায়—actual posting দেখো।"
+              : "Requirements change—check the actual opening."
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "এই guide CSE Compass-এর editorial synthesis; কোনো employer selection বা offer guarantee করে না। Current role-এর eligibility, interview format, deadline আর permitted tool official source বা recruiter থেকে যাচাই করো। External source মূলত English।"
+              : "This guide is CSE Compass editorial synthesis and no employer guarantees selection or an offer. Verify current eligibility, interview format, deadlines and permitted tools through the official opening or recruiter. External references are primarily in English."
+          }
+        </p>
+        <ul class="source-list">
+          {
+            guide.sourceIds.map((id) => {
+              const source = guidanceSourceById.get(id)!;
+              return (
+                <li id={`source-${id}`}>
+                  <a
+                    href={source.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-describedby="external-link-description"
+                    data-track-event="learning_resource_clicked"
+                    data-track-param-resource-id={source.id}
+                    data-track-param-provider={source.provider}
+                  >
+                    {source.provider} · {source.title}{" "}
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                  <p>{t(source.scope, locale)}</p>
+                  <small>
+                    {bn ? "পর্যালোচনা: " : "Reviewed: "}
+                    <time datetime={source.lastReviewed}>
+                      {source.lastReviewed}
+                    </time>
+                  </small>
+                </li>
+              );
+            })
+          }
+        </ul>
+
+        <h3>
+          {bn ? "Role-specific depth বেছে নাও" : "Choose role-specific depth"}
+        </h3>
+        <ul class="career-links">
+          {
+            guide.careerIds.map((id) => {
+              const career = careerById.get(id)!;
+              return (
+                <li>
+                  <a href={withBase(careerPath(locale, career.slug))}>
+                    {t(career.title, locale)}
+                  </a>
+                  <a href={withBase(roadmapPath(locale, career.slug))}>
+                    {bn ? "Roadmap" : "Roadmap"} →
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+        <div class="button-row">
+          <a class="button" href={href("/goals/local-industry/")}
+            >{bn ? "বাংলাদেশ industry plan" : "Bangladesh industry plan"}</a
+          ><a
+            class="button button--secondary"
+            href={href("/guidance/final-year-project/")}
+            >{bn ? "Project evidence toolkit" : "Project evidence toolkit"}</a
+          ><a href={href("/goals/remote-employment/")}
+            >{bn ? "Remote role-এর প্রস্তুতি" : "Prepare for remote roles"} →</a
+          >
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .first-role-hero h1 {
+    max-width: 22ch;
+  }
+  .role-layout {
+    display: grid;
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+  .role-content {
+    min-width: 0;
+    max-width: 52rem;
+  }
+  .role-index details {
+    padding: 1rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+  }
+  .role-index summary {
+    min-height: 2rem;
+    cursor: pointer;
+    font-weight: 800;
+  }
+  .role-index ol,
+  .start-list,
+  .career-links {
+    margin: 0.75rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .role-index li,
+  .start-list li,
+  .career-links li {
+    margin: 0;
+  }
+  .role-index a {
+    display: block;
+    padding-block: 0.45rem;
+    font-size: 0.88rem;
+  }
+  .role-section {
+    padding-block: 2.75rem;
+    border-top: 1px solid var(--color-border);
+    scroll-margin-top: 6rem;
+  }
+  .role-section h2 {
+    font-size: clamp(1.7rem, 3vw, 2.55rem);
+  }
+  .stage-why {
+    color: var(--color-text-muted);
+    font-size: 1.08rem;
+  }
+  .start-list {
+    display: grid;
+    gap: 0.65rem;
+    margin-top: 1.5rem;
+  }
+  .start-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    color: var(--color-text);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    text-decoration: none;
+  }
+  .start-list strong,
+  .start-list small {
+    display: block;
+  }
+  .start-list small {
+    margin-top: 0.3rem;
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+  }
+  .reality-note,
+  .evidence-note {
+    margin-top: 1.5rem;
+    padding: 1.2rem;
+    border-inline-start: 3px solid var(--color-teal);
+    background: var(--color-surface);
+  }
+  .evidence-note h3 {
+    font-size: 1rem;
+  }
+  .evidence-note p {
+    margin-bottom: 0;
+  }
+  .task-list {
+    padding-inline-start: 1.25rem;
+  }
+  .not-yet {
+    padding: 1rem 1.2rem;
+    border-inline-start: 3px solid var(--color-warm);
+    background: var(--color-code);
+  }
+  .reference-link {
+    display: inline-block;
+    padding-block: 0.5rem;
+    font-size: 0.9rem;
+  }
+  .baseline-grid,
+  .feedback-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .baseline-grid article,
+  .feedback-list article {
+    padding: 1.15rem;
+    border-top: 3px solid var(--color-primary);
+    background: var(--color-surface);
+  }
+  .baseline-grid p,
+  .feedback-list p {
+    color: var(--color-text-muted);
+  }
+  .feedback-list article:nth-child(even) {
+    border-color: var(--color-teal);
+  }
+  .week-card {
+    padding: clamp(1.4rem, 4vw, 2.4rem);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+  }
+  .source-list {
+    padding-inline-start: 1.25rem;
+  }
+  .source-list li {
+    padding-block: 0.75rem;
+    scroll-margin-top: 6rem;
+  }
+  .source-list p {
+    margin-top: 0.4rem;
+    color: var(--color-text-muted);
+  }
+  .career-links {
+    display: grid;
+    gap: 0.6rem;
+    margin-block: 1rem 2rem;
+  }
+  .career-links li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+  @media (min-width: 48rem) {
+    .baseline-grid,
+    .feedback-list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 64rem) {
+    .role-layout {
+      grid-template-columns: 16rem minmax(0, 1fr);
+      gap: 3rem;
+    }
+    .role-index details {
+      position: sticky;
+      top: 1.5rem;
+      max-height: calc(100vh - 3rem);
+      overflow: auto;
+    }
+  }
+</style>

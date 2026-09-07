@@ -114,4 +114,10 @@ test("mobile navigation and outbound resource links work", async ({
     .locator('[data-track-event="learning_resource_clicked"]')
     .first();
   await expect(resource).toHaveAttribute("href", /^https:\/\//);
+  await expect(resource).toHaveAttribute("target", "_blank");
+  await expect(resource).toHaveAttribute("rel", "noopener noreferrer");
+  await expect(resource).toHaveAttribute(
+    "aria-describedby",
+    "external-link-description",
+  );
 });

@@ -50,7 +50,11 @@ const bn = locale === "bn";
           >
         </li>
         <li>
-          <a href={siteConfig.repository} rel="noopener noreferrer"
+          <a
+            href={siteConfig.repository}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-describedby="external-link-description"
             >GitHub <span aria-hidden="true">↗</span></a
           >
         </li>
@@ -77,7 +81,12 @@ const bn = locale === "bn";
           {
             inspirations.map((source) => (
               <li>
-                <a href={source.url} rel="noopener noreferrer">
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-describedby="external-link-description"
+                >
                   {source.name} <span aria-hidden="true">↗</span>
                 </a>
               </li>
@@ -96,6 +105,7 @@ const bn = locale === "bn";
                     href={person.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-describedby="external-link-description"
                   >
                     {person.name} <span aria-hidden="true">↗</span>
                   </a>

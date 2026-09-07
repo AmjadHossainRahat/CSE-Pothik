@@ -16,6 +16,7 @@ const staticPaths = [
   "/guidance/competitive-programming/",
   "/guidance/feel-behind/",
   "/guidance/final-year-project/",
+  "/guidance/first-software-role/",
   "/guidance/new-cse-student/",
   "/guidance/software-engineering-foundations/",
   "/im-lost/",

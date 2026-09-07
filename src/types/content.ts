@@ -217,6 +217,32 @@ export interface FinalYearProjectGuide {
   sourceIds: string[];
 }
 
+export interface FirstRoleGuide {
+  title: LocalizedText;
+  summary: LocalizedText;
+  reality: LocalizedText;
+  starts: {
+    id: string;
+    title: LocalizedText;
+    note: LocalizedText;
+    destination: string;
+  }[];
+  stages: GoalStage[];
+  interviewBaseline: {
+    title: LocalizedText;
+    description: LocalizedText;
+  }[];
+  feedbackSignals: {
+    signal: LocalizedText;
+    likelyGap: LocalizedText;
+    nextAction: LocalizedText;
+  }[];
+  pitfalls: LocalizedText[];
+  thisWeek: LocalizedText;
+  careerIds: CareerId[];
+  sourceIds: string[];
+}
+
 /** Static, progressively disclosed team guidance; never a progress tracker. */
 export interface ProjectPlaybook {
   id: string;

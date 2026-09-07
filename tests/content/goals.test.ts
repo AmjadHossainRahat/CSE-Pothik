@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { finalYearProject } from "../../src/data/final-year-project";
+import { firstSoftwareRoleGuide } from "../../src/data/first-software-role";
 import { goals } from "../../src/data/goals";
 import { guidanceSources } from "../../src/data/guidance-sources";
+import { homepageAiSourceIds } from "../../src/data/homepage";
 import { careers, careerFamilies } from "../../src/data/careers";
 import { experiments } from "../../src/data/experiments";
 import { roadmaps } from "../../src/data/roadmaps";
@@ -62,7 +64,11 @@ describe("goal-based guidance", () => {
     guidanceSources.forEach((source) =>
       expect(
         goals.some((goal) => goal.sourceIds.includes(source.id)) ||
-          finalYearProject.sourceIds.includes(source.id),
+          finalYearProject.sourceIds.includes(source.id) ||
+          firstSoftwareRoleGuide.sourceIds.includes(source.id) ||
+          homepageAiSourceIds.includes(
+            source.id as (typeof homepageAiSourceIds)[number],
+          ),
       ).toBe(true),
     );
   });

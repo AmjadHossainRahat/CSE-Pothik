@@ -132,6 +132,24 @@ for (const file of htmlFiles) {
     failures.push(`${label}: contains unfinished placeholder copy`);
   }
 
+  for (const match of html.matchAll(
+    /<a\b[^>]*\bhref="https?:\/\/[^">]+"[^>]*>/gi,
+  )) {
+    const link = match[0];
+    if (!/\btarget="_blank"/i.test(link)) {
+      failures.push(`${label}: outbound link does not open a new tab`);
+    }
+    const rel = attr(link, /\brel="([^"]+)"/i)
+      .toLowerCase()
+      .split(/\s+/);
+    if (!rel.includes("noopener") || !rel.includes("noreferrer")) {
+      failures.push(`${label}: outbound link lacks safe rel attributes`);
+    }
+    if (!/\baria-describedby="external-link-description"/i.test(link)) {
+      failures.push(`${label}: outbound link lacks a new-tab description`);
+    }
+  }
+
   if (titles.has(title)) {
     failures.push(
       `${label}: duplicate title also used by ${titles.get(title)}`,

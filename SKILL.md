@@ -443,17 +443,23 @@ Required sections:
 
 1. Shared responsive navigation with the `CSE Compass` wordmark/brand mark, language switch and theme switch: a persistent labeled sidebar on wide screens and a compact header plus grouped native drawer on phones/tablets.
 2. Purpose-first illustrated hero: free CSE career guidance, the “You got into CSE. Now what?” punch line, a concise attraction → orientation gap → hopeful recovery story, clear outcomes and a prominent next-step action; preserve the future-self note and four-stop orientation map.
-3. AI reality / resilience section immediately after the hero, with the original AI study-partner illustration.
-4. Three visible starting intentions and six detailed situations in a native disclosure, with recovery encouragement.
-5. Concise misconceptions paired with veteran orientation voices; two visible perspectives and three in an accessible native disclosure.
-6. Career landscape reveal: all eight families, no duplicated featured-career grid.
+3. AI reality / resilience section immediately after the hero, with the original AI study-partner illustration, a visible Frame → Verify → Own decision tree and a progressively disclosed three-outcome fresher scenario.
+4. Three visible starting intentions, a compact final-semester/first-role bridge and seven detailed situations in a native disclosure, with recovery encouragement.
+5. Concise misconceptions paired with two verified Bangladesh-technology video perspectives and a link to the complete ordered nine-item watchlist.
+6. Career landscape reveal: all eight family summaries remain visible, while their individual paths use native per-family disclosure; no duplicated featured-career grid.
 7. Practical, non-shaming encouragement woven through these sections.
 8. “Try before you choose”: three immediately visible representative previews plus Data Analytics & BI, AI Engineering and Application Security in a native disclosure, linking to the full published experiment index (currently seventeen); derive the displayed count from data.
-9. Understand → Explore → Compare → Try → Prepare → Adapt journey.
+9. Understand → Explore → Compare → Try → Prepare → Adapt journey in native static disclosure.
 10. Closing orientation message and next-step CTA.
 11. Footer with product links, language/theme support, privacy and attribution/inspiration references as appropriate.
 
 The homepage must not be reduced to a hero plus generic feature-card grid.
+
+Keep the opening AI lesson concise but substantive. Source its English/Bangla message, three decision steps, three scenario outcomes and scoped evidence IDs from typed homepage data. Frame decisions around problem/constraints, verification and accountable trade-offs. Treat thin model context and rich team context without reviewer understanding as different risks; the constructive path combines strong foundations with bounded AI assistance, evidence and escalation. Never claim AI is always slower, imply unlimited tokens replace judgment, or present SOLID/design patterns as a universal checklist or hiring requirement. Link to the full AI and engineering-foundations guides.
+
+Reduce initial scroll without deleting discovery: individual career links and the six-step loop remain in native HTML disclosures usable without JavaScript. Keep all eight family names/descriptions visible. Use the existing inclusive team and AI study-partner illustrations rather than decorative stock images. A restrained CSS-only AI signal may animate, but global reduced-motion handling must disable it.
+
+Store the supplied local-industry video/podcast curation in typed `src/data/industry-voices.ts`, separate from roadmap learning-resource prerequisites. Render the same data through a shared static Astro component: two contextual homepage previews and the complete `/resources/#industry-voices` sequence grouped as Ground yourself → Strengthen how you think → Read the working world. Verify YouTube titles/publishers before authoring; do not infer unverified biographies. Give every item bilingual editorial context, a stable ID, sequence position and review date. Use native disclosure, searchable internal anchors, safe new-tab links and the existing bounded `learning_resource_clicked` event. Do not add embeds, autoplay, remote thumbnails, a client framework or hydration. Accessibility coverage must expand all stages in English/Bangla and both themes; E2E must protect exact URL/order, homepage-to-list discovery, no-JavaScript access, narrow-screen containment and GitHub Pages bases.
 
 Use `themes-sample.png` for visual mood, while retaining the CSE Compass brand and original art. Source illustrations live in `src/assets/illustrations/`; import through `astro:assets` to generate responsive WebP and reserve intrinsic dimensions. Eager-load the hero with high fetch priority, lazy-load the supporting AI illustration, and avoid new client-side image libraries. Keep generation provenance in `docs/illustrations.md`.
 
@@ -461,7 +467,7 @@ The hero uses one inclusive three-person study-partners scene: a Chakma Banglade
 
 Manually inspect each replacement for three equally prominent teammates, relaxed viewer-directed smiles, personal space, keyboard hands and a visible QA tablet/stylus. The seated woman's teal hoodie and neatly head-draped orna must remain recognizable, with all hair covered. Document references for the centre teammate's contemporary Chakma-textile-inspired clothing; do not claim exact cultural authenticity from a generated image or infer identity from facial features. Check that coffee, water bottle and small indoor plant rest on the desk beside the notebook, and that devices face physically consistent directions. Do not mistake image-load/alt-text tests for proof of visual representation or the absence of romantic posing. Keep actual content and localized descriptions consistent; role and ethnicity do not imply one another.
 
-Orientation-map and useful-loop labels/captions must share an explicit content wrapper. Reset prose `li + li` margins in navigation, breadcrumbs and grid/timeline lists. Breadcrumbs share the page-heading container and align on a text baseline. `src/data/navigation.ts` is the typed bilingual source for five problem-oriented groups and active-route matching. Start here must include explicit bilingual Home and Search destinations; the homepage section jump remains a separate non-current destination so only Home receives `aria-current` at `/`. Learning resources belong under Prepare rather than About because they are a student task; About remains focused on purpose and provenance. `Header.astro` renders that model as a persistent wide-screen sidebar or a compact sticky header/native drawer; the mobile toggle is icon-only visually but retains a localized accessible name. Active links use `aria-current`, the page frame is offset by the shared sidebar-width token, and the drawer remains viewport-bounded and scrollable. The desktop sidebar must be available even when its mobile disclosure was previously closed; test resizing in both directions. With JavaScript disabled, the native menu and all essential content links must still work. The footer retains compact project/policy/provenance links rather than duplicating global navigation.
+Orientation-map and useful-loop labels/captions must share an explicit content wrapper. Reset prose `li + li` margins in navigation, breadcrumbs and grid/timeline lists. Breadcrumbs share the page-heading container and align on a text baseline. `src/data/navigation.ts` is the typed bilingual source for five problem-oriented groups and active-route matching. Start here must include explicit bilingual Home, Search and First software role destinations; the homepage section jump remains a separate non-current destination so only Home receives `aria-current` at `/`. Learning resources belong under Prepare rather than About because they are a student task; About remains focused on purpose and provenance. `Header.astro` renders that model as a persistent wide-screen sidebar or a compact sticky header/native drawer; the mobile toggle is icon-only visually but retains a localized accessible name. Active links use `aria-current`, the page frame is offset by the shared sidebar-width token, and the drawer remains viewport-bounded and scrollable. The desktop sidebar must be available even when its mobile disclosure was previously closed; test resizing in both directions. With JavaScript disabled, the native menu and all essential content links must still work. The footer retains compact project/policy/provenance links rather than duplicating global navigation.
 
 ---
 
@@ -740,7 +746,7 @@ Keep bilingual hero and three-entry copy in `src/data/homepage.ts`. Render stati
 
 Keep repeated origin, Purpose and Goal copy in the typed bilingual `sitePurpose` object. Render only its concise resolution in the homepage hero; render the full narrative and four-stage sequence on localized About pages. Use static Astro markup and shared tokens, preserve mobile wrapping and theme contrast, and do not add client hydration. Test data completeness, both rendered languages, the native About anchors, no-JavaScript availability, axe results and the five-width visual matrix.
 
-Keep these six detailed choices in the static HTML inside an accessible native disclosure:
+Keep these seven detailed choices in the static HTML inside an accessible native disclosure:
 
 - new to CSE;
 - cannot choose a career;
@@ -748,6 +754,9 @@ Keep these six detailed choices in the static HTML inside an accessible native d
 - worried about AI;
 - already have a target;
 - near graduation / feel behind.
+- existing project / needs first software role.
+
+Add a compact visible first-role bridge beside this disclosure. Route it to a static bilingual guide sourced from `src/data/first-software-role.ts`. The guide uses six evidence-oriented stages, five direct bottleneck entry anchors, scoped official references, role-specific career/roadmap links and a feedback diagnosis that changes one variable at a time. Render Article and BreadcrumbList data, a desktop sticky index and readable native mobile index without client hydration or stored progress. Test homepage/sidebar/lost-flow discoverability, language equivalents, no-JavaScript content, bounded analytics, source relationships, five widths, both themes and both base paths.
 
 Preserve recovery encouragement outside the disclosure. Do not add a framework, quiz, persistent profile or client-side routing. Test each primary entry end to end, disclosure keyboard/no-JavaScript use, translated equivalents and fully visible initial-viewport primary actions at the responsive matrix sizes. The purpose and action must precede artwork on phones. Run axe with the disclosure both closed and open; inspect actual viewport screenshots, not just overflow assertions.
 
@@ -1290,7 +1299,7 @@ Every learning-resource link should:
 - open predictably;
 - include accessible link text.
 
-Do not force all external links into new tabs unless there is a clear UX rule. If using new tabs consistently for learning resources, communicate it accessibly.
+The product has an explicit outbound-link rule: learning resources, official guidance sources, inspiration/creator destinations and the repository open in a new tab with `target="_blank"` plus `rel="noopener noreferrer"`. Identify the external transition with meaningful link text and the existing visible/accessible outbound indicator. Internal routes, language/theme controls and same-page section anchors remain in the current tab so breadcrumbs, Back and mobile tab management stay predictable. Protect this distinction in generated-output tests.
 
 ---
 
@@ -1379,7 +1388,7 @@ Create a clear `README.md` containing:
 - contribution workflow;
 - attribution/inspiration link to the relevant section of `DESIGN.md`.
 
-Visible attribution is implemented as static shared-footer content and localized About `#credits`, backed by typed bilingual `src/data/credits.ts` and the creator identity/portfolio URL in `src/config/site.ts`. Render Amjad Hossain's name as a new-tab link to the intended GitHub Pages portfolio at `https://amjadhossainrahat.github.io/` with safe `rel` attributes; retain this canonical destination even while the portfolio is not yet published. Keep all three inspiration URLs (roadmap.sh, Architect Prep and Amirul Islam) and the distinct Orchestrator/ChatGPT/Codex roles in content-integrity coverage. Verify footer-to-About base-path links, creator-link semantics, keyboard/no-JavaScript use, English/Bangla, both themes and narrow-screen wrapping. Build verification must confirm footer credits on all generated HTML pages and the target anchors. Do not add client hydration or analytics just for credits.
+Visible attribution is implemented as static shared-footer content and localized About `#credits`, backed by typed bilingual `src/data/credits.ts` and the creator identity/portfolio URL in `src/config/site.ts`. Render Amjad Hossain's name as a new-tab link to the intended GitHub Pages portfolio at `https://amjadhossainrahat.github.io/` with safe `rel` attributes; retain this canonical destination even while the portfolio is not yet published. Keep all three inspiration URLs (roadmap.sh, Architect Prep and Amirul Islam), the distinct Orchestrator/ChatGPT/Codex roles, and the Codex model/effort credit **GPT-5.6 Sol (High)** in content-integrity coverage. Verify footer-to-About base-path links, creator-link semantics, keyboard/no-JavaScript use, English/Bangla, both themes and narrow-screen wrapping. Build verification must confirm footer credits on all generated HTML pages and the target anchors. Do not add client hydration or analytics just for credits.
 
 Cleanup must follow reference and entry-point checks, not simply remove files lacking imports: Astro routes, public assets, scripts, tests and configuration are legitimate entry points. Preserve current PNG masters and design references; retire only confirmed obsolete assets with recoverable history and synchronized provenance documentation.
 

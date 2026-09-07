@@ -479,7 +479,9 @@ const structuredData = [
                   <>
                     <a
                       href={source.url}
+                      target="_blank"
                       rel="noopener noreferrer"
+                      aria-describedby="external-link-description"
                       data-track-event="learning_resource_clicked"
                       data-track-param-resource-id={id}
                       data-track-param-provider={source.provider}
@@ -502,6 +504,17 @@ const structuredData = [
         <div class="button-row">
           <a
             class="button"
+            href={href("/guidance/first-software-role/")}
+            data-track-event="next_step_clicked"
+            data-track-param-destination="first-software-role"
+            >{
+              bn
+                ? "Completed project থেকে first role"
+                : "Turn a completed project into first-role evidence"
+            }</a
+          >
+          <a
+            class="button button--secondary"
             href={href("/guidance/software-engineering-foundations/")}
             >{bn ? "Engineering foundation" : "Engineering foundations"}</a
           ><a

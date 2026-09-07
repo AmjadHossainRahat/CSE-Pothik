@@ -1,6 +1,7 @@
 import { careerFamilies, careers } from "@/data/careers";
 import { experiments } from "@/data/experiments";
 import { goals } from "@/data/goals";
+import { industryVoices } from "@/data/industry-voices";
 import { resources } from "@/data/resources";
 import { l } from "@/lib/localized";
 import type { LocalizedText } from "@/types/content";
@@ -129,6 +130,23 @@ const directoryEntries: SearchEntry[] = [
     ),
   },
   {
+    id: "first-software-role",
+    type: "guidance",
+    path: "/guidance/first-software-role/",
+    title: l(
+      "From final semester to your first software role",
+      "Final semester থেকে প্রথম software role",
+    ),
+    description: l(
+      "Turn an existing project into job evidence, prepare for junior interviews and run a focused internship or job-search cycle.",
+      "Existing project-কে job evidence বানাও, junior interview-এর প্রস্তুতি নাও এবং focused internship বা job-search cycle চালাও।",
+    ),
+    keywords: l(
+      "intern internship junior graduate first job software developer cv resume portfolio interview application",
+      "intern internship junior graduate first job software developer cv resume portfolio interview application চাকরি",
+    ),
+  },
+  {
     id: "final-year-project",
     type: "guidance",
     path: "/guidance/final-year-project/",
@@ -182,12 +200,12 @@ const directoryEntries: SearchEntry[] = [
     path: "/resources/",
     title: l("Curated learning resources", "Curated learning resource"),
     description: l(
-      "Find scoped official documentation, courses, labs, books and practice.",
-      "Scoped official documentation, course, lab, book আর practice খুঁজে নাও।",
+      "Find a deliberate local-industry watchlist plus scoped documentation, courses, labs, books and practice.",
+      "Local-industry watchlist-এর সঙ্গে scoped documentation, course, lab, book আর practice খুঁজে নাও।",
     ),
     keywords: l(
-      "free course documentation book lab",
-      "free course documentation book lab",
+      "Bangladesh industry veterans motivation podcast video free course documentation book lab",
+      "Bangladesh industry veteran motivation podcast video free course documentation book lab",
     ),
   },
 ];
@@ -274,10 +292,25 @@ const resourceEntries: SearchEntry[] = resources.map((resource) => ({
   ),
 }));
 
+const industryVoiceEntries: SearchEntry[] = industryVoices.map((voice) => ({
+  id: `industry-voice-${voice.id}`,
+  type: "resource",
+  // A stage heading remains visible while its disclosure is collapsed, so a
+  // search result never lands on content hidden inside a closed <details>.
+  path: `/resources/#industry-voice-stage-${voice.stageId}`,
+  title: voice.title,
+  description: voice.focus,
+  keywords: l(
+    `${voice.speaker} ${voice.publisher} ${voice.originalTitle} podcast video Bangladesh industry motivation`,
+    `${voice.speaker} ${voice.publisher} ${voice.originalTitle} podcast video Bangladesh industry motivation`,
+  ),
+}));
+
 export const searchEntries: SearchEntry[] = [
   ...directoryEntries,
   ...familyEntries,
   ...careerEntries,
   ...goalEntries,
+  ...industryVoiceEntries,
   ...resourceEntries,
 ];

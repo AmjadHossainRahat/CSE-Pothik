@@ -1,6 +1,10 @@
 import { readFileSync } from "node:fs";
 
-const source = ["src/data/resources.ts", "src/data/guidance-sources.ts"]
+const source = [
+  "src/data/resources.ts",
+  "src/data/guidance-sources.ts",
+  "src/data/industry-voices.ts",
+]
   .map((path) => readFileSync(path, "utf8"))
   .join("\n");
 const urls = [...new Set(source.match(/https:\/\/[^"'\s]+/g) ?? [])].sort();

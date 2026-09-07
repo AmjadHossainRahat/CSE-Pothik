@@ -19,6 +19,12 @@ interface Props {
 const { locale, roadmap } = Astro.props;
 const bn = locale === "bn";
 const career = careerById.get(roadmap.careerId)!;
+const supportsFirstSoftwareRole = [
+  "backend-engineering",
+  "frontend-engineering",
+  "mobile-app-development",
+  "software-quality-assurance",
+].includes(career.id);
 ---
 
 <BaseLayout
@@ -173,6 +179,24 @@ const career = careerById.get(roadmap.careerId)!;
           } →</a
         >
       </p>
+      {
+        supportsFirstSoftwareRole && (
+          <p>
+            <a
+              href={withBase(
+                localePath(locale, "/guidance/first-software-role/"),
+              )}
+              data-track-event="next_step_clicked"
+              data-track-param-destination="first-software-role"
+            >
+              {bn
+                ? "Roadmap-কে internship বা junior-role application cycle-এ নাও"
+                : "Connect this roadmap to an internship or junior-role cycle"}{" "}
+              →
+            </a>
+          </p>
+        )
+      }
     </div>
   </section>
 </BaseLayout>
@@ -227,6 +251,9 @@ const career = careerById.get(roadmap.careerId)!;
     color: var(--color-on-primary);
   }
   .closing-stage .eyebrow {
+    color: var(--color-on-primary);
+  }
+  .closing-stage a:not(.button) {
     color: var(--color-on-primary);
   }
   .closing-stage .button {

@@ -45,6 +45,12 @@ export const navigationGroups: NavigationGroup[] = [
         match: "exact",
       },
       {
+        id: "first-role",
+        label: l("First software role", "প্রথম software role"),
+        path: "/guidance/first-software-role/",
+        match: "exact",
+      },
+      {
         id: "lost",
         label: l("I’m Lost", "আমি দিশেহারা"),
         path: "/im-lost/",

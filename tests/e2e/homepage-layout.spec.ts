@@ -14,9 +14,21 @@ for (const locale of ["en", "bn"] as const) {
       "id",
       "ai-reality",
     );
+    await expect(page.locator(".ai-decision-tree > li")).toHaveCount(3);
+    await expect(page.locator(".ai-scenario")).not.toHaveAttribute("open", "");
+    await page.locator(".ai-scenario > summary").click();
+    await expect(page.locator(".scenario-grid article")).toHaveCount(3);
+    await expect(page.locator(".scenario-grid article").last()).toBeVisible();
+    await expect(page.locator(".ai-actions a[target='_blank']")).toHaveCount(2);
     await expect(page.locator(".orientation-note a")).toHaveCount(4);
+    await expect(page.locator(".journey-disclosure")).not.toHaveAttribute(
+      "open",
+      "",
+    );
+    await page.locator(".journey-disclosure > summary").click();
     await expect(page.locator(".journey a")).toHaveCount(6);
     await expect(page.locator(".family-map article")).toHaveCount(8);
+    await expect(page.locator(".family-paths[open]")).toHaveCount(0);
     await expect(
       page.locator(".experiment-grid--featured article"),
     ).toHaveCount(3);
@@ -58,7 +70,7 @@ for (const locale of ["en", "bn"] as const) {
       "",
     );
     await page.locator(".situation-options summary").click();
-    await expect(page.locator(".situation-list a")).toHaveCount(6);
+    await expect(page.locator(".situation-list a")).toHaveCount(7);
     for (const situation of studentSituations)
       await expect(
         page.locator(`[data-track-param-situation-id="${situation.id}"]`),
@@ -118,11 +130,10 @@ for (const locale of ["en", "bn"] as const) {
         expect(caption.below).toBe(true);
       }
     }
-    const perspectives = page.locator(".more-voices");
-    await expect(perspectives).not.toHaveAttribute("open", "");
-    await perspectives.locator("summary").click();
-    await expect(perspectives.locator("blockquote")).toHaveCount(3);
-    await expect(perspectives.locator("blockquote").last()).toBeVisible();
+    const localVoices = page.locator(".industry-voices--featured");
+    await expect(localVoices.locator(".voice-card")).toHaveCount(2);
+    await expect(localVoices.locator("a[target='_blank']")).toHaveCount(2);
+    await expect(localVoices.locator(".voice-collection-link")).toBeVisible();
   });
 
   test(`${locale} study partners remain available without JavaScript and with reduced motion`, async ({
@@ -157,12 +168,26 @@ for (const locale of ["en", "bn"] as const) {
         )
         .toBe(true);
       await expect(page.locator(".mentor-caption")).toBeVisible();
+      expect(
+        await page
+          .locator(".ai-art")
+          .evaluate(
+            (element) => getComputedStyle(element, "::after").animationDuration,
+          ),
+      ).not.toBe("3.2s");
+      await page.locator(".ai-scenario > summary").click();
+      await expect(page.locator(".scenario-grid article").last()).toBeVisible();
+      const firstFamily = page.locator(".family-paths").first();
+      await firstFamily.locator("summary").click();
+      await expect(firstFamily.locator("a").first()).toBeVisible();
+      await page.locator(".journey-disclosure > summary").click();
+      await expect(page.locator(".journey a").last()).toBeVisible();
       await page.locator(".hero-copy .button").first().click();
       await expect(page).toHaveURL(/#starting-point$/);
       await expect(page.locator("#starting-title")).toBeInViewport();
       await page.locator(".situation-options summary").focus();
       await page.keyboard.press("Enter");
-      await expect(page.locator(".situation-list a")).toHaveCount(6);
+      await expect(page.locator(".situation-list a")).toHaveCount(7);
       await page.locator('[data-track-param-situation-id="behind"]').focus();
       await page.keyboard.press("Enter");
       await expect(page).toHaveURL(/\/guidance\/feel-behind\/$/);

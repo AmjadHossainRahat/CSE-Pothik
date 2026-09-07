@@ -22,7 +22,9 @@ for (const locale of ["en", "bn"])
       expect(navigationResults.violations).toEqual([]);
       await page.locator(".nav-details > summary").click();
       await page.locator(".situation-options summary").click();
-      await expect(page.locator(".situation-list a")).toHaveCount(6);
+      await page.locator(".ai-scenario > summary").click();
+      await page.locator(".journey-disclosure > summary").click();
+      await expect(page.locator(".situation-list a")).toHaveCount(7);
       const results = await new AxeBuilder({ page })
         .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])
         .analyze();

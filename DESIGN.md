@@ -145,6 +145,8 @@ The site does not:
 
 The site **guides learning; it does not replace learning resources**.
 
+Outbound learning resources, official guidance references, inspiration/creator destinations and the source repository open in a new tab and clearly indicate that they leave CSE Compass. Internal routes and same-page navigation stay in the current tab so the Back button, breadcrumbs and mobile browsing remain predictable. Local-industry guidance uses the broad BASIS industry catalog for company/category discovery rather than promoting one employer; students still verify actual vacancies on each employer's official page.
+
 ---
 
 ## 4. Target Users
@@ -301,7 +303,7 @@ Primary navigation should be **problem-oriented**, not just conventional site ta
 
 Use one problem-oriented navigation model at every viewport. On wide screens it is a persistent labeled left sidebar; on phones and tablets it becomes a compact sticky header and native full-width menu drawer. Group links by student intent rather than exposing an unexplained taxonomy:
 
-- **Start here:** Home, Find my next step, Search this site, New to CSE, I’m Lost;
+- **Start here:** Home, Find my next step, Search this site, New to CSE, First software role, I’m Lost;
 - **Discover:** Career paths, Compare careers, Try real work;
 - **Prepare:** Learning roadmaps, Goal plans, Final-year project, Learning resources;
 - **Future:** AI & your career;
@@ -340,9 +342,9 @@ It must combine two layers:
 - **Emotional layer:** veteran mentor orientation.
 - **Functional layer:** immediate guided navigation.
 
-The required display order is: responsive global navigation → hero with orientation map → **AI Reality** → starting-point navigator → concise misconceptions and veteran voices → career landscape → experiment previews → useful loop → encouraging next step → footer. The navigation is a wide-screen sidebar or compact mobile/tablet header and drawer; it does not alter the content order. The topic numbers below identify requirements, not display order. AI Reality must be the first section after the hero; do not place the career grid ahead of it.
+The required display order is: responsive global navigation → hero with orientation map → **AI Reality** → starting-point navigator → concise misconceptions and Bangladesh-technology voices → career landscape → experiment previews → useful loop → encouraging next step → footer. The navigation is a wide-screen sidebar or compact mobile/tablet header and drawer; it does not alter the content order. The topic numbers below identify requirements, not display order. AI Reality must be the first section after the hero; do not place the career grid ahead of it.
 
-The homepage introduces the product; it is not the entire directory. Show Backend, Cybersecurity and ML as three immediately visible representative experiments; place Data Analytics & BI, AI Engineering and Application Security in a clearly labelled native disclosure; and link to all published experiments (currently seventeen). Keep every career family discoverable and avoid repeating the same careers in a second featured-card section. Show two veteran perspectives initially and make three more available through a keyboard-accessible native disclosure. The complete career, roadmap and experiment pages remain unchanged in depth.
+The homepage introduces the product; it is not the entire directory. Show Backend, Cybersecurity and ML as three immediately visible representative experiments; place Data Analytics & BI, AI Engineering and Application Security in a clearly labelled native disclosure; and link to all published experiments (currently seventeen). Keep every career family discoverable and avoid repeating the same careers in a second featured-card section. Show two real Bangladesh-technology perspectives on the homepage and link to the complete ordered nine-item Resources watchlist. The complete career, roadmap and experiment pages remain unchanged in depth.
 
 Motivation must accompany action: welcome students who are confused or restarting, use a short future-self note, explain that a direction is a draft rather than a verdict, and end with one achievable 20-minute next step. Do not substitute slogans or false guarantees for practical guidance.
 
@@ -390,35 +392,28 @@ Correct common misconceptions:
 - You do not need to choose your lifelong profession today.
 - Learning randomly is not the same as exploring deliberately.
 
-This section should be concise. Three carefully combined statements may cover these five ideas; pair them with the veteran voices rather than adding another long standalone section.
+This section should be concise. Three carefully combined statements may cover these five ideas; pair them with two real local-technology video previews rather than adding another long standalone section.
 
-### 10.3 Veteran Orientation Voices
+### 10.3 Bangladesh Technology Voices
 
-Use short, practical remarks from multiple professional perspectives.
+Use the supplied public videos and podcast episodes from practitioners, leaders and educators as a curated perspective set—not anonymous quotations, a social feed or a popularity ranking.
 
-Examples:
+The homepage shows only two starting perspectives: whether choosing CSE was a mistake, and why programming still matters when AI can produce code. A complete watchlist belongs at `/resources/#industry-voices` in this pedagogical order:
 
-**Software Engineer**
+1. **Ground yourself** — CSE-choice anxiety, then student-life red flags.
+2. **Strengthen how you think** — why learn programming with AI, problem-solving practice mistakes, then why coding alone is insufficient.
+3. **Read the working world** — junior roles with AI, job-loss/hiring expectations, Bangladesh gaming, then business engineering.
 
-> Do not spend four years collecting frameworks. Learn how software actually works.
+Each card includes a localized editorial title, the published title where useful, named speaker, publisher, one bounded “watch for” note and review date. Video links open YouTube in a new tab and use the existing bounded learning-resource analytics event. Do not embed or autoplay YouTube; this avoids third-party requests before the student chooses to leave the site and keeps the static page fast.
 
-**Cybersecurity Professional**
+Before the list, teach students to ask:
 
-> Start with networking, Linux and systems before chasing security tools.
+1. Is the speaker's context and experience clear?
+2. Are there specific examples and trade-offs, or only fear/hype?
+3. Does the claim agree with other reliable sources and real role requirements?
+4. Does it lead to one small, safe action rather than only stronger emotion?
 
-**ML/AI Engineer**
-
-> Calling an AI API and understanding machine learning are different skills.
-
-**DevOps/SRE Engineer**
-
-> Some people love building features. Others enjoy understanding why the entire system failed.
-
-**Research / Systems**
-
-> If you enjoy asking why something works—not only how to use it—look deeper.
-
-These are **orientation remarks, not testimonials**. Do not invent named professionals, employers, biographies, or endorsements.
+These are **perspectives, not testimonials, endorsements, job guarantees or universal verdicts**. Preserve third-party titles accurately but label sensational or unsupported numbers as the publisher's presentation rather than a CSE Compass statistic. Do not infer biographies, credentials or employers beyond verified source metadata.
 
 ### 10.4 Career Landscape Reveal
 
@@ -495,6 +490,16 @@ Explain:
 - foundations, judgment, verification, architecture, domain understanding, debugging and responsibility matter;
 - AI should become a tool students learn to direct and verify.
 
+Make the motivation concrete with a compact **Frame → Verify → Own** decision tree:
+
+1. Can the student state the user need, constraints and “done” without asking AI first?
+2. Can the student challenge correctness, edge cases, security, tests and maintainability?
+3. Can the student justify the trade-off for this codebase, business and people affected?
+
+“Not yet” is a learning branch, not a failure state: clarify or shrink the problem, strengthen the missing foundation, inspect team conventions and request review for consequential or hard-to-reverse decisions. “Yes” advances toward bounded AI use, evidence-based verification, documentation and accountable ownership.
+
+Under a native disclosure, follow a hypothetical fresher using a company AI. Compare thin context and generic/naive output; rich team context that produces patterns the fresher cannot safely explain or change; and a foundations-led engineer who frames constraints, asks for alternatives, chooses a simple adequate design, tests assumptions and escalates beyond their experience. Name plausible consequences—review load, defects, security gaps, complexity and tool/token dependence—without presenting the scenario as a universal prediction. Coding fluency, algorithms and data structures remain useful, while problem framing, analytical reasoning, debugging, testing, creativity, product/business understanding, communication and judgment determine whether generated output becomes reliable engineering. SOLID and design patterns are conditional vocabulary, not a mandatory checklist or universal fresher prerequisite.
+
 CTA:
 
 **Understand AI & My Career**
@@ -513,7 +518,7 @@ This is the homepage’s primary navigation engine. Show three plain-language in
 - I want to understand different careers → the career index.
 - I know my goal and need a plan → the seven-goal preparation hub.
 
-Preserve the following six detailed situations inside a native “Already studying? Find a more specific starting point” disclosure. Its contents must remain in static HTML and be keyboard-accessible without JavaScript. Do not require a quiz, account, score or stored profile. Keep recovery encouragement visible outside the disclosure.
+Preserve the following seven detailed situations inside a native “Already studying? Find a more specific starting point” disclosure. Its contents must remain in static HTML and be keyboard-accessible without JavaScript. Do not require a quiz, account, score or stored profile. Keep recovery encouragement visible outside the disclosure. A compact visible first-role prompt must also serve final-semester/recent-graduate visitors without turning the homepage into a job board.
 
 - I just started CSE.
 - I have no idea which career suits me.
@@ -521,6 +526,7 @@ Preserve the following six detailed situations inside a native “Already studyi
 - I’m worried AI will replace my future job.
 - I already have a target career.
 - I’m close to graduation and feel behind.
+- I have a project and need my first software role.
 
 Each option routes to a focused mentoring path.
 
@@ -555,7 +561,9 @@ Show:
 
 Use a clean editorial timeline or branching path.
 
-Each of the six steps is a real navigation link with a grouped label and explanation. Stack on phones, then use two, three or six columns according to available width. Explicitly reset list-item margins so global prose styles cannot stagger the steps. Do not add completion checkboxes or progress state.
+Each of the six steps is a real navigation link with a grouped label and explanation inside a native static disclosure. Stack on phones, then use two, three or six columns according to available width after expansion. Explicitly reset list-item margins so global prose styles cannot stagger the steps. Do not add completion checkboxes or progress state.
+
+Keep homepage scroll proportional to its routing purpose: show every career-family title and concise description, but progressively disclose each family's individual career links and optional practice track. The two original illustrations remain purposeful anchors. Use restrained CSS-only interaction and a small AI signal animation to add life; never autoplay a carousel or decorative motion, and fully respect reduced-motion preferences.
 
 ### 10.9 Closing Orientation Message
 
@@ -860,6 +868,16 @@ Recommended exercise pattern:
 > Here is an AI-generated solution. Find the bug, identify the complexity problem, or construct a counterexample.
 
 Treat **ACM Programming / ICPC practice** as a separate practice track within Understand Computing Deeply—not a conventional career card. Provide a six-week learn → honest attempt → submit/debug/log → review/transfer loop, preserve a real-project balance, and make beginner volume deliberately modest. Curate Shafaet's Planet's Bangla algorithm notes and Amirul Islam's Bangla programming writing as complementary starting references. Link and scope them; do not copy their wording, curriculum or visual presentation.
+
+### 17.4 Final semester to first software role
+
+Treat first-role transition as a distinct student problem, not as career discovery or a generic “feel behind” state. Publish equivalent English/Bangla guidance that helps final-semester students, recent graduates and other early-career entrants turn existing academic/personal work into honest reviewable evidence and run a focused internship, trainee or junior-role cycle.
+
+Use **Target → Strengthen → Present → Practise → Apply → Improve**. Let visitors jump directly from project hygiene, CV/portfolio, interview preparation, applications or stalled feedback. Teach one genuine post-project improvement through an issue, short branch, test, pull request/review and small release; never suggest rewriting history or fabricating teamwork. Include 90-second, five-minute and fifteen-minute project walkthroughs, evidence-based CV language, safe public-repository checks, a private application log and opportunity-quality questions.
+
+State clearly that ACM/ICPC is a valuable optional practice track rather than a universal junior-job prerequisite. Give a bounded role/employer-specific DSA and engineering baseline, and connect to the deeper competitive-programming guide when relevant. Treat CGPA as one useful signal beside verifiable work. Diagnose patterns across suitable applications without presenting rejection as a score or verdict. No interview/offer promise, live vacancy aggregation, account or progress tracking.
+
+Make this path discoverable from Start here navigation, a compact homepage prompt, both deterministic situation flows, the recovery guide, final-year guide, relevant software career/roadmap pages, employment goal guides and static search. Use official openings for changing requirements and scoped dated sources for editorial claims.
 
 ---
 
@@ -1466,7 +1484,7 @@ This site is inspired in part by:
 
 The site must remain visually and editorially original and must not reproduce their content.
 
-**Project provenance:** [Amjad Hossain](https://amjadhossainrahat.github.io/) is the Creator & Orchestrator. He shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. His name links in a new tab to his intended GitHub Pages portfolio; keep that canonical portfolio URL even while the separate portfolio site is not yet published. ChatGPT assisted with requirement engineering and product/design planning; Codex was used to build the site and assist with testing, fixes and iteration. Preserve human agency and distinguish these roles; do not imply affiliation or endorsement by the inspiration projects or AI providers.
+**Project provenance:** [Amjad Hossain](https://amjadhossainrahat.github.io/) is the Creator & Orchestrator. He shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. His name links in a new tab to his intended GitHub Pages portfolio; keep that canonical portfolio URL even while the separate portfolio site is not yet published. ChatGPT assisted with requirement engineering and product/design planning; Codex using **GPT-5.6 Sol (High)** was used to build the site and assist with testing, fixes and iteration. Preserve human agency and distinguish these roles; do not imply affiliation or endorsement by the inspiration projects or AI providers.
 
 Make this acknowledgment discoverable, not hidden behind an ambiguous label: every localized page has a compact footer section with direct roadmap.sh, Architect Prep and Amirul Islam links, the three contribution roles, and a “Full credits” link to localized About `#credits`. About includes a direct jump link, contextual inspiration explanations and fuller collaboration history. Keep student navigation ahead of credits in the footer and do not add another homepage content section or a primary-navigation item solely for attribution. All credit copy must have English/Bangla parity and remain readable in both themes without JavaScript.
 

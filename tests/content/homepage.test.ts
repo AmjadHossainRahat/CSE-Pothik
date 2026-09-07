@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
+  aiEraDecisions,
+  aiEraMessage,
+  aiEraScenarioPaths,
+  homepageAiSourceIds,
   homepageEntries,
   homepageIntro,
   sitePurpose,
@@ -24,7 +28,7 @@ describe("purpose-first homepage", () => {
       /orientation.*semesters.*not missed your chance/,
     );
     expect(homepageIntro.outcome.en).toMatch(
-      /understand the options.*real work.*useful next step/,
+      /understand the options.*real work.*useful next step/i,
     );
   });
 
@@ -66,7 +70,7 @@ describe("purpose-first homepage", () => {
     }
   });
 
-  it("preserves all six detailed situations and equivalent destinations", () => {
+  it("preserves the detailed situations and adds a first-role transition", () => {
     expect(studentSituations.map((situation) => situation.id)).toEqual([
       "new",
       "unknown",
@@ -74,8 +78,36 @@ describe("purpose-first homepage", () => {
       "ai-worry",
       "target",
       "behind",
+      "first-role",
     ]);
     for (const situation of studentSituations)
       expect(situation.destination.bn).toBe(`/bn${situation.destination.en}`);
+  });
+
+  it("explains why fundamentals and accountable judgment matter with AI", () => {
+    for (const text of Object.values(aiEraMessage)) {
+      expect(text.en.trim().length).toBeGreaterThan(15);
+      expect(text.bn).toMatch(/[\u0980-\u09ff]/);
+    }
+    expect(aiEraMessage.introduction.en).toMatch(
+      /core principles.*analytical problem-solving.*creativity.*judgment/,
+    );
+    expect(aiEraMessage.takeaway.en).toMatch(
+      /context.*mistakes.*trade-offs.*tech lead/,
+    );
+    expect(aiEraDecisions.map((step) => step.id)).toEqual([
+      "frame",
+      "verify",
+      "own",
+    ]);
+    expect(aiEraScenarioPaths.map((path) => path.id)).toEqual([
+      "thin-context",
+      "rich-context",
+      "strong-engineer",
+    ]);
+    expect(homepageAiSourceIds).toEqual([
+      "dora-ai-software-2025",
+      "nist-ai-devsecops-oversight",
+    ]);
   });
 });

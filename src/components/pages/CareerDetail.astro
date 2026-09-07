@@ -22,6 +22,12 @@ interface Props {
 const { career, locale } = Astro.props;
 const bn = locale === "bn";
 const family = careerFamilies.find((item) => item.id === career.familyId)!;
+const supportsFirstSoftwareRole = [
+  "backend-engineering",
+  "frontend-engineering",
+  "mobile-app-development",
+  "software-quality-assurance",
+].includes(career.id);
 const dimensions = [
   [bn ? "Coding" : "Coding", career.dimensions.coding],
   [bn ? "Math" : "Mathematics", career.dimensions.mathematics],
@@ -420,7 +426,26 @@ const structuredData = [
           href={withBase(roadmapPath(locale, career.slug))}
           >{bn ? "Roadmap" : "See the roadmap"}</a
         >
-      </div><h3 class="related-title">
+      </div>
+      {
+        supportsFirstSoftwareRole && (
+          <p>
+            <a
+              href={withBase(
+                localePath(locale, "/guidance/first-software-role/"),
+              )}
+              data-track-event="next_step_clicked"
+              data-track-param-destination="first-software-role"
+            >
+              {bn
+                ? "Final semester থেকে internship বা junior role-এর plan"
+                : "Turn this direction into an internship or junior-role plan"}{" "}
+              →
+            </a>
+          </p>
+        )
+      }
+      <h3 class="related-title">
         {bn ? "Nearby directions" : "Nearby directions"}
       </h3><div class="related-links">
         {

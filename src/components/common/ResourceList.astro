@@ -1,5 +1,4 @@
 ---
-import { ui } from "@/config/site";
 import { resourceById } from "@/data/resources";
 import { t } from "@/lib/i18n";
 import type { Locale } from "@/types/content";
@@ -65,15 +64,14 @@ const list = resourceIds
         <h3>
           <a
             href={resource.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-describedby="external-link-description"
             data-track-event="learning_resource_clicked"
             data-track-param-resource-id={resource.id}
             data-track-param-provider={resource.provider}
           >
-            {resource.title}{" "}
-            <>
-              <span class="visually-hidden">— {ui[locale].external}</span>
-              <span aria-hidden="true"> ↗</span>
-            </>
+            {resource.title} <span aria-hidden="true">↗</span>
           </a>
         </h3>
         {!compact && <p>{t(resource.whyRecommended, locale)}</p>}
@@ -106,12 +104,5 @@ const list = resourceIds
   .reviewed {
     color: var(--color-text-muted);
     font-size: 0.78rem;
-  }
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
   }
 </style>

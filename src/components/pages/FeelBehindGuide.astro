@@ -86,6 +86,30 @@ const bn = locale === "bn";
           ))
         }
       </ol>
+      <aside class="existing-project-callout">
+        <div>
+          <h3>
+            {
+              bn
+                ? "Project আর target direction আগে থেকেই আছে?"
+                : "Already have a project and a target direction?"
+            }
+          </h3>
+          <p>
+            {
+              bn
+                ? "আরেকটি project শূন্য থেকে শুরু কোরো না। Existing কাজকে reviewable evidence বানিয়ে internship বা junior-role cycle শুরু করো।"
+                : "Do not automatically start another project. Turn the work you already understand into reviewable evidence and begin an internship or junior-role cycle."
+            }
+          </p>
+        </div>
+        <a
+          href={withBase(localePath(locale, "/guidance/first-software-role/"))}
+          data-track-event="next_step_clicked"
+          data-track-param-destination="first-software-role"
+          >{bn ? "First-role guide" : "Open the first-role guide"} →</a
+        >
+      </aside>
     </div>
   </section>
   <section class="section">
@@ -231,9 +255,33 @@ const bn = locale === "bn";
     font-size: 0.78rem;
     font-weight: 800;
   }
+  .existing-project-callout {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 2rem;
+    padding: 1.25rem;
+    border-inline-start: 4px solid var(--color-teal);
+    background: var(--color-surface-raised);
+  }
+  .existing-project-callout h3 {
+    margin-top: 0;
+  }
+  .existing-project-callout p {
+    margin-bottom: 0;
+    color: var(--color-text-muted);
+  }
+  .existing-project-callout > a {
+    align-self: center;
+    font-weight: 750;
+  }
   @media (min-width: 48rem) {
     .recovery-grid {
       grid-template-columns: repeat(2, 1fr);
+    }
+    .existing-project-callout {
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 2rem;
     }
   }
 </style>

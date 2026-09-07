@@ -305,7 +305,7 @@ export const employmentGoals: GoalGuide[] = [
           "Do not rank employers from rumors or treat every advertised technology as a prerequisite.",
           "গুজব দিয়ে employer ranking বা advertised সব technology-কে prerequisite ধরা নয়।",
         ),
-        sourceId: "bjit-careers",
+        sourceId: "basis-industry-catalog",
       },
       {
         id: "evidence",
@@ -365,7 +365,7 @@ export const employmentGoals: GoalGuide[] = [
           "Do not pay a recruiter to secure an interview or accept vague terms solely because the title sounds impressive.",
           "Interview নিশ্চিত করতে recruiter-কে টাকা বা impressive title দেখে vague terms গ্রহণ নয়।",
         ),
-        sourceId: "bjit-careers",
+        sourceId: "basis-industry-catalog",
       },
       {
         id: "adapt",
@@ -437,7 +437,11 @@ export const employmentGoals: GoalGuide[] = [
       "software-quality-assurance",
     ],
     relatedGoalIds: ["global-companies", "remote-employment", "tech-business"],
-    sourceIds: ["bjit-careers", "microsoft-interviews", "gitlab-communication"],
+    sourceIds: [
+      "basis-industry-catalog",
+      "microsoft-interviews",
+      "gitlab-communication",
+    ],
   },
   {
     id: "remote-employment",

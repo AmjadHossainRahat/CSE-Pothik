@@ -74,6 +74,21 @@ export const studentSituations: StudentSituation[] = [
       bn: "/bn/guidance/feel-behind/",
     },
   },
+  {
+    id: "first-role",
+    label: l(
+      "I have a project and need my first software role.",
+      "Project আছে, এখন প্রথম software role দরকার।",
+    ),
+    note: l(
+      "Turn existing work into evidence, interview practice and focused applications.",
+      "Existing কাজকে evidence, interview practice আর focused application-এ বদলাও।",
+    ),
+    destination: {
+      en: "/guidance/first-software-role/",
+      bn: "/bn/guidance/first-software-role/",
+    },
+  },
 ];
 
 export interface LostChoice {
@@ -158,5 +173,20 @@ export const lostChoices: LostChoice[] = [
       "Tool list ধরার আগে roadmap, experiment আর AI exposure দেখো।",
     ),
     destination: { en: "/careers/", bn: "/bn/careers/" },
+  },
+  {
+    id: "first-role",
+    prompt: l(
+      "I have a project and need an internship or junior software role.",
+      "Project আছে, internship বা junior software role দরকার।",
+    ),
+    response: l(
+      "Use your existing work as honest evidence, prepare for the actual hiring format and run a focused application cycle.",
+      "Existing কাজকে honest evidence বানাও, actual hiring format-এর প্রস্তুতি নাও আর focused application cycle চালাও।",
+    ),
+    destination: {
+      en: "/guidance/first-software-role/",
+      bn: "/bn/guidance/first-software-role/",
+    },
   },
 ];

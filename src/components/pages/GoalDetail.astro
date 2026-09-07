@@ -324,6 +324,24 @@ const structuredData = [
         </ul>
       </section>
       <section class="guide-section" id="sources">
+        {
+          ["global-companies", "local-industry", "remote-employment"].includes(
+            goal.id,
+          ) && (
+            <p>
+              <a
+                href={href("/guidance/first-software-role/")}
+                data-track-event="next_step_clicked"
+                data-track-param-destination="first-software-role"
+              >
+                {bn
+                  ? "Final semester থেকে internship বা junior software role-এর bridge"
+                  : "Bridge from final semester to an internship or junior software role"}{" "}
+                →
+              </a>
+            </p>
+          )
+        }
         <p>
           <a href={href("/guidance/final-year-project/")}
             >{
@@ -350,7 +368,9 @@ const structuredData = [
                   <>
                     <a
                       href={source.url}
+                      target="_blank"
                       rel="noopener noreferrer"
+                      aria-describedby="external-link-description"
                       data-track-event="learning_resource_clicked"
                       data-track-param-resource-id={source.id}
                       data-track-param-provider={source.provider}

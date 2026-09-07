@@ -62,12 +62,12 @@ export const collaborators: Collaborator[] = [
   {
     name: "Codex",
     role: {
-      en: "Implementation & iteration",
-      bn: "Implementation ও পরিমার্জন",
+      en: "Implementation & iteration · GPT-5.6 Sol (High)",
+      bn: "Implementation ও পরিমার্জন · GPT-5.6 Sol (High)",
     },
     contribution: {
-      en: "Used by the creator to build the site from the agreed requirements and design, and to assist with testing, bug fixes and subsequent improvements.",
-      bn: "চূড়ান্ত requirement ও design থেকে সাইট তৈরি, test, bug fix এবং পরবর্তী উন্নয়নে উদ্যোক্তা Codex ব্যবহার করেছেন।",
+      en: "The creator used Codex with GPT-5.6 Sol at High reasoning effort to build the site from the agreed requirements and design, and to assist with testing, bug fixes and subsequent improvements.",
+      bn: "চূড়ান্ত requirement ও design থেকে সাইট তৈরি, test, bug fix এবং পরবর্তী উন্নয়নে উদ্যোক্তা GPT-5.6 Sol-এর High reasoning effort-সহ Codex ব্যবহার করেছেন।",
     },
   },
 ];

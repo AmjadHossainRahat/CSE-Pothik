@@ -1,0 +1,346 @@
+---
+import { localePath, withBase } from "@/config/site";
+import {
+  featuredIndustryVoiceIds,
+  industryVoiceById,
+  industryVoices,
+  industryVoiceStages,
+} from "@/data/industry-voices";
+import { t } from "@/lib/i18n";
+import type { Locale } from "@/types/content";
+
+interface Props {
+  locale: Locale;
+  variant?: "featured" | "complete";
+}
+
+const { locale, variant = "complete" } = Astro.props;
+const bn = locale === "bn";
+const featured = featuredIndustryVoiceIds.map((id) =>
+  industryVoiceById.get(id)!,
+);
+const displayNumber = (position: number) =>
+  position.toLocaleString(bn ? "bn-BD" : "en-US", {
+    minimumIntegerDigits: 2,
+  });
+---
+
+<div class:list={["industry-voices", `industry-voices--${variant}`]}>
+  <header class="voices-heading">
+    <p class="eyebrow">
+      {bn ? "বাংলাদেশের technology voices" : "Voices from Bangladesh tech"}
+    </p>
+    <h2>
+      {
+        variant === "featured"
+          ? bn
+            ? "Motivation বাছাই করতেও judgment লাগে।"
+            : "Choosing motivation also takes judgment."
+          : bn
+            ? "Random feed নয়—একটি চিন্তাশীল watch order।"
+            : "Not a random feed—a deliberate watch order."
+      }
+    </h2>
+    <p>
+      {
+        variant === "featured"
+          ? bn
+            ? "Headline দিয়ে সিদ্ধান্ত নিও না। Local practitioner, leader ও educator-এর অভিজ্ঞতা শোনো—তারপর claim-কে evidence আর নিজের কাজ দিয়ে যাচাই করো।"
+            : "Do not make a decision from a headline. Hear experienced local practitioners, leaders and educators—then test each claim against evidence and your own work."
+          : bn
+            ? "এই নয়টি video ও podcast episode আগে anxiety স্থির করে, তারপর thinking শক্ত করে, শেষে industry-র ভিন্ন বাস্তবতা দেখায়। এগুলো perspective—চূড়ান্ত verdict, endorsement বা চাকরির guarantee নয়।"
+            : "These nine videos and podcast episodes first settle the anxiety, then strengthen thinking, and finally widen the view of industry. They are perspectives—not final verdicts, endorsements or job guarantees."
+      }
+    </p>
+  </header>
+
+  {
+    variant === "featured" ? (
+      <>
+        <ol class="voice-grid voice-grid--featured" role="list">
+          {featured.map((voice) => (
+            <li>
+              <article class="voice-card">
+                <span class="voice-number" aria-hidden="true">
+                  {displayNumber(voice.position)}
+                </span>
+                <h3>
+                  <a
+                    href={voice.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-describedby="external-link-description"
+                    data-track-event="learning_resource_clicked"
+                    data-track-param-resource-id={`industry-voice-${voice.id}`}
+                    data-track-param-provider={voice.publisher}
+                  >
+                    {t(voice.title, locale)} <span aria-hidden="true">▶</span>
+                  </a>
+                </h3>
+                <p class="voice-byline">
+                  {voice.speaker} · {voice.publisher}
+                </p>
+                <p>{t(voice.focus, locale)}</p>
+              </article>
+            </li>
+          ))}
+        </ol>
+        <a
+          class="voice-collection-link"
+          href={withBase(localePath(locale, "/resources/#industry-voices"))}
+        >
+          {bn ? "৯টি episode সঠিক order-এ দেখো" : "See all 9 in order"} →
+        </a>
+      </>
+    ) : (
+      <>
+        <aside class="advice-filter" aria-labelledby="advice-filter-title">
+          <strong id="advice-filter-title">
+            {bn
+              ? "কাউকে follow করার আগে ৪টি প্রশ্ন"
+              : "Four checks before you follow anyone"}
+          </strong>
+          <ul>
+            <li>
+              {bn
+                ? "তিনি কি নিজের context ও experience পরিষ্কার করছেন?"
+                : "Do they make their context and experience clear?"}
+            </li>
+            <li>
+              {bn
+                ? "Specific example ও trade-off আছে, নাকি শুধু fear বা hype?"
+                : "Are there specific examples and trade-offs, or only fear and hype?"}
+            </li>
+            <li>
+              {bn
+                ? "Claim-টি কি অন্য reliable source ও real job requirement-এর সঙ্গে মেলে?"
+                : "Does the claim agree with other reliable sources and real role requirements?"}
+            </li>
+            <li>
+              {bn
+                ? "এ থেকে কি ছোট, safe action নেওয়া যায়—নাকি শুধু emotion বাড়ে?"
+                : "Can you take one small, safe action—or does it only intensify emotion?"}
+            </li>
+          </ul>
+        </aside>
+        <ol class="voice-stages" role="list">
+          {industryVoiceStages.map((stage, stageIndex) => {
+            const stageVoices = industryVoices.filter(
+              (voice) => voice.stageId === stage.id,
+            );
+            return (
+              <li>
+                <details
+                  id={`industry-voice-stage-${stage.id}`}
+                  open={stageIndex === 0}
+                >
+                  <summary>
+                    <span>
+                      <strong>{t(stage.title, locale)}</strong>
+                      <small>{t(stage.description, locale)}</small>
+                    </span>
+                    <span class="stage-count">
+                      {stageVoices.length.toLocaleString(
+                        bn ? "bn-BD" : "en-US",
+                      )}
+                    </span>
+                  </summary>
+                  <ol class="voice-grid" role="list">
+                    {stageVoices.map((voice) => (
+                      <li>
+                        <article
+                          class="voice-card"
+                          id={`industry-voice-${voice.id}`}
+                        >
+                          <span class="voice-number" aria-hidden="true">
+                            {displayNumber(voice.position)}
+                          </span>
+                          <h3>
+                            <a
+                              href={voice.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-describedby="external-link-description"
+                              data-track-event="learning_resource_clicked"
+                              data-track-param-resource-id={`industry-voice-${voice.id}`}
+                              data-track-param-provider={voice.publisher}
+                            >
+                              {t(voice.title, locale)}{" "}
+                              <span aria-hidden="true">▶</span>
+                            </a>
+                          </h3>
+                          <p class="voice-byline">
+                            {voice.speaker} · {voice.publisher}
+                          </p>
+                          <p>{t(voice.focus, locale)}</p>
+                          {locale === "en" &&
+                            voice.originalTitle !== voice.title.en && (
+                              <p class="original-title">
+                                <strong>Published title:</strong>{" "}
+                                <span lang="bn">{voice.originalTitle}</span>
+                              </p>
+                            )}
+                        </article>
+                      </li>
+                    ))}
+                  </ol>
+                </details>
+              </li>
+            );
+          })}
+        </ol>
+      </>
+    )
+  }
+</div>
+
+<style>
+  .industry-voices {
+    min-width: 0;
+  }
+  .voices-heading h2 {
+    max-width: 28ch;
+    font-size: clamp(1.45rem, 3vw, 2rem);
+  }
+  .voices-heading > p:last-child {
+    max-width: 68ch;
+    color: var(--color-text-muted);
+  }
+  .voice-grid,
+  .voice-stages {
+    display: grid;
+    gap: 0.8rem;
+    margin: 1.25rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .voice-card {
+    position: relative;
+    height: 100%;
+    padding: 1rem 1rem 1rem 3.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+  }
+  .voice-number {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: var(--color-primary);
+    font-weight: 850;
+    font-size: 0.78rem;
+  }
+  .voice-card h3 {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.35;
+  }
+  .voice-card h3 a {
+    color: var(--color-text);
+    text-decoration-thickness: 0.08em;
+    text-underline-offset: 0.18em;
+  }
+  .voice-card h3 a:hover {
+    color: var(--color-primary-strong);
+  }
+  .voice-card > p {
+    margin: 0.55rem 0 0;
+    color: var(--color-text-muted);
+    font-size: 0.86rem;
+  }
+  .voice-byline {
+    font-weight: 750;
+  }
+  .original-title {
+    padding-top: 0.55rem;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.76rem !important;
+  }
+  .voice-collection-link {
+    display: inline-flex;
+    min-height: 2.75rem;
+    margin-top: 0.8rem;
+    align-items: center;
+    font-weight: 800;
+  }
+  .advice-filter {
+    margin-top: 1.4rem;
+    padding: 1rem 1.1rem;
+    border-inline-start: 4px solid var(--color-teal);
+    background: var(--color-surface);
+  }
+  .advice-filter ul {
+    display: grid;
+    gap: 0.4rem;
+    margin: 0.65rem 0 0;
+    padding-inline-start: 1.2rem;
+  }
+  .voice-stages > li {
+    min-width: 0;
+  }
+  .voice-stages details {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+  }
+  .voice-stages summary {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 1rem;
+    min-height: 3.5rem;
+    padding: 1rem;
+    align-items: center;
+    cursor: pointer;
+  }
+  .voice-stages summary span:first-child,
+  .voice-stages summary strong,
+  .voice-stages summary small {
+    display: block;
+  }
+  .voice-stages summary small {
+    margin-top: 0.25rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    line-height: 1.45;
+  }
+  .stage-count {
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--color-code);
+    color: var(--color-primary-strong);
+    font-weight: 850;
+  }
+  .voice-stages details[open] > summary {
+    border-bottom: 1px solid var(--color-border);
+  }
+  .voice-stages details > .voice-grid {
+    margin: 0;
+    padding: 0.8rem;
+  }
+  .voice-stages .voice-card {
+    background: var(--color-surface);
+  }
+  @media (min-width: 44rem) {
+    .voice-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .voice-stages details > .voice-grid > li:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (min-width: 68rem) {
+    .industry-voices--complete .voice-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .industry-voices--complete
+      .voice-stages
+      details
+      > .voice-grid
+      > li:last-child:nth-child(odd) {
+      grid-column: auto;
+    }
+  }
+</style>

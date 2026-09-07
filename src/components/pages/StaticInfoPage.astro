@@ -1,10 +1,12 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
 import DirectoryJumpNav from "@/components/common/DirectoryJumpNav.astro";
+import IndustryVoices from "@/components/common/IndustryVoices.astro";
 import ResourceList from "@/components/common/ResourceList.astro";
 import { localePath, siteConfig, withBase } from "@/config/site";
 import { collaborators, inspirations } from "@/data/credits";
 import { sitePurpose } from "@/data/homepage";
+import { industryVoices } from "@/data/industry-voices";
 import { resources } from "@/data/resources";
 import { t } from "@/lib/i18n";
 import { collectionStructuredData } from "@/lib/seo";
@@ -23,8 +25,8 @@ const metadata = {
       ? "Curated Free Learning Resources"
       : "Curated Free Learning Resources",
     description: bn
-      ? "CSE Compass roadmap-এ ব্যবহৃত carefully selected free official docs, university course, lab, book আর practice resource।"
-      : "Carefully selected free official documentation, university courses, labs, books and practice resources used across CSE Compass roadmaps.",
+      ? "বাংলাদেশের technology voice-এর ordered watchlist এবং CSE Compass roadmap-এ ব্যবহৃত carefully selected free learning resource।"
+      : "An ordered watchlist of Bangladesh technology voices plus carefully selected free learning resources used across CSE Compass roadmaps.",
   },
   privacy: {
     title: bn ? "Privacy ও Analytics" : "Privacy & Analytics",
@@ -97,10 +99,16 @@ const structuredData =
         locale,
         homeUrl: new URL(withBase(localePath(locale, "/")), Astro.site).href,
         homeLabel: bn ? "হোম" : "Home",
-        items: resources.map((resource) => ({
-          name: resource.title,
-          url: `${Astro.url.href}#resource-${resource.id}`,
-        })),
+        items: [
+          ...industryVoices.map((voice) => ({
+            name: t(voice.title, locale),
+            url: `${Astro.url.href}#industry-voice-${voice.id}`,
+          })),
+          ...resources.map((resource) => ({
+            name: resource.title,
+            url: `${Astro.url.href}#resource-${resource.id}`,
+          })),
+        ],
       })
     : undefined;
 ---
@@ -132,7 +140,20 @@ const structuredData =
             </p>
           </>
         </header>
-        <section class="section section--tinted resource-orientation">
+        <section
+          class="section section--tinted"
+          id="industry-voices"
+          aria-label={
+            bn
+              ? "বাংলাদেশের technology voice"
+              : "Voices from Bangladesh technology"
+          }
+        >
+          <div class="container">
+            <IndustryVoices locale={locale} />
+          </div>
+        </section>
+        <section class="section resource-orientation">
           <div class="container">
             <>
               <div class="callout">
@@ -473,7 +494,9 @@ const structuredData =
                         <a
                           class="text-link"
                           href={source.url}
+                          target="_blank"
                           rel="noopener noreferrer"
+                          aria-describedby="external-link-description"
                         >
                           {source.name} <span aria-hidden="true">↗</span>
                         </a>
@@ -504,6 +527,7 @@ const structuredData =
                                 href={person.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
+                                aria-describedby="external-link-description"
                               >
                                 {person.name} <span aria-hidden="true">↗</span>
                               </a>

@@ -4,6 +4,50 @@ import type { GuidanceSource } from "@/types/content";
 const lastReviewed = "2026-08-31";
 export const guidanceSources: GuidanceSource[] = [
   {
+    id: "dora-ai-software-2025",
+    title: "State of AI-assisted Software Development 2025",
+    provider: "DORA",
+    url: "https://dora.dev/research/2025/dora-report/",
+    scope: l(
+      "Use the finding that AI amplifies an organization's existing strengths and weaknesses as a reason to improve the underlying engineering system—not as a permanent forecast about one tool or role.",
+      "AI organization-এর existing শক্তি ও দুর্বলতা amplify করে—এই finding-টি underlying engineering system উন্নত করার কারণ হিসেবে নাও; কোনো tool বা role নিয়ে স্থায়ী forecast হিসেবে নয়।",
+    ),
+    lastReviewed: "2026-09-07",
+  },
+  {
+    id: "nist-ai-devsecops-oversight",
+    title: "AI in secure software development",
+    provider: "NIST NCCoE",
+    url: "https://pages.nist.gov/nccoe-devsecops/notational-reference-model.html#artificial-intelligence",
+    scope: l(
+      "Use the guidance on human validation, verifiable processes and oversight of AI-generated software. Apply effort in proportion to the system's actual risk and context.",
+      "AI-generated software-এ human validation, verifiable process ও oversight-এর guidance নাও। System-এর বাস্তব risk ও context অনুযায়ী effort ঠিক করো।",
+    ),
+    lastReviewed: "2026-09-07",
+  },
+  {
+    id: "github-career-profile",
+    title: "Using your GitHub profile to enhance your resume",
+    provider: "GitHub Docs",
+    url: "https://docs.github.com/en/account-and-profile/tutorials/using-your-github-profile-to-enhance-your-resume",
+    scope: l(
+      "Use the project-selection, repository-presentation and profile guidance to make relevant work easier to review. Edit any AI-assisted draft yourself and never expose secrets, private data or invented achievements.",
+      "Relevant project বাছাই, repository presentation আর profile guidance দিয়ে কাজ reviewer-এর জন্য সহজ করো। AI-assisted draft নিজে edit করো; secret, private data বা বানানো achievement প্রকাশ কোরো না।",
+    ),
+    lastReviewed: "2026-09-02",
+  },
+  {
+    id: "github-readmes",
+    title: "About the repository README file",
+    provider: "GitHub Docs",
+    url: "https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes",
+    scope: l(
+      "Use a concise README to explain what the project does, why it matters, how to run it, where to get help and who contributed. A README improves discoverability; it does not prove the claims by itself.",
+      "Project কী করে, কেন দরকার, কীভাবে run করবে, কোথায় help পাবে আর কার contribution—সংক্ষিপ্ত README-তে বোঝাও। README কাজ খুঁজে পেতে সাহায্য করে; একা কোনো claim প্রমাণ করে না।",
+    ),
+    lastReviewed: "2026-09-02",
+  },
+  {
     id: "github-projects",
     title: "Best practices for Projects",
     provider: "GitHub Docs",
@@ -158,13 +202,13 @@ export const guidanceSources: GuidanceSource[] = [
     lastReviewed,
   },
   {
-    id: "bjit-careers",
-    title: "Careers",
-    provider: "BJIT",
-    url: "https://bjitgroup.com/career",
+    id: "basis-industry-catalog",
+    title: "Bangladesh IT industry catalog",
+    provider: "BASIS",
+    url: "https://itcatalog.basis.org.bd/product-enlist",
     scope: l(
-      "An example of an export-services employer's vacancy source, not a ranking or a claim of current availability for your role.",
-      "Export-services employer-এর vacancy source-এর উদাহরণ; ranking বা তোমার role-এ এখন vacancy আছে—এমন দাবি নয়।",
+      "Use the member and product categories to discover different kinds of local technology employers, then verify vacancies and requirements on each employer's official page.",
+      "Member আর product category দেখে local technology employer-এর ধরনগুলো খুঁজে নাও; তারপর প্রতিটি employer-এর official page-এ vacancy আর requirement যাচাই করো।",
     ),
     lastReviewed,
   },

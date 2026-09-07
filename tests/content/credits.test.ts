@@ -28,7 +28,12 @@ describe("project credits", () => {
     expect(collaborators[0]!.url).toBe(siteConfig.creatorUrl);
     expect(siteConfig.creatorUrl).toBe("https://amjadhossainrahat.github.io/");
     expect(collaborators[1]!.role.en).toBe("Requirements & design");
-    expect(collaborators[2]!.role.en).toBe("Implementation & iteration");
+    expect(collaborators[2]!.role.en).toBe(
+      "Implementation & iteration · GPT-5.6 Sol (High)",
+    );
+    expect(collaborators[2]!.contribution.en).toMatch(
+      /GPT-5\.6 Sol.*High reasoning effort/,
+    );
   });
 
   it("provides substantive English and Bangla copy for every contribution", () => {
