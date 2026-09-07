@@ -130,7 +130,10 @@ describe("content integrity", () => {
       (item) => Object.values(item.destination),
     );
     expect(
-      destinations.every((path) => path.startsWith("/") && path.endsWith("/")),
+      destinations.every((path) => {
+        const route = path.split("#", 1)[0] ?? "";
+        return path.startsWith("/") && route.endsWith("/");
+      }),
     ).toBe(true);
     expect(
       studentSituations.every(

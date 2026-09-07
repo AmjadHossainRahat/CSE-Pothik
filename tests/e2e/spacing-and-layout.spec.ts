@@ -73,11 +73,20 @@ test("every public UI route stays inside the desktop content frame", async ({
                 !element.classList.contains("eyebrow"),
             )
           : [];
+        const oversizedCalloutHeadings = [
+          ...main.querySelectorAll<HTMLElement>(".callout h2"),
+        ]
+          .filter(
+            (heading) =>
+              Number.parseFloat(getComputedStyle(heading).fontSize) > 38,
+          )
+          .map((heading) => heading.textContent?.trim());
         return {
           overflow:
             document.documentElement.scrollWidth -
             document.documentElement.clientWidth,
           outOfFrame,
+          oversizedCalloutHeadings,
           alignment:
             breadcrumb && hero
               ? Math.abs(
@@ -103,6 +112,10 @@ test("every public UI route stays inside the desktop content frame", async ({
       expect(layout.outOfFrame, `${locale} ${path} container bounds`).toEqual(
         [],
       );
+      expect(
+        layout.oversizedCalloutHeadings,
+        `${locale} ${path} compact callout hierarchy`,
+      ).toEqual([]);
       expect(layout.alignment, `${locale} ${path} breadcrumb alignment`).toBe(
         0,
       );

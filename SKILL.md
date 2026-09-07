@@ -1618,3 +1618,15 @@ Before considering the site finished, manually verify:
 - small-screen Bangla rendering.
 
 If any major experience is only a placeholder, the site is not complete.
+
+## AI systems path implementation contract
+
+Keep the build-oriented Agentic AI material as static Astro within the existing `RoadmapDetail.astro` template. Store ordered bilingual step and term-note data in `src/data/ai-systems-path.ts`; render it through a focused `src/components/ai/AISystemsPath.astro` component only for the `ai-engineering` roadmap. Use shared `LearningResource` IDs for official references and shared path helpers for every internal anchor. Do not add React, hydration, persistence, a workflow runtime or an AI SDK merely to explain these systems.
+
+The required sequence is: frame/specify and build a deterministic baseline; make a prompt contract testable; add RAG only for owned/current/domain evidence; orchestrate known steps as a deterministic code or n8n workflow; add one bounded observe/decide/tool/inspect/stop-or-escalate loop only for real ambiguity; then add evaluation, least privilege, guardrails, observability, staged rollout and rollback. OpenClaw belongs after those concepts as an optional persistent runtime with an explicit security boundary. Multi-agent coordination requires evidence that a single bounded agent is insufficient. AGI is not a build step.
+
+Index the anchored path in bilingual static search and link it from the AI hub without duplicating page metadata or creating thin routes. Add the local-industry watchlist as a real “I’m Lost” destination link with progressive enhancement. Extend content integrity, E2E and critical-route axe coverage for both locales, no-JavaScript access, base-path anchors, secure outbound links, overflow and the desktop watchlist-heading measure. Run root and GitHub Pages builds, generated SEO/link verification, browser and accessibility suites, and the live external-link audit before recording completion.
+
+Treat short supporting CTA regions as compact action panels, not hero sections. For the AI hub bridge and first-project bridge, keep the eyebrow/title together, group body copy with its CTA, use balanced two-column desktop geometry and one-column mobile reading order, and cap shared callout `h2` size/measure. Browser tests must assert both desktop column separation and mobile stacking. The exhaustive public-route layout test must also reject page-scale headings inside shared callouts.
+
+The local-video eyebrow uses the sourced-safe category **Bangladesh tech leaders & practitioners**. “Pioneers” is not an interchangeable styling word: use it only when that historical status is evidenced for each person being grouped.

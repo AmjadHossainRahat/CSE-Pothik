@@ -317,6 +317,12 @@ body[data-locale="bn"] .eyebrow {
   border-color: var(--color-amber);
 }
 
+.callout h2 {
+  max-width: 32ch;
+  font-size: clamp(1.5rem, 3vw, 2.35rem);
+  line-height: 1.18;
+}
+
 .callout__label {
   margin-bottom: var(--space-2);
   color: var(--color-primary-strong);

@@ -1,6 +1,12 @@
 # Fresher UX review and repository cleanup
 
-Reviewed 1–7 September 2026. This is a source-informed heuristic review, with targeted browser validation of the changed navigation, directories, search and recovery experience. It is not a usability study, measured conversion result or “best UX” certification. Actual test results and browser limitations are recorded in [validation.md](validation.md).
+Reviewed 1–8 September 2026. This is a source-informed heuristic review, with targeted browser validation of the changed navigation, directories, search and recovery experience. It is not a usability study, measured conversion result or “best UX” certification. Actual test results and browser limitations are recorded in [validation.md](validation.md).
+
+## Compact AI action-panel hierarchy — 8 September 2026
+
+The “A path for builders” and “First project” bridges combined hero-sized headings with body copy and a CTA in three narrow columns. The headings dominated supporting content, wrapped into tall blocks and made the sections feel disconnected from their actions. Both now use a compact two-column panel: the eyebrow/title establishes context on the left, while explanation and CTA form one action group on the right. Mobile retains the same semantic reading order in a single column.
+
+A shared heading-size/measure guard now protects all callouts, not just these two instances. The every-public-route desktop browser audit detects any callout heading above the intended supporting scale, alongside its existing frame, overflow, breadcrumb and top-section checks. English desktop and Bangla mobile screenshots were inspected after the change. The media eyebrow now says “Bangladesh tech leaders & practitioners”; “pioneers” was rejected because it would make an unsupported historical claim about the entire list.
 
 ## Curated local voices instead of a motivation feed — 7 September 2026
 
@@ -116,3 +122,11 @@ Retained intentionally:
 - Ignored dependencies, Astro/build caches and test reports. They support local development/validation, are regenerable and are not committed source. Broad deletion would add churn without improving the product.
 
 No other tracked file was demonstrated to be unnecessary by this review. This is not a proof that future consolidation could never be useful.
+
+## Completed: concept-first AI systems discovery
+
+The requested AI vocabulary originally had no coherent place because it mixes practices, architecture, products and speculative capability. Adding every term to global navigation would increase choice overload and make volatile tools look like permanent foundations. The implemented route therefore lives inside AI Engineering and starts with an evidence-producing dependency chain: specify and baseline, prompt contract, grounded retrieval, deterministic workflow, bounded agency, then production trust. A short AI-hub callout and static search make it discoverable without adding another primary navigation item.
+
+n8n and OpenClaw appear at the steps where their capabilities become useful, with limitations and security boundaries; AGI is explicitly outside the implementation checklist. The first project is deliberately read-only and evidence-based. “I’m Lost” now includes the ordered local-industry watchlist for a student seeking grounded perspective, while its existing AI-anxiety choice continues to route to task exposure and durable capabilities. This keeps two distinct needs distinct.
+
+The complete watchlist heading previously wrapped because a general `28ch` editorial measure also applied on wide screens. Only the complete variant now releases that cap from the desktop breakpoint; no `nowrap` is used, so Bangla and smaller viewports retain safe natural wrapping. Automated geometry verifies the English desktop heading as one rendered line and all changed paths for overflow. These are reasoned information-architecture and presentation improvements, not measured proof of comprehension or career outcomes.

@@ -1,4 +1,5 @@
 ---
+import AISystemsPath from "@/components/ai/AISystemsPath.astro";
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
 import ResourceList from "@/components/common/ResourceList.astro";
 import GoalLinks from "@/components/goals/GoalLinks.astro";
@@ -19,6 +20,7 @@ interface Props {
 const { locale, roadmap } = Astro.props;
 const bn = locale === "bn";
 const career = careerById.get(roadmap.careerId)!;
+const isAISystemsRoadmap = career.id === "ai-engineering";
 const supportsFirstSoftwareRole = [
   "backend-engineering",
   "frontend-engineering",
@@ -48,13 +50,27 @@ const supportsFirstSoftwareRole = [
       {t(career.title, locale)}
     </h1><p class="lede">
       {
-        bn
-          ? "এক stage-এ enough হওয়ার আগে next stage-এর tool collect করা লাগবে না। Sequence তোমাকে slow করে না; random detour কমায়।"
-          : "You do not need to collect next-stage tools before you are ready. Sequence does not slow you down; it removes random detours."
+        isAISystemsRoadmap
+          ? bn
+            ? "Prompt engineering, RAG, workflow, agent loop আর runtime একই জিনিস নয়। আগে concept-এর order বোঝো, তারপর একটি measurable system build করো।"
+            : "Prompt engineering, RAG, workflows, agent loops and runtimes are not the same thing. Learn their order, then build one measurable system."
+          : bn
+            ? "এক stage-এ enough হওয়ার আগে next stage-এর tool collect করা লাগবে না। Sequence তোমাকে slow করে না; random detour কমায়।"
+            : "You do not need to collect next-stage tools before you are ready. Sequence does not slow you down; it removes random detours."
       }
     </p><div class="button-row">
-      <a class="button" href="#stage-foundation"
-        >{bn ? "Foundation থেকে শুরু" : "Start at foundation"}</a
+      <a
+        class="button"
+        href={isAISystemsRoadmap ? "#ai-systems-path" : "#stage-foundation"}
+        >{
+          isAISystemsRoadmap
+            ? bn
+              ? "Concept order দেখো"
+              : "See the concept order"
+            : bn
+              ? "Foundation থেকে শুরু"
+              : "Start at foundation"
+        }</a
       ><a
         class="button button--secondary"
         href={withBase(careerPath(locale, career.slug))}
@@ -62,6 +78,7 @@ const supportsFirstSoftwareRole = [
       >
     </div>
   </header>
+  {isAISystemsRoadmap && <AISystemsPath locale={locale} />}
   <section class="section section--tinted">
     <div class="container roadmap-path">
       <ol>

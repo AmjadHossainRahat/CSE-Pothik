@@ -37,12 +37,37 @@ test("bilingual static search finds careers, guidance and resources without trac
   ).toBeVisible();
   await expect(page).not.toHaveURL(/\?q=/);
 
+  await page.getByRole("searchbox").fill("OpenClaw");
+  await expect(
+    page.getByRole("link", { name: "Build AI systems in the right order" }),
+  ).toHaveAttribute("href", route("/roadmaps/ai-engineering/#ai-systems-path"));
+
   await page.goto(route("/bn/search/"));
   await page.getByRole("searchbox").fill("প্রজেক্ট");
   await expect(
     page.getByRole("link", { name: /Final-year project standard/ }),
   ).toBeVisible();
   await expect(page.locator("[data-search-status]")).toContainText("ফল");
+});
+
+test("I’m Lost links grounded local perspectives to the ordered watchlist", async ({
+  page,
+}) => {
+  await page.goto(route("/im-lost/"));
+  const choice = page.getByRole("link", {
+    name: /grounded career direction/i,
+  });
+  await expect(choice).toHaveAttribute(
+    "href",
+    route("/resources/#industry-voices"),
+  );
+  await choice.click();
+  await expect(page.locator("[data-result-copy]")).toContainText(
+    "ordered Bangladesh technology watchlist",
+  );
+  await page.locator("[data-result-link]").click();
+  await expect(page).toHaveURL(/\/resources\/#industry-voices$/);
+  await expect(page.locator("#industry-voices")).toBeInViewport();
 });
 
 test("I’m Lost progressively enhances real fallback links and resets cleanly", async ({

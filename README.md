@@ -99,11 +99,13 @@ The first section after the homepage hero now answers the student's immediate AI
 
 To keep the homepage useful as a router, not a textbook, all eight career-family summaries remain visible while their individual paths are progressively disclosed; the six-step useful loop is also a native disclosure. Both work without JavaScript. The two original illustrations remain the visual anchors, with only restrained CSS micro-motion that is disabled by reduced-motion preferences.
 
-### Bangladesh technology voices
+### Bangladesh tech leaders and practitioners
 
 The former anonymous “veteran voice” examples have been replaced by nine supplied public videos and podcast episodes from Bangladesh technology practitioners, leaders and educators. Two perspectives appear on the homepage; the complete sequence lives at `/resources/#industry-voices` and moves through **Ground yourself → Strengthen how you think → Read the working world**. Each item has typed English/Bangla editorial context, verified YouTube title/publisher metadata, a stable search anchor and bounded resource-click analytics.
 
 The page explicitly treats speakers as perspectives rather than authorities or endorsements. A four-question advice filter asks students to inspect context, concrete trade-offs, corroboration and the next safe action. YouTube links open in a new tab; there are no embeds, autoplay requests, remote thumbnails or new client-side dependencies. `src/data/industry-voices.ts` is rendered by the shared `IndustryVoices.astro` component and covered by content-integrity, search, E2E, no-JavaScript and accessibility tests. The live `yarn check:external-links` audit includes this catalog alongside roadmap and guidance sources.
+
+The visible eyebrow says **Bangladesh tech leaders & practitioners**, not “pioneers.” The broader wording recognizes experienced local voices without making a historical-pioneer claim about every speaker.
 
 ## Prerequisites and Yarn
 
@@ -336,3 +338,13 @@ All three inspiration links and the three distinct contributions are visible in 
 See [the fresher UX review and safe repository cleanup](docs/ux-review.md) for evidence, prioritized recommendations and the distinction between this review and real-user testing. The obsolete lone-boy `mentor-guide.png` was removed; the active three-person and robot PNG masters and `themes-sample.png` are intentionally retained. Git history preserves the retired asset.
 
 The repository is MIT licensed. Its community philosophy encourages improvements that preserve attribution and keep student-facing resources free. See [DESIGN.md](./DESIGN.md#36-conceptual-inspiration-and-provenance) and [LICENSE](./LICENSE).
+
+## AI systems learning path
+
+The AI Engineering roadmap contains a concept-first bridge from a clearly specified problem to a dependable system: forward engineering and a deterministic baseline → testable prompt contract → grounded retrieval/RAG → visible workflow orchestration → one bounded agent loop → production evaluation, guardrails and rollback. The AI overview links directly to this section, and static English/Bangla search indexes it by Agentic AI, AI workflow, n8n, OpenClaw, RAG, AGI, Prompt Engineering, Forward Engineering and agent loop.
+
+Product names are deliberately secondary to capabilities. n8n is introduced as one way to implement a known workflow; OpenClaw is introduced after bounded agency and production controls, with its host/tool/credential trust boundary made explicit. Multi-agent systems wait for a measured coordination problem, and AGI is identified as a changing research horizon rather than a framework or beginner prerequisite. The starting exercise uses harmless owned documents, sourced answers, refusal and a read-only tool so students can produce evidence without paid infrastructure or unsafe permissions.
+
+The AI hub’s “A path for builders” bridge and the roadmap’s “First project” bridge use a compact action-panel pattern: restrained heading scale, a clear explanation/CTA group and two balanced desktop columns that collapse to one natural mobile column. Shared callout headings have a global measure and responsive-size guard so short supporting panels do not inherit page-hero typography.
+
+The “I’m Lost” flow also offers a direct, progressively enhanced route to the ordered nine-item Bangladesh technology watchlist. The watchlist title uses the full desktop heading measure while continuing to wrap naturally on mobile.

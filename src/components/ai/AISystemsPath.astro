@@ -1,0 +1,276 @@
+---
+import ResourceList from "@/components/common/ResourceList.astro";
+import {
+  aiSystemsPathSteps,
+  aiSystemsResourceIds,
+  aiSystemsTermNotes,
+} from "@/data/ai-systems-path";
+import { t } from "@/lib/i18n";
+import type { Locale } from "@/types/content";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const bn = locale === "bn";
+---
+
+<section class="section section--tinted ai-systems-path" id="ai-systems-path">
+  <div class="container">
+    <header class="section-head">
+      <div>
+        <p class="eyebrow">
+          {
+            bn
+              ? "Buzzword নয়—capability order"
+              : "Capabilities before buzzwords"
+          }
+        </p>
+        <h2>
+          {
+            bn
+              ? "Prompt থেকে dependable agentic system"
+              : "From one prompt to a dependable agentic system"
+          }
+        </h2>
+      </div>
+      <p class="lede">
+        {
+          bn
+            ? "সব term একই level-এর নয়। আগে measurable problem আর baseline, তারপর context ও workflow; ambiguity সত্যি দরকার হলে তবেই agent।"
+            : "These terms do not belong at the same level. Begin with a measurable problem and baseline, add context and workflow, then introduce agency only when real ambiguity requires it."
+        }
+      </p>
+    </header>
+
+    <ol class="systems-steps" role="list">
+      {
+        aiSystemsPathSteps.map((step) => (
+          <li id={`ai-system-${step.id}`}>
+            <article>
+              <h3>{t(step.title, locale)}</h3>
+              <p>{t(step.intent, locale)}</p>
+              <p class="build-note">
+                <strong>{bn ? "Build evidence:" : "Build evidence:"}</strong>{" "}
+                {t(step.build, locale)}
+              </p>
+              <ul class="term-chips" aria-label={bn ? "মূল term" : "Key terms"}>
+                {step.terms.map((term) => (
+                  <li>{term}</li>
+                ))}
+              </ul>
+            </article>
+          </li>
+        ))
+      }
+    </ol>
+
+    <div class="systems-lower">
+      <section aria-labelledby="term-map-title">
+        <p class="eyebrow">{bn ? "Term map" : "Term map"}</p>
+        <h2 id="term-map-title">
+          {
+            bn
+              ? "Tool কোথায় fit করে—আর কোথায় করে না"
+              : "Where the tools fit—and where they do not"
+          }
+        </h2>
+        <div class="term-map">
+          {
+            aiSystemsTermNotes.map((note) => (
+              <article>
+                <h3>{note.term}</h3>
+                <p>{t(note.meaning, locale)}</p>
+                <p class="placement">
+                  <strong>{bn ? "কখন:" : "When:"}</strong>{" "}
+                  {t(note.placement, locale)}
+                </p>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
+      <aside class="resource-shelf" aria-labelledby="systems-resources-title">
+        <p class="eyebrow">
+          {bn ? "Primary starting points" : "Primary starting points"}
+        </p>
+        <h2 id="systems-resources-title">
+          {
+            bn
+              ? "Concept শিখে একটি stack বেছে নাও"
+              : "Learn the concepts, then choose one stack"
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "একসঙ্গে সব framework বা provider নয়। Official guide দিয়ে agent, RAG, workflow আর runtime-এর boundary compare করো।"
+              : "Do not collect every framework or provider. Use official guides to compare the boundaries of agents, RAG, workflows and runtimes."
+          }
+        </p>
+        <ResourceList
+          locale={locale}
+          resourceIds={[...aiSystemsResourceIds]}
+          compact
+        />
+      </aside>
+    </div>
+
+    <aside
+      class="start-small"
+      aria-labelledby="start-small-title"
+      data-ui="compact-action-panel"
+    >
+      <div>
+        <p class="callout__label">{bn ? "প্রথম project" : "First project"}</p>
+        <h2 id="start-small-title">
+          {
+            bn
+              ? "Inbox agent নয়—একটি read-only document helper।"
+              : "Not an inbox agent—a read-only document helper."
+          }
+        </h2>
+      </div>
+      <div class="start-small__action">
+        <p>
+          {
+            bn
+              ? "নিজের পাঁচটি harmless document, আটটি labelled question, একটি keyword baseline, sourceসহ answer আর evidence না থাকলে refusal। তারপর চাইলে একটি narrow read-only tool ও bounded loop যোগ করো।"
+              : "Use five harmless documents you own, eight labelled questions, a keyword baseline, sourced answers and refusal when evidence is absent. Only then add one narrow read-only tool and a bounded loop."
+          }
+        </p>
+        <a class="button" href="#stage-foundation">
+          {
+            bn
+              ? "Detailed roadmap শুরু করো"
+              : "Continue into the detailed roadmap"
+          }
+        </a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<style>
+  .systems-steps {
+    display: grid;
+    gap: 1rem;
+    margin: 2rem 0 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: systems-path;
+  }
+  .systems-steps > li {
+    min-width: 0;
+    counter-increment: systems-path;
+  }
+  .systems-steps article,
+  .term-map article {
+    height: 100%;
+    padding: 1.2rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+  }
+  .systems-steps h3,
+  .term-map h3 {
+    margin: 0;
+  }
+  .systems-steps p,
+  .term-map p {
+    margin: 0.65rem 0 0;
+  }
+  .build-note,
+  .placement {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+  .term-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .term-chips li {
+    padding: 0.28rem 0.55rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: 999px;
+    color: var(--color-primary-strong);
+    font-weight: 750;
+    font-size: 0.73rem;
+  }
+  .systems-lower {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .term-map {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 1.25rem;
+  }
+  .resource-shelf {
+    align-self: start;
+    padding: 1.3rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+  }
+  .resource-shelf > h2 {
+    font-size: clamp(1.35rem, 2.5vw, 1.8rem);
+  }
+  .start-small {
+    display: grid;
+    gap: 1.25rem 2.5rem;
+    margin-top: 2rem;
+    padding: clamp(1.35rem, 3vw, 2rem);
+    border: 1px solid var(--color-border);
+    border-inline-start: 0.35rem solid var(--color-teal);
+    border-radius: var(--radius-md);
+    background: var(--color-code);
+    box-shadow: var(--shadow-sm);
+  }
+  .start-small h2 {
+    max-width: 26ch;
+    margin: 0;
+    font-size: clamp(1.45rem, 3vw, 2.15rem);
+    line-height: 1.18;
+  }
+  .start-small__action {
+    display: grid;
+    gap: 1.15rem;
+    align-content: center;
+  }
+  .start-small__action p {
+    max-width: 62ch;
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+  .start-small__action .button {
+    justify-self: start;
+  }
+  @media (min-width: 48rem) {
+    .systems-steps,
+    .term-map {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 68rem) {
+    .systems-steps {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .resource-shelf :global(.resource-list) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 1.5rem;
+    }
+    .start-small {
+      grid-template-columns: minmax(19rem, 0.85fr) minmax(24rem, 1.15fr);
+      align-items: center;
+    }
+  }
+</style>

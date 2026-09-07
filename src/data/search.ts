@@ -88,6 +88,23 @@ const directoryEntries: SearchEntry[] = [
     ),
   },
   {
+    id: "ai-systems-path",
+    type: "guidance",
+    path: "/roadmaps/ai-engineering/#ai-systems-path",
+    title: l(
+      "Build AI systems in the right order",
+      "সঠিক order-এ AI system build করো",
+    ),
+    description: l(
+      "Move from forward engineering and prompt contracts through RAG and workflows to a bounded agent loop and production trust.",
+      "Forward engineering ও prompt contract থেকে RAG, workflow, bounded agent loop আর production trust-এর দিকে এগোও।",
+    ),
+    keywords: l(
+      "agentic AI AI workflow n8n OpenClaw RAG AGI prompt engineering forward engineering agent loop orchestration agents",
+      "agentic AI AI workflow n8n OpenClaw RAG AGI prompt engineering forward engineering agent loop orchestration agent",
+    ),
+  },
+  {
     id: "lost",
     type: "guidance",
     path: "/im-lost/",

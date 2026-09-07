@@ -30,6 +30,11 @@ for (const locale of ["en", "bn"] as const) {
   }, testInfo) => {
     await page.goto(route(locale === "en" ? "/resources/" : "/bn/resources/"));
     const section = page.locator("#industry-voices");
+    await expect(section.locator(".voices-heading .eyebrow")).toHaveText(
+      locale === "en"
+        ? "Bangladesh tech leaders & practitioners"
+        : "বাংলাদেশের tech leader ও practitioner",
+    );
     await expect(section.locator(".voice-stages > li")).toHaveCount(3);
     await expect(section.locator("details[open]")).toHaveCount(1);
     await expect(section.locator(".voice-card")).toHaveCount(9);
@@ -50,6 +55,19 @@ for (const locale of ["en", "bn"] as const) {
         await details.locator("summary").click();
     }
     await expect(section.locator(".voice-card").last()).toBeVisible();
+    if (locale === "en" && testInfo.project.name === "chromium") {
+      const renderedLines = await section
+        .locator(".voices-heading h2")
+        .evaluate((heading) => {
+          const lineHeight = Number.parseFloat(
+            getComputedStyle(heading).lineHeight,
+          );
+          return Math.round(
+            heading.getBoundingClientRect().height / lineHeight,
+          );
+        });
+      expect(renderedLines).toBe(1);
+    }
     await section.screenshot({
       path: testInfo.outputPath(`industry-voices-${locale}.png`),
     });

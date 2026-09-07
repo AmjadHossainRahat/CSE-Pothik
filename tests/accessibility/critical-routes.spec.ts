@@ -32,6 +32,8 @@ for (const route of [
   "/careers/software-quality-assurance/",
   "/bn/roadmaps/software-quality-assurance/",
   "/careers/ai-engineering/",
+  "/roadmaps/ai-engineering/",
+  "/bn/roadmaps/ai-engineering/",
   "/try/application-security/",
   "/guidance/competitive-programming/",
   "/bn/guidance/competitive-programming/",
@@ -66,6 +68,7 @@ for (const route of [
   "/try/network-engineering/",
   "/bn/careers/data-analytics-bi/",
   "/roadmaps/application-security/",
+  "/roadmaps/ai-engineering/",
   "/bn/guidance/competitive-programming/",
 ]) {
   test(`has no detectable dark-theme WCAG A/AA violations: ${route}`, async ({

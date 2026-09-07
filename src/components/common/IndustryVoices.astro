@@ -28,7 +28,11 @@ const displayNumber = (position: number) =>
 <div class:list={["industry-voices", `industry-voices--${variant}`]}>
   <header class="voices-heading">
     <p class="eyebrow">
-      {bn ? "বাংলাদেশের technology voices" : "Voices from Bangladesh tech"}
+      {
+        bn
+          ? "বাংলাদেশের tech leader ও practitioner"
+          : "Bangladesh tech leaders & practitioners"
+      }
     </p>
     <h2>
       {
@@ -329,6 +333,11 @@ const displayNumber = (position: number) =>
     }
     .voice-stages details > .voice-grid > li:last-child:nth-child(odd) {
       grid-column: 1 / -1;
+    }
+  }
+  @media (min-width: 56rem) {
+    .industry-voices--complete .voices-heading h2 {
+      max-width: none;
     }
   }
   @media (min-width: 68rem) {

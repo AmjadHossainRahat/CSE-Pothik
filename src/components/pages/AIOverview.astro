@@ -171,6 +171,36 @@ const bn = locale === "bn";
           ))
         }
       </ol>
+      <aside
+        class="systems-route"
+        aria-labelledby="systems-route-title"
+        data-ui="compact-action-panel"
+      >
+        <div>
+          <p class="callout__label">
+            {bn ? "Build করার path" : "A path for builders"}
+          </p><h2 id="systems-route-title">
+            {
+              bn
+                ? "Prompt → RAG → workflow → agent loop: order-টা আগে বোঝো।"
+                : "Prompt → RAG → workflow → agent loop: learn the order first."
+            }
+          </h2>
+        </div><div class="systems-route__action">
+          <p>
+            {
+              bn
+                ? "n8n আর OpenClaw capability implement করার tool; AGI একটি research horizon। এগুলোকে একই checklist না বানিয়ে measurable system build করো।"
+                : "n8n and OpenClaw are tools that implement capabilities; AGI is a research horizon. Do not turn them into one checklist—build a measurable system."
+            }
+          </p><a
+            class="button"
+            href={withBase(
+              localePath(locale, "/roadmaps/ai-engineering/#ai-systems-path"),
+            )}>{bn ? "AI systems path খোলো" : "Open the AI systems path"}</a
+          >
+        </div>
+      </aside>
     </div>
   </section>
   <section class="section section--tinted">
@@ -297,6 +327,36 @@ const bn = locale === "bn";
   .capability-path p {
     margin: 0;
   }
+  .systems-route {
+    display: grid;
+    gap: 1.25rem 2.5rem;
+    margin-top: 2rem;
+    padding: clamp(1.35rem, 3vw, 2rem);
+    border: 1px solid var(--color-border);
+    border-inline-start: 0.35rem solid var(--color-teal);
+    border-radius: var(--radius-md);
+    background: var(--color-code);
+    box-shadow: var(--shadow-sm);
+  }
+  .systems-route h2 {
+    max-width: 30ch;
+    margin: 0;
+    font-size: clamp(1.4rem, 2.7vw, 2rem);
+    line-height: 1.2;
+  }
+  .systems-route__action {
+    display: grid;
+    gap: 1.15rem;
+    align-content: center;
+  }
+  .systems-route__action p {
+    max-width: 60ch;
+    margin: 0;
+    color: var(--color-text-muted);
+  }
+  .systems-route__action .button {
+    justify-self: start;
+  }
   .mode {
     padding: 1.2rem 0;
     border-top: 2px solid var(--color-primary);
@@ -326,6 +386,10 @@ const bn = locale === "bn";
     color: var(--color-primary);
   }
   @media (min-width: 68rem) {
+    .systems-route {
+      grid-template-columns: minmax(20rem, 0.9fr) minmax(24rem, 1.1fr);
+      align-items: center;
+    }
     .task-model-head {
       grid-template-columns: minmax(0, 1fr);
       align-items: start;

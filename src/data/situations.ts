@@ -151,6 +151,21 @@ export const lostChoices: LostChoice[] = [
     destination: { en: "/ai/", bn: "/bn/ai/" },
   },
   {
+    id: "voices",
+    prompt: l(
+      "I need grounded career direction, not another hype feed.",
+      "Hype feed নয়, বাস্তব career direction দরকার।",
+    ),
+    response: l(
+      "Follow the ordered Bangladesh technology watchlist: settle the anxiety, strengthen your thinking, then understand the working world. Compare every perspective with evidence.",
+      "Ordered Bangladesh technology watchlist দেখো: আগে anxiety সামলাও, thinking শক্ত করো, তারপর working world বোঝো। প্রতিটি perspective evidence দিয়ে যাচাই করো।",
+    ),
+    destination: {
+      en: "/resources/#industry-voices",
+      bn: "/bn/resources/#industry-voices",
+    },
+  },
+  {
     id: "behind",
     prompt: l(
       "I’m in 3rd/4th year and feel behind.",
