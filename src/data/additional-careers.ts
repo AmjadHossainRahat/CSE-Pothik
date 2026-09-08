@@ -8,7 +8,7 @@ export const additionalCareers: CareerSeed[] = [
     title: l("Mobile App Development", "Mobile App Development"),
     description: l(
       "Build apps that remain useful on real phones: small screens, unreliable networks, limited battery and interrupted sessions.",
-      "বাস্তব ফোনের ছোট screen, দুর্বল network, সীমিত battery আর বারবার interruption-এর মধ্যেও কাজে লাগে—এমন app বানাও।",
+      "ছোট screen, দুর্বল network, সীমিত battery আর বারবার interruption—বাস্তব ফোনের এসব সীমার মধ্যেও কাজে লাগে এমন app বানাও।",
     ),
     work: [
       l(
@@ -216,7 +216,7 @@ export const additionalCareers: CareerSeed[] = [
     title: l("UX/UI Engineering", "UX/UI Engineering"),
     description: l(
       "Connect user understanding and interface implementation. UX/product design studies the problem; UI engineering turns tested interactions into accessible software.",
-      "User-এর প্রয়োজন বোঝা আর interface implementation-এর যোগসূত্র। UX/product design সমস্যা বোঝে; UI engineering যাচাই করা interaction-কে accessible software বানায়।",
+      "ব্যবহারকারীর প্রয়োজন বোঝা ও interface বাস্তবে তৈরি করার মাঝের সেতু। UX/product design সমস্যাটি খুঁজে বোঝে; UI engineering যাচাই করা interaction-কে accessible software-এ রূপ দেয়।",
     ),
     work: [
       l(

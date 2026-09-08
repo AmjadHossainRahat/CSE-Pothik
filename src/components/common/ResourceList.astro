@@ -59,7 +59,7 @@ const list = resourceIds
           <span>·</span>
           {!directory && <span>{resource.type}</span>}
           {!directory && <span>·</span>}
-          <span>{locale === "en" ? "Free" : "Free"}</span>
+          <span>{locale === "en" ? "Free" : "বিনামূল্যে"}</span>
         </div>
         <h3>
           <a
@@ -81,7 +81,7 @@ const list = resourceIds
         </p>
         {!compact && (
           <p class="reviewed">
-            {locale === "en" ? "Last reviewed" : "শেষ review"}:{" "}
+            {locale === "en" ? "Last reviewed" : "শেষবার যাচাই"}:{" "}
             <time datetime={resource.lastReviewed}>
               {resource.lastReviewed}
             </time>

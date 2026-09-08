@@ -10,13 +10,13 @@ for (const locale of ["en", "bn"] as const) {
   }) => {
     await page.goto(route("/guidance/first-software-role/", locale));
     await expect(page.locator("h1")).toContainText(
-      locale === "bn" ? "প্রথম software role" : "first software role",
+      locale === "bn" ? "প্রথম সফটওয়্যার চাকরি" : "first software role",
     );
     await expect(page.locator(".start-list a")).toHaveCount(5);
     await expect(page.locator(".role-stage")).toHaveCount(6);
     await expect(page.locator("#interview-baseline")).toContainText(
       locale === "bn"
-        ? "universal junior-job prerequisite নয়"
+        ? "সব junior job-এর বাধ্যতামূলক দরজা নয়"
         : "not a universal junior-job prerequisite",
     );
     await expect(page.locator(".feedback-list article")).toHaveCount(4);

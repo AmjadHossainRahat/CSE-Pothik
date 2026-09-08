@@ -114,6 +114,6 @@ test("comparison groups all careers by family and localizes live feedback", asyn
   await page.goto(route("/bn/compare/"));
   await page.locator(".career-options input:checked").nth(1).uncheck();
   await expect(page.locator("#compare-status")).toHaveText(
-    "কমপক্ষে দুটি career বেছে নাও।",
+    "কমপক্ষে দুটি ক্যারিয়ার বেছে নাও।",
   );
 });

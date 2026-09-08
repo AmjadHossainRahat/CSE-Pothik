@@ -267,6 +267,8 @@ Do not generate literal machine-style Bangla translations.
 
 Bangla should sound natural to Bangladeshi CSE students.
 
+Use a consistent, respectful **তুমি** voice. Rewrite Bangla as conversational mentoring prose rather than preserving English sentence order. Translate ordinary interface and editorial labels; retain English only for technical terms that Bangladeshi students naturally use or where translation would reduce precision. Read long Bangla passages on their own and remove phrases that sound like machine-translated English with Bangla suffixes. Keep humor sparse, contextual and kind.
+
 Keep technical terminology in English where that is natural.
 
 Ensure:

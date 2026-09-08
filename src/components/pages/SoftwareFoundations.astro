@@ -13,59 +13,59 @@ const topics = bn
   ? [
       [
         "Readable Code",
-        "নাম, ছোট coherent unit আর obvious flow team-কে change করতে সাহায্য করে।",
-        "দুই-তিনটি ছোট program বানানোর পর থেকেই।",
-        "নিজের project-এর confusing function rename/split করো।",
-        "‘Clean’ করতে গিয়ে clever abstraction বানিও না।",
+        "ভালো নাম, ছোট coherent unit আর সহজ flow থাকলে team-এর অন্যরাও code বদলাতে পারে।",
+        "দুই-তিনটি ছোট program বানানোর পর থেকেই শেখা শুরু করো।",
+        "নিজের project-এর confusing একটি function-এর নাম বদলাও বা ছোট ভাগে ভাঙো।",
+        "‘Clean’ করতে গিয়ে এমন clever abstraction বানিয়ো না, যা পরে নিজেকেই অভিধান নিয়ে পড়তে হয়।",
       ],
       [
         "Code Smells",
-        "Smell bug না; change কঠিন হওয়ার signal।",
-        "একই pain বারবার দেখলে।",
+        "Code smell নিজে bug নয়; code বদলানো কঠিন হতে পারে—তার ইঙ্গিত।",
+        "একই সমস্যায় বারবার আটকে গেলে।",
         "Duplicate logic বা long parameter list খুঁজে cost লিখো।",
-        "Smell catalogue মুখস্থ করে প্রতিটি code-কে অপরাধী বানিও না।",
+        "Smell catalogue মুখস্থ করে প্রতিটি code-কে আসামির কাঠগড়ায় দাঁড় করিয়ো না।",
       ],
       [
         "Refactoring",
-        "Behavior না বদলে design improve করার disciplined পদ্ধতি।",
+        "আচরণ না বদলে design উন্নত করার disciplined পদ্ধতি।",
         "Testable working code হওয়ার পরে।",
         "Characterization test দিয়ে একটি function simplify করো।",
-        "Broken behavior আর architecture একসঙ্গে rewrite কোরো না।",
+        "ভাঙা behavior আর architecture—দুটো একসঙ্গে rewrite কোরো না।",
       ],
       [
         "SOLID",
-        "Dependency আর responsibility নিয়ে discussion-এর vocabulary।",
-        "Small application build করে change pain দেখার পরে।",
+        "Dependency আর responsibility নিয়ে team-এ কথা বলার একটি vocabulary।",
+        "ছোট application বানিয়ে change-এর কষ্ট নিজে দেখার পরে।",
         "একটি class-এর responsibility split justified কি না explain করো।",
-        "প্রতিটি letter-এর জন্য interface বানিও না।",
+        "SOLID-এর প্রতিটি letter দেখেই একটি করে interface বানাতে বসো না।",
       ],
       [
         "Design Principles",
         "Cohesion, coupling, information hiding আর dependency direction change cost কমায়।",
         "Multiple module-এর project-এ।",
         "একটি dependency arrow উল্টে testability improve করো।",
-        "Diagram সুন্দর হলেই design ভালো ধরে নিও না।",
+        "Diagram সুন্দর হলেই design ভালো—এমন ধরে নিয়ো না। আঁকতে ভালো হলেই architect হওয়া যায় না।",
       ],
       [
         "Design Patterns",
         "Recurring design pressure-এর shared vocabulary।",
-        "Problem firsthand দেখার পরে।",
+        "সমস্যাটি নিজের code-এ দেখার পরে।",
         "Strategy বা Adapter দিয়ে existing pain solve করে alternative compare করো।",
-        "২৩টি GoF pattern মুখস্থ করে breakfast-এ Factory দেখো না।",
+        "২৩টি GoF pattern মুখস্থ করে সকালের নাশতাতেও Factory খুঁজতে যেয়ো না।",
       ],
       [
         "Testing & Testability",
         "Change confidence আর design feedback দেয়।",
         "Business rule বা repeated regression শুরু হলেই।",
         "Happy path, edge case আর failure behavior-এর test দাও।",
-        "Coverage percentage-কে quality score বানিও না।",
+        "Coverage percentage-কে project-এর পরীক্ষার নম্বর বানিয়ো না।",
       ],
       [
         "Architectural Boundaries",
         "Policy-কে framework, UI আর external service থেকে আলাদা রাখে।",
         "Project-এর change reason আলাদা হতে শুরু করলে।",
         "Core rule-কে I/O ছাড়া testable module-এ নাও।",
-        "Tiny CRUD app-এ enterprise clean architecture cosplay কোরো না।",
+        "Tiny CRUD app-এ enterprise clean architecture-এর cosplay কোরো না।",
       ],
     ]
   : [
@@ -134,13 +134,13 @@ const topics = bn
     ? "Software Engineering Foundation"
     : "Software Engineering Foundations"}
   description={bn
-    ? "Readable code, code smell, refactoring, SOLID, design principle, pattern, testing আর architectural boundary—কখন, কেন, কতটুকু।"
+    ? "Readable code, code smell, refactoring, SOLID, design principle, pattern, testing আর architectural boundary—কখন লাগবে, কেন লাগবে, আর কতটুকুই বা যথেষ্ট।"
     : "Mentor-level guidance on readable code, code smells, refactoring, SOLID, design principles, patterns, testing and architectural boundaries."}
 >
   <Breadcrumbs
     locale={locale}
     items={[
-      { label: bn ? "Guidance" : "Guidance" },
+      { label: bn ? "দিকনির্দেশনা" : "Guidance" },
       {
         label: bn
           ? "Software engineering foundation"
@@ -149,16 +149,18 @@ const topics = bn
     ]}
   />
   <header class="page-hero container">
-    <p class="eyebrow">{bn ? "Design literacy" : "Design literacy"}</p><h1>
+    <p class="eyebrow">
+      {bn ? "ভালো design বোঝার ভিত্তি" : "Design literacy"}
+    </p><h1>
       {
         bn
-          ? "Problem দেখার আগে pattern worship কোরো না।"
+          ? "সমস্যা দেখার আগেই pattern-এর পূজা শুরু কোরো না।"
           : "Experience the design problem before worshipping the pattern."
       }
     </h1><p class="lede">
       {
         bn
-          ? "এই page tutorial library না। প্রতিটি concept কেন লাগে, কখন শেখা উচিত, এখন কতটা depth দরকার আর ছোট practice কী—সেটা বলে।"
+          ? "এই page কোনো tutorial library নয়। প্রতিটি ধারণা কেন লাগে, কখন শেখা ভালো, এখন কতটা গভীরতা দরকার আর ছোট করে কী practice করবে—সেটি বলে।"
           : "This is not a tutorial library. It explains why each idea matters, when to learn it, how deep to go now and what small practice makes it real."
       }
     </p>
@@ -166,17 +168,17 @@ const topics = bn
   <section class="section section--tinted">
     <div class="container callout callout--warm">
       <p class="callout__label">
-        {bn ? "Before you continue" : "Before you continue"}
+        {bn ? "এগোনোর আগে একবার থামো" : "Before you continue"}
       </p><h2>
         {
           bn
-            ? "আগে software বানাও। তারপর design pain-এর নাম শিখো।"
+            ? "আগে software বানাও। তারপর design-এর কোথায় ব্যথা, তার নাম শিখো।"
             : "Build software first. Then learn the names of its design pain."
         }
       </h2><p>
         {
           bn
-            ? "Foundation-first মানে design ignore করা না। Real change, bug আর test friction দেখার পরে concept-এর context তৈরি হয়।"
+            ? "Foundation-first মানে design উপেক্ষা করা নয়। সত্যিকারের change, bug আর test-এর friction দেখার পর ধারণাগুলোর context তৈরি হয়।"
             : "Foundation-first does not mean ignoring design. Real changes, bugs and test friction create the context that makes the concepts useful."
         }
       </p>
@@ -202,7 +204,7 @@ const topics = bn
                 <>
                   <div>
                     <>
-                      <dt>{bn ? "কেন matters" : "Why it matters"}</dt>
+                      <dt>{bn ? "কেন দরকার" : "Why it matters"}</dt>
                       <dd>{why}</dd>
                     </>
                   </div>
@@ -217,20 +219,20 @@ const topics = bn
                       <dt>{bn ? "এখন কতটা" : "Enough for now"}</dt>
                       <dd>
                         {bn
-                          ? "Problem recognize, vocabulary explain আর একটি small project-এ deliberateভাবে apply করতে পারা।"
+                          ? "সমস্যাটি চিনতে পারা, নিজের ভাষায় ধারণাটি বোঝানো এবং ছোট একটি project-এ বুঝে প্রয়োগ করতে পারা।"
                           : "Recognize the problem, explain the vocabulary and apply it deliberately once in a small project."}
                       </dd>
                     </>
                   </div>
                   <div>
                     <>
-                      <dt>{bn ? "Small practice" : "Small practice"}</dt>
+                      <dt>{bn ? "ছোট্ট অনুশীলন" : "Small practice"}</dt>
                       <dd>{practice}</dd>
                     </>
                   </div>
                   <div>
                     <>
-                      <dt>{bn ? "যা avoid করবে" : "Avoid"}</dt>
+                      <dt>{bn ? "যা এড়িয়ে চলবে" : "Avoid"}</dt>
                       <dd>{avoid}</dd>
                     </>
                   </div>
@@ -246,13 +248,13 @@ const topics = bn
     <div class="container editorial-grid">
       <div>
         <p class="eyebrow">
-          {bn ? "Selected learning" : "Selected learning"}
+          {bn ? "বাছাই করা শেখার উপকরণ" : "Selected learning"}
         </p><h2>
-          {bn ? "Read কম, refactor বেশি" : "Read less. Refactor more."}
+          {bn ? "পড়া কম নয়—তবে refactor-ও করো" : "Read less. Refactor more."}
         </h2><p class="lede">
           {
             bn
-              ? "Concept পড়ার পরে নিজের code-এ একটি pain খুঁজে testসহ improve করো। তখন vocabulary মনে থাকে।"
+              ? "ধারণাটি পড়ার পর নিজের code-এ একটি সমস্যা খুঁজে testসহ উন্নত করো। তখন শব্দ নয়, কারণটাও মনে থাকে।"
               : "After reading a concept, find one pain in your code and improve it with tests. That is when the vocabulary becomes durable."
           }
         </p>
@@ -264,7 +266,7 @@ const topics = bn
   </section>
   <section class="section">
     <div class="container">
-      <p class="eyebrow">{bn ? "Next step" : "Next step"}</p><h2>
+      <p class="eyebrow">{bn ? "এবার কী করবে" : "Next step"}</p><h2>
         {
           bn
             ? "একটা working project বেছে characterization test দাও।"
@@ -272,18 +274,21 @@ const topics = bn
         }
       </h2><div class="next-actions">
         <a class="button" href={withBase(localePath(locale, "/roadmaps/"))}
-          >{bn ? "Career roadmap-এ ফিরি" : "Return to career roadmaps"}</a
+          >{bn ? "ক্যারিয়ার রোডম্যাপে ফিরি" : "Return to career roadmaps"}</a
         ><a
           class="button button--secondary"
           href={withBase(
             localePath(locale, "/guidance/competitive-programming/"),
-          )}>{bn ? "Problem-solving guidance" : "Problem-solving guidance"}</a
+          )}
+          >{
+            bn ? "Problem-solving-এর দিকনির্দেশনা" : "Problem-solving guidance"
+          }</a
         >
         <a
           class="button button--secondary"
           href={withBase(localePath(locale, "/guidance/final-year-project/"))}
           >{
-            bn ? "Final-year project guideline" : "Final-year project guideline"
+            bn ? "ফাইনাল ইয়ার প্রজেক্ট গাইড" : "Final-year project guideline"
           }</a
         >
       </div>

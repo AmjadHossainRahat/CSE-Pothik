@@ -42,7 +42,9 @@ for (const locale of ["en", "bn"] as const) {
     });
     const pathLink = page.getByRole("link", {
       name:
-        locale === "en" ? "Open the AI systems path" : "AI systems path খোলো",
+        locale === "en"
+          ? "Open the AI systems path"
+          : "AI system তৈরির পথ দেখো",
     });
     await expect(pathLink).toHaveAttribute(
       "href",

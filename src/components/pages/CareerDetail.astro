@@ -29,14 +29,14 @@ const supportsFirstSoftwareRole = [
   "software-quality-assurance",
 ].includes(career.id);
 const dimensions = [
-  [bn ? "Coding" : "Coding", career.dimensions.coding],
-  [bn ? "Math" : "Mathematics", career.dimensions.mathematics],
-  [bn ? "Systems depth" : "Systems depth", career.dimensions.systems],
-  [bn ? "Investigation" : "Investigation", career.dimensions.investigation],
-  [bn ? "Creativity" : "Creativity / design", career.dimensions.creativity],
-  [bn ? "Communication" : "Communication", career.dimensions.communication],
+  [bn ? "কোডিং" : "Coding", career.dimensions.coding],
+  [bn ? "গণিত" : "Mathematics", career.dimensions.mathematics],
+  [bn ? "সিস্টেমের গভীরতা" : "Systems depth", career.dimensions.systems],
+  [bn ? "অনুসন্ধান" : "Investigation", career.dimensions.investigation],
+  [bn ? "সৃজনশীলতা" : "Creativity / design", career.dimensions.creativity],
+  [bn ? "যোগাযোগ" : "Communication", career.dimensions.communication],
   [
-    bn ? "Production ownership" : "Production responsibility",
+    bn ? "Production-এর দায়িত্ব" : "Production responsibility",
     career.dimensions.production,
   ],
 ] as const;
@@ -44,7 +44,7 @@ const structuredData = [
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: `${t(career.title, locale)} ${bn ? "Career Guide ও Roadmap" : "Roadmap & Career Guide"}`,
+    headline: `${t(career.title, locale)} ${bn ? "ক্যারিয়ার গাইড ও রোডম্যাপ" : "Roadmap & Career Guide"}`,
     description: t(career.shortDescription, locale),
     inLanguage: locale,
     isAccessibleForFree: true,
@@ -57,7 +57,7 @@ const structuredData = [
       {
         "@type": "ListItem",
         position: 1,
-        name: bn ? "Career" : "Careers",
+        name: bn ? "ক্যারিয়ার" : "Careers",
         item: new URL(withBase(localePath(locale, "/careers/")), Astro.site)
           .href,
       },
@@ -74,7 +74,7 @@ const structuredData = [
 
 <BaseLayout
   locale={locale}
-  title={`${t(career.title, locale)} ${bn ? "Roadmap ও Career Guide" : "Roadmap & Career Guide"}`}
+  title={`${t(career.title, locale)} ${bn ? "রোডম্যাপ ও ক্যারিয়ার গাইড" : "Roadmap & Career Guide"}`}
   description={t(career.shortDescription, locale)}
   structuredData={structuredData}
   contentView={{ type: "career", careerId: career.id }}
@@ -82,14 +82,14 @@ const structuredData = [
   <Breadcrumbs
     locale={locale}
     items={[
-      { label: bn ? "Career" : "Careers", path: "/careers/" },
+      { label: bn ? "ক্যারিয়ার" : "Careers", path: "/careers/" },
       { label: t(career.title, locale) },
     ]}
   />
   <header class="page-hero container career-hero">
     <div>
       <p class="eyebrow">
-        {t(family.title, locale)} · {bn ? "Career guide" : "Career guide"}
+        {t(family.title, locale)} · {bn ? "ক্যারিয়ার গাইড" : "Career guide"}
       </p>
       <h1>{t(career.title, locale)}</h1>
       <p class="lede">{t(career.shortDescription, locale)}</p>
@@ -99,14 +99,14 @@ const structuredData = [
           href={withBase(experimentPath(locale, career.slug))}
           data-track-event="career_experiment_started"
           data-track-param-career-id={career.id}
-          >{bn ? "এই career try করি" : "Try this career"}</a
+          >{bn ? "কাজটা করে দেখি" : "Try this career"}</a
         >
         <a
           class="button button--secondary"
           href={withBase(roadmapPath(locale, career.slug))}
           data-track-event="next_step_clicked"
           data-track-param-destination={`roadmap/${career.id}`}
-          >{bn ? "Roadmap দেখি" : "See the roadmap"}</a
+          >{bn ? "রোডম্যাপ দেখি" : "See the roadmap"}</a
         >
       </div>
     </div>
@@ -115,10 +115,10 @@ const structuredData = [
         {
           career.id === "backend-engineering"
             ? bn
-              ? "রাত ২:১৩। Production ২০× slow, কিছু deploy হয়নি, customer complain করছে। Investigate করতে ভয়, বিরক্তি—নাকি অদ্ভুত curiosity?"
+              ? "রাত ২টা ১৩। Production ২০ গুণ ধীর, নতুন কিছু deploy-ও হয়নি, customer অভিযোগ করছে। খুঁজে দেখতে ভয় লাগছে, বিরক্তি আসছে—নাকি ভেতরে একটু কৌতূহলও হচ্ছে?"
               : "It is 2:13 AM. Production is 20× slower, nothing was deployed and customers are complaining. Does investigating feel terrifying, annoying—or weirdly exciting?"
             : bn
-              ? "যে অংশটা glamorous নয়, সেটাও কি অন্তত investigate করার মতো interesting? Career fit exciting task দিয়ে একা মাপা যায় না।"
+              ? "কাজের যে অংশটা একদমই glamorous নয়, সেটিও কি অন্তত খুঁজে দেখার মতো interesting লাগে? শুধু মজার task দিয়ে career fit মাপা যায় না।"
               : "Is the unglamorous part still interesting enough to investigate? Career fit is not measured by exciting tasks alone."
         }
       </p>
@@ -129,19 +129,19 @@ const structuredData = [
     <div class="container">
       <div class="section-head">
         <div>
-          <p class="eyebrow">{bn ? "Career snapshot" : "Career snapshot"}</p><h2
-            id="snapshot-title"
-          >
+          <p class="eyebrow">
+            {bn ? "এক নজরে ক্যারিয়ার" : "Career snapshot"}
+          </p><h2 id="snapshot-title">
             {
               bn
-                ? "কাজের pressure profile"
+                ? "কাজের চাপ কেমন"
                 : "A work-pressure profile, not a personality score"
             }
           </h2>
         </div><p class="lede">
           {
             bn
-              ? "তিন dot মানে ‘better’ নয়। এই career-এ ওই dimension বেশি ঘনঘন আসে—শুধু সেটাই।"
+              ? "তিনটি dot মানে ‘ভালো’ নয়। শুধু বোঝায়—এই ক্যারিয়ারে ওই ধরনের কাজ বেশি আসে।"
               : "Three dots never means ‘better.’ It only means this dimension appears more often in the work."
           }
         </p>
@@ -154,7 +154,7 @@ const structuredData = [
                 <div
                   class="metric__dots"
                   role="img"
-                  aria-label={`${value} ${bn ? "out of" : "out of"} 3`}
+                  aria-label={`${bn ? "৩-এর মধ্যে" : "out of 3"} ${value}`}
                 >
                   {[1, 2, 3].map((dot) => (
                     <span
@@ -177,18 +177,21 @@ const structuredData = [
     <div class="container editorial-grid">
       <div>
         <p class="eyebrow">
-          {bn ? "Real work" : "What would I actually do?"}
+          {bn ? "আসল কাজ" : "What would I actually do?"}
         </p><h2>
-          {bn ? "একটা real সপ্তাহে যা করতে পারো" : "The work behind the title"}
+          {
+            bn
+              ? "একটি সত্যিকারের সপ্তাহে যা করতে হতে পারে"
+              : "The work behind the title"
+          }
         </h2><ul class="rule-list">
           {career.actualWork.map((item) => <li>{t(item, locale)}</li>)}
         </ul>
       </div><div class="callout callout--warm">
-        <p class="callout__label">{bn ? "Reality check" : "Reality check"}</p><p
-        >
+        <p class="callout__label">{bn ? "বাস্তব কথাটা" : "Reality check"}</p><p>
           {
             bn
-              ? "Tutorial শেষ করা আর production consequence own করা আলাদা skill। Career page-এর goal hype নয়—দুটোর gap দেখানো।"
+              ? "Tutorial শেষ করা আর production-এর ফলাফলের দায় নেওয়া এক দক্ষতা নয়। এই page-এর কাজ hype তোলা নয়—দুটোর মাঝের ফাঁকটা দেখানো।"
               : "Finishing a tutorial and owning production consequences are different skills. The point is to see the gap, not hide it with hype."
           }
         </p>
@@ -201,13 +204,15 @@ const structuredData = [
       <div>
         <p class="eyebrow">
           {bn ? "ভালো লাগতে পারে যদি" : "You might enjoy this if…"}
-        </p><h2>{bn ? "Curiosity-এর signal" : "Signals worth noticing"}</h2><ul>
+        </p><h2>{bn ? "কৌতূহলের ছোট ইঙ্গিত" : "Signals worth noticing"}</h2><ul>
           {career.enjoyIf.map((item) => <li>{t(item, locale)}</li>)}
         </ul>
       </div><div>
         <p class="eyebrow">
           {bn ? "কঠিন লাগতে পারে যদি" : "You might dislike this if…"}
-        </p><h2>{bn ? "Uncomfortable part" : "The uncomfortable part"}</h2><ul>
+        </p><h2>
+          {bn ? "যে অংশটি অস্বস্তিকর হতে পারে" : "The uncomfortable part"}
+        </h2><ul>
           {career.dislikeIf.map((item) => <li>{t(item, locale)}</li>)}
         </ul>
       </div>
@@ -219,18 +224,18 @@ const structuredData = [
       <div class="section-head">
         <div>
           <p class="eyebrow">
-            {bn ? "একটা realistic day" : "A realistic day"}
+            {bn ? "বাস্তবসম্মত একটি দিন" : "A realistic day"}
           </p><h2>
             {
               bn
-                ? "প্রতিদিন এক না, কিন্তু pressure-এর taste এমন হতে পারে"
+                ? "প্রতিদিন এমন হবে না, তবে চাপের স্বাদটা এমন হতে পারে"
                 : "No day is identical, but the pressure may feel like this"
             }
           </h2>
         </div><p class="lede">
           {
             bn
-              ? "এই timeline scripted career fantasy নয়; typical task-এর plausible mix।"
+              ? "এই timeline কোনো সাজানো career fantasy নয়; সাধারণ কয়েকটি কাজের সম্ভাব্য মিশ্রণ।"
               : "This is a plausible mix of recurring tasks, not a scripted career fantasy."
           }
         </p>
@@ -254,25 +259,25 @@ const structuredData = [
       <div class="section-head">
         <div>
           <p class="eyebrow">
-            {bn ? "Learning direction" : "What should I learn?"}
+            {bn ? "কীভাবে শিখবে" : "What should I learn?"}
           </p><h2>
             {
               bn
-                ? "Checklist নয়—layered sequence"
+                ? "Checklist নয়—ধাপে ধাপে এগোনোর পথ"
                 : "A layered sequence, not a technology dump"
             }
           </h2>
         </div><a
           class="button button--secondary"
           href={withBase(roadmapPath(locale, career.slug))}
-          >{bn ? "Detailed roadmap" : "Open the detailed roadmap"}</a
+          >{bn ? "বিস্তারিত রোডম্যাপ" : "Open the detailed roadmap"}</a
         >
       </div><div class="learn-grid">
         {
           [
-            [bn ? "Foundation" : "Foundation", career.foundation],
-            [bn ? "Core" : "Core", career.core],
-            [bn ? "Practical" : "Practical", career.practical],
+            [bn ? "ভিত্তি" : "Foundation", career.foundation],
+            [bn ? "মূল দক্ষতা" : "Core", career.core],
+            [bn ? "হাতে-কলমে কাজ" : "Practical", career.practical],
             [bn ? "পরে" : "Later", career.later],
           ].map(([label, items], index) => (
             <article>
@@ -296,11 +301,11 @@ const structuredData = [
     <div class="container editorial-grid">
       <div>
         <p class="eyebrow">
-          {bn ? "What not to learn yet" : "What not to learn yet"}
+          {bn ? "যেগুলো এখনই না শিখলেও চলবে" : "What not to learn yet"}
         </p><h2>
           {
             bn
-              ? "এখনই নয়—কারণ sequence matters"
+              ? "এখনই নয়—কারণ কোনটার পর কোনটা শিখছ, সেটি জরুরি"
               : "Not yet—because sequence matters"
           }
         </h2><ul class="not-yet">
@@ -315,15 +320,15 @@ const structuredData = [
         </ul>
       </div><div class="callout callout--amber">
         <p class="callout__label">
-          {bn ? "Future You says" : "Future You says"}
+          {bn ? "ভবিষ্যতের তুমি বলছে" : "Future You says"}
         </p><p>
           {
             career.id === "backend-engineering"
               ? bn
-                ? "এখনও প্রথম API-টাই deploy করোনি। Kubernetes একটু অপেক্ষা করতেই পারে।"
+                ? "এখনও প্রথম API-টাই deploy করোনি। Kubernetes-কে একটু অপেক্ষা করতে বললে সে রাগ করবে না।"
                 : "You have not deployed your first API yet. Kubernetes can wait."
               : bn
-                ? "‘পরে’ মানে useless নয়। Foundation ছাড়া এখন শিখলে context থাকবে না।"
+                ? "‘পরে’ মানে অপ্রয়োজনীয় নয়। ভিত তৈরি হওয়ার আগে শিখলে শুধু context-টাই থাকবে না।"
                 : "‘Later’ does not mean useless. It means you will learn it faster once you have a real problem for it."
           }
         </p>
@@ -335,14 +340,15 @@ const structuredData = [
     <div class="container">
       <div class="section-head">
         <div>
-          <p class="eyebrow">{bn ? "AI ও এই career" : "AI & this career"}</p><h2
-          >
-            {bn ? "Task Automation Exposure" : "Task Automation Exposure"}
+          <p class="eyebrow">
+            {bn ? "AI ও এই ক্যারিয়ার" : "AI & this career"}
+          </p><h2>
+            {bn ? "কাজ কতটা automate হতে পারে" : "Task Automation Exposure"}
           </h2>
         </div><p class="lede">
           {
             bn
-              ? "এটা replacement probability নয়। AI capability বদলাবে; তাই task, judgment আর responsibility আলাদা করে দেখো।"
+              ? "এটি replacement-এর শতকরা হিসাব নয়। AI-এর ক্ষমতা বদলাবে; তাই কাজ, বিচারবোধ আর দায়িত্ব—তিনটাকে আলাদা করে দেখো।"
               : "This is not a replacement probability. Capabilities will change, so separate tasks, judgment and responsibility."
           }
         </p>
@@ -355,9 +361,7 @@ const structuredData = [
                 <h3>{t(item.task, locale)}</h3>
                 <p>{t(item.explanation, locale)}</p>
                 <p>
-                  <strong>
-                    {bn ? "Student response:" : "Student response:"}
-                  </strong>{" "}
+                  <strong>{bn ? "তোমার করণীয়:" : "Student response:"}</strong>{" "}
                   {t(item.studentResponse, locale)}
                 </p>
               </>
@@ -371,7 +375,7 @@ const structuredData = [
         data-track-param-career-id={career.id}
         >{
           bn
-            ? "এই career-এর AI practice guide →"
+            ? "এই ক্যারিয়ারে AI ব্যবহারের গাইড →"
             : "Open the career-specific AI practice guide →"
         }</a
       >
@@ -382,19 +386,19 @@ const structuredData = [
     <div class="container editorial-grid">
       <div>
         <p class="eyebrow">
-          {bn ? "Curated learning" : "Curated learning resources"}
+          {bn ? "বাছাই করা শেখার রিসোর্স" : "Curated learning resources"}
         </p><h2>
           {
             career.id === "mobile-app-development"
               ? bn
-                ? "একটি platform দিয়ে শুরু"
+                ? "শুরুতে একটি platform-ই যথেষ্ট"
                 : "Start with one platform"
               : "Learn → Practice → Go deeper"
           }
         </h2><p class="lede">
           {
             bn
-              ? "Resource count দিয়ে progress হয় না। Recommended scope শেষ করে কিছু build করো।"
+              ? "কতগুলো resource জমিয়েছ, সেটি progress নয়। দরকারি অংশটুকু শেষ করে কিছু বানাও।"
               : "Resource count is not progress. Finish the recommended scope and build something."
           }
         </p>
@@ -410,21 +414,27 @@ const structuredData = [
 
   <section class="section section--tinted">
     <div class="container">
-      <p class="eyebrow">{bn ? "Next choices" : "Next choices"}</p><h2>
-        {bn ? "এখন কোন evidence নেবে?" : "What evidence will you gather next?"}
+      <p class="eyebrow">{bn ? "এবার কী করবে" : "Next choices"}</p><h2>
+        {
+          bn
+            ? "এবার নিজের জন্য কোন evidence বানাবে?"
+            : "What evidence will you gather next?"
+        }
       </h2><div class="next-actions">
         <a class="button" href={withBase(experimentPath(locale, career.slug))}
-          >{bn ? "Career experiment" : "Try this career"}</a
+          >{bn ? "কাজটা করে দেখি" : "Try this career"}</a
         ><a
           class="button button--secondary"
           href={withBase(localePath(locale, "/compare/"))}
           >{
-            bn ? "অন্য career-এর সঙ্গে compare" : "Compare with another path"
+            bn
+              ? "অন্য ক্যারিয়ারের সঙ্গে মিলিয়ে দেখি"
+              : "Compare with another path"
           }</a
         ><a
           class="button button--secondary"
           href={withBase(roadmapPath(locale, career.slug))}
-          >{bn ? "Roadmap" : "See the roadmap"}</a
+          >{bn ? "রোডম্যাপ" : "See the roadmap"}</a
         >
       </div>
       {
@@ -438,7 +448,7 @@ const structuredData = [
               data-track-param-destination="first-software-role"
             >
               {bn
-                ? "Final semester থেকে internship বা junior role-এর plan"
+                ? "Final semester থেকে internship বা junior role-এর পরিকল্পনা"
                 : "Turn this direction into an internship or junior-role plan"}{" "}
               →
             </a>
@@ -446,7 +456,7 @@ const structuredData = [
         )
       }
       <h3 class="related-title">
-        {bn ? "Nearby directions" : "Nearby directions"}
+        {bn ? "কাছাকাছি আরও কিছু পথ" : "Nearby directions"}
       </h3><div class="related-links">
         {
           career.relatedCareerIds.map((id) => {
@@ -460,7 +470,7 @@ const structuredData = [
         }<a href={withBase(localePath(locale, "/careers/"))}
           >{
             bn
-              ? "এটা আমার মতো না—অন্য family দেখি"
+              ? "এটি আমার মতো লাগছে না—অন্য বিভাগ দেখি"
               : "This does not sound like me"
           }
           <span aria-hidden="true">→</span></a

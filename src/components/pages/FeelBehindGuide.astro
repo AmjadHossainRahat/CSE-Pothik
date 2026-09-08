@@ -16,27 +16,27 @@ const bn = locale === "bn";
     ? "3rd/4th Year Recovery Route"
     : "Third/Fourth-Year CSE Recovery Route"}
   description={bn
-    ? "পিছিয়ে পড়া CSE student-এর জন্য shame-free 12-week recovery route: narrow target, foundation audit, one project, feedback আর realistic next step।"
+    ? "পিছিয়ে পড়েছ মনে হওয়া CSE শিক্ষার্থীর জন্য ১২ সপ্তাহের recovery plan: ছোট লক্ষ্য, নিজের ভিত্তির হিসাব, একটি project, feedback আর বাস্তবসম্মত পরের ধাপ।"
     : "A shame-free 12-week recovery route for CSE students: narrow target, foundation audit, one project, feedback and a realistic next step."}
 >
   <Breadcrumbs
     locale={locale}
     items={[
-      { label: bn ? "Guidance" : "Guidance" },
+      { label: bn ? "দিকনির্দেশনা" : "Guidance" },
       { label: bn ? "পিছিয়ে মনে হচ্ছে" : "Feel behind" },
     ]}
   />
   <header class="page-hero container">
-    <p class="eyebrow">{bn ? "Recovery route" : "Recovery route"}</p><h1>
+    <p class="eyebrow">{bn ? "ঘুরে দাঁড়ানোর পথ" : "Recovery route"}</p><h1>
       {
         bn
-          ? "তিন বছরের gap তিন সপ্তাহে যাবে না।"
+          ? "তিন বছরের ঘাটতি তিন সপ্তাহে মিটবে না।"
           : "You cannot recover three years in three weeks."
       }
     </h1><p class="lede">
       {
         bn
-          ? "কিন্তু পরের তিন মাস নষ্ট হওয়া আজই বন্ধ করতে পারো। Shame useful plan না। Narrow target, honest audit, one project আর feedback useful।"
+          ? "কিন্তু পরের তিন মাস নষ্ট হওয়া আজই থামাতে পারো। নিজেকে দোষ দিলে plan হয় না; ছোট লক্ষ্য, সৎ হিসাব, একটি project আর feedback—এগুলো দিয়ে হয়।"
           : "But you can stop losing the next three months. Shame is not a useful plan. A narrow target, honest audit, one project and feedback are."
       }
     </p>
@@ -46,18 +46,18 @@ const bn = locale === "bn";
       <div class="section-head">
         <div>
           <p class="eyebrow">
-            {bn ? "First 48 hours" : "The first 48 hours"}
+            {bn ? "শুরুর ৪৮ ঘণ্টা" : "The first 48 hours"}
           </p><h2>
             {
               bn
-                ? "Decision কমাও, signal বাড়াও"
+                ? "সিদ্ধান্ত কমাও, evidence বাড়াও"
                 : "Reduce decisions. Increase signal."
             }
           </h2>
         </div><p class="lede">
           {
             bn
-              ? "Perfect career choose করতে যেও না। আগামী ১২ সপ্তাহের জন্য provisional target নাও।"
+              ? "নিখুঁত ক্যারিয়ার বাছতে যেয়ো না। আপাতত আগামী ১২ সপ্তাহের জন্য একটি লক্ষ্য নাও।"
               : "Do not wait for a perfect career choice. Choose a provisional target for the next 12 weeks."
           }
         </p>
@@ -65,10 +65,10 @@ const bn = locale === "bn";
         {
           (bn
             ? [
-                "দুটি career guide পড়ো; একটিকে provisional target করো।",
-                "Programming, Git, DSA, project আর communication-এর honest audit লিখো।",
-                "Target career-এর roadmap-এ current stage mark করো—progress save নয়, নিজের notebook-এ।",
-                "একটি small project scope করো যেটা ৬ সপ্তাহে শেষ হবে।",
+                "দুটি ক্যারিয়ার গাইড পড়ো; একটিকে আপাতত লক্ষ্য ধরো।",
+                "Programming, Git, DSA, project আর communication-এ নিজের অবস্থার সৎ হিসাব লেখো।",
+                "লক্ষ্যের রোডম্যাপে এখন কোথায় আছ চিহ্নিত করো—সাইটে নয়, নিজের notebook-এ।",
+                "ছয় সপ্তাহে শেষ করা যাবে, এমন ছোট একটি project ঠিক করো।",
               ]
             : [
                 "Read two career guides and choose one provisional target.",
@@ -91,14 +91,14 @@ const bn = locale === "bn";
           <h3>
             {
               bn
-                ? "Project আর target direction আগে থেকেই আছে?"
+                ? "Project আর কোন দিকে যাবে—দুটোই আগে থেকে জানা?"
                 : "Already have a project and a target direction?"
             }
           </h3>
           <p>
             {
               bn
-                ? "আরেকটি project শূন্য থেকে শুরু কোরো না। Existing কাজকে reviewable evidence বানিয়ে internship বা junior-role cycle শুরু করো।"
+                ? "তাহলে আরেকটি project শূন্য থেকে শুরু কোরো না। আগের কাজটিকেই review করা যায় এমন evidence বানিয়ে internship বা junior-role cycle শুরু করো।"
                 : "Do not automatically start another project. Turn the work you already understand into reviewable evidence and begin an internship or junior-role cycle."
             }
           </p>
@@ -107,7 +107,7 @@ const bn = locale === "bn";
           href={withBase(localePath(locale, "/guidance/first-software-role/"))}
           data-track-event="next_step_clicked"
           data-track-param-destination="first-software-role"
-          >{bn ? "First-role guide" : "Open the first-role guide"} →</a
+          >{bn ? "প্রথম চাকরির গাইড" : "Open the first-role guide"} →</a
         >
       </aside>
     </div>
@@ -124,11 +124,11 @@ const bn = locale === "bn";
       </h2><div class="recovery-grid">
         <article>
           <span>Week 1–3</span><h3>
-            {bn ? "Foundation audit repair" : "Repair foundations"}
+            {bn ? "ভিত্তির ঘাটতি মেরামত" : "Repair foundations"}
           </h3><p>
             {
               bn
-                ? "প্রতিদিন ৬০–৯০ মিনিট target-এর core prerequisite। Tool hopping বন্ধ।"
+                ? "প্রতিদিন ৬০–৯০ মিনিট লক্ষ্যের মূল prerequisite-এ দাও। আজ এটা, কাল ওটা—tool hopping বন্ধ রাখো।"
                 : "Spend 60–90 minutes daily on core prerequisites. Stop tool hopping."
             }
           </p>
@@ -138,23 +138,23 @@ const bn = locale === "bn";
           </h3><p>
             {
               bn
-                ? "README, error handling, test, Git history আর deployable result। Clone project না।"
+                ? "README, error handling, test, পরিষ্কার Git history আর deploy করা যায় এমন ফল। আরেকটি clone project নয়।"
                 : "Include a README, errors, tests, Git history and a deployable result. Avoid a clone-only project."
             }
           </p>
         </article><article>
           <span>Week 9–10</span><h3>
-            {bn ? "Feedback আর refactor" : "Feedback and refactor"}
+            {bn ? "মতামত নাও, তারপর refactor করো" : "Feedback and refactor"}
           </h3><p>
             {
               bn
-                ? "Peer/mentor review নাও। একটা design pain testসহ improve করো।"
+                ? "Peer বা mentor-এর review নাও। design-এর একটি সমস্যা testসহ ঠিক করো।"
                 : "Get peer or mentor review. Improve one design pain with tests."
             }
           </p>
         </article><article>
           <span>Week 11–12</span><h3>
-            {bn ? "Evidence present করো" : "Present the evidence"}
+            {bn ? "কাজের প্রমাণটা গুছিয়ে দেখাও" : "Present the evidence"}
           </h3><p>
             {
               bn
@@ -170,25 +170,25 @@ const bn = locale === "bn";
     <div class="container editorial-grid">
       <div>
         <p class="eyebrow">
-          {bn ? "Uncomfortable part" : "The uncomfortable part"}
+          {bn ? "অস্বস্তিকর হলেও সত্যি" : "The uncomfortable part"}
         </p><h2>
           {
             bn
-              ? "তুমি সব gap একসঙ্গে close করবে না।"
+              ? "সব ঘাটতি একসঙ্গে মেটাতে হবে না।"
               : "You will not close every gap at once."
           }
         </h2><p>
           {
             bn
-              ? "Relevant gap close করো। Job-ready মানে সব জানা না; useful problem independently solve, explain, learn আর improve করতে পারা।"
+              ? "যে ঘাটতিটি লক্ষ্যের পথে বাধা, সেটি আগে মেটাও। Job-ready মানে সব জানা নয়; দরকারি সমস্যা নিজে সমাধান, ব্যাখ্যা, শেখা আর উন্নত করতে পারা।"
               : "Close the relevant gaps. Job-ready does not mean knowing everything; it means solving, explaining, learning and improving useful problems with growing independence."
           }
         </p>
       </div><div class="callout">
-        <p class="callout__label">{bn ? "Mentor note" : "Mentor note"}</p><p>
+        <p class="callout__label">{bn ? "মেন্টরের কথা" : "Mentor note"}</p><p>
           {
             bn
-              ? "Comparison যদি action বন্ধ করে, LinkedIn tab বন্ধ করে ২৫ মিনিট code পড়ো। অন্যের timeline তোমার compiler error fix করবে না।"
+              ? "তুলনা করতে করতে কাজ বন্ধ হয়ে গেলে LinkedIn tab বন্ধ করে ২৫ মিনিট code পড়ো। অন্যের timeline তোমার compiler error ঠিক করবে না—দুঃখিত, algorithm এখনও এত উন্নত হয়নি।"
               : "If comparison blocks action, close the timeline and read code for 25 minutes. Someone else’s timeline will not fix your compiler error."
           }
         </p>
@@ -205,14 +205,14 @@ const bn = locale === "bn";
         }
       </h2><div class="next-actions">
         <a class="button" href={withBase(localePath(locale, "/careers/"))}
-          >{bn ? "Career guide" : "Explore careers"}</a
+          >{bn ? "ক্যারিয়ারগুলো দেখো" : "Explore careers"}</a
         ><a
           class="button button--secondary"
           href={withBase(localePath(locale, "/roadmaps/"))}>Roadmaps</a
         ><a
           class="button button--secondary"
           href={withBase(localePath(locale, "/try/"))}
-          >{bn ? "Experiment" : "Try a career"}</a
+          >{bn ? "কাজটা করে দেখো" : "Try a career"}</a
         >
       </div>
     </div>

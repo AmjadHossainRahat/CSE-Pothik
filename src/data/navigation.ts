@@ -28,7 +28,7 @@ export const navigationGroups: NavigationGroup[] = [
       },
       {
         id: "next-step",
-        label: l("Find my next step", "আমার next step খুঁজি"),
+        label: l("Find my next step", "এরপর কী করব?"),
         path: "/#starting-point",
         match: "none",
       },
@@ -46,7 +46,7 @@ export const navigationGroups: NavigationGroup[] = [
       },
       {
         id: "first-role",
-        label: l("First software role", "প্রথম software role"),
+        label: l("First software role", "প্রথম সফটওয়্যার চাকরি"),
         path: "/guidance/first-software-role/",
         match: "exact",
       },
@@ -65,19 +65,19 @@ export const navigationGroups: NavigationGroup[] = [
     items: [
       {
         id: "careers",
-        label: l("Career paths", "Career path"),
+        label: l("Career paths", "ক্যারিয়ারের পথ"),
         path: "/careers/",
         match: "prefix",
       },
       {
         id: "compare",
-        label: l("Compare careers", "Career compare করো"),
+        label: l("Compare careers", "ক্যারিয়ার মিলিয়ে দেখো"),
         path: "/compare/",
         match: "exact",
       },
       {
         id: "experiments",
-        label: l("Try real work", "কাজ try করো"),
+        label: l("Try real work", "কাজটা করে দেখো"),
         path: "/try/",
         match: "prefix",
       },
@@ -89,25 +89,25 @@ export const navigationGroups: NavigationGroup[] = [
     items: [
       {
         id: "roadmaps",
-        label: l("Learning roadmaps", "Learning roadmap"),
+        label: l("Learning roadmaps", "শেখার রোডম্যাপ"),
         path: "/roadmaps/",
         match: "prefix",
       },
       {
         id: "goals",
-        label: l("Goal plans", "Goal-এর plan"),
+        label: l("Goal plans", "লক্ষ্যভিত্তিক প্রস্তুতি"),
         path: "/goals/",
         match: "prefix",
       },
       {
         id: "final-year",
-        label: l("Final-year project", "Final-year project"),
+        label: l("Final-year project", "ফাইনাল ইয়ার প্রজেক্ট"),
         path: "/guidance/final-year-project/",
         match: "exact",
       },
       {
         id: "resources",
-        label: l("Learning resources", "Learning resources"),
+        label: l("Learning resources", "শেখার রিসোর্স"),
         path: "/resources/",
         match: "exact",
       },
@@ -119,7 +119,7 @@ export const navigationGroups: NavigationGroup[] = [
     items: [
       {
         id: "ai",
-        label: l("AI & your career", "AI ও তোমার career"),
+        label: l("AI & your career", "AI ও তোমার ক্যারিয়ার"),
         path: "/ai/",
         match: "prefix",
       },

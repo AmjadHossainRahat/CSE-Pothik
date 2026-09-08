@@ -6,7 +6,7 @@ export const specialistExperiments: ExperimentSeed[] = [
     id: "data-analytics-bi",
     title: l(
       "Challenge one metric before drawing the dashboard",
-      "Dashboard আঁকার আগে একটি metric challenge করো",
+      "Dashboard বানানোর আগে metric-টিকেই প্রশ্ন করো",
     ),
     duration: "75–120 min",
     prerequisites: [
@@ -64,7 +64,7 @@ export const specialistExperiments: ExperimentSeed[] = [
     id: "ai-engineering",
     title: l(
       "Build an evaluated answer finder—not an AI demo",
-      "AI demo নয়—evaluated answer finder বানাও",
+      "শুধু AI demo নয়—যাচাই করা যায় এমন answer finder বানাও",
     ),
     duration: "90–120 min",
     prerequisites: [
@@ -122,7 +122,7 @@ export const specialistExperiments: ExperimentSeed[] = [
     id: "application-security",
     title: l(
       "Threat-model and protect one tiny feature",
-      "একটি tiny feature threat-model আর protect করো",
+      "ছোট একটি feature-এর threat model বানিয়ে সেটিকে সুরক্ষিত করো",
     ),
     duration: "75–120 min",
     prerequisites: [

@@ -21,23 +21,23 @@ const bn = locale === "bn";
   locale={locale}
   title={`AI & ${t(career.title, locale)}`}
   description={bn
-    ? `${t(career.title, locale)}-এ কোন task বেশি exposed, কোথায় AI accelerator, আর কোন capability independently build করবে।`
+    ? `${t(career.title, locale)}-এর কোন কাজে AI-এর প্রভাব বেশি, কোথায় AI গতি বাড়ায় আর কোন দক্ষতা নিজের শক্তিতে গড়বে।`
     : `See which ${t(career.title, locale)} tasks have higher automation exposure, where AI accelerates work and which capabilities to build independently.`}
 >
   <Breadcrumbs
     locale={locale}
     items={[
-      { label: bn ? "AI ও career" : "AI & Your Career", path: "/ai/" },
+      { label: bn ? "AI ও ক্যারিয়ার" : "AI & Your Career", path: "/ai/" },
       { label: t(career.title, locale) },
     ]}
   />
   <header class="page-hero container">
     <p class="eyebrow">
-      {bn ? "Career-specific AI guide" : "Career-specific AI guide"}
+      {bn ? "এই ক্যারিয়ারে AI" : "Career-specific AI guide"}
     </p><h1>AI & {t(career.title, locale)}</h1><p class="lede">
       {
         bn
-          ? "Replacement score নেই। এই career-এর taskগুলো আলাদা করে দেখে কোথায় AI-কে direct করবে আর কোথায় নিজে reasoning ধরে রাখবে বোঝো।"
+          ? "এখানে কোনো replacement score নেই। কাজগুলো আলাদা করে দেখো—কোথায় AI-কে নির্দেশ দেবে, আর কোথায় নিজের চিন্তার হাল ছাড়বে না।"
           : "No replacement score. Separate the career’s tasks to see where to direct AI and where to preserve independent reasoning."
       }
     </p>
@@ -49,14 +49,14 @@ const bn = locale === "bn";
           <p class="eyebrow">Task Automation Exposure</p><h2>
             {
               bn
-                ? "Task, explanation, student response"
+                ? "কাজ, ব্যাখ্যা, তোমার করণীয়"
                 : "Task, explanation, student response"
             }
           </h2>
         </div><p class="lede">
           {
             bn
-              ? "Lower মানে permanent safe নয়; higher মানে career useless-ও নয়। Task mix আর responsibility বদলায়।"
+              ? "Lower মানে চিরদিন নিরাপদ নয়; higher মানে ক্যারিয়ারটি অর্থহীনও নয়। কাজের মিশ্রণ আর দায়িত্ব বদলায়।"
               : "Lower never means permanently safe; higher never means the career is useless. Task mix and responsibility change."
           }
         </p>
@@ -83,7 +83,7 @@ const bn = locale === "bn";
     <div class="container editorial-grid">
       <div>
         <p class="eyebrow">
-          {bn ? "Independent capability" : "Independent capability"}
+          {bn ? "নিজের শক্তির জায়গা" : "Independent capability"}
         </p><h2>
           {
             bn
@@ -99,11 +99,11 @@ const bn = locale === "bn";
         </ul>
       </div><div class="callout callout--warm">
         <p class="callout__label">
-          {bn ? "Verification drill" : "Verification drill"}
+          {bn ? "যাচাইয়ের ছোট অনুশীলন" : "Verification drill"}
         </p><p>
           {
             bn
-              ? "AI-generated solution-এ একটা bug, একটা unproven assumption, একটা missing edge case আর একটা simpler alternative খুঁজে লেখো।"
+              ? "AI-এর বানানো solution থেকে একটি bug, প্রমাণহীন একটি assumption, বাদ পড়া একটি edge case আর সহজতর একটি বিকল্প খুঁজে লেখো।"
               : "In an AI-generated solution, identify one bug, one unproven assumption, one missing edge case and one simpler alternative."
           }
         </p>
@@ -112,19 +112,19 @@ const bn = locale === "bn";
   </section>
   <section class="section section--tinted">
     <div class="container">
-      <p class="eyebrow">{bn ? "Next choices" : "Next choices"}</p><h2>
-        {bn ? "ভয় থেকে practice-এ যাও" : "Move from fear to practice"}
+      <p class="eyebrow">{bn ? "এবার কী করবে" : "Next choices"}</p><h2>
+        {bn ? "ভয় নিয়ে বসে না থেকে কাজে নামো" : "Move from fear to practice"}
       </h2><div class="next-actions">
         <a class="button" href={withBase(experimentPath(locale, career.slug))}
-          >{bn ? "Career experiment" : "Run the career experiment"}</a
+          >{bn ? "ক্যারিয়ারের কাজ করে দেখি" : "Run the career experiment"}</a
         ><a
           class="button button--secondary"
           href={withBase(roadmapPath(locale, career.slug))}
-          >{bn ? "Roadmap" : "Open the roadmap"}</a
+          >{bn ? "রোডম্যাপ খুলি" : "Open the roadmap"}</a
         ><a
           class="button button--secondary"
           href={withBase(careerPath(locale, career.slug))}
-          >{bn ? "Career overview" : "Career overview"}</a
+          >{bn ? "ক্যারিয়ার পরিচিতি" : "Career overview"}</a
         >
       </div>
     </div>

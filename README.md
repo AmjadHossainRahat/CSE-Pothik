@@ -169,7 +169,7 @@ Published entities use stable language-neutral IDs. Localized copy uses `{ en, b
 
 Language implementation combines shared resources and separate generated HTML: typed bilingual data/UI copy and shared Astro templates are the source; thin English and `/bn/` route wrappers select the locale at build time. We do not maintain two hand-written HTML copies of each page or translate essential content in the browser. Some page-specific editorial copy is colocated as English/Bangla pairs inside the shared template.
 
-English is the canonical editorial source. Bangla should be rewritten as natural mentoring copy for Bangladeshi CSE students, not translated word-for-word. Technical terms such as API, Git, Backend, Docker, SOLID, Design Pattern, Machine Learning, DevOps, and Cybersecurity may remain in English when natural.
+English is the canonical editorial source. Bangla is edited as original conversational mentoring copy for Bangladeshi CSE students, not translated word-for-word. It consistently addresses the student as `তুমি`, favors familiar spoken sentence order and translates ordinary interface scaffolding instead of leaving labels such as “Guidance” or “Next step” in English. Technical terms such as API, Git, Backend, Docker, SOLID, Design Pattern, Machine Learning, DevOps, and Cybersecurity remain in English when that is clearer and more natural than an invented synonym. Humor is occasional and situational; it never mocks a student's anxiety, background or pace.
 
 ### Add a career
 

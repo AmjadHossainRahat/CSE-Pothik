@@ -32,9 +32,9 @@ const supportsFirstSoftwareRole = [
 <BaseLayout
   locale={locale}
   contentView={{ type: "roadmap", careerId: career.id }}
-  title={`${t(career.title, locale)} ${bn ? "Roadmap" : "Learning Roadmap"}`}
+  title={`${t(career.title, locale)} ${bn ? "শেখার রোডম্যাপ" : "Learning Roadmap"}`}
   description={bn
-    ? `${t(career.title, locale)}-এর foundation-first roadmap: কী শিখবে, কেন, এখন কতটুকু যথেষ্ট আর কী পরে।`
+    ? `${t(career.title, locale)}-এর ভিত্তি থেকে সাজানো রোডম্যাপ: কী শিখবে, কেন শিখবে, এখন কতটুকু যথেষ্ট আর কোনটা পরে।`
     : `A foundation-first ${t(career.title, locale)} roadmap: what to learn, why it matters, what is enough and what can wait.`}
 >
   <Breadcrumbs
@@ -45,17 +45,17 @@ const supportsFirstSoftwareRole = [
     ]}
   />
   <header class="page-hero container">
-    <p class="eyebrow">{bn ? "Five-stage roadmap" : "Five-stage roadmap"}</p><h1
+    <p class="eyebrow">{bn ? "পাঁচ ধাপে শেখার পথ" : "Five-stage roadmap"}</p><h1
     >
       {t(career.title, locale)}
     </h1><p class="lede">
       {
         isAISystemsRoadmap
           ? bn
-            ? "Prompt engineering, RAG, workflow, agent loop আর runtime একই জিনিস নয়। আগে concept-এর order বোঝো, তারপর একটি measurable system build করো।"
+            ? "Prompt engineering, RAG, workflow, agent loop আর runtime এক জিনিস নয়। আগে ধারণাগুলোর ধারাবাহিকতা বোঝো, তারপর মাপা যায় এমন system বানাও।"
             : "Prompt engineering, RAG, workflows, agent loops and runtimes are not the same thing. Learn their order, then build one measurable system."
           : bn
-            ? "এক stage-এ enough হওয়ার আগে next stage-এর tool collect করা লাগবে না। Sequence তোমাকে slow করে না; random detour কমায়।"
+            ? "এক ধাপে ‘আপাতত যথেষ্ট’ হওয়ার আগেই পরের ধাপের tool জমাতে হবে না। ধারাবাহিকতা তোমাকে ধীর করে না; এলোপাতাড়ি ঘোরাঘুরি কমায়।"
             : "You do not need to collect next-stage tools before you are ready. Sequence does not slow you down; it removes random detours."
       }
     </p><div class="button-row">
@@ -65,16 +65,16 @@ const supportsFirstSoftwareRole = [
         >{
           isAISystemsRoadmap
             ? bn
-              ? "Concept order দেখো"
+              ? "ধারণার ধারাবাহিকতা দেখো"
               : "See the concept order"
             : bn
-              ? "Foundation থেকে শুরু"
+              ? "ভিত্তি থেকে শুরু"
               : "Start at foundation"
         }</a
       ><a
         class="button button--secondary"
         href={withBase(careerPath(locale, career.slug))}
-        >{bn ? "Career overview" : "Career overview"}</a
+        >{bn ? "ক্যারিয়ারটি একনজরে" : "Career overview"}</a
       >
     </div>
   </header>
@@ -104,10 +104,10 @@ const supportsFirstSoftwareRole = [
         <div class="container stage-layout">
           <div class="stage-main">
             <>
-              <p class="eyebrow">{bn ? "Roadmap stage" : "Roadmap stage"}</p>
+              <p class="eyebrow">{bn ? "রোডম্যাপের ধাপ" : "Roadmap stage"}</p>
               <h2>{t(stage.title, locale)}</h2>
               <p class="lede">{t(stage.intent, locale)}</p>
-              <h3>{bn ? "Focus" : "What to learn"}</h3>
+              <h3>{bn ? "যা শিখবে" : "What to learn"}</h3>
               <ul class="rule-list">
                 {stage.topics.map((topic) => (
                   <li>{t(topic, locale)}</li>
@@ -116,12 +116,12 @@ const supportsFirstSoftwareRole = [
               <div class="enough">
                 <>
                   <p class="callout__label">
-                    {bn ? "Enough for now" : "Enough for now"}
+                    {bn ? "এখন এতটুকুই যথেষ্ট" : "Enough for now"}
                   </p>
                   <p>{t(stage.enoughForNow, locale)}</p>
                 </>
               </div>
-              <h3>{bn ? "Practical task" : "Practical task"}</h3>
+              <h3>{bn ? "হাতে-কলমে কাজ" : "Practical task"}</h3>
               <p>{t(stage.practicalTask, locale)}</p>
             </>
           </div>
@@ -140,7 +140,7 @@ const supportsFirstSoftwareRole = [
             </div>
             {stage.resourceIds.length > 0 && (
               <div class="stage-resources">
-                <h3>{bn ? "Selected resource" : "Selected resources"}</h3>
+                <h3>{bn ? "বাছাই করা রিসোর্স" : "Selected resources"}</h3>
                 <ResourceList
                   locale={locale}
                   resourceIds={stage.resourceIds}
@@ -160,13 +160,13 @@ const supportsFirstSoftwareRole = [
       <p class="eyebrow">
         {
           bn
-            ? "Roadmap পড়া হলো—এখন evidence"
+            ? "রোডম্যাপ দেখা হলো—এবার evidence বানাও"
             : "You read the roadmap—now gather evidence"
         }
       </p><h2>
         {
           bn
-            ? "এই কাজ সত্যি ভালো লাগে কি না, ছোট করে test করো।"
+            ? "কাজটি সত্যিই ভালো লাগে কি না, ছোট করে করে দেখো।"
             : "Test whether you actually like the work."
         }
       </h2><div class="button-row">
@@ -175,12 +175,12 @@ const supportsFirstSoftwareRole = [
           href={withBase(experimentPath(locale, career.slug))}
           data-track-event="career_experiment_started"
           data-track-param-career-id={career.id}
-          >{bn ? "Career experiment" : "Start the career experiment"}</a
+          >{bn ? "কাজটা করে দেখো" : "Start the career experiment"}</a
         ><a
           class="button button--secondary"
           href={withBase(
             localePath(locale, "/guidance/software-engineering-foundations/"),
-          )}>{bn ? "Engineering foundation" : "Engineering foundations"}</a
+          )}>{bn ? "Engineering-এর ভিত্তি" : "Engineering foundations"}</a
         >
       </div>
       <p>
@@ -191,7 +191,7 @@ const supportsFirstSoftwareRole = [
           data-track-param-destination="final-year-project"
           >{
             bn
-              ? "Final-year project-এ engineering practice প্রয়োগ করো"
+              ? "ফাইনাল ইয়ার প্রজেক্টে engineering practice কাজে লাগাও"
               : "Apply engineering practice to your final-year project"
           } →</a
         >
@@ -207,7 +207,7 @@ const supportsFirstSoftwareRole = [
               data-track-param-destination="first-software-role"
             >
               {bn
-                ? "Roadmap-কে internship বা junior-role application cycle-এ নাও"
+                ? "রোডম্যাপকে internship বা junior-role application-এর কাজে লাগাও"
                 : "Connect this roadmap to an internship or junior-role cycle"}{" "}
               →
             </a>

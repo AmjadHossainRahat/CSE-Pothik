@@ -18,11 +18,11 @@ const sections = [
   { id: "start", title: bn ? "কোথা থেকে শুরু" : "Start at your current stage" },
   {
     id: "team-workflows",
-    title: bn ? "Team-এর কাজের playbook" : "Team working playbooks",
+    title: bn ? "দলের কাজ গুছানোর playbook" : "Team working playbooks",
   },
   {
     id: "templates",
-    title: bn ? "কাজে লাগানোর templates" : "Reusable templates",
+    title: bn ? "বারবার কাজে লাগবে এমন template" : "Reusable templates",
   },
   ...guide.stages.map((stage) => ({
     id: stage.id,
@@ -30,17 +30,20 @@ const sections = [
   })),
   {
     id: "traceability",
-    title: bn ? "একটি worked example" : "A worked example",
+    title: bn ? "শুরু থেকে শেষ—একটি উদাহরণ" : "A worked example",
   },
   {
     id: "project-type",
-    title: bn ? "Project অনুযায়ী evidence" : "Adapt to your project",
+    title: bn ? "প্রজেক্ট অনুযায়ী প্রমাণ সাজাও" : "Adapt to your project",
   },
   {
     id: "handover",
-    title: bn ? "Submission readiness" : "Submission readiness",
+    title: bn ? "জমা দেওয়ার আগে শেষ যাচাই" : "Submission readiness",
   },
-  { id: "sources", title: bn ? "Source আর next step" : "Sources & next steps" },
+  {
+    id: "sources",
+    title: bn ? "তথ্যের উৎস ও পরের ধাপ" : "Sources & next steps",
+  },
 ];
 const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
 const structuredData = [
@@ -61,13 +64,13 @@ const structuredData = [
       {
         "@type": "ListItem",
         position: 1,
-        name: "Roadmaps",
+        name: bn ? "রোডম্যাপ" : "Roadmaps",
         item: new URL(href("/roadmaps/"), Astro.site).href,
       },
       {
         "@type": "ListItem",
         position: 2,
-        name: bn ? "Final-year project" : "Final-year project",
+        name: bn ? "ফাইনাল ইয়ার প্রজেক্ট" : "Final-year project",
         item: pageUrl,
       },
     ],
@@ -84,15 +87,15 @@ const structuredData = [
   <Breadcrumbs
     locale={locale}
     items={[
-      { label: "Roadmaps", path: "/roadmaps/" },
-      { label: "Final-year project" },
+      { label: bn ? "রোডম্যাপ" : "Roadmaps", path: "/roadmaps/" },
+      { label: bn ? "ফাইনাল ইয়ার প্রজেক্ট" : "Final-year project" },
     ]}
   />
   <header class="page-hero container project-hero">
     <p class="eyebrow">
       {
         bn
-          ? "Student project → engineering practice"
+          ? "শিক্ষার্থী প্রজেক্ট → বাস্তব engineering practice"
           : "Student project → engineering practice"
       }
     </p>
@@ -102,29 +105,29 @@ const structuredData = [
     <p>
       {
         bn
-          ? "এটি CSE Compass-এর প্রস্তাবিত quality bar—কোনো university rule, accreditation বা certification নয়। Department rubric, supervisor আর ethics/safety requirement আগে মানবে। Scope ছোট করো, evidence নয়।"
+          ? "এটি CSE Compass-এর প্রস্তাবিত quality bar—বিশ্ববিদ্যালয়ের নিয়ম, accreditation বা certification নয়। সবার আগে department-এর rubric, supervisor-এর নির্দেশনা ও ethics/safety requirement মানবে। সময় কমে গেলে scope ছোট করো, কাজের প্রমাণ নয়।"
           : "This is a suggested CSE Compass quality bar—not a university rule, accreditation or certification. Your department rubric, supervisor and ethics/safety requirements take priority. Reduce the scope, not the evidence."
       }
     </p>
     <div class="button-row">
       <a class="button" href="#start"
-        >{bn ? "আমার stage থেকে শুরু" : "Find my starting stage"}</a
+        >{bn ? "আমি যে ধাপে আছি, সেখান থেকে শুরু" : "Find my starting stage"}</a
       ><a
         class="button button--secondary"
         href={withBase(`/downloads/final-year-project.${bn ? "bn" : "en"}.md/`)}
         download={`final-year-project.${bn ? "bn" : "en"}.md`}
         data-track-event="next_step_clicked"
         data-track-param-destination="fyp-evidence-template"
-        >{bn ? "Team toolkit ডাউনলোড (.md)" : "Download team toolkit (.md)"}</a
+        >{bn ? "দলের toolkit ডাউনলোড (.md)" : "Download team toolkit (.md)"}</a
       >
     </div>
   </header>
   <div class="container project-layout">
     <aside class="project-index">
       <details open>
-        <summary>{bn ? "এই guide-এ" : "In this guide"}</summary>
+        <summary>{bn ? "এই গাইডে যা আছে" : "In this guide"}</summary>
         <nav
-          aria-label={bn ? "Project guide-এর বিভাগ" : "Project guide sections"}
+          aria-label={bn ? "প্রজেক্ট গাইডের বিভাগ" : "Project guide sections"}
         >
           <ol>
             {
@@ -143,7 +146,7 @@ const structuredData = [
         <h2>
           {
             bn
-              ? "যেখানেই আছ, পরের useful evidence বানাও।"
+              ? "যে অবস্থাতেই থাকো, পরের দরকারি evidence-টি বানাও।"
               : "Wherever you are, build the next useful evidence."
           }
         </h2>
@@ -152,7 +155,7 @@ const structuredData = [
             <a href="#task-board"
               >{
                 bn
-                  ? "Team-এর কাজ গুছাব → task board ও ছোট task"
+                  ? "Team-এর কাজ গুছাব → task board আর ছোট ছোট task"
                   : "Organizing team work → task board & small tasks"
               }</a
             >
@@ -161,7 +164,7 @@ const structuredData = [
             <a href="#git-workflow"
               >{
                 bn
-                  ? "একসঙ্গে code করব → Git review workflow"
+                  ? "একসঙ্গে code করব → Git review-এর workflow"
                   : "Coding together → Git review workflow"
               }</a
             >
@@ -179,7 +182,7 @@ const structuredData = [
             <a href="#define"
               >{
                 bn
-                  ? "Idea বাছছি → one-page brief"
+                  ? "Idea বাছছি → এক পাতার brief"
                   : "Choosing an idea → a one-page brief"
               }</a
             >
@@ -188,7 +191,7 @@ const structuredData = [
             <a href="#specify"
               >{
                 bn
-                  ? "Build শুরু করব → acceptance criteria"
+                  ? "Build শুরু করব → acceptance criteria ঠিক করা"
                   : "About to build → acceptance criteria"
               }</a
             >
@@ -197,7 +200,7 @@ const structuredData = [
             <a href="#verify"
               >{
                 bn
-                  ? "Demo আছে → test আর reproducibility"
+                  ? "Demo আছে → test আর অন্যের চালিয়ে দেখার ব্যবস্থা"
                   : "Have a demo → testing and reproducibility"
               }</a
             >
@@ -206,17 +209,17 @@ const structuredData = [
             <a href="#handover"
               >{
                 bn
-                  ? "Submission কাছে → evidence audit"
+                  ? "Submission কাছে → evidence-এর শেষ হিসাব"
                   : "Submission is close → an evidence audit"
               }</a
             >
           </li>
         </ul>
         <div class="callout">
-          <p class="callout__label">{bn ? "Mentor note" : "Mentor note"}</p><p>
+          <p class="callout__label">{bn ? "মেন্টরের কথা" : "Mentor note"}</p><p>
             {
               bn
-                ? "পিছিয়ে থাকলে সব rewrite নয়। একটি core journey নাও, risk লিখে failing case ঠিক করো আর অন্য কাউকে run করতে দাও। ছোট কিন্তু explain করা যায় এমন কাজও শক্তিশালী portfolio evidence।"
+                ? "পিছিয়ে থাকলে সবকিছু rewrite করতে যেয়ো না। একটি core journey নাও, ঝুঁকি লেখো, failing case ঠিক করো, তারপর অন্য কাউকে চালিয়ে দেখতে দাও। ছোট কিন্তু নিজের ভাষায় বোঝানো যায় এমন কাজও শক্তিশালী portfolio evidence।"
                 : "If you feel behind, do not rewrite everything. Pick one core journey, name its risks, fix a failure and let someone else run it. Small work you can explain is strong portfolio evidence."
             }
           </p>
@@ -226,7 +229,7 @@ const structuredData = [
         <h2>
           {
             bn
-              ? "কাজের অভ্যাস: ছোট team, পরিষ্কার flow"
+              ? "কাজের অভ্যাস: ছোট team, পরিষ্কার workflow"
               : "Working habits: small team, clear flow"
           }
         </h2>
@@ -236,14 +239,14 @@ const structuredData = [
         <h2>
           {
             bn
-              ? "খালি page নয়, কাজের template নিয়ে শুরু"
+              ? "খালি page-এর দিকে তাকিয়ে নয়, template দিয়ে শুরু"
               : "Start with a useful template, not a blank page"
           }
         </h2>
         <p>
           {
             bn
-              ? "দশটি template একই Markdown toolkit-এ আছে। দরকারি section তোমার task manager বা repo-তে copy করো। এগুলো পূরণ করার prompt, completed evidence নয়; এখানে কিছু save বা submit হয় না।"
+              ? "দশটি template একই Markdown toolkit-এ আছে। দরকারি অংশটি তোমার task manager বা repository-তে নাও। এগুলো লেখার শুরু, completed evidence নয়; এখানে কিছু জমা বা submit হয় না।"
               : "Ten templates are included in one Markdown toolkit. Copy the sections you need into your task manager or repository. These are prompts to fill in, not completed evidence; nothing is saved or submitted here."
           }
         </p>
@@ -302,7 +305,7 @@ const structuredData = [
               <p>
                 <a href="#team-workflows">
                   {bn
-                    ? "কীভাবে team-এ করবে: task, Git আর sync-up playbook"
+                    ? "Team-এ কীভাবে করবে: task, Git আর sync-up playbook"
                     : "How to do this as a team: task, Git & sync-up playbooks"}{" "}
                   →
                 </a>
@@ -332,14 +335,14 @@ const structuredData = [
         <h2>
           {
             bn
-              ? "একটি requirement, তার evidence পর্যন্ত।"
+              ? "একটি requirement থেকে তার evidence পর্যন্ত।"
               : "One requirement, all the way to evidence."
           }
         </h2>
         <p>
           {
             bn
-              ? "উদাহরণটি শেখার জন্য; তোমার domain আর supervisor অনুযায়ী বদলাবে।"
+              ? "এটি শেখার উদাহরণ; তোমার domain আর supervisor-এর নির্দেশনা অনুযায়ী বদলাবে।"
               : "This is a teaching example. Adapt it to your domain and supervisor’s expectations."
           }
         </p>
@@ -348,7 +351,7 @@ const structuredData = [
             <dt>REQ-01 · {bn ? "প্রয়োজন" : "Requirement"}</dt><dd>
               {
                 bn
-                  ? "একই equipment-এর একই সময় দুই confirmed booking হবে না।"
+                  ? "একই equipment একই সময়ে দুজনের জন্য confirmed booking হবে না।"
                   : "Two confirmed bookings must not overlap for the same equipment."
               }
             </dd>
@@ -357,7 +360,7 @@ const structuredData = [
             <dt>AC-01 · {bn ? "গ্রহণযোগ্যতা" : "Acceptance"}</dt><dd>
               {
                 bn
-                  ? "দুই competing request এলে ঠিক একটিই succeed করবে; অন্যটি পরিষ্কার conflict দেখাবে, duplicate record থাকবে না।"
+                  ? "একই সময়ে দুটি request এলে ঠিক একটিই সফল হবে; অন্যটি পরিষ্কার conflict দেখাবে, duplicate record থাকবে না।"
                   : "With two competing requests, exactly one succeeds; the other receives a clear conflict, with no duplicate reservation."
               }
             </dd>
@@ -366,7 +369,7 @@ const structuredData = [
             <dt>ADR-01 · {bn ? "সিদ্ধান্ত" : "Decision"}</dt><dd>
               {
                 bn
-                  ? "শুধু button disable নয়, server/data layer-এ atomic conflict protection; chosen database-এর behavior test দিয়ে যাচাই।"
+                  ? "শুধু button disable নয়—server/data layer-এ atomic conflict protection থাকবে; বেছে নেওয়া database-এর আচরণ test দিয়ে যাচাই হবে।"
                   : "Use atomic conflict protection at the server/data layer, not only a disabled button; verify the chosen database’s behavior with a test."
               }
             </dd>
@@ -375,7 +378,7 @@ const structuredData = [
             <dt>TEST-01 · {bn ? "যাচাই" : "Verification"}</dt><dd>
               {
                 bn
-                  ? "একই interval-এর concurrent request দিয়ে integration test; পাশাপাশি সময়, cancel আর retry case-ও test।"
+                  ? "একই সময়ের concurrent request দিয়ে integration test; পাশাপাশি পাশের সময়, cancel আর retry case-ও পরীক্ষা।"
                   : "An integration test sends concurrent requests for the same interval; also test adjacent times, cancellation and retries."
               }
             </dd>
@@ -384,7 +387,7 @@ const structuredData = [
             <dt>REL-01 · {bn ? "হস্তান্তর" : "Handover"}</dt><dd>
               {
                 bn
-                  ? "Release tag, environment, actual test log আর known limit report-এ যুক্ত করো। নকল screenshot বা বানানো pass result নয়।"
+                  ? "Release tag, environment, আসল test log আর জানা সীমাবদ্ধতা report-এ দাও। নকল screenshot বা বানানো pass result নয়।"
                   : "Link the release tag, environment, actual test log and known limits in the report. No fabricated screenshots or pass results."
               }
             </dd>
@@ -395,14 +398,14 @@ const structuredData = [
         <h2>
           {
             bn
-              ? "Project আলাদা হলে evidence-ও বদলাবে।"
+              ? "Project বদলালে evidence-ও বদলাবে।"
               : "Different projects need different evidence."
           }
         </h2>
         <p>
           {
             bn
-              ? "শুধু নিজের branch-টি গভীরে পড়ো; সব ধরনের project একসঙ্গে করার দরকার নেই।"
+              ? "শুধু নিজের project-এর ধরনটি মন দিয়ে পড়ো; সব ধরনের project একসঙ্গে বোঝার দরকার নেই।"
               : "Go deeper into your own branch. You do not need to build every kind of project."
           }
         </p>
@@ -422,14 +425,14 @@ const structuredData = [
         <h2>
           {
             bn
-              ? "Submission-এর আগে evidence audit"
+              ? "Submission-এর আগে evidence মিলিয়ে দেখো"
               : "The pre-submission evidence audit"
           }
         </h2>
         <p>
           {
             bn
-              ? "এটি score বা tracker নয়। Team review-এ প্রতিটি দাবির evidence দেখাও; gap থাকলে scope কমাও, fix করো অথবা limitation হিসেবে লিখে supervisor-এর সঙ্গে আলোচনা করো।"
+              ? "এটি score বা tracker নয়। Team review-এ প্রতিটি দাবির evidence দেখাও; ঘাটতি থাকলে scope কমাও, ঠিক করো অথবা limitation হিসেবে লিখে supervisor-এর সঙ্গে আলোচনা করো।"
               : "This is not a score or tracker. Show evidence for each claim in a team review. For gaps, reduce scope, fix the issue or document the limitation and discuss it with your supervisor."
           }
         </p>
@@ -439,7 +442,7 @@ const structuredData = [
         <h3>{bn ? "এই সপ্তাহে একটি কাজ" : "One action this week"}</h3><p>
           {
             bn
-              ? "Template নিয়ে one-page brief আর একটি acceptance criterion লেখো। Peer-কে পাঁচ মিনিটে explain করতে বলো। অস্পষ্ট অংশ বদলাও—এটাই প্রথম useful review।"
+              ? "Template নিয়ে এক পাতার brief আর একটি acceptance criterion লেখো। Peer-কে পাঁচ মিনিটে সেটি বুঝিয়ে বলতে বলো। যেখানে সে আটকে যায়, সেই অস্পষ্ট অংশ বদলাও—এটাই প্রথম কাজে লাগা review।"
               : "Use the template to write a one-page brief and one acceptance criterion. Ask a peer to explain it back in five minutes. Revise the unclear part—that is your first useful review."
           }
         </p>
@@ -466,7 +469,7 @@ const structuredData = [
         <p>
           {
             bn
-              ? "এই guide original editorial synthesis; reference provider-রা পুরো guide endorse করেনি। External reference মূলত English। প্রতিটি source-এর review date আলাদা দেওয়া আছে।"
+              ? "এই guide একটি original editorial synthesis; reference provider-রা পুরো guide endorse করেনি। বাইরের reference-গুলোর বেশির ভাগই English। প্রতিটি source-এর review date আলাদা দেওয়া আছে।"
               : "This guide is original editorial synthesis, not an endorsement by the reference providers. External references are primarily in English. Each source has its own review date below."
           }
         </p>
@@ -509,20 +512,20 @@ const structuredData = [
             data-track-param-destination="first-software-role"
             >{
               bn
-                ? "Completed project থেকে first role"
+                ? "শেষ করা project থেকে প্রথম role"
                 : "Turn a completed project into first-role evidence"
             }</a
           >
           <a
             class="button button--secondary"
             href={href("/guidance/software-engineering-foundations/")}
-            >{bn ? "Engineering foundation" : "Engineering foundations"}</a
+            >{bn ? "Engineering-এর ভিত্তি" : "Engineering foundations"}</a
           ><a
             class="button button--secondary"
             href={href("/goals/research-publication/")}
-            >{bn ? "Thesis আর research" : "Thesis & research"}</a
+            >{bn ? "থিসিস ও গবেষণার প্রস্তুতি" : "Thesis & research"}</a
           ><a href={href("/roadmaps/")}
-            >{bn ? "Career roadmap-এ ফিরি" : "Back to career roadmaps"} →</a
+            >{bn ? "ক্যারিয়ার রোডম্যাপে ফিরি" : "Back to career roadmaps"} →</a
           >
         </div>
       </section>

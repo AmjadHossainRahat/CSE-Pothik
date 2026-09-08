@@ -33,7 +33,7 @@ for (const locale of ["en", "bn"] as const) {
     await expect(section.locator(".voices-heading .eyebrow")).toHaveText(
       locale === "en"
         ? "Bangladesh tech leaders & practitioners"
-        : "বাংলাদেশের tech leader ও practitioner",
+        : "বাংলাদেশের tech leaders ও practitioners",
     );
     await expect(section.locator(".voice-stages > li")).toHaveCount(3);
     await expect(section.locator("details[open]")).toHaveCount(1);

@@ -36,11 +36,11 @@ export const ui = {
   },
   bn: {
     nav: {
-      careers: "Career দেখো",
-      compare: "Compare করো",
-      try: "Career ট্রাই করো",
+      careers: "ক্যারিয়ার দেখো",
+      compare: "মিলিয়ে দেখো",
+      try: "কাজ করে দেখো",
       roadmaps: "Roadmap",
-      ai: "AI ও তোমার Career",
+      ai: "AI ও তোমার ক্যারিয়ার",
       lost: "আমি দিশেহারা",
     },
     skip: "মূল কনটেন্টে যাও",
@@ -49,7 +49,7 @@ export const ui = {
     light: "Light",
     dark: "Dark",
     language: "Read in English",
-    external: "বাইরের learning resource",
+    external: "বাইরের শেখার রিসোর্স",
   },
 } as const;
 

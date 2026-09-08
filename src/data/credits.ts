@@ -20,7 +20,7 @@ export const inspirations: Inspiration[] = [
     url: "https://roadmap.sh/",
     contribution: {
       en: "Inspired the idea of structured career paths and role- and skill-based learning navigation.",
-      bn: "সাজানো career path আর role ও skill অনুযায়ী শেখার পথ দেখানোর ধারণায় অনুপ্রেরণা দিয়েছে।",
+      bn: "ক্যারিয়ারের পথগুলো গুছিয়ে দেখানো এবং role ও skill অনুযায়ী শেখার দিকনির্দেশনা সাজানোর ধারণায় অনুপ্রেরণা দিয়েছে।",
     },
   },
   {
@@ -36,7 +36,7 @@ export const inspirations: Inspiration[] = [
     url: "https://amirulislamalmamun.com/",
     contribution: {
       en: "Inspired staged, build-centred learning roadmaps that connect technical depth with practical engineering evidence.",
-      bn: "ধাপে সাজানো, build-কেন্দ্রিক learning roadmap দিয়ে technical depth-কে practical engineering evidence-এর সঙ্গে যুক্ত করার অনুপ্রেরণা দিয়েছে।",
+      bn: "ধাপে সাজানো ও কিছু বানিয়ে শেখার roadmap দিয়ে technical depth-কে বাস্তব engineering evidence-এর সঙ্গে যুক্ত করার অনুপ্রেরণা দিয়েছে।",
     },
   },
 ];

@@ -6,7 +6,7 @@ export const infrastructureExperiments: ExperimentSeed[] = [
     id: "network-engineering",
     title: l(
       "Trace one request through your own lab",
-      "নিজের lab-এ একটি request-এর পথ খোঁজো",
+      "নিজের lab-এ একটি request কোথা দিয়ে যায়, খুঁজে দেখো",
     ),
     duration: "60–90 min",
     prerequisites: [
@@ -59,7 +59,7 @@ export const infrastructureExperiments: ExperimentSeed[] = [
     id: "hardware-engineering",
     title: l(
       "Design and verify a tiny logic circuit",
-      "ছোট logic circuit design আর verify করো",
+      "ছোট একটি logic circuit তৈরি ও যাচাই করো",
     ),
     duration: "60–90 min",
     prerequisites: [
@@ -112,7 +112,7 @@ export const infrastructureExperiments: ExperimentSeed[] = [
     id: "software-quality-assurance",
     title: l(
       "Find a risk, report it, protect the fix",
-      "Risk খোঁজো, report করো, fix রক্ষা করো",
+      "ঝুঁকি খুঁজে report করো, তারপর fix-টি যেন টিকে থাকে তা নিশ্চিত করো",
     ),
     duration: "75–120 min",
     prerequisites: [

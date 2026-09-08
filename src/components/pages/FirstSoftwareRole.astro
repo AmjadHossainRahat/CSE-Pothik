@@ -23,15 +23,18 @@ const sections = [
   })),
   {
     id: "interview-baseline",
-    title: bn ? "Interview baseline" : "Interview baseline",
+    title: bn ? "ইন্টারভিউয়ের ন্যূনতম প্রস্তুতি" : "Interview baseline",
   },
   {
     id: "feedback-loop",
-    title: bn ? "Response বুঝে বদলাও" : "Read the response",
+    title: bn ? "ফল দেখে পরিকল্পনা বদলাও" : "Read the response",
   },
   { id: "traps", title: bn ? "যে ফাঁদগুলো এড়াবে" : "Traps to avoid" },
   { id: "this-week", title: bn ? "এই সপ্তাহের cycle" : "This week's cycle" },
-  { id: "sources", title: bn ? "Source ও পরের পথ" : "Sources & next paths" },
+  {
+    id: "sources",
+    title: bn ? "তথ্যের উৎস ও পরের পথ" : "Sources & next paths",
+  },
 ];
 const structuredData = [
   {
@@ -51,7 +54,7 @@ const structuredData = [
       {
         "@type": "ListItem",
         position: 1,
-        name: bn ? "Guidance" : "Guidance",
+        name: bn ? "দিকনির্দেশনা" : "Guidance",
         item: new URL(href("/guidance/feel-behind/"), Astro.site).href,
       },
       {
@@ -74,15 +77,15 @@ const structuredData = [
   <Breadcrumbs
     locale={locale}
     items={[
-      { label: bn ? "Guidance" : "Guidance" },
-      { label: bn ? "প্রথম software role" : "First software role" },
+      { label: bn ? "দিকনির্দেশনা" : "Guidance" },
+      { label: bn ? "প্রথম সফটওয়্যার চাকরি" : "First software role" },
     ]}
   />
   <header class="page-hero container first-role-hero">
     <p class="eyebrow">
       {
         bn
-          ? "Final semester · recent graduate · career transition"
+          ? "ফাইনাল সেমিস্টার · সদ্য স্নাতক · ক্যারিয়ার বদল"
           : "Final semester · recent graduate · career transition"
       }
     </p>
@@ -92,7 +95,7 @@ const structuredData = [
       <a class="button" href="#start"
         >{bn ? "আমার জায়গা থেকে শুরু" : "Start from my situation"}</a
       ><a class="button button--secondary" href="#this-week"
-        >{bn ? "এই সপ্তাহের plan" : "Give me this week's plan"}</a
+        >{bn ? "এই সপ্তাহের পরিকল্পনা" : "Give me this week's plan"}</a
       >
     </div>
   </header>
@@ -100,8 +103,8 @@ const structuredData = [
   <div class="container role-layout">
     <aside class="role-index">
       <details open>
-        <summary>{bn ? "এই guide-এ" : "In this guide"}</summary>
-        <nav aria-label={bn ? "Guide-এর section" : "Guide sections"}>
+        <summary>{bn ? "এই গাইডে যা আছে" : "In this guide"}</summary>
+        <nav aria-label={bn ? "গাইডের বিভাগ" : "Guide sections"}>
           <ol>
             {
               sections.map((section) => (
@@ -125,7 +128,7 @@ const structuredData = [
         </h2>
         <p>{t(guide.reality, locale)}</p>
         <nav
-          aria-label={bn ? "নিজের starting point" : "Choose a starting point"}
+          aria-label={bn ? "কোথা থেকে শুরু করবে" : "Choose a starting point"}
         >
           <ul class="start-list">
             {
@@ -151,7 +154,7 @@ const structuredData = [
           <strong>{bn ? "মূল কথা:" : "The core idea:"}</strong>{" "}
           {
             bn
-              ? "আবার শূন্য থেকে শুরু নয়। যা আছে সেটিকে honest, reviewable evidence-এ বদলে একটি focused hiring cycle চালাও।"
+              ? "আবার শূন্য থেকে শুরু নয়। যা আছে, সেটিকেই সৎ ও review করা যায় এমন evidence-এ বদলে focused hiring cycle চালাও।"
               : "Do not restart from zero. Turn what you have into honest, reviewable evidence and run one focused hiring cycle."
           }
         </div>
@@ -182,7 +185,7 @@ const structuredData = [
               {t(stage.notYet, locale)}
             </p>
             <a class="reference-link" href={`#source-${stage.sourceId}`}>
-              {bn ? "এই ধাপের reference" : "Reference for this stage"} ↓
+              {bn ? "এই ধাপের তথ্যসূত্র" : "Reference for this stage"} ↓
             </a>
           </section>
         ))
@@ -193,14 +196,14 @@ const structuredData = [
         <h2>
           {
             bn
-              ? "Competitive programming না করলেও preparation শুরু করা যায়।"
+              ? "Competitive programming না করলেও প্রস্তুতি শুরু করা যায়।"
               : "You can start preparing without a competitive-programming record."
           }
         </h2>
         <p>
           {
             bn
-              ? "কিছু employer strong algorithmic interview নেয়, অন্যরা role knowledge, debugging, project discussion বা take-home work-এ বেশি জোর দেয়। Actual vacancy আর recruiter-এর format দেখে depth ঠিক করো। ACM/ICPC valuable practice track—universal junior-job prerequisite নয়।"
+              ? "কিছু প্রতিষ্ঠান কঠিন algorithmic interview নেয়; অন্যরা role knowledge, debugging, project discussion বা take-home work-এ বেশি জোর দেয়। আসল vacancy ও recruiter-এর কাছ থেকে জানা format দেখে প্রস্তুতির গভীরতা ঠিক করো। ACM/ICPC দারুণ অনুশীলনের পথ, কিন্তু সব junior job-এর বাধ্যতামূলক দরজা নয়।"
               : "Some employers use strong algorithmic interviews; others emphasize role knowledge, debugging, project discussion or take-home work. Let the actual vacancy and recruiter-confirmed format determine the depth. ACM/ICPC is a valuable practice track—not a universal junior-job prerequisite."
           }
         </p>
@@ -227,19 +230,23 @@ const structuredData = [
 
       <section class="role-section" id="feedback-loop">
         <p class="eyebrow">
-          {bn ? "Rejection = incomplete data" : "Rejection = incomplete data"}
+          {
+            bn
+              ? "একটি rejection পুরো গল্প বলে না"
+              : "Rejection = incomplete data"
+          }
         </p>
         <h2>
           {
             bn
-              ? "Process কোথায় থামছে, সেটা দেখো।"
+              ? "আবেদনের process ঠিক কোথায় আটকে যাচ্ছে, সেটি দেখো।"
               : "Notice where the process stops."
           }
         </h2>
         <p>
           {
             bn
-              ? "একটি result দিয়ে diagnosis হয় না। কয়েকটি suitable attempt-এর pattern দেখো, fact আর guess আলাদা করো, তারপর একটি variable বদলাও।"
+              ? "একটি result দেখে diagnosis হয় না। কয়েকটি উপযুক্ত চেষ্টার pattern দেখো, তথ্য আর অনুমান আলাদা করো, তারপর একবারে একটি জিনিস বদলাও।"
               : "One result is not a diagnosis. Look for a pattern across several suitable attempts, separate facts from guesses, then change one variable."
           }
         </p>
@@ -263,11 +270,11 @@ const structuredData = [
       </section>
 
       <section class="role-section" id="traps">
-        <p class="eyebrow">{bn ? "What not to do" : "What not to do"}</p>
+        <p class="eyebrow">{bn ? "যা না করাই ভালো" : "What not to do"}</p>
         <h2>
           {
             bn
-              ? "Busy দেখায়, কিন্তু direction দেয় না।"
+              ? "ব্যস্ত দেখায়, কিন্তু এগোতে সাহায্য করে না।"
               : "Activity that looks busy but adds little signal."
           }
         </h2>
@@ -279,7 +286,7 @@ const structuredData = [
       <section class="role-section" id="this-week">
         <div class="week-card">
           <p class="eyebrow">
-            {bn ? "একটি complete mini-cycle" : "One complete mini-cycle"}
+            {bn ? "একটি সম্পূর্ণ ছোট cycle" : "One complete mini-cycle"}
           </p>
           <h2>{bn ? "এই সপ্তাহে এটুকুই করো।" : "Make this week concrete."}</h2>
           <p>{t(guide.thisWeek, locale)}</p>
@@ -288,19 +295,19 @@ const structuredData = [
 
       <section class="role-section" id="sources">
         <p class="eyebrow">
-          {bn ? "Source ও verification" : "Sources & verification"}
+          {bn ? "তথ্যের উৎস ও যাচাই" : "Sources & verification"}
         </p>
         <h2>
           {
             bn
-              ? "Rule বদলায়—actual posting দেখো।"
+              ? "নিয়ম বদলায়—আসল job posting দেখে নাও।"
               : "Requirements change—check the actual opening."
           }
         </h2>
         <p>
           {
             bn
-              ? "এই guide CSE Compass-এর editorial synthesis; কোনো employer selection বা offer guarantee করে না। Current role-এর eligibility, interview format, deadline আর permitted tool official source বা recruiter থেকে যাচাই করো। External source মূলত English।"
+              ? "এই guide CSE Compass-এর editorial synthesis; কোনো employer-এর selection বা offer নিশ্চিত করে না। বর্তমান role-এর eligibility, interview format, deadline আর অনুমোদিত tool official source বা recruiter-এর কাছ থেকে যাচাই করো। বাইরের source-গুলোর বেশির ভাগই English।"
               : "This guide is CSE Compass editorial synthesis and no employer guarantees selection or an offer. Verify current eligibility, interview format, deadlines and permitted tools through the official opening or recruiter. External references are primarily in English."
           }
         </p>
@@ -336,7 +343,11 @@ const structuredData = [
         </ul>
 
         <h3>
-          {bn ? "Role-specific depth বেছে নাও" : "Choose role-specific depth"}
+          {
+            bn
+              ? "Role অনুযায়ী শেখার গভীরতা ঠিক করো"
+              : "Choose role-specific depth"
+          }
         </h3>
         <ul class="career-links">
           {
@@ -348,7 +359,7 @@ const structuredData = [
                     {t(career.title, locale)}
                   </a>
                   <a href={withBase(roadmapPath(locale, career.slug))}>
-                    {bn ? "Roadmap" : "Roadmap"} →
+                    {bn ? "রোডম্যাপ" : "Roadmap"} →
                   </a>
                 </li>
               );
@@ -361,9 +372,13 @@ const structuredData = [
           ><a
             class="button button--secondary"
             href={href("/guidance/final-year-project/")}
-            >{bn ? "Project evidence toolkit" : "Project evidence toolkit"}</a
+            >{
+              bn
+                ? "প্রজেক্টের প্রমাণ গুছানোর toolkit"
+                : "Project evidence toolkit"
+            }</a
           ><a href={href("/goals/remote-employment/")}
-            >{bn ? "Remote role-এর প্রস্তুতি" : "Prepare for remote roles"} →</a
+            >{bn ? "Remote চাকরির প্রস্তুতি" : "Prepare for remote roles"} →</a
           >
         </div>
       </section>

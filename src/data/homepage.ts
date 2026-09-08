@@ -4,51 +4,51 @@ import type { LocalizedText } from "@/types/content";
 export const homepageIntro = {
   eyebrow: l(
     "Free career guidance for CSE students",
-    "CSE শিক্ষার্থীদের জন্য বিনামূল্যে career guidance",
+    "CSE শিক্ষার্থীদের জন্য বিনামূল্যে ক্যারিয়ার গাইড",
   ),
   title: l("You got into CSE.", "CSE-তে ঢুকেছ।"),
   emphasis: l("Now what?", "এখন কী?"),
   description: l(
     "Students can enter CSE for its popularity, earning potential, or promise of opportunities abroad—then discover a field far broader than the few roles they have heard about.",
-    "কেউ CSE-তে আসতে পারে জনপ্রিয়তা, ভালো আয়ের সম্ভাবনা বা বিদেশে কাজের আশায়—তারপর বুঝতে পারে, পরিচিত কয়েকটি role-এর চেয়েও এই field অনেক বড়।",
+    "জনপ্রিয়তা, ভালো আয়ের আশা কিংবা বিদেশে কাজের স্বপ্ন—যে কারণেই CSE-তে আসো, কিছুদিন পর টের পাবে পরিচিত দু-চারটি চাকরির বাইরেও এই জগৎটা অনেক বড়।",
   ),
   reassurance: l(
     "Without early orientation, semesters can disappear into trends and random tutorials. If that feels familiar, you have not missed your chance.",
-    "শুরুতে ঠিক orientation না পেলে trend আর random tutorial-এর ভিড়ে semester কেটে যেতে পারে। এমন হয়ে থাকলেও সুযোগ শেষ হয়ে যায়নি।",
+    "শুরুতে ঠিকমতো দিকনির্দেশনা না পেলে ট্রেন্ড আর এলোপাতাড়ি tutorial-এর পেছনে কখন যে কয়েকটি সেমিস্টার চলে যায়, বোঝাই যায় না। তোমারও এমন হয়ে থাকলে ভয় নেই—ট্রেন এখনও ছেড়ে যায়নি।",
   ),
   outcome: l(
     "Understand the options, try real work and choose one useful next step—while building the fundamentals and judgment that make AI useful.",
-    "পথগুলো বোঝো, আসল কাজ করে দেখো এবং একটি useful next step বেছে নাও—সঙ্গে এমন foundation ও judgment গড়ো, যা AI-কে সত্যিই কাজে লাগায়।",
+    "কী কী পথ আছে বোঝো, ছোট করে আসল কাজের স্বাদ নাও, তারপর পরের কাজটি ঠিক করো। পাশাপাশি এমন ভিত আর বিচারবোধ গড়ো, যাতে AI-কে চালাও তুমি—AI যেন তোমাকে না চালায়।",
   ),
-  primaryAction: l("Help me find my next step", "আমার পরের পদক্ষেপ খুঁজি"),
-  secondaryAction: l("Explore career paths", "Career-এর পথগুলো দেখো"),
+  primaryAction: l("Help me find my next step", "আমার পরের ধাপ খুঁজে দাও"),
+  secondaryAction: l("Explore career paths", "ক্যারিয়ারের পথগুলো দেখি"),
 } satisfies Record<string, LocalizedText>;
 
 export const aiEraMessage = {
   eyebrow: l("Your advantage in the AI era", "AI যুগে তোমার শক্তি"),
   title: l(
     "AI can generate code. Can you lead the decision?",
-    "AI code বানাতে পারে। Decision-টা কি তুমি lead করতে পারবে?",
+    "AI কোড লিখতে পারে। কিন্তু সিদ্ধান্তের হাল ধরতে পারবে তো?",
   ),
   introduction: l(
     "Speed is useful only when somebody can frame the real problem, inspect the result and own the consequences. That is why core principles, analytical problem-solving, creativity and judgment matter more—not less.",
-    "কেউ real problem ঠিকভাবে ধরতে, result যাচাই করতে আর consequence-এর দায়িত্ব নিতে পারলেই speed কাজে লাগে। তাই core principle, analytical problem-solving, creativity ও judgment-এর গুরুত্ব কমেনি—বরং বেড়েছে।",
+    "গতি তখনই কাজে লাগে, যখন কেউ আসল সমস্যাটা ধরতে পারে, ফল যাচাই করতে পারে এবং ভুল হলে দায়ও নিতে পারে। তাই মূলনীতি, বিশ্লেষণী সমস্যা সমাধান, সৃজনশীলতা আর বিচারবোধের দাম কমেনি—বরং বেড়েছে।",
   ),
   takeaway: l(
     "The goal is not to compete with AI at typing. Become the engineer who gives it useful context, challenges plausible mistakes, chooses trade-offs and can still proceed when the tool or tech lead is unavailable.",
-    "AI-এর সঙ্গে typing-এর প্রতিযোগিতা লক্ষ্য নয়। এমন engineer হও, যে দরকারি context দেয়, বিশ্বাসযোগ্য-দেখানো ভুল challenge করে, trade-off বেছে নেয় এবং tool বা tech lead না থাকলেও এগোতে পারে।",
+    "AI-এর সঙ্গে কে দ্রুত টাইপ করতে পারে, সেই দৌড়ে নামার দরকার নেই। এমন engineer হও, যে ঠিক context দেয়, দেখতে-ঠিক-লাগা ভুলও ধরে, trade-off বুঝে বেছে নেয় এবং tool বা tech lead পাশে না থাকলেও আটকে যায় না।",
   ),
   scenarioSummary: l(
     "Follow one fresher, two kinds of AI context, and three very different outcomes",
-    "একজন fresher, দুই ধরনের AI context এবং তিনটি ভিন্ন outcome দেখো",
+    "একজন fresher, AI-এর দুই রকম context—আর তিন রকম পরিণতি",
   ),
   scenarioOpening: l(
     "A fresh graduate receives a feature and asks the company AI to design the system and generate the code. The output looks confident. What happens next depends less on prompt volume than on context and the engineer's ability to review it.",
-    "একজন fresh graduate একটি feature পেয়ে company AI-কে system design ও code বানাতে বলল। Output দেখে বেশ confident মনে হচ্ছে। এরপর কী হবে, তা prompt-এর পরিমাণের চেয়ে context এবং engineer-এর review করার ক্ষমতার ওপর বেশি নির্ভর করে।",
+    "একজন fresh graduate-কে নতুন feature দেওয়া হলো। সে company AI-কে বলল system design আর code তৈরি করে দিতে। উত্তরটি দেখলে বেশ আত্মবিশ্বাসীই মনে হয়। কিন্তু এরপর কী হবে, তা prompt কত বড় ছিল তার চেয়ে AI কী context পেয়েছে এবং engineer সেটি কতটা বুঝে যাচাই করতে পারে—তার ওপর বেশি নির্ভর করে।",
   ),
   closing: l(
     "Code fluency, algorithms and data structures remain useful; speed alone is not enough. SOLID and design patterns can provide vocabulary, but they are not a checklist to force into every feature. Learn the principles, recognise when a simpler design is better, and escalate high-impact decisions with evidence.",
-    "Code fluency, algorithm ও data structure এখনও দরকারি; শুধু speed যথেষ্ট নয়। SOLID ও design pattern দরকারি vocabulary দিতে পারে, কিন্তু প্রতিটি feature-এ জোর করে বসানোর checklist নয়। Principle বোঝো, কখন simpler design ভালো তা চিনো, আর high-impact decision evidence দিয়ে escalate করো।",
+    "Code fluency, algorithm আর data structure এখনও দরকারি; তবে শুধু দ্রুত code লিখতে পারাই যথেষ্ট নয়। SOLID ও design pattern ভাবনার ভাষা দেয়, কিন্তু প্রতিটি feature-এ গুঁজে দেওয়ার checklist নয়। নীতিটা বোঝো, কখন সহজ design-ই ভালো তা চিনে নাও, আর বড় প্রভাবের সিদ্ধান্তে evidence নিয়ে অভিজ্ঞ কারও মত নাও।",
   ),
 } satisfies Record<string, LocalizedText>;
 
@@ -58,15 +58,15 @@ export const aiEraDecisions = [
     label: l("Frame", "Problem ধরো"),
     question: l(
       "Can you explain the user need, constraints and what “done” means without asking AI first?",
-      "AI-কে আগে না জিজ্ঞেস করে user need, constraint আর “done” বলতে কী বোঝায়—ব্যাখ্যা করতে পারো?",
+      "AI-কে জিজ্ঞেস করার আগেই user-এর প্রয়োজন, সীমাবদ্ধতা আর কাজ শেষ হওয়ার শর্ত বোঝাতে পারবে?",
     ),
     no: l(
       "Pause. Clarify the problem, data, risks and acceptance criteria.",
-      "থামো। Problem, data, risk ও acceptance criteria পরিষ্কার করো।",
+      "একটু থামো। সমস্যা, data, ঝুঁকি আর acceptance criteria আগে পরিষ্কার করো।",
     ),
     yes: l(
       "Give AI bounded context; then compare options.",
-      "AI-কে সীমিত context দাও; তারপর option তুলনা করো।",
+      "AI-কে প্রয়োজনমতো context দাও; তারপর সম্ভাব্য পথগুলো মিলিয়ে দেখো।",
     ),
   },
   {
@@ -74,15 +74,15 @@ export const aiEraDecisions = [
     label: l("Verify", "যাচাই করো"),
     question: l(
       "Can you challenge correctness, edge cases, security, tests and maintainability?",
-      "Correctness, edge case, security, test ও maintainability challenge করতে পারো?",
+      "কাজটি সঠিক কি না, edge case, security, test আর maintainability—এসব নিয়ে প্রশ্ন তুলতে পারবে?",
     ),
     no: l(
       "Shrink the task and build the missing foundation before you merge.",
-      "Task ছোট করো; merge-এর আগে missing foundation শেখো।",
+      "কাজের পরিধি ছোট করো। merge করার আগে যে ভিত্তিটুকু জানা নেই, সেটি শিখে নাও।",
     ),
     yes: l(
       "Use evidence—not confidence—to accept or reject it.",
-      "Confidence নয়—evidence দিয়ে accept বা reject করো।",
+      "উত্তরের আত্মবিশ্বাস দেখে নয়—evidence দেখে গ্রহণ বা বাতিল করো।",
     ),
   },
   {
@@ -90,15 +90,15 @@ export const aiEraDecisions = [
     label: l("Own", "দায়িত্ব নাও"),
     question: l(
       "Can you justify this trade-off for the codebase, business and people affected?",
-      "Codebase, business ও প্রভাবিত মানুষের জন্য এই trade-off justify করতে পারো?",
+      "Codebase, business আর যাদের ওপর প্রভাব পড়বে—সবার কথা ভেবে এই trade-off ব্যাখ্যা করতে পারবে?",
     ),
     no: l(
       "Inspect team conventions and decision records; ask for review when impact is hard to reverse.",
-      "Team convention ও decision record দেখো; impact ফিরিয়ে নেওয়া কঠিন হলে review চাও।",
+      "Team-এর নিয়ম আর আগের decision record দেখো। ভুল সিদ্ধান্ত ফেরানো কঠিন হলে review চাও।",
     ),
     yes: l(
       "Proceed, test, document and monitor. You own the result.",
-      "এগিয়ে যাও, test, document ও monitor করো। Result-এর দায়িত্ব তোমার।",
+      "তাহলে এগিয়ে যাও—test করো, লিখে রাখো, নজর রাখো। ফলাফলের দায়িত্বও নাও।",
     ),
   },
 ] as const;
@@ -108,45 +108,42 @@ export const aiEraScenarioPaths = [
     id: "thin-context",
     title: l(
       "Thin context + inexperienced review",
-      "কম context + অনভিজ্ঞ review",
+      "কম context, অনভিজ্ঞ reviewer",
     ),
     body: l(
       "AI reaches for a generic architecture or naive happy path. Repeated prompting can create more code and more review work without proving that the solution fits.",
-      "AI generic architecture বা naive happy path বেছে নিতে পারে। বারবার prompt দিলে আরও code ও review-এর কাজ তৈরি হতে পারে, কিন্তু solution fit করে—তা প্রমাণ হয় না।",
+      "AI হয়তো পরিচিত কোনো generic architecture বা কেবল happy path ধরে সমাধান বানাবে। বারবার prompt করলে code বাড়বে, review-ও বাড়বে—কিন্তু সমাধানটি এই সমস্যার জন্য ঠিক কি না, তার প্রমাণ মিলবে না।",
     ),
     consequence: l(
       "Risk: hidden defects, security gaps, unnecessary complexity and an expensive review bottleneck.",
-      "Risk: লুকানো defect, security gap, অপ্রয়োজনীয় complexity ও ব্যয়বহুল review bottleneck।",
+      "ঝুঁকি: চোখ এড়িয়ে যাওয়া bug, security gap, অকারণ জটিলতা আর review-এর লম্বা জট।",
     ),
   },
   {
     id: "rich-context",
     title: l(
       "Rich team context + weak understanding",
-      "সমৃদ্ধ team context + দুর্বল understanding",
+      "সমৃদ্ধ team context, কিন্তু বোঝাপড়া দুর্বল",
     ),
     body: l(
       "AI may reproduce the lead's advanced conventions and patterns. If the fresher cannot explain or safely change them when the lead is absent, familiar-looking code becomes fragile ownership.",
-      "AI lead-এর advanced convention ও pattern অনুসরণ করতে পারে। Lead না থাকলে fresher যদি সেগুলো explain বা safely change করতে না পারে, পরিচিত-দেখানো code-এর ownership দুর্বল হয়ে যায়।",
+      "AI হয়তো tech lead-এর পছন্দের advanced convention আর pattern হুবহু অনুসরণ করবে। কিন্তু lead না থাকলে fresher যদি সেগুলো বুঝিয়ে বলতে বা নিরাপদে বদলাতে না পারে, সুন্দর-দেখানো code-টিই তখন বোঝা হয়ে দাঁড়ায়।",
     ),
     consequence: l(
       "Risk: slow debugging, cargo-cult patterns, delayed decisions and dependence on more tokens or another reviewer.",
-      "Risk: ধীর debugging, না বুঝে pattern copy, decision delay এবং আরও token বা reviewer-এর ওপর dependency।",
+      "ঝুঁকি: ধীর debugging, না বুঝে pattern নকল, সিদ্ধান্তে দেরি এবং আরও token বা আরেকজন reviewer-এর ওপর নির্ভরতা।",
     ),
   },
   {
     id: "strong-engineer",
-    title: l(
-      "Strong foundations + AI assistance",
-      "শক্ত foundation + AI assistance",
-    ),
+    title: l("Strong foundations + AI assistance", "মজবুত ভিত্তি, সঙ্গে AI"),
     body: l(
       "The engineer frames constraints, asks for alternatives, chooses the simplest adequate design, tests risky assumptions and escalates decisions whose consequences exceed their experience.",
-      "Engineer constraint ঠিক করে, alternative চায়, যথেষ্ট simple design বেছে নেয়, risky assumption test করে এবং নিজের experience-এর বাইরে consequence হলে decision escalate করে।",
+      "Engineer আগে সীমাবদ্ধতা ঠিক করে, বিকল্প চায়, কাজের জন্য যথেষ্ট সহজ design বেছে নেয়, ঝুঁকিপূর্ণ assumption পরীক্ষা করে এবং সিদ্ধান্তের প্রভাব নিজের অভিজ্ঞতার বাইরে গেলে অভিজ্ঞ কাউকে যুক্ত করে।",
     ),
     consequence: l(
       "Outcome: AI accelerates useful work while reasoning, review and accountability remain human capabilities.",
-      "Outcome: AI useful কাজ দ্রুত করে; reasoning, review ও accountability মানুষের capability হিসেবেই থাকে।",
+      "ফল: AI কাজের গতি বাড়ায়, আর চিন্তা, যাচাই ও দায় নেওয়ার ক্ষমতা থাকে মানুষের হাতেই।",
     ),
   },
 ] as const;
@@ -159,23 +156,23 @@ export const homepageAiSourceIds = [
 export const sitePurpose = {
   premise: l(
     "A student may enter CSE because it is popular, offers strong earning potential, or looks like a route to opportunities abroad. When the excitement of admission fades, a harder question appears: what kinds of work exist across computing, and which ones are worth exploring?",
-    "CSE জনপ্রিয়, ভালো আয়ের সম্ভাবনা আছে বা বিদেশে কাজের সুযোগ তৈরি করতে পারে—এসব আশা নিয়ে একজন শিক্ষার্থী ভর্তি হতে পারে। ভর্তি হওয়ার উত্তেজনা কমলে সামনে আসে কঠিন প্রশ্ন: computing-এ কী কী ধরনের কাজ আছে, আর কোনগুলো explore করা উচিত?",
+    "জনপ্রিয়তা, ভালো আয় বা বিদেশে কাজের আশা—এসব ভেবেই অনেকে CSE-তে ভর্তি হয়। ভর্তি হওয়ার আনন্দটা একটু থিতু হলেই কঠিন প্রশ্নটি সামনে আসে: computing-এ আসলে কী কী কাজ আছে, আর কোনটি আমার জন্য?",
   ),
   drift: l(
     "Without useful orientation, semesters can slip into trends, disconnected tutorials and rushed decisions. Software engineering, QA, competitive programming and research are meaningful options—but they are not the whole landscape, and their real work is often misunderstood.",
-    "কাজে লাগে এমন orientation না পেলে trend, বিচ্ছিন্ন tutorial আর তাড়াহুড়োর সিদ্ধান্তে semester কেটে যেতে পারে। Software engineering, QA, competitive programming আর research গুরুত্বপূর্ণ পথ—কিন্তু এগুলোই পুরো landscape নয়, আর এসব কাজের বাস্তবতাও প্রায়ই পরিষ্কার থাকে না।",
+    "কাজের দিকনির্দেশনা না পেলে trend, বিচ্ছিন্ন tutorial আর তাড়াহুড়োর সিদ্ধান্তে কয়েকটি সেমিস্টার কেটে যেতে পারে। Software engineering, QA, competitive programming আর research অবশ্যই ভালো পথ—কিন্তু জগৎটা এখানেই শেষ নয়; পরিচিত নামগুলোর আসল কাজও অনেক সময় ঠিকমতো জানা থাকে না।",
   ),
   recovery: l(
     "Feeling late can turn confusion into frustration, and frustration can trigger another rushed choice. A clear map, a small experiment and an achievable learning sequence can interrupt that cycle. Direction can be built early—and rebuilt later.",
-    "দেরি হয়ে গেছে মনে হলে confusion থেকে frustration আসে, আর frustration নতুন তাড়াহুড়োর সিদ্ধান্ত তৈরি করতে পারে। পরিষ্কার map, ছোট experiment আর achievable learning sequence এই cycle থামাতে পারে। শুরুতেই direction তৈরি করা যায়—পরে আবারও তৈরি করা যায়।",
+    "‘অনেক দেরি হয়ে গেছে’—এই ভাবনা বিভ্রান্তিকে হতাশায় বদলে দেয়, আর হতাশা থেকে আসে আরেকটি তাড়াহুড়োর সিদ্ধান্ত। একটি পরিষ্কার মানচিত্র, ছোট একটি experiment আর করা সম্ভব এমন শেখার ধাপ এই চক্র থামাতে পারে। দিক শুরুতেই পাওয়া যায়; হারিয়ে গেলে আবারও খুঁজে নেওয়া যায়।",
   ),
   purpose: l(
     "Make career orientation available early—and make recovery possible later.",
-    "Career orientation শুরুতেই সহজলভ্য করা—আর পরে ঘুরে দাঁড়ানোর পথ খোলা রাখা।",
+    "শুরুতেই ক্যারিয়ারের দিকগুলো চিনিয়ে দেওয়া—আর দেরি হয়ে গেলেও ঘুরে দাঁড়ানোর পথ খোলা রাখা।",
   ),
   goal: l(
     "Help CSE students see the breadth of computing careers, understand the work behind the titles, test their interests through small experiments, and follow a practical learning or preparation path.",
-    "CSE শিক্ষার্থীদের computing career-এর বিস্তৃতি দেখানো, title-এর পেছনের কাজ বোঝানো, ছোট experiment দিয়ে আগ্রহ যাচাই করতে দেওয়া এবং practical learning বা preparation path অনুসরণে সাহায্য করা।",
+    "CSE শিক্ষার্থীদের computing career-এর বিস্তৃতি দেখানো, চাকরির নামের আড়ালের আসল কাজ বোঝানো, ছোট experiment দিয়ে নিজের আগ্রহ যাচাই করতে দেওয়া এবং বাস্তবসম্মত শেখা বা প্রস্তুতির পথে এগোতে সাহায্য করা।",
   ),
 } satisfies Record<string, LocalizedText>;
 
@@ -196,7 +193,7 @@ export const homepageEntries: HomepageEntry[] = [
     ),
     note: l(
       "A calm first-semester plan. No career decision required.",
-      "প্রথম semester-এর সহজ plan। এখনই career ঠিক করতে হবে না।",
+      "প্রথম সেমিস্টারের শান্ত, সহজ পরিকল্পনা। এখনই ক্যারিয়ার ঠিক করতে হবে না।",
     ),
     destination: "/guidance/new-cse-student/",
     analyticsDestination: "new-cse-student",
@@ -205,11 +202,11 @@ export const homepageEntries: HomepageEntry[] = [
     id: "explore",
     label: l(
       "I want to understand different careers.",
-      "আলাদা career-গুলোর কাজ বুঝতে চাই।",
+      "ক্যারিয়ারের পথগুলো বুঝতে চাই।",
     ),
     note: l(
       "See the real work, compare paths, and find a small experiment.",
-      "আসল কাজ দেখো, পথগুলো তুলনা করো, ছোট একটা experiment বেছে নাও।",
+      "আসল কাজ কেমন দেখো, পথগুলো মিলিয়ে নাও, তারপর ছোট একটি experiment করো।",
     ),
     destination: "/careers/",
     analyticsDestination: "careers",
@@ -218,11 +215,11 @@ export const homepageEntries: HomepageEntry[] = [
     id: "prepare",
     label: l(
       "I know my goal and need a plan.",
-      "লক্ষ্য জানি, প্রস্তুতির plan চাই।",
+      "লক্ষ্য জানি, এবার প্রস্তুতির পরিকল্পনা চাই।",
     ),
     note: l(
       "Jobs at home or abroad, remote work, higher studies, research, freelancing or a tech business.",
-      "দেশে-বিদেশে চাকরি, remote কাজ, উচ্চশিক্ষা, গবেষণা, freelancing বা নিজের tech business।",
+      "দেশে বা বিদেশে চাকরি, remote work, উচ্চশিক্ষা, গবেষণা, freelancing কিংবা নিজের tech business—যে লক্ষ্যই হোক।",
     ),
     destination: "/goals/",
     analyticsDestination: "goals",

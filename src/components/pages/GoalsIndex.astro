@@ -16,25 +16,25 @@ const title = bn
   ? "সাত লক্ষ্য, বাস্তব প্রস্তুতি"
   : "Seven goals, practical preparation";
 const description = bn
-  ? "Global company, বাংলাদেশের industry, remote চাকরি, বিদেশে উচ্চশিক্ষা, research, freelancing আর tech business-এর বাস্তব প্রস্তুতি ও roadmap।"
+  ? "বিশ্বমানের company, বাংলাদেশের tech industry, remote চাকরি, বিদেশে উচ্চশিক্ষা, research, freelancing আর tech business—সাত লক্ষ্যের বাস্তব প্রস্তুতি।"
   : "Practical preparation for global companies, Bangladesh industry, remote jobs, study abroad, research, freelancing and a tech business.";
 const groups = [
   {
-    title: bn ? "Industry-তে কাজ" : "Work in industry",
+    title: bn ? "ইন্ডাস্ট্রিতে কাজ" : "Work in industry",
     note: bn
-      ? "Role-এর skill + hiring-এর প্রস্তুতি"
+      ? "কাজের দক্ষতা + নিয়োগের প্রস্তুতি"
       : "Role skills + hiring preparation",
     items: goals.slice(0, 3),
   },
   {
     title: bn ? "পড়াশোনা আর গবেষণা" : "Study & investigate",
-    note: bn ? "Academic fit + evidence" : "Academic fit + evidence",
+    note: bn ? "পড়াশোনার মিল + নিজের evidence" : "Academic fit + evidence",
     items: goals.slice(3, 5),
   },
   {
     title: bn ? "নিজের উদ্যোগে কাজ" : "Work independently",
     note: bn
-      ? "Client বা customer + delivery"
+      ? "Client বা customer + কাজ পৌঁছে দেওয়া"
       : "Clients or customers + delivery",
     items: goals.slice(5),
   },
@@ -62,7 +62,7 @@ const structuredData = collectionStructuredData({
   <Breadcrumbs
     locale={locale}
     items={[
-      { label: bn ? "Roadmap" : "Roadmaps", path: "/roadmaps/" },
+      { label: bn ? "রোডম্যাপ" : "Roadmaps", path: "/roadmaps/" },
       { label: bn ? "লক্ষ্যভিত্তিক পথ" : "Goal guides" },
     ]}
   />
@@ -71,12 +71,16 @@ const structuredData = collectionStructuredData({
       {bn ? "একটি লক্ষ্য দিয়ে শুরু" : "Start with one direction"}
     </p>
     <h1>
-      {bn ? "Skill আছে। এবার কোন দিকে?" : "Skills are a start. Where next?"}
+      {
+        bn
+          ? "দক্ষতা আছে। এবার কোন দিকে যাবে?"
+          : "Skills are a start. Where next?"
+      }
     </h1>
     <p class="lede">
       {
         bn
-          ? "বড় company, গবেষণা না নিজের কাজ? সাতটি practical পথ—কী প্রস্তুতি, কী evidence আর এই সপ্তাহে কী করতে পারো। কোনো promise বা permanent career contract নয়।"
+          ? "বড় company, গবেষণা, নাকি নিজের কিছু? সাতটি বাস্তব পথ দেখো—কী প্রস্তুতি লাগবে, কী evidence গড়বে আর এই সপ্তাহেই কী করা যায়। এখানে চাকরির প্রতিশ্রুতি বা সারাজীবনের চুক্তি নেই।"
           : "A global company, research, or something of your own? Seven practical routes—with preparation, evidence and something useful to do this week. No guarantees or lifetime career contracts."
       }
     </p>
@@ -84,13 +88,13 @@ const structuredData = collectionStructuredData({
       <a class="button" href="#goal-choices"
         >{bn ? "আমার লক্ষ্য বেছে নিই" : "Choose a goal"}</a
       ><a class="button button--secondary" href={href("/careers/")}
-        >{bn ? "আগে career চিনে নিই" : "Explore careers first"}</a
+        >{bn ? "আগে ক্যারিয়ারগুলো চিনে নিই" : "Explore careers first"}</a
       >
     </div>
     <p class="route-note">
       {
         bn
-          ? "কোন skill শিখবে জানা থাকলে career roadmap; skill কোথায় কাজে লাগাবে বুঝতে goal guide। দুই পথ একসঙ্গে কাজে লাগে।"
+          ? "কী শিখবে জানতে ক্যারিয়ার রোডম্যাপ দেখো; শেখা জিনিস কোথায় কাজে লাগাবে জানতে লক্ষ্যভিত্তিক গাইড। দুটো একসঙ্গেই কাজে লাগে।"
           : "Use a career roadmap for what to learn and a goal guide for how to apply it. They work together."
       }
     </p>
@@ -123,7 +127,7 @@ const structuredData = collectionStructuredData({
                     <p>{t(goal.summary, locale)}</p>
                     <span class="option-note">
                       {bn
-                        ? "প্রস্তুতি → evidence → পরের পদক্ষেপ"
+                        ? "প্রস্তুতি → evidence → পরের কাজ"
                         : "Preparation → evidence → next action"}
                     </span>
                   </article>
@@ -151,13 +155,13 @@ const structuredData = collectionStructuredData({
         <p class="lede">
           {
             bn
-              ? "একটি primary goal নাও, একটি ছোট কাজ করো, তারপর evidence দেখে বদলাও। Local কাজ থেকে remote বা research থেকে higher study—পথ বদলানো ব্যর্থতা নয়।"
+              ? "এখন একটি মূল লক্ষ্য বেছে নাও, ছোট একটি কাজ করো, তারপর পাওয়া evidence দেখে পরিকল্পনা বদলাও। দেশি চাকরি থেকে remote work বা research থেকে উচ্চশিক্ষা—পথ বদলানো ব্যর্থতা নয়।"
               : "Choose one primary goal, do a small piece of work and revise with evidence. Local work can lead to remote work; research can lead to further study. Changing direction is not failure."
           }
         </p><a href={href("/roadmaps/#career-roadmaps")}
           >{
             bn
-              ? "Career অনুযায়ী শেখার পথ দেখো →"
+              ? "ক্যারিয়ার অনুযায়ী শেখার পথ দেখো →"
               : "Find the learning path for your career →"
           }</a
         >

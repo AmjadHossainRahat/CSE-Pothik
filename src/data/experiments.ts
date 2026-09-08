@@ -23,7 +23,7 @@ const seeds: ExperimentSeed[] = [
     id: "mobile-app-development",
     title: l(
       "Make a reading list survive a restart",
-      "Restart-এর পরেও reading list বাঁচিয়ে রাখো",
+      "App বন্ধ করে খুললেও reading list যেন হারিয়ে না যায়",
     ),
     duration: "90–120 min",
     prerequisites: [
@@ -72,7 +72,7 @@ const seeds: ExperimentSeed[] = [
     id: "ux-ui-engineering",
     title: l(
       "Turn a confusing form into a usable flow",
-      "বিভ্রান্তিকর form-কে usable flow বানাও",
+      "বিভ্রান্তিকর form-টিকে সহজ ও ব্যবহারযোগ্য করো",
     ),
     duration: "90–120 min",
     prerequisites: [
@@ -121,7 +121,7 @@ const seeds: ExperimentSeed[] = [
     id: "backend-engineering",
     title: l(
       "Build, break and explain a tiny API",
-      "Tiny API build, break আর explain করো",
+      "ছোট একটি API বানাও, ভেঙে দেখো, তারপর কারণ বোঝাও",
     ),
     duration: "90–120 min",
     prerequisites: [
@@ -170,7 +170,7 @@ const seeds: ExperimentSeed[] = [
     id: "frontend-engineering",
     title: l(
       "Build an accessible orientation card",
-      "Accessible orientation card বানাও",
+      "সবার ব্যবহারযোগ্য একটি orientation card বানাও",
     ),
     duration: "75–100 min",
     prerequisites: [
@@ -211,7 +211,10 @@ const seeds: ExperimentSeed[] = [
   },
   {
     id: "data-engineering",
-    title: l("Repair a messy data pipeline", "Messy data pipeline repair করো"),
+    title: l(
+      "Repair a messy data pipeline",
+      "এলোমেলো data pipeline গুছিয়ে ঠিক করো",
+    ),
     duration: "90–120 min",
     prerequisites: [l("Basic Python or SQL.", "Basic Python বা SQL।")],
     goals: [
@@ -254,7 +257,7 @@ const seeds: ExperimentSeed[] = [
     id: "machine-learning",
     title: l(
       "Train a tiny classifier—and challenge it",
-      "Tiny classifier train করে challenge করো",
+      "ছোট একটি classifier train করো, তারপর তার ভুল ধরো",
     ),
     duration: "90–120 min",
     prerequisites: [
@@ -303,7 +306,7 @@ const seeds: ExperimentSeed[] = [
     id: "cybersecurity",
     title: l(
       "Investigate one authorized web-security flaw",
-      "একটি authorized web-security flaw investigate করো",
+      "অনুমোদিত একটি web-security flaw অনুসন্ধান করো",
     ),
     duration: "60–90 min",
     prerequisites: [
@@ -352,7 +355,7 @@ const seeds: ExperimentSeed[] = [
     id: "devops-sre",
     title: l(
       "Deploy, break and diagnose a small service",
-      "Small service deploy, break আর diagnose করো",
+      "ছোট একটি service deploy করো, ভাঙো, তারপর সমস্যার কারণ খোঁজো",
     ),
     duration: "90–120 min",
     prerequisites: [
@@ -401,7 +404,7 @@ const seeds: ExperimentSeed[] = [
     id: "embedded-systems",
     title: l(
       "Read a sensor without blocking time",
-      "Time block না করে sensor read করো",
+      "অন্য কাজ না থামিয়ে sensor থেকে data পড়ো",
     ),
     duration: "90–150 min",
     prerequisites: [
@@ -450,7 +453,7 @@ const seeds: ExperimentSeed[] = [
     id: "systems-research",
     title: l(
       "Reproduce and question a small result",
-      "Small result reproduce আর question করো",
+      "ছোট একটি গবেষণার ফল আবার তৈরি করে প্রশ্ন করো",
     ),
     duration: "2–3 days",
     prerequisites: [
@@ -499,7 +502,7 @@ const seeds: ExperimentSeed[] = [
     id: "technical-product-leadership",
     title: l(
       "Turn a vague request into a decision",
-      "Vague request-কে decision-এ বদলাও",
+      "অস্পষ্ট অনুরোধকে পরিষ্কার সিদ্ধান্তে বদলাও",
     ),
     duration: "75–100 min",
     prerequisites: [

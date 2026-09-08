@@ -12,9 +12,9 @@ interface Props {
 }
 const { locale } = Astro.props;
 const bn = locale === "bn";
-const title = bn ? "CSE Career Roadmap" : "CSE Career Roadmaps";
+const title = bn ? "CSE ক্যারিয়ার রোডম্যাপ" : "CSE Career Roadmaps";
 const description = bn
-  ? "Foundation-first, mentor-guided CSE career roadmap—what to learn, enough for now, practical task আর কী এখন না শিখলেও চলবে।"
+  ? "ভিত্তি থেকে ধাপে ধাপে এগোনো CSE ক্যারিয়ার রোডম্যাপ—কী শিখবে, আপাতত কতটুকু যথেষ্ট, কী হাতে-কলমে করবে আর কোনটা এখন না শিখলেও চলবে।"
   : "Foundation-first, mentor-guided CSE career roadmaps with practical tasks, curated resources and clear guidance on what not to learn yet.";
 const groupedCareers = careerFamilies.map((family) => ({
   family,
@@ -28,7 +28,7 @@ const structuredData = collectionStructuredData({
   homeUrl: new URL(withBase(localePath(locale, "/")), Astro.site).href,
   homeLabel: bn ? "হোম" : "Home",
   items: careers.map((career) => ({
-    name: `${t(career.title, locale)} ${bn ? "roadmap" : "roadmap"}`,
+    name: `${t(career.title, locale)} ${bn ? "রোডম্যাপ" : "roadmap"}`,
     url: new URL(withBase(roadmapPath(locale, career.slug)), Astro.site).href,
   })),
 });
@@ -40,27 +40,30 @@ const structuredData = collectionStructuredData({
   description={description}
   structuredData={structuredData}
 >
-  <Breadcrumbs locale={locale} items={[{ label: "Roadmaps" }]} />
+  <Breadcrumbs
+    locale={locale}
+    items={[{ label: bn ? "রোডম্যাপ" : "Roadmaps" }]}
+  />
   <header class="page-hero page-hero--compact container">
     <p class="eyebrow">
-      {bn ? "Mentor-guided sequence" : "Mentor-guided sequences"}
+      {bn ? "মেন্টরের মতো ধাপে ধাপে" : "Mentor-guided sequences"}
     </p><h1>
       {
         bn
-          ? "Roadmap poster না। শেখার usable order।"
+          ? "শুধু roadmap poster নয়—কোনটার পর কোনটা শিখবে, সেটাই আসল।"
           : "Not roadmap posters. Usable learning order."
       }
     </h1><p class="lede">
       {
         bn
-          ? "প্রতিটি stage বলে কেন শিখবে, এখন কতটুকু যথেষ্ট, কী practice করবে আর কোন shiny tool একটু অপেক্ষা করতে পারে।"
+          ? "প্রতিটি ধাপে জানবে কেন শিখছ, আপাতত কতটুকু যথেষ্ট, কীভাবে practice করবে আর কোন চকচকে tool-কে এখন ‘পরে দেখা যাবে’ বলা যায়।"
           : "Each stage explains why it matters, what is enough for now, what to practice and which shiny tools can wait."
       }
     </p>
   </header>
   <DirectoryJumpNav
-    eyebrow={bn ? "Career family-তে যাও" : "Jump to a career family"}
-    label={bn ? "Roadmap family index" : "Roadmap family index"}
+    eyebrow={bn ? "কাজের ধরন বেছে নাও" : "Jump to a career family"}
+    label={bn ? "রোডম্যাপ বিভাগের তালিকা" : "Roadmap family index"}
     items={groupedCareers.map(({ family, careers: items }) => ({
       id: `roadmaps-${family.id}`,
       label: t(family.title, locale),
@@ -69,20 +72,20 @@ const structuredData = collectionStructuredData({
   />
   <section
     class="section route-choices"
-    aria-label={bn ? "Roadmap-এর ধরন" : "Choose a roadmap type"}
+    aria-label={bn ? "রোডম্যাপের ধরন" : "Choose a roadmap type"}
   >
     <div class="container route-choice-grid">
       <article>
         <p class="eyebrow">{bn ? "কী শিখবে" : "What to learn"}</p><h2>
-          {bn ? "Career অনুযায়ী" : "By career"}
+          {bn ? "ক্যারিয়ার অনুযায়ী" : "By career"}
         </h2><p>
           {
             bn
-              ? "Backend, mobile, UX/UI আর অন্য কাজের foundation থেকে specialization।"
+              ? "Backend, mobile, UX/UI আর অন্য কাজের ভিত্তি থেকে specialization পর্যন্ত।"
               : "From foundations to specialization in backend, mobile, UX/UI and other careers."
           }
         </p><a class="button button--secondary" href="#career-roadmaps"
-          >{bn ? "Career roadmap দেখো" : "Browse career roadmaps"}</a
+          >{bn ? "ক্যারিয়ার রোডম্যাপ দেখো" : "Browse career roadmaps"}</a
         >
       </article>
       <article>
@@ -91,7 +94,7 @@ const structuredData = collectionStructuredData({
         </p><h2>{bn ? "লক্ষ্য অনুযায়ী" : "By goal"}</h2><p>
           {
             bn
-              ? "Global/local industry, remote কাজ, study abroad, research, freelancing আর tech business—সাতটি practical route।"
+              ? "দেশে-বিদেশে চাকরি, remote work, উচ্চশিক্ষা, research, freelancing আর tech business—সাতটি বাস্তব পথ।"
               : "Seven practical routes: global/local industry, remote work, study abroad, research, freelancing and a tech business."
           }
         </p><a
@@ -112,14 +115,14 @@ const structuredData = collectionStructuredData({
       <h2>
         {
           bn
-            ? "Final-year project শুরু করছ?"
+            ? "ফাইনাল ইয়ার প্রজেক্ট শুরু করছ?"
             : "Starting your final-year project?"
         }
       </h2>
       <p>
         {
           bn
-            ? "Requirement থেকে test, review আর handover—student-sized industry practice দিয়ে একটি finishable project বানাও।"
+            ? "Requirement থেকে test, review আর handover—শিক্ষার্থী হিসেবেই industry practice মেনে শেষ করা সম্ভব এমন project বানাও।"
             : "Turn a finishable project into engineering evidence: requirements, tests, reviews and a reproducible handover."
         }
       </p>
@@ -162,7 +165,7 @@ const structuredData = collectionStructuredData({
                     data-track-event="next_step_clicked"
                     data-track-param-destination={`roadmap/${career.id}`}
                   >
-                    {bn ? "Roadmap খোলো" : "Open roadmap"}{" "}
+                    {bn ? "রোডম্যাপ খোলো" : "Open roadmap"}{" "}
                     <span aria-hidden="true">→</span>
                   </a>
                 </div>
@@ -175,24 +178,30 @@ const structuredData = collectionStructuredData({
   }
   <section class="section">
     <div class="container callout">
-      <p class="callout__label">{bn ? "How to use" : "How to use these"}</p><h2>
-        {bn ? "সব box tick করতে যেও না।" : "Do not try to tick every box."}
+      <p class="callout__label">
+        {bn ? "কীভাবে ব্যবহার করবে" : "How to use these"}
+      </p><h2>
+        {
+          bn
+            ? "সব ঘরে টিক দেওয়ার দৌড়ে নেমো না।"
+            : "Do not try to tick every box."
+        }
       </h2><p>
         {
           bn
-            ? "Current stage-এর ‘enough for now’ criteria meet করো, practical task শেষ করো, তারপর next stage। Resource list collect করা skill না।"
+            ? "এখনকার ধাপের ‘আপাতত যথেষ্ট’ শর্ত পূরণ করো, হাতে-কলমে কাজটি শেষ করো, তারপর পরের ধাপে যাও। Resource link জমালেই skill জমে না।"
             : "Meet the current stage’s ‘enough for now’ criteria, complete its practical task, then move forward. Collecting resource links is not a skill."
         }
       </p>
       <div class="button-row">
         <a class="button" href={withBase(localePath(locale, "/careers/"))}>
-          {bn ? "Career family দেখি" : "Explore career families"}
+          {bn ? "ক্যারিয়ারের বিভাগ দেখি" : "Explore career families"}
         </a>
         <a
           class="button button--secondary"
           href={withBase(localePath(locale, "/goals/"))}
         >
-          {bn ? "Goal guide বেছে নিই" : "Choose a goal guide"}
+          {bn ? "লক্ষ্যভিত্তিক গাইড বেছে নিই" : "Choose a goal guide"}
         </a>
       </div>
     </div>

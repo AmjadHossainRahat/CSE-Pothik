@@ -18,7 +18,7 @@ const bn = locale === "bn";
     ? "আমি দিশেহারা — CSE Next Step"
     : "I’m Lost — Find Your Next CSE Step"}
   description={bn
-    ? "আজ কোথায় আটকে আছ বলো; deterministic, private CSE guidance path তোমাকে useful next step-এ নেবে।"
+    ? "আজ কোথায় আটকে আছ, সেটুকু বলো। কোনো তথ্য জমা না রেখেই CSE Compass তোমাকে কাজে লাগে এমন পরের ধাপটি দেখাবে।"
     : "Choose where you are stuck today and follow a deterministic, private CSE guidance path to a useful next step."}
 >
   <Breadcrumbs
@@ -29,19 +29,19 @@ const bn = locale === "bn";
     <p class="eyebrow">
       {
         bn
-          ? "No account · No score · No shame"
+          ? "Account নেই · Score নেই · লজ্জারও কিছু নেই"
           : "No account · No score · No shame"
       }
     </p><h1>
       {
         bn
-          ? "Confused? আজকের problem-টা বেছে নাও।"
+          ? "মাথা গুলিয়ে গেছে? আজকের সমস্যাটা বেছে নাও।"
           : "Confused? Choose today’s problem."
       }
     </h1><p class="lede">
       {
         bn
-          ? "এটা personality test বা AI prediction নয়। তুমি কী নিয়ে stuck সেটা বললে site একটা relevant route দেখাবে। কোনো answer save হবে না।"
+          ? "এটি personality test বা AI-এর ভবিষ্যদ্বাণী নয়। কোথায় আটকে আছ বললে প্রাসঙ্গিক একটি পথ দেখাবে; তোমার উত্তর কোথাও জমা হবে না।"
           : "This is not a personality test or AI prediction. Tell the site where you are stuck and it will reveal a relevant route. No answer is saved."
       }
     </p>
@@ -54,7 +54,7 @@ const bn = locale === "bn";
         </h2><div
           class="choice-grid"
           role="group"
-          aria-label={bn ? "Current problem" : "Current problem"}
+          aria-label={bn ? "এখনকার সমস্যা" : "Current problem"}
         >
           {
             lostChoices.map((choice) => (
@@ -81,13 +81,13 @@ const bn = locale === "bn";
         tabindex="-1"
       >
         <p class="eyebrow">
-          {bn ? "তোমার next meaningful step" : "Your next meaningful step"}
+          {bn ? "এখন তোমার কাজে লাগবে" : "Your next meaningful step"}
         </p><h2 data-result-title>
-          {bn ? "একটা choice বেছে নাও" : "Choose one situation"}
+          {bn ? "একটি অবস্থা বেছে নাও" : "Choose one situation"}
         </h2><p data-result-copy></p><a class="button" data-result-link href="#"
-          >{bn ? "এই route-এ যাই" : "Take this route"}</a
+          >{bn ? "এই পথে এগোই" : "Take this route"}</a
         ><button class="reset" type="button" data-lost-reset
-          >{bn ? "অন্য answer" : "Choose another answer"}</button
+          >{bn ? "অন্য উত্তর বেছে নিই" : "Choose another answer"}</button
         >
       </div>
     </div>
@@ -96,11 +96,11 @@ const bn = locale === "bn";
     <div class="container editorial-grid">
       <div>
         <p class="eyebrow">
-          {bn ? "If you feel behind" : "If you feel behind"}
+          {bn ? "মনে হচ্ছে অনেক পিছিয়ে গেছ?" : "If you feel behind"}
         </p><h2>
           {
             bn
-              ? "তিন বছরের gap তিন সপ্তাহে যাবে না।"
+              ? "তিন বছরের ঘাটতি তিন সপ্তাহে মিটবে না।"
               : "You cannot recover three years in three weeks."
           }
         </h2>
@@ -108,7 +108,7 @@ const bn = locale === "bn";
         <p class="lede">
           {
             bn
-              ? "কিন্তু পরের তিন মাস নষ্ট হওয়া আজই বন্ধ করতে পারো। Narrow target, daily foundation, one project, feedback—এই boring plan-টাই কাজ করে।"
+              ? "কিন্তু পরের তিন মাস নষ্ট হওয়া আজই থামাতে পারো। ছোট লক্ষ্য, প্রতিদিনের foundation, একটি project আর নিয়মিত feedback—শুনতে একটু boring, কিন্তু কাজের পরিকল্পনা সাধারণত এমনই হয়।"
               : "But you can stop losing the next three months. A narrow target, daily foundations, one project and feedback—the boring plan is the useful one."
           }
         </p><a
@@ -117,7 +117,7 @@ const bn = locale === "bn";
             lostChoices.find((choice) => choice.id === "behind")!.destination[
               locale
             ],
-          )}>{bn ? "Recovery route খোলো →" : "Open the recovery route →"}</a
+          )}>{bn ? "ঘুরে দাঁড়ানোর পথ দেখো →" : "Open the recovery route →"}</a
         >
       </div>
     </div>

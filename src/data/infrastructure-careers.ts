@@ -8,7 +8,7 @@ export const infrastructureCareers: CareerSeed[] = [
     title: l("Network Engineering", "Network Engineering"),
     description: l(
       "Design, connect and troubleshoot the networks people and services depend on. This is not just configuring a router—or the same job as cybersecurity.",
-      "মানুষ আর service যে network-এর ওপর নির্ভর করে তা design, connect আর troubleshoot করো। শুধু router configure করা নয়; cybersecurity-ও একই কাজ নয়।",
+      "মানুষ ও service যে network-এর ওপর নির্ভর করে, সেটি তৈরি, যুক্ত ও troubleshoot করো। কাজটি শুধু router configure করা নয়; cybersecurity-এর সঙ্গেও এক নয়।",
     ),
     work: [
       l(
@@ -218,7 +218,7 @@ export const infrastructureCareers: CareerSeed[] = [
     title: l("Hardware Engineering", "Hardware Engineering"),
     description: l(
       "Design and verify electronic systems: logic, components, schematics and boards. Embedded engineering focuses more on software controlling devices; hardware is not simply computer repair.",
-      "Logic, component, schematic আর board দিয়ে electronic system design ও verify করো। Embedded engineering-এ device চালানোর software বেশি গুরুত্বপূর্ণ; hardware মানেই computer repair নয়।",
+      "Logic, component, schematic ও board মিলিয়ে electronic system তৈরি ও যাচাই করো। Embedded engineering-এ device চালানো software-এ জোর বেশি; আর hardware engineering মানে শুধু computer repair নয়।",
     ),
     work: [
       l(
@@ -428,7 +428,7 @@ export const infrastructureCareers: CareerSeed[] = [
     title: l("Software QA & Testing", "Software QA ও Testing"),
     description: l(
       "Help a team understand product risk and prevent defects. Explore behavior, challenge requirements and automate useful checks—not just click through screens or count bugs.",
-      "Product risk বুঝতে আর defect ঠেকাতে team-কে সাহায্য করো। আচরণ explore, requirement যাচাই আর দরকারি check automate করো—শুধু click করা বা bug গোনা নয়।",
+      "Product-এর ঝুঁকি বুঝতে ও defect আগেই ঠেকাতে team-কে সাহায্য করো। আচরণ অনুসন্ধান, requirement যাচাই এবং দরকারি check automate করো—কাজটি শুধু screen-এ click করা বা bug গোনা নয়।",
     ),
     work: [
       l(

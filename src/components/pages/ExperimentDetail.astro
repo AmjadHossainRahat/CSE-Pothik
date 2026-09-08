@@ -17,13 +17,13 @@ const career = careerById.get(experiment.careerId)!;
 
 <BaseLayout
   locale={locale}
-  title={`${t(career.title, locale)} ${bn ? "Career Experiment" : "Career Experiment"}`}
+  title={`${t(career.title, locale)} ${bn ? "ক্যারিয়ার experiment" : "Career Experiment"}`}
   description={t(experiment.experienceGoals[0]!, locale)}
 >
   <Breadcrumbs
     locale={locale}
     items={[
-      { label: bn ? "Career experiment" : "Try a Career", path: "/try/" },
+      { label: bn ? "কাজ করে দেখো" : "Try a Career", path: "/try/" },
       { label: t(career.title, locale) },
     ]}
   />
@@ -38,19 +38,19 @@ const career = careerById.get(experiment.careerId)!;
         href="#setup"
         data-track-event="career_experiment_started"
         data-track-param-career-id={career.id}
-        >{bn ? "Experiment শুরু" : "Start the experiment"}</a
+        >{bn ? "কাজ শুরু করি" : "Start the experiment"}</a
       >
     </div><aside class="callout">
       <p class="callout__label">
-        {bn ? "Before you continue" : "Before you continue"}
+        {bn ? "এগোনোর আগে" : "Before you continue"}
       </p><p>
         {
           career.familyId === "protect-systems"
             ? bn
-              ? "শুধু explicitly authorized lab বা নিজের system-এ কাজ করবে। Real target test করা এই experiment-এর অংশ না—এবং legalও নাও হতে পারে।"
+              ? "শুধু স্পষ্ট অনুমতি আছে এমন lab বা নিজের system-এ কাজ করবে। আসল কোনো target পরীক্ষা করা এই experiment-এর অংশ নয়—আইনসঙ্গতও নাও হতে পারে।"
               : "Work only in explicitly authorized labs or your own system. Testing real targets is not part of this experiment and may be illegal."
             : bn
-              ? "Tutorial copy করে finish করা goal না। কোথায় আটকে গেলে, কী evidence দেখে fix করলে—সেটা notice করো।"
+              ? "Tutorial নকল করে শেষ করাই লক্ষ্য নয়। কোথায় আটকে গেলে আর কোন evidence দেখে ঠিক করলে—সেটি লক্ষ করো।"
               : "The goal is not tutorial completion. Notice where you get stuck and what evidence helps you move again."
         }
       </p>
@@ -59,19 +59,19 @@ const career = careerById.get(experiment.careerId)!;
   <section class="section section--tinted" id="setup">
     <div class="container experiment-layout">
       <div>
-        <p class="eyebrow">01 · {bn ? "Setup" : "Setup"}</p><h2>
+        <p class="eyebrow">01 · {bn ? "প্রস্তুতি" : "Setup"}</p><h2>
           {bn ? "যা দরকার" : "What you need"}
         </h2><ul class="rule-list">
           {experiment.prerequisites.map((item) => <li>{t(item, locale)}</li>)}
         </ul><p class="muted">
           {
             bn
-              ? "Timebox শেষ হলে থামতে পারো। Incomplete result-ও useful evidence।"
+              ? "বেঁধে দেওয়া সময় শেষ হলে থামতে পারো। অসম্পূর্ণ ফলও নিজের জন্য দরকারি evidence।"
               : "You may stop when the timebox ends. An incomplete result is still useful evidence."
           }
         </p>
       </div><aside>
-        <h3>{bn ? "Setup resources" : "Setup resources"}</h3><ResourceList
+        <h3>{bn ? "শুরু করতে যা লাগবে" : "Setup resources"}</h3><ResourceList
           locale={locale}
           resourceIds={experiment.resourceIds}
           alternatives={career.id === "mobile-app-development"}
@@ -82,8 +82,8 @@ const career = careerById.get(experiment.careerId)!;
   </section>
   <section class="section">
     <div class="container">
-      <p class="eyebrow">02 · {bn ? "Task" : "Task"}</p><h2>
-        {bn ? "কাজের flow" : "The work sequence"}
+      <p class="eyebrow">02 · {bn ? "কাজ" : "Task"}</p><h2>
+        {bn ? "কাজের ধাপ" : "The work sequence"}
       </h2><ol class="task-steps">
         {
           experiment.steps.map((step, index) => (
@@ -101,20 +101,22 @@ const career = careerById.get(experiment.careerId)!;
   <section class="section section--tinted">
     <div class="container editorial-grid">
       <div>
-        <p class="eyebrow">03 · {bn ? "Pay attention" : "Pay attention"}</p><h2>
+        <p class="eyebrow">03 · {bn ? "খেয়াল করো" : "Pay attention"}</p><h2>
           {
             bn
-              ? "Output-এর পাশাপাশি নিজের reaction দেখো"
+              ? "Output-এর পাশাপাশি নিজের প্রতিক্রিয়াও দেখো"
               : "Watch your reaction, not only the output"
           }
         </h2><ul class="rule-list">
           {experiment.attention.map((item) => <li>{t(item, locale)}</li>)}
         </ul>
       </div><div class="callout callout--amber">
-        <p class="callout__label">{bn ? "Plot twist" : "Plot twist"}</p><p>
+        <p class="callout__label">
+          {bn ? "একটু অন্যভাবে ভাবো" : "Plot twist"}
+        </p><p>
           {
             bn
-              ? "কঠিন লাগা মানেই career fit না—এটা না। প্রশ্ন হলো: কঠিন হওয়ার পরেও curiosity ফিরেছে কি?"
+              ? "কঠিন লাগলেই ক্যারিয়ারটি তোমার নয়—এমন নয়। আসল প্রশ্ন: কঠিন হওয়ার পরও কৌতূহলটি কি ফিরে এসেছে?"
               : "Difficulty does not mean the career is a bad fit. The useful question is whether curiosity returned after the difficulty."
           }
         </p>
@@ -123,8 +125,8 @@ const career = careerById.get(experiment.careerId)!;
   </section>
   <section class="section">
     <div class="container">
-      <p class="eyebrow">04 · {bn ? "Reflect" : "Reflect"}</p><h2>
-        {bn ? "নিজেকে তিনটি honest question" : "Three honest questions"}
+      <p class="eyebrow">04 · {bn ? "ভেবে দেখো" : "Reflect"}</p><h2>
+        {bn ? "নিজেকে তিনটি সৎ প্রশ্ন" : "Three honest questions"}
       </h2><div class="reflection-grid">
         {
           experiment.reflectionPrompts.map((prompt, index) => (
@@ -139,7 +141,7 @@ const career = careerById.get(experiment.careerId)!;
       </div><p class="muted">
         {
           bn
-            ? "তোমার answer এই site save করে না। চাইলে notebook-এ লিখে রাখো।"
+            ? "তোমার উত্তর এই site জমা রাখে না। চাইলে নিজের notebook-এ লিখে রাখো।"
             : "This site does not save your answers. Put them in your own notebook if useful."
         }
       </p>
@@ -147,23 +149,23 @@ const career = careerById.get(experiment.careerId)!;
   </section>
   <section class="section section--tinted">
     <div class="container">
-      <p class="eyebrow">05 · {bn ? "Where next" : "Where to go next"}</p><h2>
+      <p class="eyebrow">05 · {bn ? "এরপর কোথায়" : "Where to go next"}</p><h2>
         {
           bn
-            ? "Experiment ভালো বা খারাপ—দুটো result-ই useful।"
+            ? "Experiment ভালো লাগুক বা খারাপ—দুই ফলই তোমাকে কিছু জানায়।"
             : "Enjoyed it or disliked it—both results are useful."
         }
       </h2><div class="next-actions">
         <a class="button" href={withBase(roadmapPath(locale, career.slug))}
-          >{bn ? "এই career-এর roadmap" : "Prepare with the roadmap"}</a
+          >{bn ? "এই ক্যারিয়ারের রোডম্যাপ" : "Prepare with the roadmap"}</a
         ><a
           class="button button--secondary"
           href={withBase(careerPath(locale, career.slug))}
-          >{bn ? "Career overview-এ ফিরি" : "Return to career guide"}</a
+          >{bn ? "ক্যারিয়ার পরিচিতিতে ফিরি" : "Return to career guide"}</a
         ><a
           class="button button--secondary"
           href={withBase(locale === "bn" ? "/bn/try/" : "/try/")}
-          >{bn ? "অন্য experiment" : "Try another career"}</a
+          >{bn ? "অন্য একটি কাজ করে দেখি" : "Try another career"}</a
         >
       </div>
     </div>

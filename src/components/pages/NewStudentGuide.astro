@@ -12,17 +12,20 @@ const plan = bn
   ? [
       [
         "Week 1–2",
-        "একটি language দিয়ে variables, control flow, function আর debugging।",
+        "একটি language দিয়ে variable, control flow, function আর debugging বোঝো।",
       ],
       [
         "Week 3–4",
-        "Array, string, basic data structure আর ১২–১৫টি small problem।",
+        "Array, string, basic data structure আর ১২–১৫টি ছোট problem সমাধান করো।",
       ],
-      ["Week 5–6", "Git, shell, file, HTTP—computer কী করছে সেটা observe করো।"],
-      ["Week 7–9", "একটি tiny project: input, data, error আর README।"],
+      [
+        "সপ্তাহ ৫–৬",
+        "Git, shell, file, HTTP—computer ভেতরে কী করছে, খেয়াল করো।",
+      ],
+      ["সপ্তাহ ৭–৯", "ছোট একটি project: input, data, error আর README-সহ।"],
       [
         "Week 10–12",
-        "দুটি career guide, দুটি experiment, একটি provisional direction।",
+        "দুটি ক্যারিয়ার গাইড, দুটি experiment, আর আপাতত এগোনোর একটি দিক।",
       ],
     ]
   : [
@@ -49,30 +52,30 @@ const plan = bn
 <BaseLayout
   locale={locale}
   title={bn
-    ? "নতুন CSE Student-এর Starting Guide"
+    ? "নতুন CSE শিক্ষার্থীর শুরুর গাইড"
     : "New CSE Student Starting Guide"}
   description={bn
-    ? "CSE fresher-এর জন্য calm 12-week starting plan: programming, problem solving, Git, project আর deliberate career exploration।"
+    ? "CSE fresher-এর জন্য শান্ত ১২ সপ্তাহের শুরু: programming, problem solving, Git, project আর বুঝে-শুনে ক্যারিয়ার দেখা।"
     : "A calm 12-week starting plan for CSE freshers: programming, problem solving, Git, one project and deliberate career exploration."}
 >
   <Breadcrumbs
     locale={locale}
     items={[
-      { label: bn ? "Guidance" : "Guidance" },
+      { label: bn ? "দিকনির্দেশনা" : "Guidance" },
       { label: bn ? "নতুন CSE student" : "New CSE student" },
     ]}
   />
   <header class="page-hero container">
-    <p class="eyebrow">{bn ? "Fresher route" : "Fresher route"}</p><h1>
+    <p class="eyebrow">{bn ? "নতুন শিক্ষার্থীর পথ" : "Fresher route"}</p><h1>
       {
         bn
-          ? "প্রথম semester-এ সবকিছু শিখতে হবে না।"
+          ? "প্রথম সেমিস্টারেই পৃথিবীর সবকিছু শিখতে হবে না।"
           : "You do not need to learn everything in semester one."
       }
     </h1><p class="lede">
       {
         bn
-          ? "Goal হলো random tutorial loop থামানো: একটি language, computational foundation, Git, একটি small build আর career landscape-এর first look।"
+          ? "লক্ষ্য হলো এলোপাতাড়ি tutorial-এর চক্র থামানো: একটি language, computing-এর ভিত্তি, Git, ছোট একটি build আর ক্যারিয়ারের জগতে প্রথমবার চোখ বোলানো।"
           : "The goal is to stop the random-tutorial loop: one language, computational foundations, Git, one small build and a first look at the career landscape."
       }
     </p>
@@ -82,7 +85,11 @@ const plan = bn
       <p class="eyebrow">
         {bn ? "12-week orientation" : "A 12-week orientation"}
       </p><h2>
-        {bn ? "Small, boring, compounding" : "Small, boring and compounding"}
+        {
+          bn
+            ? "ছোট ছোট কাজ—দেখতে সাদামাটা, ফলটা বড়"
+            : "Small, boring and compounding"
+        }
       </h2><ol class="timeline">
         {
           plan.map(([period, task]) => (
@@ -101,8 +108,8 @@ const plan = bn
     <div class="container editorial-grid">
       <div>
         <p class="eyebrow">
-          {bn ? "What not to learn yet" : "What not to learn yet"}
-        </p><h2>{bn ? "Noise একটু কমাও" : "Reduce the noise"}</h2><ul
+          {bn ? "এখনই যেগুলোর পেছনে ছুটতে হবে না" : "What not to learn yet"}
+        </p><h2>{bn ? "চারপাশের noise একটু কমাও" : "Reduce the noise"}</h2><ul
           class="rule-list"
         >
           {
@@ -110,8 +117,8 @@ const plan = bn
               ? [
                   "একসঙ্গে React, Flutter, AI, Cybersecurity আর Blockchain।",
                   "Foundation ছাড়া advanced cloud certification।",
-                  "Project ছাড়া tutorial playlist collect।",
-                  "AI দিয়ে assignment finish করে line 12 explain না পারা।",
+                  "Project না বানিয়ে tutorial playlist জমাতে থাকা।",
+                  "AI দিয়ে assignment শেষ করে নিজের code-এর ১২ নম্বর line-টাই বুঝিয়ে বলতে না পারা।",
                 ]
               : [
                   "React, Flutter, AI, cybersecurity and blockchain at the same time.",
@@ -124,11 +131,11 @@ const plan = bn
         </ul>
       </div><div class="callout callout--amber">
         <p class="callout__label">
-          {bn ? "Future You says" : "Future You says"}
+          {bn ? "ভবিষ্যতের তুমি যা বলবে" : "Future You says"}
         </p><p>
           {
             bn
-              ? "‘Please, Git এখনই শিখে রাখো। final.zip, final-2.zip, final-real.zip জীবন না।’"
+              ? "‘Please, Git এখনই শিখে রাখো। final.zip, final-2.zip, final-real.zip কোনো version-control strategy নয়।’"
               : "“Please learn Git now. final.zip, final-2.zip and final-real.zip are not a version-control strategy.”"
           }
         </p>
@@ -137,11 +144,13 @@ const plan = bn
   </section>
   <section class="section section--tinted">
     <div class="container">
-      <h2>{bn ? "এরপর landscape দেখো" : "Then see the landscape"}</h2><div
-        class="next-actions"
-      >
+      <h2>
+        {bn ? "এরপর ক্যারিয়ারের জগৎটা দেখো" : "Then see the landscape"}
+      </h2><div class="next-actions">
         <a class="button" href={withBase(localePath(locale, "/careers/"))}
-          >{bn ? "Career family explore" : "Explore career families"}</a
+          >{
+            bn ? "ক্যারিয়ারের ক্ষেত্রগুলো ঘুরে দেখো" : "Explore career families"
+          }</a
         ><a
           class="button button--secondary"
           href={withBase(

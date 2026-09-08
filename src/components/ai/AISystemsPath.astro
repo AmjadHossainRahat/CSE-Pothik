@@ -23,14 +23,14 @@ const bn = locale === "bn";
         <p class="eyebrow">
           {
             bn
-              ? "Buzzword নয়—capability order"
+              ? "Buzzword নয়—আগে কাজের ক্ষমতা"
               : "Capabilities before buzzwords"
           }
         </p>
         <h2>
           {
             bn
-              ? "Prompt থেকে dependable agentic system"
+              ? "একটি prompt থেকে নির্ভরযোগ্য agentic system"
               : "From one prompt to a dependable agentic system"
           }
         </h2>
@@ -38,7 +38,7 @@ const bn = locale === "bn";
       <p class="lede">
         {
           bn
-            ? "সব term একই level-এর নয়। আগে measurable problem আর baseline, তারপর context ও workflow; ambiguity সত্যি দরকার হলে তবেই agent।"
+            ? "সব term একই স্তরের নয়। আগে মাপা যায় এমন সমস্যা আর baseline, তারপর context ও workflow; সত্যিই অনিশ্চয়তা থাকলে তবেই agent যোগ করো।"
             : "These terms do not belong at the same level. Begin with a measurable problem and baseline, add context and workflow, then introduce agency only when real ambiguity requires it."
         }
       </p>
@@ -52,10 +52,15 @@ const bn = locale === "bn";
               <h3>{t(step.title, locale)}</h3>
               <p>{t(step.intent, locale)}</p>
               <p class="build-note">
-                <strong>{bn ? "Build evidence:" : "Build evidence:"}</strong>{" "}
+                <strong>
+                  {bn ? "যে evidence বানাবে:" : "Build evidence:"}
+                </strong>{" "}
                 {t(step.build, locale)}
               </p>
-              <ul class="term-chips" aria-label={bn ? "মূল term" : "Key terms"}>
+              <ul
+                class="term-chips"
+                aria-label={bn ? "মূল ধারণা" : "Key terms"}
+              >
                 {step.terms.map((term) => (
                   <li>{term}</li>
                 ))}
@@ -68,11 +73,11 @@ const bn = locale === "bn";
 
     <div class="systems-lower">
       <section aria-labelledby="term-map-title">
-        <p class="eyebrow">{bn ? "Term map" : "Term map"}</p>
+        <p class="eyebrow">{bn ? "শব্দগুলোর মানচিত্র" : "Term map"}</p>
         <h2 id="term-map-title">
           {
             bn
-              ? "Tool কোথায় fit করে—আর কোথায় করে না"
+              ? "কোন tool কোথায় কাজে লাগে—আর কোথায় লাগে না"
               : "Where the tools fit—and where they do not"
           }
         </h2>
@@ -94,19 +99,19 @@ const bn = locale === "bn";
 
       <aside class="resource-shelf" aria-labelledby="systems-resources-title">
         <p class="eyebrow">
-          {bn ? "Primary starting points" : "Primary starting points"}
+          {bn ? "শুরু করার মূল জায়গা" : "Primary starting points"}
         </p>
         <h2 id="systems-resources-title">
           {
             bn
-              ? "Concept শিখে একটি stack বেছে নাও"
+              ? "আগে ধারণা বোঝো, তারপর একটি stack বেছে নাও"
               : "Learn the concepts, then choose one stack"
           }
         </h2>
         <p>
           {
             bn
-              ? "একসঙ্গে সব framework বা provider নয়। Official guide দিয়ে agent, RAG, workflow আর runtime-এর boundary compare করো।"
+              ? "একসঙ্গে সব framework বা provider জমিয়ো না। Official guide দেখে agent, RAG, workflow আর runtime-এর সীমা মিলিয়ে বোঝো।"
               : "Do not collect every framework or provider. Use official guides to compare the boundaries of agents, RAG, workflows and runtimes."
           }
         </p>
@@ -128,7 +133,7 @@ const bn = locale === "bn";
         <h2 id="start-small-title">
           {
             bn
-              ? "Inbox agent নয়—একটি read-only document helper।"
+              ? "Inbox সামলানো agent নয়—আগে বানাও read-only document helper।"
               : "Not an inbox agent—a read-only document helper."
           }
         </h2>
@@ -137,14 +142,14 @@ const bn = locale === "bn";
         <p>
           {
             bn
-              ? "নিজের পাঁচটি harmless document, আটটি labelled question, একটি keyword baseline, sourceসহ answer আর evidence না থাকলে refusal। তারপর চাইলে একটি narrow read-only tool ও bounded loop যোগ করো।"
+              ? "নিজের ক্ষতিহীন পাঁচটি document নাও, আটটি labelled question বানাও, রাখো একটি keyword baseline। উত্তরের সঙ্গে source দেখাবে, evidence না থাকলে ‘জানি না’ বলবে। এটুকু ঠিক হলে একটি ছোট read-only tool আর সীমাবদ্ধ loop যোগ করতে পারো।"
               : "Use five harmless documents you own, eight labelled questions, a keyword baseline, sourced answers and refusal when evidence is absent. Only then add one narrow read-only tool and a bounded loop."
           }
         </p>
         <a class="button" href="#stage-foundation">
           {
             bn
-              ? "Detailed roadmap শুরু করো"
+              ? "বিস্তারিত রোডম্যাপে এগোও"
               : "Continue into the detailed roadmap"
           }
         </a>

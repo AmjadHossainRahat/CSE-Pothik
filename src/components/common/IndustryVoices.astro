@@ -30,7 +30,7 @@ const displayNumber = (position: number) =>
     <p class="eyebrow">
       {
         bn
-          ? "বাংলাদেশের tech leader ও practitioner"
+          ? "বাংলাদেশের tech leaders ও practitioners"
           : "Bangladesh tech leaders & practitioners"
       }
     </p>
@@ -38,10 +38,10 @@ const displayNumber = (position: number) =>
       {
         variant === "featured"
           ? bn
-            ? "Motivation বাছাই করতেও judgment লাগে।"
+            ? "কাকে শুনবে, সেটি বাছতেও বিচারবোধ লাগে।"
             : "Choosing motivation also takes judgment."
           : bn
-            ? "Random feed নয়—একটি চিন্তাশীল watch order।"
+            ? "এলোপাতাড়ি feed নয়—ভেবেচিন্তে সাজানো দেখার ক্রম।"
             : "Not a random feed—a deliberate watch order."
       }
     </h2>
@@ -49,10 +49,10 @@ const displayNumber = (position: number) =>
       {
         variant === "featured"
           ? bn
-            ? "Headline দিয়ে সিদ্ধান্ত নিও না। Local practitioner, leader ও educator-এর অভিজ্ঞতা শোনো—তারপর claim-কে evidence আর নিজের কাজ দিয়ে যাচাই করো।"
+            ? "শুধু headline দেখে সিদ্ধান্ত নিয়ো না। দেশের practitioner, leader আর educator-দের অভিজ্ঞতা শোনো; তারপর প্রতিটি দাবি evidence আর নিজের কাজ দিয়ে মিলিয়ে দেখো।"
             : "Do not make a decision from a headline. Hear experienced local practitioners, leaders and educators—then test each claim against evidence and your own work."
           : bn
-            ? "এই নয়টি video ও podcast episode আগে anxiety স্থির করে, তারপর thinking শক্ত করে, শেষে industry-র ভিন্ন বাস্তবতা দেখায়। এগুলো perspective—চূড়ান্ত verdict, endorsement বা চাকরির guarantee নয়।"
+            ? "এই নয়টি video ও podcast episode প্রথমে দুশ্চিন্তা সামলাতে সাহায্য করবে, তারপর ভাবনার ভিত শক্ত করবে, শেষে industry-র ভিন্ন বাস্তবতা দেখাবে। এগুলো কিছু perspective—চূড়ান্ত রায়, endorsement বা চাকরির নিশ্চয়তা নয়।"
             : "These nine videos and podcast episodes first settle the anxiety, then strengthen thinking, and finally widen the view of industry. They are perspectives—not final verdicts, endorsements or job guarantees."
       }
     </p>
@@ -93,7 +93,7 @@ const displayNumber = (position: number) =>
           class="voice-collection-link"
           href={withBase(localePath(locale, "/resources/#industry-voices"))}
         >
-          {bn ? "৯টি episode সঠিক order-এ দেখো" : "See all 9 in order"} →
+          {bn ? "৯টি episode সাজানো ক্রমে দেখো" : "See all 9 in order"} →
         </a>
       </>
     ) : (
@@ -101,28 +101,28 @@ const displayNumber = (position: number) =>
         <aside class="advice-filter" aria-labelledby="advice-filter-title">
           <strong id="advice-filter-title">
             {bn
-              ? "কাউকে follow করার আগে ৪টি প্রশ্ন"
+              ? "কারও কথা অনুসরণ করার আগে ৪টি প্রশ্ন"
               : "Four checks before you follow anyone"}
           </strong>
           <ul>
             <li>
               {bn
-                ? "তিনি কি নিজের context ও experience পরিষ্কার করছেন?"
+                ? "তিনি কি নিজের context আর অভিজ্ঞতা পরিষ্কার করে বলছেন?"
                 : "Do they make their context and experience clear?"}
             </li>
             <li>
               {bn
-                ? "Specific example ও trade-off আছে, নাকি শুধু fear বা hype?"
+                ? "নির্দিষ্ট example আর trade-off আছে, নাকি শুধু ভয় বা hype?"
                 : "Are there specific examples and trade-offs, or only fear and hype?"}
             </li>
             <li>
               {bn
-                ? "Claim-টি কি অন্য reliable source ও real job requirement-এর সঙ্গে মেলে?"
+                ? "দাবিটি কি অন্য নির্ভরযোগ্য source আর আসল job requirement-এর সঙ্গে মেলে?"
                 : "Does the claim agree with other reliable sources and real role requirements?"}
             </li>
             <li>
               {bn
-                ? "এ থেকে কি ছোট, safe action নেওয়া যায়—নাকি শুধু emotion বাড়ে?"
+                ? "এ থেকে কি ছোট ও নিরাপদ কোনো কাজ করা যায়, নাকি শুধু আবেগই বাড়ে?"
                 : "Can you take one small, safe action—or does it only intensify emotion?"}
             </li>
           </ul>

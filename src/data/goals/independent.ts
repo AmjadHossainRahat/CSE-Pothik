@@ -4,14 +4,14 @@ import type { GoalGuide } from "@/types/content";
 export const independentGoals: GoalGuide[] = [
   {
     id: "freelancing",
-    title: l("Freelancing", "Freelancing-এর প্রস্তুতি"),
+    title: l("Freelancing", "Freelancing-এর জন্য প্রস্তুতি"),
     summary: l(
       "Turn a specific skill into a clearly scoped service: find a real client need, show proof, agree on delivery and build trust.",
-      "নির্দিষ্ট skill-কে clear scope-এর service করো: real client need খোঁজো, proof দেখাও, delivery ঠিক করো আর trust বানাও।",
+      "একটি নির্দিষ্ট দক্ষতাকে পরিষ্কার সীমার service-এ রূপ দাও: client-এর আসল প্রয়োজন বোঝো, কাজের প্রমাণ দেখাও, delivery-এর শর্ত ঠিক করো এবং ধীরে ধীরে বিশ্বাস তৈরি করো।",
     ),
     reality: l(
       "Freelancing is client work plus running a small service business—not quick income from learning a tool. Finding clients, pricing, revisions and uncertain demand are part of the work. Platforms are optional; their fees, identity requirements and terms vary. No income or first-client timeline is guaranteed.",
-      "Freelancing হলো client work আর ছোট service business চালানো—tool শিখে দ্রুত income নয়। Client খোঁজা, pricing, revision আর uncertain demand কাজের অংশ। Platform optional; fee, identity requirement আর terms আলাদা। Income বা first-client timeline নিশ্চিত নয়।",
+      "Freelancing মানে client-এর কাজ করার পাশাপাশি ছোট একটি service business চালানো; একটি tool শিখেই দ্রুত আয় নয়। Client খোঁজা, দাম ঠিক করা, revision সামলানো ও অনিশ্চিত চাহিদা—সবই কাজের অংশ। Marketplace ব্যবহার বাধ্যতামূলক নয়, আর প্রতিটির fee, identity requirement ও শর্ত আলাদা। কবে প্রথম client বা আয় আসবে, তার নিশ্চয়তা কেউ দিতে পারে না।",
     ),
     variants: [
       {
@@ -194,15 +194,15 @@ export const independentGoals: GoalGuide[] = [
     id: "tech-business",
     title: l(
       "Build a business with tech skills",
-      "Tech skill দিয়ে business গড়ো",
+      "Tech skill কাজে লাগিয়ে business গড়ো",
     ),
     summary: l(
       "Start with a painful problem and a reachable customer. Validate a small service or product before investing in a large build.",
-      "তীব্র সমস্যা আর পৌঁছানো যায় এমন customer দিয়ে শুরু। বড় build-এ যাওয়ার আগে ছোট service বা product validate করো।",
+      "যে সমস্যাটি মানুষ সত্যিই গুরুত্ব দেয় এবং যাদের কাছে তুমি পৌঁছাতে পারো—সেখান থেকে শুরু করো। বড় কিছু বানাতে সময় ও টাকা ঢালার আগে ছোট service বা product দিয়ে ধারণাটি যাচাই করো।",
     ),
     reality: l(
       "Coding is one capability in a business. Customer discovery, distribution, costs, support and trust matter too. Compliments are not purchase commitments. Start within an affordable loss limit; this guide offers learning experiments, not investment, tax or legal advice or a promise of revenue.",
-      "Business-এ coding একটি capability। Customer discovery, distribution, cost, support আর trust-ও লাগে। প্রশংসা purchase commitment নয়। সহনীয় loss limit-এর মধ্যে শুরু; এই guide শেখার experiment দেয়, investment, tax বা legal advice বা revenue promise নয়।",
+      "Business-এ coding একটি গুরুত্বপূর্ণ ক্ষমতা, পুরো business নয়। Customer discovery, distribution, খরচ, support ও বিশ্বাসও সমান জরুরি। কেউ ‘দারুণ idea’ বললেই সে কিনবে—এমন নয়। যতটুকু হারালেও সামলাতে পারবে, সেই সীমার মধ্যে শুরু করো; এই গাইড শেখার experiment দেয়, investment, tax বা legal advice কিংবা আয়ের প্রতিশ্রুতি নয়।",
     ),
     variants: [
       {

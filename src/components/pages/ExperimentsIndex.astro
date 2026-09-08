@@ -14,10 +14,10 @@ interface Props {
 const { locale } = Astro.props;
 const bn = locale === "bn";
 const title = bn
-  ? "Career Experiment — Try Before You Choose"
+  ? "ক্যারিয়ার বাছার আগে কাজ করে দেখো"
   : "Career Experiments — Try Before You Choose";
 const description = bn
-  ? "Safe, beginner-friendly, time-bounded CSE career experiment করে real কাজের ছোট taste নাও।"
+  ? "নিরাপদ, beginner-friendly ও অল্প সময়ের experiment দিয়ে CSE-র আসল কাজের একটু স্বাদ নাও।"
   : "Safe, beginner-friendly, time-bounded CSE career experiments that let you feel a small version of the real work.";
 const groupedExperiments = careerFamilies.map((family) => ({
   family,
@@ -53,28 +53,28 @@ const structuredData = collectionStructuredData({
 >
   <Breadcrumbs
     locale={locale}
-    items={[{ label: bn ? "Career experiment" : "Try a Career" }]}
+    items={[{ label: bn ? "কাজ করে দেখো" : "Try a Career" }]}
   />
   <header class="page-hero page-hero--compact container">
     <p class="eyebrow">
-      {bn ? "Try before you choose" : "Try before you choose"}
+      {bn ? "বাছার আগে করে দেখো" : "Try before you choose"}
     </p><h1>
       {
         bn
-          ? "Career title পছন্দের আগে কাজটা try করো।"
+          ? "চাকরির নাম পছন্দ করার আগে কাজটা করে দেখো।"
           : "Try the work before you fall for the title."
       }
     </h1><p class="lede">
       {
         bn
-          ? "এগুলো course না, assessment-ও না। ৬০–১২০ মিনিটের focused experience—কোন problem আবার করতে ইচ্ছে হয় সেটা notice করার জন্য।"
+          ? "এগুলো course বা assessment নয়। ৬০–১২০ মিনিট মন দিয়ে কাজ করে দেখো—কোন সমস্যায় আবার ফিরতে ইচ্ছে করে, সেটাই লক্ষ করো।"
           : "These are not courses or assessments. They are focused 60–120 minute experiences for noticing which problems you want to revisit."
       }
     </p>
   </header>
   <DirectoryJumpNav
     eyebrow={bn ? "কাজের ধরনে যাও" : "Jump by work family"}
-    label={bn ? "Experiment family index" : "Experiment family index"}
+    label={bn ? "কাজের বিভাগের তালিকা" : "Experiment family index"}
     items={groupedExperiments.map(({ family, experiments: items }) => ({
       id: `experiments-${family.id}`,
       label: t(family.title, locale),
@@ -116,7 +116,7 @@ const structuredData = collectionStructuredData({
                       data-track-event="career_experiment_started"
                       data-track-param-career-id={career.id}
                     >
-                      {bn ? "Experiment খোলো" : "Open experiment"}{" "}
+                      {bn ? "কাজটি খুলে দেখি" : "Open experiment"}{" "}
                       <span aria-hidden="true">→</span>
                     </a>
                   </div>
@@ -131,29 +131,29 @@ const structuredData = collectionStructuredData({
   <section class="section">
     <div class="container callout callout--warm">
       <p class="callout__label">
-        {bn ? "Reflection rule" : "Reflection rule"}
+        {bn ? "শেষে একটু ভেবে দেখো" : "Reflection rule"}
       </p><h2>
         {
           bn
-            ? "Finish করা success না; কিছু honest notice করা success।"
+            ? "শেষ করাই সাফল্য নয়; নিজের সম্পর্কে সৎ কিছু বুঝতে পারাই সাফল্য।"
             : "Finishing is not the success. Noticing something honest is."
         }
       </h2><p>
         {
           bn
-            ? "কোন অংশে time দ্রুত গেছে? কোনটা drain করেছে? আরও পাঁচ ঘণ্টা দিতে চাইবে? উত্তর save হবে না—নিজের জন্য লিখে রাখো।"
+            ? "কোন অংশে সময় দ্রুত কেটেছে? কোনটা ক্লান্ত করেছে? এই কাজে আরও পাঁচ ঘণ্টা দিতে ইচ্ছে করবে? উত্তর কোথাও জমা হবে না—নিজের জন্য লিখে রাখো।"
             : "Where did time move quickly? What drained you? Would you spend five more hours here? Nothing is saved; write the answer for yourself."
         }
       </p>
       <div class="button-row">
         <a class="button" href={withBase(localePath(locale, "/careers/"))}>
-          {bn ? "Career family-তে ফিরি" : "Explore career families"}
+          {bn ? "ক্যারিয়ারের বিভাগে ফিরি" : "Explore career families"}
         </a>
         <a
           class="button button--secondary"
           href={withBase(localePath(locale, "/compare/"))}
         >
-          {bn ? "দুটি career compare করি" : "Compare two careers"}
+          {bn ? "দুটি ক্যারিয়ার মিলিয়ে দেখি" : "Compare two careers"}
         </a>
       </div>
     </div>

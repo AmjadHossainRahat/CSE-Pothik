@@ -26,7 +26,7 @@ export const industryVoiceStages: Array<{
     title: l("1 · Ground yourself", "১ · আগে নিজেকে স্থির করো"),
     description: l(
       "Start with the decision you already made and the habits that can still change. Do not begin with salary or panic.",
-      "যে সিদ্ধান্ত ইতিমধ্যে নিয়েছ এবং যে অভ্যাস এখনও বদলাতে পারো—সেখান থেকে শুরু করো। Salary বা ভয় দিয়ে শুরু কোরো না।",
+      "যে সিদ্ধান্ত নিয়েই ফেলেছ আর যে অভ্যাসগুলো এখনও বদলাতে পারো—সেখান থেকেই শুরু করো। শুরুটা salary কিংবা ভয় দিয়ে না হলেই ভালো।",
     ),
   },
   {
@@ -34,7 +34,7 @@ export const industryVoiceStages: Array<{
     title: l("2 · Strengthen how you think", "২ · চিন্তার ক্ষমতা শক্ত করো"),
     description: l(
       "Then examine why programming, problem solving and engineering judgment still matter when AI can produce code.",
-      "এরপর দেখো—AI code বানাতে পারলেও programming, problem solving ও engineering judgment কেন এখনও গুরুত্বপূর্ণ।",
+      "এরপর বোঝার চেষ্টা করো—AI code লিখতে পারলেও programming, problem solving আর engineering judgment কেন এখনও জরুরি।",
     ),
   },
   {
@@ -42,7 +42,7 @@ export const industryVoiceStages: Array<{
     title: l("3 · Read the working world", "৩ · কাজের জগতটা বোঝো"),
     description: l(
       "Only then widen the lens to junior hiring, changing expectations, a specialist industry and technology business.",
-      "তারপর junior hiring, বদলে যাওয়া expectation, specialist industry ও technology business-এর দিকে দৃষ্টি বাড়াও।",
+      "তারপর junior hiring, বদলে যাওয়া প্রত্যাশা, specialist industry আর technology business—কাজের জগৎটাকে একটু বড় করে দেখো।",
     ),
   },
 ];
@@ -64,7 +64,7 @@ export const industryVoices: IndustryVoice[] = [
     url: "https://www.youtube.com/watch?v=R0ePgGNvHG0",
     focus: l(
       "Use this first to separate AI anxiety from the longer decision to learn computing well.",
-      "AI নিয়ে anxiety আর computing ভালোভাবে শেখার দীর্ঘ সিদ্ধান্ত—দুটো আলাদা করে ভাবতে এটি আগে দেখো।",
+      "AI নিয়ে দুশ্চিন্তা আর computing ভালোভাবে শেখার দীর্ঘ সিদ্ধান্ত—দুটোকে আলাদা করে ভাবতে এটি আগে দেখো।",
     ),
     position: 1,
     lastReviewed: reviewed,
@@ -83,7 +83,7 @@ export const industryVoices: IndustryVoice[] = [
     url: "https://www.youtube.com/watch?v=ckeyZUyRF3s",
     focus: l(
       "Turn motivation into an audit of time, habits and avoidable drift—not guilt or comparison.",
-      "Motivation-কে guilt বা comparison না বানিয়ে সময়, অভ্যাস ও avoidable drift-এর audit হিসেবে ব্যবহার করো।",
+      "Motivation-কে অপরাধবোধ বা অন্যের সঙ্গে তুলনায় না নিয়ে গিয়ে নিজের সময়, অভ্যাস আর এড়ানো যেত এমন ভুলের হিসাব হিসেবে ব্যবহার করো।",
     ),
     position: 2,
     lastReviewed: reviewed,
@@ -101,7 +101,7 @@ export const industryVoices: IndustryVoice[] = [
     url: "https://www.youtube.com/watch?v=Cf3W5xAFtfU",
     focus: l(
       "Connect programming practice to understanding, verification and the ability to direct tools responsibly.",
-      "Programming practice-কে understanding, verification ও tool দায়িত্ব নিয়ে পরিচালনার ক্ষমতার সঙ্গে মিলিয়ে দেখো।",
+      "Programming-এর চর্চাকে বোঝাপড়া, যাচাই আর tool-কে দায়িত্ব নিয়ে চালানোর ক্ষমতার সঙ্গে মিলিয়ে দেখো।",
     ),
     position: 3,
     lastReviewed: reviewed,
@@ -120,7 +120,7 @@ export const industryVoices: IndustryVoice[] = [
     url: "https://www.youtube.com/watch?v=OTQqi17j5Qg",
     focus: l(
       "Look for a better practice loop; treat the percentage in the title as presentation, not a statistic supplied by CSE Compass.",
-      "ভালো practice loop খুঁজে নাও; title-এর percentage-কে presentation হিসেবে দেখো—CSE Compass-এর statistic হিসেবে নয়।",
+      "কাজের একটি ভালো practice loop খুঁজে নাও। title-এর percentage-টি উপস্থাপনার অংশ—CSE Compass-এর পরিসংখ্যান নয়।",
     ),
     position: 4,
     lastReviewed: reviewed,
@@ -138,7 +138,7 @@ export const industryVoices: IndustryVoice[] = [
     url: "https://www.youtube.com/watch?v=oo6aI0HC0OQ",
     focus: l(
       "Compare coding output with problem framing, communication and the judgment expected in engineering work.",
-      "Coding output-এর সঙ্গে problem framing, communication ও engineering কাজে প্রয়োজনীয় judgment তুলনা করো।",
+      "শুধু coding output নয়—problem framing, communication আর engineering কাজে দরকারি বিচারবোধের সঙ্গে মিলিয়ে দেখো।",
     ),
     position: 5,
     lastReviewed: reviewed,
@@ -156,7 +156,7 @@ export const industryVoices: IndustryVoice[] = [
     url: "https://www.youtube.com/watch?v=70g-CwcXsbE",
     focus: l(
       "Use the discussion to identify changing expectations and concrete preparation—not to obtain a job-market guarantee.",
-      "Job-market guarantee খুঁজতে নয়; বদলে যাওয়া expectation আর concrete preparation চিনতে আলোচনা ব্যবহার করো।",
+      "চাকরির বাজারের নিশ্চয়তা খুঁজতে নয়; কী প্রত্যাশা বদলাচ্ছে আর কীভাবে প্রস্তুতি নেওয়া যায়, তা ধরতে আলোচনাটি শোনো।",
     ),
     position: 6,
     lastReviewed: reviewed,
@@ -175,7 +175,7 @@ export const industryVoices: IndustryVoice[] = [
     url: "https://www.youtube.com/watch?v=PCqCy94S5nI",
     focus: l(
       "Listen for hiring and performance expectations, then compare them with actual role descriptions and your own evidence gaps.",
-      "Hiring ও performance expectation শুনে actual role description এবং নিজের evidence gap-এর সঙ্গে মিলিয়ে দেখো।",
+      "Hiring আর performance নিয়ে যা বলা হচ্ছে, তা আসল job description এবং নিজের evidence-এর ঘাটতির সঙ্গে মিলিয়ে দেখো।",
     ),
     position: 7,
     lastReviewed: reviewed,
@@ -193,7 +193,7 @@ export const industryVoices: IndustryVoice[] = [
     url: "https://www.youtube.com/watch?v=cGeqbDG1ulg",
     focus: l(
       "Use one specialist industry to notice how product quality, constraints and practical skills differ from a generic software-career story.",
-      "Generic software-career গল্পের বাইরে product quality, constraint ও practical skill কীভাবে বদলায়—একটি specialist industry দিয়ে দেখো।",
+      "Generic software-career গল্পের বাইরে product quality, সীমাবদ্ধতা আর practical skill কীভাবে বদলায়—একটি specialist industry দিয়ে তা দেখো।",
     ),
     position: 8,
     lastReviewed: reviewed,
@@ -212,7 +212,7 @@ export const industryVoices: IndustryVoice[] = [
     url: "https://www.youtube.com/watch?v=GuDBrngBCdY",
     focus: l(
       "Finish by widening engineering from implementation to customer problems, systems, trade-offs and business outcomes.",
-      "শেষে implementation-এর বাইরেও customer problem, system, trade-off ও business outcome দিয়ে engineering-কে বড় করে দেখো।",
+      "শেষে implementation-এর গণ্ডি পেরিয়ে customer-এর সমস্যা, system, trade-off আর business outcome দিয়ে engineering-কে আরও বড় করে দেখো।",
     ),
     position: 9,
     lastReviewed: reviewed,

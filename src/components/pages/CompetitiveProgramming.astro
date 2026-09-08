@@ -13,7 +13,7 @@ const levels = bn
   ? [
       [
         "Level 1 · Computational Foundation",
-        "প্রায় সব CSE student-এর জন্য। Array, string, recursion, sorting, search, complexity আর regular problem solving।",
+        "প্রায় সব CSE শিক্ষার্থীর জন্য। Array, string, recursion, sorting, search, complexity আর নিয়মিত problem solving।",
       ],
       [
         "Level 2 · Algorithmic Competence",
@@ -21,7 +21,7 @@ const levels = bn
       ],
       [
         "Level 3 · Competitive Track",
-        "যারা competition সত্যি enjoy করে বা ICPC-level practice চায়। সবার default destination নয়।",
+        "যারা competition সত্যিই enjoy করে বা ICPC-level practice চায়। এটি সবার default গন্তব্য নয়।",
       ],
     ]
   : [
@@ -42,11 +42,11 @@ const practiceLoop = bn
   ? [
       [
         "01 · Learn one idea",
-        "একটি language-এ foundation topic বোঝো। Example trace করো; code মুখস্থ কোরো না।",
+        "একটি language-এ foundation topic বোঝো। Example হাতে ধরে trace করো; code মুখস্থ কোরো না।",
       ],
       [
         "02 · Attempt honestly",
-        "Easy problem দিয়ে শুরু করো। আগে model, input-output, edge case আর complexity লেখো; আটকে গেলেও নিজের attempt রাখো।",
+        "সহজ problem দিয়ে শুরু করো। আগে model, input-output, edge case আর complexity লেখো; আটকে গেলেও নিজের চেষ্টা মুছে ফেলো না।",
       ],
       [
         "03 · Submit, debug, log",
@@ -54,7 +54,7 @@ const practiceLoop = bn
       ],
       [
         "04 · Review and transfer",
-        "Editorial বা Bangla explanation পরে পড়ো, solution নিজের ভাষায় explain করো, তারপর একই idea বদলানো problem-এ apply করো। সপ্তাহে real project-ও রাখো।",
+        "Editorial বা Bangla explanation পরে পড়ো। solution নিজের ভাষায় বোঝাও, তারপর একই idea অন্য problem-এ কাজে লাগাও। সপ্তাহে real project-এর সময়ও রেখো।",
       ],
     ]
   : [
@@ -83,24 +83,27 @@ const practiceLoop = bn
     ? "Competitive Programming / ACM / ICPC Guide"
     : "Competitive Programming, ACM & ICPC Guide"}
   description={bn
-    ? "Competitive programming-কে computational thinking-এর gym হিসেবে ব্যবহার করো—পুরো career বা সবার জন্য same track হিসেবে নয়।"
+    ? "Competitive programming-কে computational thinking-এর gym হিসেবে ব্যবহার করো—পুরো ক্যারিয়ার কিংবা সবার জন্য একই রাস্তা হিসেবে নয়।"
     : "Use competitive programming as a gym for computational thinking—not the whole sport or the same track for every CSE student."}
 >
   <Breadcrumbs
     locale={locale}
-    items={[{ label: bn ? "Guidance" : "Guidance" }, { label: "ACM / ICPC" }]}
+    items={[
+      { label: bn ? "দিকনির্দেশনা" : "Guidance" },
+      { label: "ACM / ICPC" },
+    ]}
   />
   <header class="page-hero container">
     <p class="eyebrow">ACM · ICPC · Problem solving</p><h1>
       {
         bn
-          ? "Computational thinking-এর gym। পুরো sport না।"
+          ? "Computational thinking-এর gym—পুরো খেলাটা নয়।"
           : "A gym for computational thinking. Not the whole sport."
       }
     </h1><p class="lede">
       {
         bn
-          ? "Competitive programming decomposition, algorithm, complexity, edge case আর precision build করে। কিন্তু real software, collaboration, deployment, accessibility বা user problem নিজে থেকে শেখায় না।"
+          ? "Competitive programming decomposition, algorithm, complexity, edge case আর precision গড়ে। কিন্তু real software, collaboration, deployment, accessibility বা user-এর সমস্যা নিজে থেকে শেখায় না।"
           : "Competitive programming builds decomposition, algorithms, complexity, edge-case analysis and precision. It does not automatically teach real software, collaboration, deployment, accessibility or user problems."
       }
     </p>
@@ -108,8 +111,14 @@ const practiceLoop = bn
   <section class="section section--tinted">
     <div class="container editorial-grid">
       <div>
-        <p class="eyebrow">{bn ? "যা develop করে" : "What it develops"}</p><h2>
-          {bn ? "Reasoning under clear rules" : "Reasoning under clear rules"}
+        <p class="eyebrow">
+          {bn ? "যে দক্ষতাগুলো গড়ে" : "What it develops"}
+        </p><h2>
+          {
+            bn
+              ? "স্পষ্ট নিয়মের মধ্যে যুক্তি খাটানো"
+              : "Reasoning under clear rules"
+          }
         </h2><ul class="rule-list">
           {
             (bn
@@ -133,11 +142,10 @@ const practiceLoop = bn
           }
         </ul>
       </div><div class="callout callout--warm">
-        <p class="callout__label">{bn ? "Reality check" : "Reality check"}</p><p
-        >
+        <p class="callout__label">{bn ? "বাস্তব কথাটা" : "Reality check"}</p><p>
           {
             bn
-              ? "Online judge-এ accepted solution production-ready software-এর certificate না। Test pass করেছে; maintainability, security, usability আর team fit এখনও open question।"
+              ? "Online judge-এ accepted solution production-ready software-এর certificate নয়। test pass করেছে; maintainability, security, usability আর team fit এখনও খোলা প্রশ্ন।"
               : "An accepted online-judge solution is not a certificate of production-ready engineering. It passed tests; maintainability, security, usability and team fit remain open questions."
           }
         </p>
@@ -149,14 +157,14 @@ const practiceLoop = bn
       <div class="section-head">
         <div>
           <p class="eyebrow">
-            {bn ? "Three levels" : "Three useful levels"}
+            {bn ? "কাজের তিনটি স্তর" : "Three useful levels"}
           </p><h2>
-            {bn ? "তোমার goal অনুযায়ী depth" : "Choose depth by goal"}
+            {bn ? "লক্ষ্য অনুযায়ী কতটা গভীরে যাবে" : "Choose depth by goal"}
           </h2>
         </div><p class="lede">
           {
             bn
-              ? "Advanced competitor না হওয়া failure নয়। Level 1 solid করে project-এর সঙ্গে combine করা অনেক career-এর জন্য excellent route।"
+              ? "Advanced competitor না হওয়া failure নয়। Level 1 মজবুত করে project-এর সঙ্গে মিলিয়ে নেওয়া অনেক ক্যারিয়ারের জন্য দারুণ পথ।"
               : "Not becoming an advanced competitor is not failure. A strong Level 1 combined with projects is excellent for many careers."
           }
         </p>
@@ -189,7 +197,7 @@ const practiceLoop = bn
         </div><p class="lede">
           {
             bn
-              ? "Topic list শেষ করার race নয়। Honest attempt, feedback, debugging আর transfer—এই loop repeat করো। শুরুতে সপ্তাহে ৪–৬টি carefully chosen problem যথেষ্ট।"
+              ? "Topic list শেষ করার দৌড় নয়। নিজের সৎ চেষ্টা, feedback, debugging আর শেখা জিনিস অন্য problem-এ ব্যবহার—এই loop চালাও। শুরুতে সপ্তাহে বেছে নেওয়া ৪–৬টি problem-ই যথেষ্ট।"
               : "This is not a race to finish a topic list. Repeat honest attempts, feedback, debugging and transfer. Four to six carefully chosen problems a week is enough to begin."
           }
         </p>
@@ -207,11 +215,11 @@ const practiceLoop = bn
       <aside class="bangla-shelf">
         <div>
           <p class="callout__label">
-            {bn ? "Bangla starting shelf" : "Bangla starting shelf"}
+            {bn ? "বাংলায় শুরু করার তাক" : "Bangla starting shelf"}
           </p><h3>
             {
               bn
-                ? "বাংলায় বুঝে নাও, তারপর problem-এ প্রমাণ দাও।"
+                ? "বাংলায় বুঝে নাও, তারপর problem সমাধান করে প্রমাণ দাও।"
                 : "Learn in Bangla, then prove it on a problem."
             }
           </h3><p>
@@ -232,7 +240,9 @@ const practiceLoop = bn
   <section class="section">
     <div class="container editorial-grid">
       <div>
-        <p class="eyebrow">{bn ? "AI-era practice" : "AI-era practice"}</p><h2>
+        <p class="eyebrow">
+          {bn ? "AI-এর যুগে অনুশীলন" : "AI-era practice"}
+        </p><h2>
           {
             bn
               ? "AI-free solve, AI-assisted review"
@@ -242,19 +252,19 @@ const practiceLoop = bn
       </div><div>
         <article class="mode">
           <h3>
-            {bn ? "AI-Free Problem Solving" : "AI-Free Problem Solving"}
+            {bn ? "AI ছাড়া Problem Solving" : "AI-Free Problem Solving"}
           </h3><p>
             {
               bn
-                ? "Timer না থাকলেও চলে। আগে নিজে model, invariant, complexity আর edge case বের করো। Foundation reasoning borrow কোরো না।"
+                ? "Timer না থাকলেও চলে। আগে নিজে model, invariant, complexity আর edge case বের করো। foundation-এর চিন্তাটুকু ধার কোরো না।"
                 : "No timer required. First derive the model, invariant, complexity and edge cases yourself. Do not borrow foundational reasoning."
             }
           </p>
         </article><article class="mode">
-          <h3>{bn ? "AI-Assisted Review" : "AI-Assisted Review"}</h3><p>
+          <h3>{bn ? "AI-এর সাহায্যে Review" : "AI-Assisted Review"}</h3><p>
             {
               bn
-                ? "AI-generated solution-এ bug খোঁজো, complexity problem identify করো, counterexample বানাও, alternative compare করো। Explain না পারলে solution তোমার না।"
+                ? "AI-এর solution-এ bug খোঁজো, complexity-এর সমস্যা ধরো, counterexample বানাও, বিকল্প মিলিয়ে দেখো। নিজের ভাষায় বোঝাতে না পারলে solution-টি এখনও তোমার নয়।"
                 : "Find a bug in an AI-generated solution, identify the complexity problem, construct a counterexample and compare alternatives. If you cannot explain it, it is not yet your solution."
             }
           </p>
@@ -265,7 +275,9 @@ const practiceLoop = bn
   <section class="section section--tinted">
     <div class="container editorial-grid">
       <div>
-        <p class="eyebrow">{bn ? "Balanced week" : "A balanced week"}</p><h2>
+        <p class="eyebrow">
+          {bn ? "সপ্তাহটা ভারসাম্যে রাখো" : "A balanced week"}
+        </p><h2>
           {
             bn
               ? "Problem solve + কিছু real build"
@@ -274,12 +286,12 @@ const practiceLoop = bn
         </h2><p>
           {
             bn
-              ? "Example: তিনদিন ৪৫ মিনিট foundation problem, দুদিন project, একদিন review/refactor। Competitive track হলে volume বাড়াও—project পুরো বাদ দিও না।"
+              ? "যেমন: তিন দিন ৪৫ মিনিট foundation problem, দুই দিন project, এক দিন review/refactor। Competitive track নিলে problem বাড়াও—project পুরো বাদ দিয়ো না।"
               : "Example: three 45-minute foundation sessions, two project sessions and one review/refactor session. Competitive-track students can increase volume without deleting real engineering practice."
           }
         </p>
       </div><aside>
-        <h3>{bn ? "Selected resources" : "Selected resources"}</h3><ResourceList
+        <h3>{bn ? "বাছাই করা রিসোর্স" : "Selected resources"}</h3><ResourceList
           locale={locale}
           resourceIds={["algorithms-princeton", "cp-algorithms"]}
         />
@@ -288,7 +300,7 @@ const practiceLoop = bn
   </section>
   <section class="section">
     <div class="container">
-      <p class="eyebrow">{bn ? "Next step" : "Next step"}</p><h2>
+      <p class="eyebrow">{bn ? "এবার কী করবে" : "Next step"}</p><h2>
         {
           bn
             ? "তোমার level declare করে ৬ সপ্তাহ test করো।"
@@ -298,14 +310,16 @@ const practiceLoop = bn
         <a
           class="button"
           href={withBase(localePath(locale, "/guidance/new-cse-student/"))}
-          >{bn ? "Fresher foundation plan" : "Fresher foundation plan"}</a
+          >{bn ? "ফ্রেশারদের foundation plan" : "Fresher foundation plan"}</a
         ><a
           class="button button--secondary"
           href={withBase(
             localePath(locale, "/guidance/software-engineering-foundations/"),
           )}
           >{
-            bn ? "Engineering foundation" : "Software engineering foundations"
+            bn
+              ? "Software engineering-এর ভিত্তি"
+              : "Software engineering foundations"
           }</a
         >
       </div>

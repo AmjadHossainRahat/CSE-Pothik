@@ -4,11 +4,11 @@ import type { FinalYearProjectGuide } from "@/types/content";
 export const finalYearProject: FinalYearProjectGuide = {
   title: l(
     "Final-year project: build evidence, not just a demo",
-    "Final-year project: শুধু demo নয়, কাজের প্রমাণ বানাও",
+    "ফাইনাল ইয়ার প্রজেক্ট: শুধু demo নয়, তোমার কাজের প্রমাণ",
   ),
   summary: l(
     "Build a final-year project you can explain and hand over: task planning, team Git workflow, useful sync-ups, risk-based testing, CI and practical evidence templates.",
-    "Explain আর handover করা যায় এমন final-year project বানাও: task planning, team Git workflow, useful sync-up, risk-based testing, CI আর practical evidence template।",
+    "এমন একটি ফাইনাল ইয়ার প্রজেক্ট বানাও, যা তুমি বুঝিয়ে বলতে এবং অন্যের হাতে তুলে দিতে পারো। Task planning, দলের Git workflow, কাজের sync-up, risk-based testing, CI ও evidence template—সবই এখানে পাবে।",
   ),
   stages: [
     {
@@ -19,29 +19,29 @@ export const finalYearProject: FinalYearProjectGuide = {
       ),
       why: l(
         "A smaller project with a real question and reliable evidence teaches more than a large feature list nobody can finish.",
-        "যে বড় feature list শেষই হয় না তার চেয়ে বাস্তব প্রশ্ন আর নির্ভরযোগ্য evidence-সহ ছোট project বেশি শেখায়।",
+        "শেষই করা যায় না—এমন বিশাল feature list-এর চেয়ে বাস্তব প্রশ্ন ও নির্ভরযোগ্য প্রমাণসহ ছোট প্রজেক্ট অনেক বেশি শেখায়।",
       ),
       tasks: [
         l(
           "Start with your department rubric and supervisor’s constraints: dates, team size, ethics approval, assessment and required report format.",
-          "Department rubric আর supervisor-এর constraint আগে দেখো: date, team size, ethics approval, assessment আর report format।",
+          "আগে department-এর rubric ও supervisor-এর শর্তগুলো দেখো: সময়সীমা, দলের আকার, ethics approval, assessment এবং report format।",
         ),
         l(
           "Name the user or research question, current problem, evidence that it exists and the smallest useful outcome. Seek consent before interviews; avoid collecting sensitive data by default.",
-          "User বা research question, বর্তমান সমস্যা, তার evidence আর সবচেয়ে ছোট useful outcome লেখো। Interview-এর আগে consent নাও; শুরুতেই sensitive data collect নয়।",
+          "কার সমস্যা সমাধান করছ বা কোন research question-এর উত্তর খুঁজছ, সমস্যাটি সত্যি হওয়ার প্রমাণ কী, আর সবচেয়ে ছোট উপকারী ফলটি কী—লিখে ফেলো। Interview-এর আগে সম্মতি নাও; প্রয়োজন না থাকলে sensitive data সংগ্রহ কোরো না।",
         ),
         l(
           "Write in-scope and out-of-scope items, budget/tooling limits, top three risks and an alternative if data, lab access or a dependency fails.",
-          "In-scope/out-of-scope, budget/tooling limit, বড় তিন risk আর data/lab/dependency না পেলে বিকল্প লেখো।",
+          "কোন কাজটি করবে, কোনটি করবে না, budget ও tool-এর সীমা, বড় তিনটি ঝুঁকি এবং data, lab বা dependency না পেলে বিকল্প—সব লিখে রাখো।",
         ),
       ],
       evidence: l(
         "A one-page brief that another person can explain back to you, with supervisor feedback recorded.",
-        "Supervisor feedback-সহ এক page brief, যা অন্য কেউ তোমাকে বুঝিয়ে বলতে পারে।",
+        "Supervisor-এর feedback-সহ এক পাতার brief, যা পড়ে অন্য কেউ প্রজেক্টটি আবার তোমাকেই বুঝিয়ে বলতে পারে।",
       ),
       notYet: l(
         "Do not choose microservices, blockchain or an AI model before explaining the problem they solve.",
-        "কোন সমস্যা solve করবে বোঝানোর আগে microservices, blockchain বা AI model বেছে নিও না।",
+        "কোন সমস্যার সমাধান করবে সেটি বোঝানোর আগেই microservices, blockchain বা AI model বেছে বসো না। Technology দিয়ে নয়, সমস্যা দিয়ে শুরু করো।",
       ),
       sourceId: "gov-research",
     },
@@ -49,33 +49,33 @@ export const finalYearProject: FinalYearProjectGuide = {
       id: "specify",
       title: l(
         "2 · Turn requirements into testable promises",
-        "২ · Requirement-কে যাচাইযোগ্য করো",
+        "২ · Requirement-কে যাচাই করা যায়—এমন করো",
       ),
       why: l(
         "‘Fast, secure and user-friendly’ cannot guide implementation until you say what observable behavior counts.",
-        "কোন observable behavior গ্রহণযোগ্য না বললে ‘fast, secure, user-friendly’ implementation-এর নির্দেশনা হয় না।",
+        "কোন আচরণ দেখলে বলবে কাজটি ঠিক হয়েছে, তা না জানলে ‘fast, secure, user-friendly’—শুধু সুন্দর তিনটি শব্দ হয়; implementation-এর নির্দেশনা নয়।",
       ),
       tasks: [
         l(
           "Give each critical requirement an ID, a user scenario and an observable acceptance criterion; include failure and recovery behavior.",
-          "Critical requirement-কে ID, user scenario আর দেখা যায় এমন acceptance criterion দাও; failure আর recovery রাখো।",
+          "প্রতিটি গুরুত্বপূর্ণ requirement-কে একটি ID, user scenario ও চোখে দেখা যায় এমন acceptance criterion দাও। ভুল হলে কী ঘটবে এবং কীভাবে ফিরে আসবে, সেটিও লিখো।",
         ),
         l(
           "Choose measurable constraints appropriate to your lab: response time with a stated dataset/device, supported screens, accessibility checks and data-retention limits.",
-          "Lab অনুযায়ী measurable constraint নাও: নির্দিষ্ট dataset/device-এ response time, supported screen, accessibility check আর data-retention limit।",
+          "তোমার lab-এর সামর্থ্য অনুযায়ী মাপা যায়—এমন constraint ঠিক করো: নির্দিষ্ট dataset বা device-এ response time, কোন screen support করবে, accessibility check এবং data কত দিন রাখবে।",
         ),
         l(
           "Link requirements to design decisions, implementation and tests. Review the small traceability example below with a peer.",
-          "Requirement-এর সঙ্গে design decision, implementation আর test যুক্ত করো। নিচের ছোট traceability example peer-এর সঙ্গে দেখো।",
+          "Requirement-এর সঙ্গে design decision, implementation ও test-এর যোগসূত্র রাখো। নিচের ছোট traceability example-টি একজন সহপাঠীর সঙ্গে মিলিয়ে দেখো।",
         ),
       ],
       evidence: l(
         "A prioritized requirement list and test matrix; someone can tell what passes, what fails and what is deliberately excluded.",
-        "Prioritized requirement list আর test matrix; কেউ বলতে পারে কী pass/fail আর ইচ্ছা করে কী বাদ।",
+        "গুরুত্ব অনুযায়ী সাজানো requirement list ও test matrix, যেখান থেকে যে কেউ বুঝতে পারে কোনটি pass, কোনটি fail, আর কোনটি জেনেশুনে বাদ দেওয়া হয়েছে।",
       ),
       notYet: l(
         "Do not invent performance targets or pretend a usability claim is validated without observation.",
-        "কারণ ছাড়া performance target বানিও না; observation ছাড়া usability claim validated বলো না।",
+        "কারণ ছাড়া performance target বানিও না; সত্যিকারের পর্যবেক্ষণ ছাড়া usability যাচাই হয়েছে—এ দাবিও কোরো না।",
       ),
       sourceId: "wai-evaluation",
     },
@@ -83,33 +83,33 @@ export const finalYearProject: FinalYearProjectGuide = {
       id: "design",
       title: l(
         "3 · Design the smallest coherent system",
-        "৩ · সবচেয়ে ছোট সুসংগত system design",
+        "৩ · সবচেয়ে ছোট সুসংগত system-টি design করো",
       ),
       why: l(
         "A diagram is useful when it explains boundaries and trade-offs, not when it contains many fashionable boxes.",
-        "Diagram boundary আর trade-off বোঝালে কাজে লাগে; fashionable box বেশি থাকলেই নয়।",
+        "Diagram তখনই কাজে লাগে, যখন system-এর সীমা ও trade-off বোঝায়; fashionable box-এর সংখ্যা বেশি হলেই architecture ভালো হয় না।",
       ),
       tasks: [
         l(
           "Draw components, data flow, trust boundaries and deployment or experiment setup. Define API/data contracts and failure states where relevant.",
-          "Component, data flow, trust boundary আর deployment বা experiment setup আঁকো। দরকারমতো API/data contract আর failure state লেখো।",
+          "Component, data flow, trust boundary এবং deployment বা experiment setup আঁকো। যেখানে দরকার API/data contract ও failure state লিখে দাও।",
         ),
         l(
           "Record one important decision: context, at least two options, chosen approach and consequences. Prefer a simple modular design unless evidence requires more.",
-          "একটি গুরুত্বপূর্ণ decision লেখো: context, অন্তত দুই option, পছন্দ আর consequence। Evidence না চাইলে সহজ modular design নাও।",
+          "একটি গুরুত্বপূর্ণ সিদ্ধান্ত লিখে রাখো: প্রেক্ষাপট কী, অন্তত দুটি বিকল্প কী ছিল, কোনটি বেছে নিলে এবং তার পরিণতি কী। প্রমাণ ছাড়া জটিলতার দরকার নেই; সহজ modular design-ই ভালো।",
         ),
         l(
           "Identify data owners, minimal permissions, secrets handling, dependency licenses and credible threats before implementation.",
-          "Implementation-এর আগে data owner, কম permission, secret handling, dependency license আর সম্ভাব্য threat চিনো।",
+          "Implementation শুরুর আগেই data-এর মালিকানা, সর্বনিম্ন permission, secret handling, dependency-এর license এবং সম্ভাব্য threat নিয়ে ভাবো।",
         ),
       ],
       evidence: l(
         "A peer can trace one scenario through the design and explain a rejected alternative and one unresolved risk.",
-        "Peer design ধরে একটি scenario trace করে বাতিল option আর একটি অমীমাংসিত risk বোঝাতে পারে।",
+        "একজন সহপাঠী design ধরে একটি scenario-এর পথ অনুসরণ করতে, বাদ দেওয়া বিকল্পটির কারণ বলতে এবং অন্তত একটি অমীমাংসিত ঝুঁকি চিহ্নিত করতে পারে।",
       ),
       notYet: l(
         "Do not add distributed services, Kubernetes or custom authentication just to look industrial.",
-        "Industrial দেখাতে distributed service, Kubernetes বা custom authentication যোগ কোরো না।",
+        "শুধু ‘industry-level’ দেখানোর জন্য distributed service, Kubernetes বা custom authentication যোগ কোরো না। প্রজেক্টকে জটিল করলেই সে চাকরি পেয়ে যায় না।",
       ),
       sourceId: "owasp-asvs",
     },
@@ -117,33 +117,33 @@ export const finalYearProject: FinalYearProjectGuide = {
       id: "build",
       title: l(
         "4 · Deliver in small, reviewed slices",
-        "৪ · ছোট reviewed অংশে delivery",
+        "৪ · ছোট ছোট অংশে কাজ করো, review নিয়ে এগোও",
       ),
       why: l(
         "A repeatable team workflow is part of the project, not paperwork added the night before submission.",
-        "Repeatable team workflow project-এর অংশ; submission-এর আগের রাতে যোগ করা paperwork নয়।",
+        "বারবার অনুসরণ করা যায়—এমন team workflow প্রজেক্টেরই অংশ; submission-এর আগের রাতে বানানো paperwork নয়।",
       ),
       tasks: [
         l(
           "Use version control from the start, a short issue list, clear commits and small pull requests. Record individual contributions without turning commit counts into a productivity score.",
-          "শুরু থেকে version control, ছোট issue list, পরিষ্কার commit আর ছোট pull request ব্যবহার করো। Individual contribution লেখো; commit count-কে productivity score নয়।",
+          "শুরু থেকেই version control ব্যবহার করো। ছোট issue, পরিষ্কার commit ও সহজে review করা যায়—এমন pull request রাখো। প্রত্যেকের অবদান লিখে রাখবে, তবে commit-এর সংখ্যা দিয়ে কারও কাজের মান মাপবে না।",
         ),
         l(
           "Make one end-to-end slice run early. Review requirements, code/design and tests together. Solo? Ask a peer or supervisor for a scheduled review.",
-          "শুরুতেই একটি end-to-end slice চালাও। Requirement, code/design আর test একসঙ্গে review। একা হলে peer বা supervisor-এর নির্দিষ্ট review নাও।",
+          "শুরুর দিকেই ছোট একটি end-to-end flow চালিয়ে দেখো। Requirement, code/design ও test একসঙ্গে review করো। একা কাজ করলে নির্দিষ্ট সময়ে সহপাঠী বা supervisor-এর review নাও।",
         ),
         l(
           "Automate formatting, static checks and relevant tests in CI; pin dependencies, document tool versions and keep secrets and real personal data out of Git.",
-          "Formatting, static check আর relevant test CI-এ দাও; dependency pin, tool version document আর secret/real personal data Git-এর বাইরে রাখো।",
+          "Formatting, static check ও প্রাসঙ্গিক test CI-তে চালাও; dependency-এর version স্থির রাখো, tool-এর version লিখে রাখো, আর secret ও সত্যিকারের ব্যক্তিগত data Git-এর বাইরে রাখো।",
         ),
       ],
       evidence: l(
         "A fresh checkout runs using documented steps; a reviewed change shows its requirement, test result and contribution.",
-        "Documented step দিয়ে fresh checkout চলে; reviewed change-এ requirement, test result আর contribution আছে।",
+        "README-এর ধাপ অনুসরণ করে fresh checkout থেকে প্রজেক্ট চলে; review হওয়া পরিবর্তনটির সঙ্গে requirement, test result ও কার অবদান—সব দেখা যায়।",
       ),
       notYet: l(
         "Do not save integration until the final week or submit a tutorial clone without explaining your own contribution.",
-        "শেষ সপ্তাহের জন্য integration রেখো না; নিজের contribution না বুঝিয়ে tutorial clone submit নয়।",
+        "Integration শেষ সপ্তাহের জন্য তুলে রেখো না; আর নিজের অবদান বোঝাতে না পারলে tutorial clone-কে প্রজেক্ট বলে জমা দিও না।",
       ),
       sourceId: "engineering-review",
     },
@@ -151,33 +151,33 @@ export const finalYearProject: FinalYearProjectGuide = {
       id: "verify",
       title: l(
         "5 · Test the claims, including failures",
-        "৫ · Failure-সহ claim যাচাই",
+        "৫ · সফলতার পাশাপাশি failure-ও পরীক্ষা করো",
       ),
       why: l(
         "A successful demo shows one path. Engineering evidence also explains boundaries, failure modes and what remains unknown.",
-        "Successful demo একটি পথ দেখায়। Engineering evidence boundary, failure আর কী অজানা তাও বলে।",
+        "সফল demo কেবল একটি পথ দেখায়। ভালো engineering evidence কোথায় সীমা, কীভাবে failure হয় এবং এখনও কী অজানা—সেটিও বলে।",
       ),
       tasks: [
         l(
           "Test critical logic, component boundaries and an end-to-end journey. Include invalid input, permissions, data loss/recovery and a realistic device or dataset constraint.",
-          "Critical logic, component boundary আর end-to-end journey test করো। Invalid input, permission, data loss/recovery আর বাস্তব device/dataset constraint রাখো।",
+          "গুরুত্বপূর্ণ logic, component boundary ও end-to-end journey test করো। Invalid input, permission, data হারানো ও recovery, এবং বাস্তব device বা dataset-এর সীমাও ধরো।",
         ),
         l(
           "For interfaces, test keyboard, focus, labels, contrast, resizing and error recovery; use automation plus manual checks. Record actual devices and assistive tools used, not assumed coverage.",
-          "Interface-এ keyboard, focus, label, contrast, resizing আর error recovery; automation-এর সঙ্গে manual check। যে device/assistive tool সত্যি ব্যবহার করেছ তাই লেখো।",
+          "Interface-এ keyboard navigation, focus, label, contrast, resizing এবং error recovery পরীক্ষা করো; automation-এর পাশাপাশি হাতে ধরেও দেখো। যে device ও assistive tool সত্যিই ব্যবহার করেছ, শুধু সেটিই লিখো।",
         ),
         l(
           "Run relevant security/dependency checks and a bounded performance experiment only on authorized systems. Record environment, method, actual results and limitations; fix important defects and rerun affected tests.",
-          "শুধু authorized system-এ relevant security/dependency check আর bounded performance experiment চালাও। Environment, method, actual result আর limitation লেখো; গুরুত্বপূর্ণ defect fix করে আবার test।",
+          "শুধু অনুমোদিত system-এ প্রাসঙ্গিক security/dependency check এবং সীমিত performance experiment চালাও। Environment, পদ্ধতি, সত্যিকারের ফল ও সীমাবদ্ধতা লিখো; গুরুত্বপূর্ণ defect ঠিক করে affected test আবার চালাও।",
         ),
       ],
       evidence: l(
         "A traceable test report with pass/fail results, fixed-defect evidence and explicit remaining risks—not a claim of zero bugs or universal security.",
-        "Pass/fail, fixed-defect evidence আর বাকি risk-সহ traceable test report; zero bug বা universal security দাবি নয়।",
+        "Pass/fail ফল, ঠিক করা defect-এর প্রমাণ ও বাকি ঝুঁকিসহ traceable test report। ‘Zero bug’ বা ‘পুরোপুরি secure’—এমন অবাস্তব দাবি নয়।",
       ),
       notYet: l(
         "Do not chase 100% coverage, hide failures, fabricate participants or use AI-generated measurements as results.",
-        "100% coverage-এর পেছনে ছুটো না, failure লুকিও না, participant বানিও না, AI-generated measurement result হিসেবে দিও না।",
+        "শুধু সংখ্যা বাড়াতে 100% coverage-এর পেছনে ছুটো না, failure লুকিও না, কাল্পনিক participant বানিও না, আর AI বানানো measurement-কে আসল result হিসেবে দিও না।",
       ),
       sourceId: "wai-evaluation",
     },
@@ -185,33 +185,33 @@ export const finalYearProject: FinalYearProjectGuide = {
       id: "release",
       title: l(
         "6 · Make it reproducible and recoverable",
-        "৬ · Reproduce আর recover করা যায় এমন করো",
+        "৬ · অন্য কেউ যেন চালাতে পারে, সমস্যা হলে ফিরিয়েও আনতে পারে",
       ),
       why: l(
         "‘It works on my laptop’ is a starting observation, not a handover plan.",
-        "‘আমার laptop-এ চলে’ শুরু করার observation; handover plan নয়।",
+        "‘আমার laptop-এ চলে’—এটি ভালো শুরু, কিন্তু handover plan নয়।",
       ),
       tasks: [
         l(
           "Tag a release; provide source, setup instructions, tool versions, example configuration without secrets and safe sample data. Respect licenses and access restrictions.",
-          "Release tag দাও; source, setup, tool version, secret ছাড়া example config আর safe sample data দাও। License আর access restriction মানো।",
+          "Release tag দাও; source, setup instruction, tool-এর version, secret ছাড়া example config ও নিরাপদ sample data রাখো। License ও access restriction মেনে চলো।",
         ),
         l(
           "Have a peer rebuild or rerun the experiment from the instructions. Record failures and repair the instructions or setup before repeating.",
-          "Peer-কে instruction দিয়ে rebuild বা experiment rerun করতে দাও। Failure লিখে instruction/setup ঠিক করে আবার করো।",
+          "শুধু instruction দিয়ে একজন সহপাঠীকে rebuild বা experiment আবার চালাতে দাও। কোথায় আটকে গেল লিখে রাখো, instruction বা setup ঠিক করো, তারপর আবার চেষ্টা করাও।",
         ),
         l(
           "For deployed systems, document logs, backup/restore, rollback and who maintains or shuts down the demo. For offline projects, provide a reproducible local run and explain deployment limits.",
-          "Deployed system-এ log, backup/restore, rollback আর demo কে maintain/বন্ধ করবে লেখো। Offline project-এ reproducible local run আর deployment limit বোঝাও।",
+          "Deploy করা system-এর log, backup/restore, rollback এবং demo কে চালু রাখবে বা বন্ধ করবে—লিখে রাখো। Offline project হলে একইভাবে চালানো যায়—এমন local setup ও deployment-এর সীমা বোঝাও।",
         ),
       ],
       evidence: l(
         "An independent reproduction note tied to the release and a tested recovery procedure where relevant.",
-        "Release-এর সঙ্গে যুক্ত independent reproduction note আর প্রাসঙ্গিক tested recovery procedure।",
+        "Release-এর সঙ্গে যুক্ত স্বাধীন reproduction note এবং যেখানে দরকার test করা recovery procedure।",
       ),
       notYet: l(
         "Do not pay for production hosting or expose sensitive data just to show a public link.",
-        "Public link দেখাতেই production hosting-এর খরচ বা sensitive data প্রকাশ কোরো না।",
+        "শুধু public link দেখানোর জন্য production hosting-এ অপ্রয়োজনীয় খরচ কোরো না বা sensitive data প্রকাশ কোরো না।",
       ),
       sourceId: "acm-artifacts",
     },
@@ -219,33 +219,33 @@ export const finalYearProject: FinalYearProjectGuide = {
       id: "defend",
       title: l(
         "7 · Explain, defend and hand over honestly",
-        "৭ · সৎ ব্যাখ্যা, defense আর handover",
+        "৭ · সততার সঙ্গে বোঝাও, defend করো ও handover দাও",
       ),
       why: l(
         "You should be able to explain why the work is useful, how you know, and what you would change next.",
-        "কাজ কেন useful, কীভাবে জানো আর পরের পরিবর্তন কী—তা বোঝাতে পারা দরকার।",
+        "কাজটি কেন উপকারী, তা কীভাবে জানো এবং এরপর কী বদলাতে—এই তিনটি প্রশ্নের উত্তর তোমার জানা থাকা দরকার।",
       ),
       tasks: [
         l(
           "Follow the department report format. Cover problem, related work, method/design, implementation, evaluation, limitations, ethics and references; distinguish your work from borrowed assets and code.",
-          "Department report format মানো। Problem, related work, method/design, implementation, evaluation, limitation, ethics আর reference রাখো; ধার করা asset/code থেকে নিজের কাজ আলাদা করো।",
+          "Department-এর report format মেনে চলো। সমস্যা, related work, method/design, implementation, evaluation, সীমাবদ্ধতা, ethics ও reference রাখো; অন্যের asset বা code থেকে নিজের কাজ স্পষ্টভাবে আলাদা করো।",
         ),
         l(
           "Prepare a short demo with a normal path, a failure/recovery path and evidence linked to a requirement. Keep an offline backup demonstration for connectivity problems.",
-          "Normal path, failure/recovery আর requirement-linked evidence-সহ ছোট demo তৈরি করো। Network সমস্যার জন্য offline backup demonstration রাখো।",
+          "স্বাভাবিক flow, failure ও recovery, এবং requirement-এর সঙ্গে যুক্ত প্রমাণসহ ছোট demo তৈরি করো। Internet বিগড়ে গেলে দেখানোর জন্য offline backup রাখো—demo day-তে Wi-Fi-র নাটক নতুন কিছু নয়।",
         ),
         l(
           "Disclose AI/tool use under your department policy, verify every citation and explain any generated code you retain. State each member’s contribution and unresolved issues.",
-          "Department policy অনুযায়ী AI/tool use disclose, প্রতিটি citation verify আর রাখা generated code explain করো। প্রত্যেকের contribution আর unresolved issue লেখো।",
+          "Department-এর policy অনুযায়ী AI ও tool ব্যবহারের কথা জানাও, প্রতিটি citation যাচাই করো এবং যে generated code রেখেছ সেটি বুঝিয়ে বলতে প্রস্তুত থাকো। প্রত্যেকের অবদান ও অমীমাংসিত issue লিখে রাখো।",
         ),
       ],
       evidence: l(
         "A report, reproducible artifact and defense that agree with one another; a new maintainer can identify the next safe change.",
-        "Report, reproducible artifact আর defense পরস্পর মেলে; নতুন maintainer পরের safe change বুঝতে পারে।",
+        "Report, চালানো যায় এমন artifact ও defense-এর কথা একে অন্যের সঙ্গে মেলে; নতুন maintainer পরের নিরাপদ পরিবর্তনটি বুঝতে পারে।",
       ),
       notYet: l(
         "Do not call a student prototype production-ready, a paper accepted, or a design certified unless you have the relevant evidence.",
-        "প্রাসঙ্গিক evidence ছাড়া student prototype-কে production-ready, paper accepted বা design certified বলো না।",
+        "প্রাসঙ্গিক প্রমাণ ছাড়া student prototype-কে production-ready, paper-কে accepted বা design-কে certified বলে দাবি কোরো না।",
       ),
       sourceId: "acm-authorship",
     },
@@ -255,11 +255,11 @@ export const finalYearProject: FinalYearProjectGuide = {
       title: l("Web / mobile / software", "Web / mobile / software"),
       evidence: l(
         "Show a usable core journey, API/data contracts, permission boundaries, automated and manual tests, accessible failure states and release instructions. For mobile, test lifecycle, offline state and actual target devices where available.",
-        "Usable core journey, API/data contract, permission boundary, automated/manual test, accessible failure state আর release instruction দেখাও। Mobile-এ lifecycle, offline state আর সুযোগ থাকলে target device test করো।",
+        "ব্যবহারযোগ্য মূল journey, API/data contract, permission boundary, automated ও manual test, accessible failure state এবং release instruction দেখাও। Mobile হলে lifecycle, offline state এবং সুযোগ থাকলে আসল target device-এ পরীক্ষা করো।",
       ),
       caution: l(
         "A public deployment is optional; a repeatable local demonstration can protect privacy and control cost.",
-        "Public deployment optional; repeatable local demo privacy রক্ষা আর খরচ নিয়ন্ত্রণ করতে পারে।",
+        "Public deployment বাধ্যতামূলক নয়; বারবার চালানো যায়—এমন local demo অনেক সময় privacy ও খরচ দুটোই ভালোভাবে সামলায়।",
       ),
     },
     {
@@ -269,22 +269,22 @@ export const finalYearProject: FinalYearProjectGuide = {
       ),
       evidence: l(
         "State a research question, source and permission for data, baseline, train/validation/test separation, leakage checks, metrics with uncertainty and reproducible environment/seeds. Report negative results and error analysis.",
-        "Research question, data source/permission, baseline, train/validation/test separation, leakage check, uncertainty-সহ metric আর reproducible environment/seed লেখো। Negative result আর error analysis দাও।",
+        "Research question, data-এর উৎস ও অনুমতি, baseline, train/validation/test ভাগ, leakage check, uncertainty-সহ metric এবং আবার তৈরি করা যায়—এমন environment ও seed লিখে রাখো। Negative result ও error analysis-ও দেখাও।",
       ),
       caution: l(
         "A high accuracy number is not a contribution by itself. Publication is a separate review process, not a graduation promise.",
-        "বড় accuracy নিজেই contribution নয়। Publication আলাদা review process, graduation-এর promise নয়।",
+        "শুধু বড় accuracy-ই contribution নয়। Publication আলাদা review process; graduation হলেই paper বের হবে—এমন প্রতিশ্রুতি নয়।",
       ),
     },
     {
       title: l("Hardware / embedded systems", "Hardware / embedded systems"),
       evidence: l(
         "Provide schematics, BOM, firmware/tool versions, test conditions, simulation versus measurement, calibration/uncertainty and supervised safety review before physical work.",
-        "Schematic, BOM, firmware/tool version, test condition, simulation বনাম measurement, calibration/uncertainty আর physical কাজের আগে supervised safety review দাও।",
+        "Schematic, BOM, firmware/tool-এর version, test condition, simulation বনাম বাস্তব measurement, calibration ও uncertainty লিখে রাখো; physical কাজের আগে supervisor-এর safety review নাও।",
       ),
       caution: l(
         "Simulator-first. A student demonstration is not an electrically certified product; no unsupervised hazardous circuits.",
-        "আগে simulator। Student demonstration electrically certified product নয়; supervision ছাড়া hazardous circuit নয়।",
+        "আগে simulator-এ যাচাই করো। Student demonstration কোনো electrically certified product নয়; বিপজ্জনক circuit নিয়ে supervision ছাড়া কাজ কোরো না।",
       ),
     },
     {
@@ -294,46 +294,46 @@ export const finalYearProject: FinalYearProjectGuide = {
       ),
       evidence: l(
         "Document an isolated topology, authorization, threat/failure model, versioned configuration, traffic/test plan, monitoring evidence and rollback. Remove credentials and sensitive packet payloads.",
-        "Isolated topology, authorization, threat/failure model, versioned config, traffic/test plan, monitoring evidence আর rollback document করো। Credential আর sensitive packet payload সরাও।",
+        "Isolated topology, অনুমতির প্রমাণ, threat/failure model, versioned config, traffic/test plan, monitoring evidence ও rollback লিখে রাখো। Credential ও sensitive packet payload সরিয়ে ফেলো।",
       ),
       caution: l(
         "No campus, public or client-system experiments without explicit permission and a defined safe scope.",
-        "স্পষ্ট অনুমতি আর নিরাপদ scope ছাড়া campus, public বা client system-এ experiment নয়।",
+        "স্পষ্ট অনুমতি ও নিরাপদ scope ছাড়া campus, public বা client system-এ কোনো experiment কোরো না। কৌতূহল ভালো; অনুমতি ছাড়া কৌতূহল বিপদ ডেকে আনে।",
       ),
     },
   ],
   releaseChecks: [
     l(
       "The supervisor/rubric requirements and team contributions are documented.",
-      "Supervisor/rubric requirement আর team contribution লেখা আছে।",
+      "Supervisor ও rubric-এর শর্ত এবং দলের প্রত্যেকের অবদান লেখা আছে।",
     ),
     l(
       "Critical requirements have observable acceptance criteria and linked results.",
-      "Critical requirement-এ observable acceptance criteria আর linked result আছে।",
+      "প্রতিটি গুরুত্বপূর্ণ requirement-এর মাপা যায় এমন acceptance criteria ও তার সঙ্গে যুক্ত result আছে।",
     ),
     l(
       "The main design decision and rejected alternative are explained.",
-      "Main design decision আর বাদ দেওয়া option ব্যাখ্যা করা আছে।",
+      "মূল design decision ও বাদ দেওয়া বিকল্পটির কারণ ব্যাখ্যা করা আছে।",
     ),
     l(
       "A peer can run the tagged artifact using the README and safe data.",
-      "Peer README আর safe data দিয়ে tagged artifact চালাতে পারে।",
+      "একজন সহপাঠী README ও নিরাপদ sample data ব্যবহার করে tagged artifact চালাতে পারে।",
     ),
     l(
       "Tests include a failure case; results name the environment and remaining limitations.",
-      "Test-এ failure case আছে; result-এ environment আর বাকি limitation বলা।",
+      "Test-এ অন্তত একটি failure case আছে; result-এ environment ও বাকি সীমাবদ্ধতা বলা আছে।",
     ),
     l(
       "Relevant accessibility, privacy, security and physical-safety risks are reviewed.",
-      "Relevant accessibility, privacy, security আর physical-safety risk review হয়েছে।",
+      "প্রাসঙ্গিক accessibility, privacy, security ও physical-safety risk যাচাই করা হয়েছে।",
     ),
     l(
       "Licenses, citations, dataset permissions and AI assistance are honestly attributed.",
-      "License, citation, dataset permission আর AI assistance সৎভাবে উল্লেখ করা।",
+      "License, citation, dataset-এর অনুমতি ও AI-এর সহায়তা সততার সঙ্গে উল্লেখ করা হয়েছে।",
     ),
     l(
       "Recovery/handover steps and known issues match the demo and report.",
-      "Recovery/handover step আর known issue demo ও report-এর সঙ্গে মেলে।",
+      "Recovery ও handover-এর ধাপ এবং জানা issue demo ও report-এর সঙ্গে মেলে।",
     ),
   ],
   sourceIds: [

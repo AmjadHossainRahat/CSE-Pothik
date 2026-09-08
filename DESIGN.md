@@ -970,6 +970,12 @@ Bangla content must **not** be literal word-for-word translation.
 
 It should sound like natural communication among Bangladeshi CSE students and experienced mentors.
 
+Use one consistent conversational relationship: address the student as **তুমি**, with warmth and respect. Prefer the sentence rhythm a thoughtful Bangladeshi senior or mentor would actually use. Translate ordinary navigation and editorial scaffolding—such as guidance, next step, reality check and selected resources—while retaining established technical vocabulary when English is genuinely clearer. A sentence should not preserve English word order merely because its nouns are technical.
+
+Use code-switching deliberately, not automatically. `API`, `Git`, `pull request`, `debugging`, `RAG` and established role names may remain English; everyday ideas such as লক্ষ্য, পরের ধাপ, কাজের প্রমাণ, তথ্যের উৎস and যাচাই should normally be Bangla. Read each Bangla paragraph independently from the English source: it must make sense, sound natural aloud and leave the student with a clear action.
+
+Humor should feel like a mentor's light aside after a useful point. Never joke about a student's CGPA, English ability, financial position, gender, ethnicity, anxiety or time already lost. Do not force a joke into every section.
+
 Technical terms may remain in English where that is how students naturally use them:
 
 - API

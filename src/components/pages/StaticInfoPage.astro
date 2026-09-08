@@ -25,13 +25,13 @@ const metadata = {
       ? "Curated Free Learning Resources"
       : "Curated Free Learning Resources",
     description: bn
-      ? "বাংলাদেশের tech leader, practitioner ও educator-এর ordered watchlist এবং CSE Compass roadmap-এ ব্যবহৃত carefully selected free learning resource।"
+      ? "বাংলাদেশের tech leader, practitioner ও educator-দের সাজানো watchlist এবং CSE Compass-এর রোডম্যাপে ব্যবহৃত বাছাই করা বিনামূল্যের শেখার রিসোর্স।"
       : "An ordered watchlist of Bangladesh tech leaders, practitioners and educators plus carefully selected free learning resources used across CSE Compass roadmaps.",
   },
   privacy: {
-    title: bn ? "Privacy ও Analytics" : "Privacy & Analytics",
+    title: bn ? "গোপনীয়তা ও Analytics" : "Privacy & Analytics",
     description: bn
-      ? "CSE Compass account, profile বা progress collect করে না; optional aggregate GA4 analytics আর local preference কীভাবে কাজ করে জানো।"
+      ? "CSE Compass কোনো account, profile বা progress জমা রাখে না। চাইলে চালু করা aggregate GA4 analytics আর browser-এ রাখা preference কীভাবে কাজ করে, তা জানো।"
       : "Learn how CSE Compass uses optional aggregate GA4 analytics and local preferences without accounts, profiles or progress tracking.",
   },
   about: {
@@ -39,7 +39,7 @@ const metadata = {
       ? "CSE Compass সম্পর্কে ও কৃতজ্ঞতা"
       : "About CSE Compass & Credits",
     description: bn
-      ? "CSE Compass কেন তৈরি, early career orientation ও recovery-র উদ্দেশ্য, এর অনুপ্রেরণা এবং নির্মাণে মানুষের ও AI-এর ভূমিকা জানো।"
+      ? "CSE Compass কেন তৈরি হয়েছে, শুরুতে দিকনির্দেশনা ও পরে ঘুরে দাঁড়ানোর উদ্দেশ্য কী, কোথা থেকে অনুপ্রেরণা এসেছে এবং মানুষ ও AI কে কী ভূমিকা রেখেছে—সব জানো।"
       : "Why CSE Compass exists, its purpose of early career orientation and later recovery, its inspiration, and the human and AI roles behind it.",
   },
 }[kind];
@@ -51,9 +51,9 @@ const resourceGroupDefinitions: Array<{
 }> = [
   {
     id: "official-reference",
-    title: bn ? "Official documentation" : "Official documentation",
+    title: bn ? "অফিশিয়াল documentation" : "Official documentation",
     description: bn
-      ? "Tool, platform আর standard-এর maintained primary reference।"
+      ? "Tool, platform আর standard সম্পর্কে হালনাগাদ primary reference।"
       : "Maintained primary references for tools, platforms and standards.",
     types: ["official-docs"],
   },
@@ -63,23 +63,23 @@ const resourceGroupDefinitions: Array<{
       ? "Course ও university material"
       : "Courses & university material",
     description: bn
-      ? "Foundation বা guided sequence-এর জন্য structured learning material।"
+      ? "ভিত্তি তৈরি বা ধাপে ধাপে শেখার জন্য সাজানো material।"
       : "Structured learning material for foundations and guided sequences.",
     types: ["course", "university"],
   },
   {
     id: "labs-practice",
-    title: bn ? "Lab ও practice" : "Labs & practice",
+    title: bn ? "ল্যাব ও হাতে-কলমে অনুশীলন" : "Labs & practice",
     description: bn
-      ? "পড়া knowledge-কে ছোট, safe evidence-এ বদলানোর জায়গা।"
+      ? "পড়া জ্ঞানকে ছোট ও নিরাপদ evidence-এ বদলানোর জায়গা।"
       : "Places to turn reading into small, safe evidence.",
     types: ["lab", "practice"],
   },
   {
     id: "books-articles",
-    title: bn ? "Book ও focused article" : "Books & focused articles",
+    title: bn ? "বই ও বাছাই করা লেখা" : "Books & focused articles",
     description: bn
-      ? "Context, deeper reasoning বা নির্দিষ্ট topic-এর carefully scoped reading।"
+      ? "Context, গভীরভাবে ভাবা বা নির্দিষ্ট topic বোঝার জন্য সীমিত ও বাছাই করা পড়া।"
       : "Carefully scoped reading for context, deeper reasoning or a focused topic.",
     types: ["book", "article"],
   },
@@ -126,16 +126,16 @@ const structuredData =
         <header class="page-hero page-hero--compact container">
           <>
             <p class="eyebrow">
-              {bn ? "Quality over quantity" : "Quality over quantity"}
+              {bn ? "সংখ্যা নয়, মানটাই আসল" : "Quality over quantity"}
             </p>
             <h1>
               {bn
-                ? "Resource directory না। Curated starting points।"
+                ? "Resource-এর গুদাম নয়—বাছাই করা শুরুর জায়গা।"
                 : "Not a resource directory. Curated starting points."}
             </h1>
             <p class="lede">
               {bn
-                ? "Roadmap-এ contextসহ resource ব্যবহার করাই best। এই index maintainers আর students-কে selection, scope আর review date এক জায়গায় দেখতে দেয়।"
+                ? "রোডম্যাপে context-সহ resource ব্যবহার করাই সবচেয়ে কাজে দেয়। এই তালিকায় resource কেন বাছা হয়েছে, কতটুকু পড়বে আর কবে যাচাই করা হয়েছে—সব এক জায়গায় দেখা যায়।"
                 : "Resources work best in roadmap context. This index lets students and maintainers inspect selection, scope and review dates in one place."}
             </p>
           </>
@@ -145,7 +145,7 @@ const structuredData =
           id="industry-voices"
           aria-label={
             bn
-              ? "বাংলাদেশের tech leader ও practitioner"
+              ? "বাংলাদেশের tech leaders ও practitioners"
               : "Bangladesh tech leaders and practitioners"
           }
         >
@@ -159,12 +159,12 @@ const structuredData =
               <div class="callout">
                 <>
                   <p class="callout__label">
-                    {bn ? "Use the pattern" : "Use the pattern"}
+                    {bn ? "যেভাবে ব্যবহার করবে" : "Use the pattern"}
                   </p>
                   <h2>Learn → Practice → Go deeper (optional)</h2>
                   <p>
                     {bn
-                      ? "একটি primary resource-এর recommended scope শেষ করো, কিছু build করো, তারপর deeper resource দরকার কি না দেখো।"
+                      ? "একটি primary resource-এর দরকারি অংশ শেষ করো, কিছু বানাও, তারপর আরও গভীর resource সত্যিই দরকার কি না দেখো।"
                       : "Finish the recommended scope of one primary resource, build something, then decide whether deeper material is needed."}
                   </p>
                 </>
@@ -175,7 +175,7 @@ const structuredData =
                   href={withBase(localePath(locale, "/roadmaps/"))}
                 >
                   {bn
-                    ? "Roadmap থেকে resource বেছে নিই"
+                    ? "রোডম্যাপ থেকে resource বেছে নিই"
                     : "Choose resources through a roadmap"}
                 </a>
                 <a
@@ -189,8 +189,8 @@ const structuredData =
           </div>
         </section>
         <DirectoryJumpNav
-          eyebrow={bn ? "Resource-এর ধরনে যাও" : "Jump by resource type"}
-          label={bn ? "Resource type index" : "Resource type index"}
+          eyebrow={bn ? "রিসোর্সের ধরন বেছে নাও" : "Jump by resource type"}
+          label={bn ? "রিসোর্সের ধরন" : "Resource type index"}
           items={resourceGroups.map((group) => ({
             id: group.id,
             label: group.title,
@@ -210,7 +210,7 @@ const structuredData =
               <div class="resource-group-heading">
                 <p class="eyebrow">
                   {group.resources.length}{" "}
-                  {bn ? "টি curated resource" : "curated resources"}
+                  {bn ? "টি বাছাই করা resource" : "curated resources"}
                 </p>
                 <h2>{group.title}</h2>
                 <p class="lede">{group.description}</p>
@@ -240,12 +240,12 @@ const structuredData =
             </p>
             <h1>
               {bn
-                ? "Mentoring experience-এ কোনো account বা profile নেই।"
+                ? "এই mentoring experience-এ কোনো account বা profile নেই।"
                 : "No account or profile sits behind the mentoring experience."}
             </h1>
             <p class="lede">
               {bn
-                ? "CSE Compass static site। তোমার answer, roadmap progress, career score, email বা name collect করার form নেই।"
+                ? "CSE Compass একটি static site। তোমার উত্তর, রোডম্যাপ progress, career score, email বা নাম নেওয়ার কোনো form নেই।"
                 : "CSE Compass is static. There is no form collecting your answers, roadmap progress, career score, email or name."}
             </p>
           </>
@@ -257,19 +257,21 @@ const structuredData =
                 <>
                   <h2>
                     {bn
-                      ? "এই device-এ যা থাকতে পারে"
+                      ? "এই device-এ যা রাখা হতে পারে"
                       : "What may stay on this device"}
                   </h2>
                   <p>
                     {bn
-                      ? "Theme (light/dark) আর language preference browser localStorage-এ রাখা হতে পারে। এটা profile বা progress না; browser settings থেকে clear করা যায়।"
+                      ? "Theme (light/dark) আর ভাষার preference browser-এর localStorage-এ রাখা হতে পারে। এটি profile বা progress নয়; browser settings থেকে মুছে দেওয়া যায়।"
                       : "Theme (light/dark) and language preferences may be stored in browser localStorage. They are not a profile or progress and can be cleared in browser settings."}
                   </p>
                 </>
               </article>
               <article>
                 <>
-                  <h2>{bn ? "Aggregate analytics" : "Aggregate analytics"}</h2>
+                  <h2>
+                    {bn ? "সামগ্রিক ব্যবহারের তথ্য" : "Aggregate analytics"}
+                  </h2>
                   <p>
                     {bn
                       ? "Production owner GA4 measurement ID configure করলে page ও product interaction-এর aggregate event পাঠানো হয়—যেমন language switch, career view, experiment start আর resource click। Local/test build-এ ID না থাকলে analytics load হয় না।"
@@ -281,13 +283,13 @@ const structuredData =
                 <>
                   <h2>
                     {bn
-                      ? "যা intentionally পাঠাই না"
+                      ? "যে তথ্য ইচ্ছা করেই পাঠাই না"
                       : "What we intentionally do not send"}
                   </h2>
                   <ul>
                     <>
                       <li>
-                        {bn ? "Name বা email" : "Names or email addresses"}
+                        {bn ? "নাম বা email" : "Names or email addresses"}
                       </li>
                       <li>
                         {bn
@@ -296,12 +298,12 @@ const structuredData =
                       </li>
                       <li>
                         {bn
-                          ? "Personal learning profile বা hidden user ID"
+                          ? "ব্যক্তিগত learning profile বা লুকানো user ID"
                           : "Personal learning profiles or hidden user IDs"}
                       </li>
                       <li>
                         {bn
-                          ? "Roadmap progress, streak বা assessment history"
+                          ? "রোডম্যাপ progress, streak বা assessment history"
                           : "Roadmap progress, streaks or assessment history"}
                       </li>
                     </>
@@ -310,7 +312,7 @@ const structuredData =
               </article>
               <article>
                 <>
-                  <h2>{bn ? "External resources" : "External resources"}</h2>
+                  <h2>{bn ? "বাইরের রিসোর্স" : "External resources"}</h2>
                   <p>
                     {bn
                       ? "Learning-resource link খুললে সেই provider-এর privacy policy প্রযোজ্য। CSE Compass resource ID/provider দিয়ে click count করতে পারে; URL query বা তোমার free text পাঠায় না।"
@@ -332,17 +334,17 @@ const structuredData =
             <p class="eyebrow">{siteConfig.tagline}</p>
             <h1>
               {bn
-                ? "CSE student-এর জন্য practical career compass।"
+                ? "CSE শিক্ষার্থীর জন্য practical ক্যারিয়ার compass।"
                 : "A practical career compass for CSE students."}
             </h1>
             <p class="lede">
               {bn
-                ? "CSE Compass fresher থেকে final-year student-কে landscape বুঝতে, real কাজ try করতে, common mistake এড়াতে আর AI era-তে next meaningful step নিতে সাহায্য করে।"
+                ? "CSE Compass fresher থেকে final-year student-কে ক্যারিয়ারের জগৎ বুঝতে, আসল কাজ ছোট করে করতে, পরিচিত ভুল এড়াতে আর AI-এর যুগে কাজে লাগে এমন পরের ধাপ নিতে সাহায্য করে।"
                 : "CSE Compass helps students—from freshers to final year—understand the landscape, try real work, avoid common mistakes and take a meaningful next step in the AI era."}
             </p>
             <div class="about-actions">
               <a class="button" href="#why-this-exists">
-                {bn ? "কেন এই site" : "Read why this exists"}
+                {bn ? "কেন এই সাইট" : "Read why this exists"}
               </a>
               <a class="button button--secondary" href="#credits">
                 {bn
@@ -359,10 +361,10 @@ const structuredData =
         >
           <div class="container origin-story">
             <div class="origin-heading">
-              <p class="eyebrow">{bn ? "এই site কেন" : "Why this exists"}</p>
+              <p class="eyebrow">{bn ? "এই সাইট কেন" : "Why this exists"}</p>
               <h2 id="why-title">
                 {bn
-                  ? "ভর্তি থেকে direction—মাঝখানের gap-টাই আসল সমস্যা।"
+                  ? "ভর্তি থেকে দিক খুঁজে পাওয়া—মাঝখানের ফাঁকটাই আসল সমস্যা।"
                   : "The difficult part is the gap between admission and direction."}
               </h2>
             </div>
@@ -382,21 +384,21 @@ const structuredData =
                     : "Popularity, earning potential and opportunities abroad.",
                 ],
                 [
-                  bn ? "Orientation gap" : "Orientation gap",
+                  bn ? "শুরুতে দিকনির্দেশনার ঘাটতি" : "Orientation gap",
                   bn
-                    ? "Field-এর বিস্তৃতি আর আসল কাজ পরিষ্কার নয়।"
+                    ? "ক্ষেত্রটি কত বড় আর আসল কাজ কী—দুটোই পরিষ্কার নয়।"
                     : "The breadth of the field and its real work stay unclear.",
                 ],
                 [
-                  bn ? "Drift ও frustration" : "Drift and frustration",
+                  bn ? "এলোপাতাড়ি চলা ও হতাশা" : "Drift and frustration",
                   bn
-                    ? "Trend, random tutorial আর rushed decision সময় নেয়।"
+                    ? "Trend, এলোপাতাড়ি tutorial আর তাড়াহুড়োর সিদ্ধান্ত সময় কেড়ে নেয়।"
                     : "Trends, random tutorials and rushed choices consume time.",
                 ],
                 [
-                  bn ? "Direction" : "Direction",
+                  bn ? "সঠিক দিক খোঁজা" : "Direction",
                   bn
-                    ? "পথ বোঝো, ছোট করে try করো, তারপর plan বেছে নাও।"
+                    ? "পথ বোঝো, ছোট করে কাজ করো, তারপর পরিকল্পনা বেছে নাও।"
                     : "See the paths, try the work, then choose a plan.",
                 ],
               ].map(([title, description], index) => (
@@ -409,17 +411,17 @@ const structuredData =
             </ol>
             <div class="purpose-goals">
               <article>
-                <p class="eyebrow">{bn ? "Purpose" : "Purpose"}</p>
+                <p class="eyebrow">{bn ? "কেন এই সাইট" : "Purpose"}</p>
                 <h3>{t(sitePurpose.purpose, locale)}</h3>
               </article>
               <article>
-                <p class="eyebrow">{bn ? "Goal" : "Goal"}</p>
+                <p class="eyebrow">{bn ? "আমাদের লক্ষ্য" : "Goal"}</p>
                 <h3>{t(sitePurpose.goal, locale)}</h3>
               </article>
             </div>
             <p class="orientation-use">
               {bn
-                ? "একজন student নিজে ব্যবহার করুক বা orientation class-এ guide হিসেবে ব্যবহার হোক—লক্ষ্য একই: confusion জমে ওঠার আগেই একটা useful next step দেখা।"
+                ? "একজন student নিজে ব্যবহার করুক বা orientation class-এ guide হিসেবে দেখানো হোক—লক্ষ্য একই: বিভ্রান্তি জমে ওঠার আগেই কাজে লাগে এমন পরের ধাপটি দেখা।"
                 : "Whether a student uses it independently or an educator uses it during orientation, the aim is the same: make one useful next step visible before confusion compounds."}
             </p>
           </div>
@@ -429,7 +431,7 @@ const structuredData =
             <>
               <div>
                 <>
-                  <p class="eyebrow">{bn ? "What this is" : "What this is"}</p>
+                  <p class="eyebrow">{bn ? "এটি কী" : "What this is"}</p>
                   <h2>
                     {bn
                       ? "Orientation publication + practical mentor"
@@ -437,19 +439,17 @@ const structuredData =
                   </h2>
                   <p>
                     {bn
-                      ? "Career family, detailed guide, comparison, experiment, roadmap, AI exposure আর recovery route—সব static, free এবং account ছাড়াই।"
+                      ? "ক্যারিয়ার বিভাগ, বিস্তারিত গাইড, তুলনা, experiment, রোডম্যাপ, AI-এর প্রভাব আর recovery route—সব static, বিনামূল্যে এবং account ছাড়াই।"
                       : "Career families, detailed guides, comparisons, experiments, roadmaps, AI exposure and recovery routes—static, free and usable without an account."}
                   </p>
                 </>
               </div>
               <div>
                 <>
-                  <p class="eyebrow">
-                    {bn ? "What this is not" : "What this is not"}
-                  </p>
+                  <p class="eyebrow">{bn ? "এটি যা নয়" : "What this is not"}</p>
                   <h2>
                     {bn
-                      ? "LMS, job board বা prediction machine না"
+                      ? "এটি LMS, job board বা prediction machine নয়"
                       : "Not an LMS, job board or prediction machine"}
                   </h2>
                   <p>
@@ -470,7 +470,7 @@ const structuredData =
             </h2>
             <p class="lede">
               {bn
-                ? "একজন মানুষের উদ্যোগ ও পরিচালনা, অনুপ্রেরণাদায়ী community project আর AI-এর সহযোগিতায় তৈরি। প্রত্যেকের ভূমিকা আলাদা।"
+                ? "একজন মানুষের উদ্যোগ ও পরিচালনা, অনুপ্রেরণাদায়ী community project এবং AI-এর সহযোগিতায় তৈরি—তবে প্রত্যেকের ভূমিকা আলাদা।"
                 : "Human-led, inspired by community projects and built with AI assistance. Each contribution has a different role."}
             </p>
           </div>
@@ -480,7 +480,7 @@ const structuredData =
                 <>
                   <h3>
                     {bn
-                      ? "Principle নেওয়া, content copy নয়"
+                      ? "Principle থেকে শেখা, content নকল নয়"
                       : "Principles, never copied content"}
                   </h3>
                   <p>
@@ -506,7 +506,7 @@ const structuredData =
                   </ul>
                   <p class="muted">
                     {bn
-                      ? "এটি কৃতজ্ঞতা প্রকাশ, কোনো আনুষ্ঠানিক সম্পর্ক বা endorsement-এর দাবি নয়। নামগুলোর মালিকানা সংশ্লিষ্ট প্রতিষ্ঠান ও প্রকল্পের।"
+                      ? "এটি কৃতজ্ঞতা প্রকাশ; কোনো আনুষ্ঠানিক সম্পর্ক বা endorsement-এর দাবি নয়। নামগুলোর মালিকানা সংশ্লিষ্ট প্রতিষ্ঠান ও project-এর।"
                       : "These acknowledgments do not imply affiliation or endorsement. Names belong to their respective owners."}
                   </p>
                 </>
@@ -543,7 +543,7 @@ const structuredData =
                   </dl>
                   <p>
                     {bn
-                      ? "Repository MIT License-এর অধীনে। Student-facing resource free ও accessible রাখার community philosophy-কে সম্মান করা encouraged।"
+                      ? "Repository-টি MIT License-এর অধীনে। শিক্ষার্থীদের resource বিনামূল্যে ও accessible রাখার community philosophy সম্মান করেই উন্নয়নকে স্বাগত জানানো হয়।"
                       : "The repository is MIT licensed. Contributors are encouraged to honor the community philosophy of keeping student-facing resources free and accessible."}
                   </p>
                 </>

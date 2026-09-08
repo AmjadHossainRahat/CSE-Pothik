@@ -14,9 +14,9 @@ interface Props {
 }
 const { locale } = Astro.props;
 const bn = locale === "bn";
-const title = bn ? "CSE Career Landscape" : "Explore CSE Careers";
+const title = bn ? "CSE ক্যারিয়ারের জগৎ" : "Explore CSE Careers";
 const description = bn
-  ? "আটটি broad work family দিয়ে CSE career explore করো; real কাজ, drawback, roadmap, experiment আর AI exposure দেখো।"
+  ? "আট ধরনের কাজ ধরে CSE ক্যারিয়ারের জগৎ ঘুরে দেখো—আসল কাজ, অসুবিধা, শেখার পথ, ছোট experiment আর AI-এর প্রভাবসহ।"
   : "Explore CSE careers through eight broad work families, with realistic work, drawbacks, roadmaps, experiments and AI task exposure.";
 const structuredData = collectionStructuredData({
   title,
@@ -46,27 +46,30 @@ const structuredData = collectionStructuredData({
   description={description}
   structuredData={structuredData}
 >
-  <Breadcrumbs locale={locale} items={[{ label: bn ? "Career" : "Careers" }]} />
+  <Breadcrumbs
+    locale={locale}
+    items={[{ label: bn ? "ক্যারিয়ার" : "Careers" }]}
+  />
   <header class="page-hero page-hero--compact container">
-    <p class="eyebrow">{bn ? "Career landscape" : "Career landscape"}</p>
+    <p class="eyebrow">{bn ? "ক্যারিয়ারের মানচিত্র" : "Career landscape"}</p>
     <h1>
       {
         bn
-          ? "Title কম, real work বেশি।"
+          ? "চাকরির নাম নয়, আগে কাজটা চেনো।"
           : "Less job-title noise. More real work."
       }
     </h1>
     <p class="lede">
       {
         bn
-          ? "কোন career ‘best’—এই page তার ranking নয়। কোন ধরনের problem, pressure আর responsibility তোমার curiosity ধরে রাখে—সেটা explore করার জায়গা।"
+          ? "কোন ক্যারিয়ার ‘সেরা’—তার ranking এটি নয়। বরং কোন ধরনের সমস্যা, চাপ আর দায়িত্বের মধ্যেও তোমার কৌতূহল টিকে থাকে, সেটা খুঁজে দেখার জায়গা।"
           : "This is not a ranking of the ‘best’ career. Explore which problems, pressures and responsibilities can hold your curiosity."
       }
     </p>
   </header>
   <DirectoryJumpNav
-    eyebrow={bn ? "Career family-তে যাও" : "Jump to a career family"}
-    label={bn ? "Career family index" : "Career family index"}
+    eyebrow={bn ? "কাজের ধরন বেছে নাও" : "Jump to a career family"}
+    label={bn ? "ক্যারিয়ার বিভাগের তালিকা" : "Career family index"}
     items={careerFamilies.map((family) => ({
       id: family.id,
       label: t(family.title, locale),
@@ -127,17 +130,17 @@ const structuredData = collectionStructuredData({
   <section class="section">
     <div class="container callout callout--warm">
       <p class="callout__label">
-        {bn ? "Try this instead" : "Try this instead"}
+        {bn ? "সিদ্ধান্ত হচ্ছে না?" : "Try this instead"}
       </p><h2>
         {
           bn
-            ? "দুটির মধ্যে stuck? দুটোই ছোট করে try করো।"
+            ? "দুটির মধ্যে আটকে গেছ? দুটো কাজই ছোট করে করে দেখো।"
             : "Stuck between two paths? Try both in miniature."
         }
       </h2><p>
         {
           bn
-            ? "Comparison তোমাকে language দেবে। Experiment evidence দেবে। কোনো quiz তোমাকে final identity দেবে না।"
+            ? "তুলনা তোমাকে ভাবার ভাষা দেবে, experiment দেবে নিজের evidence। কোনো quiz তোমার হয়ে চূড়ান্ত পরিচয় ঠিক করে দেবে না।"
             : "Comparison gives you language. Experiments give you evidence. No quiz gives you a final identity."
         }
       </p>
@@ -148,7 +151,7 @@ const structuredData = collectionStructuredData({
           data-track-event="next_step_clicked"
           data-track-param-destination="compare"
         >
-          {bn ? "দুটি career compare করি" : "Compare two careers"}
+          {bn ? "দুটি ক্যারিয়ার মিলিয়ে দেখি" : "Compare two careers"}
         </a>
         <a
           class="button button--secondary"
@@ -156,7 +159,7 @@ const structuredData = collectionStructuredData({
           data-track-event="next_step_clicked"
           data-track-param-destination="experiments"
         >
-          {bn ? "ছোট experiment বেছে নিই" : "Choose a small experiment"}
+          {bn ? "ছোট একটি কাজ করে দেখি" : "Choose a small experiment"}
         </a>
       </div>
     </div>

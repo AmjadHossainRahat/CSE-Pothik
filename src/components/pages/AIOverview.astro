@@ -14,26 +14,28 @@ const bn = locale === "bn";
 
 <BaseLayout
   locale={locale}
-  title={bn ? "AI ও তোমার CSE Career" : "AI & Your CSE Career"}
+  title={bn ? "AI ও তোমার CSE ক্যারিয়ার" : "AI & Your CSE Career"}
   description={bn
-    ? "Fake replacement percentage নয়—Task Automation Exposure, durable capability আর AI দিয়ে শেখার safe practice।"
+    ? "মনগড়া replacement percentage নয়—কোন কাজে AI-এর প্রভাব বেশি, কোন দক্ষতা টিকবে আর AI নিয়ে নিরাপদে কীভাবে শিখবে, তা বোঝো।"
     : "Understand Task Automation Exposure, durable capabilities and how to learn with AI without fake replacement percentages or dependency."}
 >
   <Breadcrumbs
     locale={locale}
-    items={[{ label: bn ? "AI ও career" : "AI & Your Career" }]}
+    items={[{ label: bn ? "AI ও ক্যারিয়ার" : "AI & Your Career" }]}
   />
   <header class="page-hero container">
-    <p class="eyebrow">{bn ? "AI resilience" : "AI resilience"}</p><h1>
+    <p class="eyebrow">
+      {bn ? "AI-এর যুগে টিকে থাকার শক্তি" : "AI resilience"}
+    </p><h1>
       {
         bn
-          ? "AI programmer-কে শুধু replace করছে—এত সহজ গল্প না।"
+          ? "AI এল, programmer গেল—গল্পটা এত সোজা নয়।"
           : "“AI replaces programmers” is too simple to be useful."
       }
     </h1><p class="lede">
       {
         bn
-          ? "AI বদলাচ্ছে programmer-কে কোন কাজের জন্য paid করা হয়। Career-কে indivisible job না ভেবে task, judgment, context আর responsibility-র bundle হিসেবে দেখো।"
+          ? "AI বদলে দিচ্ছে programmer-কে ঠিক কোন কাজের জন্য টাকা দেওয়া হবে। তাই ক্যারিয়ারকে একখানা অবিভাজ্য চাকরি না ভেবে কাজ, বিচারবোধ, context আর দায়িত্বের একটি সমষ্টি হিসেবে দেখো।"
           : "AI is changing what programmers are paid to do. Treat a career as a bundle of tasks, judgment, context and responsibility—not one indivisible job."
       }
     </p>
@@ -42,11 +44,11 @@ const bn = locale === "bn";
     <div class="container editorial-grid">
       <div>
         <p class="eyebrow">
-          {bn ? "দুইটা bad strategy" : "Two bad strategies"}
+          {bn ? "দুই দিকেই বিপদ" : "Two bad strategies"}
         </p><h2>
           {
             bn
-              ? "Ignore না। Panic-ও না।"
+              ? "চোখ বন্ধ কোরো না, আতঙ্কেও ভেসো না।"
               : "Do not ignore it. Do not panic either."
           }
         </h2>
@@ -54,14 +56,14 @@ const bn = locale === "bn";
         <p>
           {
             bn
-              ? "Boilerplate, syntax conversion, routine CRUD আর basic documentation-এর cost কমছে। একই সঙ্গে verification, architecture, debugging, integration, security, domain knowledge আর ownership-এর shape বদলাচ্ছে।"
+              ? "Boilerplate, syntax বদলানো, routine CRUD আর প্রাথমিক documentation-এর খরচ কমছে। একই সঙ্গে verification, architecture, debugging, integration, security, domain knowledge আর ownership-এর ধরনও বদলাচ্ছে।"
               : "Boilerplate, syntax conversion, routine CRUD and basic documentation are getting cheaper. Verification, architecture, debugging, integration, security, domain knowledge and ownership are changing shape."
           }
         </p><div class="callout callout--warm">
-          <p class="callout__label">{bn ? "AI reality" : "AI reality"}</p><p>
+          <p class="callout__label">{bn ? "বাস্তব কথাটা" : "AI reality"}</p><p>
             {
               bn
-                ? "AI capability evolve করে। নিচের exposure label permanent safety claim নয়—আজকের learning decision-এর lens।"
+                ? "AI-এর ক্ষমতা বদলাতেই থাকবে। নিচের exposure label কোনো স্থায়ী নিরাপত্তার সনদ নয়—আজ কী শিখবে, তা ভাবার একটি lens মাত্র।"
                 : "AI capabilities evolve. Exposure labels are not permanent safety claims; they are a lens for today’s learning decisions."
             }
           </p>
@@ -73,7 +75,7 @@ const bn = locale === "bn";
     <div class="container">
       <div class="section-head task-model-head">
         <div>
-          <p class="eyebrow">{bn ? "Task model" : "Task model"}</p><h2>
+          <p class="eyebrow">{bn ? "কাজ ধরে বোঝো" : "Task model"}</p><h2>
             {
               bn
                 ? "Higher exposure → AI-assisted → responsibility-heavy"
@@ -83,14 +85,14 @@ const bn = locale === "bn";
         </div><p class="lede">
           {
             bn
-              ? "Lower exposure মানে ‘AI-proof’ নয়। Context, accountability আর consequence বেশি—এই মুহূর্তে শুধু সেটাই বোঝায়।"
+              ? "Exposure কম মানেই ‘AI-proof’ নয়। আপাতত শুধু বোঝায়—এখানে context, জবাবদিহি আর ফলাফলের গুরুত্ব বেশি।"
               : "Lower exposure never means AI-proof. It means context, accountability and consequences currently matter more."
           }
         </p>
       </div><div class="exposure">
         <article class="exposure__item" data-level="higher">
           <span class="tag">higher</span><h3>
-            {bn ? "Routine production" : "Routine production"}
+            {bn ? "চেনা, নিয়মিত কাজ" : "Routine production"}
           </h3><p>
             {
               bn
@@ -100,7 +102,7 @@ const bn = locale === "bn";
           </p>
         </article><article class="exposure__item" data-level="medium">
           <span class="tag">medium</span><h3>
-            {bn ? "AI-assisted judgment" : "AI-assisted judgment"}
+            {bn ? "AI-এর সাহায্যে বিচার-বিশ্লেষণ" : "AI-assisted judgment"}
           </h3><p>
             {
               bn
@@ -110,11 +112,11 @@ const bn = locale === "bn";
           </p>
         </article><article class="exposure__item" data-level="lower">
           <span class="tag">lower</span><h3>
-            {bn ? "Context ও responsibility" : "Context and responsibility"}
+            {bn ? "প্রেক্ষাপট ও দায়িত্ব" : "Context and responsibility"}
           </h3><p>
             {
               bn
-                ? "Actual problem বোঝা, stakeholder trade-off, risk, domain expertise, production ownership আর verification।"
+                ? "আসল সমস্যা বোঝা, stakeholder trade-off, ঝুঁকি, domain expertise, production ownership আর verification।"
                 : "Understanding the actual problem, stakeholder trade-offs, risk, domain expertise, production ownership and verification."
             }
           </p>
@@ -127,18 +129,22 @@ const bn = locale === "bn";
       <div class="section-head">
         <div>
           <p class="eyebrow">
-            {bn ? "AI-native, AI-dependent না" : "AI-native, not AI-dependent"}
+            {
+              bn
+                ? "AI ব্যবহার করো, নির্ভরশীল হয়ো না"
+                : "AI-native, not AI-dependent"
+            }
           </p><h2>
             {
               bn
-                ? "‘AI code লিখে দিয়েছে’ থেকে ‘result আমি verify করেছি’"
+                ? "‘AI code লিখেছে’ থেকে ‘ফল আমি যাচাই করেছি’"
                 : "Move from “AI wrote it” to “I verified the result”"
             }
           </h2>
         </div><p class="lede">
           {
             bn
-              ? "Speed useful, কিন্তু independent reasoning deliberately practice না করলে speed borrowed capability হয়ে যায়।"
+              ? "গতি কাজে লাগে। তবে নিজের চিন্তার চর্চা না থাকলে সেই গতি ধার করা দক্ষতা হয়েই থেকে যায়।"
               : "Speed is useful. Without deliberate independent reasoning, that speed becomes borrowed capability."
           }
         </p>
@@ -146,12 +152,12 @@ const bn = locale === "bn";
         {
           (bn
             ? [
-                "Problem আর success criteria নিজে explain করো।",
-                "Foundation-এর selected exercise AI ছাড়া solve করো।",
-                "AI-কে option আর critique-এর জন্য use করো।",
-                "Correctness, complexity, edge case আর security verify করো।",
-                "Failure debug আর trade-off own করো।",
-                "Result-এর consequence-এর responsibility নাও।",
+                "সমস্যা আর সফল হওয়ার শর্ত নিজের ভাষায় বোঝাও।",
+                "বাছাই করা foundation exercise AI ছাড়া সমাধান করো।",
+                "AI-কে বিকল্প আর সমালোচনা পেতে ব্যবহার করো—কর্তা বানিয়ো না।",
+                "Correctness, complexity, edge case আর security নিজে যাচাই করো।",
+                "কাজ না হলে debug করো, trade-off-এর দায় নাও।",
+                "ফলাফলের প্রভাবের দায়িত্বও নিজের বলে মানো।",
               ]
             : [
                 "Explain the problem and success criteria yourself.",
@@ -178,11 +184,11 @@ const bn = locale === "bn";
       >
         <div>
           <p class="callout__label">
-            {bn ? "Build করার path" : "A path for builders"}
+            {bn ? "যারা AI system বানাতে চাও" : "A path for builders"}
           </p><h2 id="systems-route-title">
             {
               bn
-                ? "Prompt → RAG → workflow → agent loop: order-টা আগে বোঝো।"
+                ? "Prompt → RAG → workflow → agent loop: আগে ধারাবাহিকতাটা বোঝো।"
                 : "Prompt → RAG → workflow → agent loop: learn the order first."
             }
           </h2>
@@ -190,14 +196,14 @@ const bn = locale === "bn";
           <p>
             {
               bn
-                ? "n8n আর OpenClaw capability implement করার tool; AGI একটি research horizon। এগুলোকে একই checklist না বানিয়ে measurable system build করো।"
+                ? "n8n আর OpenClaw হলো নির্দিষ্ট capability বানানোর tool; AGI এখনো গবেষণার দিগন্ত। সবকিছুকে এক checklist-এ না ঢুকিয়ে মাপা যায় এমন system বানাও।"
                 : "n8n and OpenClaw are tools that implement capabilities; AGI is a research horizon. Do not turn them into one checklist—build a measurable system."
             }
           </p><a
             class="button"
             href={withBase(
               localePath(locale, "/roadmaps/ai-engineering/#ai-systems-path"),
-            )}>{bn ? "AI systems path খোলো" : "Open the AI systems path"}</a
+            )}>{bn ? "AI system তৈরির পথ দেখো" : "Open the AI systems path"}</a
           >
         </div>
       </aside>
@@ -206,7 +212,7 @@ const bn = locale === "bn";
   <section class="section section--tinted">
     <div class="container editorial-grid">
       <div>
-        <p class="eyebrow">{bn ? "Practice modes" : "Practice modes"}</p><h2>
+        <p class="eyebrow">{bn ? "অনুশীলনের দুই ধরন" : "Practice modes"}</p><h2>
           {
             bn
               ? "AI-free reasoning + AI-assisted review"
@@ -216,7 +222,7 @@ const bn = locale === "bn";
       </div><div>
         <article class="mode">
           <h3>
-            {bn ? "AI-Free Problem Solving" : "AI-Free Problem Solving"}
+            {bn ? "AI ছাড়া Problem Solving" : "AI-Free Problem Solving"}
           </h3><p>
             {
               bn
@@ -225,7 +231,7 @@ const bn = locale === "bn";
             }
           </p>
         </article><article class="mode">
-          <h3>{bn ? "AI-Assisted Review" : "AI-Assisted Review"}</h3><p>
+          <h3>{bn ? "AI-এর সাহায্যে Review" : "AI-Assisted Review"}</h3><p>
             {
               bn
                 ? "AI solution নাও, তারপর bug, complexity problem, counterexample, security gap আর simpler alternative খোঁজো।"
@@ -241,7 +247,7 @@ const bn = locale === "bn";
       <div class="section-head">
         <div>
           <p class="eyebrow">
-            {bn ? "Career-specific exposure" : "Career-specific exposure"}
+            {bn ? "ক্যারিয়ারভেদে AI-এর প্রভাব" : "Career-specific exposure"}
           </p><h2>
             {bn ? "একই AI, আলাদা task mix" : "Same AI, different task mix"}
           </h2>
@@ -275,7 +281,7 @@ const bn = locale === "bn";
   </section>
   <section class="section section--tinted">
     <div class="container callout">
-      <p class="callout__label">{bn ? "Next step" : "Next step"}</p><h2>
+      <p class="callout__label">{bn ? "পরের ধাপ" : "Next step"}</p><h2>
         {
           bn
             ? "একটা career choose করে তিনটি exposure task explain করো।"
@@ -288,7 +294,7 @@ const bn = locale === "bn";
             : "Then do one AI-free foundation exercise and one AI-assisted review. Evidence replaces panic."
         }
       </p><a class="button" href={withBase(localePath(locale, "/careers/"))}
-        >{bn ? "Career বেছে নিই" : "Choose a career"}</a
+        >{bn ? "ক্যারিয়ার বেছে নিই" : "Choose a career"}</a
       >
     </div>
   </section>

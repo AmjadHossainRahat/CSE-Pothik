@@ -15,14 +15,14 @@ const bn = locale === "bn";
 const otherLocale: Locale = bn ? "en" : "bn";
 const href = (path: string) => withBase(localePath(locale, path));
 const typeLabels = {
-  career: bn ? "Career guide" : "Career guide",
-  roadmap: bn ? "Roadmap" : "Roadmap",
-  experiment: bn ? "Experiment" : "Experiment",
-  ai: bn ? "AI guide" : "AI guide",
-  goal: bn ? "Goal guide" : "Goal guide",
-  guidance: bn ? "Guidance" : "Guidance",
-  resource: bn ? "Learning resource" : "Learning resource",
-  directory: bn ? "Directory" : "Directory",
+  career: bn ? "ক্যারিয়ার গাইড" : "Career guide",
+  roadmap: bn ? "রোডম্যাপ" : "Roadmap",
+  experiment: bn ? "কাজ করে দেখো" : "Experiment",
+  ai: bn ? "AI গাইড" : "AI guide",
+  goal: bn ? "লক্ষ্যভিত্তিক গাইড" : "Goal guide",
+  guidance: bn ? "দিকনির্দেশনা" : "Guidance",
+  resource: bn ? "শেখার রিসোর্স" : "Learning resource",
+  directory: bn ? "তালিকা" : "Directory",
 };
 const index = searchEntries.map((entry) => ({
   id: entry.id,
@@ -34,13 +34,13 @@ const index = searchEntries.map((entry) => ({
 }));
 const serializedIndex = JSON.stringify(index).replace(/</g, "\\u003c");
 const quickLinks: [string, string][] = [
-  [bn ? "Career path" : "Career paths", "/careers/"],
-  [bn ? "Career experiment" : "Career experiments", "/try/"],
-  [bn ? "Learning roadmap" : "Learning roadmaps", "/roadmaps/"],
-  [bn ? "Goal-এর plan" : "Goal plans", "/goals/"],
-  [bn ? "AI ও career" : "AI & careers", "/ai/"],
+  [bn ? "ক্যারিয়ারের পথ" : "Career paths", "/careers/"],
+  [bn ? "কাজ করে ক্যারিয়ার যাচাই" : "Career experiments", "/try/"],
+  [bn ? "শেখার রোডম্যাপ" : "Learning roadmaps", "/roadmaps/"],
+  [bn ? "লক্ষ্যভিত্তিক পরিকল্পনা" : "Goal plans", "/goals/"],
+  [bn ? "AI ও ক্যারিয়ার" : "AI & careers", "/ai/"],
   [
-    bn ? "Final-year project" : "Final-year project",
+    bn ? "ফাইনাল ইয়ার প্রজেক্ট" : "Final-year project",
     "/guidance/final-year-project/",
   ],
   [bn ? "আমি দিশেহারা" : "I’m Lost", "/im-lost/"],
@@ -51,7 +51,7 @@ const quickLinks: [string, string][] = [
   locale={locale}
   title={bn ? "CSE Compass-এ খুঁজে দেখো" : "Search CSE Compass"}
   description={bn
-    ? "Career, roadmap, experiment, goal, guidance আর curated learning resource খুঁজে নাও।"
+    ? "ক্যারিয়ার, রোডম্যাপ, experiment, লক্ষ্য, গাইড আর বাছাই করা শেখার রিসোর্স—যা দরকার খুঁজে নাও।"
     : "Search CSE Compass careers, roadmaps, experiments, goals, guidance and curated learning resources."}
   noindex
 >
@@ -65,7 +65,7 @@ const quickLinks: [string, string][] = [
     <p class="lede">
       {
         bn
-          ? "Career title, skill, goal বা topic লেখো। Search mentor path-এর বিকল্প নয়—কিন্তু পরিচিত নামের page দ্রুত খুঁজে দেয়।"
+          ? "ক্যারিয়ারের নাম, skill, লক্ষ্য বা topic লেখো। Search কোনো mentor-এর বিকল্প নয়, তবে চেনা বিষয়টির page দ্রুত খুঁজে দেয়।"
           : "Enter a career title, skill, goal or topic. Search does not replace the mentor paths, but it can find a page whose name you already know."
       }
     </p>
@@ -74,7 +74,7 @@ const quickLinks: [string, string][] = [
     <div class="container search-shell">
       <form role="search" class="site-search" data-site-search>
         <label for="site-search-input">
-          {bn ? "Career, skill বা topic" : "Career, skill or topic"}
+          {bn ? "ক্যারিয়ার, skill বা topic" : "Career, skill or topic"}
         </label>
         <div class="search-control">
           <input
@@ -96,7 +96,7 @@ const quickLinks: [string, string][] = [
       <p class="search-privacy">
         {
           bn
-            ? "তোমার search এই browser-এই filter হয়; analytics-এ search text পাঠানো হয় না।"
+            ? "খোঁজার কাজটি এই browser-এই হয়; তুমি কী লিখেছ, তা analytics-এ পাঠানো হয় না।"
             : "Filtering happens in this browser. Search text is not sent to analytics."
         }
       </p>
@@ -114,9 +114,15 @@ const quickLinks: [string, string][] = [
   </section>
   <section class="section">
     <div class="container quick-links">
-      <p class="eyebrow">{bn ? "Browse করতে চাইলে" : "Prefer to browse?"}</p>
+      <p class="eyebrow">
+        {bn ? "খুঁজে না লিখে ঘুরে দেখতে চাও?" : "Prefer to browse?"}
+      </p>
       <h2>
-        {bn ? "একটি mentor path দিয়ে শুরু করো" : "Start with a mentor path"}
+        {
+          bn
+            ? "তাহলে একটি দিকনির্দেশনার পথ দিয়ে শুরু করো"
+            : "Start with a mentor path"
+        }
       </h2>
       <ul role="list">
         {
@@ -182,7 +188,7 @@ const quickLinks: [string, string][] = [
           ? `${matches.length}টি ফল পাওয়া গেছে।`
           : `${matches.length} results found.`
         : bn
-          ? "কিছু পাওয়া যায়নি। অন্য title, skill বা goal লিখে দেখো।"
+          ? "কিছু পাওয়া গেল না। অন্য নাম, skill বা লক্ষ্য লিখে দেখো।"
           : "No results. Try another title, skill or goal.";
       for (const match of matches) {
         const item = document.createElement("li");

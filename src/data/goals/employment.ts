@@ -6,15 +6,15 @@ export const employmentGoals: GoalGuide[] = [
     id: "global-companies",
     title: l(
       "Global companies & advanced engineering",
-      "Global company আর advanced engineering",
+      "বিশ্বমানের প্রতিষ্ঠান ও advanced engineering",
     ),
     summary: l(
       "Prepare for a role, not a logo: Google, Meta, Microsoft, Amazon, Tesla, SpaceX and NASA-related routes have different work and eligibility.",
-      "Logo নয়, role-এর জন্য প্রস্তুতি: Google, Meta, Microsoft, Amazon, Tesla, SpaceX আর NASA-সম্পর্কিত route-এ কাজ ও eligibility আলাদা।",
+      "Logo দেখে নয়, কাজ বুঝে প্রস্তুতি নাও। Google, Meta, Microsoft, Amazon, Tesla, SpaceX কিংবা NASA-সংশ্লিষ্ট পথে কাজের ধরন ও যোগ্যতার শর্ত এক নয়।",
     ),
     reality: l(
       "Ambition is useful; a company name is not a syllabus. NASA is a government agency and most NASA employment requires U.S. citizenship. Check each vacancy's location, work authorization, degree and experience conditions before investing in a company-specific route. No roadmap guarantees an interview or offer.",
-      "বড় স্বপ্ন কাজে লাগে; company name কোনো syllabus নয়। NASA government agency; বেশিরভাগ NASA চাকরিতে U.S. citizenship লাগে। Company-specific পথে সময় দেওয়ার আগে vacancy-এর location, work authorization, degree আর experience condition দেখো। Roadmap interview বা offer নিশ্চিত করে না।",
+      "বড় স্বপ্ন অবশ্যই দরকার; কিন্তু কোনো company-র নাম syllabus নয়। NASA একটি সরকারি সংস্থা, এবং তাদের বেশিরভাগ চাকরিতে U.S. citizenship লাগে। তাই কোনো প্রতিষ্ঠানকে ঘিরে দীর্ঘ প্রস্তুতি নেওয়ার আগে vacancy-এর location, work authorization, degree ও experience-এর শর্ত দেখে নাও। কোনো roadmap interview বা offer নিশ্চিত করতে পারে না।",
     ),
     variants: [
       {
@@ -224,14 +224,17 @@ export const employmentGoals: GoalGuide[] = [
   },
   {
     id: "local-industry",
-    title: l("Build a career in Bangladesh", "বাংলাদেশের industry-তে career"),
+    title: l(
+      "Build a career in Bangladesh",
+      "বাংলাদেশের tech industry-তে ক্যারিয়ার",
+    ),
     summary: l(
       "Explore product teams, export services, fintech, telecom, enterprise IT and public-interest technology—then prepare for the actual work.",
-      "Product team, export service, fintech, telecom, enterprise IT আর public-interest technology দেখো—তারপর actual কাজের প্রস্তুতি নাও।",
+      "Product company, export service, fintech, telecom, enterprise IT ও জনস্বার্থের technology—ক্ষেত্রগুলো আগে চিনে নাও, তারপর আসল কাজের জন্য প্রস্তুতি নাও।",
     ),
     reality: l(
       "Local does not mean easy or second-rate. Company category helps you ask better questions; it does not predict pay, culture or engineering quality. Verify vacancies and evaluate mentorship, ownership, working conditions and learning opportunities individually.",
-      "Local মানে সহজ বা নিম্নমানের নয়। Company category ভালো প্রশ্ন করতে সাহায্য করে; pay, culture বা engineering quality নিশ্চিত করে না। Vacancy যাচাই করে mentorship, দায়িত্ব, কাজের পরিবেশ আর শেখার সুযোগ আলাদা করে দেখো।",
+      "দেশীয় প্রতিষ্ঠান মানেই কাজ সহজ বা মান কম—এ ধারণা ঠিক নয়। প্রতিষ্ঠানের ধরন তোমাকে ভালো প্রশ্ন করতে সাহায্য করবে, তবে বেতন, culture বা engineering quality নিশ্চিত করবে না। প্রতিটি vacancy আলাদা করে যাচাই করো; mentorship, দায়িত্ব, কাজের পরিবেশ ও শেখার সুযোগ বুঝে সিদ্ধান্ত নাও।",
     ),
     variants: [
       {
@@ -448,11 +451,11 @@ export const employmentGoals: GoalGuide[] = [
     title: l("Remote employment", "Remote চাকরির প্রস্তুতি"),
     summary: l(
       "Become dependable without sharing an office: role competence, written collaboration, visible delivery and realistic location constraints.",
-      "এক office-এ না থেকেও dependable হও: role competence, লিখিত collaboration, দৃশ্যমান delivery আর বাস্তব location constraint।",
+      "একই office-এ না থেকেও ভরসাযোগ্য সহকর্মী হও: নিজের role-এ দক্ষতা, পরিষ্কার লিখিত যোগাযোগ, চোখে দেখা যায় এমন delivery এবং location-এর বাস্তব সীমা—সবই এখানে জরুরি।",
     ),
     reality: l(
       "Remote describes where a team works, not a beginner skill or permission to work from any country. Employment and contractor arrangements differ. Verify Bangladesh eligibility, time-zone overlap, equipment, payment and contract terms with the employer; this guide is not legal or tax advice.",
-      "Remote হলো team কোথা থেকে কাজ করে, beginner skill বা যেকোনো দেশ থেকে কাজের অনুমতি নয়। Employment আর contractor arrangement আলাদা। Employer-এর কাছে Bangladesh eligibility, time-zone overlap, equipment, payment আর contract terms যাচাই করো; এটি legal বা tax advice নয়।",
+      "Remote মানে team কোথা থেকে কাজ করে; এটি কোনো beginner skill নয়, আবার যেকোনো দেশ থেকে কাজ করার স্বয়ংক্রিয় অনুমতিও নয়। Employee ও contractor-এর ব্যবস্থা আলাদা হতে পারে। প্রতিষ্ঠানটি বাংলাদেশ থেকে নিয়োগ দেয় কি না, সময়ের মিল, equipment, payment ও contract-এর শর্ত নিজে যাচাই করো; এই গাইড legal বা tax advice নয়।",
     ),
     variants: [
       {

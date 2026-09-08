@@ -15,13 +15,13 @@ const groupedCareers = careerFamilies.map((family) => ({
   careers: family.careerIds.map((id) => careerById.get(id)!),
 }));
 const dimensionRows = [
-  ["coding", bn ? "Coding" : "Coding"],
-  ["mathematics", bn ? "Math" : "Mathematics"],
-  ["systems", bn ? "Systems depth" : "Systems depth"],
-  ["investigation", bn ? "Investigation" : "Investigation"],
-  ["creativity", bn ? "Creativity" : "Visual / creative work"],
-  ["communication", bn ? "Communication" : "Communication"],
-  ["production", bn ? "Production ownership" : "Production responsibility"],
+  ["coding", bn ? "কোডিং" : "Coding"],
+  ["mathematics", bn ? "গণিত" : "Mathematics"],
+  ["systems", bn ? "সিস্টেমের গভীরতা" : "Systems depth"],
+  ["investigation", bn ? "অনুসন্ধান" : "Investigation"],
+  ["creativity", bn ? "সৃজনশীলতা" : "Visual / creative work"],
+  ["communication", bn ? "যোগাযোগ" : "Communication"],
+  ["production", bn ? "Production-এর দায়িত্ব" : "Production responsibility"],
 ] as const;
 const level = (value: number) =>
   value === 3
@@ -39,28 +39,28 @@ const level = (value: number) =>
 
 <BaseLayout
   locale={locale}
-  title={bn ? "CSE Career Compare" : "Compare CSE Careers"}
+  title={bn ? "CSE ক্যারিয়ার তুলনা" : "Compare CSE Careers"}
   description={bn
-    ? "২–৩টি CSE career-এর real কাজ, pressure, AI exposure, roadmap আর experiment mobile-friendlyভাবে compare করো।"
+    ? "২–৩টি CSE ক্যারিয়ারের আসল কাজ, চাপ, AI-এর প্রভাব, রোডম্যাপ আর experiment পাশাপাশি মিলিয়ে দেখো।"
     : "Compare 2–3 CSE careers by real work, pressure, AI exposure, roadmaps and experiments in a mobile-friendly format."}
 >
   <Breadcrumbs
     locale={locale}
-    items={[{ label: bn ? "Career compare" : "Compare" }]}
+    items={[{ label: bn ? "ক্যারিয়ার তুলনা" : "Compare" }]}
   />
   <header class="page-hero page-hero--compact container">
     <p class="eyebrow">
-      {bn ? "Compare for fit—not rank" : "Compare for fit—not rank"}
+      {bn ? "Ranking নয়—নিজের সঙ্গে মিল খোঁজো" : "Compare for fit—not rank"}
     </p><h1>
       {
         bn
-          ? "‘High’ ভালো না। শুধু কাজের nature আলাদা।"
+          ? "‘High’ মানে ভালো নয়—শুধু কাজের ধরন আলাদা।"
           : "High is not better. The work is simply different."
       }
     </h1><p class="lede">
       {
         bn
-          ? "২–৩টি career বেছে work style, uncomfortable part আর next evidence compare করো। Fit score নেই—কারণ career decision spreadsheet formula না।"
+          ? "২–৩টি ক্যারিয়ার বেছে কাজের ধরন, অস্বস্তিকর অংশ আর পরের evidence মিলিয়ে দেখো। এখানে fit score নেই—ক্যারিয়ারের সিদ্ধান্ত spreadsheet-এর formula নয় যে Enter চাপলেই উত্তর বের হবে।"
           : "Choose 2–3 careers and compare work style, uncomfortable parts and next evidence. There is no fit score because career decisions are not spreadsheet formulas."
       }
     </p>
@@ -68,13 +68,11 @@ const level = (value: number) =>
   <section class="section section--tinted">
     <div class="container">
       <fieldset class="compare-picker">
-        <legend>{bn ? "২–৩টি career বেছে নাও" : "Choose 2–3 careers"}</legend><p
-          id="compare-help"
-          class="muted"
-        >
+        <legend>{bn ? "২–৩টি ক্যারিয়ার বেছে নাও" : "Choose 2–3 careers"}</legend
+        ><p id="compare-help" class="muted">
           {
             bn
-              ? "Minimum 2, maximum 3। URL update হবে—share করা যাবে।"
+              ? "কমপক্ষে ২টি, সর্বোচ্চ ৩টি। URL বদলাবে, তাই চাইলে ফলটি share করতে পারবে।"
               : "Minimum 2, maximum 3. The URL updates so you can share the comparison."
           }
         </p><div class="career-option-groups">
@@ -115,10 +113,10 @@ const level = (value: number) =>
         class="compare-status"
         aria-live="polite"
         data-minimum={bn
-          ? "কমপক্ষে দুটি career বেছে নাও।"
+          ? "কমপক্ষে দুটি ক্যারিয়ার বেছে নাও।"
           : "Choose at least two careers."}
         data-selected={bn
-          ? "{count}টি career বেছে নেওয়া হয়েছে।"
+          ? "{count}টি ক্যারিয়ার বেছে নেওয়া হয়েছে।"
           : "{count} careers selected."}
       >
       </p>
@@ -126,18 +124,18 @@ const level = (value: number) =>
   </section>
   <section class="section">
     <div class="container compare-shell">
-      <h2>{bn ? "Work-pressure comparison" : "Work-pressure comparison"}</h2><p
+      <h2>{bn ? "কাজ আর চাপ পাশাপাশি" : "Work-pressure comparison"}</h2><p
         class="muted"
       >
         {
           bn
-            ? "Level scientific score নয়; content model-এর editorial summary।"
+            ? "Level কোনো scientific score নয়; এটি content model-এর একটি editorial summary।"
             : "Levels are editorial summaries, not scientific scores."
         }
       </p><table class="compare-table" data-compare-table>
         <thead
           ><tr
-            ><th scope="col">{bn ? "Dimension" : "Dimension"}</th>{
+            ><th scope="col">{bn ? "দিক" : "Dimension"}</th>{
               careers.map((career) => (
                 <th scope="col" data-career-column={career.id}>
                   {t(career.title, locale)}
@@ -165,7 +163,7 @@ const level = (value: number) =>
               </tr>
             ))
           }<tr
-            ><th scope="row">{bn ? "AI task exposure" : "AI task exposure"}</th
+            ><th scope="row">{bn ? "কাজে AI-এর প্রভাব" : "AI task exposure"}</th
             >{
               careers.map((career) => (
                 <td
@@ -177,8 +175,7 @@ const level = (value: number) =>
               ))
             }</tr
           ><tr
-            ><th scope="row"
-              >{bn ? "Uncomfortable part" : "Uncomfortable part"}</th
+            ><th scope="row">{bn ? "অস্বস্তিকর অংশ" : "Uncomfortable part"}</th
             >{
               careers.map((career) => (
                 <td
@@ -190,18 +187,18 @@ const level = (value: number) =>
               ))
             }</tr
           ><tr
-            ><th scope="row">{bn ? "Next evidence" : "Next evidence"}</th>{
+            ><th scope="row">{bn ? "পরের evidence" : "Next evidence"}</th>{
               careers.map((career) => (
                 <td
                   data-career-column={career.id}
                   data-career={t(career.title, locale)}
                 >
                   <a href={withBase(careerPath(locale, career.slug))}>
-                    {bn ? "Guide" : "Guide"}
+                    {bn ? "গাইড" : "Guide"}
                   </a>{" "}
                   ·{" "}
                   <a href={withBase(roadmapPath(locale, career.slug))}>
-                    {bn ? "Roadmap" : "Roadmap"}
+                    {bn ? "রোডম্যাপ" : "Roadmap"}
                   </a>
                 </td>
               ))
@@ -214,17 +211,17 @@ const level = (value: number) =>
   <section class="section section--tinted">
     <div class="container callout callout--amber">
       <p class="callout__label">
-        {bn ? "Try this instead" : "Try this instead"}
+        {bn ? "এবার কাজ করে দেখো" : "Try this instead"}
       </p><h2>
         {
           bn
-            ? "Table close হলে দুটো experiment চালাও।"
+            ? "Table দেখা শেষ হলে দুটি ছোট experiment করো।"
             : "If the table feels close, run two experiments."
         }
       </h2><p>
         {
           bn
-            ? "Career compare decision তৈরি করে না—better question তৈরি করে। Real কাজের ছোট version সেই question-এ evidence যোগ করে।"
+            ? "ক্যারিয়ার তুলনা সিদ্ধান্ত বানিয়ে দেয় না—বরং ভালো প্রশ্ন তৈরি করে। আসল কাজের ছোট সংস্করণ সেই প্রশ্নের সঙ্গে নিজের evidence যোগ করে।"
             : "Comparison does not manufacture a decision; it produces better questions. Small versions of the real work add evidence."
         }
       </p>

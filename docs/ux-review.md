@@ -2,6 +2,10 @@
 
 Reviewed 1–8 September 2026. This is a source-informed heuristic review, with targeted browser validation of the changed navigation, directories, search and recovery experience. It is not a usability study, measured conversion result or “best UX” certification. Actual test results and browser limitations are recorded in [validation.md](validation.md).
 
+## Conversational Bangla editorial pass — 8 September 2026
+
+The Bangla edition was reviewed as a mentoring experience rather than a literal mirror of English. Shared navigation, search, homepage orientation, AI guidance, career/roadmap/experiment templates, recovery routes, first-role guidance, goal introductions and the complete final-year-project standard now use a consistent respectful `তুমি` voice and more natural Bangla sentence order. Ordinary interface labels are localized; established technical vocabulary remains English where that is how Bangladeshi CSE students commonly use it. A small number of restrained, situational mentor asides replace mechanical copy without turning serious guidance into jokes. Content tests now protect representative surfaces from formal-pronoun drift and known English-only labels in Bangla branches.
+
 ## Compact AI action-panel hierarchy — 8 September 2026
 
 The “A path for builders” and “First project” bridges combined hero-sized headings with body copy and a CTA in three narrow columns. The headings dominated supporting content, wrapped into tall blocks and made the sections feel disconnected from their actions. Both now use a compact two-column panel: the eyebrow/title establishes context on the left, while explanation and CTA form one action group on the right. Mobile retains the same semantic reading order in a single column.

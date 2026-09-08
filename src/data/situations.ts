@@ -7,7 +7,7 @@ export const studentSituations: StudentSituation[] = [
     label: l("I just started CSE.", "আমি CSE-তে নতুন।"),
     note: l(
       "Start with the landscape and a calm first-semester plan.",
-      "Landscape আর calm first-semester plan দিয়ে শুরু করো।",
+      "আগে পুরো ক্ষেত্রটা একটু দেখে নাও, তারপর শান্তভাবে প্রথম সেমিস্টারের পরিকল্পনা করো।",
     ),
     destination: {
       en: "/guidance/new-cse-student/",
@@ -18,11 +18,11 @@ export const studentSituations: StudentSituation[] = [
     id: "unknown",
     label: l(
       "I have no idea which career suits me.",
-      "কোন career আমার জন্য—কিছুই বুঝি না।",
+      "কোন ক্যারিয়ার আমার জন্য, কিছুই বুঝতে পারছি না।",
     ),
     note: l(
       "Explore work families, not personality labels.",
-      "Personality label নয়, work family explore করো।",
+      "Personality label নয়—কাজের ধরনগুলো ঘুরে দেখো।",
     ),
     destination: { en: "/careers/", bn: "/bn/careers/" },
   },
@@ -30,11 +30,11 @@ export const studentSituations: StudentSituation[] = [
     id: "directionless",
     label: l(
       "I know some programming but have no direction.",
-      "Programming একটু জানি, direction নেই।",
+      "Programming একটু জানি, কিন্তু কোন দিকে যাব বুঝি না।",
     ),
     note: l(
       "Compare real work, then try a small experiment.",
-      "Real work compare করে small experiment করো।",
+      "আসল কাজগুলো মিলিয়ে দেখে ছোট একটি experiment করো।",
     ),
     destination: { en: "/compare/", bn: "/bn/compare/" },
   },
@@ -42,20 +42,23 @@ export const studentSituations: StudentSituation[] = [
     id: "ai-worry",
     label: l(
       "I’m worried AI will replace my future job.",
-      "AI আমার future job নিয়ে নেবে—এই চিন্তা হচ্ছে।",
+      "AI আমার ভবিষ্যতের চাকরি নিয়ে নেবে—এই ভয় হচ্ছে।",
     ),
     note: l(
       "Separate exposed tasks from durable capabilities.",
-      "Exposed task আর durable capability আলাদা করে বোঝো।",
+      "কোন কাজ সহজে automate হয় আর কোন দক্ষতা দীর্ঘদিন কাজে লাগে—দুটো আলাদা করে বোঝো।",
     ),
     destination: { en: "/ai/", bn: "/bn/ai/" },
   },
   {
     id: "target",
-    label: l("I already have a target career.", "আমার target career জানা আছে।"),
+    label: l(
+      "I already have a target career.",
+      "কোন ক্যারিয়ারে যেতে চাই, তা জানি।",
+    ),
     note: l(
       "Open a mentor-guided roadmap and verify it through practice.",
-      "Mentor-guided roadmap খুলে practice দিয়ে verify করো।",
+      "ধাপে ধাপে রোডম্যাপ ধরে এগোও, আর কাজ করে নিজের সিদ্ধান্ত যাচাই করো।",
     ),
     destination: { en: "/roadmaps/", bn: "/bn/roadmaps/" },
   },
@@ -63,11 +66,11 @@ export const studentSituations: StudentSituation[] = [
     id: "behind",
     label: l(
       "I’m close to graduation and feel behind.",
-      "Graduation কাছে, মনে হচ্ছে অনেক পিছিয়ে।",
+      "Graduation কাছে, মনে হচ্ছে অনেক পিছিয়ে গেছি।",
     ),
     note: l(
       "Use a focused 12-week recovery route without shame.",
-      "Shame ছাড়া focused 12-week recovery route নাও।",
+      "নিজেকে দোষ না দিয়ে ১২ সপ্তাহের focused recovery plan ধরো।",
     ),
     destination: {
       en: "/guidance/feel-behind/",
@@ -78,11 +81,11 @@ export const studentSituations: StudentSituation[] = [
     id: "first-role",
     label: l(
       "I have a project and need my first software role.",
-      "Project আছে, এখন প্রথম software role দরকার।",
+      "Project আছে, এখন internship বা প্রথম software role দরকার।",
     ),
     note: l(
       "Turn existing work into evidence, interview practice and focused applications.",
-      "Existing কাজকে evidence, interview practice আর focused application-এ বদলাও।",
+      "আগের কাজকে evidence বানাও, interview practice করো, তারপর বেছে বেছে আবেদন করো।",
     ),
     destination: {
       en: "/guidance/first-software-role/",
@@ -103,20 +106,23 @@ export const lostChoices: LostChoice[] = [
     id: "goal",
     prompt: l(
       "I have a goal, but not a preparation plan.",
-      "লক্ষ্য আছে, প্রস্তুতির plan নেই।",
+      "লক্ষ্য আছে, কিন্তু প্রস্তুতির পরিকল্পনা নেই।",
     ),
     response: l(
       "Choose a goal guide for industry, remote work, study abroad, research, freelancing or a tech business. Then connect it to one career roadmap.",
-      "Industry, remote কাজ, study abroad, research, freelancing বা tech business-এর goal guide নাও। তারপর একটি career roadmap যুক্ত করো।",
+      "দেশি-বিদেশি industry, remote work, উচ্চশিক্ষা, research, freelancing বা tech business—নিজের লক্ষ্যটি বেছে নাও। তারপর সেটির সঙ্গে একটি ক্যারিয়ার রোডম্যাপ মিলিয়ে নাও।",
     ),
     destination: { en: "/goals/", bn: "/bn/goals/" },
   },
   {
     id: "careers",
-    prompt: l("I don’t know what careers exist.", "কী কী career আছে জানি না।"),
+    prompt: l(
+      "I don’t know what careers exist.",
+      "CSE-তে কী কী ক্যারিয়ার আছে, জানি না।",
+    ),
     response: l(
       "Start with eight work families. Open two that sound unlike each other.",
-      "আটটি work family দিয়ে শুরু করো। আলাদা মনে হয় এমন দুটি খোলো।",
+      "আট ধরনের কাজ দিয়ে শুরু করো। একে অন্যের চেয়ে আলাদা মনে হয়—এমন দুটি খুলে দেখো।",
     ),
     destination: { en: "/careers/", bn: "/bn/careers/" },
   },
@@ -124,11 +130,11 @@ export const lostChoices: LostChoice[] = [
     id: "choose",
     prompt: l(
       "I can’t choose between careers.",
-      "Career-এর মধ্যে choose করতে পারছি না।",
+      "ক্যারিয়ারগুলোর মধ্যে কোনটি বাছব বুঝতে পারছি না।",
     ),
     response: l(
       "Compare the work, then run one experiment from each path.",
-      "কাজ compare করে প্রতিটি path-এর একটি experiment করো।",
+      "কাজগুলো মিলিয়ে দেখো, তারপর দুই পথেরই একটি করে ছোট experiment করো।",
     ),
     destination: { en: "/compare/", bn: "/bn/compare/" },
   },
@@ -137,7 +143,7 @@ export const lostChoices: LostChoice[] = [
     prompt: l("I don’t know what to learn next.", "এরপর কী শিখব জানি না।"),
     response: l(
       "Choose the roadmap for your current target and stop at ‘enough for now’.",
-      "Current target-এর roadmap নাও আর ‘এখন যথেষ্ট’ জায়গায় থামো।",
+      "এখনকার লক্ষ্য অনুযায়ী রোডম্যাপ নাও, আর ‘আপাতত এতটুকুই যথেষ্ট’ জায়গায় থামো।",
     ),
     destination: { en: "/roadmaps/", bn: "/bn/roadmaps/" },
   },
@@ -146,7 +152,7 @@ export const lostChoices: LostChoice[] = [
     prompt: l("I’m worried about AI.", "AI নিয়ে ভয় লাগছে।"),
     response: l(
       "Study task exposure, then practice directing and verifying AI.",
-      "Task exposure বুঝে AI-কে direct আর verify করা practice করো।",
+      "কোন কাজে AI-এর প্রভাব কতটা বোঝো, তারপর AI-কে নির্দেশ দেওয়া আর ফল যাচাই করার চর্চা করো।",
     ),
     destination: { en: "/ai/", bn: "/bn/ai/" },
   },
@@ -154,11 +160,11 @@ export const lostChoices: LostChoice[] = [
     id: "voices",
     prompt: l(
       "I need grounded career direction, not another hype feed.",
-      "Hype feed নয়, বাস্তব career direction দরকার।",
+      "আরেকটি hype feed নয়, বাস্তব ক্যারিয়ার দিকনির্দেশনা চাই।",
     ),
     response: l(
       "Follow the ordered Bangladesh technology watchlist: settle the anxiety, strengthen your thinking, then understand the working world. Compare every perspective with evidence.",
-      "Ordered Bangladesh technology watchlist দেখো: আগে anxiety সামলাও, thinking শক্ত করো, তারপর working world বোঝো। প্রতিটি perspective evidence দিয়ে যাচাই করো।",
+      "বাংলাদেশের tech professionals-দের সাজানো watchlist দেখো: আগে দুশ্চিন্তা সামলাও, ভাবনার ভিত শক্ত করো, তারপর কাজের জগৎ বোঝো। প্রতিটি মতামত evidence দিয়ে মিলিয়ে নাও।",
     ),
     destination: {
       en: "/resources/#industry-voices",
@@ -169,11 +175,11 @@ export const lostChoices: LostChoice[] = [
     id: "behind",
     prompt: l(
       "I’m in 3rd/4th year and feel behind.",
-      "আমি 3rd/4th year-এ, পিছিয়ে গেছি মনে হয়।",
+      "আমি তৃতীয়/চতুর্থ বর্ষে, অনেক পিছিয়ে গেছি মনে হয়।",
     ),
     response: l(
       "You cannot recover three years in three weeks. You can stop losing the next three months.",
-      "তিন বছরের gap তিন সপ্তাহে যাবে না। কিন্তু পরের তিন মাস নষ্ট হওয়া আজই বন্ধ করতে পারো।",
+      "তিন বছরের ঘাটতি তিন সপ্তাহে মিটবে না। কিন্তু পরের তিন মাস নষ্ট হওয়া আজই থামাতে পারো।",
     ),
     destination: {
       en: "/guidance/feel-behind/",
@@ -182,10 +188,13 @@ export const lostChoices: LostChoice[] = [
   },
   {
     id: "target",
-    prompt: l("I already know my target career.", "Target career জানা আছে।"),
+    prompt: l(
+      "I already know my target career.",
+      "কোন ক্যারিয়ারে যেতে চাই, তা জানি।",
+    ),
     response: l(
       "Check the roadmap, experiment and AI exposure before committing to a tool list.",
-      "Tool list ধরার আগে roadmap, experiment আর AI exposure দেখো।",
+      "Tool-এর তালিকা মুখস্থ করার আগে রোডম্যাপ, ছোট experiment আর AI-এর প্রভাব দেখে নাও।",
     ),
     destination: { en: "/careers/", bn: "/bn/careers/" },
   },
@@ -193,11 +202,11 @@ export const lostChoices: LostChoice[] = [
     id: "first-role",
     prompt: l(
       "I have a project and need an internship or junior software role.",
-      "Project আছে, internship বা junior software role দরকার।",
+      "Project আছে, এখন internship বা junior software role দরকার।",
     ),
     response: l(
       "Use your existing work as honest evidence, prepare for the actual hiring format and run a focused application cycle.",
-      "Existing কাজকে honest evidence বানাও, actual hiring format-এর প্রস্তুতি নাও আর focused application cycle চালাও।",
+      "আগের কাজকে সৎ evidence বানাও, যে format-এ hiring হবে তার প্রস্তুতি নাও, তারপর বেছে বেছে আবেদন করো।",
     ),
     destination: {
       en: "/guidance/first-software-role/",

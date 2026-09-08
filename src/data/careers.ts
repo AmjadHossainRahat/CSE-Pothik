@@ -53,7 +53,7 @@ const seeds: CareerSeed[] = [
     title: l("Backend Engineering", "Backend Engineering"),
     description: l(
       "Design the services, data and business rules that make software dependable behind the interface.",
-      "Interface-এর পেছনে যে service, data আর business rule software-কে dependable রাখে—সেগুলো design করা।",
+      "ব্যবহারকারীর চোখের আড়ালে থাকা service, data ও business rule এমনভাবে তৈরি করা, যাতে software নির্ভরযোগ্যভাবে কাজ করে।",
     ),
     work: [
       l(
@@ -230,7 +230,7 @@ const seeds: CareerSeed[] = [
     title: l("Frontend Engineering", "Frontend Engineering"),
     description: l(
       "Turn product intent into fast, accessible and resilient interfaces people can actually use.",
-      "Product intent-কে fast, accessible আর resilient interface-এ বদলানো—যেটা মানুষ সত্যিই ব্যবহার করতে পারে।",
+      "Product-এর ভাবনাকে দ্রুত, accessible ও ভরসাযোগ্য interface-এ রূপ দেওয়া—যেটা মানুষ সত্যিই স্বচ্ছন্দে ব্যবহার করতে পারে।",
     ),
     work: [
       l(
@@ -405,7 +405,7 @@ const seeds: CareerSeed[] = [
     title: l("Data Engineering", "Data Engineering"),
     description: l(
       "Build reliable pipelines and data models so analysts, products and ML systems can trust their inputs.",
-      "Reliable pipeline আর data model বানানো, যাতে analyst, product আর ML system input-কে বিশ্বাস করতে পারে।",
+      "নির্ভরযোগ্য data pipeline ও model বানানো, যাতে analyst, product team এবং ML system সঠিক data পায় ও সেটির ওপর ভরসা করতে পারে।",
     ),
     work: [
       l(
@@ -575,7 +575,7 @@ const seeds: CareerSeed[] = [
     title: l("Machine Learning Engineering", "Machine Learning Engineering"),
     description: l(
       "Turn data and models into evaluated, monitored systems that improve a real decision or product.",
-      "Data আর model-কে evaluated, monitored system-এ বদলানো—যেটা real decision বা product উন্নত করে।",
+      "Data ও model-কে যাচাই ও পর্যবেক্ষণ করা যায়—এমন system-এ রূপ দেওয়া, যা বাস্তব সিদ্ধান্ত বা product-কে সত্যিই উন্নত করে।",
     ),
     work: [
       l(
@@ -743,7 +743,7 @@ const seeds: CareerSeed[] = [
     title: l("Cybersecurity", "Cybersecurity"),
     description: l(
       "Reduce risk by understanding systems, finding weaknesses and helping people respond responsibly.",
-      "System বুঝে weakness খোঁজা আর responsible response দিয়ে risk কমানো।",
+      "System গভীরভাবে বুঝে দুর্বলতা খুঁজে বের করা এবং দায়িত্বশীলভাবে সাড়া দিয়ে বাস্তব ঝুঁকি কমানো।",
     ),
     work: [
       l(
@@ -911,7 +911,7 @@ const seeds: CareerSeed[] = [
     title: l("DevOps / SRE", "DevOps / SRE"),
     description: l(
       "Help teams ship safely and keep services observable, reliable and recoverable.",
-      "Team-কে safeভাবে ship করতে আর service-কে observable, reliable, recoverable রাখতে সাহায্য করা।",
+      "Team যেন নিরাপদে software release করতে পারে এবং service যেন দেখা, ভরসা ও বিপর্যয়ের পর ফিরিয়ে আনা যায়—তা নিশ্চিত করা।",
     ),
     work: [
       l(
@@ -1085,7 +1085,7 @@ const seeds: CareerSeed[] = [
     title: l("Embedded Systems", "Embedded Systems"),
     description: l(
       "Write software that interacts with sensors, devices and strict timing or resource constraints.",
-      "Sensor, device আর strict timing/resource constraint-এর সঙ্গে কাজ করা software লেখা।",
+      "Sensor ও device-এর সঙ্গে সরাসরি কাজ করে—এমন software লেখা, যেখানে সময়, memory ও power-এর সীমাও মেনে চলতে হয়।",
     ),
     work: [
       l(
@@ -1256,7 +1256,7 @@ const seeds: CareerSeed[] = [
     ),
     description: l(
       "Investigate how computing works, prove or measure ideas, and improve the foundations others build on.",
-      "Computing কীভাবে কাজ করে সেটা investigate, idea prove/measure, আর অন্যরা যে foundation-এ build করে সেটা improve করা।",
+      "Computing-এর ভেতরের নিয়মগুলো অনুসন্ধান করা, ধারণাকে প্রমাণ বা পরিমাপ করা, এবং অন্যরা যে ভিত্তির ওপর প্রযুক্তি বানায় সেটিকে আরও এগিয়ে নেওয়া।",
     ),
     work: [
       l(
@@ -1432,7 +1432,7 @@ const seeds: CareerSeed[] = [
     ),
     description: l(
       "Connect technical reality, user problems and team decisions without pretending one person knows everything.",
-      "Technical reality, user problem আর team decision-কে যুক্ত করা—একজন সব জানে এমন ভান না করে।",
+      "প্রযুক্তির বাস্তবতা, ব্যবহারকারীর সমস্যা ও team-এর সিদ্ধান্তকে এক সুতোয় গাঁথা—সব উত্তর একা জানার ভান না করে।",
     ),
     work: [
       l(
@@ -1639,10 +1639,10 @@ export const careerById = new Map(careers.map((career) => [career.id, career]));
 export const careerFamilies: CareerFamily[] = [
   {
     id: "build-software",
-    title: l("Build Software", "Software বানাও"),
+    title: l("Build Software", "Software তৈরি করো"),
     description: l(
       "Build, test and improve products and the systems behind them.",
-      "Product আর তার পেছনের system বানাও, test করো আর উন্নত করো।",
+      "ব্যবহারযোগ্য product এবং তার পেছনের system তৈরি, পরীক্ষা ও উন্নত করো।",
     ),
     careerIds: [
       "backend-engineering",
@@ -1654,60 +1654,60 @@ export const careerFamilies: CareerFamily[] = [
   },
   {
     id: "work-with-data",
-    title: l("Work With Data", "Data নিয়ে কাজ"),
+    title: l("Work With Data", "Data থেকে অর্থ খুঁজে বের করো"),
     description: l(
       "Make data reliable, useful and available.",
-      "Data-কে reliable, useful আর available করো।",
+      "Data-কে নির্ভরযোগ্য ও ব্যবহারযোগ্য করো, তারপর সেখান থেকে সিদ্ধান্তের উপযোগী অর্থ বের করো।",
     ),
     careerIds: ["data-engineering", "data-analytics-bi"],
     accent: "teal",
   },
   {
     id: "build-intelligence",
-    title: l("Build Intelligence", "Intelligence বানাও"),
+    title: l("Build Intelligence", "বুদ্ধিমান system তৈরি করো"),
     description: l(
       "Design and evaluate learning systems.",
-      "Learning system design আর evaluate করো।",
+      "শেখে সিদ্ধান্ত নিতে পারে—এমন system তৈরি করো এবং সেটি আসলেই কতটা ভালো কাজ করছে যাচাই করো।",
     ),
     careerIds: ["machine-learning", "ai-engineering"],
     accent: "violet",
   },
   {
     id: "protect-systems",
-    title: l("Protect Systems", "System সুরক্ষিত রাখো"),
+    title: l("Protect Systems", "System নিরাপদ রাখো"),
     description: l(
       "Understand threats and reduce real risk.",
-      "Threat বুঝে real risk কমাও।",
+      "হুমকি ও দুর্বলতা বুঝে বাস্তব ঝুঁকি কমাও।",
     ),
     careerIds: ["cybersecurity", "application-security"],
     accent: "coral",
   },
   {
     id: "run-systems",
-    title: l("Run Systems", "System সচল রাখো"),
+    title: l("Run Systems", "System সচল ও নির্ভরযোগ্য রাখো"),
     description: l(
       "Make delivery and operations dependable.",
-      "Delivery আর operation dependable করো।",
+      "Software release থেকে প্রতিদিনের operation—পুরো প্রক্রিয়াটিকে নির্ভরযোগ্য রাখো।",
     ),
     careerIds: ["devops-sre", "network-engineering"],
     accent: "sky",
   },
   {
     id: "close-to-hardware",
-    title: l("Work Close to Hardware", "Hardware-এর কাছাকাছি"),
+    title: l("Work Close to Hardware", "Hardware ও বাস্তব যন্ত্র নিয়ে কাজ করো"),
     description: l(
       "Design electronic systems and connect software to the physical world.",
-      "Electronic system design করো; software-কে বাস্তব জগতের সঙ্গে যুক্ত করো।",
+      "Electronic system তৈরি করো এবং software-কে sensor, device ও বাস্তব জগতের সঙ্গে যুক্ত করো।",
     ),
     careerIds: ["embedded-systems", "hardware-engineering"],
     accent: "amber",
   },
   {
     id: "computing-deeply",
-    title: l("Understand Computing Deeply", "Computing গভীরে বোঝো"),
+    title: l("Understand Computing Deeply", "Computing-এর গভীরে যাও"),
     description: l(
       "Study the ideas and systems beneath tools.",
-      "Tool-এর নিচের idea আর system বুঝো।",
+      "Tool বদলালেও যে ধারণা, algorithm ও system থেকে যায়—সেগুলো গভীরভাবে বোঝো।",
     ),
     careerIds: ["systems-research"],
     accent: "indigo",
@@ -1718,17 +1718,17 @@ export const careerFamilies: CareerFamily[] = [
       ),
       description: l(
         "A structured problem-solving and contest track—not a job title or a substitute for engineering projects.",
-        "Structured problem-solving আর contest-এর track—job title নয়, engineering project-এর বিকল্পও নয়।",
+        "নিয়ম মেনে দ্রুত ও নির্ভুল problem solving শেখার contest-ভিত্তিক পথ—এটি কোনো job title নয়, engineering project-এর বিকল্পও নয়।",
       ),
       path: "/guidance/competitive-programming/",
     },
   },
   {
     id: "technology-people",
-    title: l("Technology + People", "Technology + মানুষ"),
+    title: l("Technology + People", "প্রযুক্তি ও মানুষকে যুক্ত করো"),
     description: l(
       "Connect technical work, decisions and teams.",
-      "Technical কাজ, decision আর team-কে যুক্ত করো।",
+      "মানুষের প্রয়োজন, প্রযুক্তিগত কাজ এবং team-এর সিদ্ধান্তকে একই দিকে এগিয়ে নাও।",
     ),
     careerIds: ["ux-ui-engineering", "technical-product-leadership"],
     accent: "warm",

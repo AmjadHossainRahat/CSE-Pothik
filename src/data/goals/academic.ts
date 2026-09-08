@@ -7,11 +7,11 @@ export const academicGoals: GoalGuide[] = [
     title: l("Study abroad", "বিদেশে উচ্চশিক্ষার প্রস্তুতি"),
     summary: l(
       "Choose between taught study and research, then build academic readiness, program fit and a financially realistic application plan.",
-      "Taught study আর research-এর মধ্যে পথ বেছে academic readiness, program fit আর আর্থিকভাবে বাস্তবসম্মত application plan বানাও।",
+      "Coursework-কেন্দ্রিক পড়াশোনা নাকি research—উদ্দেশ্যটি আগে ঠিক করো। তারপর academic preparation, program-এর সঙ্গে মিল এবং সামর্থ্যের মধ্যে application plan সাজাও।",
     ),
     reality: l(
       "There is no universal CGPA, test score or publication checklist for all universities. Each program sets its rules. Admission, funding and visa decisions are separate; a strong profile guarantees none of them. Use official program and immigration sources for current requirements, not social-media promises.",
-      "সব university-এর জন্য এক CGPA, test score বা publication checklist নেই। Program নিজস্ব নিয়ম ঠিক করে। Admission, funding আর visa decision আলাদা; strong profile কোনোটিই নিশ্চিত করে না। Current requirement-এর জন্য official program আর immigration source দেখো, social-media promise নয়।",
+      "সব university-র জন্য এক CGPA, test score বা publication checklist নেই; প্রতিটি program-এর নিয়ম আলাদা। Admission, funding ও visa তিনটি পৃথক সিদ্ধান্ত—ভালো profile থাকলেও কোনোটি নিশ্চিত নয়। চলতি শর্ত জানতে program ও immigration-এর অফিসিয়াল source দেখো, social media-র নিশ্চয়তা নয়।",
     ),
     variants: [
       {
@@ -211,11 +211,11 @@ export const academicGoals: GoalGuide[] = [
     ),
     summary: l(
       "Learn to ask a defensible question, evaluate evidence and communicate a contribution. Aim for quality—not a promised world-class journal.",
-      "যাচাইযোগ্য প্রশ্ন, evidence evaluate আর contribution বোঝানো শেখো। লক্ষ্য কাজের মান—world-class journal-এর promise নয়।",
+      "যাচাই করা যায় এমন প্রশ্ন করতে, প্রমাণ বিচার করতে এবং নিজের অবদান পরিষ্কারভাবে বোঝাতে শেখো। লক্ষ্য হোক কাজের মান; ‘world-class journal নিশ্চিত’ ধরনের প্রতিশ্রুতি নয়।",
     ),
     reality: l(
       "A strong thesis is a research process, not a paper-shaped document. In computing, respected conferences as well as journals can be relevant. Venue quality depends on the field and review standards, not just a metric. Acceptance is never guaranteed; honest negative results can still teach you a great deal.",
-      "Strong thesis হলো research process, paper-এর মতো document নয়। Computing-এ respected conference আর journal দুটিই প্রাসঙ্গিক হতে পারে। Venue quality field আর review standard-এর বিষয়, শুধু metric নয়। Acceptance নিশ্চিত নয়; সৎ negative result থেকেও অনেক শেখা যায়।",
+      "ভালো thesis শুধু paper-এর মতো দেখতে একটি document নয়; এটি একটি সৎ research process। Computing-এ সম্মানজনক conference ও journal—দুটিই প্রাসঙ্গিক হতে পারে। Venue-এর মান field ও review standard দিয়ে বোঝো, শুধু একটি metric দিয়ে নয়। Acceptance নিশ্চিত নয়; সৎ negative result থেকেও মূল্যবান শেখা সম্ভব।",
     ),
     variants: [
       {

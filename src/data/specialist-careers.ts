@@ -8,7 +8,7 @@ export const specialistCareers: CareerSeed[] = [
     title: l("Data Analytics & BI", "Data Analytics & BI"),
     description: l(
       "Turn messy questions and trustworthy data into decisions, metrics and explanations—not merely attractive dashboards.",
-      "Messy question আর trustworthy data থেকে decision, metric আর explanation তৈরি করো—শুধু সুন্দর dashboard নয়।",
+      "এলোমেলো business question ও বিশ্বাসযোগ্য data থেকে সিদ্ধান্ত, metric ও পরিষ্কার ব্যাখ্যা তৈরি করো—শুধু সুন্দর dashboard নয়।",
     ),
     work: [
       l(
@@ -227,7 +227,7 @@ export const specialistCareers: CareerSeed[] = [
     title: l("AI Engineering", "AI Engineering"),
     description: l(
       "Build dependable product features around existing AI models, with retrieval, evaluation, cost, latency and safety treated as engineering constraints.",
-      "Existing AI model ঘিরে dependable product feature বানাও; retrieval, evaluation, cost, latency আর safety-কে engineering constraint হিসেবে ধরো।",
+      "প্রস্তুত AI model ব্যবহার করে নির্ভরযোগ্য product feature বানাও; retrieval, evaluation, cost, latency ও safety-কে বাড়তি বিষয় নয়, মূল engineering constraint হিসেবে ধরো।",
     ),
     work: [
       l(
@@ -442,7 +442,7 @@ export const specialistCareers: CareerSeed[] = [
     title: l("Application Security", "Application Security"),
     description: l(
       "Help teams design, build and verify software that resists abuse—inside an authorized scope and without becoming the release police.",
-      "Authorized scope-এর মধ্যে team-কে abuse-resistant software design, build আর verify করতে সাহায্য করো—release police না হয়ে।",
+      "অনুমোদিত সীমার মধ্যে team-কে এমন software তৈরি ও যাচাই করতে সাহায্য করো, যা অপব্যবহার ঠেকাতে পারে—release আটকে রাখা পুলিশ না হয়ে।",
     ),
     work: [
       l(
