@@ -445,7 +445,7 @@ Implement the homepage sections in the order and spirit defined in `DESIGN.md`.
 
 Required sections:
 
-1. Shared responsive navigation with the `CSE Compass` wordmark/brand mark, language switch and theme switch: a persistent labeled sidebar on wide screens and a compact header plus grouped native drawer on phones/tablets.
+1. Shared responsive navigation with the `CSE Compass` wordmark/brand mark: a persistent labeled sidebar on wide screens and a compact brand/menu header plus grouped native drawer on phones/tablets. Search, language and theme live together in the sticky breadcrumb context bar on every page; no second utility bar is introduced.
 2. Purpose-first illustrated hero: free CSE career guidance, the “You got into CSE. Now what?” punch line, a concise attraction → orientation gap → hopeful recovery story, clear outcomes and a prominent next-step action; preserve the future-self note and four-stop orientation map.
 3. AI reality / resilience section immediately after the hero, with the original AI study-partner illustration, a visible Frame → Verify → Own decision tree and a progressively disclosed three-outcome fresher scenario.
 4. Three visible starting intentions, a compact final-semester/first-role bridge and seven detailed situations in a native disclosure, with recovery encouragement.
@@ -471,7 +471,7 @@ The hero uses one inclusive three-person study-partners scene: a Chakma Banglade
 
 Manually inspect each replacement for three equally prominent teammates, relaxed viewer-directed smiles, personal space, keyboard hands and a visible QA tablet/stylus. The seated woman's teal hoodie and neatly head-draped orna must remain recognizable, with all hair covered. Document references for the centre teammate's contemporary Chakma-textile-inspired clothing; do not claim exact cultural authenticity from a generated image or infer identity from facial features. Check that coffee, water bottle and small indoor plant rest on the desk beside the notebook, and that devices face physically consistent directions. Do not mistake image-load/alt-text tests for proof of visual representation or the absence of romantic posing. Keep actual content and localized descriptions consistent; role and ethnicity do not imply one another.
 
-Orientation-map and useful-loop labels/captions must share an explicit content wrapper. Reset prose `li + li` margins in navigation, breadcrumbs and grid/timeline lists. Breadcrumbs share the page-heading container and align on a text baseline. `src/data/navigation.ts` is the typed bilingual source for five problem-oriented groups and active-route matching. Start here must include explicit bilingual Home, Search and First software role destinations; the homepage section jump remains a separate non-current destination so only Home receives `aria-current` at `/`. Learning resources belong under Prepare rather than About because they are a student task; About remains focused on purpose and provenance. `Header.astro` renders that model as a persistent wide-screen sidebar or a compact sticky header/native drawer; the mobile toggle is icon-only visually but retains a localized accessible name. Active links use `aria-current`, the page frame is offset by the shared sidebar-width token, and the drawer remains viewport-bounded and scrollable. The desktop sidebar must be available even when its mobile disclosure was previously closed; test resizing in both directions. With JavaScript disabled, the native menu and all essential content links must still work. The footer retains compact project/policy/provenance links rather than duplicating global navigation.
+Orientation-map and useful-loop labels/captions must share an explicit content wrapper. Reset prose `li + li` margins in navigation, breadcrumbs and grid/timeline lists. Every page renders breadcrumbs inside one shared sticky full-width context bar, aligned with the page-heading container and a common text baseline. The same bar contains Search, language and theme. It stays at `top: 0` beside the desktop sidebar and below the sticky mobile header; the no-JavaScript mobile fallback moves it to `top: 0`. Keep one breadcrumb row, truncate only the current-page label on narrow screens and retain its complete accessible text. Exactly one breadcrumb item has `aria-current="page"`, including Home at `/`. Update document scroll padding so hash destinations are not obscured. Test English/Bangla, desktop/mobile scroll positions, overflow and the no-JavaScript fallback. `src/data/navigation.ts` is the typed bilingual source for five problem-oriented groups and active-route matching. Start here must include explicit bilingual Home and First software role destinations; the homepage section jump remains a separate non-current destination. Search is not a sidebar destination or standalone page: desktop renders its text field and submit button in the context bar, while mobile/tablet uses a localized search icon that reveals the same controls. `Header.astro` renders only the navigation as a persistent wide-screen sidebar or a compact sticky brand/menu header and native drawer. Active links use `aria-current`, the page frame is offset by the shared sidebar-width token, and the drawer remains viewport-bounded and scrollable. The desktop sidebar must be available even when its mobile disclosure was previously closed; test resizing in both directions. With JavaScript disabled, omit the inactive search control and keep the native menu and all essential links working. The footer retains compact project/policy/provenance links rather than duplicating global navigation.
 
 ---
 
@@ -588,6 +588,8 @@ Before adding a resource, verify:
 
 For unstable external content, store a `lastReviewed` date.
 
+Curate *The Accidental CTO* as an optional English book narrative under books/articles. Its bilingual scope must place it after basic backend/system foundations and warn students to compare incident trade-offs instead of copying its architecture decisions.
+
 ---
 
 ## 14. AI Exposure Data Model
@@ -667,6 +669,8 @@ Must communicate:
 Avoid shaming students who do not compete.
 
 Render ACM Programming / ICPC as a distinct practice-track callout under Understand Computing Deeply, not as a career ID. The dedicated guide needs a bounded six-week learn → honest attempt → submit/debug/log → review/transfer loop and must retain real-project practice. Curate Shafaet's Planet and Amirul Islam's Bangla programming writing with scoped resource metadata and visible outbound links; paraphrase the learning approach and never copy a curriculum or imply endorsement.
+
+Connect the practice page to the first-role route chooser. Its bridge must recognize that strong competitive problem solving plus OOP can be a substantial signal in some local entry pipelines while stating that CP alone does not establish production engineering readiness. It must also give students with little CP practice a visible, non-shaming route to minimum problem-solving foundations and role-relevant evidence. Do not name local employers or imply an interview or compensation guarantee.
 
 ---
 
@@ -748,7 +752,7 @@ Implement the homepage starting-point selector as a prominent component.
 
 Keep bilingual hero and three-entry copy in `src/data/homepage.ts`. Render static linked rows for new/unsure students, career exploration and goal preparation, pointing respectively to the fresher guide, career index and goal hub. All links must use the locale/base-path helpers; analytics use existing bounded `next_step_clicked` destinations.
 
-Keep repeated origin, Purpose and Goal copy in the typed bilingual `sitePurpose` object. Render only its concise resolution in the homepage hero; render the full narrative and four-stage sequence on localized About pages. Use static Astro markup and shared tokens, preserve mobile wrapping and theme contrast, and do not add client hydration. Test data completeness, both rendered languages, the native About anchors, no-JavaScript availability, axe results and the five-width visual matrix.
+Keep repeated origin, Purpose and Goal copy in the typed bilingual `sitePurpose` object. Render only its concise resolution in the homepage hero; render the full promise → orientation gap → urgent search → practical recovery narrative and four-stage sequence on localized About pages. Social-media help-seeking may appear as a recognizable late-stage moment, never as a reason to shame the student; pair it immediately with an evidence-producing recovery step. Write Bangla as original conversational mentor copy, not a word-for-word mirror. Use static Astro markup and shared tokens, preserve mobile wrapping and theme contrast, and do not add client hydration. Test data completeness, both rendered languages, the native About anchors, no-JavaScript availability, axe results and the five-width visual matrix.
 
 Keep these seven detailed choices in the static HTML inside an accessible native disclosure:
 
@@ -760,7 +764,7 @@ Keep these seven detailed choices in the static HTML inside an accessible native
 - near graduation / feel behind.
 - existing project / needs first software role.
 
-Add a compact visible first-role bridge beside this disclosure. Route it to a static bilingual guide sourced from `src/data/first-software-role.ts`. The guide uses six evidence-oriented stages, five direct bottleneck entry anchors, scoped official references, role-specific career/roadmap links and a feedback diagnosis that changes one variable at a time. Render Article and BreadcrumbList data, a desktop sticky index and readable native mobile index without client hydration or stored progress. Test homepage/sidebar/lost-flow discoverability, language equivalents, no-JavaScript content, bounded analytics, source relationships, five widths, both themes and both base paths.
+Add a compact visible first-role bridge beside this disclosure. Route it directly to the entry-route chooser in a static bilingual guide sourced from `src/data/first-software-role.ts`. Model the strong-CP, balanced-baseline and role-evidence routes as typed content with a signal, strategy, now, next, apply-when checkpoint and destination. The guide then uses six evidence-oriented stages, five direct bottleneck entry anchors, scoped official references, role-specific career/roadmap links and a feedback diagnosis that changes one variable at a time. Render Article and BreadcrumbList data, a desktop sticky index and readable native mobile index without client hydration or stored progress. Reuse the route summaries—not the full guide—on Competitive Programming and local-industry preparation. Test homepage/sidebar/lost-flow discoverability, all three route IDs and bilingual fields, language equivalents, no-JavaScript content, bounded analytics, source relationships, five widths, both themes and both base paths.
 
 Preserve recovery encouragement outside the disclosure. Do not add a framework, quiz, persistent profile or client-side routing. Test each primary entry end to end, disclosure keyboard/no-JavaScript use, translated equivalents and fully visible initial-viewport primary actions at the responsive matrix sizes. The purpose and action must precede artwork on phones. Run axe with the disclosure both closed and open; inspect actual viewport screenshots, not just overflow assertions.
 
@@ -790,24 +794,24 @@ Avoid pseudo-scientific “fit scores” unless the methodology is explicit and 
 
 ## 21. Search
 
-The current content volume justifies a secondary static search experience.
+The current content volume justifies a secondary bilingual static search. Keep
+it inside the shared breadcrumb context bar instead of creating a destination
+or standalone search route. On desktop the field and submit button remain
+visible; on mobile/tablet an accessible labelled magnifier reveals the same
+field, button and results from the bar.
 
-Possible approaches:
+Use the typed build-time index to cover careers, families, roadmaps,
+experiments, AI guidance, goals, major guidance and curated resources. Filter
+locally in a small framework-free script; do not transmit, persist or track
+free-form query text and do not change the current route. Match both English and
+Bangla terms, cap the overlay to ten results, announce counts through an ARIA
+live region and support Enter, Escape and a visible close control. Internal
+results remain in the current tab. Do not require an external search backend.
 
-- build-time generated lightweight index;
-- Pagefind or equivalent static-search tool;
-- minimal client search over a generated index.
-
-Do not require an external search backend.
-
-Search must support English and Bangla content reasonably.
-
-Use a typed build-time index covering careers, families, roadmaps, experiments,
-AI guidance, goals, major guidance and curated resources. Filter locally in a
-small framework-free script; do not transmit or track free-form query text. Keep
-mentor-path quick links available without JavaScript. Search routes use
-`noindex, follow` and are excluded from the sitemap; destination pages remain
-normal crawlable static pages.
+When JavaScript is disabled, omit the inactive search UI instead of presenting
+a form that cannot work. Essential discovery continues through the native
+navigation, grouped directories and same-page jump links. Because there is no
+search route, there is nothing to add to canonical metadata or the sitemap.
 
 Search is not a substitute for scannable directories. Career, experiment and
 roadmap indexes need native family jump links and grouped sections; the resource
@@ -905,7 +909,10 @@ Implement:
 Use accurate `CollectionPage`/`ItemList` and `BreadcrumbList` structured data on
 the career, experiment, roadmap, goal and resource indexes. Include localized
 Open Graph alternate-locale metadata and alt metadata for both Open Graph and X
-social images. Do not put noindex search interfaces in the sitemap.
+social images. Transient inline search creates no public route and must not
+appear in the sitemap.
+
+Use the homepage as the canonical default share preview. Its localized Open Graph/X copy must summarize free CSE career guidance, career exploration, small experiments, foundations and AI-era preparation; route-specific pages keep their own metadata. Emit the original PNG card’s `og:image:type`, 1731 × 909 dimensions and localized alt text. Protect the root title, description and image metadata in generated-output or browser tests.
 
 Create reusable SEO helpers/layout props.
 

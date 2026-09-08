@@ -527,6 +527,24 @@ export const resources: LearningResource[] = [
     language: "en",
   },
   {
+    id: "accidental-cto",
+    title: "The Accidental CTO",
+    provider: "Subhash Chy",
+    url: "https://github.com/subhashchy/The-Accidental-CTO/blob/main/The%20Accidental%20CTO.md",
+    type: "book",
+    isFree: true,
+    recommendedScope: scope(
+      "Read selectively after basic backend and systems foundations. Treat the incident-driven chapters as prompts to compare scaling and reliability trade-offs—not as a universal architecture recipe.",
+      "Backend আর system-এর basic foundation হওয়ার পরে বেছে বেছে পড়ো। Incident-ভিত্তিক chapterগুলো দিয়ে scaling ও reliability-র trade-off ভাবো; সব project-এ বসিয়ে দেওয়ার architecture recipe হিসেবে নিয়ো না।",
+    ),
+    whyRecommended: scope(
+      "A free, story-driven tour of how technical and leadership decisions evolve as a product grows, useful for connecting isolated tools to operational consequences.",
+      "Product বড় হওয়ার সঙ্গে technical আর leadership decision কীভাবে বদলায়, সেটি গল্পের ভেতর দিয়ে দেখায়। আলাদা আলাদা tool-এর সঙ্গে production consequence-এর যোগসূত্র ধরতে কাজে লাগে।",
+    ),
+    lastReviewed: "2026-09-08",
+    language: "en",
+  },
+  {
     id: "refactoring-guru",
     title: "Refactoring and Design Patterns",
     provider: "Refactoring.Guru",

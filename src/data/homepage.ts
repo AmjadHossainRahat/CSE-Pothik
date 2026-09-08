@@ -155,24 +155,24 @@ export const homepageAiSourceIds = [
 
 export const sitePurpose = {
   premise: l(
-    "A student may enter CSE because it is popular, offers strong earning potential, or looks like a route to opportunities abroad. When the excitement of admission fades, a harder question appears: what kinds of work exist across computing, and which ones are worth exploring?",
-    "জনপ্রিয়তা, ভালো আয় বা বিদেশে কাজের আশা—এসব ভেবেই অনেকে CSE-তে ভর্তি হয়। ভর্তি হওয়ার আনন্দটা একটু থিতু হলেই কঠিন প্রশ্নটি সামনে আসে: computing-এ আসলে কী কী কাজ আছে, আর কোনটি আমার জন্য?",
+    "CSE often begins with a bright promise: a respected career, strong earning potential and work that can cross borders. Admission answers “What will I study?” It does not automatically answer “What kind of work could suit me, and what should I practise now?”",
+    "CSE-তে আসার সময় স্বপ্নটা সাধারণত উজ্জ্বলই থাকে—ভালো ক্যারিয়ার, ভালো আয়, দেশের বাইরে কাজের সুযোগ। ভর্তি হওয়া ‘কী পড়ব’ প্রশ্নের উত্তর দেয়; কিন্তু ‘কোন কাজটা আমার সঙ্গে যায়, আর এখন থেকেই কী অনুশীলন করব’—এই উত্তরটা নিজে থেকে মেলে না।",
   ),
   drift: l(
-    "Without useful orientation, semesters can slip into trends, disconnected tutorials and rushed decisions. Software engineering, QA, competitive programming and research are meaningful options—but they are not the whole landscape, and their real work is often misunderstood.",
-    "কাজের দিকনির্দেশনা না পেলে trend, বিচ্ছিন্ন tutorial আর তাড়াহুড়োর সিদ্ধান্তে কয়েকটি সেমিস্টার কেটে যেতে পারে। Software engineering, QA, competitive programming আর research অবশ্যই ভালো পথ—কিন্তু জগৎটা এখানেই শেষ নয়; পরিচিত নামগুলোর আসল কাজও অনেক সময় ঠিকমতো জানা থাকে না।",
+    "Without useful orientation, semesters can dissolve into trendy stacks, disconnected tutorials and borrowed plans. Near graduation the question becomes urgent: “Where do I start?” Students understandably turn to social-media groups for help. Software engineering, QA, competitive programming and research are meaningful options—but they are not the whole landscape, and a job title rarely explains the real work.",
+    "তাই কখনো trend-এর পেছনে, কখনো বিচ্ছিন্ন tutorial-এ, কখনো অন্য কারও plan নকল করতে করতে semester চলে যায়। Graduation সামনে এলে প্রশ্নটা হঠাৎ জরুরি হয়ে ওঠে—‘এখন কোথা থেকে শুরু করব?’ তখন social-media group-এ সাহায্য চাওয়া একদম স্বাভাবিক। কষ্টের জায়গা হলো, মানচিত্রটা যখন সবচেয়ে দরকার, তখনই মনে হয় হাতে সময় আর আত্মবিশ্বাস—দুটোই কম। Software engineering, QA, competitive programming আর research গুরুত্বপূর্ণ পথ; কিন্তু CSE-র দুনিয়া শুধু এটুকু নয়, আর নাম শুনে কোনো কাজের আসল চেহারাও বোঝা যায় না।",
   ),
   recovery: l(
-    "Feeling late can turn confusion into frustration, and frustration can trigger another rushed choice. A clear map, a small experiment and an achievable learning sequence can interrupt that cycle. Direction can be built early—and rebuilt later.",
-    "‘অনেক দেরি হয়ে গেছে’—এই ভাবনা বিভ্রান্তিকে হতাশায় বদলে দেয়, আর হতাশা থেকে আসে আরেকটি তাড়াহুড়োর সিদ্ধান্ত। একটি পরিষ্কার মানচিত্র, ছোট একটি experiment আর করা সম্ভব এমন শেখার ধাপ এই চক্র থামাতে পারে। দিক শুরুতেই পাওয়া যায়; হারিয়ে গেলে আবারও খুঁজে নেওয়া যায়।",
+    "That moment is not proof that the career is over. It is a signal to stop collecting noise and choose one next step that produces evidence. A clear map early can prevent drift; the same map later can turn panic into a practical recovery.",
+    "এটা ক্যারিয়ার শেষ হওয়ার প্রমাণ নয়। বরং চারপাশের noise একটু থামিয়ে, ফল দেখানো যায়—এমন একটি পরের ধাপ বেছে নেওয়ার সংকেত। শুরুতে মানচিত্র পেলে অকারণ ঘোরাঘুরি কমে; পরে পেলেও আতঙ্ককে কাজের পরিকল্পনায় বদলে দেওয়া যায়।",
   ),
   purpose: l(
-    "Make career orientation available early—and make recovery possible later.",
-    "শুরুতেই ক্যারিয়ারের দিকগুলো চিনিয়ে দেওয়া—আর দেরি হয়ে গেলেও ঘুরে দাঁড়ানোর পথ খোলা রাখা।",
+    "Give students the career orientation many wish they had in their first CSE semester—and a calm route back when they discover it later.",
+    "প্রথম semester-এই যে দিকনির্দেশনাটা পেলে ভালো হতো, সেটি হাতে তুলে দেওয়া—আর পরে এসে দিশা হারালেও শান্তভাবে ফিরে দাঁড়ানোর রাস্তা দেখানো।",
   ),
   goal: l(
-    "Help CSE students see the breadth of computing careers, understand the work behind the titles, test their interests through small experiments, and follow a practical learning or preparation path.",
-    "CSE শিক্ষার্থীদের computing career-এর বিস্তৃতি দেখানো, চাকরির নামের আড়ালের আসল কাজ বোঝানো, ছোট experiment দিয়ে নিজের আগ্রহ যাচাই করতে দেওয়া এবং বাস্তবসম্মত শেখা বা প্রস্তুতির পথে এগোতে সাহায্য করা।",
+    "Do more than list careers: reveal the work behind the titles, help students test a possible fit through small experiments, build durable foundations and choose a practical next step for their goal.",
+    "ক্যারিয়ারের নামের তালিকা ধরিয়ে দেওয়া নয়। কাজটা আসলে কেমন, নিজের ভালো লাগা ছোট experiment-এ কীভাবে যাচাই করবে, কোন foundation গড়বে আর লক্ষ্য অনুযায়ী পরের বাস্তব পদক্ষেপ কী—সেটা বুঝতে সাহায্য করা।",
   ),
 } satisfies Record<string, LocalizedText>;
 

@@ -14,6 +14,92 @@ export const firstSoftwareRoleGuide: FirstRoleGuide = {
     "You may already have more material than you think: a degree in progress, a project you understand and evidence that you can learn. The missing layer is often translation—choosing a role, strengthening one real piece of work, explaining it clearly and learning from the hiring response. This guide is a practical bridge, not a promise of an interview or offer.",
     "তোমার হাতে হয়তো ভাবনার চেয়েও বেশি কিছু আছে: প্রায় শেষ হওয়া ডিগ্রি, নিজের বোঝা একটি প্রজেক্ট, আর নতুন কিছু শেখার প্রমাণ। সমস্যা অনেক সময় যোগ্যতার চেয়ে উপস্থাপনায় বেশি—কোন role-এ যেতে চাও তা ঠিক করা, একটি সত্যিকারের কাজকে শক্ত করা, সেটি পরিষ্কারভাবে বোঝানো এবং নিয়োগপ্রক্রিয়ার প্রতিক্রিয়া থেকে শেখা। এই গাইড সেই সেতুটি তৈরি করবে; interview বা offer-এর মিথ্যা নিশ্চয়তা দেবে না।",
   ),
+  entryRoutes: [
+    {
+      id: "algorithmic",
+      title: l(
+        "Strong competitive problem solving",
+        "Competitive problem solving-এ ভালো",
+      ),
+      signal: l(
+        "You regularly solve unfamiliar timed problems, explain complexity and edge cases, and can write solid OOP code without copying a template.",
+        "নতুন problem সময়ের মধ্যে solve করতে পারো, complexity ও edge case বুঝিয়ে বলতে পারো, আর template না দেখে ভালো OOP code লিখতে পারো।",
+      ),
+      strategy: l(
+        "Some local hiring pipelines give this combination substantial weight, including for well-paid entry roles. Use that real advantage where the advertised assessment rewards it—but do not mistake one hiring signal for complete engineering readiness.",
+        "দেশের কিছু hiring process-এ এই combination-কে বেশ গুরুত্ব দেওয়া হয়; ভালো entry-level সুযোগও আসতে পারে। Job posting বা assessment-এ এই দক্ষতা চাওয়া হলে সুবিধাটি কাজে লাগাও। তবে একটি hiring signal-কে পুরো engineering readiness ভেবে বসো না।",
+      ),
+      now: l(
+        "Check the actual assessment format and choose one target role. Prepare the likely coding round instead of practising contests without an application target.",
+        "আসল assessment format দেখে একটি target role ঠিক করো। কোথায় আবেদন করবে না জেনে শুধু contest problem বাড়িয়ে যেও না; সম্ভাব্য coding round-এর প্রস্তুতি নাও।",
+      ),
+      next: l(
+        "Close the practical gap with one project walkthrough, Git, testing, debugging, databases or HTTP as relevant, and clear communication about your decisions.",
+        "একটি project walkthrough, Git, testing, debugging, আর role অনুযায়ী database বা HTTP—এসব দিয়ে practical gap পূরণ করো। নিজের decision-ও পরিষ্কারভাবে বোঝাতে শেখো।",
+      ),
+      applyWhen: l(
+        "Apply once you meet the essential conditions, can perform in the expected format and can defend one piece of work you own. Keep building production habits after applying.",
+        "মূল শর্তগুলো মিলে গেলে, expected format-এ problem solve করতে পারলে এবং নিজের একটি কাজের পক্ষে যুক্তি দিতে পারলে আবেদন শুরু করো। আবেদনের পরও production practice গড়তে থাকো।",
+      ),
+      destination: "stage-apply",
+    },
+    {
+      id: "balanced",
+      title: l(
+        "Some problem solving, but not consistent yet",
+        "Problem solving কিছুটা পারি, কিন্তু ধারাবাহিক নই",
+      ),
+      signal: l(
+        "You understand basic data structures and OOP, but unfamiliar problems, time pressure or explanation still expose gaps.",
+        "Basic data structure আর OOP বোঝো, কিন্তু নতুন problem, সময়ের চাপ বা solution বোঝানোর জায়গায় এখনও আটকে যাও।",
+      ),
+      strategy: l(
+        "Build a bounded interview baseline and role evidence in parallel. You do not need to become an ICPC-level contestant before becoming employable, and abandoning problem solving completely creates a different gap.",
+        "Interview-এর জন্য যতটুকু দরকার ততটুকু problem-solving ভিত্তি আর role-specific evidence—দুটো পাশাপাশি বানাও। চাকরির আগে ICPC-level contestant হওয়া লাগবে না; আবার problem solving একেবারে ছেড়ে দিলেও অন্য gap তৈরি হবে।",
+      ),
+      now: l(
+        "For two or three sessions a week, practise arrays, strings, maps/sets, sorting/searching, complexity and edge cases. Say the reasoning aloud and test it.",
+        "সপ্তাহে দুই বা তিনটি session-এ array, string, map/set, sorting/searching, complexity আর edge case practice করো। চিন্তাটা মুখে বলো, তারপর test করে দেখো।",
+      ),
+      next: l(
+        "Use the remaining practice time to strengthen one role-relevant project and rehearse the hiring tasks shown in real postings.",
+        "বাকি practice time-এ role-এর সঙ্গে মেলে এমন একটি project শক্ত করো, আর আসল job posting-এ যে hiring task দেখা যায় সেটিই rehearse করো।",
+      ),
+      applyWhen: l(
+        "Apply when you can reason through a fresh foundation problem, debug a small failure and explain your project. Let repeated assessment feedback decide whether DSA depth should increase.",
+        "নতুন foundation problem ভেঙে বলতে, ছোট failure debug করতে এবং নিজের project বোঝাতে পারলে আবেদন শুরু করো। Assessment-এ একই gap বারবার ধরা পড়লে তবেই DSA-এর depth বাড়াও।",
+      ),
+      destination: "stage-practice",
+    },
+    {
+      id: "role-evidence",
+      title: l(
+        "Little CP practice or low algorithmic confidence",
+        "CP practice কম, algorithm নিয়েও আত্মবিশ্বাস কম",
+      ),
+      signal: l(
+        "Your stronger signals may be a project, CGPA, careful implementation, testing, UI work, domain understanding or the ability to learn—not contest history.",
+        "Contest history নয়—project, CGPA, যত্ন নিয়ে implementation, testing, UI work, domain বোঝা বা দ্রুত শেখার ক্ষমতাই হয়তো তোমার শক্ত signal।",
+      ),
+      strategy: l(
+        "Do not self-reject. Look for internships, trainee and junior routes whose real work can be demonstrated through projects, debugging, testing, take-home work or role discussion. Frontend/UI, mobile, QA/testing, implementation/support and junior development can use different evidence; read the duties instead of treating any title as an easy back door.",
+        "নিজেই নিজেকে বাদ দিও না। এমন internship, trainee বা junior role খোঁজো যেখানে project, debugging, testing, take-home task বা role discussion দিয়ে কাজ দেখানো যায়। Frontend/UI, mobile, QA/testing, implementation/support কিংবা junior development-এ evidence আলাদা হতে পারে; কোনো title-কে সহজ পেছনের দরজা না ভেবে আসল দায়িত্ব পড়ো।",
+      ),
+      now: l(
+        "Choose one role from actual postings, then build the minimum problem-solving floor: inputs, conditions, loops, arrays/strings/maps, simple complexity, edge cases and systematic debugging.",
+        "আসল job posting দেখে একটি role বেছে নাও। তারপর ন্যূনতম problem-solving floor বানাও: input, condition, loop, array/string/map, সহজ complexity, edge case আর গুছিয়ে debugging।",
+      ),
+      next: l(
+        "Produce one reviewable role artifact: for example an accessible interface, a small API with data validation, a mobile flow, or a test plan with reproducible bug reports. Ask someone else to review it.",
+        "Role অনুযায়ী review করা যায় এমন একটি artifact বানাও—যেমন accessible interface, data validation-সহ ছোট API, mobile flow, অথবা test plan ও reproducible bug report। অন্য কাউকে দিয়ে review করাও।",
+      ),
+      applyWhen: l(
+        "Apply when you meet the essential conditions and can complete, test, debug and explain one small relevant task. Continue the bounded foundation practice while applications run.",
+        "মূল শর্ত মিলে গেলে এবং ছোট একটি প্রাসঙ্গিক কাজ শেষ, test, debug ও explain করতে পারলে আবেদন শুরু করো। আবেদনের পাশাপাশি সীমিত foundation practice চালিয়ে যাও।",
+      ),
+      destination: "stage-target",
+    },
+  ],
   starts: [
     {
       id: "project",
@@ -233,8 +319,8 @@ export const firstSoftwareRoleGuide: FirstRoleGuide = {
       ),
       tasks: [
         l(
-          "Apply to suitable internships, graduate/trainee programmes and junior roles when you meet the essential conditions. Read the official listing and do not self-reject because every preferred item is not present.",
-          "মূল শর্তগুলো মিললে উপযুক্ত internship, graduate/trainee programme ও junior role-এ আবেদন করো। অফিসিয়াল listing ভালোভাবে পড়ো; ‘preferred’ তালিকার সবকিছু নেই বলে নিজেই নিজেকে বাদ দিও না।",
+          "Apply to suitable internships, graduate/trainee programmes and junior roles when you meet the essential conditions. Search by real duties as well as titles: development, QA/testing, implementation or technical support can be different legitimate routes when the work and learning match your goal—not automatic back doors into another role. Do not self-reject because every preferred item is absent.",
+          "মূল শর্তগুলো মিললে উপযুক্ত internship, graduate/trainee programme ও junior role-এ আবেদন করো। শুধু title নয়, আসল দায়িত্ব দিয়েও খোঁজো: development, QA/testing, implementation বা technical support—কাজ ও শেখার সুযোগ তোমার লক্ষ্যের সঙ্গে মিললে এগুলো আলাদা ও বৈধ route; অন্য role-এ ঢোকার automatic পেছনের দরজা নয়। ‘Preferred’ তালিকার সবকিছু নেই বলে নিজেই নিজেকে বাদ দিও না।",
         ),
         l(
           "Tailor the summary, evidence order and project bullets to the role without changing facts. Send a concise message; request a referral only with a specific vacancy and reviewable evidence.",

@@ -303,15 +303,17 @@ Primary navigation should be **problem-oriented**, not just conventional site ta
 
 Use one problem-oriented navigation model at every viewport. On wide screens it is a persistent labeled left sidebar; on phones and tablets it becomes a compact sticky header and native full-width menu drawer. Group links by student intent rather than exposing an unexplained taxonomy:
 
-- **Start here:** Home, Find my next step, Search this site, New to CSE, First software role, I’m Lost;
+- **Start here:** Home, Find my next step, New to CSE, First software role, I’m Lost;
 - **Discover:** Career paths, Compare careers, Try real work;
 - **Prepare:** Learning roadmaps, Goal plans, Final-year project, Learning resources;
 - **Future:** AI & your career;
 - **About:** Why CSE Compass?
 
-Keep the current section visibly marked with `aria-current`, a non-color-only border/background treatment and the same grouping in English and Bangla. The wide sidebar includes the CSE Compass brand plus language and theme controls. It may scroll independently on shorter laptop screens; it must never reduce the article below a usable reading width or overlap page content. Do not collapse it to unexplained icons.
+Keep the current section visibly marked with `aria-current`, a non-color-only border/background treatment and the same grouping in English and Bangla. The wide sidebar contains the CSE Compass brand and problem-oriented navigation only. Search, language and theme live together inside the sticky breadcrumb context bar, keeping global controls beside the visitor's current location without creating another top bar. The sidebar may scroll independently on shorter laptop screens; it must never reduce the article below a usable reading width or overlap page content. Do not collapse it to unexplained icons.
 
-On smaller screens, retain a compact top bar containing the mark, language control, theme control and an icon-only menu toggle with a localized accessible name. The native drawer must work with keyboard and JavaScript disabled, close with Escape when JavaScript is available, constrain its height to the viewport and permit scrolling to every group. Keep **I’m Lost** visually prominent.
+On smaller screens, retain a compact brand/menu header. Immediately below it, the same sticky breadcrumb context bar keeps Search, language and theme reachable. Search is a labelled magnifier at these widths; activating it reveals the text field and submit button from that same bar. The native drawer must work with keyboard and JavaScript disabled, close with Escape when JavaScript is available, constrain its height to the viewport and permit scrolling to every group. Keep **I’m Lost** visually prominent.
+
+Every page uses the persistent context bar as an orientation aid, including a current Home marker on the homepage. Keep it at the viewport top beside the desktop sidebar and immediately below the compact header on mobile/tablet. It must not overlap the header or anchored content. Preserve one readable breadcrumb row by truncating only the current-page label; keep the full text in the accessibility tree and show the complete page title below. Exactly one breadcrumb item receives `aria-current="page"`. With JavaScript disabled, the non-sticky mobile header may leave while the context bar moves to the viewport top.
 
 The footer remains, but it is no longer a duplicate global navigator. Keep a compact product explanation, Why CSE Compass, final-year guide, privacy, repository, inspiration and collaboration credits there. The footer is required for provenance and policy even when desktop navigation is persistent.
 
@@ -372,7 +374,7 @@ The hero should feel open, calm and editorial—not like a dashboard.
 
 On phones, place the purpose, headline, explanation and primary action before the artwork. Keep the primary action fully visible in the tested 320×720 and 390×844 initial viewports, in English and Bangla; do not shrink text below readable sizes or hide the artwork to achieve this. Use shared typed bilingual copy from `src/data/homepage.ts`.
 
-The localized About page carries the complete origin story, not the homepage. Present attraction → orientation gap → drift/frustration → direction as a compact four-stage visual sequence, then state Purpose and Goal explicitly. Purpose: make career orientation available early and recovery possible later. Goal: show career breadth, explain work behind titles, encourage small experiments and connect students to a practical learning or preparation path. Mention independent and orientation-class use without implying university endorsement. Keep the story, homepage summary and tests grounded in shared bilingual `sitePurpose` data.
+The localized About page carries the complete origin story, not the homepage. Present promise → orientation gap → urgent search → practical recovery as a compact four-stage visual sequence, then state Purpose and Goal explicitly. Acknowledge the familiar late-stage question in social-media groups without shaming students for seeking help: the painful part is needing the map only after time and confidence feel scarce. Purpose: offer the early orientation many students wish they had and a calm route back later. Goal: reveal work behind career titles, test fit through small experiments, build durable foundations and connect the student to one practical next step. Mention independent and orientation-class use without implying university endorsement. Keep the story, homepage summary and tests grounded in shared bilingual `sitePurpose` data, with natural conversational Bangla rather than English sentence order.
 
 Use the original three-person study-partners illustration, not stock photography: a Chakma Bangladeshi woman standing in the centre with a QA checklist tablet and stylus, between a woman and man each using a laptop. They are equal computing teammates, each contributing to building and checking a product. Give all three equal visual prominence and retain their complete visible composition on every screen size and in both themes. Show them together in one static scene, not alternating gender- or ethnicity-specific carousel slides. The future-self caption is an editorial encouragement, not an endorsement by a real professional.
 
@@ -770,6 +772,8 @@ Use:
 
 Avoid lists of 20 tutorials.
 
+The resource index may include *The Accidental CTO* as a free, story-driven bridge from isolated backend/system concepts to operational and leadership consequences. Scope it for students who already have basic foundations and explicitly frame it as trade-off material, not an architecture template.
+
 ### 14.3 “Why this resource?”
 
 Where useful, include one mentor sentence explaining the selection.
@@ -875,9 +879,15 @@ Treat first-role transition as a distinct student problem, not as career discove
 
 Use **Target → Strengthen → Present → Practise → Apply → Improve**. Let visitors jump directly from project hygiene, CV/portfolio, interview preparation, applications or stalled feedback. Teach one genuine post-project improvement through an issue, short branch, test, pull request/review and small release; never suggest rewriting history or fabricating teamwork. Include 90-second, five-minute and fifteen-minute project walkthroughs, evidence-based CV language, safe public-repository checks, a private application log and opportunity-quality questions.
 
-State clearly that ACM/ICPC is a valuable optional practice track rather than a universal junior-job prerequisite. Give a bounded role/employer-specific DSA and engineering baseline, and connect to the deeper competitive-programming guide when relevant. Treat CGPA as one useful signal beside verifiable work. Diagnose patterns across suitable applications without presenting rejection as a score or verdict. No interview/offer promise, live vacancy aggregation, account or progress tracking.
+State clearly that ACM/ICPC is a valuable optional practice track rather than a universal junior-job prerequisite. Place an early three-route decision before the longer guide:
 
-Make this path discoverable from Start here navigation, a compact homepage prompt, both deterministic situation flows, the recovery guide, final-year guide, relevant software career/roadmap pages, employment goal guides and static search. Use official openings for changing requirements and scoped dated sources for editorial claims.
+1. **Strong competitive problem solving:** verify the actual assessment format, keep the algorithmic advantage and close practical gaps in projects, Git, testing and debugging.
+2. **Some but inconsistent problem solving:** maintain a bounded weekly DSA baseline while building role evidence in parallel.
+3. **Little CP or low algorithm confidence:** do not self-reject; investigate suitable frontend/UI, mobile, QA/testing, implementation/support and junior-development responsibilities while building a minimum problem-solving floor and one reviewable artifact.
+
+These are evidence-based entry strategies, not ranked identities or easy back doors. Each route needs a clear signal, what to do now, what to do next and an apply-when checkpoint. Some local hiring pipelines may give problem solving and OOP substantial weight, including for well-paid entry roles; other roles may evaluate different evidence. Keep employer guidance generic and name no local company. Give a bounded role/employer-specific DSA and engineering baseline, and connect to the deeper competitive-programming guide when relevant. Treat CGPA as one useful signal beside verifiable work. Diagnose patterns across suitable applications without presenting rejection as a score or verdict. No interview/offer promise, live vacancy aggregation, account or progress tracking.
+
+Make the route chooser discoverable from Start here navigation, a compact homepage prompt, both deterministic situation flows, the Competitive Programming guide, local-industry goal preparation, the recovery guide, final-year guide, relevant software career/roadmap pages, employment goal guides and static search. Keep its full explanation on the first-role page so the homepage and goal pages remain routers rather than duplicate syllabi. Use official openings for changing requirements and scoped dated sources for editorial claims.
 
 ---
 
@@ -1317,11 +1327,12 @@ Every item should have a stable ID/slug and bilingual content.
 ## 29. Search and Discovery
 
 A lightweight bilingual static search is available as a secondary quick-find
-tool now that the site contains many parallel career, roadmap, experiment, AI,
-goal, guidance and resource routes. It uses a typed build-time index and filters
-inside the browser without a backend, account, saved history or analytics event
-containing the query. The route also retains useful mentor-path links when
-JavaScript is unavailable.
+tool inside the shared breadcrumb context bar. It uses a typed build-time index
+and filters inside the browser without a backend, account, saved history or
+analytics event containing the query. Desktop shows the field and submit button
+directly; mobile/tablet opens the same controls from the bar's search icon. The
+result panel keeps the visitor on the current page and links to normal internal
+destinations. No standalone search route is generated.
 
 Search may cover:
 
@@ -1333,9 +1344,10 @@ Search may cover:
 
 Search should not become the primary navigation. The mentor paths remain primary.
 
-The search routes are `noindex, follow` and excluded from the sitemap because
-search-result interfaces are not canonical editorial landing pages. Their
-linked destination pages remain crawlable and indexable.
+Search-result UI is transient and therefore has no canonical URL or sitemap
+entry. Its linked destination pages remain crawlable and indexable. When
+JavaScript is unavailable, omit the inactive search control while preserving
+all essential mentor paths and navigation links.
 
 ---
 
@@ -1398,7 +1410,10 @@ Career, experiment, roadmap, goal and resource indexes use `CollectionPage`
 with a nested `ItemList`, plus `BreadcrumbList`, where those entities accurately
 describe the visible page. Internal search is `noindex, follow` and omitted from
 the sitemap. Open Graph includes localized alternate locale metadata; the social
-image has accessible alt metadata for both Open Graph and X cards.
+image has accessible alt metadata for both Open Graph and X cards. A shared root
+URL previews the purpose-first homepage—not About or Search—with the free-guidance
+promise, career exploration, small experiments, durable foundations and AI-era
+preparation. Declare the original PNG card’s type and 1731 × 909 dimensions.
 
 Career and roadmap pages should be shareable directly.
 

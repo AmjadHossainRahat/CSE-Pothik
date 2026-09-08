@@ -219,22 +219,43 @@ test("desktop sidebar and mobile drawer preserve the same navigation", async ({
   );
   const desktopGeometry = await page.evaluate(() => {
     const sidebar = document
-      .querySelector(".site-header")!
+      .querySelector(".header-nav")!
       .getBoundingClientRect();
     const frame = document
       .querySelector(".site-frame")!
       .getBoundingClientRect();
     return {
-      position: getComputedStyle(document.querySelector(".site-header")!)
+      position: getComputedStyle(document.querySelector(".header-nav")!)
         .position,
       sidebarRight: sidebar.right,
       frameLeft: frame.left,
+      utilityTop: document
+        .querySelector(".breadcrumb-bar")!
+        .getBoundingClientRect().top,
+      utilityLeft: document
+        .querySelector(".breadcrumb-bar")!
+        .getBoundingClientRect().left,
     };
   });
   expect(desktopGeometry.position).toBe("fixed");
   expect(
     Math.abs(desktopGeometry.sidebarRight - desktopGeometry.frameLeft),
   ).toBeLessThanOrEqual(1);
+  expect(desktopGeometry.utilityTop).toBe(0);
+  expect(
+    Math.abs(desktopGeometry.utilityLeft - desktopGeometry.sidebarRight),
+  ).toBeLessThanOrEqual(1);
+  await expect(
+    page.locator('.nav-details [data-nav-item="search"]'),
+  ).toHaveCount(0);
+  await expect(page.locator(".breadcrumb-bar .topbar-tools")).toBeVisible();
+  await expect(page.getByRole("searchbox")).toBeVisible();
+  await expect(
+    page.locator(".breadcrumb-bar [data-language-switch]"),
+  ).toBeVisible();
+  await expect(
+    page.locator(".breadcrumb-bar [data-theme-switch]"),
+  ).toBeVisible();
   await page.setViewportSize({ width: 390, height: 844 });
   await expect(page.locator(".nav-details nav")).toBeHidden();
   const menu = page.locator(".nav-details > summary");
@@ -295,6 +316,61 @@ test("breadcrumbs align with page content and have no staggered margins", async 
   }
 });
 
+test("the unified breadcrumb top bar remains visible below only the mobile header", async ({
+  page,
+}) => {
+  for (const locale of [
+    {
+      path: "/guidance/first-software-role/",
+      current: "Enter software industry",
+    },
+    {
+      path: "/bn/guidance/first-software-role/",
+      current: "সফটওয়্যার ইন্ডাস্ট্রিতে প্রবেশ",
+    },
+  ]) {
+    for (const viewport of [
+      { width: 320, height: 780, expectedTop: 72 },
+      { width: 390, height: 844, expectedTop: 72 },
+      { width: 768, height: 1024, expectedTop: 72 },
+      { width: 1280, height: 900, expectedTop: 0 },
+    ]) {
+      await page.setViewportSize(viewport);
+      await page.goto(route(locale.path));
+      await page.evaluate(() =>
+        window.scrollTo(0, Math.floor(document.body.scrollHeight * 0.6)),
+      );
+
+      const geometry = await page.evaluate(() => {
+        const bar = document.querySelector<HTMLElement>(".breadcrumb-bar")!;
+        const breadcrumb = document.querySelector<HTMLElement>(".breadcrumb")!;
+        const current = breadcrumb.querySelector<HTMLElement>(
+          '[aria-current="page"]',
+        )!;
+        const rect = bar.getBoundingClientRect();
+        return {
+          top: rect.top,
+          bottom: rect.bottom,
+          positionBase: getComputedStyle(bar).position,
+          currentText: current.textContent?.trim(),
+          currentCount: breadcrumb.querySelectorAll('[aria-current="page"]')
+            .length,
+          horizontalOverflow:
+            document.documentElement.scrollWidth > window.innerWidth,
+        };
+      });
+
+      expect(geometry.positionBase).toBe("sticky");
+      expect(geometry.top).toBeCloseTo(viewport.expectedTop, 0);
+      expect(geometry.bottom).toBeGreaterThan(geometry.top);
+      expect(geometry.bottom).toBeLessThanOrEqual(viewport.height);
+      expect(geometry.currentText).toBe(locale.current);
+      expect(geometry.currentCount).toBe(1);
+      expect(geometry.horizontalOverflow).toBe(false);
+    }
+  }
+});
+
 test("homepage and navigation remain useful without JavaScript", async ({
   browser,
 }) => {
@@ -309,5 +385,15 @@ test("homepage and navigation remain useful without JavaScript", async ({
   await expect(page.locator(".nav-details nav")).toBeHidden();
   await page.locator('.orientation-note a[href$="/roadmaps/"]').click();
   await expect(page).toHaveURL(/\/roadmaps\/$/);
+  await page.evaluate(() =>
+    window.scrollTo(0, Math.floor(document.body.scrollHeight * 0.5)),
+  );
+  await expect
+    .poll(async () =>
+      page
+        .locator(".breadcrumb-bar")
+        .evaluate((element) => element.getBoundingClientRect().top),
+    )
+    .toBeCloseTo(0, 0);
   await context.close();
 });

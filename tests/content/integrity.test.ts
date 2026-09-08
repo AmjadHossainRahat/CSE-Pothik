@@ -106,6 +106,7 @@ describe("content integrity", () => {
       expect(hasLocalizedCopy(resource.recommendedScope)).toBe(true);
       expect(hasLocalizedCopy(resource.whyRecommended)).toBe(true);
     }
+    expect(resourceIds.has("accidental-cto")).toBe(true);
     expect(
       careers.every((career) =>
         career.resourceIds.every((id) => resourceIds.has(id)),

@@ -113,6 +113,15 @@ for (const file of htmlFiles) {
   if (!/<meta\s+property="og:image"/i.test(html)) {
     failures.push(`${label}: missing Open Graph image`);
   }
+  if (!/<meta\s+property="og:image:type"\s+content="image\/png"/i.test(html)) {
+    failures.push(`${label}: missing Open Graph image type`);
+  }
+  if (!/<meta\s+property="og:image:width"\s+content="1731"/i.test(html)) {
+    failures.push(`${label}: missing Open Graph image width`);
+  }
+  if (!/<meta\s+property="og:image:height"\s+content="909"/i.test(html)) {
+    failures.push(`${label}: missing Open Graph image height`);
+  }
   if (!/<script\s+type="application\/ld\+json">/i.test(html)) {
     failures.push(`${label}: missing structured data`);
   }
@@ -209,10 +218,8 @@ for (const canonical of canonicalUrls) {
     failures.push(`sitemap missing ${canonical}`);
   }
 }
-for (const excluded of [`${base}/search/`, `${base}/bn/search/`]) {
-  if (sitemap.includes(`${expectedSite}${excluded}`)) {
-    failures.push(`sitemap should exclude noindex search route ${excluded}`);
-  }
+if (sitemap.includes(`${expectedSite}${base}/search-index.json`)) {
+  failures.push("sitemap should exclude the inline-search data endpoint");
 }
 
 const robots = readFileSync(join(root, "robots.txt"), "utf8");

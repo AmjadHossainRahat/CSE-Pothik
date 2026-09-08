@@ -151,16 +151,16 @@ const directoryEntries: SearchEntry[] = [
     type: "guidance",
     path: "/guidance/first-software-role/",
     title: l(
-      "From final semester to your first software role",
-      "Final semester থেকে প্রথম software role",
+      "Choose your route into the software industry",
+      "Software industry-তে ঢোকার route বেছে নাও",
     ),
     description: l(
-      "Turn an existing project into job evidence, prepare for junior interviews and run a focused internship or job-search cycle.",
-      "Existing project-কে job evidence বানাও, junior interview-এর প্রস্তুতি নাও এবং focused internship বা job-search cycle চালাও।",
+      "Use a strong-CP, balanced or role-evidence route to decide what to practise now and when to apply for an internship, trainee or junior role.",
+      "Strong-CP, balanced বা role-evidence route ধরে এখন কী practice করবে আর কখন internship, trainee বা junior role-এ apply করবে—তা ঠিক করো।",
     ),
     keywords: l(
-      "intern internship junior graduate first job software developer cv resume portfolio interview application",
-      "intern internship junior graduate first job software developer cv resume portfolio interview application চাকরি",
+      "intern internship trainee junior graduate first job software developer local industry competitive programming ACM CP weak problem solving no CP cv resume portfolio interview application",
+      "intern internship trainee junior graduate first job software developer local industry competitive programming ACM CP problem solving কম no CP cv resume portfolio interview application চাকরি",
     ),
   },
   {

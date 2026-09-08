@@ -24,6 +24,21 @@ test("homepage exposes the complete orientation journey", async ({ page }) => {
     "href",
     /\/bn\/$/,
   );
+  await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+    "content",
+    "CSE Compass — Find Your Direction in CSE",
+  );
+  await expect(page.locator('meta[property="og:description"]')).toHaveAttribute(
+    "content",
+    /Free career guidance.*strong foundations.*AI era/,
+  );
+  await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute(
+    "content",
+    "1731",
+  );
+  await expect(
+    page.locator('meta[property="og:image:height"]'),
+  ).toHaveAttribute("content", "909");
 });
 
 test("language switching preserves the equivalent route", async ({ page }) => {

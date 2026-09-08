@@ -3,6 +3,7 @@ import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
 import { careerById } from "@/data/careers";
 import { goalById } from "@/data/goals";
 import { guidanceSourceById } from "@/data/guidance-sources";
+import { firstSoftwareRoleGuide } from "@/data/first-software-role";
 import { localePath, roadmapPath, withBase } from "@/config/site";
 import { t } from "@/lib/i18n";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -16,6 +17,14 @@ const bn = locale === "bn";
 const href = (path: string) => withBase(localePath(locale, path));
 const sections = [
   { id: "orientation", title: bn ? "পথের ধরন" : "Choose your branch" },
+  ...(goal.id === "local-industry"
+    ? [
+        {
+          id: "industry-entry-routes",
+          title: bn ? "Industry-তে ঢোকার route" : "Industry-entry routes",
+        },
+      ]
+    : []),
   {
     id: "starting-point",
     title: bn ? "কোথা থেকে শুরু" : "Your starting point",
@@ -189,6 +198,50 @@ const structuredData = [
           }
         </div>
       </section>
+      {
+        goal.id === "local-industry" && (
+          <section class="guide-section" id="industry-entry-routes">
+            <p class="eyebrow">
+              {bn
+                ? "Problem solving অনুযায়ী পথ"
+                : "Choose by your current evidence"}
+            </p>
+            <h2>
+              {bn
+                ? "একই industry-তে ঢোকার route সবার এক নয়।"
+                : "There is more than one route into the same industry."}
+            </h2>
+            <p>
+              {bn
+                ? "Strong CP তোমাকে algorithm-heavy hiring process-এ এগিয়ে রাখতে পারে। CP কম হলে project, debugging, testing বা role-specific কাজের evidence দিয়ে অন্য route ধরো—সঙ্গে প্রয়োজনীয় problem-solving foundation গড়তে থাকো। কোনোটিই shortcut বা guarantee নয়।"
+                : "Strong CP can create an advantage in algorithm-heavy hiring. If CP is not your strength, use project, debugging, testing or other role-specific evidence while building the necessary problem-solving floor. Neither route is a shortcut or guarantee."}
+            </p>
+            <nav
+              aria-label={bn ? "Industry entry route" : "Industry entry routes"}
+            >
+              <ul class="industry-entry-list">
+                {firstSoftwareRoleGuide.entryRoutes.map((route) => (
+                  <li>
+                    <a
+                      href={href(
+                        `/guidance/first-software-role/#entry-route-${route.id}`,
+                      )}
+                      data-track-event="next_step_clicked"
+                      data-track-param-destination={`first-role/route-${route.id}`}
+                    >
+                      <strong>{t(route.title, locale)}</strong>
+                      <span>{t(route.signal, locale)}</span>
+                      <span class="industry-entry-list__action">
+                        {bn ? "এই route দেখো" : "See this route"} →
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </section>
+        )
+      }
       <section class="guide-section" id="starting-point">
         <p class="eyebrow">
           {bn ? "এটি পরীক্ষা নয়" : "Not a test or a score"}
@@ -488,6 +541,43 @@ const structuredData = [
     margin: 1.5rem 0 0;
     list-style: none;
   }
+  .industry-entry-list {
+    display: grid;
+    gap: 0.75rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .industry-entry-list li {
+    margin: 0;
+  }
+  .industry-entry-list a {
+    display: grid;
+    gap: 0.4rem;
+    height: 100%;
+    padding: 1rem;
+    color: var(--color-text);
+    border: 1px solid var(--color-border-strong);
+    border-top: 3px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+    text-decoration: none;
+  }
+  .industry-entry-list li:nth-child(2) a {
+    border-top-color: var(--color-teal);
+  }
+  .industry-entry-list li:nth-child(3) a {
+    border-top-color: var(--color-amber);
+  }
+  .industry-entry-list span {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+  }
+  .industry-entry-list .industry-entry-list__action {
+    margin-top: 0.35rem;
+    color: var(--color-primary-strong);
+    font-weight: 750;
+  }
   .start-options li {
     margin: 0;
   }
@@ -595,8 +685,20 @@ const structuredData = [
     color: var(--color-text-muted);
   }
   @media (min-width: 42rem) {
-    .start-options {
+    .start-options,
+    .industry-entry-list {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .industry-entry-list li:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (min-width: 54rem) {
+    .industry-entry-list {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .industry-entry-list li:last-child {
+      grid-column: auto;
     }
   }
   @media (min-width: 64rem) {

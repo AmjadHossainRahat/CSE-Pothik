@@ -221,6 +221,16 @@ export interface FirstRoleGuide {
   title: LocalizedText;
   summary: LocalizedText;
   reality: LocalizedText;
+  entryRoutes: {
+    id: "algorithmic" | "balanced" | "role-evidence";
+    title: LocalizedText;
+    signal: LocalizedText;
+    strategy: LocalizedText;
+    now: LocalizedText;
+    next: LocalizedText;
+    applyWhen: LocalizedText;
+    destination: string;
+  }[];
   starts: {
     id: string;
     title: LocalizedText;

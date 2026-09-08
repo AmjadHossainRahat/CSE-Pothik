@@ -23,7 +23,6 @@ const staticPaths = [
   "/privacy/",
   "/resources/",
   "/roadmaps/",
-  "/search/",
   "/try/",
 ];
 

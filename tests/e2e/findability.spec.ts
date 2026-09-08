@@ -20,34 +20,100 @@ test("career, experiment, roadmap and resource directories expose jump indexes",
   }
 });
 
-test("bilingual static search finds careers, guidance and resources without tracking the query", async ({
+test("the breadcrumb top bar search and scoped systems book are directly discoverable", async ({
   page,
 }) => {
-  await page.goto(route("/search/"));
-  await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
-    "content",
-    "noindex, follow",
-  );
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(route("/"));
+  await expect(page.locator(".breadcrumb-bar .topbar-tools")).toBeVisible();
+  await expect(page.getByRole("searchbox")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Search" })).toBeVisible();
+
+  await page.goto(route("/resources/#resource-accidental-cto"));
+  const book = page.locator("#resource-accidental-cto");
+  await expect(book).toBeInViewport();
+  await expect(
+    book.getByRole("link", { name: /The Accidental CTO/ }),
+  ).toHaveAttribute("target", "_blank");
+  await expect(book).toContainText("not as a universal architecture recipe");
+});
+
+test("bilingual inline search finds careers, guidance and resources without changing the route", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto(route("/"));
   await page.getByRole("searchbox").fill("network");
+  await page.getByRole("button", { name: "Search" }).click();
+  const networkCareer = page
+    .locator(".topbar-search__result")
+    .filter({ hasText: "Network Engineering" })
+    .first();
+  await expect(networkCareer).toBeVisible();
+  await expect(networkCareer).toHaveAttribute(
+    "href",
+    route("/careers/network-engineering/"),
+  );
   await expect(
-    page.getByRole("link", { name: "Network Engineering", exact: true }),
+    page
+      .locator(".topbar-search__result")
+      .filter({ hasText: "An Introduction to Computer Networks" }),
   ).toBeVisible();
-  await expect(
-    page.getByRole("link", { name: /An Introduction to Computer Networks/ }),
-  ).toBeVisible();
-  await expect(page).not.toHaveURL(/\?q=/);
+  await expect(page).toHaveURL(new RegExp(`${basePath}/$`));
 
   await page.getByRole("searchbox").fill("OpenClaw");
+  await page.getByRole("button", { name: "Search" }).click();
   await expect(
     page.getByRole("link", { name: "Build AI systems in the right order" }),
   ).toHaveAttribute("href", route("/roadmaps/ai-engineering/#ai-systems-path"));
 
-  await page.goto(route("/bn/search/"));
+  await page.goto(route("/bn/"));
   await page.getByRole("searchbox").fill("প্রজেক্ট");
+  await page.getByRole("button", { name: "খুঁজে দেখো" }).click();
   await expect(
     page.getByRole("link", { name: /Final-year project standard/ }),
   ).toBeVisible();
   await expect(page.locator("[data-search-status]")).toContainText("ফল");
+});
+
+test("mobile search expands from the breadcrumb bar and returns keyboard-accessible results", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto(route("/"));
+  const contextBar = page.locator(".breadcrumb-bar");
+  const search = contextBar.locator("[data-topbar-search]");
+  await expect(search).not.toHaveAttribute("open", "");
+  await search.locator("summary").focus();
+  await page.keyboard.press("Enter");
+  await expect(contextBar.getByRole("searchbox")).toBeVisible();
+  const popoverBounds = await search
+    .locator(".topbar-search__popover")
+    .evaluate((element) => {
+      const bounds = element.getBoundingClientRect();
+      return {
+        left: bounds.left,
+        right: bounds.right,
+        viewportWidth: window.innerWidth,
+        documentOverflow:
+          document.documentElement.scrollWidth -
+          document.documentElement.clientWidth,
+      };
+    });
+  expect(popoverBounds.left).toBeGreaterThanOrEqual(0);
+  expect(popoverBounds.right).toBeLessThanOrEqual(popoverBounds.viewportWidth);
+  expect(popoverBounds.documentOverflow).toBeLessThanOrEqual(0);
+  await contextBar.getByRole("searchbox").fill("QA");
+  await contextBar.getByRole("button", { name: "Search" }).click();
+  await expect(
+    contextBar
+      .locator(".topbar-search__result")
+      .filter({ hasText: "Software QA & Testing" })
+      .first(),
+  ).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(search).not.toHaveAttribute("open", "");
+  await expect(search.locator("summary")).toBeFocused();
 });
 
 test("I’m Lost links grounded local perspectives to the ordered watchlist", async ({

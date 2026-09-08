@@ -38,15 +38,15 @@ describe("purpose-first homepage", () => {
       expect(text.bn).toMatch(/[\u0980-\u09ff]/);
     }
     expect(sitePurpose.drift.en).toMatch(
-      /Software engineering.*QA.*competitive programming.*research/,
+      /social-media groups.*Software engineering.*QA.*competitive programming.*research/,
     );
     expect(sitePurpose.drift.en).toContain("not the whole landscape");
     expect(sitePurpose.recovery.en).toMatch(
-      /frustration.*clear map.*Direction can be built early—and rebuilt later/,
+      /not proof.*clear map early.*practical recovery/,
     );
-    expect(sitePurpose.purpose.en).toMatch(/orientation.*recovery/);
+    expect(sitePurpose.purpose.en).toMatch(/orientation.*calm route back/);
     expect(sitePurpose.goal.en).toMatch(
-      /breadth.*real work|breadth.*work behind the titles/,
+      /work behind the titles.*small experiments.*durable foundations/,
     );
   });
 

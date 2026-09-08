@@ -33,12 +33,6 @@ export const navigationGroups: NavigationGroup[] = [
         match: "none",
       },
       {
-        id: "search",
-        label: l("Search this site", "সাইটে খুঁজে দেখো"),
-        path: "/search/",
-        match: "exact",
-      },
-      {
         id: "new-student",
         label: l("New to CSE", "CSE-তে নতুন"),
         path: "/guidance/new-cse-student/",
@@ -46,8 +40,8 @@ export const navigationGroups: NavigationGroup[] = [
       },
       {
         id: "first-role",
-        label: l("First software role", "প্রথম সফটওয়্যার চাকরি"),
-        path: "/guidance/first-software-role/",
+        label: l("Enter software industry", "Software industry-তে ঢুকব"),
+        path: "/guidance/first-software-role/#entry-routes",
         match: "exact",
       },
       {

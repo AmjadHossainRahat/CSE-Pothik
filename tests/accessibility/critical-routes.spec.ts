@@ -12,8 +12,6 @@ for (const route of [
   "/careers/backend-engineering/",
   "/compare/",
   "/im-lost/",
-  "/search/",
-  "/bn/search/",
   "/resources/",
   "/goals/",
   "/bn/goals/",

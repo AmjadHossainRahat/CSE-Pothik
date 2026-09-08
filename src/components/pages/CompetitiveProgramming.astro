@@ -183,6 +183,49 @@ const practiceLoop = bn
       </div>
     </div>
   </section>
+  <section class="section entry-bridge" id="industry-entry">
+    <div class="container editorial-grid">
+      <div>
+        <p class="eyebrow">
+          {bn ? "চাকরির দরজায় এই skill" : "At the industry entrance"}
+        </p>
+        <h2>
+          {
+            bn
+              ? "CP একটি শক্তিশালী দরজা খুলতে পারে—একমাত্র দরজা নয়।"
+              : "CP can open a strong door—not the only door."
+          }
+        </h2>
+      </div>
+      <div class="entry-bridge__body">
+        <p>
+          {
+            bn
+              ? "দেশের কিছু entry-level hiring process-এ strong problem solving আর ভালো OOP-কে অনেক গুরুত্ব দেওয়া হয়। এই জায়গায় ভালো হলে target assessment যাচাই করে advantage-টি কাজে লাগাও—তার সঙ্গে project explanation, Git, testing ও debugging যোগ করো।"
+              : "Some local entry-level hiring pipelines give strong problem solving and solid OOP substantial weight. If that is your strength, verify the target assessment and use the advantage—then add project explanation, Git, testing and debugging."
+          }
+        </p>
+        <p>
+          {
+            bn
+              ? "CP কম হলে নিজেকে বাতিল কোরো না। Bounded problem-solving foundation-এর সঙ্গে project, debugging, testing, UI/mobile work, QA বা অন্য role-specific evidence দিয়ে আলাদা route বানানো যায়। কোনটা এখন করবে আর কখন আবেদন শুরু করবে—তিনটি route পাশাপাশি দেখে নাও।"
+              : "If CP is not your strength, do not self-reject. A bounded problem-solving foundation can grow alongside project, debugging, testing, UI/mobile, QA or other role-specific evidence. Compare three routes to see what to do now and when to apply."
+          }
+        </p>
+        <a
+          class="button"
+          href={withBase(
+            localePath(locale, "/guidance/first-software-role/#entry-routes"),
+          )}
+          data-track-event="next_step_clicked"
+          data-track-param-destination="first-role/entry-routes"
+          >{
+            bn ? "আমার entry route বেছে নিই" : "Choose my industry-entry route"
+          }</a
+        >
+      </div>
+    </div>
+  </section>
   <section class="section section--tinted">
     <div class="container">
       <div class="section-head">
@@ -351,6 +394,16 @@ const practiceLoop = bn
   .mode {
     padding: 1.2rem 0;
     border-top: 2px solid var(--color-primary);
+  }
+  .entry-bridge {
+    border-block: 1px solid var(--color-border);
+  }
+  .entry-bridge__body {
+    padding-inline-start: 1.25rem;
+    border-inline-start: 3px solid var(--color-teal);
+  }
+  .entry-bridge__body p:first-child {
+    margin-top: 0;
   }
   .practice-grid {
     display: grid;

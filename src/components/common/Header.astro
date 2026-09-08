@@ -1,12 +1,6 @@
 ---
 import Logo from "@/components/common/Logo.astro";
-import {
-  equivalentPath,
-  localePath,
-  stripLocale,
-  ui,
-  withBase,
-} from "@/config/site";
+import { localePath, stripLocale, ui, withBase } from "@/config/site";
 import { isNavigationItemActive, navigationGroups } from "@/data/navigation";
 import { t } from "@/lib/i18n";
 import type { Locale } from "@/types/content";
@@ -17,85 +11,64 @@ interface Props {
 }
 const { locale, pathname } = Astro.props;
 const copy = ui[locale];
-const otherLocale: Locale = locale === "en" ? "bn" : "en";
 const currentPath = stripLocale(pathname);
 ---
 
 <header class="site-header">
   <div class="header-inner container">
-    <a
-      class="brand"
-      href={withBase(localePath(locale, "/"))}
-      aria-label={`CSE Compass — ${locale === "en" ? "Home" : "হোম"}`}
-    >
-      <Logo compact />
-    </a>
-
-    <details class="nav-details" open>
-      <summary aria-label={copy.menu} title={copy.menu}>
-        <span aria-hidden="true" class="menu-icon">☰</span>
-      </summary>
-      <nav aria-label={locale === "en" ? "Primary navigation" : "মূল নেভিগেশন"}>
-        <div class="nav-groups">
-          {
-            navigationGroups.map((group) => (
-              <section
-                class="nav-group"
-                aria-labelledby={`nav-group-${group.id}`}
-              >
-                <h2 id={`nav-group-${group.id}`}>{t(group.label, locale)}</h2>
-                <ul>
-                  {group.items.map((item) => {
-                    const active = isNavigationItemActive(currentPath, item);
-                    return (
-                      <li>
-                        <a
-                          class:list={[
-                            "nav-link",
-                            { "nav-link--emphasis": item.emphasis },
-                          ]}
-                          href={withBase(localePath(locale, item.path))}
-                          aria-current={active ? "page" : undefined}
-                          data-nav-item={item.id}
-                        >
-                          <span>{t(item.label, locale)}</span>
-                          <span class="nav-arrow" aria-hidden="true">
-                            →
-                          </span>
-                        </a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </section>
-            ))
-          }
-        </div>
-      </nav>
-    </details>
-
-    <div class="header-tools">
+    <div class="header-nav">
       <a
-        class="language-switch"
-        href={withBase(equivalentPath(pathname, otherLocale))}
-        lang={otherLocale}
-        hreflang={otherLocale}
-        aria-label={copy.language}
-        data-language-switch
-        data-from={locale}
-        data-to={otherLocale}>{otherLocale === "bn" ? "বাংলা" : "EN"}</a
+        class="brand"
+        href={withBase(localePath(locale, "/"))}
+        aria-label={`CSE Compass — ${locale === "en" ? "Home" : "হোম"}`}
       >
-      <button
-        class="theme-switch"
-        type="button"
-        data-theme-switch
-        data-light-label={copy.light}
-        data-dark-label={copy.dark}
-        aria-label={copy.theme}
-      >
-        <span aria-hidden="true" data-theme-icon>◐</span>
-        <span class="theme-label" data-theme-label>{copy.dark}</span>
-      </button>
+        <Logo compact />
+      </a>
+
+      <details class="nav-details" open>
+        <summary aria-label={copy.menu} title={copy.menu}>
+          <span aria-hidden="true" class="menu-icon">☰</span>
+        </summary>
+        <nav
+          aria-label={locale === "en" ? "Primary navigation" : "মূল নেভিগেশন"}
+        >
+          <div class="nav-groups">
+            {
+              navigationGroups.map((group) => (
+                <section
+                  class="nav-group"
+                  aria-labelledby={`nav-group-${group.id}`}
+                >
+                  <h2 id={`nav-group-${group.id}`}>{t(group.label, locale)}</h2>
+                  <ul>
+                    {group.items.map((item) => {
+                      const active = isNavigationItemActive(currentPath, item);
+                      return (
+                        <li>
+                          <a
+                            class:list={[
+                              "nav-link",
+                              { "nav-link--emphasis": item.emphasis },
+                            ]}
+                            href={withBase(localePath(locale, item.path))}
+                            aria-current={active ? "page" : undefined}
+                            data-nav-item={item.id}
+                          >
+                            <span>{t(item.label, locale)}</span>
+                            <span class="nav-arrow" aria-hidden="true">
+                              →
+                            </span>
+                          </a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </section>
+              ))
+            }
+          </div>
+        </nav>
+      </details>
     </div>
   </div>
 </header>
@@ -105,6 +78,17 @@ const currentPath = stripLocale(pathname);
     @media (max-width: 67.999rem) {
       .site-header {
         position: relative;
+        z-index: 10;
+      }
+
+      .breadcrumb-bar {
+        top: 0;
+        z-index: 20;
+      }
+
+      html {
+        scroll-behavior: auto;
+        scroll-padding-top: 4.5rem;
       }
 
       .nav-details[open] nav {
@@ -144,9 +128,12 @@ const currentPath = stripLocale(pathname);
   }
   .header-inner {
     display: flex;
-    min-height: 4.5rem;
+    min-height: var(--mobile-header-height);
     align-items: center;
     gap: 0.65rem;
+  }
+  .header-nav {
+    display: contents;
   }
   .brand {
     margin-inline-end: auto;
@@ -179,7 +166,7 @@ const currentPath = stripLocale(pathname);
     position: absolute;
     inset-block-start: calc(100% + 1px);
     inset-inline: 0;
-    max-height: calc(100dvh - 4.5rem);
+    max-height: calc(100dvh - var(--mobile-header-height));
     overflow-y: auto;
     padding: 1.1rem max(1rem, calc((100vw - var(--container)) / 2));
     border-bottom: 1px solid var(--color-border);
@@ -241,35 +228,6 @@ const currentPath = stripLocale(pathname);
   .nav-link[aria-current="page"] .nav-arrow {
     color: currentColor;
   }
-  .header-tools {
-    display: flex;
-    gap: 0.35rem;
-    align-items: center;
-  }
-  .language-switch,
-  .theme-switch {
-    display: inline-flex;
-    min-height: 2.75rem;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
-    padding: 0.45rem 0.65rem;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    background: transparent;
-    color: var(--color-text);
-    font-weight: 750;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .theme-label {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip: rect(0 0 0 0);
-  }
-
   @media (min-width: 36rem) {
     .nav-groups {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -278,20 +236,24 @@ const currentPath = stripLocale(pathname);
 
   @media (min-width: 68rem) {
     .site-header {
-      position: fixed;
-      inset-block: 0;
-      inset-inline-start: 0;
-      width: var(--sidebar-width);
-      overflow-y: auto;
+      position: static;
       border-bottom: 0;
-      border-inline-end: 1px solid var(--color-border);
-      background: var(--color-surface);
+      background: transparent;
       backdrop-filter: none;
     }
     .header-inner {
-      width: 100%;
-      min-height: 100%;
-      margin: 0;
+      display: contents;
+    }
+    .header-nav {
+      position: fixed;
+      z-index: 20;
+      inset-block: 0;
+      inset-inline-start: 0;
+      display: flex;
+      width: var(--sidebar-width);
+      overflow-y: auto;
+      border-inline-end: 1px solid var(--color-border);
+      background: var(--color-surface);
       padding: 1.4rem 1.15rem;
       flex-direction: column;
       align-items: stretch;
@@ -327,24 +289,6 @@ const currentPath = stripLocale(pathname);
       min-height: 2.35rem;
       padding-block: 0.3rem;
       font-size: 0.9rem;
-    }
-    .header-tools {
-      width: 100%;
-      padding-top: 1rem;
-      border-top: 1px solid var(--color-border);
-      order: 3;
-    }
-    .language-switch,
-    .theme-switch {
-      min-width: 0;
-      flex: 1;
-    }
-    .theme-label {
-      position: static;
-      width: auto;
-      height: auto;
-      overflow: visible;
-      clip: auto;
     }
   }
 </style>

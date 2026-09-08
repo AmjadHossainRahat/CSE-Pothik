@@ -1,0 +1,440 @@
+---
+import { withBase } from "@/config/site";
+import type { Locale } from "@/types/content";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const bn = locale === "bn";
+---
+
+<details
+  class="topbar-search"
+  data-topbar-search
+  data-locale={locale}
+  data-search-index={withBase("/search-index.json")}
+  open
+>
+  <summary aria-label={bn ? "সাইটে খুঁজে দেখো" : "Search this site"}>
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="11" cy="11" r="6.5"></circle>
+      <path d="m16 16 4 4"></path>
+    </svg>
+  </summary>
+  <div class="topbar-search__popover">
+    <form role="search" class="topbar-search__form" data-site-search>
+      <label class="visually-hidden" for="site-search-input">
+        {bn ? "ক্যারিয়ার, skill বা topic" : "Career, skill or topic"}
+      </label>
+      <input
+        id="site-search-input"
+        type="search"
+        name="q"
+        autocomplete="off"
+        enterkeyhint="search"
+        placeholder={bn
+          ? "ক্যারিয়ার, skill বা topic"
+          : "Career, skill or topic"}
+        data-search-input
+      />
+      <button type="submit" data-search-submit>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+          <circle cx="11" cy="11" r="6.5"></circle>
+          <path d="m16 16 4 4"></path>
+        </svg>
+        <span>{bn ? "খুঁজে দেখো" : "Search"}</span>
+      </button>
+    </form>
+    <div
+      class="topbar-search__results"
+      data-search-panel
+      role="region"
+      aria-label={bn ? "খোঁজার ফল" : "Search results"}
+      hidden
+    >
+      <div class="topbar-search__result-head">
+        <p data-search-status aria-live="polite"></p>
+        <button type="button" data-search-close>
+          {bn ? "বন্ধ করো" : "Close"}
+        </button>
+      </div>
+      <ul data-search-results role="list"></ul>
+    </div>
+  </div>
+</details>
+
+<noscript>
+  <style>
+    .topbar-search {
+      display: none !important;
+    }
+  </style>
+</noscript>
+
+<script>
+  const search = document.querySelector<HTMLDetailsElement>(
+    "[data-topbar-search]",
+  );
+  const form = search?.querySelector<HTMLFormElement>("[data-site-search]");
+  const input = search?.querySelector<HTMLInputElement>("[data-search-input]");
+  const panel = search?.querySelector<HTMLElement>("[data-search-panel]");
+  const status = search?.querySelector<HTMLElement>("[data-search-status]");
+  const results = search?.querySelector<HTMLUListElement>(
+    "[data-search-results]",
+  );
+  const close = search?.querySelector<HTMLButtonElement>("[data-search-close]");
+  const desktopSearch = window.matchMedia("(min-width: 68rem)");
+  const locale = search?.dataset.locale === "bn" ? "bn" : "en";
+  const otherLocale = locale === "bn" ? "en" : "bn";
+  const typeLabels = {
+    career: locale === "bn" ? "ক্যারিয়ার গাইড" : "Career guide",
+    roadmap: locale === "bn" ? "রোডম্যাপ" : "Roadmap",
+    experiment: locale === "bn" ? "কাজ করে দেখো" : "Experiment",
+    ai: locale === "bn" ? "AI গাইড" : "AI guide",
+    goal: locale === "bn" ? "লক্ষ্যভিত্তিক গাইড" : "Goal guide",
+    guidance: locale === "bn" ? "দিকনির্দেশনা" : "Guidance",
+    resource: locale === "bn" ? "শেখার রিসোর্স" : "Learning resource",
+    directory: locale === "bn" ? "তালিকা" : "Directory",
+  } as const;
+
+  const normalize = (value: string) =>
+    value.normalize("NFKC").toLocaleLowerCase(locale).trim();
+
+  type SearchIndexEntry = {
+    type: keyof typeof typeLabels;
+    title: Record<"en" | "bn", string>;
+    description: Record<"en" | "bn", string>;
+    keywords: Record<"en" | "bn", string>;
+    url: Record<"en" | "bn", string>;
+  };
+  type LocalizedEntry = {
+    type: string;
+    title: string;
+    description: string;
+    keywords: string;
+    url: string;
+  };
+  let indexPromise: Promise<LocalizedEntry[]> | undefined;
+
+  const loadIndex = () => {
+    if (!indexPromise) {
+      indexPromise = fetch(search?.dataset.searchIndex ?? "")
+        .then((response) => {
+          if (!response.ok) throw new Error("Search index unavailable");
+          return response.json() as Promise<SearchIndexEntry[]>;
+        })
+        .then((entries) =>
+          entries.map((entry) => ({
+            type: typeLabels[entry.type],
+            title: entry.title[locale],
+            description: entry.description[locale],
+            keywords: `${entry.keywords[locale]} ${entry.keywords[otherLocale]} ${entry.title[otherLocale]} ${entry.description[otherLocale]}`,
+            url: entry.url[locale],
+          })),
+        );
+    }
+    return indexPromise;
+  };
+
+  const setSearchOpen = (open: boolean) => {
+    if (!search) return;
+    search.open = open;
+    if (!open && panel) panel.hidden = true;
+  };
+
+  const syncSearch = () => setSearchOpen(desktopSearch.matches);
+  syncSearch();
+  desktopSearch.addEventListener("change", syncSearch);
+
+  const render = async () => {
+    if (!input || !panel || !status || !results) return;
+    const query = normalize(input.value);
+    results.replaceChildren();
+    panel.hidden = false;
+
+    if (query.length < 2) {
+      status.textContent =
+        locale === "bn"
+          ? "কমপক্ষে ২টি অক্ষর লেখো।"
+          : "Type at least 2 characters.";
+      return;
+    }
+
+    status.textContent = locale === "bn" ? "খুঁজছি…" : "Searching…";
+    form?.setAttribute("aria-busy", "true");
+
+    let index: LocalizedEntry[];
+    try {
+      index = await loadIndex();
+    } catch {
+      status.textContent =
+        locale === "bn"
+          ? "এখন খোঁজা যাচ্ছে না। navigation থেকে ঘুরে দেখো।"
+          : "Search is unavailable right now. Please browse the navigation.";
+      form?.removeAttribute("aria-busy");
+      return;
+    }
+    form?.removeAttribute("aria-busy");
+
+    const terms = query.split(/\s+/).filter(Boolean);
+    const matches = index
+      .map((entry) => {
+        const title = normalize(entry.title);
+        const haystack = normalize(
+          `${entry.title} ${entry.description} ${entry.keywords} ${entry.type}`,
+        );
+        if (!terms.every((term) => haystack.includes(term))) return null;
+        const score =
+          title === query
+            ? 0
+            : title.startsWith(query)
+              ? 1
+              : title.includes(query)
+                ? 2
+                : 3;
+        return { entry, score };
+      })
+      .filter((match): match is NonNullable<typeof match> => match !== null)
+      .sort(
+        (a, b) =>
+          a.score - b.score || a.entry.title.localeCompare(b.entry.title),
+      )
+      .slice(0, 10);
+
+    status.textContent = matches.length
+      ? locale === "bn"
+        ? `${matches.length}টি ফল পাওয়া গেছে।`
+        : `${matches.length} results found.`
+      : locale === "bn"
+        ? "কিছু পাওয়া গেল না। অন্য নাম, skill বা লক্ষ্য লিখে দেখো।"
+        : "No results. Try another title, skill or goal.";
+
+    for (const match of matches) {
+      const item = document.createElement("li");
+      const link = document.createElement("a");
+      const meta = document.createElement("span");
+      const title = document.createElement("strong");
+      const description = document.createElement("span");
+      link.href = match.entry.url;
+      link.className = "topbar-search__result";
+      meta.className = "topbar-search__result-type";
+      meta.textContent = match.entry.type;
+      title.textContent = match.entry.title;
+      description.textContent = match.entry.description;
+      link.append(meta, title, description);
+      item.append(link);
+      results.append(item);
+    }
+  };
+
+  form?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    void render();
+  });
+  close?.addEventListener("click", () => {
+    if (panel) panel.hidden = true;
+    input?.focus();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (!search?.open) return;
+    if (event.key !== "Escape") return;
+    event.preventDefault();
+    if (desktopSearch.matches) {
+      if (panel) panel.hidden = true;
+      input?.focus();
+    } else {
+      setSearchOpen(false);
+      search.querySelector("summary")?.focus();
+    }
+  });
+  document.addEventListener("click", (event) => {
+    const target = event.target as Element;
+    if (!desktopSearch.matches && search?.open && !search.contains(target))
+      setSearchOpen(false);
+  });
+  document
+    .querySelectorAll<HTMLAnchorElement>('a[href="#site-search-input"]')
+    .forEach((link) =>
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        setSearchOpen(true);
+        requestAnimationFrame(() => input?.focus());
+      }),
+    );
+</script>
+
+<style>
+  .topbar-search {
+    position: static;
+    margin: 0;
+  }
+  .topbar-search > summary,
+  .topbar-search__form button,
+  .topbar-search__result-head button {
+    min-height: 2.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface-raised);
+    color: var(--color-text);
+    font-weight: 750;
+    cursor: pointer;
+  }
+  .topbar-search > summary {
+    display: inline-flex;
+    width: 2.75rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem;
+    list-style: none;
+  }
+  .topbar-search > summary::-webkit-details-marker {
+    display: none;
+  }
+  .topbar-search svg {
+    width: 1.15rem;
+    height: 1.15rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-width: 2;
+  }
+  .topbar-search__popover {
+    position: absolute;
+    inset-block-start: calc(100% + 0.45rem);
+    inset-inline: 1rem;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface-raised);
+    box-shadow: var(--shadow-md);
+  }
+  .topbar-search__form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.5rem;
+    margin: 0;
+  }
+  .topbar-search__form input {
+    width: 100%;
+    min-width: 0;
+    min-height: 2.75rem;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    background: var(--color-bg);
+    color: var(--color-text);
+  }
+  .topbar-search__form button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.5rem 0.75rem;
+    border-color: var(--color-primary);
+    background: var(--color-primary);
+    color: var(--color-on-primary);
+  }
+  .topbar-search__results {
+    max-height: min(60dvh, 28rem);
+    overflow-y: auto;
+    margin-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .topbar-search__result-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-block: 0.6rem;
+  }
+  .topbar-search__result-head p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-weight: 700;
+  }
+  .topbar-search__result-head button {
+    min-height: 2.25rem;
+    padding: 0.35rem 0.65rem;
+  }
+  .topbar-search__results :global(ul) {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .topbar-search__results :global(li) {
+    margin: 0;
+    border-top: 1px solid var(--color-border);
+  }
+  .topbar-search__results :global(.topbar-search__result) {
+    display: grid;
+    gap: 0.2rem;
+    padding: 0.75rem 0.25rem;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+  .topbar-search__results :global(.topbar-search__result:hover) {
+    background: var(--color-code);
+  }
+  .topbar-search__results :global(.topbar-search__result-type) {
+    color: var(--color-warm);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .topbar-search__results :global(.topbar-search__result strong) {
+    color: var(--color-primary-strong);
+  }
+  .topbar-search__results :global(.topbar-search__result > span:last-child) {
+    color: var(--color-text-muted);
+    font-size: 0.88rem;
+    line-height: 1.45;
+  }
+
+  @media (min-width: 68rem) {
+    .topbar-search {
+      display: block;
+    }
+    .topbar-search > summary {
+      display: none;
+    }
+    .topbar-search__popover {
+      position: static;
+      display: block;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+    .topbar-search__form {
+      width: clamp(17rem, 25vw, 24rem);
+    }
+    .topbar-search__form button span {
+      display: inline;
+    }
+    .topbar-search__results {
+      position: absolute;
+      inset-block-start: calc(100% + 0.45rem);
+      inset-inline-end: 0;
+      width: min(38rem, calc(100vw - var(--sidebar-width) - 2rem));
+      margin: 0;
+      padding: 0.75rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface-raised);
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  @media (max-width: 35.999rem) {
+    .topbar-search__form button span {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+    }
+  }
+</style>

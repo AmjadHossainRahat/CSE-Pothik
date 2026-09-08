@@ -23,7 +23,7 @@ Maintain seventeen complete careers across eight families. Network Engineering, 
 
 Publish a complete bilingual final-year project standards guide at `/guidance/final-year-project/`, with equivalent `/bn/` navigation. Cover problem definition, testable requirements, design trade-offs, reviewed version-controlled changes, CI, testing and relevant accessibility/security/privacy, reproducibility, recovery, reports, defense and handover. Provide a worked requirement-to-evidence example, project-type adaptations, a readiness audit and actual downloadable English/Bangla evidence templates. Department rubrics, supervisor decisions and ethics/safety rules take priority; the guide is not certification. Link it contextually from roadmaps, foundations, goals and footer without adding a large homepage section or progress tracking.
 
-Publish a complete bilingual transition guide for final-semester students, recent graduates and other early-career entrants who already have a project or target and need a first internship, trainee or junior software role. Use Target → Strengthen → Present → Practise → Apply → Improve; support direct entry from project, CV/portfolio, interview, application and feedback bottlenecks. Make ACM/ICPC optional rather than a universal prerequisite, treat CGPA as one supporting signal, and teach honest project evidence without fabricated teamwork or rewritten history. Keep the guide generic across relevant software roles and discoverable from navigation, homepage, both situation flows, recovery/final-year guidance, relevant careers/roadmaps, employment goals and search. Use scoped dated official references, static SEO metadata and no account, live vacancy feed, progress score or job guarantee.
+Publish a complete bilingual transition guide for final-semester students, recent graduates and other early-career entrants who already have a project or target and need a first internship, trainee or junior software role. Before the longer Target → Strengthen → Present → Practise → Apply → Improve loop, let students choose among three honest entry routes: strong competitive problem solving, some but inconsistent problem solving, or little competitive-programming experience. Explain that some local hiring pipelines may weigh problem solving and OOP heavily, while other suitable entry roles can value project delivery, testing, UI, implementation, support or domain evidence; these are different role fits, not guaranteed shortcuts. Every route must retain a minimum problem-solving floor, practical engineering evidence and an apply-when checkpoint. Support direct entry from project, CV/portfolio, interview, application and feedback bottlenecks. Make ACM/ICPC optional rather than a universal prerequisite, treat CGPA as one supporting signal, and teach honest project evidence without fabricated teamwork or rewritten history. Keep the guide generic across relevant software roles, name no local employer, and make the route chooser discoverable from navigation, homepage, both situation flows, recovery/final-year guidance, Competitive Programming, local-industry preparation, relevant careers/roadmaps, employment goals and search. Use scoped dated official references, static SEO metadata and no account, live vacancy feed, progress score or job guarantee.
 
 Test all new routes and relationships, downloads, language equivalents, keyboard/no-JavaScript behavior, responsive layouts, themes, metadata, external sources and bounded analytics. Run the complete validation cycle against root and project-Pages production output; fix defects and keep documentation/validation records accurate.
 
@@ -129,7 +129,7 @@ Nothing important may visually merge into the background.
 
 Implement the complete homepage experience from `DESIGN.md`, including:
 
-1. Responsive problem-oriented navigation: a persistent labeled sidebar on wide screens, and a compact sticky header with the same grouped native drawer on phones/tablets
+1. Responsive problem-oriented navigation: a persistent labeled sidebar on wide screens, a compact sticky brand/menu header with the same grouped native drawer on phones/tablets, and one shared sticky breadcrumb context bar containing inline Search, language and theme controls
 2. Purpose-first illustrated hero: “Free career guidance for CSE students” followed by the student-problem-first punch line “You got into CSE. Now what?” Explain useful outcomes, include practical reassurance, a prominent “Help me find my next step” action, future-self encouragement and a four-stop orientation map
 3. AI reality / AI-resilience section immediately after the hero, with the AI study-partner illustration, a visible Frame → Verify → Own decision tree and a native disclosure comparing thin-context, rich-context/weak-review and fundamentals-led fresher outcomes
 4. Three visible starting intentions (new/unsure → fresher guide; explore careers → career index; prepare for a goal → goal hub), a compact visible first-role bridge, all seven detailed situations inside a native disclosure and practical reassurance for students restarting
@@ -153,7 +153,7 @@ Replace anonymous or invented “veteran voice” quotations with the supplied p
 
 Keep the homepage an orientation router rather than a complete textbook. Preserve all eight visible career-family summaries but progressively disclose their individual career links. Keep the six-step useful loop in static native disclosure. Use the two existing purposeful illustrations and restrained CSS micro-motion rather than decorative stock art, autoplay, carousels or hydration; all motion must stop under `prefers-reduced-motion`.
 
-Use the site’s origin story wisely. The homepage carries only a short, nonjudgmental problem-and-recovery arc: attraction to CSE, a missing orientation layer, semesters of drift, and the fact that direction can still be rebuilt. The localized About page contains the fuller narrative, a four-stage visual sequence, and explicit Purpose and Goal statements. Preserve software engineering, QA, competitive programming and research as legitimate examples while making clear that they are not the whole computing landscape. Avoid invented prevalence, blame, fatalistic “missed the train” language or university endorsement. Source all repeated English/Bangla story copy from typed data and test both rendered versions.
+Use the site’s origin story wisely. The homepage carries only a short, nonjudgmental problem-and-recovery arc: attraction to CSE, a missing orientation layer, semesters of drift, and the fact that direction can still be rebuilt. The localized About page contains the fuller narrative, a four-stage visual sequence, and explicit Purpose and Goal statements. It may acknowledge that graduation pressure often sends a student to social-media groups asking where to begin; present asking for help as sensible, while naming the real cost as receiving a map only when time and confidence already feel scarce. Resolve into one evidence-producing next step, not fear. Preserve software engineering, QA, competitive programming and research as legitimate examples while making clear that they are not the whole computing landscape. Avoid invented prevalence, blame, fatalistic “missed the train” language or university endorsement. Source all repeated English/Bangla story copy from typed data and test both rendered versions.
 
 Use `themes-sample.png` as the visual mood reference: cool off-white/navy light theme, midnight-navy dark theme, editorial hero typography, clear mentor and robot silhouettes. Keep the CSE Compass brand and original generated illustrations; do not copy the sample artwork. Use the checked-in assets and provenance in `docs/illustrations.md`.
 
@@ -161,7 +161,7 @@ The hero artwork must welcome students of different genders and ethnicities: sho
 
 The teammates must look welcoming and engaged in technology, not romance: all look toward the viewer with relaxed casual smiles and clear personal space. The seated woman wears a teal hoodie and a stylishly draped ivory orna covering all her hair; the man retains his navy hoodie and glasses. The Chakma teammate wears contemporary professional clothing with a restrained Chakma-textile-inspired shoulder cloth; document the reference and do not claim exact traditional-dress authenticity or infer identity from facial features. Her visible checklist/stylus communicates active QA work, not a decorative observer or supervisory hierarchy. No career role is prescribed by gender or ethnicity. Keep the notebook's technical diagram, coffee, water bottle and small indoor plant on the desk. Preserve coherent devices and grounded props; avoid mutual gazing, inward leaning or romantic posing. Verify the actual artwork, not only its alt text. This three-person, viewer-facing direction supersedes earlier two-person/downward-gaze requirements.
 
-Keep the homepage focused: show three representative experiments immediately, place the Data Analytics & BI, AI Engineering and Application Security previews in a native progressive disclosure, and link to the complete published experiment index (currently seventeen); derive counts from data and do not reduce the detail pages. In the orientation map and useful loop, group every caption with its title and make every step a working link. Reset inherited list margins for grid/flex components. Breadcrumbs must align with the page content, and desktop navigation must remain visible after mobile breakpoint changes.
+Keep the homepage focused: show three representative experiments immediately, place the Data Analytics & BI, AI Engineering and Application Security previews in a native progressive disclosure, and link to the complete published experiment index (currently seventeen); derive counts from data and do not reduce the detail pages. In the orientation map and useful loop, group every caption with its title and make every step a working link. Reset inherited list margins for grid/flex components. Every page, including Home, must use one content-aligned sticky context bar combining breadcrumbs, local bilingual search, language and theme. It sits at the viewport top beside the desktop sidebar and below the sticky mobile header, with exactly one `aria-current` item, safe narrow-screen truncation, anchor clearance and a no-JavaScript mobile offset. Do not create a second utility bar or standalone search route. Desktop navigation must remain visible after mobile breakpoint changes.
 
 ## Goal-based guidance expansion
 
@@ -194,9 +194,9 @@ Implement the complete site experiences described in the specifications:
 - realistic career drawbacks;
 - relevant next-step navigation;
 - recovery guidance for students who feel behind.
-- bilingual static search across careers, roadmaps, experiments, goals,
-  guidance and curated resources, with mentor-path fallbacks and no query
-  analytics;
+- bilingual inline static search in the shared breadcrumb context bar across
+  careers, roadmaps, experiments, goals, guidance and curated resources, with
+  mentor-path fallbacks, no standalone search route and no query analytics;
 
 Expose Competitive Programming (ACM / ICPC) as a distinct practice track under Understand Computing Deeply, not as a conventional career ID. Give it a bounded six-week learn → honest attempt → submit/debug/log → review/transfer loop, retain real-project practice and curate the user-supplied Shafaet's Planet and Amirul Islam Bangla programming references without copying their curriculum or implying endorsement.
 
@@ -253,6 +253,8 @@ For each resource, include where appropriate:
 
 Do not create huge resource directories.
 
+Treat *The Accidental CTO* as an optional narrative case study after basic backend and systems foundations. Use its scaling, reliability and leadership incidents to discuss trade-offs; never present its technology choices as a universal architecture recipe.
+
 Prefer:
 
 **Learn → Practice → Go Deeper (optional)**
@@ -286,7 +288,7 @@ Ensure:
 
 Treat responsiveness as a primary requirement.
 
-Use the shared bilingual intent groups for desktop and mobile navigation. The wide sidebar must show active location, preserve article width and scroll independently when needed. The mobile/tablet drawer must remain a native keyboard/no-JavaScript control with every destination reachable, while language, theme and “I’m Lost” stay obvious. Keep the footer for compact project/policy/provenance links rather than duplicating the entire global navigation.
+Use the shared bilingual intent groups for desktop and mobile navigation. The wide sidebar must show active location, preserve article width and scroll independently when needed. Keep Search, language and theme together in the breadcrumb context bar, never in another bar or in the drawer. Desktop exposes the text field and submit button; mobile/tablet reveals them from an accessible search icon in the same context bar. The mobile/tablet drawer must remain a native keyboard/no-JavaScript control with every destination reachable, while “I’m Lost” stays obvious. Keep the footer for compact project/policy/provenance links rather than duplicating the entire global navigation.
 
 Test and intentionally design for:
 
@@ -359,15 +361,17 @@ Implement and verify:
 - image alt text;
 - optimized images;
 - strong Core Web Vitals;
+
+Treat the root homepage as the default shared-link introduction: its Open Graph/X title and description must state the free CSE career-guidance purpose, practical exploration and AI-era foundations. Deep links retain page-specific metadata. Declare the original PNG social card’s type, intrinsic dimensions and localized alternative text; do not route generic shares to About or Search.
 - no unnecessary client-side rendering;
 - no duplicate-content problems;
 - correct GitHub Pages base-path behavior.
 
 Keep task directories crawlable and scannable: group careers, experiments and
 roadmaps by family, group the resource index by truthful resource type, provide
-native jump links and use compact task-page heroes. The search routes are a
-secondary browser-filtered utility, use `noindex, follow`, and must not appear in
-the sitemap. Add accurate CollectionPage/ItemList and BreadcrumbList structured
+native jump links and use compact task-page heroes. Inline top-bar search is a
+secondary browser-filtered utility with no generated route or sitemap entry.
+Add accurate CollectionPage/ItemList and BreadcrumbList structured
 data to editorial indexes where applicable; do not add schema merely for volume.
 
 Review SEO for:
@@ -634,7 +638,7 @@ Keep roadmap.sh, Architect Prep and Amirul Islam credits visible in the shared f
 
 For repository cleanup, remove only verified obsolete files. Preserve active illustration masters, the authoritative theme reference, source routes, tests, build configuration and documentation. Retired imagery can remain recoverable through Git history rather than as unused working-tree binaries. Report exactly what was removed and do not claim deployed-byte savings for assets that were never emitted.
 
-Preserve the first-software-role guide as a practical bridge, not another large syllabus. A student may start from the bottleneck they have today, improve an existing project with one honest evidence-bearing iteration, prepare role-relevant interview fundamentals, apply in a controlled batch and diagnose where the process stops before changing one variable. Do not imply that a high CGPA, competitive-programming record, new project or particular technology guarantees entry.
+Preserve the first-software-role guide as a practical bridge, not another large syllabus. Lead with a problem-solving-baseline route choice so a strong competitive programmer, a student building consistency and a student with little CP practice each receive a credible next action without shame. A student may then start from the bottleneck they have today, improve an existing project with one honest evidence-bearing iteration, prepare role-relevant interview fundamentals, apply in a controlled batch and diagnose where the process stops before changing one variable. Do not imply that a high CGPA, competitive-programming record, new project, role category or particular technology guarantees entry.
 
 Use the broad BASIS industry catalog—not a single employer's career page—to help students discover categories of local technology employers, then tell them to verify vacancies on each employer's official page. Every outbound learning, guidance, inspiration, creator and repository link opens in a new tab with safe `noopener noreferrer` behavior and an accessible external-link indication. Keep internal navigation and same-page anchors in the current tab.
 

@@ -17,6 +17,10 @@ const bn = locale === "bn";
 const href = (path: string) => withBase(localePath(locale, path));
 const sections = [
   { id: "start", title: bn ? "নিজের জায়গা থেকে শুরু" : "Start where you are" },
+  {
+    id: "entry-routes",
+    title: bn ? "নিজের entry route বেছে নাও" : "Choose an entry route",
+  },
   ...guide.stages.map((stage) => ({
     id: `stage-${stage.id}`,
     title: t(stage.title, locale),
@@ -54,8 +58,8 @@ const structuredData = [
       {
         "@type": "ListItem",
         position: 1,
-        name: bn ? "দিকনির্দেশনা" : "Guidance",
-        item: new URL(href("/guidance/feel-behind/"), Astro.site).href,
+        name: bn ? "হোম" : "Home",
+        item: new URL(href("/"), Astro.site).href,
       },
       {
         "@type": "ListItem",
@@ -78,7 +82,11 @@ const structuredData = [
     locale={locale}
     items={[
       { label: bn ? "দিকনির্দেশনা" : "Guidance" },
-      { label: bn ? "প্রথম সফটওয়্যার চাকরি" : "First software role" },
+      {
+        label: bn
+          ? "সফটওয়্যার ইন্ডাস্ট্রিতে প্রবেশ"
+          : "Enter software industry",
+      },
     ]}
   />
   <header class="page-hero container first-role-hero">
@@ -160,6 +168,75 @@ const structuredData = [
         </div>
       </section>
 
+      <section class="role-section" id="entry-routes">
+        <p class="eyebrow">
+          {bn ? "একটি পথ সবার জন্য নয়" : "One entrance does not fit everyone"}
+        </p>
+        <h2>
+          {
+            bn
+              ? "আজ তোমার problem-solving অবস্থার সঙ্গে মেলে—এমন route বেছে নাও।"
+              : "Choose the route that matches your problem-solving baseline today."
+          }
+        </h2>
+        <p class="stage-why">
+          {
+            bn
+              ? "এগুলো ranking নয়, আর কোনো route-ই চাকরির guarantee নয়। Target role-এর hiring format বদলালে তোমার route-ও বদলাতে পারে। প্রথম card-টি ভালো শোনায় বলে সেটি বেছে নিও না—যেটি সত্যি, সেটি বেছে নাও।"
+              : "These are routes, not rankings or job guarantees. Your lane can change when the target role's hiring format changes. Choose the honest description—not the card that sounds most impressive."
+          }
+        </p>
+        <div class="entry-route-list">
+          {
+            guide.entryRoutes.map((route, index) => (
+              <article
+                class="entry-route"
+                id={`entry-route-${route.id}`}
+                data-entry-route={route.id}
+              >
+                <div class="entry-route__identity">
+                  <span aria-hidden="true">0{index + 1}</span>
+                  <div>
+                    <p class="entry-route__label">
+                      {bn ? "তোমার সঙ্গে মিললে" : "Choose this if"}
+                    </p>
+                    <h3>{t(route.title, locale)}</h3>
+                    <p>{t(route.signal, locale)}</p>
+                  </div>
+                </div>
+                <div class="entry-route__plan">
+                  <p class="entry-route__strategy">
+                    {t(route.strategy, locale)}
+                  </p>
+                  <dl>
+                    <div>
+                      <dt>{bn ? "এখন" : "Now"}</dt>
+                      <dd>{t(route.now, locale)}</dd>
+                    </div>
+                    <div>
+                      <dt>{bn ? "এরপর" : "Next"}</dt>
+                      <dd>{t(route.next, locale)}</dd>
+                    </div>
+                    <div>
+                      <dt>{bn ? "আবেদন শুরু করবে যখন" : "Apply when"}</dt>
+                      <dd>{t(route.applyWhen, locale)}</dd>
+                    </div>
+                  </dl>
+                  <a
+                    href={`#${route.destination}`}
+                    data-track-event="next_step_clicked"
+                    data-track-param-destination={`first-role/route-${route.id}`}
+                  >
+                    {bn ? "এই route ধরে পরের ধাপ" : "Continue with this route"}{" "}
+                    →
+                  </a>
+                </div>
+              </article>
+            ))
+          }
+        </div>
+      </section>
+
       {
         guide.stages.map((stage, index) => (
           <section class="role-section role-stage" id={`stage-${stage.id}`}>
@@ -196,8 +273,8 @@ const structuredData = [
         <h2>
           {
             bn
-              ? "Competitive programming না করলেও প্রস্তুতি শুরু করা যায়।"
-              : "You can start preparing without a competitive-programming record."
+              ? "CP একটি শক্তিশালী advantage হতে পারে—একমাত্র দরজা নয়।"
+              : "CP can be a strong advantage—not the only entrance."
           }
         </h2>
         <p>
@@ -480,6 +557,87 @@ const structuredData = [
   .task-list {
     padding-inline-start: 1.25rem;
   }
+  .entry-route-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+  .entry-route {
+    display: grid;
+    gap: 1.2rem;
+    scroll-margin-top: 6rem;
+    padding: clamp(1.15rem, 3vw, 1.6rem);
+    border: 1px solid var(--color-border-strong);
+    border-inline-start: 4px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    background: var(--color-surface);
+  }
+  .entry-route:nth-child(2) {
+    border-inline-start-color: var(--color-teal);
+  }
+  .entry-route:nth-child(3) {
+    border-inline-start-color: var(--color-amber);
+  }
+  .entry-route__identity {
+    display: grid;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: 0.8rem;
+  }
+  .entry-route__identity > span {
+    color: var(--color-warm);
+    font-size: 0.75rem;
+    font-weight: 850;
+    letter-spacing: 0.08em;
+  }
+  .entry-route__identity h3,
+  .entry-route__identity p,
+  .entry-route__plan p,
+  .entry-route__plan dd {
+    margin: 0;
+  }
+  .entry-route__identity h3 {
+    font-size: clamp(1.15rem, 2vw, 1.4rem);
+  }
+  .entry-route__identity p:not(.entry-route__label),
+  .entry-route__plan dd {
+    margin-top: 0.45rem;
+    color: var(--color-text-muted);
+  }
+  .entry-route__label {
+    color: var(--color-primary-strong);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .entry-route__plan {
+    min-width: 0;
+  }
+  .entry-route__strategy {
+    font-weight: 650;
+  }
+  .entry-route__plan dl {
+    display: grid;
+    gap: 0.75rem;
+    margin-block: 1rem;
+  }
+  .entry-route__plan dl > div {
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .entry-route__plan dt {
+    color: var(--color-text);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .entry-route__plan a {
+    display: inline-block;
+    min-height: 2.75rem;
+    padding-block: 0.65rem;
+    font-weight: 750;
+  }
   .not-yet {
     padding: 1rem 1.2rem;
     border-inline-start: 3px solid var(--color-warm);
@@ -540,6 +698,10 @@ const structuredData = [
     border-bottom: 1px solid var(--color-border);
   }
   @media (min-width: 48rem) {
+    .entry-route {
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+      gap: 2rem;
+    }
     .baseline-grid,
     .feedback-list {
       grid-template-columns: repeat(2, minmax(0, 1fr));

@@ -31,7 +31,7 @@ describe("global navigation", () => {
     expect(new Set(items.map((item) => item.id)).size).toBe(items.length);
     expect(items.find((item) => item.id === "lost")?.emphasis).toBe(true);
     expect(items.find((item) => item.id === "home")?.path).toBe("/");
-    expect(items.find((item) => item.id === "search")?.path).toBe("/search/");
+    expect(items.some((item) => item.id === "search")).toBe(false);
     expect(
       navigationGroups
         .find((group) => group.id === "prepare")

@@ -53,6 +53,28 @@ describe("first software role transition guide", () => {
     expect(guide.pitfalls.length).toBeGreaterThanOrEqual(4);
   });
 
+  it("offers honest entry routes for strong, developing and low-CP baselines", () => {
+    expect(guide.entryRoutes.map((route) => route.id)).toEqual([
+      "algorithmic",
+      "balanced",
+      "role-evidence",
+    ]);
+    for (const route of guide.entryRoutes) {
+      expect(hasLocalizedCopy(route.title)).toBe(true);
+      expect(hasLocalizedCopy(route.signal)).toBe(true);
+      expect(hasLocalizedCopy(route.strategy)).toBe(true);
+      expect(hasLocalizedCopy(route.now)).toBe(true);
+      expect(hasLocalizedCopy(route.next)).toBe(true);
+      expect(hasLocalizedCopy(route.applyWhen)).toBe(true);
+      expect(route.destination).toMatch(/^stage-/);
+    }
+    expect(JSON.stringify(guide.entryRoutes)).toMatch(/local hiring pipelines/);
+    expect(JSON.stringify(guide.entryRoutes)).toMatch(/do not self-reject/i);
+    expect(JSON.stringify(guide.entryRoutes)).not.toMatch(
+      /guaranteed|guarantee a job/i,
+    );
+  });
+
   it("connects validated sources, careers, search, navigation and both discovery flows", () => {
     expect(guide.sourceIds.every((id) => guidanceSourceById.has(id))).toBe(
       true,
@@ -75,8 +97,12 @@ describe("first software role transition guide", () => {
     ).toBe(true);
     for (const collection of [studentSituations, lostChoices]) {
       const entry = collection.find((item) => item.id === "first-role");
-      expect(entry?.destination.en).toBe("/guidance/first-software-role/");
-      expect(entry?.destination.bn).toBe("/bn/guidance/first-software-role/");
+      expect(entry?.destination.en).toBe(
+        "/guidance/first-software-role/#entry-routes",
+      );
+      expect(entry?.destination.bn).toBe(
+        "/bn/guidance/first-software-role/#entry-routes",
+      );
     }
   });
 });

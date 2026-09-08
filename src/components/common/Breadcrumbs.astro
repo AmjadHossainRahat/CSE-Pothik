@@ -1,5 +1,6 @@
 ---
-import { localePath, withBase } from "@/config/site";
+import SiteSearch from "@/components/common/SiteSearch.astro";
+import { equivalentPath, localePath, ui, withBase } from "@/config/site";
 import type { Locale } from "@/types/content";
 
 interface Crumb {
@@ -9,30 +10,73 @@ interface Crumb {
 interface Props {
   locale: Locale;
   items: Crumb[];
+  pathname?: string;
 }
-const { locale, items } = Astro.props;
+const { locale, items, pathname = Astro.url.pathname } = Astro.props;
+const copy = ui[locale];
+const otherLocale: Locale = locale === "en" ? "bn" : "en";
 ---
 
-<nav
-  class="breadcrumb container"
-  aria-label={locale === "en" ? "Breadcrumb" : "পাতার অবস্থান"}
->
-  <ol>
-    <li>
-      <a href={withBase(localePath(locale, "/"))}
-        >{locale === "en" ? "Home" : "হোম"}</a
-      >
-    </li>
-    {
-      items.map((item) => (
+<div class="breadcrumb-bar">
+  <div class="topbar-inner container">
+    <nav
+      class="breadcrumb"
+      aria-label={locale === "en" ? "Breadcrumb" : "পাতার অবস্থান"}
+    >
+      <ol>
         <li>
-          {item.path ? (
-            <a href={withBase(localePath(locale, item.path))}>{item.label}</a>
-          ) : (
-            <span aria-current="page">{item.label}</span>
-          )}
+          {
+            items.length === 0 ? (
+              <span aria-current="page">
+                {locale === "en" ? "Home" : "হোম"}
+              </span>
+            ) : (
+              <a href={withBase(localePath(locale, "/"))}>
+                {locale === "en" ? "Home" : "হোম"}
+              </a>
+            )
+          }
         </li>
-      ))
-    }
-  </ol>
-</nav>
+        {
+          items.map((item, index) => (
+            <li>
+              {item.path ? (
+                <a href={withBase(localePath(locale, item.path))}>
+                  {item.label}
+                </a>
+              ) : index === items.length - 1 ? (
+                <span aria-current="page">{item.label}</span>
+              ) : (
+                <span>{item.label}</span>
+              )}
+            </li>
+          ))
+        }
+      </ol>
+    </nav>
+    <div class="topbar-tools" role="group" aria-label={copy.utilities}>
+      <SiteSearch locale={locale} />
+      <a
+        class="language-switch"
+        href={withBase(equivalentPath(pathname, otherLocale))}
+        lang={otherLocale}
+        hreflang={otherLocale}
+        aria-label={copy.language}
+        data-language-switch
+        data-from={locale}
+        data-to={otherLocale}>{otherLocale === "bn" ? "বাংলা" : "EN"}</a
+      >
+      <button
+        class="theme-switch"
+        type="button"
+        data-theme-switch
+        data-light-label={copy.light}
+        data-dark-label={copy.dark}
+        aria-label={copy.theme}
+      >
+        <span aria-hidden="true" data-theme-icon>◐</span>
+        <span class="theme-label" data-theme-label>{copy.dark}</span>
+      </button>
+    </div>
+  </div>
+</div>

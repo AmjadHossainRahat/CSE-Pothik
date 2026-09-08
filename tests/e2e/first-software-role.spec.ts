@@ -13,6 +13,13 @@ for (const locale of ["en", "bn"] as const) {
       locale === "bn" ? "প্রথম সফটওয়্যার চাকরি" : "first software role",
     );
     await expect(page.locator(".start-list a")).toHaveCount(5);
+    await expect(page.locator("[data-entry-route]")).toHaveCount(3);
+    await expect(page.locator("#entry-route-algorithmic")).toContainText(
+      locale === "bn" ? "ভালো entry-level" : "well-paid entry roles",
+    );
+    await expect(page.locator("#entry-route-role-evidence")).toContainText(
+      locale === "bn" ? "নিজেই নিজেকে বাদ দিও না" : "Do not self-reject",
+    );
     await expect(page.locator(".role-stage")).toHaveCount(6);
     await expect(page.locator("#interview-baseline")).toContainText(
       locale === "bn"
@@ -39,16 +46,39 @@ test("first-role journey is discoverable from home, navigation and I’m Lost", 
   await page.goto(route("/"));
   await expect(page.locator(".first-role-prompt a")).toHaveAttribute(
     "href",
-    route("/guidance/first-software-role/"),
+    route("/guidance/first-software-role/#entry-routes"),
   );
   await expect(
     page.locator('[data-nav-item="first-role"]').first(),
-  ).toHaveAttribute("href", route("/guidance/first-software-role/"));
+  ).toHaveAttribute(
+    "href",
+    route("/guidance/first-software-role/#entry-routes"),
+  );
   await page.goto(route("/im-lost/"));
   const choice = page.locator('[data-lost-choice="first-role"]');
   await expect(choice).toHaveAttribute(
     "href",
-    route("/guidance/first-software-role/"),
+    route("/guidance/first-software-role/#entry-routes"),
+  );
+});
+
+test("local-industry and competitive-programming guidance expose all entry lanes", async ({
+  page,
+}) => {
+  await page.goto(route("/goals/local-industry/"));
+  await expect(page.locator(".industry-entry-list a")).toHaveCount(3);
+  await expect(page.locator(".industry-entry-list a").first()).toHaveAttribute(
+    "href",
+    route("/guidance/first-software-role/#entry-route-algorithmic"),
+  );
+
+  await page.goto(route("/guidance/competitive-programming/"));
+  await expect(page.locator("#industry-entry")).toContainText(
+    "CP can open a strong door—not the only door.",
+  );
+  await expect(page.locator("#industry-entry a")).toHaveAttribute(
+    "href",
+    route("/guidance/first-software-role/#entry-routes"),
   );
 });
 
@@ -63,6 +93,9 @@ test("first-role content remains usable without JavaScript", async ({
   );
   await expect(page.locator("#stage-practice")).toContainText(
     "bounded DSA baseline",
+  );
+  await expect(page.locator("#entry-routes")).toContainText(
+    "Little CP practice or low algorithmic confidence",
   );
   await expect(page.locator("#this-week")).toBeVisible();
   await context.close();

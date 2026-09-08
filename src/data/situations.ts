@@ -80,16 +80,16 @@ export const studentSituations: StudentSituation[] = [
   {
     id: "first-role",
     label: l(
-      "I have a project and need my first software role.",
-      "Project আছে, এখন internship বা প্রথম software role দরকার।",
+      "I want to enter the software industry.",
+      "Software industry-তে ঢুকতে চাই।",
     ),
     note: l(
-      "Turn existing work into evidence, interview practice and focused applications.",
-      "আগের কাজকে evidence বানাও, interview practice করো, তারপর বেছে বেছে আবেদন করো।",
+      "Choose a route for your current problem-solving level, then build evidence and apply with focus.",
+      "Problem solving এখন যতটুকু পারো, সেই অনুযায়ী route বেছে evidence বানাও এবং বেছে বেছে আবেদন করো।",
     ),
     destination: {
-      en: "/guidance/first-software-role/",
-      bn: "/bn/guidance/first-software-role/",
+      en: "/guidance/first-software-role/#entry-routes",
+      bn: "/bn/guidance/first-software-role/#entry-routes",
     },
   },
 ];
@@ -201,16 +201,16 @@ export const lostChoices: LostChoice[] = [
   {
     id: "first-role",
     prompt: l(
-      "I have a project and need an internship or junior software role.",
-      "Project আছে, এখন internship বা junior software role দরকার।",
+      "I want to enter software industry, but I am unsure which route fits.",
+      "Software industry-তে ঢুকতে চাই, কিন্তু কোন route আমার জন্য বুঝছি না।",
     ),
     response: l(
-      "Use your existing work as honest evidence, prepare for the actual hiring format and run a focused application cycle.",
-      "আগের কাজকে সৎ evidence বানাও, যে format-এ hiring হবে তার প্রস্তুতি নাও, তারপর বেছে বেছে আবেদন করো।",
+      "Choose among a strong-CP route, a balanced foundation-and-project route, or a role-evidence route. Then prepare for the actual hiring format and run a focused application cycle.",
+      "Strong-CP route, foundation আর project পাশাপাশি গড়ার route, অথবা role-evidence route—নিজের অবস্থার সঙ্গে মিলিয়ে একটি বেছে নাও। তারপর আসল hiring format-এর প্রস্তুতি নিয়ে focused application cycle চালাও।",
     ),
     destination: {
-      en: "/guidance/first-software-role/",
-      bn: "/bn/guidance/first-software-role/",
+      en: "/guidance/first-software-role/#entry-routes",
+      bn: "/bn/guidance/first-software-role/#entry-routes",
     },
   },
 ];

@@ -9,7 +9,7 @@ const sourceFiles = [
   "src/components/pages/FinalYearProject.astro",
   "src/components/pages/FirstSoftwareRole.astro",
   "src/components/pages/NewStudentGuide.astro",
-  "src/components/pages/SearchPage.astro",
+  "src/components/common/SiteSearch.astro",
   "src/components/pages/SoftwareFoundations.astro",
   "src/components/pages/RoadmapDetail.astro",
   "src/data/homepage.ts",

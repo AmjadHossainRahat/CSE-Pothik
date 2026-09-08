@@ -39,8 +39,8 @@ const metadata = {
       ? "CSE Compass সম্পর্কে ও কৃতজ্ঞতা"
       : "About CSE Compass & Credits",
     description: bn
-      ? "CSE Compass কেন তৈরি হয়েছে, শুরুতে দিকনির্দেশনা ও পরে ঘুরে দাঁড়ানোর উদ্দেশ্য কী, কোথা থেকে অনুপ্রেরণা এসেছে এবং মানুষ ও AI কে কী ভূমিকা রেখেছে—সব জানো।"
-      : "Why CSE Compass exists, its purpose of early career orientation and later recovery, its inspiration, and the human and AI roles behind it.",
+      ? "CSE-তে ভর্তি হওয়ার পর পথ হারিয়ে ফেলা থেকে শুরু করে নিজের পরের বাস্তব পদক্ষেপ খুঁজে পাওয়া—CSE Compass কেন তৈরি হয়েছে এবং কারা কীভাবে এটি গড়ে তুলেছে, সেই গল্প।"
+      : "Why CSE Compass exists: the gap between entering CSE and finding direction, the practical way back, its inspiration, and the human and AI roles behind it.",
   },
 }[kind];
 const resourceGroupDefinitions: Array<{
@@ -178,10 +178,7 @@ const structuredData =
                     ? "রোডম্যাপ থেকে resource বেছে নিই"
                     : "Choose resources through a roadmap"}
                 </a>
-                <a
-                  class="button button--secondary"
-                  href={withBase(localePath(locale, "/search/"))}
-                >
+                <a class="button button--secondary" href="#site-search-input">
                   {bn ? "নির্দিষ্ট topic খুঁজি" : "Search for a specific topic"}
                 </a>
               </div>
@@ -331,15 +328,17 @@ const structuredData =
       <>
         <header class="page-hero container">
           <>
-            <p class="eyebrow">{siteConfig.tagline}</p>
+            <p class="eyebrow">
+              {bn ? "CSE-তে নিজের পথ খুঁজে নাও" : siteConfig.tagline}
+            </p>
             <h1>
               {bn
-                ? "CSE শিক্ষার্থীর জন্য practical ক্যারিয়ার compass।"
+                ? "CSE-তে পথ অনেক। নিজের পথটি বুঝে শুরু করাই কঠিন।"
                 : "A practical career compass for CSE students."}
             </h1>
             <p class="lede">
               {bn
-                ? "CSE Compass fresher থেকে final-year student-কে ক্যারিয়ারের জগৎ বুঝতে, আসল কাজ ছোট করে করতে, পরিচিত ভুল এড়াতে আর AI-এর যুগে কাজে লাগে এমন পরের ধাপ নিতে সাহায্য করে।"
+                ? "প্রথম semester-এ হোক বা graduation-এর ঠিক আগে—CSE Compass তোমাকে কাজের জগৎটা বুঝতে, ছোট করে যাচাই করতে এবং এখন সত্যিই কাজে লাগবে এমন একটি পরের ধাপ বেছে নিতে সাহায্য করে।"
                 : "CSE Compass helps students—from freshers to final year—understand the landscape, try real work, avoid common mistakes and take a meaningful next step in the AI era."}
             </p>
             <div class="about-actions">
@@ -364,7 +363,7 @@ const structuredData =
               <p class="eyebrow">{bn ? "এই সাইট কেন" : "Why this exists"}</p>
               <h2 id="why-title">
                 {bn
-                  ? "ভর্তি থেকে দিক খুঁজে পাওয়া—মাঝখানের ফাঁকটাই আসল সমস্যা।"
+                  ? "সমস্যা মেধার নয়; শুরুতেই কাজের মানচিত্রটা না পাওয়ার।"
                   : "The difficult part is the gap between admission and direction."}
               </h2>
             </div>
@@ -390,16 +389,16 @@ const structuredData =
                     : "The breadth of the field and its real work stay unclear.",
                 ],
                 [
-                  bn ? "এলোপাতাড়ি চলা ও হতাশা" : "Drift and frustration",
+                  bn ? "শেষ মুহূর্তে উত্তর খোঁজা" : "The urgent search",
                   bn
-                    ? "Trend, এলোপাতাড়ি tutorial আর তাড়াহুড়োর সিদ্ধান্ত সময় কেড়ে নেয়।"
-                    : "Trends, random tutorials and rushed choices consume time.",
+                    ? "Graduation সামনে; social-media group-এ প্রশ্ন—‘এখন কী শিখব?’"
+                    : "Graduation approaches; the question becomes, “What should I learn now?”",
                 ],
                 [
-                  bn ? "সঠিক দিক খোঁজা" : "Direction",
+                  bn ? "ঘুরে দাঁড়ানোর পরের ধাপ" : "A practical recovery",
                   bn
-                    ? "পথ বোঝো, ছোট করে কাজ করো, তারপর পরিকল্পনা বেছে নাও।"
-                    : "See the paths, try the work, then choose a plan.",
+                    ? "Noise থামাও, একটি পথ বোঝো, ছোট evidence বানিয়ে এগোও।"
+                    : "Stop the noise, understand one route and build a small piece of evidence.",
                 ],
               ].map(([title, description], index) => (
                 <li>
@@ -421,7 +420,7 @@ const structuredData =
             </div>
             <p class="orientation-use">
               {bn
-                ? "একজন student নিজে ব্যবহার করুক বা orientation class-এ guide হিসেবে দেখানো হোক—লক্ষ্য একই: বিভ্রান্তি জমে ওঠার আগেই কাজে লাগে এমন পরের ধাপটি দেখা।"
+                ? "একজন student নিজে ব্যবহার করুক বা orientation class-এ guide হিসেবে দেখানো হোক—লক্ষ্য একটাই: বিভ্রান্তি জমে ওঠার আগেই পরের কাজটি চোখে দেখা। আর দেরিতে এলে, ‘সব শেষ’ না ভেবে সেখান থেকেই গুছিয়ে শুরু করা।"
                 : "Whether a student uses it independently or an educator uses it during orientation, the aim is the same: make one useful next step visible before confusion compounds."}
             </p>
           </div>

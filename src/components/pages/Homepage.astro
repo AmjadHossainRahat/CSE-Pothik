@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
 import IndustryVoices from "@/components/common/IndustryVoices.astro";
 import studyPartnersImage from "@/assets/illustrations/study-partners.png";
 import robotImage from "@/assets/illustrations/ai-study-partner.png";
@@ -132,13 +133,18 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
   locale={locale}
   title={copy(
     "CSE Compass — Find Your Direction in CSE",
-    "CSE Compass — CSE-তে নিজের দিক খুঁজে নাও",
+    "CSE Compass — CSE-তে নিজের পথ খুঁজে নাও (বাংলা)",
   )}
   description={copy(
-    "Free career guidance for CSE students: explore careers, try practical work and find learning paths for jobs, higher studies, research or independent work.",
-    "CSE শিক্ষার্থীদের জন্য বিনামূল্যে ক্যারিয়ার গাইড: কাজগুলো চেনো, ছোট করে করে দেখো, তারপর চাকরি, উচ্চশিক্ষা, গবেষণা বা নিজের উদ্যোগের প্রস্তুতির পথ খুঁজে নাও।",
+    "Free career guidance for CSE students: understand real career paths, try small experiments, build strong foundations and choose your next step in the AI era.",
+    "CSE শিক্ষার্থীদের জন্য বিনামূল্যের ক্যারিয়ার গাইড—কাজের পথগুলো বোঝো, ছোট experiment করে দেখো, foundation গড়ো এবং AI যুগে নিজের পরের ধাপ বেছে নাও।",
+  )}
+  imageAlt={copy(
+    "CSE Compass — Find your direction in CSE, illustrated with branching paths.",
+    "CSE Compass — CSE-তে নিজের পথ খুঁজে নাও; বিভিন্ন দিকের পথচিহ্নসহ।",
   )}
 >
+  <Breadcrumbs locale={locale} items={[]} />
   <div class="homepage">
     <section class="hero" aria-labelledby="hero-title">
       <div class="container">
@@ -456,33 +462,33 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             <p class="eyebrow">
               {
                 copy(
-                  "Final semester or recently graduated?",
-                  "Final semester-এ, নাকি সদ্য graduate হয়েছ?",
+                  "Trying to enter software industry?",
+                  "Software industry-তে ঢোকার চেষ্টা করছ?",
                 )
               }
             </p>
             <h3 id="first-role-title">
               {
                 copy(
-                  "Turn the project you already have into first-role evidence.",
-                  "হাতে যে project আছে, সেটিকেই প্রথম role-এর evidence বানাও।",
+                  "Choose an entry route that fits your problem-solving baseline.",
+                  "Problem solving এখন যতটুকু পারো, তার সঙ্গে মেলে এমন entry route বেছে নাও।",
                 )
               }
             </h3>
             <p>
               {
                 copy(
-                  "Choose a role, strengthen one honest piece of work, prepare for junior interviews and run a focused internship or job-search cycle.",
-                  "একটি role বাছো, নিজের করা কাজটি শক্ত করো, junior interview-এর প্রস্তুতি নাও, তারপর বেছে বেছে internship বা job-এ আবেদন করো।",
+                  "Strong in CP, still building the foundation, or entering through project evidence? See what to try now, what to add next and when to start applying.",
+                  "CP-তে ভালো, foundation এখনও গড়ছ, নাকি project evidence দিয়ে শুরু করবে? এখন কী করবে, এরপর কী যোগ করবে আর কখন আবেদন শুরু করবে—এক জায়গায় দেখে নাও।",
                 )
               }
             </p>
           </div>
           <a
-            href={href("/guidance/first-software-role/")}
+            href={href("/guidance/first-software-role/#entry-routes")}
             data-track-event="next_step_clicked"
             data-track-param-destination="first-software-role"
-            >{copy("Build my first-role plan", "প্রথম role-এর পরিকল্পনা করি")} →</a
+            >{copy("Choose my entry route", "আমার entry route বেছে নিই")} →</a
           >
         </aside>
         <details class="situation-options" id="your-situation">
