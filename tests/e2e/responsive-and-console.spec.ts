@@ -29,7 +29,7 @@ for (const viewport of viewports) {
         page.on("pageerror", (error) => pageErrors.push(error.message));
         await page.setViewportSize(viewport);
         await page.addInitScript(
-          (value) => localStorage.setItem("cse-compass-theme", value),
+          (value) => localStorage.setItem("cse-pothik-theme", value),
           theme,
         );
         await page.goto(route(locale === "en" ? "/" : "/bn/"));
@@ -170,7 +170,7 @@ test("Bangla, dark theme, compare and roadmap remain usable on tablet", async ({
   });
   await page.setViewportSize({ width: 768, height: 1024 });
   await page.addInitScript(() =>
-    localStorage.setItem("cse-compass-theme", "dark"),
+    localStorage.setItem("cse-pothik-theme", "dark"),
   );
   for (const path of [
     "/bn/",

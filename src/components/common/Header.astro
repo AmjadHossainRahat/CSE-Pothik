@@ -1,6 +1,12 @@
 ---
 import Logo from "@/components/common/Logo.astro";
-import { localePath, stripLocale, ui, withBase } from "@/config/site";
+import {
+  localePath,
+  siteConfig,
+  stripLocale,
+  ui,
+  withBase,
+} from "@/config/site";
 import { isNavigationItemActive, navigationGroups } from "@/data/navigation";
 import { t } from "@/lib/i18n";
 import type { Locale } from "@/types/content";
@@ -20,7 +26,7 @@ const currentPath = stripLocale(pathname);
       <a
         class="brand"
         href={withBase(localePath(locale, "/"))}
-        aria-label={`CSE Compass — ${locale === "en" ? "Home" : "হোম"}`}
+        aria-label={`${siteConfig.name} — ${locale === "en" ? "Home" : "হোম"}`}
       >
         <Logo compact />
       </a>

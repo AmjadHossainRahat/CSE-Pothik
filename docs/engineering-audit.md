@@ -1,6 +1,6 @@
 # Repository structure and production assets
 
-Reviewed 1 September 2026. This is an audit of CSE Compass, not a universal certification of “industry standard”. Validation results are recorded separately in [validation.md](validation.md).
+Reviewed 1 September 2026. This is an audit of CSE-Pothik, not a universal certification of “industry standard”. Validation results are recorded separately in [validation.md](validation.md).
 
 ## Structure verdict
 
@@ -42,7 +42,7 @@ Remote branch protection, repository permissions and deployed-host settings cann
 Use the same base path for build and verification. For example, in PowerShell:
 
 ```powershell
-$env:BASE_PATH = "/CSE-Compass"
+$env:BASE_PATH = "/CSE-Pothik"
 yarn build
 yarn verify:build
 yarn inspect:build

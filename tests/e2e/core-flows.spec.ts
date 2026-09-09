@@ -26,15 +26,22 @@ test("homepage exposes the complete orientation journey", async ({ page }) => {
   );
   await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
     "content",
-    "CSE Compass — Find Your Direction in CSE",
+    "CSE-Pothik — Find Your Direction in CSE",
   );
+  await expect(page.locator('meta[property="og:site_name"]')).toHaveAttribute(
+    "content",
+    "CSE-Pothik",
+  );
+  await expect(
+    page.getByText("CSE-Pothik", { exact: true }).first(),
+  ).toBeVisible();
   await expect(page.locator('meta[property="og:description"]')).toHaveAttribute(
     "content",
     /Free career guidance.*strong foundations.*AI era/,
   );
   await expect(page.locator('meta[property="og:image:width"]')).toHaveAttribute(
     "content",
-    "1731",
+    "1730",
   );
   await expect(
     page.locator('meta[property="og:image:height"]'),

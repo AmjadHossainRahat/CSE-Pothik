@@ -1,14 +1,14 @@
 import type { Locale } from "@/types/content";
 
 export const siteConfig = {
-  name: "CSE Compass",
+  name: "CSE-Pothik",
   tagline: "Find your direction in CSE.",
-  description: "A practical career compass for CSE students in the AI era.",
+  description: "A practical career guide for CSE students in the AI era.",
   author: "Amjad Hossain and contributors",
   creator: "Amjad Hossain",
   creatorUrl: "https://amjadhossainrahat.github.io/",
-  repository: "https://github.com/AmjadHossainRahat/CSE-Compass",
-  socialImage: "social/cse-compass-og.png",
+  repository: "https://github.com/AmjadHossainRahat/CSE-Pothik",
+  socialImage: "social/cse-pothik-og.png",
 } as const;
 
 export const localeInfo = {

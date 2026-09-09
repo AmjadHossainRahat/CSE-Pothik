@@ -2,7 +2,7 @@ import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 
 const repositoryName =
-  process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "CSE-Compass";
+  process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "CSE-Pothik";
 const isProjectPages =
   process.env.GITHUB_ACTIONS === "true" &&
   !repositoryName.endsWith(".github.io");

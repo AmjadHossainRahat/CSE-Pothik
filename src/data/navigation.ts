@@ -125,7 +125,7 @@ export const navigationGroups: NavigationGroup[] = [
     items: [
       {
         id: "why",
-        label: l("Why CSE Compass?", "CSE Compass কেন?"),
+        label: l("Why CSE-Pothik?", "CSE-Pothik কেন?"),
         path: "/about/#why-this-exists",
         match: "exact",
       },

@@ -2136,9 +2136,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cse-compass@workspace:.":
+"cse-pothik@workspace:.":
   version: 0.0.0-use.local
-  resolution: "cse-compass@workspace:."
+  resolution: "cse-pothik@workspace:."
   dependencies:
     "@astrojs/check": "npm:^0.9.10"
     "@astrojs/sitemap": "npm:^3.7.3"

@@ -1,14 +1,14 @@
-# CSE Compass
+# CSE-Pothik
 
 **Find your direction in CSE.**
 
-CSE Compass is a fully static, bilingual career-navigation and mentoring website for Computer Science and Engineering students. It helps students understand the career landscape, compare real work, try small career experiments, follow foundation-first roadmaps, and prepare for changing AI task exposure.
+CSE-Pothik is a fully static, bilingual career-navigation and mentoring website for Computer Science and Engineering students. It helps students understand the career landscape, compare real work, try small career experiments, follow foundation-first roadmaps, and prepare for changing AI task exposure.
 
 English is the canonical/default language; natural Bangla routes live under `/bn/`.
 
 ## Product scope
 
-CSE Compass includes:
+CSE-Pothik includes:
 
 - eight career families and seventeen detailed career guides, including Mobile App Development, UX/UI Engineering, Network Engineering, Hardware Engineering, Software QA & Testing, Data Analytics & BI, AI Engineering and Application Security;
 - seven goal guides for global companies, Bangladesh industry, remote employment, study abroad, research/publication, freelancing and a tech business;
@@ -155,7 +155,7 @@ See [the validation report](docs/validation.md) for completed checks, fixes and 
 Browser tests normally use the development server. To exercise the actual production HTML and optimized assets, build first and set `PLAYWRIGHT_SERVER=preview`. Keep the same `BASE_PATH` for build, verification and browser tests. For a project-Pages production check in PowerShell:
 
 ```powershell
-$env:BASE_PATH = "/CSE-Compass"
+$env:BASE_PATH = "/CSE-Pothik"
 yarn build
 yarn verify:build
 $env:PLAYWRIGHT_SERVER = "preview"
@@ -235,7 +235,7 @@ Add a complete seed in `src/data/experiments.ts` or one of its focused imported 
 
 ### Add a learning resource
 
-Add metadata in `src/data/resources.ts`: stable ID, provider, HTTPS URL, type, free-access status, bilingual recommended scope/reason, language availability, and review date. Prefer official documentation, respected university material, open courses, trusted labs, open books, and established practice platforms. Link to teaching; do not copy it. Shared renderers open outbound resources and guidance sources in a new tab with `noopener noreferrer` and an external-link indicator; internal CSE Compass navigation remains in the current tab. Generated-output verification rejects an unsafe or same-tab outbound anchor.
+Add metadata in `src/data/resources.ts`: stable ID, provider, HTTPS URL, type, free-access status, bilingual recommended scope/reason, language availability, and review date. Prefer official documentation, respected university material, open courses, trusted labs, open books, and established practice platforms. Link to teaching; do not copy it. Shared renderers open outbound resources and guidance sources in a new tab with `noopener noreferrer` and an external-link indicator; internal CSE-Pothik navigation remains in the current tab. Generated-output verification rejects an unsafe or same-tab outbound anchor.
 
 The books/articles group includes _The Accidental CTO_ as optional, story-driven reading after basic backend and systems foundations. Its scope asks students to compare scaling, reliability and leadership trade-offs rather than copy a universal architecture recipe.
 
@@ -243,9 +243,9 @@ The books/articles group includes _The Accidental CTO_ as optional, story-driven
 
 `src/styles/tokens.css` contains semantic tokens for both themes. Components must not embed light/dark assumptions.
 
-The visual mood follows `themes-sample.png`: cool off-white/navy in light mode, midnight navy in dark mode, and an editorial serif hero with system sans-serif body text. The CSE Compass name and compass mark remain the brand; the sample's artwork is not reused.
+The visual mood follows `themes-sample.png`: cool off-white/navy in light mode, midnight navy in dark mode, and an editorial serif hero with system sans-serif body text. The CSE-Pothik name and compass-C mark form the brand; the sample's artwork is not reused.
 
-The refined vector identity uses an open circular C and directional needle with a restrained wordmark. `Logo.astro` and `public/favicon.svg` share the geometry; the mark remains legible in monochrome and both themes. The social card uses matching navy typography and restrained branching paths. The homepage begins “Free career guidance for CSE students” followed by the stronger student-problem-first punch line “You got into CSE. Now what?” The unclear “salary reel” expression remains retired. English remains default and Bangla is the only additional language; no third-language routes, fonts or fallbacks ship.
+The refined vector identity uses an open circular C and directional needle beside the CSE-Pothik wordmark. `Logo.astro` and `public/favicon.svg` share the geometry; the mark remains legible in monochrome and both themes. Its compact symbol stays visually distinct from the existing text-heavy “THE CSE COMPASS” badge. The social card uses matching navy typography and restrained branching paths. The homepage begins “Free career guidance for CSE students” followed by the stronger student-problem-first punch line “You got into CSE. Now what?” The unclear “salary reel” expression remains retired. English remains default and Bangla is the only additional language; no third-language routes, fonts or fallbacks ship.
 
 The homepage follows a focused orientation sequence: purpose-first illustrated hero/map → AI Reality → three starting intentions → concise misconceptions/mentor voices → eight career families → three primary experiment previews plus three expanding-path previews in a native disclosure → six-step useful loop → a practical, encouraging next step. `src/data/homepage.ts` supplies typed bilingual introduction, origin/purpose and entry copy. The hero distills the story into attraction to CSE, the cost of missing early orientation and a hopeful recovery: the visitor has not missed the chance to build direction. The localized About page carries the full, nonjudgmental story as promise → orientation gap → urgent search → practical recovery. It recognizes the late-graduation question often asked in social-media groups without criticizing help-seeking, then turns panic into one evidence-producing next step. Explicit Purpose and Goal panels and a note for independent or orientation-class use follow. The primary action jumps to choices for new/unsure students, career exploration and goal preparation; each goes directly to useful guidance. The six more-specific situations remain inside a native disclosure, with recovery encouragement always visible. The hero explains practical outcomes before navigation and puts the main action before artwork on phones. Section introductions answer student questions; career learning paths and goal preparation are explicitly distinguished. Additional mentor voices use a native disclosure; all seventeen complete experiments remain on the dedicated index. The experiment count is derived from data. Motivation is attached to realistic action, not promises or pressure. No new client JavaScript, dependency, route or personalization is needed.
 
@@ -310,9 +310,9 @@ Parameters are bounded scalar IDs. Do not add names, emails, free text, sensitiv
 
 ## SEO
 
-`BaseLayout.astro` creates unique localized titles/descriptions, canonical URLs, equivalent `hreflang`, `x-default`, Open Graph (including alternate locale, image type, dimensions and localized alt text), X card metadata, and WebSite JSON-LD. The root URL deliberately previews the purpose-first homepage with “CSE Compass — Find Your Direction in CSE” and its free-guidance outcome; localized deep links keep their own page metadata. Career and goal detail pages add Article and breadcrumb structured data; career, experiment, roadmap, goal and resource indexes add accurate CollectionPage/ItemList and breadcrumb data. Inline search does not create query URLs or separate pages, so only its crawlable editorial destinations enter the sitemap.
+`BaseLayout.astro` creates unique localized titles/descriptions, canonical URLs, equivalent `hreflang`, `x-default`, Open Graph (including alternate locale, image type, dimensions and localized alt text), X card metadata, and WebSite JSON-LD. The root URL deliberately previews the purpose-first homepage with “CSE-Pothik — Find Your Direction in CSE” and its free-guidance outcome; localized deep links keep their own page metadata. Career and goal detail pages add Article and breadcrumb structured data; career, experiment, roadmap, goal and resource indexes add accurate CollectionPage/ItemList and breadcrumb data. Inline search does not create query URLs or separate pages, so only its crawlable editorial destinations enter the sitemap.
 
-The build produces static essential content, `sitemap-index.xml`, base-aware `robots.txt`, the project social card at `public/social/cse-compass-og.png`, an SVG favicon, and directory-format trailing-slash URLs. Every new primary route needs an equivalent under `src/pages/bn/` and localized metadata.
+The build produces static essential content, `sitemap-index.xml`, base-aware `robots.txt`, the project social card at `public/social/cse-pothik-og.png`, an SVG favicon, and directory-format trailing-slash URLs. Every new primary route needs an equivalent under `src/pages/bn/` and localized metadata.
 
 ## GitHub Pages
 
@@ -344,7 +344,7 @@ Internal links, assets, canonical URLs, hreflang, sitemap, and robots output hon
 
 ## Attribution and community use
 
-CSE Compass was conceptually inspired by [roadmap.sh](https://roadmap.sh/) for structured role/skill navigation, [Architect Prep](https://mayurjp.github.io/architect-prep/) for focused technical navigation, and [Amirul Islam](https://amirulislamalmamun.com/) for staged, build-centred engineering roadmaps. Its visual system, content, mentoring model, roadmaps, and implementation are original.
+CSE-Pothik was conceptually inspired by [roadmap.sh](https://roadmap.sh/) for structured role/skill navigation, [Architect Prep](https://mayurjp.github.io/architect-prep/) for focused technical navigation, and [Amirul Islam](https://amirulislamalmamun.com/) for staged, build-centred engineering roadmaps. Its visual system, content, mentoring model, roadmaps, and implementation are original.
 
 **[Amjad Hossain](https://amjadhossainrahat.github.io/) — Creator & Orchestrator:** shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. His linked name opens his intended GitHub Pages portfolio in a new tab; the canonical link is retained even while that separate portfolio site is not yet published. **ChatGPT** assisted with requirement engineering and product/design planning. **Codex using GPT-5.6 Sol (High)** was used to build the site and assist with tests, bug fixes and iteration. These acknowledgments do not imply affiliation or endorsement.
 

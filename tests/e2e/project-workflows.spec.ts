@@ -82,7 +82,7 @@ for (const width of [320, 390, 768, 1280, 1600])
         );
         await page.setViewportSize({ width, height: 900 });
         await page.addInitScript(
-          (value) => localStorage.setItem("cse-compass-theme", value),
+          (value) => localStorage.setItem("cse-pothik-theme", value),
           theme,
         );
         const errors: string[] = [];

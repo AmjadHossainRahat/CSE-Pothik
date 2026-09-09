@@ -96,7 +96,7 @@ const baseStructuredData = {
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:type" content="image/png" />
-    <meta property="og:image:width" content="1731" />
+    <meta property="og:image:width" content="1730" />
     <meta property="og:image:height" content="909" />
     <meta
       property="og:image:alt"
@@ -113,7 +113,7 @@ const baseStructuredData = {
     <script is:inline>
       (() => {
         try {
-          const value = localStorage.getItem("cse-compass-theme");
+          const value = localStorage.getItem("cse-pothik-theme");
           document.documentElement.dataset.theme =
             value === "dark" ? "dark" : "light";
         } catch {
@@ -241,7 +241,7 @@ const baseStructuredData = {
           );
           try {
             localStorage.setItem(
-              "cse-compass-language",
+              "cse-pothik-language",
               target.dataset.to ?? "en",
             );
           } catch {

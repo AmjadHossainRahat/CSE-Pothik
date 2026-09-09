@@ -76,7 +76,7 @@ for (const route of [
     page,
   }) => {
     await page.addInitScript(() =>
-      localStorage.setItem("cse-compass-theme", "dark"),
+      localStorage.setItem("cse-pothik-theme", "dark"),
     );
     await page.goto(withBase(route));
     await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");

@@ -17,7 +17,7 @@ async function check(url) {
       method: "HEAD",
       redirect: "follow",
       signal: AbortSignal.timeout(requestTimeoutMs),
-      headers: { "user-agent": "CSE-Compass-Link-Check/1.0" },
+      headers: { "user-agent": "CSE-Pothik-Link-Check/1.0" },
     });
     if (response.ok) {
       return { url, status: response.status, ok: true, restricted: false };
@@ -27,7 +27,7 @@ async function check(url) {
       method: "GET",
       redirect: "follow",
       signal: AbortSignal.timeout(requestTimeoutMs),
-      headers: { "user-agent": "CSE-Compass-Link-Check/1.0" },
+      headers: { "user-agent": "CSE-Pothik-Link-Check/1.0" },
     });
     return {
       url,

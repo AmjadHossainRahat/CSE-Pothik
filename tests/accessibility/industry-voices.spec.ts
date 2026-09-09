@@ -10,7 +10,7 @@ for (const locale of ["en", "bn"] as const) {
       page,
     }) => {
       await page.addInitScript(
-        (value) => localStorage.setItem("cse-compass-theme", value),
+        (value) => localStorage.setItem("cse-pothik-theme", value),
         theme,
       );
       await page.goto(

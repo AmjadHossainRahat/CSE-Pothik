@@ -1,6 +1,6 @@
-# CSE Compass — SKILL.md
+# CSE-Pothik — SKILL.md
 
-> **Purpose:** Engineering and implementation instructions for building the complete static CSE Compass website defined in `DESIGN.md`.
+> **Purpose:** Engineering and implementation instructions for building the complete static CSE-Pothik website defined in `DESIGN.md`.
 
 ---
 
@@ -60,7 +60,7 @@ Do not add:
 
 ## 2.1 Brand Constants
 
-Treat **CSE Compass** as the official product name.
+Treat **CSE-Pothik** as the official product name.
 
 Centralize brand metadata instead of scattering literal strings across pages.
 
@@ -68,9 +68,9 @@ Recommended shape:
 
 ```ts
 export const siteConfig = {
-  name: "CSE Compass",
+  name: "CSE-Pothik",
   tagline: "Find your direction in CSE.",
-  description: "A practical career compass for CSE students in the AI era.",
+  description: "A practical career guide for CSE students in the AI era.",
 } as const;
 ```
 
@@ -86,7 +86,7 @@ Use the central configuration for:
 
 Do not rename the product independently inside components or translations.
 
-The public brand name stays `CSE Compass` in Bangla pages; only surrounding copy is localized.
+The public brand name stays `CSE-Pothik` in Bangla pages; only surrounding copy is localized.
 
 ---
 
@@ -422,7 +422,7 @@ Prefer composition to giant configurable components.
 
 ## 9.1 Brand Asset Implementation
 
-Create an original, minimal brand mark for **CSE Compass** or leave the architecture ready for the final approved mark.
+Use the approved original compass-C mark for **CSE-Pothik**. Its open circular C and decisive directional needle must share geometry between the header/footer component and favicon, remain recognizable at favicon size, and work in both themes. Keep it distinct from text-heavy compass badges; do not substitute a map pin, mascot, detailed compass rose or external icon.
 
 Requirements:
 
@@ -445,7 +445,7 @@ Implement the homepage sections in the order and spirit defined in `DESIGN.md`.
 
 Required sections:
 
-1. Shared responsive navigation with the `CSE Compass` wordmark/brand mark: a persistent labeled sidebar on wide screens and a compact brand/menu header plus grouped native drawer on phones/tablets. Search, language and theme live together in the sticky breadcrumb context bar on every page; no second utility bar is introduced.
+1. Shared responsive navigation with the `CSE-Pothik` wordmark/brand mark: a persistent labeled sidebar on wide screens and a compact brand/menu header plus grouped native drawer on phones/tablets. Search, language and theme live together in the sticky breadcrumb context bar on every page; no second utility bar is introduced.
 2. Purpose-first illustrated hero: free CSE career guidance, the “You got into CSE. Now what?” punch line, a concise attraction → orientation gap → hopeful recovery story, clear outcomes and a prominent next-step action; preserve the future-self note and four-stop orientation map.
 3. AI reality / resilience section immediately after the hero, with the original AI study-partner illustration, a visible Frame → Verify → Own decision tree and a progressively disclosed three-outcome fresher scenario.
 4. Three visible starting intentions, a compact final-semester/first-role bridge and seven detailed situations in a native disclosure, with recovery encouragement.
@@ -465,7 +465,7 @@ Reduce initial scroll without deleting discovery: individual career links and th
 
 Store the supplied local-industry video/podcast curation in typed `src/data/industry-voices.ts`, separate from roadmap learning-resource prerequisites. Render the same data through a shared static Astro component: two contextual homepage previews and the complete `/resources/#industry-voices` sequence grouped as Ground yourself → Strengthen how you think → Read the working world. Verify YouTube titles/publishers before authoring; do not infer unverified biographies. Give every item bilingual editorial context, a stable ID, sequence position and review date. Use native disclosure, searchable internal anchors, safe new-tab links and the existing bounded `learning_resource_clicked` event. Do not add embeds, autoplay, remote thumbnails, a client framework or hydration. Accessibility coverage must expand all stages in English/Bangla and both themes; E2E must protect exact URL/order, homepage-to-list discovery, no-JavaScript access, narrow-screen containment and GitHub Pages bases.
 
-Use `themes-sample.png` for visual mood, while retaining the CSE Compass brand and original art. Source illustrations live in `src/assets/illustrations/`; import through `astro:assets` to generate responsive WebP and reserve intrinsic dimensions. Eager-load the hero with high fetch priority, lazy-load the supporting AI illustration, and avoid new client-side image libraries. Keep generation provenance in `docs/illustrations.md`.
+Use `themes-sample.png` for visual mood, while retaining the CSE-Pothik brand and original art. Source illustrations live in `src/assets/illustrations/`; import through `astro:assets` to generate responsive WebP and reserve intrinsic dimensions. Eager-load the hero with high fetch priority, lazy-load the supporting AI illustration, and avoid new client-side image libraries. Keep generation provenance in `docs/illustrations.md`.
 
 The hero uses one inclusive three-person study-partners scene: a Chakma Bangladeshi woman with a QA checklist tablet and stylus between a woman and man at laptops. Preserve equal peer status and the entire composition with proportional sizing/containment, never a mobile crop that removes a teammate. Keep accurate bilingual alt text and verify eager loading, responsive sources, dimensions, both themes and no-JavaScript/reduced-motion use. Do not add carousel controls, autoplay, gender/ethnicity preference selection or extra hydration for this artwork. Retain only English and Bangla routes and controls.
 
@@ -899,8 +899,8 @@ Do not claim “anonymous” if the configured analytics implementation does not
 
 Implement:
 
-- central `CSE Compass` site metadata;
-- home title direction: `CSE Compass — Find Your Direction in CSE`;
+- central `CSE-Pothik` site metadata;
+- home title direction: `CSE-Pothik — Find Your Direction in CSE`;
 - canonical URLs;
 - sitemap;
 - robots.txt;
@@ -918,7 +918,7 @@ Open Graph alternate-locale metadata and alt metadata for both Open Graph and X
 social images. Transient inline search creates no public route and must not
 appear in the sitemap.
 
-Use the homepage as the canonical default share preview. Its localized Open Graph/X copy must summarize free CSE career guidance, career exploration, small experiments, foundations and AI-era preparation; route-specific pages keep their own metadata. Emit the original PNG card’s `og:image:type`, 1731 × 909 dimensions and localized alt text. Protect the root title, description and image metadata in generated-output or browser tests.
+Use the homepage as the canonical default share preview. Its localized Open Graph/X copy must summarize free CSE career guidance, career exploration, small experiments, foundations and AI-era preparation; route-specific pages keep their own metadata. Emit the original PNG card’s `og:image:type`, 1730 × 909 dimensions and localized alt text. Protect the root title, description and image metadata in generated-output or browser tests.
 
 Create reusable SEO helpers/layout props.
 
@@ -1387,7 +1387,7 @@ Never include free-form student text.
 
 Create a clear `README.md` containing:
 
-- the official product name **CSE Compass** and tagline **Find your direction in CSE.**;
+- the official product name **CSE-Pothik** and tagline **Find your direction in CSE.**;
 - what the site is;
 - non-goals;
 - technology stack;
@@ -1525,7 +1525,7 @@ The implementation is complete only when all of the following are true.
 
 ### Product
 
-- The public product name is consistently **CSE Compass**.
+- The public product name is consistently **CSE-Pothik**.
 - The tagline/positioning and navigation metaphor match `DESIGN.md` without being overused.
 - The site clearly behaves like a mentor/navigation experience.
 - No login, backend, database or progress tracker exists.

@@ -119,8 +119,8 @@ export const industryVoices: IndustryVoice[] = [
     publisher: "Phitron",
     url: "https://www.youtube.com/watch?v=OTQqi17j5Qg",
     focus: l(
-      "Look for a better practice loop; treat the percentage in the title as presentation, not a statistic supplied by CSE Compass.",
-      "কাজের একটি ভালো practice loop খুঁজে নাও। title-এর percentage-টি উপস্থাপনার অংশ—CSE Compass-এর পরিসংখ্যান নয়।",
+      "Look for a better practice loop; treat the percentage in the title as presentation, not a statistic supplied by CSE-Pothik.",
+      "কাজের একটি ভালো practice loop খুঁজে নাও। title-এর percentage-টি উপস্থাপনার অংশ—CSE-Pothik-এর পরিসংখ্যান নয়।",
     ),
     position: 4,
     lastReviewed: reviewed,

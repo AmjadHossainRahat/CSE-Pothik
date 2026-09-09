@@ -154,8 +154,8 @@ export const qualityPlaybooks: ProjectPlaybook[] = [
           "Pull request → clean install → format/lint/type check → unit/integration test → production build → preview smoke/E2E → peer review → merge। Milestone-এ full regression, manual check আর independent reproduction করে verified commit tag করো।",
         ),
         l(
-          "For CSE Compass specifically: yarn install --immutable; yarn check; yarn build; yarn verify:build; then set PLAYWRIGHT_SERVER=preview with the same BASE_PATH and run yarn test:e2e and yarn test:a11y. These are this repository’s commands, not a universal pipeline for every stack.",
-          "CSE Compass-এর জন্য: yarn install --immutable; yarn check; yarn build; yarn verify:build; তারপর একই BASE_PATH-সহ PLAYWRIGHT_SERVER=preview দিয়ে yarn test:e2e ও yarn test:a11y। এগুলো এই repository-এর command, সব stack-এর universal pipeline নয়।",
+          "For CSE-Pothik specifically: yarn install --immutable; yarn check; yarn build; yarn verify:build; then set PLAYWRIGHT_SERVER=preview with the same BASE_PATH and run yarn test:e2e and yarn test:a11y. These are this repository’s commands, not a universal pipeline for every stack.",
+          "CSE-Pothik-এর জন্য: yarn install --immutable; yarn check; yarn build; yarn verify:build; তারপর একই BASE_PATH-সহ PLAYWRIGHT_SERVER=preview দিয়ে yarn test:e2e ও yarn test:a11y। এগুলো এই repository-এর command, সব stack-এর universal pipeline নয়।",
         ),
       ],
     },

@@ -1,4 +1,4 @@
-export const themeStorageKey = "cse-compass-theme";
+export const themeStorageKey = "cse-pothik-theme";
 export type Theme = "light" | "dark";
 
 export function isTheme(value: unknown): value is Theme {

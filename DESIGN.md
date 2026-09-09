@@ -1,4 +1,4 @@
-# CSE Compass — DESIGN.md
+# CSE-Pothik — DESIGN.md
 
 > **Status:** Product and UI/UX baseline  
 > **Product type:** Fully static bilingual career-navigation and mentoring website for CSE students  
@@ -14,9 +14,9 @@
 
 ### 0.1 Official name
 
-**CSE Compass**
+**CSE-Pothik**
 
-The product name must be written consistently as `CSE Compass`. Do not shorten the public brand to `Compass` where the CSE context would become unclear.
+The product name must be written consistently as `CSE-Pothik`, including the hyphen. Do not shorten the public brand to `Pothik` where the CSE context would become unclear.
 
 ### 0.2 Primary tagline
 
@@ -24,13 +24,13 @@ The product name must be written consistently as `CSE Compass`. Do not shorten t
 
 ### 0.3 Supporting positioning line
 
-> **A practical career compass for CSE students in the AI era.**
+> **A practical career guide for CSE students in the AI era.**
 
 The tagline is the short brand expression. The supporting positioning line may be used in metadata, about/introductory copy, social cards, or contexts where the product needs more explanation.
 
-### 0.4 Brand metaphor
+### 0.4 Pothik / path metaphor
 
-The compass metaphor is useful because the product helps students:
+`Pothik` comes from the Bangla word **পথিক**: a person travelling a path. The student is the Pothik—not a passive follower—and the site helps that student:
 
 - understand where they are;
 - discover possible directions;
@@ -49,26 +49,26 @@ Use direction/navigation language naturally and sparingly. Good examples include
 - **Your next meaningful step**
 - **I’m Lost**
 
-Do not force compass metaphors into every heading, button, paragraph, or feature name. The site should still sound like a human mentor rather than a themed navigation app.
+Do not force path or traveller metaphors into every heading, button, paragraph, or feature name. The site should still sound like a human mentor rather than a themed navigation app.
 
 ### 0.5 Logo / mark direction
 
-The identity may use a simple, original compass-inspired mark, but it should not resemble a travel app, map service, or nautical brand.
+The identity uses a simple, original compass-C mark: an open circular route forms a subtle C around a decisive directional needle. It should suggest orientation and forward movement without resembling a text-heavy badge, travel app, map pin or nautical brand.
 
 Preferred characteristics:
 
-- simple geometric compass needle or directional mark;
-- subtle connection to computing through grid, node, bracket, or path geometry if it remains clean;
+- an open circular C with one clear directional needle;
+- compact geometry with no enclosing badge text or decorative compass rose;
 - recognizable at favicon size;
 - works in one color;
 - works in both light and dark themes;
-- avoids generic graduation caps, circuit-brain icons, robot heads, or over-detailed compass illustrations.
+- avoids generic graduation caps, circuit-brain icons, robot heads, boats, anchors or over-detailed compass/travel imagery.
 
-The wordmark should prioritize `CSE Compass` as the recognizable brand.
+The wordmark should prioritize `CSE-Pothik` as the recognizable brand.
 
 ### 0.6 Brand localization
 
-Keep the brand name **CSE Compass** in English on both English and Bangla pages.
+Keep the brand name **CSE-Pothik** in English on both English and Bangla pages.
 
 Do not translate the product name into Bangla. Surrounding copy should be naturally localized.
 
@@ -82,7 +82,7 @@ This is tone guidance, not a mandatory fixed tagline.
 
 ## 1. Product Vision
 
-CSE Compass is a practical mentor and navigation website for Computer Science and Engineering students—especially freshers who enter CSE without a clear understanding of possible careers, what those careers actually involve, what they should learn, or how AI is changing the path ahead.
+CSE-Pothik is a practical mentor and navigation website for Computer Science and Engineering students—especially freshers who enter CSE without a clear understanding of possible careers, what those careers actually involve, what they should learn, or how AI is changing the path ahead.
 
 The product must feel like:
 
@@ -103,7 +103,7 @@ The product must **not** feel like:
 
 The mental model is:
 
-> **A practical career compass for the AI era.**
+> **A practical career guide for the AI era.**
 
 The student is not expected to choose a lifelong career at age 18. The site should help them explore, experiment, compare, make provisional choices, and take useful next steps.
 
@@ -145,7 +145,7 @@ The site does not:
 
 The site **guides learning; it does not replace learning resources**.
 
-Outbound learning resources, official guidance references, inspiration/creator destinations and the source repository open in a new tab and clearly indicate that they leave CSE Compass. Internal routes and same-page navigation stay in the current tab so the Back button, breadcrumbs and mobile browsing remain predictable. Local-industry guidance uses the broad BASIS industry catalog for company/category discovery rather than promoting one employer; students still verify actual vacancies on each employer's official page.
+Outbound learning resources, official guidance references, inspiration/creator destinations and the source repository open in a new tab and clearly indicate that they leave CSE-Pothik. Internal routes and same-page navigation stay in the current tab so the Back button, breadcrumbs and mobile browsing remain predictable. Local-industry guidance uses the broad BASIS industry catalog for company/category discovery rather than promoting one employer; students still verify actual vacancies on each employer's official page.
 
 ---
 
@@ -307,15 +307,15 @@ Use one problem-oriented navigation model at every viewport. On wide screens it 
 - **Discover:** Career paths, Compare careers, Try real work;
 - **Prepare:** Learning roadmaps, Goal plans, Final-year project, Learning resources;
 - **Future:** AI & your career;
-- **About:** Why CSE Compass?
+- **About:** Why CSE-Pothik?
 
-Keep the current section visibly marked with `aria-current`, a non-color-only border/background treatment and the same grouping in English and Bangla. The wide sidebar contains the CSE Compass brand and problem-oriented navigation only. Search, language and theme live together inside the sticky breadcrumb context bar, keeping global controls beside the visitor's current location without creating another top bar. The sidebar may scroll independently on shorter laptop screens; it must never reduce the article below a usable reading width or overlap page content. Do not collapse it to unexplained icons.
+Keep the current section visibly marked with `aria-current`, a non-color-only border/background treatment and the same grouping in English and Bangla. The wide sidebar contains the CSE-Pothik brand and problem-oriented navigation only. Search, language and theme live together inside the sticky breadcrumb context bar, keeping global controls beside the visitor's current location without creating another top bar. The sidebar may scroll independently on shorter laptop screens; it must never reduce the article below a usable reading width or overlap page content. Do not collapse it to unexplained icons.
 
 On smaller screens, retain a compact brand/menu header. Immediately below it, the same sticky breadcrumb context bar keeps Search, language and theme reachable. Search is a labelled magnifier at these widths; activating it reveals the text field and submit button from that same bar. The native drawer must work with keyboard and JavaScript disabled, close with Escape when JavaScript is available, constrain its height to the viewport and permit scrolling to every group. Keep **I’m Lost** visually prominent.
 
 Every page uses the persistent context bar as an orientation aid, including a current Home marker on the homepage. Keep it at the viewport top beside the desktop sidebar and immediately below the compact header on mobile/tablet. It must not overlap the header or anchored content. Preserve one readable breadcrumb row by truncating only the current-page label; keep the full text in the accessibility tree and show the complete page title below. Exactly one breadcrumb item receives `aria-current="page"`. With JavaScript disabled, the non-sticky mobile header may leave while the context bar moves to the viewport top.
 
-The footer remains, but it is no longer a duplicate global navigator. Keep a compact product explanation, Why CSE Compass, final-year guide, privacy, repository, inspiration and collaboration credits there. The footer is required for provenance and policy even when desktop navigation is persistent.
+The footer remains, but it is no longer a duplicate global navigator. Keep a compact product explanation, Why CSE-Pothik, final-year guide, privacy, repository, inspiration and collaboration credits there. The footer is required for provenance and policy even when desktop navigation is persistent.
 
 ### 9.1 Persistent “I’m Lost” path
 
@@ -352,7 +352,7 @@ Motivation must accompany action: welcome students who are confused or restartin
 
 ### 10.1 Hero — purpose before navigation
 
-The header/brand area should clearly identify **CSE Compass**, while the hero headline remains student-problem-first rather than repeating the product name as the main headline.
+The header/brand area should clearly identify **CSE-Pothik**, while the hero headline remains student-problem-first rather than repeating the product name as the main headline.
 
 Core direction:
 
@@ -415,7 +415,7 @@ Before the list, teach students to ask:
 3. Does the claim agree with other reliable sources and real role requirements?
 4. Does it lead to one small, safe action rather than only stronger emotion?
 
-These are **perspectives, not testimonials, endorsements, job guarantees or universal verdicts**. Preserve third-party titles accurately but label sensational or unsupported numbers as the publisher's presentation rather than a CSE Compass statistic. Do not infer biographies, credentials or employers beyond verified source metadata.
+These are **perspectives, not testimonials, endorsements, job guarantees or universal verdicts**. Preserve third-party titles accurately but label sensational or unsupported numbers as the publisher's presentation rather than a CSE-Pothik statistic. Do not infer biographies, credentials or employers beyond verified source metadata.
 
 ### 10.4 Career Landscape Reveal
 
@@ -508,7 +508,7 @@ CTA:
 
 Never state fake “27% replacement risk” type numbers.
 
-Place this section immediately after the hero. Balance the warning with agency: “AI is changing fast. You can grow with it.” Use the original small AI study-partner illustration checking a result. It supports the lesson about verification; it is not the CSE Compass brand mascot.
+Place this section immediately after the hero. Balance the warning with agency: “AI is changing fast. You can grow with it.” Use the original small AI study-partner illustration checking a result. It supports the lesson about verification; it is not the CSE-Pothik brand mascot.
 
 Use **Task Automation Exposure**, not **Replacement Probability**.
 
@@ -1043,7 +1043,7 @@ Optionally remember the choice locally, but English remains the default when no 
 
 > **Modern university orientation publication + practical career mentor + interactive editorial website**
 
-The visual identity should reinforce **CSE Compass** through subtle directional/path motifs rather than literal compass imagery everywhere.
+The visual identity should reinforce **CSE-Pothik** through subtle directional/path motifs rather than literal travel imagery everywhere.
 
 Not:
 
@@ -1110,7 +1110,7 @@ merge into the background.
 
 Every important visual element must retain a clear silhouette and contrast boundary.
 
-Use the dark half of `themes-sample.png` as the mood reference: midnight background `#061522`, blue-navy surface `#0b2030`, raised surface `#10293d`, off-white text `#f3f7fc`, and visible border `#30495e`. Preserve the actual CSE Compass name and original artwork; the sample is a visual reference, not an asset to reproduce verbatim.
+Use the dark half of `themes-sample.png` as the mood reference: midnight background `#061522`, blue-navy surface `#0b2030`, raised surface `#10293d`, off-white text `#f3f7fc`, and visible border `#30495e`. Preserve the actual CSE-Pothik name and original artwork; the sample is a visual reference, not an asset to reproduce verbatim.
 
 ### 20.4 Theme parity
 
@@ -1394,9 +1394,9 @@ The static site should be highly indexable.
 
 Requirements:
 
-- use `CSE Compass` consistently in site metadata and social identity;
-- default home title direction: `CSE Compass — Find Your Direction in CSE`;
-- career-page title direction: `<Career> Roadmap & Career Guide | CSE Compass`;
+- use `CSE-Pothik` consistently in site metadata and social identity;
+- default home title direction: `CSE-Pothik — Find Your Direction in CSE`;
+- career-page title direction: `<Career> Roadmap & Career Guide | CSE-Pothik`;
 - unique page titles;
 - meta descriptions;
 - canonical URLs;
@@ -1416,7 +1416,7 @@ the sitemap. Open Graph includes localized alternate locale metadata; the social
 image has accessible alt metadata for both Open Graph and X cards. A shared root
 URL previews the purpose-first homepage—not About or Search—with the free-guidance
 promise, career exploration, small experiments, durable foundations and AI-era
-preparation. Declare the original PNG card’s type and 1731 × 909 dimensions.
+preparation. Declare the original PNG card’s type and 1730 × 909 dimensions.
 
 Career and roadmap pages should be shareable directly.
 
@@ -1546,8 +1546,8 @@ Sources have provider, scope and review date. Publicly readable guidance does no
 
 The design is considered correctly implemented when:
 
-- the product is consistently branded as **CSE Compass**;
-- the compass/direction metaphor supports the experience without becoming gimmicky;
+- the product is consistently branded as **CSE-Pothik**;
+- the Pothik/path metaphor supports the experience without becoming gimmicky;
 - the homepage feels like a CSE orientation experience;
 - the user can understand the site without signing in;
 - a confused student can reach useful guidance within a few interactions;
@@ -1569,7 +1569,7 @@ The design is considered correctly implemented when:
 
 ## Identity and project-readiness revision
 
-Use the purpose-first orientation copy in §10.1, beginning “Free career guidance for CSE students.” The previous “salary reel” expression is retired. The identity is an open circular C with a directional needle and a restrained wordmark, not a mascot badge. Header/footer SVG and favicon share the geometry; the social preview uses the matching navy/off-white editorial palette. Preserve theme contrast, small-size legibility and the original study-partners/AI illustration style.
+Use the purpose-first orientation copy in §10.1, beginning “Free career guidance for CSE students.” The previous “salary reel” expression is retired. The identity is an open circular C with a directional needle and a matching CSE-Pothik wordmark—not a text-heavy badge or mascot. Header/footer SVG and favicon share the geometry; the social preview uses the matching navy/off-white editorial palette. Preserve theme contrast, small-size legibility and the original study-partners/AI illustration style.
 
 English is default and Bangla is the only additional language. No third-language edition, font or translation-fallback experience is included.
 

@@ -95,6 +95,12 @@ for (const file of htmlFiles) {
 
   if (!title) failures.push(`${label}: missing title`);
   if (!description) failures.push(`${label}: missing meta description`);
+  if (/CSE Compass/i.test(html)) {
+    failures.push(`${label}: contains the retired public brand name`);
+  }
+  if (!/<meta\s+property="og:site_name"\s+content="CSE-Pothik"/i.test(html)) {
+    failures.push(`${label}: Open Graph site name does not use CSE-Pothik`);
+  }
   if (!noindex && !canonical.startsWith(`${expectedSite}${base || ""}/`)) {
     failures.push(`${label}: canonical does not use the expected site/base`);
   }
@@ -116,7 +122,7 @@ for (const file of htmlFiles) {
   if (!/<meta\s+property="og:image:type"\s+content="image\/png"/i.test(html)) {
     failures.push(`${label}: missing Open Graph image type`);
   }
-  if (!/<meta\s+property="og:image:width"\s+content="1731"/i.test(html)) {
+  if (!/<meta\s+property="og:image:width"\s+content="1730"/i.test(html)) {
     failures.push(`${label}: missing Open Graph image width`);
   }
   if (!/<meta\s+property="og:image:height"\s+content="909"/i.test(html)) {
@@ -207,7 +213,7 @@ for (const required of [
   "robots.txt",
   "sitemap-index.xml",
   "favicon.svg",
-  "social/cse-compass-og.png",
+  "social/cse-pothik-og.png",
 ]) {
   if (!existsSync(join(root, required))) failures.push(`missing ${required}`);
 }

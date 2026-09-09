@@ -29,7 +29,7 @@ export function renderProjectTemplate(locale: Locale): string {
         (stage) =>
           `### ${t(stage.title, locale)}\n\n${t(stage.evidence, locale)}\n\n${t(stage.notYet, locale)}`,
       ),
-      "CSE Compass · https://github.com/AmjadHossainRahat/CSE-Compass · MIT",
+      "CSE-Pothik · https://github.com/AmjadHossainRahat/CSE-Pothik · MIT",
     ].join("\n\n") + "\n"
   );
 }

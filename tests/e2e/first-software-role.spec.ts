@@ -117,7 +117,7 @@ test("first-role guide fits five widths, both themes and both languages", async 
       ] as const) {
         await page.setViewportSize({ width, height });
         await page.addInitScript((value) => {
-          localStorage.setItem("cse-compass-theme", value);
+          localStorage.setItem("cse-pothik-theme", value);
         }, theme);
         await page.goto(route("/guidance/first-software-role/", locale));
         const geometry = await page.evaluate(() => ({

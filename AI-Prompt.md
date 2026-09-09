@@ -1,4 +1,4 @@
-You are responsible for implementing the complete **CSE Compass** website in this repository.
+You are responsible for implementing the complete **CSE-Pothik** website in this repository.
 
 Before writing or modifying any code, read these files completely:
 
@@ -17,7 +17,7 @@ Do not simplify, omit, reinterpret away, or replace requirements from these docu
 
 ## Current content and identity requirements
 
-Keep English as default and Bangla as the sole additional language. Do not introduce third-language routes, translation fallbacks or fonts. Replace the unclear homepage “salary reel” wording with direct career-orientation language. Use the refined C-shaped compass vector identity consistently in the site and favicon; preserve an original, professional social-sharing image and document its provenance.
+Keep English as default and Bangla as the sole additional language. Do not introduce third-language routes, translation fallbacks or fonts. Replace the unclear homepage “salary reel” wording with direct career-orientation language. Use the refined open compass-C vector identity consistently in the site and favicon; preserve an original, professional social-sharing image and document its provenance.
 
 Maintain seventeen complete careers across eight families. Network Engineering, Hardware Engineering and Software QA & Testing require the same career, comparison, five-stage roadmap, experiment, AI exposure, localized content and curated-resource depth as the other paths. The same applies to Data Analytics & BI, AI Engineering and Application Security. Distinguish analytics from data-pipeline ownership, AI product/evaluation engineering from ML modelling/research, and application security from broad security operations. Use role-specific roadmap tasks/resources. Keep all security exercises explicitly authorized, hardware experiments simulator-first, and QA work scoped to owned apps. Do not require paid exams, equipment, model APIs or hosted services for starter experiments.
 
@@ -27,7 +27,7 @@ Publish a complete bilingual transition guide for final-semester students, recen
 
 Test all new routes and relationships, downloads, language equivalents, keyboard/no-JavaScript behavior, responsive layouts, themes, metadata, external sources and bounded analytics. Run the complete validation cycle against root and project-Pages production output; fix defects and keep documentation/validation records accurate.
 
-Build the **complete, production-quality CSE Compass static website** described by `DESIGN.md` and `SKILL.md`.
+Build the **complete, production-quality CSE-Pothik static website** described by `DESIGN.md` and `SKILL.md`.
 
 This is not a request for:
 
@@ -72,7 +72,7 @@ Preserve all established product decisions, including:
 
 The official product name is:
 
-**CSE Compass**
+**CSE-Pothik**
 
 Primary tagline:
 
@@ -80,11 +80,11 @@ Primary tagline:
 
 Positioning:
 
-**A practical career compass for CSE students in the AI era.**
+**A practical career guide for CSE students in the AI era.**
 
-Use the compass/navigation metaphor intelligently and sparingly.
+Use the Pothik/path metaphor intelligently and sparingly. The student is the traveller; the product helps them read the landscape, compare routes and choose the next useful step.
 
-Do not turn the interface into a literal compass-themed gimmick.
+Do not turn the interface into a literal travel-themed gimmick.
 
 # Design implementation
 
@@ -149,13 +149,13 @@ At the start of the homepage, make the AI-era value proposition explicit: AI can
 
 Treat coding fluency, algorithms and data structures as useful but insufficient on their own. Emphasize core computing principles, analytical problem-solving, debugging, testing, creativity, product/business context, communication and accountable judgment. On the Software Engineering Foundations guide, explicitly teach Clean Code, Code Smells, Refactoring, SOLID Principles, Design Patterns and Defensive Programming as lenses for understanding, reviewing and safely changing AI-assisted code. For each topic state why it matters more when AI can produce plausible output quickly, when to learn it, enough-for-now depth, one small practice and one misuse to avoid. Present SOLID and design patterns as conditional vocabulary—not a checklist or a universal fresher hiring prerequisite. Teach defensive validation and explicit failure at user-input, API, file, database, dependency and AI-output boundaries without encouraging swallowed exceptions, secret logging or checks scattered without purpose. Encourage students to use AI, ask for alternatives, prefer the simplest adequate design, verify with evidence and seek human review for consequential or hard-to-reverse decisions. Use the supplied focused Refactoring.Guru URLs for Clean Code, Code Smells and Design Patterns with scoped bilingual guidance and safe outbound-link behavior.
 
-Replace anonymous or invented “veteran voice” quotations with the supplied public videos and podcast episodes from Bangladesh technology practitioners, leaders and educators. Keep two contextual previews on the homepage and publish all nine in a deliberate **Ground yourself → Strengthen how you think → Read the working world** order at `/resources/#industry-voices`. Every item needs a verified public title/publisher, speaker where named, bilingual editorial “watch for” context, safe new-tab behavior and bounded resource-click analytics. Do not embed YouTube, autoplay media, download thumbnails or treat any speaker as an infallible authority. Teach four checks before following advice: context/experience, specifics/trade-offs, corroboration with reliable sources and role requirements, and whether the advice produces a small safe action rather than only hype or fear. The title claiming “95%” is third-party presentation, not a CSE Compass statistic.
+Replace anonymous or invented “veteran voice” quotations with the supplied public videos and podcast episodes from Bangladesh technology practitioners, leaders and educators. Keep two contextual previews on the homepage and publish all nine in a deliberate **Ground yourself → Strengthen how you think → Read the working world** order at `/resources/#industry-voices`. Every item needs a verified public title/publisher, speaker where named, bilingual editorial “watch for” context, safe new-tab behavior and bounded resource-click analytics. Do not embed YouTube, autoplay media, download thumbnails or treat any speaker as an infallible authority. Teach four checks before following advice: context/experience, specifics/trade-offs, corroboration with reliable sources and role requirements, and whether the advice produces a small safe action rather than only hype or fear. The title claiming “95%” is third-party presentation, not a CSE-Pothik statistic.
 
 Keep the homepage an orientation router rather than a complete textbook. Preserve all eight visible career-family summaries but progressively disclose their individual career links. Keep the six-step useful loop in static native disclosure. Use the two existing purposeful illustrations and restrained CSS micro-motion rather than decorative stock art, autoplay, carousels or hydration; all motion must stop under `prefers-reduced-motion`.
 
 Use the site’s origin story wisely. The homepage carries only a short, nonjudgmental problem-and-recovery arc: attraction to CSE, a missing orientation layer, semesters of drift, and the fact that direction can still be rebuilt. The localized About page contains the fuller narrative, a four-stage visual sequence, and explicit Purpose and Goal statements. It may acknowledge that graduation pressure often sends a student to social-media groups asking where to begin; present asking for help as sensible, while naming the real cost as receiving a map only when time and confidence already feel scarce. Resolve into one evidence-producing next step, not fear. Preserve software engineering, QA, competitive programming and research as legitimate examples while making clear that they are not the whole computing landscape. Avoid invented prevalence, blame, fatalistic “missed the train” language or university endorsement. Source all repeated English/Bangla story copy from typed data and test both rendered versions.
 
-Use `themes-sample.png` as the visual mood reference: cool off-white/navy light theme, midnight-navy dark theme, editorial hero typography, clear mentor and robot silhouettes. Keep the CSE Compass brand and original generated illustrations; do not copy the sample artwork. Use the checked-in assets and provenance in `docs/illustrations.md`.
+Use `themes-sample.png` as the visual mood reference: cool off-white/navy light theme, midnight-navy dark theme, editorial hero typography, clear mentor and robot silhouettes. Keep the CSE-Pothik brand and original generated illustrations; do not copy the sample artwork. Use the checked-in assets and provenance in `docs/illustrations.md`.
 
 The hero artwork must welcome students of different genders and ethnicities: show three young adult teammates in one static original study-partners illustration. A Chakma Bangladeshi woman stands in the centre with a QA checklist tablet and stylus, between a woman and man each working on a laptop. Keep all three equally prominent and fully visible on phones and in both themes. Do not reintroduce a lone-male default or hide representation in rotating slides. Preserve the future-self encouragement, use accurate English/Bangla alt text, and add no carousel dependency or autoplay motion. Chakma representation in the illustration does not add a third site language.
 
@@ -202,7 +202,7 @@ Expose Competitive Programming (ACM / ICPC) as a distinct practice track under U
 
 Do not turn these into long tutorial courses.
 
-CSE Compass guides students toward learning; it does not replace learning resources.
+CSE-Pothik guides students toward learning; it does not replace learning resources.
 
 # Content quality
 
@@ -608,7 +608,7 @@ Do not accept technically correct but visually poor output.
 
 Create or update `README.md` so that a new maintainer can understand:
 
-- what CSE Compass is;
+- what CSE-Pothik is;
 - product non-goals;
 - architecture;
 - stack;
