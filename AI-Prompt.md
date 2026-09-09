@@ -432,6 +432,8 @@ Do not send:
 
 Make analytics optional/configurable for local and test environments.
 
+Configure the GitHub Pages production build with GA4 measurement ID `G-6GR5VBYXEQ`. Keep the existing privacy-conscious settings and bounded event abstraction. Expose `https://forms.gle/ZKyHbR9MHoebFbnWA` as a quiet bilingual footer invitation for voluntary feedback, opening in a safe new tab. Do not use a popup, embed, floating interruption or primary navigation item. The feedback-link click may use `next_step_clicked` with destination `feedback-form`; never send form responses, free text, email or contact preference to analytics. Explain the Google Forms provider boundary on the privacy page.
+
 # GitHub Pages
 
 Ensure the site works both as:

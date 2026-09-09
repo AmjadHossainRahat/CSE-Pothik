@@ -863,6 +863,8 @@ Emit `career_viewed` and `roadmap_viewed` from their destination page layout so 
 - do not transmit free-text;
 - do not create hidden user IDs.
 
+The GitHub Pages release workflow supplies the public production measurement ID `G-6GR5VBYXEQ`. Preserve environment-driven loading so local and test builds remain analytics-free unless explicitly configured.
+
 ### 22.2 Demographic analytics
 
 If aggregate age/gender reporting or Google Signals is enabled:
@@ -877,6 +879,10 @@ If aggregate age/gender reporting or Google Signals is enabled:
 
 Track outbound resource clicks using resource IDs/providers rather than URL query contents that may accidentally contain user data.
 
+### 22.4 Voluntary feedback
+
+Centralize the Google Form URL `https://forms.gle/ZKyHbR9MHoebFbnWA` in site configuration and expose it as one quiet bilingual invitation in the shared footer. Open it in a new tab with `noopener noreferrer` and the shared accessible new-tab description. Do not embed it, interrupt users with it, float it over content or add it to primary navigation. Track only the bounded click through `next_step_clicked` with destination `feedback-form`; never transmit the response, free text, email or contact preference to GA4. The privacy page must explain that submitted responses are handled by Google Forms and that merely seeing the link submits nothing.
+
 ---
 
 ## 23. Privacy
@@ -890,6 +896,7 @@ Explain:
 - theme/language preferences may be stored locally;
 - GA4 is used for aggregate usage analytics;
 - external resources have their own privacy policies.
+- the voluntary feedback form is an external Google Form and may handle only what the visitor chooses to submit.
 
 Do not claim “anonymous” if the configured analytics implementation does not justify that exact claim.
 

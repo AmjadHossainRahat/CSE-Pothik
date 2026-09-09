@@ -3,6 +3,10 @@ import { siteConfig } from "../../src/config/site";
 import { collaborators, inspirations } from "../../src/data/credits";
 
 describe("project credits", () => {
+  it("keeps the voluntary feedback form centralized", () => {
+    expect(siteConfig.feedbackUrl).toBe("https://forms.gle/ZKyHbR9MHoebFbnWA");
+  });
+
   it("preserves every required inspiration link", () => {
     expect(inspirations.map(({ name, url }) => ({ name, url }))).toEqual([
       { name: "roadmap.sh", url: "https://roadmap.sh/" },

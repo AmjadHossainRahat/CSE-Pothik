@@ -142,7 +142,7 @@ const baseStructuredData = {
       gaId && (
         <script
           is:inline
-          set:html={`window.dataLayer=window.dataLayer||[];window.gtag=function(){window.dataLayer.push(arguments)};window.gtag("js",new Date());window.gtag("config",${JSON.stringify(gaId)},{anonymize_ip:true,allow_google_signals:false});`}
+          set:html={`window.dataLayer=window.dataLayer||[];window.gtag=window.gtag||function(){window.dataLayer.push(arguments)};window.gtag("js",new Date());window.gtag("config",${JSON.stringify(gaId)},{anonymize_ip:true,allow_google_signals:false});`}
         />
       )
     }

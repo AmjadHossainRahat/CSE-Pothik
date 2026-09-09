@@ -18,6 +18,21 @@ for (const locale of ["en", "bn"] as const) {
       await expect(
         footer.getByRole("link", { name: source.name, exact: true }),
       ).toHaveAttribute("href", source.url);
+    const feedbackLink = page.locator(".site-footer").getByRole("link", {
+      name: locale === "en" ? "Share feedback" : "ইচ্ছা হলে জানিয়ে দাও",
+      exact: true,
+    });
+    await expect(feedbackLink).toHaveAttribute("href", siteConfig.feedbackUrl);
+    await expect(feedbackLink).toHaveAttribute("target", "_blank");
+    await expect(feedbackLink).toHaveAttribute("rel", "noopener noreferrer");
+    await expect(feedbackLink).toHaveAttribute(
+      "data-track-event",
+      "next_step_clicked",
+    );
+    await expect(feedbackLink).toHaveAttribute(
+      "data-track-param-destination",
+      "feedback-form",
+    );
     await footer
       .getByRole("link", {
         name: locale === "en" ? "Full credits" : "বিস্তারিত কৃতজ্ঞতা",
@@ -110,6 +125,15 @@ for (const width of [320, 390, 768, 1280, 1600])
         await page.addInitScript(
           (value) => localStorage.setItem("cse-pothik-theme", value),
           theme,
+        );
+        await page.route(
+          /google-analytics\.com|googletagmanager\.com/,
+          (route) =>
+            route.fulfill({
+              status: 200,
+              contentType: "application/javascript",
+              body: "/* GA4 network stub for deterministic local UI checks. */",
+            }),
         );
         const errors: string[] = [];
         page.on("pageerror", (error) => errors.push(error.message));

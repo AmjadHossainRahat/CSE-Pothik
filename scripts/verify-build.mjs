@@ -87,6 +87,8 @@ for (const file of htmlFiles) {
   const localePrefix = label.startsWith("bn/") ? "bn/" : "";
   if (!footer.includes(`${base}/${localePrefix}about/#credits`))
     failures.push(`${label}: missing localized full-credits link`);
+  if (!footer.includes("https://forms.gle/ZKyHbR9MHoebFbnWA"))
+    failures.push(`${label}: missing voluntary feedback link`);
   if (
     label === `${localePrefix}about/index.html` &&
     !html.includes('id="credits"')
@@ -97,6 +99,16 @@ for (const file of htmlFiles) {
   if (!description) failures.push(`${label}: missing meta description`);
   if (/CSE Compass/i.test(html)) {
     failures.push(`${label}: contains the retired public brand name`);
+  }
+  const expectedGaId = process.env.PUBLIC_GA_MEASUREMENT_ID?.trim();
+  if (
+    expectedGaId &&
+    (!html.includes(
+      `https://www.googletagmanager.com/gtag/js?id=${expectedGaId}`,
+    ) ||
+      !html.includes(`gtag("config","${expectedGaId}"`))
+  ) {
+    failures.push(`${label}: missing configured GA4 tag ${expectedGaId}`);
   }
   if (!/<meta\s+property="og:site_name"\s+content="CSE-Pothik"/i.test(html)) {
     failures.push(`${label}: Open Graph site name does not use CSE-Pothik`);

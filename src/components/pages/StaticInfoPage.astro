@@ -31,8 +31,8 @@ const metadata = {
   privacy: {
     title: bn ? "গোপনীয়তা ও Analytics" : "Privacy & Analytics",
     description: bn
-      ? "CSE-Pothik কোনো account, profile বা progress জমা রাখে না। চাইলে চালু করা aggregate GA4 analytics আর browser-এ রাখা preference কীভাবে কাজ করে, তা জানো।"
-      : "Learn how CSE-Pothik uses optional aggregate GA4 analytics and local preferences without accounts, profiles or progress tracking.",
+      ? "CSE-Pothik কোনো account, profile বা progress জমা রাখে না। Aggregate GA4 analytics, browser-এ রাখা preference আর ইচ্ছা হলে ব্যবহার করা বাইরের feedback form কীভাবে কাজ করে, তা জানো।"
+      : "Learn how CSE-Pothik uses aggregate GA4 analytics, local preferences and an optional external feedback form without accounts, profiles or progress tracking.",
   },
   about: {
     title: bn ? "CSE-Pothik সম্পর্কে ও কৃতজ্ঞতা" : "About CSE-Pothik & Credits",
@@ -240,8 +240,8 @@ const structuredData =
             </h1>
             <p class="lede">
               {bn
-                ? "CSE-Pothik একটি static site। তোমার উত্তর, রোডম্যাপ progress, career score, email বা নাম নেওয়ার কোনো form নেই।"
-                : "CSE-Pothik is static. There is no form collecting your answers, roadmap progress, career score, email or name."}
+                ? "CSE-Pothik একটি static site। এখানে account, roadmap progress বা career score জমা রাখা হয় না। আলাদা Google feedback form-টি কেবল তুমি নিজে খুলে উত্তর পাঠাতে চাইলে ব্যবহার হবে।"
+                : "CSE-Pothik is static. It stores no account, roadmap progress or career score. The separate Google feedback form is used only if you choose to open it and submit a response."}
             </p>
           </>
         </header>
@@ -269,8 +269,8 @@ const structuredData =
                   </h2>
                   <p>
                     {bn
-                      ? "Production owner GA4 measurement ID configure করলে page ও product interaction-এর aggregate event পাঠানো হয়—যেমন language switch, career view, experiment start আর resource click। Local/test build-এ ID না থাকলে analytics load হয় না।"
-                      : "If the production owner configures a GA4 measurement ID, aggregate page and product-interaction events are sent, such as language switching, career views, experiment starts and resource clicks. Analytics does not load in local/test builds without an ID."}
+                      ? "Production site-এ GA4 দিয়ে page ও product interaction-এর aggregate event পাঠানো হয়—যেমন language switch, career view, experiment start আর resource click। Search query, form-এর উত্তর বা free text analytics-এ পাঠানো হয় না। Local/test build-এ ID না থাকলে analytics load হয় না।"
+                      : "The production site uses GA4 for aggregate page and product-interaction events, such as language switching, career views, experiment starts and resource clicks. Search queries, form responses and free text are not sent to analytics. Analytics does not load in local/test builds without an ID."}
                   </p>
                 </>
               </article>
@@ -307,11 +307,15 @@ const structuredData =
               </article>
               <article>
                 <>
-                  <h2>{bn ? "বাইরের রিসোর্স" : "External resources"}</h2>
+                  <h2>
+                    {bn
+                      ? "বাইরের রিসোর্স ও feedback form"
+                      : "External resources and feedback form"}
+                  </h2>
                   <p>
                     {bn
-                      ? "Learning-resource link খুললে সেই provider-এর privacy policy প্রযোজ্য। CSE-Pothik resource ID/provider দিয়ে click count করতে পারে; URL query বা তোমার free text পাঠায় না।"
-                      : "When you open a learning resource, that provider’s privacy policy applies. CSE-Pothik may count the click using a resource ID/provider; it does not send URL queries or your free text."}
+                      ? "Learning-resource link বা Google feedback form খুললে সেই provider-এর privacy policy প্রযোজ্য। Feedback form-এ তুমি যা লিখে submit করবে, সেটি Google Forms-এর মাধ্যমে যাবে; শুধু link দেখলেই কোনো উত্তর পাঠানো হয় না। CSE-Pothik resource ID/provider বা feedback-link click গুনতে পারে, কিন্তু URL query, form response বা তোমার free text analytics-এ পাঠায় না।"
+                      : "When you open a learning resource or the Google feedback form, that provider’s privacy policy applies. Anything you choose to enter and submit in the form is handled through Google Forms; merely seeing the link submits nothing. CSE-Pothik may count a resource or feedback-link click, but it does not send URL queries, form responses or your free text to analytics."}
                   </p>
                 </>
               </article>

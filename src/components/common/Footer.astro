@@ -29,6 +29,24 @@ const bn = locale === "bn";
             : "A free educational resource. No accounts, progress tracking or career promises."
         }
       </p>
+      <p class="feedback-invite">
+        {
+          bn
+            ? "কোথাও ধোঁয়াশা, ভুল বা কিছু বাদ পড়েছে মনে হলো?"
+            : "Found something unclear, incorrect or missing?"
+        }{" "}
+        <a
+          href={siteConfig.feedbackUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-describedby="external-link-description"
+          data-track-event="next_step_clicked"
+          data-track-param-destination="feedback-form"
+        >
+          {bn ? "ইচ্ছা হলে জানিয়ে দাও" : "Share feedback"}
+          <span aria-hidden="true">↗</span>
+        </a>
+      </p>
     </div>
     <nav aria-label={bn ? "প্রজেক্ট ও নীতিমালা" : "Project and policy"}>
       <h2>{bn ? "প্রজেক্ট ও নীতিমালা" : "Project & policy"}</h2>
@@ -144,6 +162,13 @@ const bn = locale === "bn";
   }
   .footer-intro {
     max-width: 29rem;
+  }
+  .feedback-invite {
+    margin-top: 0.8rem;
+  }
+  .feedback-invite a {
+    gap: 0.3rem;
+    font-weight: 700;
   }
   .site-footer h2 {
     margin-bottom: 0.8rem;

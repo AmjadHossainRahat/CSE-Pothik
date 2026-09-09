@@ -315,7 +315,7 @@ On smaller screens, retain a compact brand/menu header. Immediately below it, th
 
 Every page uses the persistent context bar as an orientation aid, including a current Home marker on the homepage. Keep it at the viewport top beside the desktop sidebar and immediately below the compact header on mobile/tablet. It must not overlap the header or anchored content. Preserve one readable breadcrumb row by truncating only the current-page label; keep the full text in the accessibility tree and show the complete page title below. Exactly one breadcrumb item receives `aria-current="page"`. With JavaScript disabled, the non-sticky mobile header may leave while the context bar moves to the viewport top.
 
-The footer remains, but it is no longer a duplicate global navigator. Keep a compact product explanation, Why CSE-Pothik, final-year guide, privacy, repository, inspiration and collaboration credits there. The footer is required for provenance and policy even when desktop navigation is persistent.
+The footer remains, but it is no longer a duplicate global navigator. Keep a compact product explanation, Why CSE-Pothik, final-year guide, privacy, repository, inspiration and collaboration credits there. Add one quiet bilingual invitation to the voluntary Google feedback form; it opens in a safe new tab and must not become a popup, embedded interruption, floating control or primary navigation item. The footer is required for provenance and policy even when desktop navigation is persistent.
 
 ### 9.1 Persistent “I’m Lost” path
 
@@ -1385,6 +1385,8 @@ Do **not** send:
 GA4 demographic reporting such as approximate geography and eligible aggregate age/gender data may be used only according to Google’s current requirements, consent/privacy configuration, and applicable law. Treat age/gender as incomplete aggregate signals, not ground truth.
 
 Provide a clear privacy/analytics notice.
+
+Production GitHub Pages builds use GA4 measurement ID `G-6GR5VBYXEQ`; local and test builds keep analytics disabled unless explicitly configured. A feedback-form click may use the existing bounded `next_step_clicked` event with destination `feedback-form`. Never send the form response, free text, email or contact preference to GA4. The external Google Form is voluntary, opens in a new tab and is governed by the provider's privacy handling only after the visitor chooses to use it.
 
 ---
 

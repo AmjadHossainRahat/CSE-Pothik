@@ -45,7 +45,7 @@ jobs:
       - name: Build production site
         run: yarn build
         env:
-          PUBLIC_GA_MEASUREMENT_ID: ${{ vars.PUBLIC_GA_MEASUREMENT_ID }}
+          PUBLIC_GA_MEASUREMENT_ID: "${{ vars.PUBLIC_GA_MEASUREMENT_ID || 'G-6GR5VBYXEQ' }}"
       - name: Verify generated routes, links and metadata
         run: yarn verify:build
       - name: Configure GitHub Pages

@@ -259,7 +259,7 @@ Layouts are mobile-first. Comparison becomes labelled stacked records on narrow 
 
 The orientation map and useful loop explicitly group titles with captions. Breadcrumbs use the same container as the page heading and reset inherited list margins.
 
-Global navigation is responsive but structurally consistent. At `68rem` and above, `Header.astro` renders a fixed 16.75rem labeled sidebar containing five intent groups: Start here, Discover, Prepare, Future and About. Start here begins with explicit bilingual Home; its separate “Find my next step” link jumps to the homepage orientation choices without competing for the current-page marker. Learning Resources belongs to Prepare, not About. The page frame is offset by the sidebar token, the rail can scroll on short screens, and current routes receive `aria-current="page"` plus border/background emphasis. Below that breakpoint, the same links appear in a viewport-bounded native drawer beneath a compact sticky brand/menu header. The drawer works without JavaScript and supports Escape-to-close when enhanced. The footer is intentionally smaller: project purpose, final-year guidance, privacy, repository and provenance remain, while career navigation is not duplicated.
+Global navigation is responsive but structurally consistent. At `68rem` and above, `Header.astro` renders a fixed 16.75rem labeled sidebar containing five intent groups: Start here, Discover, Prepare, Future and About. Start here begins with explicit bilingual Home; its separate “Find my next step” link jumps to the homepage orientation choices without competing for the current-page marker. Learning Resources belongs to Prepare, not About. The page frame is offset by the sidebar token, the rail can scroll on short screens, and current routes receive `aria-current="page"` plus border/background emphasis. Below that breakpoint, the same links appear in a viewport-bounded native drawer beneath a compact sticky brand/menu header. The drawer works without JavaScript and supports Escape-to-close when enhanced. The footer is intentionally smaller: project purpose, final-year guidance, privacy, repository, provenance and a voluntary feedback invitation remain, while career navigation is not duplicated.
 
 Every page uses one shared sticky context bar. Breadcrumbs occupy its left side; the same bar contains site search, language and theme controls on the right. Desktop search exposes its text field and submit button. On mobile/tablet, its labelled magnifier opens the field and results within the same bar so the locator row stays compact. Search filters the typed bilingual index locally, never persists or tracks the query, and shows up to ten internal results without changing route. There are no standalone search pages. The bar sits at the viewport top on desktop and below the compact mobile header; the no-JavaScript fallback moves it to the viewport top when that header becomes non-sticky. It retains Home and parent context while truncating only an oversized current-page label, gives exactly one item `aria-current="page"`, and preserves hash-target clearance.
 
@@ -281,7 +281,7 @@ The same layout suite protects the AI task-model spectrum at the 1088, 1280 and 
 
 ## Analytics and privacy
 
-Analytics is disabled unless `PUBLIC_GA_MEASUREMENT_ID` exists at build time:
+Analytics is disabled unless `PUBLIC_GA_MEASUREMENT_ID` exists at build time. The GitHub Pages production workflow defaults to `G-6GR5VBYXEQ` and permits a repository variable with the same name to override it; local and test builds remain analytics-free unless the variable is deliberately provided:
 
 ```bash
 PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX yarn build
@@ -304,9 +304,13 @@ learning_resource_clicked
 next_step_clicked
 ```
 
-Parameters are bounded scalar IDs. Do not add names, emails, free text, sensitive data, profiles, or hidden user IDs. Google Signals is disabled. The public privacy page explains local preferences, optional aggregate analytics, and external-resource policies.
+Parameters are bounded scalar IDs. Do not add names, emails, free text, sensitive data, profiles, or hidden user IDs. Google Signals is disabled. The public privacy page explains local preferences, aggregate analytics, external-resource policies and the separately operated feedback form.
 
 `career_viewed` and `roadmap_viewed` fire once on the destination page, including direct and homepage-family visits. Links use `next_step_clicked` instead of duplicating view events. The analytics integration test captures calls with a local stub and blocks Google requests; it does not claim delivery to a live GA4 property.
+
+## Feedback
+
+Every page ends with a quiet, bilingual invitation to use the voluntary [CSE-Pothik feedback form](https://forms.gle/ZKyHbR9MHoebFbnWA). It opens Google Forms in a new tab rather than interrupting reading with a popup, embed or floating control. The site may count the link click as `next_step_clicked` with the bounded destination `feedback-form`; it never sends the response or free text to GA4. The privacy page makes the provider boundary explicit.
 
 ## SEO
 
@@ -332,7 +336,7 @@ BASE_PATH=/repository-name SITE_URL=https://username.github.io yarn build
 
 Internal links, assets, canonical URLs, hreflang, sitemap, and robots output honor the base.
 
-`.github/workflows/ci.yml` runs immutable installation, formatting, lint, type checking, tests, build, end-to-end tests, and accessibility tests. Every push to `main` triggers `.github/workflows/deploy-pages.yml`; it repeats the release quality gates, builds with the repository's current name as the GitHub Pages base path, verifies the generated output, uploads only `dist/`, and deploys it to GitHub Pages. A failed check prevents deployment. In the repository's **Settings → Pages**, select **GitHub Actions** as the publishing source once. Set the optional repository variable `PUBLIC_GA_MEASUREMENT_ID` for production analytics.
+`.github/workflows/ci.yml` runs immutable installation, formatting, lint, type checking, tests, build, end-to-end tests, and accessibility tests. Every push to `main` triggers `.github/workflows/deploy-pages.yml`; it repeats the release quality gates, builds with the repository's current name as the GitHub Pages base path and the configured production GA4 measurement ID, verifies the generated output, uploads only `dist/`, and deploys it to GitHub Pages. A failed check prevents deployment. In the repository's **Settings → Pages**, select **GitHub Actions** as the publishing source once.
 
 ## Contribution workflow
 

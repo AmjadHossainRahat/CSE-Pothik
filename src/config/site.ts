@@ -8,6 +8,7 @@ export const siteConfig = {
   creator: "Amjad Hossain",
   creatorUrl: "https://amjadhossainrahat.github.io/",
   repository: "https://github.com/AmjadHossainRahat/CSE-Pothik",
+  feedbackUrl: "https://forms.gle/ZKyHbR9MHoebFbnWA",
   socialImage: "social/cse-pothik-og.png",
 } as const;
 
