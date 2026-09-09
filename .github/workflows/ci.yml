@@ -15,12 +15,13 @@ jobs:
       BASE_PATH: /${{ github.event.repository.name }}
       SITE_URL: https://${{ github.repository_owner }}.github.io
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
-          cache: yarn
+          package-manager-cache: false
       - run: corepack enable
+      - run: yarn --version
       - run: yarn install --immutable
       - run: yarn format:check
       - run: yarn lint

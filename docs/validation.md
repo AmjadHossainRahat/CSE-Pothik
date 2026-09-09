@@ -1,5 +1,18 @@
 # Validation records
 
+## Node 24 GitHub Actions and Yarn 4 bootstrap — 9 September 2026
+
+Updated all workflows away from Node-20-based action releases. CI, Pages deployment and scheduled external-link checks now use `actions/checkout@v7` and `actions/setup-node@v7`; Pages configuration uses `actions/configure-pages@v6`. The setup-node cache lookup that invoked global Yarn 1 before Corepack was removed. Each workflow now disables setup-node package-manager caching, enables Corepack, verifies the resolved Yarn version and then performs the immutable install.
+
+| Check                                 | Result                                                                                                                                                                                                                                    |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Workflow parsing and version audit    | PASS; all three workflow YAML files parsed successfully. No `setup-node@v4`, `checkout@v4`, `configure-pages@v5` or premature `cache: yarn` input remains.                                                                                |
+| Package-manager bootstrap             | PASS; Node 24 resolved project Yarn 4.17.1, and `yarn install --immutable` completed successfully without using global Yarn Classic.                                                                                                      |
+| Format, lint, type and content checks | PASS; `yarn check` completed. Astro checked 164 files with zero errors, warnings or hints; all 56 unit/content tests in 16 files passed.                                                                                                  |
+| GitHub Pages production build         | PASS; `/CSE-Pothik/` emitted 185 HTML pages / 210 files without warnings. Generated verification found no broken local URL or SEO/placeholder defect; bundle inspection confirmed compact CSS/JS, responsive assets and zero source maps. |
+
+The workflow definitions and every command they invoke were validated locally. A hosted runner execution requires pushing the commit; no live workflow run or deployment is claimed here.
+
 ## Voluntary feedback and production analytics — 9 September 2026
 
 Added one quiet bilingual feedback invitation to the shared footer on every page. It opens the supplied Google Form in a safe new tab and does not interrupt reading with a popup, embed, floating control or primary-navigation item. The form URL is centralized in site configuration. The GitHub Pages workflow now injects GA4 measurement ID `G-6GR5VBYXEQ` only for the production build; local and test builds remain analytics-free unless explicitly configured. Existing bounded events, disabled Google Signals and privacy disclosures remain in force, and search text, form responses, contact details and other free text are never sent to GA4.
