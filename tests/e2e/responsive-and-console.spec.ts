@@ -104,6 +104,14 @@ for (const viewport of viewports) {
         if (viewport.width >= 1088) {
           await expect(page.locator(".nav-details nav")).toBeVisible();
         } else {
+          const closedPanelDisplays = await page
+            .locator(
+              ".nav-details > nav, .topbar-search > .topbar-search__popover",
+            )
+            .evaluateAll((elements) =>
+              elements.map((element) => getComputedStyle(element).display),
+            );
+          expect(closedPanelDisplays).toEqual(["none", "none"]);
           await page.locator(".nav-details > summary").click();
           await expect(page.locator(".nav-details nav")).toBeVisible();
           await page.screenshot({

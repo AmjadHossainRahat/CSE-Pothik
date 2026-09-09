@@ -270,6 +270,9 @@ const bn = locale === "bn";
     position: static;
     margin: 0;
   }
+  .topbar-search:not([open]) > .topbar-search__popover {
+    display: none;
+  }
   .topbar-search > summary,
   .topbar-search__form button,
   .topbar-search__result-head button {

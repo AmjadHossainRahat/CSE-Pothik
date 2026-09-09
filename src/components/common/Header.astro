@@ -148,6 +148,9 @@ const currentPath = stripLocale(pathname);
   .nav-details {
     order: 3;
   }
+  .nav-details:not([open]) > nav {
+    display: none;
+  }
   .nav-details summary {
     display: inline-flex;
     width: 2.75rem;

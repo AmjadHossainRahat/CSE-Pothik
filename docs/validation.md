@@ -1,5 +1,20 @@
 # Validation records
 
+## Linux Chromium 320px overflow regression — 9 September 2026
+
+Fixed the four CI failures affecting English light/dark 320px layouts. Closed mobile navigation and search `details` panels now explicitly remove their absolutely positioned panel content from layout. This prevents Chromium/Linux subpixel geometry from extending the document by two pixels while preserving the existing breadcrumb alignment and one-pixel overflow thresholds. A browser regression now verifies that both closed panels compute to `display: none` before testing their open interactions.
+
+| Check                               | Result                                                                                                                                                                                                                       |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Focused 320px production regression | PASS; 24/24 repeated Chromium checks passed across the originally failing guidance and project/infrastructure coverage plus shared responsive/navigation coverage.                                                           |
+| Complete production browser suite   | PASS; 246 checks passed with 106 intentional duplicate-project/matrix skips against `/CSE-Pothik/`, including English/Bangla, light/dark, navigation, console and responsive checks.                                         |
+| Accessibility                       | PASS within automated scope; all 142 axe WCAG A/AA checks passed across representative desktop/mobile, English/Bangla and light/dark pages.                                                                                  |
+| Format, lint, type and unit/content | PASS; `yarn check` completed. Astro checked 164 files with zero errors, warnings or hints; all 56 unit/content tests in 16 files passed.                                                                                     |
+| Production output                   | PASS; the `/CSE-Pothik/` build emitted 185 HTML pages / 210 files without warnings. Generated verification found no broken local URL or SEO/placeholder defect; bundle inspection found compact assets and zero source maps. |
+| Source integrity                    | PASS; `git diff --check` found no whitespace defect, and the mobile overflow assertion remains at its original tolerance.                                                                                                    |
+
+The fix was reproduced and validated locally using the production preview. A hosted Linux runner rerun requires pushing the commit; no live workflow execution or deployment is claimed here.
+
 ## Node 24 GitHub Actions and Yarn 4 bootstrap — 9 September 2026
 
 Updated all workflows away from Node-20-based action releases. CI, Pages deployment and scheduled external-link checks now use `actions/checkout@v7` and `actions/setup-node@v7`; Pages configuration uses `actions/configure-pages@v6`. The setup-node cache lookup that invoked global Yarn 1 before Corepack was removed. Each workflow now disables setup-node package-manager caching, enables Corepack, verifies the resolved Yarn version and then performs the immutable install.
