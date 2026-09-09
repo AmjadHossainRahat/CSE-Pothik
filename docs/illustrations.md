@@ -115,7 +115,7 @@ Use case: illustration-story. Create an original transparent-background PNG illu
 
 ## CSE-Pothik identity and social preview — 9 September 2026
 
-The website mark is an original code-native SVG: an open circular C surrounds a decisive directional needle. `Logo.astro` and `public/favicon.svg` share its geometry. It is not a generated bitmap or an external icon. Semantic navy/teal colors keep the mark usable at small sizes and in both themes. The compact symbol intentionally avoids the text-inside-a-circle treatment used by the separately existing “THE CSE COMPASS” app; CSE-Pothik remains the visible wordmark.
+The website mark is an original code-native SVG: an open circular C surrounds a decisive directional needle. `Logo.astro` and `public/favicon.svg` share its geometry. It is not a generated bitmap or an external icon. Semantic navy/teal colors keep the mark usable at small sizes and in both themes; CSE-Pothik remains the visible wordmark.
 
 `public/social/cse-pothik-og.png` is the replacement original title card, generated once with the built-in ImageGen tool and visually inspected for exact text. It uses navy typography on cool off-white with blue/teal branching directions; it does not introduce a competing logo or character. Source dimensions: 1730 × 909. It is used for social metadata, not loaded in the homepage body.
 

@@ -16,37 +16,53 @@ concurrency:
 
 jobs:
   build:
+    name: Validate and build
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     env:
       BASE_PATH: /${{ github.event.repository.name }}
       SITE_URL: https://${{ github.repository_owner }}.github.io
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 24
           cache: yarn
-      - run: corepack enable
-      - run: yarn install --immutable
-      - run: yarn check
-      - run: yarn playwright install --with-deps chromium
-      - run: yarn test:e2e
-      - run: yarn test:a11y
-      - run: yarn build
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Install dependencies
+        run: yarn install --immutable
+      - name: Run formatting, lint, type and unit/content checks
+        run: yarn check
+      - name: Install Chromium
+        run: yarn playwright install --with-deps chromium
+      - name: Run end-to-end tests
+        run: yarn test:e2e
+      - name: Run accessibility tests
+        run: yarn test:a11y
+      - name: Build production site
+        run: yarn build
         env:
           PUBLIC_GA_MEASUREMENT_ID: ${{ vars.PUBLIC_GA_MEASUREMENT_ID }}
-      - run: yarn verify:build
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - name: Verify generated routes, links and metadata
+        run: yarn verify:build
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload production artifact
+        uses: actions/upload-pages-artifact@v5
         with:
           path: dist
   deploy:
+    name: Deploy to GitHub Pages
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     needs: build
     steps:
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
