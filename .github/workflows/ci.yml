@@ -14,6 +14,8 @@ jobs:
     env:
       BASE_PATH: /${{ github.event.repository.name }}
       SITE_URL: https://${{ github.repository_owner }}.github.io
+      PLAYWRIGHT_SERVER: preview
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
@@ -29,6 +31,7 @@ jobs:
       - run: yarn test
       - run: yarn build
       - run: yarn verify:build
+      - run: yarn inspect:build
       - run: yarn playwright install --with-deps chromium
       - run: yarn test:e2e
       - run: yarn test:a11y

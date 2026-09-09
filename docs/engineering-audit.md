@@ -21,7 +21,7 @@ The expanded guide is split by responsibility: `src/data/project/team-playbooks.
 
 `git ls-files dist .astro node_modules` returned no tracked generated output. Dependencies, build output, caches and test reports are ignored. The intentional Git ignore exception preserves the real source download endpoint. No backend `controllers/`, `services/` or database folders are needed, and introducing empty layers would not improve this site. Folder names alone do not prove quality: review, tests, ownership and reproducibility matter too.
 
-Remote branch protection, repository permissions and deployed-host settings cannot be established from a folder audit. Existing CI and deployment workflows were inspected, not deployed or changed. Browser scripts in those workflows default to the development server; production-preview testing requires `PLAYWRIGHT_SERVER=preview` after a build. Do not confuse the two.
+Remote branch protection, repository permissions and deployed-host settings cannot be established from a folder audit. CI and Pages deployment now build first, verify and inspect `dist/`, then run browser and accessibility suites with `PLAYWRIGHT_SERVER=preview`; the artifact that passes those gates is the one uploaded. Direct local `yarn test:e2e` and `yarn test:a11y` commands still use the development server unless the environment selects preview explicitly.
 
 ## What is optimized
 

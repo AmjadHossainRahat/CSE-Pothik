@@ -31,7 +31,7 @@ const currentPath = stripLocale(pathname);
         <Logo compact />
       </a>
 
-      <details class="nav-details" open>
+      <details class="nav-details">
         <summary aria-label={copy.menu} title={copy.menu}>
           <span aria-hidden="true" class="menu-icon">☰</span>
         </summary>
@@ -102,6 +102,13 @@ const currentPath = stripLocale(pathname);
         max-height: none;
         border: 0;
         box-shadow: none;
+      }
+    }
+
+    @media (min-width: 68rem) {
+      .nav-details > summary {
+        display: inline-flex !important;
+        width: 100%;
       }
     }
   </style>
@@ -282,6 +289,7 @@ const currentPath = stripLocale(pathname);
       display: none;
     }
     .nav-details nav {
+      display: block;
       position: static;
       max-height: none;
       overflow: visible;

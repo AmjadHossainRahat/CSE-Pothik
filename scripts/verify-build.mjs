@@ -7,8 +7,9 @@ const base =
     /^\/$/,
     "",
   );
-const expectedSite =
-  process.env.SITE_URL ?? "https://amjadhossainrahat.github.io";
+const expectedSite = new globalThis.URL(
+  process.env.SITE_URL ?? "https://amjadhossainrahat.github.io",
+).href.replace(/\/+$/, "");
 const failures = [];
 
 function filesUnder(directory) {

@@ -149,6 +149,8 @@ for (const locale of ["en", "bn"] as const) {
       await page.goto(
         `http://127.0.0.1:4321${route(locale === "en" ? "/" : "/bn/")}`,
       );
+      await expect(page.locator(".nav-details nav")).toBeHidden();
+      await page.locator(".nav-details > summary").click();
       await expect(page.locator(".nav-details nav")).toBeVisible();
       await page.locator(".nav-details > summary").click();
       await expect(page.locator(".nav-details nav")).toBeHidden();
@@ -380,6 +382,8 @@ test("homepage and navigation remain useful without JavaScript", async ({
   });
   const page = await context.newPage();
   await page.goto(`http://127.0.0.1:4321${route("/")}`);
+  await expect(page.locator(".nav-details nav")).toBeHidden();
+  await page.locator(".nav-details > summary").click();
   await expect(page.locator(".nav-details nav")).toBeVisible();
   await page.locator(".nav-details > summary").click();
   await expect(page.locator(".nav-details nav")).toBeHidden();
@@ -396,4 +400,18 @@ test("homepage and navigation remain useful without JavaScript", async ({
     )
     .toBeCloseTo(0, 0);
   await context.close();
+
+  const desktopContext = await browser.newContext({
+    javaScriptEnabled: false,
+    viewport: { width: 1280, height: 800 },
+  });
+  const desktopPage = await desktopContext.newPage();
+  await desktopPage.goto(`http://127.0.0.1:4321${route("/")}`);
+  const desktopSummary = desktopPage.locator(".nav-details > summary");
+  await expect(desktopSummary).toBeVisible();
+  await expect(desktopPage.locator(".nav-details nav")).toBeHidden();
+  await desktopSummary.click();
+  await expect(desktopPage.locator(".nav-details nav")).toBeVisible();
+  await expect(desktopPage.locator('[data-nav-item="home"]')).toBeVisible();
+  await desktopContext.close();
 });

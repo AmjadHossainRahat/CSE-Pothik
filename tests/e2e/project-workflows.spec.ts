@@ -25,7 +25,7 @@ for (const locale of ["en", "bn"] as const) {
       await detail.locator("summary").click();
     }
     const toolkit = await request.get(
-      `${base}/downloads/final-year-project.${locale}.md/`,
+      `${base}/downloads/final-year-project.${locale}.md`,
     );
     expect(toolkit.ok()).toBe(true);
     const text = await toolkit.text();

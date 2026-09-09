@@ -1,8 +1,32 @@
 # Validation records
 
+## GitHub runner canonical and production-artifact fixes — 9 September 2026
+
+The project toolkit now uses two explicit extension-bearing Astro endpoints rather than a `[file]` dynamic route. With `trailingSlash: "always"`, Astro's dev router treated the dynamic `.md` parameter as an extensionless route and required `.md/`, while the static build correctly emitted `.md`; the same URL could not serve both environments. Explicit `final-year-project.en.md.ts` and `.bn.md.ts` routes are extension-bearing endpoints, so `/downloads/final-year-project.{locale}.md` is stable in local development, production preview and GitHub Pages.
+
+The eight reported local browser failures were reproduced before the change: both English/Bangla download-response checks failed in both Playwright projects. The same eight focused checks now pass under both development and production-preview servers, and the complete default-development E2E suite passes 246 checks with 106 intentional project/matrix skips. A unit guard prevents replacing the explicit routes with the incompatible generic route.
+
+### Earlier workflow failures resolved in the same change set
+
+Resolved the remaining workflow failures shown in the supplied GitHub logs. Astro correctly serialized the mixed-case `github.repository_owner` hostname to lowercase, but the generated-output verifier compared it as case-sensitive text; the verifier now normalizes the configured site through the URL parser before checking canonicals, same-host links and `robots.txt`. The logs also exposed three English and three Bangla toolkit links ending in `.md/` while static generation emits `.md` files; all page links and browser expectations now use the real file URL.
+
+Both CI and Pages deployment now build before browser testing, verify generated routes and metadata, inspect emitted bundles, and run Playwright with `PLAYWRIGHT_SERVER=preview`. The deploy job keeps the production GA4 ID in job scope so the built and tested artifact is exactly the artifact uploaded to Pages. A 30-minute CI job timeout prevents abandoned runners without reducing test coverage.
+
+| Check                                        | Result                                                                                                                                                                                                                                      |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GitHub environment reproduction              | PASS; `SITE_URL=https://AmjadHossainRahat.github.io` and `BASE_PATH=/CSE-Pothik` now pass canonical, sitemap, robots and local-link verification using normal case-insensitive hostname semantics.                                          |
+| Format, lint, type and unit/content          | PASS; `yarn check` completed. Astro checked 164 files with zero errors, warnings or hints; all 57 unit/content tests in 16 files passed.                                                                                                    |
+| Production build and generated output        | PASS; 185 HTML pages / 210 files built without warnings. `yarn verify:build` found no broken local URL, canonical, sitemap, robots, SEO or placeholder defect; both Markdown toolkit files are present and linked without a trailing slash. |
+| Production bundle inspection                 | PASS; compact one-line CSS/JS bundles, six responsive WebP assets and zero source maps were confirmed.                                                                                                                                      |
+| Complete production browser regression       | PASS; 246 checks passed with 106 intentional duplicate-project/matrix skips, including the formerly failing English light/dark 320px cases and both downloadable toolkit routes.                                                            |
+| Complete production accessibility regression | PASS within automated scope; all 142 axe WCAG A/AA checks passed across representative desktop/mobile, English/Bangla and light/dark pages.                                                                                                 |
+| Source integrity                             | PASS; `git diff --check` found no whitespace defect.                                                                                                                                                                                        |
+
+The complete workflow command sequence was reproduced locally against the production artifact. A hosted Ubuntu runner execution requires pushing this change; no successful remote workflow run or deployment is claimed here.
+
 ## Linux Chromium 320px overflow regression — 9 September 2026
 
-Fixed the four CI failures affecting English light/dark 320px layouts. Closed mobile navigation and search `details` panels now explicitly remove their absolutely positioned panel content from layout. This prevents Chromium/Linux subpixel geometry from extending the document by two pixels while preserving the existing breadcrumb alignment and one-pixel overflow thresholds. A browser regression now verifies that both closed panels compute to `display: none` before testing their open interactions.
+Fixed the four CI failures affecting English light/dark 320px layouts. Navigation and search disclosures now render closed in static HTML, then open on desktop after the responsive controller initializes; this removes the hosted-runner race where mobile Chromium could briefly measure desktop panels. Closed panels also explicitly remove their absolutely positioned content from layout. This prevents Chromium/Linux subpixel geometry from extending the document by two pixels while preserving the existing breadcrumb alignment and one-pixel overflow thresholds. Browser regressions verify closed, open and closed-again states with JavaScript, without JavaScript and under reduced motion.
 
 | Check                               | Result                                                                                                                                                                                                                       |
 | ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

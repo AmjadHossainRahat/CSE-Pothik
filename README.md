@@ -152,7 +152,7 @@ Run the non-browser suite with `yarn check`.
 
 See [the validation report](docs/validation.md) for completed checks, fixes and genuine verification limitations.
 
-Browser tests normally use the development server. To exercise the actual production HTML and optimized assets, build first and set `PLAYWRIGHT_SERVER=preview`. Keep the same `BASE_PATH` for build, verification and browser tests. For a project-Pages production check in PowerShell:
+Local browser tests use the development server unless configured otherwise. CI and Pages deployment build first and set `PLAYWRIGHT_SERVER=preview`, so their browser and accessibility gates exercise the exact static artifact that can be deployed. Keep the same `BASE_PATH` and `SITE_URL` for build, verification and browser tests. Hostnames are compared using normal URL semantics, so GitHub's mixed-case account name and the lowercase canonical hostname are equivalent. For a project-Pages production check in PowerShell:
 
 ```powershell
 $env:BASE_PATH = "/CSE-Pothik"
@@ -225,7 +225,7 @@ Competitive Programming (ACM / ICPC) is a separate practice track under Understa
 
 `/guidance/final-year-project/` and its `/bn/` equivalent connect requirements, design decisions, small reviewed changes, CI, tests, security/privacy/accessibility, reproducibility and handover. Seven stages each include why, actions, readiness evidence, not-yet guidance and a scoped source. A worked requirement-to-release example and four project-type disclosures make the standard usable for software/mobile, research/ML, hardware/embedded and network/security projects. Department rubrics, supervisor decisions and ethics/safety requirements take priority; this is not accreditation or certification.
 
-`src/data/final-year-project.ts` is the typed bilingual source, rendered by `FinalYearProject.astro`. The download endpoint `src/pages/downloads/[file].ts` produces real Markdown evidence templates in both languages; the route is explicitly exempted from the temporary-download Git ignore rule. Templates contain authoring prompts, not fabricated results or completed reports. Links live in roadmaps, engineering foundations, goal guides and the footer; the homepage gains no extra section. No checklist state, progress score or client framework is added.
+`src/data/final-year-project.ts` is the typed bilingual source, rendered by `FinalYearProject.astro`. Explicit `.md.ts` endpoints under `src/pages/downloads/` produce real Markdown evidence templates in both languages at stable extension-bearing URLs; unlike a generic dynamic route, they behave identically under Astro dev, production preview and GitHub Pages. The endpoints are explicitly exempted from the temporary-download Git ignore rule. Templates contain authoring prompts, not fabricated results or completed reports. Links live in roadmaps, engineering foundations, goal guides and the footer; the homepage gains no extra section. No checklist state, progress score or client framework is added.
 
 `tests/content/project-and-infrastructure.test.ts` checks full bilingual content, family membership, tailored roadmaps and project-stage references. `tests/e2e/project-and-infrastructure.spec.ts` covers the three careers across four route types, comparison, downloads, equivalent language switching, no-JavaScript keyboard use and the five-width/two-theme/two-language matrix.
 
@@ -336,7 +336,7 @@ BASE_PATH=/repository-name SITE_URL=https://username.github.io yarn build
 
 Internal links, assets, canonical URLs, hreflang, sitemap, and robots output honor the base.
 
-`.github/workflows/ci.yml` runs immutable installation, formatting, lint, type checking, tests, build, end-to-end tests, and accessibility tests. Every push to `main` triggers `.github/workflows/deploy-pages.yml`; it repeats the release quality gates, builds with the repository's current name as the GitHub Pages base path and the configured production GA4 measurement ID, verifies the generated output, uploads only `dist/`, and deploys it to GitHub Pages. A failed check prevents deployment. In the repository's **Settings → Pages**, select **GitHub Actions** as the publishing source once.
+`.github/workflows/ci.yml` runs immutable installation, formatting, lint, type checking, tests, the production build, generated-output verification, bundle inspection, and browser/accessibility tests against that built artifact. Every push to `main` triggers `.github/workflows/deploy-pages.yml`; it repeats the same release gates with the repository's current name as the GitHub Pages base path and the configured production GA4 measurement ID, uploads only the tested `dist/`, and deploys it to GitHub Pages. A failed check prevents deployment. In the repository's **Settings → Pages**, select **GitHub Actions** as the publishing source once.
 
 ## Contribution workflow
 
