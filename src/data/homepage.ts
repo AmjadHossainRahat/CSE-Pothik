@@ -47,8 +47,8 @@ export const aiEraMessage = {
     "একজন fresh graduate-কে নতুন feature দেওয়া হলো। সে company AI-কে বলল system design আর code তৈরি করে দিতে। উত্তরটি দেখলে বেশ আত্মবিশ্বাসীই মনে হয়। কিন্তু এরপর কী হবে, তা prompt কত বড় ছিল তার চেয়ে AI কী context পেয়েছে এবং engineer সেটি কতটা বুঝে যাচাই করতে পারে—তার ওপর বেশি নির্ভর করে।",
   ),
   closing: l(
-    "Code fluency, algorithms and data structures remain useful; speed alone is not enough. SOLID and design patterns can provide vocabulary, but they are not a checklist to force into every feature. Learn the principles, recognise when a simpler design is better, and escalate high-impact decisions with evidence.",
-    "Code fluency, algorithm আর data structure এখনও দরকারি; তবে শুধু দ্রুত code লিখতে পারাই যথেষ্ট নয়। SOLID ও design pattern ভাবনার ভাষা দেয়, কিন্তু প্রতিটি feature-এ গুঁজে দেওয়ার checklist নয়। নীতিটা বোঝো, কখন সহজ design-ই ভালো তা চিনে নাও, আর বড় প্রভাবের সিদ্ধান্তে evidence নিয়ে অভিজ্ঞ কারও মত নাও।",
+    "Code fluency, algorithms and data structures remain useful; speed alone is not enough. Clean code, code smells, SOLID, design patterns and defensive programming give you lenses for reviewing change—but not a checklist to force into every feature. Learn the principles, prefer the simplest adequate design and escalate high-impact decisions with evidence.",
+    "Code fluency, algorithm আর data structure এখনও দরকারি; তবে শুধু দ্রুত code লিখতে পারাই যথেষ্ট নয়। Clean code, code smell, SOLID, design pattern আর defensive programming change review করার lens দেয়—প্রতিটি feature-এ গুঁজে দেওয়ার checklist নয়। নীতিটা বোঝো, কাজ চালানোর সবচেয়ে সহজ design বেছে নাও, আর বড় প্রভাবের সিদ্ধান্তে evidence নিয়ে অভিজ্ঞ কারও মত নাও।",
   ),
 } satisfies Record<string, LocalizedText>;
 

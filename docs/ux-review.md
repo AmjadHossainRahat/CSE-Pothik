@@ -1,6 +1,14 @@
 # Fresher UX review and repository cleanup
 
-Reviewed 1–8 September 2026. This is a source-informed heuristic review, with targeted browser validation of the changed navigation, directories, search and recovery experience. It is not a usability study, measured conversion result or “best UX” certification. Actual test results and browser limitations are recorded in [validation.md](validation.md).
+Reviewed 1–9 September 2026. This is a source-informed heuristic review, with targeted browser validation of the changed navigation, directories, search and recovery experience. It is not a usability study, measured conversion result or “best UX” certification. Actual test results and browser limitations are recorded in [validation.md](validation.md).
+
+## AI-era engineering foundations — 9 September 2026
+
+The foundations guide already mentioned most requested terms, but they read as an ordinary concept catalogue. That missed the student's likely question: if AI writes the code, why should I learn any of this? The revised opening makes the bottleneck shift explicit—code generation is cheaper, while comprehension, review, safe change and failure ownership remain human engineering work. Five linked lenses provide a fast path into the longer sequence: Clean Code for intent, Code Smells for change pressure, SOLID for responsibilities and dependencies, Design Patterns for conditional shared vocabulary, and Defensive Programming for explicit boundaries and failure.
+
+Every foundation topic now gives a distinct AI-era reason alongside when to learn it, enough-for-now depth, a small practice and an overengineering warning. Defensive Programming covers malformed input, timeouts, permissions, dependencies and AI-output boundaries without teaching blanket exception swallowing or secret logging. Refactoring, testing and architectural boundaries remain in the sequence because vocabulary without protected changes is not evidence. The homepage names all five lenses inside its existing AI narrative, and the shared professional roadmap stage adds clean code and defensive boundaries without creating another homepage section or route.
+
+The three supplied Refactoring.Guru destinations are separate, scoped resources beside their matching topics and in the learning shelf. The existing `refactoring-guru` ID remains stable for roadmap relationships but now targets the focused Clean Code/refactoring page; Code Smells and Design Patterns have their own typed entries. All outbound links retain new-tab safety and bounded analytics. This is a review framework, not a claim that SOLID, every pattern or any particular architecture is a universal fresher requirement.
 
 ## Unified context bar, purpose story and sharing preview — 9 September 2026
 

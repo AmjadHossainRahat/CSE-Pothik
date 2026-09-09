@@ -681,9 +681,10 @@ Create a mentor-level guidance path covering:
 - Clean Code concepts;
 - Code Smells;
 - Refactoring;
-- SOLID;
+- SOLID Principles;
 - Design Principles;
 - Design Patterns;
+- Defensive Programming at user-input, API, file, database, dependency and AI-output boundaries;
 - Testing/Testability;
 - Architectural Boundaries.
 
@@ -692,6 +693,7 @@ Do not build a detailed tutorial library.
 For each topic answer:
 
 - Why does it matter?
+- Why does it matter more when AI can produce plausible code quickly?
 - When should I learn it?
 - How deeply do I need it now?
 - What problem does it solve?
@@ -700,6 +702,10 @@ For each topic answer:
 - What is a small practice task?
 
 Use realistic warnings against overengineering.
+
+Lead the page with one compact AI-era explanation: generation throughput has increased, but comprehension, verification, safe change and failure ownership remain engineering responsibilities. Expose Clean Code → Code Smells → SOLID → Design Patterns → Defensive Programming as five scannable review lenses while retaining Refactoring, testing and architectural boundaries as the evidence-producing sequence around them. AI-specific reasons must be concrete and distinct for every topic, not repeated generic motivation.
+
+Keep the existing `refactoring-guru` resource ID stable for roadmap relationships, but point it to the supplied Clean Code/refactoring URL. Add separately typed `code-smells` and `design-patterns` resources using the supplied focused URLs. Render the three references beside their matching topic and in the selected-learning shelf, always with the site's safe new-tab and bounded analytics contract. Index all five requested concepts, including Defensive Programming, in both search languages. Test the topic order, exact URLs, outbound attributes, no-JavaScript content, responsive containment and English/Bangla accessibility.
 
 ---
 

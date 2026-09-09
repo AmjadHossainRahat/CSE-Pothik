@@ -35,6 +35,8 @@ for (const route of [
   "/try/application-security/",
   "/guidance/competitive-programming/",
   "/bn/guidance/competitive-programming/",
+  "/guidance/software-engineering-foundations/",
+  "/bn/guidance/software-engineering-foundations/",
 ]) {
   test(`has no detectable WCAG A/AA violations: ${route}`, async ({ page }) => {
     await page.goto(withBase(route));
@@ -68,6 +70,7 @@ for (const route of [
   "/roadmaps/application-security/",
   "/roadmaps/ai-engineering/",
   "/bn/guidance/competitive-programming/",
+  "/guidance/software-engineering-foundations/",
 ]) {
   test(`has no detectable dark-theme WCAG A/AA violations: ${route}`, async ({
     page,

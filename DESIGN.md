@@ -807,19 +807,22 @@ Professional engineering knowledge should exist in the roadmaps, but the site mu
 
 Important topics include:
 
-- readable code;
+- Clean Code and intention-revealing naming;
 - naming;
 - cohesion and coupling;
 - code smells;
 - refactoring;
-- SOLID;
+- SOLID Principles;
 - design principles;
 - common design patterns;
+- defensive programming at input, dependency and AI-output boundaries;
 - testing and testability;
 - dependency direction;
 - clean architecture / architectural boundaries at the appropriate stage.
 
-Teach the **reason to learn**, **when to learn**, **how deep to go**, and **where to learn**.
+Teach the **reason to learn**, **why the topic matters more when AI can generate plausible code quickly**, **when to learn**, **how deep to go**, and **where to learn**. The central AI-era message is that code production became cheaper while understanding, review, safe change and failure ownership did not. Give every topic one concrete AI-review pressure and one small project practice.
+
+Make five review lenses especially easy to scan: Clean Code helps a reviewer understand intent; Code Smells reveal change pressure; SOLID helps discuss responsibilities and dependencies; Design Patterns provide conditional team vocabulary; Defensive Programming makes boundaries and failure explicit. Keep Refactoring, testing and architectural boundaries in the sequence that turns those lenses into evidence. Link Clean Code, Code Smells and Design Patterns to their focused Refactoring.Guru guides with scoped bilingual advice; links are learning references, not endorsements or curricula to copy.
 
 Do not encourage pattern memorization.
 

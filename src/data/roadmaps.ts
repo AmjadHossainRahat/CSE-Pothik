@@ -99,11 +99,15 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
           "তোমার কাজকে readable, testable, reviewable আর অন্যের depend করার মতো safe করো।",
         ),
         [
-          l("Readable code and naming", "Readable code আর naming"),
+          l("Clean code and naming", "Clean code আর naming"),
           l("Testing and testability", "Testing আর testability"),
           l(
             "Code smells, refactoring and boundaries",
             "Code smell, refactoring আর boundary",
+          ),
+          l(
+            "Defensive programming at external boundaries",
+            "External boundary-তে defensive programming",
           ),
         ],
         l(

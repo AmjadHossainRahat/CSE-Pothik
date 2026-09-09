@@ -203,12 +203,12 @@ const directoryEntries: SearchEntry[] = [
       "Software engineering foundation",
     ),
     description: l(
-      "Learn clean code, refactoring, SOLID, testing and architecture at the right stage.",
-      "ঠিক সময়ে clean code, refactoring, SOLID, testing আর architecture শেখো।",
+      "Learn how clean code, code smells, SOLID, design patterns and defensive programming help you review and own AI-assisted work.",
+      "Clean code, code smell, SOLID, design pattern আর defensive programming দিয়ে AI-assisted কাজ review আর own করতে শেখো।",
     ),
     keywords: l(
-      "design patterns code smells architecture testing",
-      "design pattern code smell architecture testing",
+      "clean code code smells refactoring SOLID principles design patterns defensive programming architecture testing AI review maintainability",
+      "clean code code smell refactoring SOLID principle design pattern defensive programming architecture testing AI review maintainability",
     ),
   },
   {

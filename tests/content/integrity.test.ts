@@ -108,6 +108,15 @@ describe("content integrity", () => {
     }
     expect(resourceIds.has("accidental-cto")).toBe(true);
     expect(
+      resources.find((resource) => resource.id === "refactoring-guru")?.url,
+    ).toBe("https://refactoring.guru/refactoring/what-is-refactoring");
+    expect(
+      resources.find((resource) => resource.id === "code-smells")?.url,
+    ).toBe("https://refactoring.guru/refactoring/smells");
+    expect(
+      resources.find((resource) => resource.id === "design-patterns")?.url,
+    ).toBe("https://refactoring.guru/design-patterns");
+    expect(
       careers.every((career) =>
         career.resourceIds.every((id) => resourceIds.has(id)),
       ),
@@ -168,6 +177,13 @@ describe("content integrity", () => {
         ),
       ).toBe(true);
     }
+    const foundations = searchEntries.find(
+      (entry) => entry.id === "software-foundations",
+    );
+    expect(foundations?.keywords.en).toMatch(
+      /clean code.*code smells.*SOLID principles.*design patterns.*defensive programming/i,
+    );
+    expect(foundations?.description.bn).toContain("AI-assisted");
     expect(
       resources.every((resource) =>
         searchEntries.some((entry) => entry.id === `resource-${resource.id}`),

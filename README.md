@@ -187,6 +187,12 @@ English is the canonical editorial source. Bangla is edited as original conversa
 
 Dynamic routes generate the English and Bangla career, roadmap, experiment, and AI pages automatically.
 
+### Software engineering foundations in the AI era
+
+`SoftwareFoundations.astro` presents Clean Code, Code Smells, Refactoring, Defensive Programming, SOLID Principles, Design Principles, Design Patterns, testing and architectural boundaries as a practical review sequence. Every topic explains its ordinary purpose, its distinct AI-era pressure, when to learn it, enough-for-now depth, one exercise and one misuse to avoid. A compact five-lens navigator keeps Clean Code, Code Smells, SOLID, Design Patterns and Defensive Programming easy to find without adding another global route or homepage section.
+
+The focused Clean Code, Code Smells and Design Patterns references are separate typed entries in `src/data/resources.ts`; `refactoring-guru` remains the stable ID used by existing roadmap relationships. All three render with scoped English/Bangla advice, safe new-tab behavior and bounded resource-click analytics. Career roadmaps include clean code and defensive boundaries in their shared professional-engineering stage, and the bilingual static search indexes all five concepts.
+
 ### Add or change a roadmap
 
 Roadmaps are generated from career learning layers in `src/data/roadmaps.ts`. Every stage must explain intent, topics, “enough for now,” one practical task, what not to learn yet, and a small Learn → Practice → Go Deeper resource set. Do not turn a roadmap into a technology checklist.

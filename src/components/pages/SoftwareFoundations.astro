@@ -2,6 +2,7 @@
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
 import ResourceList from "@/components/common/ResourceList.astro";
 import { localePath, withBase } from "@/config/site";
+import { resourceById } from "@/data/resources";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { Locale } from "@/types/content";
 interface Props {
@@ -12,29 +13,43 @@ const bn = locale === "bn";
 const topics = bn
   ? [
       [
-        "Readable Code",
+        "Clean Code",
         "ভালো নাম, ছোট coherent unit আর সহজ flow থাকলে team-এর অন্যরাও code বদলাতে পারে।",
+        "AI কয়েক সেকেন্ডে অনেক code দিতে পারে; পরিষ্কার নাম আর সহজ flow না থাকলে review-এর বোঝা আর ভুল—দুটিই দ্রুত বাড়ে।",
         "দুই-তিনটি ছোট program বানানোর পর থেকেই শেখা শুরু করো।",
         "নিজের project-এর confusing একটি function-এর নাম বদলাও বা ছোট ভাগে ভাঙো।",
         "‘Clean’ করতে গিয়ে এমন clever abstraction বানিয়ো না, যা পরে নিজেকেই অভিধান নিয়ে পড়তে হয়।",
+        "refactoring-guru",
       ],
       [
         "Code Smells",
         "Code smell নিজে bug নয়; code বদলানো কঠিন হতে পারে—তার ইঙ্গিত।",
+        "Generated code compile করলেও duplicate logic, long method বা hidden coupling রেখে যেতে পারে। Smell তোমাকে কোথায় প্রশ্ন করতে হবে, সেই radar দেয়।",
         "একই সমস্যায় বারবার আটকে গেলে।",
         "Duplicate logic বা long parameter list খুঁজে cost লিখো।",
         "Smell catalogue মুখস্থ করে প্রতিটি code-কে আসামির কাঠগড়ায় দাঁড় করিয়ো না।",
+        "code-smells",
       ],
       [
         "Refactoring",
         "আচরণ না বদলে design উন্নত করার disciplined পদ্ধতি।",
+        "AI-কে ‘পুরোটাই rewrite করো’ বলার বদলে ছোট verified change করতে পারলে regression, token আর review cost নিয়ন্ত্রণে থাকে।",
         "Testable working code হওয়ার পরে।",
         "Characterization test দিয়ে একটি function simplify করো।",
         "ভাঙা behavior আর architecture—দুটো একসঙ্গে rewrite কোরো না।",
       ],
       [
-        "SOLID",
+        "Defensive Programming",
+        "Input, dependency আর failure সম্পর্কে assumption স্পষ্ট করে system-কে নিরাপদভাবে ব্যর্থ হতে শেখায়।",
+        "AI happy path-এ বেশ বিশ্বাসযোগ্য হতে পারে; malformed input, timeout, missing permission বা অসম্পূর্ণ context-এ কী হবে—সেই দায় engineer-এরই।",
+        "User input, API, file, database বা AI output-এর boundary যোগ হলেই।",
+        "একটি external input validate করো, failure result স্পষ্ট করো এবং malformed case-এর test দাও।",
+        "সব exception গিলে ফেলো না, secret log কোরো না, আর impossible state চুপচাপ accept কোরো না।",
+      ],
+      [
+        "SOLID Principles",
         "Dependency আর responsibility নিয়ে team-এ কথা বলার একটি vocabulary।",
+        "AI advanced abstraction বানাতে পারে; SOLID-এর প্রশ্নগুলো দিয়ে বোঝো change-এর কারণগুলো মিশেছে কি না এবং dependency বদলানো বা test করা অযথা কঠিন হচ্ছে কি না।",
         "ছোট application বানিয়ে change-এর কষ্ট নিজে দেখার পরে।",
         "একটি class-এর responsibility split justified কি না explain করো।",
         "SOLID-এর প্রতিটি letter দেখেই একটি করে interface বানাতে বসো না।",
@@ -42,6 +57,7 @@ const topics = bn
       [
         "Design Principles",
         "Cohesion, coupling, information hiding আর dependency direction change cost কমায়।",
+        "AI-এর suggestion বিচার করতে principle দরকার: কোন boundary স্থিতিশীল, কোন dependency উল্টো হওয়া উচিত আর কোথায় simple code-ই যথেষ্ট।",
         "Multiple module-এর project-এ।",
         "একটি dependency arrow উল্টে testability improve করো।",
         "Diagram সুন্দর হলেই design ভালো—এমন ধরে নিয়ো না। আঁকতে ভালো হলেই architect হওয়া যায় না।",
@@ -49,13 +65,16 @@ const topics = bn
       [
         "Design Patterns",
         "Recurring design pressure-এর shared vocabulary।",
+        "AI pattern-এর নাম জানে, কিন্তু তোমার trade-off জানে না। Pattern বুঝলে suggestion চিনতে, team-এর সঙ্গে আলোচনা করতে এবং অকারণ complexity ফিরিয়ে দিতে পারো।",
         "সমস্যাটি নিজের code-এ দেখার পরে।",
         "Strategy বা Adapter দিয়ে existing pain solve করে alternative compare করো।",
         "২৩টি GoF pattern মুখস্থ করে সকালের নাশতাতেও Factory খুঁজতে যেয়ো না।",
+        "design-patterns",
       ],
       [
         "Testing & Testability",
         "Change confidence আর design feedback দেয়।",
+        "AI-generated outcome দেখতে ঠিক লাগতে পারে; executable test confidence-এর বদলে evidence দেয় এবং পরের change-এ behavior ধরে রাখে।",
         "Business rule বা repeated regression শুরু হলেই।",
         "Happy path, edge case আর failure behavior-এর test দাও।",
         "Coverage percentage-কে project-এর পরীক্ষার নম্বর বানিয়ো না।",
@@ -63,6 +82,7 @@ const topics = bn
       [
         "Architectural Boundaries",
         "Policy-কে framework, UI আর external service থেকে আলাদা রাখে।",
+        "ভালো boundary দিলে AI-কে ছোট context-এ bounded task দেওয়া যায়; খারাপ boundary হলে একটি change অনেক অজানা জায়গায় ছড়িয়ে পড়ে।",
         "Project-এর change reason আলাদা হতে শুরু করলে।",
         "Core rule-কে I/O ছাড়া testable module-এ নাও।",
         "Tiny CRUD app-এ enterprise clean architecture-এর cosplay কোরো না।",
@@ -70,29 +90,43 @@ const topics = bn
     ]
   : [
       [
-        "Readable Code",
+        "Clean Code",
         "Names, coherent units and obvious flow help a team change software safely.",
+        "AI can produce more code in seconds; without clear names and obvious flow, review load and plausible mistakes scale just as quickly.",
         "Start after building two or three small programs.",
         "Rename and split one confusing function in your project.",
         "Do not create clever abstractions in the name of ‘clean.’",
+        "refactoring-guru",
       ],
       [
         "Code Smells",
         "A smell is not a bug; it is a signal that change may be getting expensive.",
+        "Generated code may compile while preserving duplication, long methods or hidden coupling. Smells give you a radar for where to question it.",
         "Learn when the same pain repeats.",
         "Find duplicate logic or a long parameter list and describe its cost.",
         "Do not memorize a smell catalogue and put every line on trial.",
+        "code-smells",
       ],
       [
         "Refactoring",
         "A disciplined way to improve design without changing behavior.",
+        "Small verified refactors control regression, token and review cost better than asking AI to rewrite an entire working area.",
         "After the code works and can be protected by tests.",
         "Add a characterization test, then simplify one function.",
         "Do not rewrite broken behavior and architecture at the same time.",
       ],
       [
-        "SOLID",
+        "Defensive Programming",
+        "Makes assumptions about inputs, dependencies and failure explicit so a system can fail safely.",
+        "AI can look convincing on the happy path; malformed input, timeouts, missing permissions and incomplete context still belong to the engineer.",
+        "As soon as you add a user input, API, file, database or AI-output boundary.",
+        "Validate one external input, return an explicit failure and test a malformed case.",
+        "Do not swallow every exception, log secrets or silently accept impossible states.",
+      ],
+      [
+        "SOLID Principles",
         "Vocabulary for discussing dependencies and responsibilities.",
+        "AI can produce sophisticated abstractions; SOLID questions help you detect mixed reasons to change and dependencies that are unnecessarily hard to replace or test.",
         "After building a small application and feeling change pain.",
         "Explain whether splitting one responsibility improves a real change.",
         "Do not create an interface for every letter and call it architecture.",
@@ -100,6 +134,7 @@ const topics = bn
       [
         "Design Principles",
         "Cohesion, coupling, information hiding and dependency direction reduce change cost.",
+        "Principles let you judge an AI suggestion: which boundary should remain stable, which dependency should point inward and where simple code is enough.",
         "When projects have multiple modules and change reasons.",
         "Reverse one dependency arrow to improve testability.",
         "A beautiful diagram is not evidence of a good design.",
@@ -107,13 +142,16 @@ const topics = bn
       [
         "Design Patterns",
         "Shared vocabulary for recurring design pressures.",
+        "AI knows pattern names but not your trade-off. Understanding patterns lets you recognize a suggestion, discuss it and reject complexity that solves no present problem.",
         "After meeting the problem firsthand.",
         "Use Strategy or Adapter on a real pain and compare an alternative.",
         "Do not memorize all 23 GoF patterns and see Factory in your breakfast.",
+        "design-patterns",
       ],
       [
         "Testing & Testability",
         "Tests create change confidence and expose design friction.",
+        "Generated output can look correct; executable tests replace confidence with evidence and preserve behavior through the next change.",
         "As soon as business rules or regressions appear.",
         "Test a happy path, edge case and failure behavior.",
         "Do not turn coverage percentage into a quality score.",
@@ -121,6 +159,7 @@ const topics = bn
       [
         "Architectural Boundaries",
         "Boundaries separate policy from UI, frameworks and external services.",
+        "Good boundaries let you give AI a small, bounded context. Poor boundaries turn one requested change into edits across unknown parts of the system.",
         "When parts of a project change for different reasons.",
         "Move one core rule into an I/O-free, testable module.",
         "Do not perform enterprise architecture cosplay in a tiny CRUD app.",
@@ -166,20 +205,74 @@ const topics = bn
     </p>
   </header>
   <section class="section section--tinted">
-    <div class="container callout callout--warm">
-      <p class="callout__label">
-        {bn ? "এগোনোর আগে একবার থামো" : "Before you continue"}
-      </p><h2>
+    <div class="container ai-era-foundations">
+      <div class="callout callout--warm">
+        <p class="callout__label">
+          {bn ? "AI যুগে আসল bottleneck" : "The AI-era bottleneck"}
+        </p><h2>
+          {
+            bn
+              ? "Code বানানো সহজ হয়েছে। বোঝা, যাচাই করা আর safely বদলানো সহজ হয়নি।"
+              : "Producing code became easier. Understanding, verifying and changing it safely did not."
+          }
+        </h2><p>
+          {
+            bn
+              ? "AI output যত বাড়ে, review-এর দায়ও তত বাড়ে। এই ধারণাগুলো fancy vocabulary নয়—generated code merge করার আগে কোথায় প্রশ্ন করবে, কীভাবে complexity কমাবে আর failure সামলাবে, তার practical lens।"
+              : "As AI output grows, so does the responsibility to review it. These ideas are not decorative vocabulary; they are practical lenses for questioning generated code, reducing needless complexity and containing failure before you merge."
+          }
+        </p>
+      </div>
+      <ol
+        class="review-lenses"
+        aria-label={bn
+          ? "AI output review করার পাঁচটি lens"
+          : "Five lenses for reviewing AI output"}
+      >
         {
-          bn
-            ? "আগে software বানাও। তারপর design-এর কোথায় ব্যথা, তার নাম শিখো।"
-            : "Build software first. Then learn the names of its design pain."
+          [
+            ["clean-code", "01", "Clean Code", bn ? "বোঝো" : "Understand"],
+            [
+              "code-smells",
+              "02",
+              "Code Smells",
+              bn ? "ঝুঁকি দেখো" : "Detect pressure",
+            ],
+            [
+              "solid-principles",
+              "03",
+              "SOLID",
+              bn ? "দায় ভাগ করো" : "Separate reasons",
+            ],
+            [
+              "design-patterns",
+              "04",
+              "Patterns",
+              bn ? "Trade-off বলো" : "Name a trade-off",
+            ],
+            [
+              "defensive-programming",
+              "05",
+              "Defensive",
+              bn ? "Failure সামলাও" : "Contain failure",
+            ],
+          ].map(([id, number, label, action]) => (
+            <li>
+              <a href={`#${id}`}>
+                <span>{number}</span>
+                <strong>{label}</strong>
+                <small>{action}</small>
+              </a>
+            </li>
+          ))
         }
-      </h2><p>
+      </ol>
+      <p class="foundation-rule">
+        <strong>{bn ? "Merge করার নিয়ম:" : "A useful merge rule:"}</strong>{" "}
         {
           bn
-            ? "Foundation-first মানে design উপেক্ষা করা নয়। সত্যিকারের change, bug আর test-এর friction দেখার পর ধারণাগুলোর context তৈরি হয়।"
-            : "Foundation-first does not mean ignoring design. Real changes, bugs and test friction create the context that makes the concepts useful."
+            ? "যে structure, validation বা pattern কেন আছে বোঝাতে পারবে না—শুধু AI আত্মবিশ্বাসের সঙ্গে লিখেছে বলে সেটি ship কোরো না।"
+            : "If you cannot explain why a structure, validation rule or pattern exists, do not ship it merely because AI wrote it confidently."
         }
       </p>
     </div>
@@ -187,60 +280,95 @@ const topics = bn
   <section class="section">
     <div class="container foundation-list">
       {
-        topics.map(([name, why, when, practice, avoid], index) => (
-          <article
-            id={String(name)
-              .toLowerCase()
-              .replaceAll(/[^a-z]+/g, "-")}
-          >
-            <>
-              <div class="topic-title">
-                <>
-                  <span>{String(index + 1).padStart(2, "0")}</span>
-                  <h2>{name}</h2>
-                </>
-              </div>
-              <dl>
-                <>
-                  <div>
-                    <>
-                      <dt>{bn ? "কেন দরকার" : "Why it matters"}</dt>
-                      <dd>{why}</dd>
-                    </>
-                  </div>
-                  <div>
-                    <>
-                      <dt>{bn ? "কখন শিখবে" : "When to learn it"}</dt>
-                      <dd>{when}</dd>
-                    </>
-                  </div>
-                  <div>
-                    <>
-                      <dt>{bn ? "এখন কতটা" : "Enough for now"}</dt>
-                      <dd>
-                        {bn
-                          ? "সমস্যাটি চিনতে পারা, নিজের ভাষায় ধারণাটি বোঝানো এবং ছোট একটি project-এ বুঝে প্রয়োগ করতে পারা।"
-                          : "Recognize the problem, explain the vocabulary and apply it deliberately once in a small project."}
-                      </dd>
-                    </>
-                  </div>
-                  <div>
-                    <>
-                      <dt>{bn ? "ছোট্ট অনুশীলন" : "Small practice"}</dt>
-                      <dd>{practice}</dd>
-                    </>
-                  </div>
-                  <div>
-                    <>
-                      <dt>{bn ? "যা এড়িয়ে চলবে" : "Avoid"}</dt>
-                      <dd>{avoid}</dd>
-                    </>
-                  </div>
-                </>
-              </dl>
-            </>
-          </article>
-        ))
+        topics.map(
+          ([name, why, aiEra, when, practice, avoid, sourceId], index) => (
+            <article
+              id={String(name)
+                .toLowerCase()
+                .replaceAll(/[^a-z]+/g, "-")}
+            >
+              <>
+                <div class="topic-title">
+                  <>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <h2>{name}</h2>
+                  </>
+                </div>
+                <dl>
+                  <>
+                    <div>
+                      <>
+                        <dt>{bn ? "কেন দরকার" : "Why it matters"}</dt>
+                        <dd>{why}</dd>
+                      </>
+                    </div>
+                    <div class="ai-era-reason">
+                      <>
+                        <dt>
+                          {bn
+                            ? "AI যুগে কেন আরও জরুরি"
+                            : "Why it matters more with AI"}
+                        </dt>
+                        <dd>{aiEra}</dd>
+                      </>
+                    </div>
+                    <div>
+                      <>
+                        <dt>{bn ? "কখন শিখবে" : "When to learn it"}</dt>
+                        <dd>{when}</dd>
+                      </>
+                    </div>
+                    <div>
+                      <>
+                        <dt>{bn ? "এখন কতটা" : "Enough for now"}</dt>
+                        <dd>
+                          {bn
+                            ? "সমস্যাটি চিনতে পারা, নিজের ভাষায় ধারণাটি বোঝানো এবং ছোট একটি project-এ বুঝে প্রয়োগ করতে পারা।"
+                            : "Recognize the problem, explain the vocabulary and apply it deliberately once in a small project."}
+                        </dd>
+                      </>
+                    </div>
+                    <div>
+                      <>
+                        <dt>{bn ? "ছোট্ট অনুশীলন" : "Small practice"}</dt>
+                        <dd>{practice}</dd>
+                      </>
+                    </div>
+                    <div>
+                      <>
+                        <dt>{bn ? "যা এড়িয়ে চলবে" : "Avoid"}</dt>
+                        <dd>{avoid}</dd>
+                      </>
+                    </div>
+                    {sourceId && resourceById.get(sourceId) && (
+                      <div>
+                        <>
+                          <dt>{bn ? "বাছাই করা guide" : "Selected guide"}</dt>
+                          <dd>
+                            <a
+                              href={resourceById.get(sourceId)?.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              aria-describedby="external-link-description"
+                              data-track-event="learning_resource_clicked"
+                              data-track-param-resource-id={sourceId}
+                              data-track-param-provider={
+                                resourceById.get(sourceId)?.provider
+                              }
+                            >
+                              {resourceById.get(sourceId)?.title}{" "}
+                              <span aria-hidden="true">↗</span>
+                            </a>
+                          </dd>
+                        </>
+                      </div>
+                    )}
+                  </>
+                </dl>
+              </>
+            </article>
+          ),
+        )
       }
     </div>
   </section>
@@ -260,7 +388,12 @@ const topics = bn
         </p>
       </div><ResourceList
         locale={locale}
-        resourceIds={["refactoring-guru", "testing-js"]}
+        resourceIds={[
+          "refactoring-guru",
+          "code-smells",
+          "design-patterns",
+          "testing-js",
+        ]}
       />
     </div>
   </section>
@@ -299,6 +432,49 @@ const topics = bn
   .foundation-list {
     border-top: 1px solid var(--color-border-strong);
   }
+  .ai-era-foundations {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .review-lenses {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+    padding: 0;
+    list-style: none;
+  }
+  .review-lenses li {
+    margin: 0;
+  }
+  .review-lenses a {
+    display: grid;
+    min-height: 100%;
+    padding: 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+    text-decoration: none;
+  }
+  .review-lenses span,
+  .review-lenses small {
+    color: var(--color-text-muted);
+  }
+  .review-lenses span {
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+  .review-lenses strong {
+    margin-top: 0.35rem;
+    color: var(--color-primary-strong);
+  }
+  .review-lenses small {
+    margin-top: 0.2rem;
+    font-size: 0.8rem;
+  }
+  .foundation-rule {
+    max-width: 72ch;
+    margin: 0;
+  }
   .foundation-list article {
     padding: 2.2rem 0;
     border-bottom: 1px solid var(--color-border);
@@ -322,6 +498,17 @@ const topics = bn
     padding-top: 0.8rem;
     border-top: 1px solid var(--color-border);
   }
+  .foundation-list dl .ai-era-reason {
+    padding: 0.9rem;
+    border: 1px solid
+      color-mix(in srgb, var(--color-primary) 32%, var(--color-border));
+    border-radius: var(--radius-sm);
+    background: color-mix(
+      in srgb,
+      var(--color-primary) 7%,
+      var(--color-surface)
+    );
+  }
   dt {
     color: var(--color-primary-strong);
     font-size: 0.78rem;
@@ -333,6 +520,9 @@ const topics = bn
     margin: 0.25rem 0 0;
   }
   @media (min-width: 48rem) {
+    .review-lenses {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
     .foundation-list dl {
       grid-template-columns: repeat(2, 1fr);
     }
