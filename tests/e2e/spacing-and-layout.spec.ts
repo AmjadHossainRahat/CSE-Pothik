@@ -10,6 +10,7 @@ const staticPaths = [
   "/",
   "/about/",
   "/ai/",
+  "/future-of-cse/",
   "/careers/",
   "/compare/",
   "/goals/",

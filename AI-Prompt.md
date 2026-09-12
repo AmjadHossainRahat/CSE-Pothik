@@ -206,6 +206,21 @@ CSE-Pothik guides students toward learning; it does not replace learning resourc
 
 # Content quality
 
+Maintain the dedicated future-of-CSE editorial in both languages. It is a dated,
+evidence-based AI synthesis credited to GPT-6 Astra (High), not an official
+OpenAI forecast or a guarantee of unbiased future truth. Show the working prompt
+used, distinguish source findings from conditional predictions, include evidence
+of entry-level risk as well as opportunity, and state geographical limits and
+what would change the outlook. Keep it discoverable from Future navigation,
+search and AI guidance without lengthening the homepage. Preserve the existing
+GPT-5.6 Sol (High) site-building credit. Follow DESIGN and SKILL for content,
+static rendering, metadata, localization, source maintenance and validation.
+
+When refining the public editorial prompt, preserve the original drafting
+version and label the refinement separately. Credit human direction and AI
+assistance accurately; improve clarity and economy without claiming an untested
+token optimum or rewriting provenance.
+
 Do not fill the site with generic placeholder text.
 
 Create meaningful, credible, concise content that follows the mentoring model in `DESIGN.md`.

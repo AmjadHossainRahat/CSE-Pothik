@@ -8,6 +8,31 @@ English is the canonical/default language; natural Bangla routes live under `/bn
 
 ## Product scope
 
+### The future of CSE
+
+`/future-of-cse/` and `/bn/future-of-cse/` publish a dated, AI-authored outlook
+credited to **GPT-6 Astra (High)**. This is an evidence-based synthesis and
+conditional forecast, not an official OpenAI position or a claim of certainty or
+freedom from bias. The Future sidebar group, inline search and AI overview link
+to it; the homepage is not lengthened. The original implementation credit to
+GPT-5.6 Sol (High) remains separate.
+
+Typed bilingual content in `src/data/future-of-cse.ts` supplies dated primary
+sources, explicit study limits, three conditional scenarios and the actual
+expanded editorial working prompt. `FutureOfCSE.astro` renders static essential
+content, a section index, optional scenario/prompt detail, practical onward
+routes, Article/Breadcrumb metadata and equivalent-language links through the
+shared layout. No model API, hydration, account or additional dependency is used.
+When revising the outlook, recheck source versions, geography and limits; update
+both locales, the evidence-review date and the public working brief honestly.
+
+The prompt section credits Amjad's direction and AI-assisted expansion/refinement.
+It preserves the original drafting brief (v1) and offers a shorter, structured
+reusable v2 with responsibility boundaries and research stopping criteria. v2 was
+refined after drafting; it is not presented as the original prompt or a measured
+token optimum. Model/effort selection happens in application settings. Reuse v2
+alone rather than sending both historical versions.
+
 CSE-Pothik includes:
 
 - eight career families and seventeen detailed career guides, including Mobile App Development, UX/UI Engineering, Network Engineering, Hardware Engineering, Software QA & Testing, Data Analytics & BI, AI Engineering and Application Security;

@@ -4,6 +4,11 @@ import { goals } from "@/data/goals";
 import { industryVoices } from "@/data/industry-voices";
 import { resources } from "@/data/resources";
 import { l } from "@/lib/localized";
+import {
+  futureDescription,
+  futurePath,
+  futureTitle,
+} from "@/data/future-of-cse";
 import type { LocalizedText } from "@/types/content";
 
 export type SearchEntryType =
@@ -26,6 +31,17 @@ export interface SearchEntry {
 }
 
 const directoryEntries: SearchEntry[] = [
+  {
+    id: "future-of-cse",
+    type: "guidance",
+    path: futurePath,
+    title: futureTitle,
+    description: futureDescription,
+    keywords: l(
+      "future CSE AI disappear jobs replacement forecast prediction GPT-6 Astra fundamentals AGI",
+      "ভবিষ্যৎ CSE AI চাকরি থাকবে শেষ বিলুপ্ত পূর্বাভাস GPT-6 Astra ভিত্তি AGI",
+    ),
+  },
   {
     id: "careers",
     type: "directory",

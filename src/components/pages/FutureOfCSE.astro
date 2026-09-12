@@ -1,0 +1,727 @@
+---
+import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import { localePath, siteConfig, withBase } from "@/config/site";
+import {
+  futureCapabilities,
+  futureDescription,
+  futureEvidence,
+  futureNarrator,
+  futureOriginalPrompt,
+  futurePath,
+  futureReviewDate,
+  futureScenarios,
+  futureTitle,
+  futureWorkingPrompt,
+} from "@/data/future-of-cse";
+import { t } from "@/lib/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import type { Locale } from "@/types/content";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const bn = locale === "bn";
+const href = (path: string) => withBase(localePath(locale, path));
+const sections = [
+  ["short-answer", bn ? "সংক্ষিপ্ত উত্তর" : "Short answer"],
+  ["evidence", bn ? "গবেষণা কী বলছে" : "What the evidence says"],
+  ["scenarios", bn ? "কোন দিকে যেতে পারে" : "Possible futures"],
+  ["foundations", bn ? "ভিত্তিটা কেন দরকার" : "Why foundations matter"],
+  ["next-step", bn ? "এখন কী করবে" : "Your next step"],
+  ["prompt", bn ? "লেখার পেছনের prompt" : "The working prompt"],
+] as const;
+const canonical = new URL(href(futurePath), Astro.site).href;
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: t(futureTitle, locale),
+    description: t(futureDescription, locale),
+    inLanguage: locale,
+    datePublished: futureReviewDate,
+    dateModified: futureReviewDate,
+    isAccessibleForFree: true,
+    mainEntityOfPage: canonical,
+    publisher: { "@type": "Organization", name: siteConfig.name },
+    // The site publishes the essay; the visible credit names its AI narrator.
+    // Do not misrepresent software as a Person or as OpenAI's official voice.
+    author: { "@type": "Organization", name: siteConfig.name },
+    creditText: `AI-generated analysis and conditional outlook by ${futureNarrator}; not an official OpenAI forecast.`,
+    citation: futureEvidence.map((source) => source.url),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: bn ? "হোম" : "Home",
+        item: new URL(href("/"), Astro.site).href,
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: t(futureTitle, locale),
+        item: canonical,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  locale={locale}
+  title={t(futureTitle, locale)}
+  description={t(futureDescription, locale)}
+  structuredData={structuredData}
+>
+  <Breadcrumbs locale={locale} items={[{ label: t(futureTitle, locale) }]} />
+  <header class="page-hero page-hero--compact container">
+    <p class="eyebrow">
+      {
+        bn
+          ? "AI-এর নিজের বিশ্লেষণ · নিশ্চয়তা নয়"
+          : "An AI-authored outlook · not certainty"
+      }
+    </p>
+    <h1>
+      {
+        bn
+          ? "AI এগোচ্ছে। CSE-এর ভবিষ্যৎ কোথায়?"
+          : "AI is advancing. Where does that leave CSE?"
+      }
+    </h1>
+    <p class="lede">
+      {
+        bn
+          ? "ভয় দেখিয়ে নয়, সান্ত্বনা বিক্রি করেও নয়। কী জানি, কী এখনো জানি না, আর তার মধ্যে তুমি কী করতে পারো—সেই কথাই বলি।"
+          : "No doom-selling. No comfort-selling. Here is what the evidence supports, what remains unknown, and what you can do while the future is unsettled."
+      }
+    </p>
+    <div class="outlook-byline">
+      <p>
+        <strong
+          >{
+            bn
+              ? "বিশ্লেষণ ও সম্ভাব্য ভবিষ্যতের বয়ান:"
+              : "Analysis and conditional outlook by:"
+          }
+          {" "}{futureNarrator}</strong
+        >
+      </p>
+      <p>
+        {
+          bn
+            ? "AI দিয়ে লেখা; OpenAI-এর আনুষ্ঠানিক পূর্বাভাস নয়। AI-এর নিজের ক্ষেত্র নিয়ে লেখা বলেই পক্ষপাতের আশঙ্কা মাথায় রাখো। সূত্রগুলো যাচাই করো—আমাকেও।"
+            : "AI-generated; not an official OpenAI forecast. An AI writing about its own field deserves extra scrutiny. Bias and error are possible; check the sources—and challenge me."
+        }
+      </p>
+      <p>
+        {bn ? "লেখা ও তথ্য যাচাই:" : "Written and sources checked:"}
+        {" "}
+        <time datetime={futureReviewDate}
+          >{bn ? "১২ সেপ্টেম্বর ২০২৬" : "12 September 2026"}</time
+        > · <a href="#prompt"
+          >{bn ? "কোন prompt-এ লেখা?" : "What prompt shaped this?"}</a
+        >
+      </p>
+    </div>
+  </header>
+
+  <div class="container outlook-layout">
+    <nav class="outlook-index" aria-label={bn ? "এই পাতায়" : "On this page"}>
+      <details open>
+        <summary
+          >{
+            bn ? "যেটা জানতে চাও, সেখানে যাও" : "Jump to the question you have"
+          }</summary
+        >
+        <ol>
+          {
+            sections.map(([id, label]) => (
+              <li>
+                <a href={`#${id}`}>{label}</a>
+              </li>
+            ))
+          }
+        </ol>
+      </details>
+    </nav>
+    <article class="outlook-article">
+      <section id="short-answer" aria-labelledby="answer-title">
+        <p class="eyebrow">
+          {
+            bn
+              ? "আমার মূল্যায়ন · ভবিষ্যতের প্রতিষ্ঠিত সত্য নয়"
+              : "My assessment · not an established future fact"
+          }
+        </p>
+        <h2 id="answer-title">
+          {
+            bn
+              ? "CSE শেষ—এমন সিদ্ধান্তের প্রমাণ নেই। আগের পথটা অক্ষত থাকবে—তারও নিশ্চয়তা নেই।"
+              : "The evidence does not establish the end of CSE. It does not guarantee the old career path either."
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "আমার বর্তমান ধারণা: CSE শেখার মূল্য থাকবে, কিন্তু শুধু code তৈরি করার চেয়ে AI-সহ কাজে লাগার মতো নির্ভরযোগ্য ফল দেওয়ার গুরুত্ব বাড়বে। প্রথম চাকরিতে ঢোকার সুযোগও সবার জন্য একইভাবে বদলাবে না। এটি নিচের তথ্য থেকে আমার অনুমান—কত চাকরি থাকবে তার হিসাব নয়।"
+              : "My working expectation is that CSE remains worth learning, while the emphasis shifts from producing code to delivering useful, reliable outcomes with AI. Entry opportunities are likely to change unevenly. This is my inference from the evidence below—not a prediction of how many jobs will exist."
+          }
+        </p>
+        <p>
+          {
+            bn
+              ? "CSE শুধু code টাইপ করা নয়—তথ্য, গণনা, system, hardware, নিরাপত্তা আর মানুষের সঙ্গে প্রযুক্তির সম্পর্ক বোঝার ক্ষেত্র। এর গুরুত্ব থাকা আর সব graduate-এর চাকরি হওয়া আলাদা কথা। দরকারি বিষয় পড়েও কঠিন চাকরির বাজারে পড়তে পারো।"
+              : "CSE is more than typing code: it studies computation, information, systems, hardware, security and how people use technology. A discipline remaining useful and every graduate finding work are different claims. You can study something important and still face a difficult job market."
+          }
+        </p>
+        <ol
+          class="outlook-chain"
+          aria-label={bn
+            ? "কাজ থেকে কর্মসংস্থান: তিনটি আলাদা প্রশ্ন"
+            : "From tasks to employment: three distinct questions"}
+        >
+          <li>
+            <strong>{bn ? "১. কাজ" : "1. Task"}</strong><span
+              >{bn ? "AI কী করতে পারছে?" : "What can AI perform?"}</span
+            >
+          </li>
+          <li>
+            <strong>{bn ? "২. দল" : "2. Team"}</strong><span
+              >{
+                bn
+                  ? "যাচাইসহ কত জন লাগছে?"
+                  : "How many people, including verification?"
+              }</span
+            >
+          </li>
+          <li>
+            <strong>{bn ? "৩. বাজার" : "3. Market"}</strong><span
+              >{
+                bn
+                  ? "কতটা কাজের চাহিদা আছে?"
+                  : "How much work will customers fund?"
+              }</span
+            >
+          </li>
+        </ol>
+        <p>
+          {
+            bn
+              ? "একটি task automate হলে একটি পুরো চাকরি চলে যায় না। আবার task বাঁচলেও দল ছোট হতে পারে। সস্তায় বেশি software তৈরি হলে নতুন চাহিদা আসতে পারে—কিন্তু তা হারানো চাকরির সমান হবে, এমন নিশ্চয়তা নেই।"
+              : "One automated task does not equal one vanished occupation. Yet teams can shrink without every task being automated. Cheaper software may create demand; it is not guaranteed to create enough jobs to offset displacement."
+          }
+        </p>
+      </section>
+
+      <section id="evidence" aria-labelledby="evidence-title">
+        <p class="eyebrow">
+          {
+            bn
+              ? "তথ্য, অনুমান আর সীমা আলাদা রাখি"
+              : "Separate findings, projections and limits"
+          }
+        </p>
+        <h2 id="evidence-title">
+          {
+            bn
+              ? "একটা headline দিয়ে পুরো ভবিষ্যৎ বোঝা যায় না।"
+              : "One headline cannot explain the whole future."
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "নিচের ফলগুলো আলাদা জায়গা, সময় ও পদ্ধতির। একটার সংখ্যা দিয়ে আরেকটার উত্তর দিচ্ছি না।"
+              : "These sources cover different places, periods and methods. Their numbers cannot be treated as interchangeable answers."
+          }
+        </p>
+        <div class="evidence-list">
+          {
+            futureEvidence.map((source) => (
+              <article id={source.id}>
+                <p class="source-meta">
+                  {source.provider} · {source.date}
+                </p>
+                <h3>{t(source.title, locale)}</h3>
+                <p>{t(source.finding, locale)}</p>
+                <p class="evidence-limit">
+                  <strong>
+                    {bn ? "যা বলা যায় না:" : "What this cannot tell us:"}
+                  </strong>{" "}
+                  {t(source.limit, locale)}
+                </p>
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-describedby="external-link-description"
+                  data-track-event="learning_resource_clicked"
+                  data-track-param-resource-id={source.id}
+                  data-track-param-provider={source.provider}
+                >
+                  {bn ? "মূল উৎস পড়ো" : "Read the original source"} ·{" "}
+                  {source.provider} <span aria-hidden="true">↗</span>
+                </a>
+              </article>
+            ))
+          }
+        </div>
+        <p class="outlook-note">
+          {
+            bn
+              ? "বাংলাদেশের CSE graduate-দের AI-এর কারণে কত চাকরি যাবে বা তৈরি হবে—এমন নির্ভরযোগ্য causal হিসাব এই লেখায় প্রতিষ্ঠা করা হয়নি। স্থানীয় outsourcing, প্রতিষ্ঠানভেদে বাজেট, ভাষা, অবকাঠামো ও নিয়োগের ধরন আলাদা। US-এর সংখ্যা কপি করে তোমার সম্ভাবনা বলব না।"
+              : "This review does not establish a reliable causal estimate of AI-related job gains or losses for Bangladesh’s CSE graduates. Outsourcing exposure, employer budgets, language, infrastructure and hiring practices differ. I will not copy a US percentage and call it your personal prospects."
+          }
+        </p>
+      </section>
+
+      <section id="scenarios" aria-labelledby="scenarios-title">
+        <p class="eyebrow">
+          {
+            bn
+              ? "শর্তসাপেক্ষ সম্ভাবনা · এগুলো গবেষণার ফল নয়"
+              : "Conditional scenarios · not research findings"
+          }
+        </p>
+        <h2 id="scenarios-title">
+          {
+            bn
+              ? "একসঙ্গে একাধিক ভবিষ্যৎ তৈরি হতে পারে।"
+              : "Several futures can happen at once."
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "পরের কয়েক বছরে প্রতিষ্ঠান ও কাজভেদে এই পথগুলো মিশে যেতে পারে। সমান সম্ভাবনা বলছি না, শতাংশও বসাচ্ছি না। আরও দূরের নির্দিষ্ট পূর্বাভাসে আমার আস্থা কম।"
+              : "Over the next few years these paths could overlap across employers and types of work. I am not assigning equal likelihood or invented percentages. My confidence in precise longer-term forecasts is low."
+          }
+        </p>
+        {
+          futureScenarios.map((scenario) => (
+            <article class="scenario" id={scenario.id}>
+              <>
+                <h3>{t(scenario.title, locale)}</h3>
+                <p>{t(scenario.text, locale)}</p>
+                <p class="evidence-limit">{t(scenario.signal, locale)}</p>
+              </>
+            </article>
+          ))
+        }
+        <p>
+          {
+            bn
+              ? "আমি মত বদলাব যদি বড়, স্বাধীন পরীক্ষায় agent-কে দীর্ঘদিনের বাস্তব engineering কাজ নির্ভরযোগ্যভাবে কম খরচে সামলাতে দেখা যায়; অথবা নানা দেশের তথ্য দেখায় নতুনদের সুযোগ নিয়মিত ফিরছে। AGI কবে আসবে—নির্ভরযোগ্য তারিখ আমার কাছে নেই।"
+              : "I would revise this outlook if large independent evaluations demonstrate reliable, cheaper end-to-end engineering over sustained real projects, or if broader cross-country evidence shows entry opportunities consistently recovering. I do not have a reliable date for AGI."
+          }
+        </p>
+      </section>
+
+      <section id="foundations" aria-labelledby="foundations-title">
+        <p class="eyebrow">
+          {
+            bn
+              ? "শেখার কারণ · চাকরির বিমা নয়"
+              : "A reason to learn · not employment insurance"
+          }
+        </p>
+        <h2 id="foundations-title">
+          {
+            bn
+              ? "Code লিখতে সাহায্য পেলে, বোঝার প্রয়োজন ফুরায় না।"
+              : "Help producing code does not remove the need to understand it."
+          }
+        </h2>
+        {
+          futureCapabilities.map((item) => (
+            <article class="capability">
+              <>
+                <h3>{t(item.title, locale)}</h3>
+                <p>{t(item.text, locale)}</p>
+              </>
+            </article>
+          ))
+        }
+        <details class="outlook-story">
+          <summary
+            >{
+              bn
+                ? "একটি কাল্পনিক ঘটনা: test সবুজ, booking দুবার"
+                : "A fictional example: green tests, double booking"
+            }</summary
+          >
+          <p>
+            {
+              bn
+                ? "একজন নতুন developer AI দিয়ে booking feature বানাল। একবারে একজনের test সব পাশ। দুজন একসঙ্গে শেষ slot বুক করল—দুজনই confirmation পেল। AI দলের pattern মেনে সুন্দর code লিখলেও transaction-এর নিয়ম ভুল বুঝতে পারে। আবার ঠিকও করতে পারে; এটি failure-এর উদাহরণ, AI সবসময় ভুল করে এমন দাবি নয়।"
+                : "A new developer uses AI for a booking feature. Single-user tests pass. Two customers book the last slot together; both receive confirmation. Even code that follows team patterns can implement the wrong transaction rule. AI might also solve this correctly: this is an example of a failure mode, not a claim that AI always fails."
+            }
+          </p>
+          <p>
+            {
+              bn
+                ? "উপায়? ‘আরও professional code দাও’ বলে দশবার generate করা নয়। এক slot একবারই বিক্রি হবে—নিয়মটা লিখে concurrency test করো, database constraint ও transaction যাচাই করো, সিদ্ধান্ত বুঝতে না পারলে review চাও। Token-এর bill বাড়লেই বোঝাপড়ার CGPA বাড়ে না।"
+                : "The response is not ten rounds of ‘make it more professional.’ State the one-slot-one-sale invariant, test concurrent requests, inspect database constraints and transactions, and seek review when you cannot justify the choice. A larger token bill is not a degree in understanding."
+            }
+          </p>
+          <p>
+            {
+              bn
+                ? "AI-এর context-এ tech lead-এর pattern থাকলেই সেটি এই feature-এর সঠিক trade-off হয় না। কীভাবে কাজ করে না বুঝে merge করলে review-এর চাপ, refund, data inconsistency বা maintenance-এর খরচ বাড়তে পারে। ছোট, বোঝা যায় এমন সমাধানও ভালো engineering।"
+                : "Knowing a tech lead’s preferred patterns does not make them the right trade-off for this feature. Merging what you cannot explain can add review burden, refunds, inconsistent data or maintenance cost. A small understandable solution can be good engineering."
+            }
+          </p>
+        </details>
+      </section>
+
+      <section id="next-step" aria-labelledby="next-title">
+        <p class="eyebrow">
+          {
+            bn
+              ? "পরামর্শ · সময়সীমা কোনো প্রতিশ্রুতি নয়"
+              : "Recommendations · timeboxes are not promises"
+          }
+        </p>
+        <h2 id="next-title">
+          {
+            bn
+              ? "পুরো ভবিষ্যৎ না জেনেও পরের ভালো সিদ্ধান্তটা নেওয়া যায়।"
+              : "You can choose a useful next move without knowing the entire future."
+          }
+        </h2>
+        <ul class="outlook-actions">
+          <li>
+            <h3>
+              {
+                bn
+                  ? "CSE নেবে কি না ভাবছ, বা একেবারে নতুন?"
+                  : "Choosing CSE, or just starting?"
+              }
+            </h3><p>
+              {
+                bn
+                  ? "শুধু বেতনের গল্প বা AI-এর ভয় দিয়ে বিষয় বেছে নিয়ো না। নিজের আগ্রহ, পড়ার খরচ, বিকল্প ও শেখার পরিবেশ দেখো। এই সপ্তাহে একটি ছোট সমস্যা নিজে চেষ্টা করো, তারপর AI দিয়ে সমালোচনা করাও। কোন ব্যাখ্যাটি নিজে করতে পারলে, লিখে রাখো।"
+                  : "Do not choose a degree on salary stories or AI fear alone. Consider interest, study costs, alternatives and teaching quality. This week try one small problem yourself, then ask AI to critique it. Record which parts you can explain independently."
+              }
+            </p><a href={href("/guidance/new-cse-student/")}
+              >{bn ? "শুরুর পথটা দেখো" : "Open the beginner guide"} →</a
+            >
+          </li>
+          <li>
+            <h3>
+              {
+                bn
+                  ? "Graduation সামনে, প্রথম চাকরি দরকার?"
+                  : "Near graduation and need a first role?"
+              }
+            </h3><p>
+              {
+                bn
+                  ? "একটি লক্ষ্য পদের কয়েকটি বর্তমান বিজ্ঞাপন পড়ো। নিজের project-এ একটি বাস্তব ঘাটতি ঠিক করো: issue, test, review আর ছোট release দিয়ে প্রমাণ রাখো। DSA-এর প্রয়োজন পদভেদে যাচাই করো; সব pattern শেখা পর্যন্ত আবেদন থামিয়ে রেখো না।"
+                  : "Read several current descriptions for one target role. Fix one real gap in an existing project with an issue, test, review and small release. Check the role’s DSA expectations; do not postpone every application until you know every pattern."
+              }
+            </p><a href={href("/guidance/first-software-role/#entry-routes")}
+              >{
+                bn
+                  ? "নিজের অবস্থার উপযোগী পথ বেছে নাও"
+                  : "Choose your entry route"
+              } →</a
+            >
+          </li>
+          <li>
+            <h3>
+              {
+                bn
+                  ? "AI ব্যবহার করছ, ফলটা বুঝতে চাও?"
+                  : "Already building with AI?"
+              }
+            </h3><p>
+              {
+                bn
+                  ? "একটি ছোট কাজের সীমা, acceptance test, অনুমতি ও থামার শর্ত আগে ঠিক করো। Generation-এর সঙ্গে review, debugging ও সংশোধনের সময়ও মাপো। Code বা গোপন তথ্য দেওয়ার আগে প্রতিষ্ঠানের অনুমতি দেখো। Paid tool দিয়ে শুরু করতেই হবে না।"
+                  : "Define one small task’s boundaries, acceptance tests, permissions and stop conditions. Include review, debugging and rework when measuring time saved. Check organizational permission before sharing code or private data. Paid tools are not a prerequisite."
+              }
+            </p><a href={href("/roadmaps/ai-engineering/#ai-systems-path")}
+              >{
+                bn
+                  ? "নিরাপদ AI system তৈরির পথ"
+                  : "Follow the bounded AI systems path"
+              } →</a
+            >
+          </li>
+        </ul>
+        <p class="outlook-note">
+          {
+            bn
+              ? "সব দায় শিক্ষার্থীর নয়। বিশ্ববিদ্যালয়ে AI ব্যবহারের পাশাপাশি স্বাধীন reasoning ও teamwork যাচাই দরকার; প্রতিষ্ঠানে mentorship ও supervised entry কাজের সুযোগ দরকার। চাকরি না পেলে সেটি একা তোমার মেধার রায় নয়। প্রয়োজন হলে লক্ষ্য, বাজেট বা পথ বদলানোও যুক্তিসঙ্গত।"
+              : "This is not solely a student responsibility. Universities need to assess independent reasoning and teamwork alongside AI use; employers need mentorship and supervised entry work. Not finding a job is not a verdict on your intelligence. Revising a target, budget or direction can be rational."
+          }
+        </p>
+        <div class="button-row">
+          <a
+            class="button"
+            href={href("/guidance/software-engineering-foundations/")}
+            >{bn ? "ভিত্তি মজবুত করার পথ" : "Strengthen your foundations"}</a
+          ><a class="button button--secondary" href={href("/careers/")}
+            >{bn ? "অন্য কাজের পথও দেখো" : "Explore other kinds of CSE work"}</a
+          >
+        </div>
+      </section>
+
+      <section id="prompt" aria-labelledby="prompt-title">
+        <p class="eyebrow">
+          {bn ? "স্বচ্ছতা ও পুনরায় যাচাই" : "Transparency and rechecking"}
+        </p>
+        <h2 id="prompt-title">
+          {
+            bn
+              ? "আমাকে শুধু ‘সত্য বলো’ বললে যথেষ্ট হতো না।"
+              : "‘Tell me the truth’ would not have been enough."
+          }
+        </h2>
+        <p>
+          {
+            bn
+              ? "Amjad Hossain এই লেখার উদ্দেশ্য, পাঠকের প্রয়োজন ও মানের শর্ত ঠিক করেছেন। GPT-6 Astra (High) সেই নির্দেশনা থেকে বিস্তারিত prompt তৈরি ও পরিমার্জন করেছে। নিচের v2 আবার ব্যবহার করার জন্য সাজানো; প্রথম খসড়া v1 দিয়ে তৈরি হয়েছিল। কোনোটিই মূল কথোপকথনের হুবহু অনুলিপি নয়।"
+              : "Amjad Hossain set the purpose, reader needs and quality expectations. GPT-6 Astra (High) expanded and refined that direction into an editorial prompt. The reusable v2 below was refined after drafting; v1 shaped the original draft. Neither is a verbatim conversation transcript."
+          }
+        </p>
+        <details class="outlook-prompt">
+          <summary
+            >{
+              bn
+                ? "পরিমার্জিত সম্পূর্ণ prompt পড়ো · v2"
+                : "Read the complete working prompt · refined v2"
+            }</summary
+          ><pre
+            lang="en"
+            tabindex="0"
+            aria-label={bn
+              ? "পুনরায় ব্যবহারের ইংরেজি prompt"
+              : "Reusable English working prompt"}>{futureWorkingPrompt}</pre>
+        </details>
+        <details class="outlook-prompt-history">
+          <summary
+            >{
+              bn
+                ? "প্রথম খসড়ার prompt দেখো · v1"
+                : "See the original drafting prompt · v1"
+            }</summary
+          >
+          <pre
+            lang="en"
+            tabindex="0"
+            aria-label={bn
+              ? "প্রথম খসড়ার ইংরেজি prompt"
+              : "Original English drafting prompt"}>{futureOriginalPrompt}</pre>
+        </details>
+        <p>
+          {
+            bn
+              ? "v2-তে context, লক্ষ্য, প্রমাণের মান, দায়িত্বের সীমা, output আর কখন থামবে—আলাদা করে বলা আছে। প্রতিটি শর্ত এক জায়গায় রাখা হয়েছে। Model ও reasoning effort অ্যাপের setting-এ বেছে নেবে; prompt-এ নাম লিখলেই model বদলায় না।"
+              : "v2 makes context, goal, evidence standards, responsibility boundaries, output and stopping criteria explicit. Each constraint has one place. Select the model and reasoning effort in your app settings; writing a model name in a prompt does not switch the model."
+          }
+        </p>
+        <p>
+          {
+            bn
+              ? "এটিকে ‘সবচেয়ে efficient’ বলছি না। ছোট prompt মানেই পুরো কাজের token কম—তা নয়; গবেষণা, reasoning, output আর সংশোধনেও খরচ হয়। একই মানদণ্ডে নির্ভুলতা, বাদ পড়া বিষয় ও মোট ব্যবহার মেপে তুলনা করতে হবে। এখানে এমন A/B পরীক্ষা করা হয়নি। পুনরায় ব্যবহার করতে চাইলে v2 নাও; ইতিহাসের v1 সঙ্গে পাঠানোর দরকার নেই।"
+              : "This is not a proven optimum. A shorter prompt does not guarantee lower total token use: research, reasoning, output and rework also cost tokens. Compare accuracy, omissions and total usage under the same evaluation criteria. No such A/B experiment was run here. For reuse, send v2 alone; the historical v1 need not accompany it."
+          }
+        </p>
+        <p>
+          {
+            bn
+              ? "ভালো prompt-এ পাঠক, প্রশ্ন, সূত্রের মান, বিপরীত প্রমাণ, অনিশ্চয়তার নিয়ম আর যাচাইয়ের শর্ত পরিষ্কার থাকে। তারপরও উত্তর নিজে যাচাই করতে হয়। একই prompt অন্য model বা অন্য দিনে একই উত্তর নিশ্চিত করে না।"
+              : "A useful prompt specifies the audience, question, evidence standard, counterevidence, uncertainty rules and verification criteria. It still needs checking. The same prompt does not guarantee the same answer from another model or on another day."
+          }
+        </p>
+        <p>
+          <a
+            href="https://developers.openai.com/api/docs/guides/prompt-engineering"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-describedby="external-link-description"
+            >{
+              bn ? "OpenAI-এর prompting নির্দেশনা" : "OpenAI prompting guidance"
+            }
+            <span aria-hidden="true">↗</span></a
+          > · {
+            bn
+              ? "Prompt গঠনের সহায়ক সূত্র; চাকরির পূর্বাভাসের প্রমাণ নয়।"
+              : "A prompt-design reference, not evidence for the job outlook."
+          }
+        </p>
+        <p>
+          {
+            bn
+              ? "শেষ কথা: আমি বিশ্লেষণ করতে পারি, ভবিষ্যৎ দেখে ফিরে আসিনি। নতুন প্রমাণে এই লেখা বদলানো উচিত। কোনো ভুল বা দুর্বল যুক্তি দেখলে নিচের feedback link দিয়ে জানাতে পারো।"
+              : "My closing view: I can analyze evidence; I have not visited the future. This page should change when the evidence changes. If you find a factual error or weak argument, the footer feedback link is there for it."
+          }
+        </p>
+        <a href={href("/ai/")}
+          >{
+            bn
+              ? "কাজভিত্তিক AI ও ক্যারিয়ার নির্দেশনায় যাও"
+              : "Continue to task-by-task AI career guidance"
+          } →</a
+        >
+      </section>
+    </article>
+  </div>
+</BaseLayout>
+
+<style>
+  .outlook-byline {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+  .outlook-byline p {
+    margin-block: 0.65rem;
+  }
+  .outlook-byline strong {
+    color: var(--color-text);
+  }
+  .outlook-layout {
+    display: grid;
+    gap: 2rem;
+    padding-bottom: 4rem;
+  }
+  .outlook-layout > *,
+  .outlook-chain > * {
+    min-width: 0;
+  }
+  .outlook-index details {
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+  }
+  .outlook-index summary {
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .outlook-index ol {
+    padding-left: 1.3rem;
+    margin-bottom: 0;
+  }
+  .outlook-index a {
+    display: inline;
+  }
+  .outlook-index li {
+    margin: 0;
+    padding-block: 0.4rem;
+  }
+  .outlook-article section {
+    padding-block: 1.6rem 2.4rem;
+    border-top: 1px solid var(--color-border);
+  }
+  .outlook-article h2 {
+    max-width: 32ch;
+    font-size: clamp(1.55rem, 2.6vw, 2.25rem);
+  }
+  .outlook-article h3 {
+    font-size: 1.2rem;
+  }
+  .outlook-article p {
+    max-width: 70ch;
+  }
+  .outlook-chain {
+    display: grid;
+    gap: 0.75rem;
+    padding: 0;
+    list-style: none;
+    margin-block: 1.5rem;
+  }
+  .outlook-chain li {
+    margin: 0;
+    padding: 1rem;
+    background: var(--color-surface);
+    border-top: 3px solid var(--color-primary);
+  }
+  .outlook-chain strong,
+  .outlook-chain span {
+    display: block;
+  }
+  .outlook-chain span {
+    margin-top: 0.4rem;
+  }
+  .evidence-list article,
+  .scenario,
+  .capability {
+    padding-block: 1.1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  .evidence-list a {
+    overflow-wrap: anywhere;
+  }
+  .source-meta {
+    font-size: 0.82rem;
+    color: var(--color-text-muted);
+  }
+  .evidence-limit {
+    padding-left: 1rem;
+    border-left: 3px solid var(--color-border-strong);
+    color: var(--color-text-muted);
+  }
+  .outlook-note {
+    padding: 1.2rem;
+    background: var(--color-surface);
+    border-left: 3px solid var(--color-primary);
+  }
+  .outlook-story,
+  .outlook-prompt,
+  .outlook-prompt-history {
+    margin-block: 1.5rem;
+    padding: 1rem;
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-md);
+  }
+  .outlook-story summary,
+  .outlook-prompt summary,
+  .outlook-prompt-history summary {
+    cursor: pointer;
+    font-weight: 700;
+  }
+  .outlook-prompt pre,
+  .outlook-prompt-history pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    max-width: 100%;
+    margin-bottom: 0;
+  }
+  .outlook-actions {
+    list-style: none;
+    padding: 0;
+  }
+  .outlook-actions li {
+    margin: 0;
+    padding-block: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+  @media (min-width: 40rem) {
+    .outlook-chain {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 75rem) {
+    .outlook-layout {
+      grid-template-columns: minmax(12rem, 0.3fr) minmax(0, 1fr);
+      gap: clamp(2rem, 4vw, 4rem);
+    }
+    .outlook-index {
+      position: sticky;
+      top: 6rem;
+      align-self: start;
+      max-height: calc(100vh - 7rem);
+      overflow-y: auto;
+    }
+  }
+</style>

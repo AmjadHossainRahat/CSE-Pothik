@@ -896,6 +896,34 @@ Make the route chooser discoverable from Start here navigation, a compact homepa
 
 ## 18. AI Resilience Model
 
+### Dated future-of-CSE editorial
+
+Publish a distinct `/future-of-cse/` outlook and equivalent Bangla route under
+the Future sidebar group, linked from AI guidance and inline search. Keep the
+homepage concise. Lead with a short answer and visible **GPT-6 Astra (High)**
+AI-narrator attribution, review date, possible bias/error and a clear disclaimer:
+this is not an official OpenAI forecast. Never promise “only truth” about an
+unknown future. Preserve the existing site-implementation provenance separately.
+
+Separate observations, external projections, the narrator's conditional
+scenarios and recommendations. Explain discipline versus task versus headcount,
+junior-entry pressure, senior exposure, fundamentals as useful capability rather
+than employment insurance, and human accountability without assumed staffing
+guarantees. Show source scope/date/limits next to the finding; do not extrapolate
+US percentages to Bangladesh. Include what would change the outlook, a clearly
+fictional engineering failure case, kind humor and stage-specific next steps.
+
+Use a scannable section index and native optional story/prompt disclosures.
+Publish the expanded working brief actually used, labelled as such rather than
+as a verbatim conversation or hidden instruction. Bangla is independently
+conversational. Recheck evolving evidence before changing the dated narrative.
+
+Keep prompt provenance versioned: preserve the original drafting brief and label
+later reusable refinements separately. Credit Amjad's direction and AI-assisted
+expansion honestly. Explain context, goal, evidence, output, authority boundaries
+and a useful stopping rule without claiming the prompt is an empirical optimum
+or that fewer input words guarantee lower total token usage.
+
 AI guidance is a first-class product pillar.
 
 Do not tell students:

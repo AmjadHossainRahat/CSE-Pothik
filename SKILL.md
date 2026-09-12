@@ -594,6 +594,24 @@ Curate *The Accidental CTO* as an optional English book narrative under books/ar
 
 ## 14. AI Exposure Data Model
 
+The separate future-of-CSE editorial uses typed bilingual
+`src/data/future-of-cse.ts`, a shared static `FutureOfCSE.astro` renderer and thin
+EN/BN routes. Keep source IDs, dates, scope and uncertainty visible; publish the
+actual expanded editorial prompt without claiming it reproduces hidden
+instructions. Register the route in Future navigation, static search, the
+full-route layout audit and browser/accessibility tests. Extend the external-link
+audit to its source registry. Reuse locale/base helpers and shared metadata;
+Article creditText names GPT-6 Astra (High), without representing AI as a human
+expert. No AI SDK, runtime generation or extra client hydration is warranted.
+Test both themes/locales, prompt/story keyboard and no-JavaScript access, source
+link safety, responsive containment, equivalent routes and both deployment bases.
+
+Preserve the original prompt as `futureOriginalPrompt`; keep refined reusable
+instructions in `futureWorkingPrompt`. Render both with honest version labels,
+native disclosures, English language metadata and wrapped selectable text. Test
+expanded history as well as the current prompt. Do not claim measured token
+savings from word/character counts or run paid model evaluations without authority.
+
 Avoid numeric replacement probabilities.
 
 Use qualitative task exposure.

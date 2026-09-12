@@ -112,6 +112,12 @@ export const navigationGroups: NavigationGroup[] = [
     label: l("Future", "আগামীর জন্য"),
     items: [
       {
+        id: "future-of-cse",
+        label: l("The future of CSE", "CSE-এর ভবিষ্যৎ"),
+        path: "/future-of-cse/",
+        match: "exact",
+      },
+      {
         id: "ai",
         label: l("AI & your career", "AI ও তোমার ক্যারিয়ার"),
         path: "/ai/",

@@ -4,6 +4,7 @@ const source = [
   "src/data/resources.ts",
   "src/data/guidance-sources.ts",
   "src/data/industry-voices.ts",
+  "src/data/future-of-cse.ts",
 ]
   .map((path) => readFileSync(path, "utf8"))
   .join("\n");
