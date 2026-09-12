@@ -158,7 +158,7 @@ body[data-locale="bn"] .eyebrow {
 }
 
 .lede {
-  max-width: 48rem;
+  max-width: 54rem;
   color: var(--color-text-muted);
   font-size: clamp(1.08rem, 2vw, 1.35rem);
 }
@@ -378,6 +378,7 @@ body[data-locale="bn"] .eyebrow {
   flex: none;
   align-items: center;
   gap: 0.35rem;
+  margin-inline-start: auto;
 }
 
 .language-switch,

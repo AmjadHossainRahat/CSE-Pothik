@@ -16,59 +16,59 @@ const topics = bn
         "Clean Code",
         "ভালো নাম, ছোট coherent unit আর সহজ flow থাকলে team-এর অন্যরাও code বদলাতে পারে।",
         "AI কয়েক সেকেন্ডে অনেক code দিতে পারে; পরিষ্কার নাম আর সহজ flow না থাকলে review-এর বোঝা আর ভুল—দুটিই দ্রুত বাড়ে।",
-        "দুই-তিনটি ছোট program বানানোর পর থেকেই শেখা শুরু করো।",
-        "নিজের project-এর confusing একটি function-এর নাম বদলাও বা ছোট ভাগে ভাঙো।",
-        "‘Clean’ করতে গিয়ে এমন clever abstraction বানিয়ো না, যা পরে নিজেকেই অভিধান নিয়ে পড়তে হয়।",
+        "দুই-তিনটি ছোট program বানানোর পর থেকেই শেখা শুরু করুন।",
+        "নিজের project-এর confusing একটি function-এর নাম বদলান বা ছোট ভাগে ভাঙুন।",
+        "‘Clean’ করতে গিয়ে এমন clever abstraction বানাবেন না, যা পরে নিজেকেই অভিধান নিয়ে পড়তে হয়।",
         "refactoring-guru",
       ],
       [
         "Code Smells",
         "Code smell নিজে bug নয়; code বদলানো কঠিন হতে পারে—তার ইঙ্গিত।",
-        "Generated code compile করলেও duplicate logic, long method বা hidden coupling রেখে যেতে পারে। Smell তোমাকে কোথায় প্রশ্ন করতে হবে, সেই radar দেয়।",
+        "Generated code compile করলেও duplicate logic, long method বা hidden coupling রেখে যেতে পারে। Smell আপনাকে কোথায় প্রশ্ন করতে হবে, সেই radar দেয়।",
         "একই সমস্যায় বারবার আটকে গেলে।",
-        "Duplicate logic বা long parameter list খুঁজে cost লিখো।",
+        "Duplicate logic বা long parameter list খুঁজে cost লিখুন।",
         "Smell catalogue মুখস্থ করে প্রতিটি code-কে আসামির কাঠগড়ায় দাঁড় করিয়ো না।",
         "code-smells",
       ],
       [
         "Refactoring",
         "আচরণ না বদলে design উন্নত করার disciplined পদ্ধতি।",
-        "AI-কে ‘পুরোটাই rewrite করো’ বলার বদলে ছোট verified change করতে পারলে regression, token আর review cost নিয়ন্ত্রণে থাকে।",
+        "AI-কে ‘পুরোটাই rewrite করুন’ বলার বদলে ছোট verified change করতে পারলে regression, token আর review cost নিয়ন্ত্রণে থাকে।",
         "Testable working code হওয়ার পরে।",
-        "Characterization test দিয়ে একটি function simplify করো।",
-        "ভাঙা behavior আর architecture—দুটো একসঙ্গে rewrite কোরো না।",
+        "Characterization test দিয়ে একটি function simplify করুন।",
+        "ভাঙা behavior আর architecture—দুটো একসঙ্গে rewrite করবেন না।",
       ],
       [
         "Defensive Programming",
         "Input, dependency আর failure সম্পর্কে assumption স্পষ্ট করে system-কে নিরাপদভাবে ব্যর্থ হতে শেখায়।",
         "AI happy path-এ বেশ বিশ্বাসযোগ্য হতে পারে; malformed input, timeout, missing permission বা অসম্পূর্ণ context-এ কী হবে—সেই দায় engineer-এরই।",
         "User input, API, file, database বা AI output-এর boundary যোগ হলেই।",
-        "একটি external input validate করো, failure result স্পষ্ট করো এবং malformed case-এর test দাও।",
-        "সব exception গিলে ফেলো না, secret log কোরো না, আর impossible state চুপচাপ accept কোরো না।",
+        "একটি external input validate করুন, failure result স্পষ্ট করুন এবং malformed case-এর test দিন।",
+        "সব exception গিলে ফেলবেন না, secret log করবেন না, আর impossible state চুপচাপ accept করবেন না।",
       ],
       [
         "SOLID Principles",
         "Dependency আর responsibility নিয়ে team-এ কথা বলার একটি vocabulary।",
-        "AI advanced abstraction বানাতে পারে; SOLID-এর প্রশ্নগুলো দিয়ে বোঝো change-এর কারণগুলো মিশেছে কি না এবং dependency বদলানো বা test করা অযথা কঠিন হচ্ছে কি না।",
+        "AI advanced abstraction বানাতে পারে; SOLID-এর প্রশ্নগুলো দিয়ে বুঝুন change-এর কারণগুলো মিশেছে কি না এবং dependency বদলানো বা test করা অযথা কঠিন হচ্ছে কি না।",
         "ছোট application বানিয়ে change-এর কষ্ট নিজে দেখার পরে।",
-        "একটি class-এর responsibility split justified কি না explain করো।",
-        "SOLID-এর প্রতিটি letter দেখেই একটি করে interface বানাতে বসো না।",
+        "একটি class-এর responsibility split justified কি না explain করুন।",
+        "SOLID-এর প্রতিটি letter দেখেই একটি করে interface বানাতে বসবেন না।",
       ],
       [
         "Design Principles",
         "Cohesion, coupling, information hiding আর dependency direction change cost কমায়।",
         "AI-এর suggestion বিচার করতে principle দরকার: কোন boundary স্থিতিশীল, কোন dependency উল্টো হওয়া উচিত আর কোথায় simple code-ই যথেষ্ট।",
         "Multiple module-এর project-এ।",
-        "একটি dependency arrow উল্টে testability improve করো।",
-        "Diagram সুন্দর হলেই design ভালো—এমন ধরে নিয়ো না। আঁকতে ভালো হলেই architect হওয়া যায় না।",
+        "একটি dependency arrow উল্টে testability improve করুন।",
+        "Diagram সুন্দর হলেই design ভালো—এমন ধরে নেবেন না। আঁকতে ভালো হলেই architect হওয়া যায় না।",
       ],
       [
         "Design Patterns",
         "Recurring design pressure-এর shared vocabulary।",
-        "AI pattern-এর নাম জানে, কিন্তু তোমার trade-off জানে না। Pattern বুঝলে suggestion চিনতে, team-এর সঙ্গে আলোচনা করতে এবং অকারণ complexity ফিরিয়ে দিতে পারো।",
+        "AI pattern-এর নাম জানে, কিন্তু আপনার trade-off জানে না। Pattern বুঝলে suggestion চিনতে, team-এর সঙ্গে আলোচনা করতে এবং অকারণ complexity ফিরিয়ে দিতে পারেন।",
         "সমস্যাটি নিজের code-এ দেখার পরে।",
-        "Strategy বা Adapter দিয়ে existing pain solve করে alternative compare করো।",
-        "২৩টি GoF pattern মুখস্থ করে সকালের নাশতাতেও Factory খুঁজতে যেয়ো না।",
+        "Strategy বা Adapter দিয়ে existing pain solve করে alternative compare করুন।",
+        "২৩টি GoF pattern মুখস্থ করে সকালের নাশতাতেও Factory খুঁজতে যাবেন না।",
         "design-patterns",
       ],
       [
@@ -76,16 +76,16 @@ const topics = bn
         "Change confidence আর design feedback দেয়।",
         "AI-generated outcome দেখতে ঠিক লাগতে পারে; executable test confidence-এর বদলে evidence দেয় এবং পরের change-এ behavior ধরে রাখে।",
         "Business rule বা repeated regression শুরু হলেই।",
-        "Happy path, edge case আর failure behavior-এর test দাও।",
-        "Coverage percentage-কে project-এর পরীক্ষার নম্বর বানিয়ো না।",
+        "Happy path, edge case আর failure behavior-এর test দিন।",
+        "Coverage percentage-কে project-এর পরীক্ষার নম্বর বানাবেন না।",
       ],
       [
         "Architectural Boundaries",
         "Policy-কে framework, UI আর external service থেকে আলাদা রাখে।",
         "ভালো boundary দিলে AI-কে ছোট context-এ bounded task দেওয়া যায়; খারাপ boundary হলে একটি change অনেক অজানা জায়গায় ছড়িয়ে পড়ে।",
         "Project-এর change reason আলাদা হতে শুরু করলে।",
-        "Core rule-কে I/O ছাড়া testable module-এ নাও।",
-        "Tiny CRUD app-এ enterprise clean architecture-এর cosplay কোরো না।",
+        "Core rule-কে I/O ছাড়া testable module-এ নিন।",
+        "Tiny CRUD app-এ enterprise clean architecture-এর cosplay করবেন না।",
       ],
     ]
   : [
@@ -193,7 +193,7 @@ const topics = bn
     </p><h1>
       {
         bn
-          ? "সমস্যা দেখার আগেই pattern-এর পূজা শুরু কোরো না।"
+          ? "সমস্যা দেখার আগেই pattern-এর পূজা শুরু করবেন না।"
           : "Experience the design problem before worshipping the pattern."
       }
     </h1><p class="lede">
@@ -231,24 +231,24 @@ const topics = bn
       >
         {
           [
-            ["clean-code", "01", "Clean Code", bn ? "বোঝো" : "Understand"],
+            ["clean-code", "01", "Clean Code", bn ? "বুঝুন" : "Understand"],
             [
               "code-smells",
               "02",
               "Code Smells",
-              bn ? "ঝুঁকি দেখো" : "Detect pressure",
+              bn ? "ঝুঁকি দেখুন" : "Detect pressure",
             ],
             [
               "solid-principles",
               "03",
               "SOLID",
-              bn ? "দায় ভাগ করো" : "Separate reasons",
+              bn ? "দায় ভাগ করুন" : "Separate reasons",
             ],
             [
               "design-patterns",
               "04",
               "Patterns",
-              bn ? "Trade-off বলো" : "Name a trade-off",
+              bn ? "Trade-off বলুন" : "Name a trade-off",
             ],
             [
               "defensive-programming",
@@ -271,7 +271,7 @@ const topics = bn
         <strong>{bn ? "Merge করার নিয়ম:" : "A useful merge rule:"}</strong>{" "}
         {
           bn
-            ? "যে structure, validation বা pattern কেন আছে বোঝাতে পারবে না—শুধু AI আত্মবিশ্বাসের সঙ্গে লিখেছে বলে সেটি ship কোরো না।"
+            ? "যে structure, validation বা pattern কেন আছে বোঝাতে পারবে না—শুধু AI আত্মবিশ্বাসের সঙ্গে লিখেছে বলে সেটি ship করবেন না।"
             : "If you cannot explain why a structure, validation rule or pattern exists, do not ship it merely because AI wrote it confidently."
         }
       </p>
@@ -378,11 +378,11 @@ const topics = bn
         <p class="eyebrow">
           {bn ? "বাছাই করা শেখার উপকরণ" : "Selected learning"}
         </p><h2>
-          {bn ? "পড়া কম নয়—তবে refactor-ও করো" : "Read less. Refactor more."}
+          {bn ? "পড়া কম নয়—তবে refactor-ও করুন" : "Read less. Refactor more."}
         </h2><p class="lede">
           {
             bn
-              ? "ধারণাটি পড়ার পর নিজের code-এ একটি সমস্যা খুঁজে testসহ উন্নত করো। তখন শব্দ নয়, কারণটাও মনে থাকে।"
+              ? "ধারণাটি পড়ার পর নিজের code-এ একটি সমস্যা খুঁজে testসহ উন্নত করুন। তখন শব্দ নয়, কারণটাও মনে থাকে।"
               : "After reading a concept, find one pain in your code and improve it with tests. That is when the vocabulary becomes durable."
           }
         </p>
@@ -399,10 +399,10 @@ const topics = bn
   </section>
   <section class="section">
     <div class="container">
-      <p class="eyebrow">{bn ? "এবার কী করবে" : "Next step"}</p><h2>
+      <p class="eyebrow">{bn ? "এবার কী করবেন" : "Next step"}</p><h2>
         {
           bn
-            ? "একটা working project বেছে characterization test দাও।"
+            ? "একটা working project বেছে characterization test দিন।"
             : "Choose one working project and add a characterization test."
         }
       </h2><div class="next-actions">

@@ -10,11 +10,11 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
   if (roadmap.id === "data-analytics-bi") {
     foundation.practicalTask = l(
       "Define three metrics for a fictional orders table, validate its rows and calculate each result twice using two simple methods.",
-      "Fictional orders table-এর তিনটি metric define করো, row validate করো আর দুটি সহজ method-এ প্রতিটি result calculate করো।",
+      "Fictional orders table-এর তিনটি metric define করুন, row validate করুন আর দুটি সহজ method-এ প্রতিটি result calculate করুন।",
     );
     foundation.enoughForNow = l(
       "You can distinguish a question, metric definition, calculation and interpretation—and explain where a number could mislead.",
-      "Question, metric definition, calculation আর interpretation আলাদা করতে এবং number কোথায় mislead করতে পারে বোঝাতে পারো।",
+      "Question, metric definition, calculation আর interpretation আলাদা করতে এবং number কোথায় mislead করতে পারে বোঝাতে পারেন।",
     );
     core.resourceIds = ["sqlbolt", "openintro-statistics"];
     practical.resourceIds = ["kaggle-pandas", "power-bi-learning"];
@@ -34,7 +34,7 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     ];
     professional.practicalTask = l(
       "Publish a small dashboard with a metric dictionary, validation log and refresh note. Ask a peer to reproduce one number and state the decision it supports.",
-      "Metric dictionary, validation log আর refresh note-সহ ছোট dashboard publish করো। Peer-কে একটি number reproduce আর কোন decision support করে তা বলতে দাও।",
+      "Metric dictionary, validation log আর refresh note-সহ ছোট dashboard publish করুন। Peer-কে একটি number reproduce আর কোন decision support করে তা বলতে দিন।",
     );
     professional.enoughForNow = l(
       "A reviewer can trace each visible number to its definition and source, reproduce it and understand its caveats.",
@@ -43,7 +43,7 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     professional.notYet = [
       l(
         "Do not optimize a dashboard for visual polish while its definitions, source quality or decision owner remain unclear.",
-        "Definition, source quality বা decision owner unclear রেখে dashboard-এর visual polish optimize কোরো না।",
+        "Definition, source quality বা decision owner unclear রেখে dashboard-এর visual polish optimize করবেন না।",
       ),
     ];
     professional.resourceIds = ["power-bi-learning", "openintro-statistics"];
@@ -57,7 +57,7 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     );
     foundation.intent = l(
       "Start from an explicit user need, deterministic baseline and test cases—not a framework or an autonomous agent.",
-      "Framework বা autonomous agent নয়—explicit user need, deterministic baseline আর test case থেকে শুরু করো।",
+      "Framework বা autonomous agent নয়—explicit user need, deterministic baseline আর test case থেকে শুরু করুন।",
     );
     foundation.topics = [
       l(
@@ -75,16 +75,16 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     ];
     foundation.practicalTask = l(
       "Write a one-page feature specification, eight labelled cases and a deterministic text-matching baseline over five harmless documents before calling a model.",
-      "Model call-এর আগে one-page feature specification, আটটি labelled case আর পাঁচটি harmless document-এর ওপর deterministic text-matching baseline বানাও।",
+      "Model call-এর আগে one-page feature specification, আটটি labelled case আর পাঁচটি harmless document-এর ওপর deterministic text-matching baseline বানান।",
     );
     foundation.enoughForNow = l(
       "You can explain the user outcome and constraints, run the baseline, protect a secret and distinguish a requirement from generated output.",
-      "User outcome ও constraint explain, baseline run, secret protect আর requirement-কে generated output থেকে আলাদা করতে পারো।",
+      "User outcome ও constraint explain, baseline run, secret protect আর requirement-কে generated output থেকে আলাদা করতে পারেন।",
     );
     foundation.notYet = [
       l(
         "Do not begin with autonomous agents, vector databases or a stack diagram before the task and evidence are defined.",
-        "Task আর evidence define করার আগে autonomous agent, vector database বা stack diagram দিয়ে শুরু কোরো না।",
+        "Task আর evidence define করার আগে autonomous agent, vector database বা stack diagram দিয়ে শুরু করবেন না।",
       ),
     ];
     foundation.resourceIds = ["hf-llm-course", "amirul-ai-roadmap"];
@@ -95,7 +95,7 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     );
     core.intent = l(
       "Make one model call testable, then add retrieval only when the task needs owned, current or domain-specific evidence.",
-      "একটি model call testable করো; তারপর task-এ own, current বা domain-specific evidence লাগলেই retrieval যোগ করো।",
+      "একটি model call testable করুন; তারপর task-এ own, current বা domain-specific evidence লাগলেই retrieval যোগ করুন।",
     );
     core.topics = [
       l(
@@ -113,16 +113,16 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     ];
     core.practicalTask = l(
       "Add a schema-constrained answer to the baseline. Then add retrieval with visible sources and rerun every success, refusal and failure case.",
-      "Baseline-এ schema-constrained answer যোগ করো। তারপর visible source-সহ retrieval দিয়ে প্রতিটি success, refusal আর failure case rerun করো।",
+      "Baseline-এ schema-constrained answer যোগ করুন। তারপর visible source-সহ retrieval দিয়ে প্রতিটি success, refusal আর failure case rerun করুন।",
     );
     core.enoughForNow = l(
       "You can version a prompt, trace an answer to retrieved evidence and show with tests when the system must refuse.",
-      "Prompt version, answer-এর retrieved evidence trace আর system কখন refuse করবে test দিয়ে দেখাতে পারো।",
+      "Prompt version, answer-এর retrieved evidence trace আর system কখন refuse করবে test দিয়ে দেখাতে পারেন।",
     );
     core.notYet = [
       l(
         "Do not add a vector database until a simple retrieval baseline exposes a measured limitation.",
-        "Simple retrieval baseline-এর measured limitation না পাওয়া পর্যন্ত vector database যোগ কোরো না।",
+        "Simple retrieval baseline-এর measured limitation না পাওয়া পর্যন্ত vector database যোগ করবেন না।",
       ),
     ];
     core.resourceIds = ["google-rag-overview", "hf-llm-course"];
@@ -133,7 +133,7 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     );
     practical.intent = l(
       "Keep known steps deterministic; add an agent loop only where the model must choose among bounded next actions.",
-      "Known step deterministic রাখো; model-কে bounded next action বাছতে হলেই agent loop যোগ করো।",
+      "Known step deterministic রাখুন; model-কে bounded next action বাছতে হলেই agent loop যোগ করুন।",
     );
     practical.topics = [
       l(
@@ -151,16 +151,16 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     ];
     practical.practicalTask = l(
       "Implement one read-only workflow in code or n8n. Add a bounded single-agent branch with one tool, explicit exit conditions and a human handoff; compare it with the fixed workflow.",
-      "Code বা n8n-এ একটি read-only workflow implement করো। একটি tool, explicit exit condition আর human handoff-সহ bounded single-agent branch যোগ করে fixed workflow-এর সঙ্গে compare করো।",
+      "Code বা n8n-এ একটি read-only workflow implement করুন। একটি tool, explicit exit condition আর human handoff-সহ bounded single-agent branch যোগ করে fixed workflow-এর সঙ্গে compare করুন।",
     );
     practical.enoughForNow = l(
       "You can justify workflow versus agent, reproduce a failed run and prove that turn, time, cost and tool authority are bounded.",
-      "Workflow বনাম agent justify, failed run reproduce আর turn, time, cost ও tool authority bounded—তা prove করতে পারো।",
+      "Workflow বনাম agent justify, failed run reproduce আর turn, time, cost ও tool authority bounded—তা prove করতে পারেন।",
     );
     practical.notYet = [
       l(
         "Do not add multi-agent orchestration, write-capable tools or production credentials before one bounded read-only agent is evaluated.",
-        "একটি bounded read-only agent evaluate করার আগে multi-agent orchestration, write-capable tool বা production credential যোগ কোরো না।",
+        "একটি bounded read-only agent evaluate করার আগে multi-agent orchestration, write-capable tool বা production credential যোগ করবেন না।",
       ),
     ];
     practical.resourceIds = ["openai-building-agents", "n8n-learning-path"];
@@ -171,7 +171,7 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     );
     professional.intent = l(
       "Make AI behavior reviewable, observable, permission-aware and reversible before another person depends on it.",
-      "অন্য কেউ depend করার আগে AI behavior reviewable, observable, permission-aware আর reversible করো।",
+      "অন্য কেউ depend করার আগে AI behavior reviewable, observable, permission-aware আর reversible করুন।",
     );
     professional.topics = [
       l(
@@ -189,16 +189,16 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     ];
     professional.practicalTask = l(
       "Create a release gate with representative evals, permission checks, an approval boundary and explicit refusal tests. Compare two versions and document quality, cost, latency and known failure modes.",
-      "Representative eval, permission check, approval boundary আর explicit refusal test-সহ release gate বানাও। দুই version compare করে quality, cost, latency আর known failure mode লেখো।",
+      "Representative eval, permission check, approval boundary আর explicit refusal test-সহ release gate বানান। দুই version compare করে quality, cost, latency আর known failure mode লিখুন।",
     );
     professional.enoughForNow = l(
       "You can show evidence for a release decision, reproduce model and prompt settings, and stop or roll back a harmful regression.",
-      "Release decision-এর evidence দেখাতে, model ও prompt setting reproduce করতে আর harmful regression stop বা rollback করতে পারো।",
+      "Release decision-এর evidence দেখাতে, model ও prompt setting reproduce করতে আর harmful regression stop বা rollback করতে পারেন।",
     );
     professional.notYet = [
       l(
         "Do not ship an impressive demo as a dependable product without representative evaluation, privacy boundaries and failure handling.",
-        "Representative evaluation, privacy boundary আর failure handling ছাড়া impressive demo-কে dependable product হিসেবে ship কোরো না।",
+        "Representative evaluation, privacy boundary আর failure handling ছাড়া impressive demo-কে dependable product হিসেবে ship করবেন না।",
       ),
     ];
     professional.resourceIds = [
@@ -213,7 +213,7 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     );
     later.intent = l(
       "Choose deeper infrastructure because measured work requires it—not because a new agent framework or AGI headline exists.",
-      "নতুন agent framework বা AGI headline আছে বলে নয়—measured কাজের প্রয়োজনেই deeper infrastructure বেছে নাও।",
+      "নতুন agent framework বা AGI headline আছে বলে নয়—measured কাজের প্রয়োজনেই deeper infrastructure বেছে নিন।",
     );
     later.topics = [
       l(
@@ -231,16 +231,16 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     ];
     later.practicalTask = l(
       "Write an architecture decision record comparing your current bounded system with one runtime or multi-agent option. Include the measured need, new authority, failure modes, operating cost and rollback plan.",
-      "Current bounded system-এর সঙ্গে একটি runtime বা multi-agent option compare করে architecture decision record লেখো। Measured need, new authority, failure mode, operating cost আর rollback plan রাখো।",
+      "Current bounded system-এর সঙ্গে একটি runtime বা multi-agent option compare করে architecture decision record লিখুন। Measured need, new authority, failure mode, operating cost আর rollback plan রাখুন।",
     );
     later.enoughForNow = l(
       "You can reject unnecessary autonomy, explain the selected trust boundary and show why the added runtime or agent is worth its cost.",
-      "Unnecessary autonomy reject, selected trust boundary explain আর added runtime বা agent কেন cost-এর যোগ্য—তা দেখাতে পারো।",
+      "Unnecessary autonomy reject, selected trust boundary explain আর added runtime বা agent কেন cost-এর যোগ্য—তা দেখাতে পারেন।",
     );
     later.notYet = [
       l(
         "Do not make an AGI prediction, a multi-agent diagram or an always-on host agent a substitute for today's measurable product evidence.",
-        "AGI prediction, multi-agent diagram বা always-on host agent-কে আজকের measurable product evidence-এর বিকল্প বানিও না।",
+        "AGI prediction, multi-agent diagram বা always-on host agent-কে আজকের measurable product evidence-এর বিকল্প বানাবেন না।",
       ),
     ];
     later.resourceIds = [
@@ -253,11 +253,11 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
   if (roadmap.id === "application-security") {
     foundation.practicalTask = l(
       "Draw one owned app's data flow, mark its trust boundaries and write three abuse cases before using a scanner or exploit tool.",
-      "Scanner বা exploit tool ব্যবহারের আগে নিজের app-এর data flow এঁকে trust boundary mark আর তিনটি abuse case লেখো।",
+      "Scanner বা exploit tool ব্যবহারের আগে নিজের app-এর data flow এঁকে trust boundary mark আর তিনটি abuse case লিখুন।",
     );
     foundation.enoughForNow = l(
       "You can state an authorized scope, distinguish authentication from authorization and trace untrusted input to a protected action.",
-      "Authorized scope বলতে, authentication আর authorization আলাদা করতে এবং untrusted input থেকে protected action trace করতে পারো।",
+      "Authorized scope বলতে, authentication আর authorization আলাদা করতে এবং untrusted input থেকে protected action trace করতে পারেন।",
     );
     core.resourceIds = ["owasp-top-ten", "owasp-threat-modeling"];
     practical.resourceIds = ["owasp-cheat-sheets", "portswigger"];
@@ -277,7 +277,7 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     ];
     professional.practicalTask = l(
       "For an authorized local finding, write scope and evidence, implement the smallest server-side fix and add a regression test. Have a peer review both risk and remediation.",
-      "Authorized local finding-এর scope ও evidence লিখে smallest server-side fix আর regression test দাও। Peer-কে risk আর remediation দুটোই review করতে দাও।",
+      "Authorized local finding-এর scope ও evidence লিখে smallest server-side fix আর regression test দিন। Peer-কে risk আর remediation দুটোই review করতে দিন।",
     );
     professional.enoughForNow = l(
       "A reviewer can reproduce the finding safely, verify the fix and understand the remaining risk without receiving secrets.",

@@ -127,6 +127,35 @@ test("every public UI route stays inside the desktop content frame", async ({
   }
 });
 
+test("wide desktop uses the content canvas and right-aligns topbar tools", async ({
+  page,
+}, testInfo) => {
+  test.skip(testInfo.project.name === "mobile", "Desktop audit runs once");
+  await page.setViewportSize({ width: 1600, height: 900 });
+
+  for (const locale of ["en", "bn"] as const) {
+    await page.goto(localizedRoute(locale, "/roadmaps/"));
+    const layout = await page.evaluate(() => {
+      const frame = document.querySelector<HTMLElement>(".site-frame")!;
+      const topbar = document.querySelector<HTMLElement>(".topbar-inner")!;
+      const tools = document.querySelector<HTMLElement>(".topbar-tools")!;
+      const hero = document.querySelector<HTMLElement>(".page-hero")!;
+      const frameRect = frame.getBoundingClientRect();
+      const topbarRect = topbar.getBoundingClientRect();
+      const toolsRect = tools.getBoundingClientRect();
+      const heroRect = hero.getBoundingClientRect();
+      return {
+        frameStartGap: heroRect.left - frameRect.left,
+        heroWidthShare: heroRect.width / frameRect.width,
+        toolsEndAlignment: Math.abs(topbarRect.right - toolsRect.right),
+      };
+    });
+    expect(layout.frameStartGap).toBeLessThanOrEqual(33);
+    expect(layout.heroWidthShare).toBeGreaterThan(0.94);
+    expect(layout.toolsEndAlignment).toBeLessThanOrEqual(1);
+  }
+});
+
 test("I’m Lost uses its desktop width before and after a choice", async ({
   page,
 }, testInfo) => {

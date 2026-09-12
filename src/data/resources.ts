@@ -13,7 +13,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Read the overview, Ethernet, IP and transport introductions. Sketch a packet’s route before deeper routing chapters.",
-      "Overview, Ethernet, IP আর transport introduction পড়ো। গভীর routing chapter-এর আগে packet-এর পথ আঁকো।",
+      "Overview, Ethernet, IP আর transport introduction পড়ুন। গভীর routing chapter-এর আগে packet-এর পথ আঁকুন।",
     ),
     whyRecommended: scope(
       "A freely readable university-authored book that explains mechanisms rather than vendor command memorization.",
@@ -31,7 +31,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Read capture prerequisites, filtering and following streams. Use only your own isolated lab or an explicitly authorized sample; captures may contain secrets.",
-      "Capture prerequisite, filtering আর stream follow পড়ো। শুধু নিজের বিচ্ছিন্ন lab বা স্পষ্ট অনুমোদিত sample ব্যবহার করো; capture-এ secret থাকতে পারে।",
+      "Capture prerequisite, filtering আর stream follow পড়ুন। শুধু নিজের বিচ্ছিন্ন lab বা স্পষ্ট অনুমোদিত sample ব্যবহার করুন; capture-এ secret থাকতে পারে।",
     ),
     whyRecommended: scope(
       "Official, free guidance for inspecting packet evidence and understanding the tool’s limits.",
@@ -49,7 +49,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Use the tutorial matching your installed version: schematic, electrical rules and board layout. Software/docs are free; components and fabrication are not included.",
-      "Installed version-এর সঙ্গে মেলা tutorial নাও: schematic, electrical rule আর board layout। Software/docs free; component আর fabrication অন্তর্ভুক্ত নয়।",
+      "Installed version-এর সঙ্গে মেলা tutorial নিন: schematic, electrical rule আর board layout। Software/docs free; component আর fabrication অন্তর্ভুক্ত নয়।",
     ),
     whyRecommended: scope(
       "Connects an editable circuit design with checks and fabrication outputs without requiring a board purchase.",
@@ -67,11 +67,11 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Read the freely downloadable syllabus sections on test design, risk and defect management. Training and the optional certification exam can cost money; neither is required here.",
-      "Free downloadable syllabus-এর test design, risk আর defect management পড়ো। Training আর optional certification exam-এ খরচ হতে পারে; এখানে কোনোটিই বাধ্যতামূলক নয়।",
+      "Free downloadable syllabus-এর test design, risk আর defect management পড়ুন। Training আর optional certification exam-এ খরচ হতে পারে; এখানে কোনোটিই বাধ্যতামূলক নয়।",
     ),
     whyRecommended: scope(
       "Provides shared testing vocabulary; pair it with a real app and evidence rather than exam memorization.",
-      "Testing-এর পরিচিত vocabulary দেয়; exam মুখস্থ নয়, real app আর evidence-এর সঙ্গে ব্যবহার করো।",
+      "Testing-এর পরিচিত vocabulary দেয়; exam মুখস্থ নয়, real app আর evidence-এর সঙ্গে ব্যবহার করুন।",
     ),
     lastReviewed: reviewed,
     language: "en",
@@ -85,7 +85,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Write one isolated user-journey test with meaningful locators and assertions; then test a failure state. Use the free local runner, not an optional hosted service.",
-      "Meaningful locator আর assertion দিয়ে একটি isolated user-journey test লেখো; তারপর failure state। Free local runner নাও, optional hosted service নয়।",
+      "Meaningful locator আর assertion দিয়ে একটি isolated user-journey test লিখুন; তারপর failure state। Free local runner নিন, optional hosted service নয়।",
     ),
     whyRecommended: scope(
       "Teaches executable checks and observable outcomes without treating automation as the whole of QA.",
@@ -103,7 +103,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Start with Kotlin and the first interactive app; then state and navigation. Choose this branch for Android, not alongside every other mobile stack.",
-      "Kotlin আর প্রথম interactive app দিয়ে শুরু; তারপর state আর navigation। Android branch হিসেবে নাও, সব mobile stack-এর সঙ্গে একসঙ্গে নয়।",
+      "Kotlin আর প্রথম interactive app দিয়ে শুরু; তারপর state আর navigation। Android branch হিসেবে নিন, সব mobile stack-এর সঙ্গে একসঙ্গে নয়।",
     ),
     whyRecommended: scope(
       "An official learning sequence that connects language basics with real app behavior and tests.",
@@ -121,7 +121,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Check tooling requirements first, then build one view and state transition. Tutorials are free; hardware and distribution may have costs.",
-      "আগে tooling requirement দেখো, তারপর একটি view আর state transition। Tutorial free; hardware আর distribution-এ খরচ হতে পারে।",
+      "আগে tooling requirement দেখুন, তারপর একটি view আর state transition। Tutorial free; hardware আর distribution-এ খরচ হতে পারে।",
     ),
     whyRecommended: scope(
       "Official Swift and Apple-platform guidance instead of mixing outdated tutorials.",
@@ -139,7 +139,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Pick your available target device, check setup and learn Dart/widgets/state for one small app. Paid hosted tools are unnecessary for this exercise.",
-      "যে target device আছে সেটি বেছে setup দেখো; ছোট app-এর জন্য Dart/widget/state শেখো। এই exercise-এ paid hosted tool দরকার নেই।",
+      "যে target device আছে সেটি বেছে setup দেখুন; ছোট app-এর জন্য Dart/widget/state শিখুন। এই exercise-এ paid hosted tool দরকার নেই।",
     ),
     whyRecommended: scope(
       "A maintained starting point for the Flutter branch, with platform-specific setup made explicit.",
@@ -157,7 +157,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Use if you already know JavaScript/React; read the framework and environment choices, then implement one screen. Check optional service costs separately.",
-      "JavaScript/React জানা থাকলে framework আর environment-এর choice পড়ে একটি screen বানাও। Optional service-এর খরচ আলাদা করে দেখো।",
+      "JavaScript/React জানা থাকলে framework আর environment-এর choice পড়ে একটি screen বানান। Optional service-এর খরচ আলাদা করে দেখুন।",
     ),
     whyRecommended: scope(
       "Explains the supported starting workflow without pretending cross-platform removes native constraints.",
@@ -175,7 +175,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Read consent and usability-testing guidance; plan one small observation session. This is a learning exercise, not a representative research study.",
-      "Consent আর usability testing guidance পড়ে ছোট observation session plan করো। এটি শেখার exercise, representative research study নয়।",
+      "Consent আর usability testing guidance পড়ে ছোট observation session plan করুন। এটি শেখার exercise, representative research study নয়।",
     ),
     whyRecommended: scope(
       "Connects research questions, ethical participation and evidence instead of invented personas.",
@@ -193,7 +193,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Study a form component and its error pattern. Learn the reasoning; do not copy government branding into your portfolio.",
-      "একটি form component আর তার error pattern দেখো। Reasoning শেখো; portfolio-তে government branding copy কোরো না।",
+      "একটি form component আর তার error pattern দেখুন। Reasoning শিখুন; portfolio-তে government branding copy করবেন না।",
     ),
     whyRecommended: scope(
       "Shows how research-informed patterns become documented, reusable interfaces.",
@@ -211,7 +211,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Weeks 0–5; finish the problem sets you can explain.",
-      "Week 0–5; যে problem set solve করবে, সেটা যেন explain-ও করতে পারো।",
+      "Week 0–5; যে problem set solve করবে, সেটা যেন explain-ও করতে পারেন।",
     ),
     whyRecommended: scope(
       "A rigorous, friendly foundation in problem solving, C, memory and data structures.",
@@ -265,7 +265,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Start with page structure, menus, images and forms.",
-      "Page structure, menu, image আর form দিয়ে শুরু করো।",
+      "Page structure, menu, image আর form দিয়ে শুরু করুন।",
     ),
     whyRecommended: scope(
       "Authoritative guidance that turns accessibility into engineering practice.",
@@ -305,7 +305,7 @@ export const resources: LearningResource[] = [
     ),
     whyRecommended: scope(
       "Learn relational ideas from the database itself, not an ORM abstraction.",
-      "ORM-এর আড়াল নয়, database থেকেই relational ধারণা শেখো।",
+      "ORM-এর আড়াল নয়, database থেকেই relational ধারণা শিখুন।",
     ),
     lastReviewed: reviewed,
     language: "en",
@@ -319,7 +319,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Complete lessons 1–12 and the exercises.",
-      "Lesson 1–12 আর exerciseগুলো করো।",
+      "Lesson 1–12 আর exerciseগুলো করুন।",
     ),
     whyRecommended: scope(
       "Fast feedback for turning SQL syntax into usable skill.",
@@ -373,7 +373,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Finish the short course and one notebook; skip competitions for now.",
-      "Short course আর একটি notebook শেষ করো; competition এখনই দরকার নেই।",
+      "Short course আর একটি notebook শেষ করুন; competition এখনই দরকার নেই।",
     ),
     whyRecommended: scope(
       "A low-friction way to train, validate and inspect a small model.",
@@ -391,7 +391,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Read the getting-started material and complete beginner SQLi/XSS labs only in the academy.",
-      "Getting started পড়ে academy-র beginner SQLi/XSS lab করো—শুধু authorized lab-এ।",
+      "Getting started পড়ে academy-র beginner SQLi/XSS lab করুন—শুধু authorized lab-এ।",
     ),
     whyRecommended: scope(
       "Safe, legal, deliberately vulnerable labs with excellent explanations.",
@@ -409,7 +409,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Grasshopper and Journeyman sections; type every command yourself.",
-      "Grasshopper আর Journeyman section; command নিজে type করো।",
+      "Grasshopper আর Journeyman section; command নিজে type করুন।",
     ),
     whyRecommended: scope(
       "A practical foundation before security or cloud tooling.",
@@ -431,7 +431,7 @@ export const resources: LearningResource[] = [
     ),
     whyRecommended: scope(
       "The everyday engineering tools many curricula leave implicit.",
-      "যে everyday engineering toolগুলো curriculum প্রায়ই ধরে নেয় তুমি জানো।",
+      "যে everyday engineering toolগুলো curriculum প্রায়ই ধরে নেয় আপনি জানুন।",
     ),
     lastReviewed: reviewed,
     language: "en",
@@ -445,7 +445,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Containerize one small app and understand images, containers, ports and volumes.",
-      "একটি ছোট app containerize করে image, container, port আর volume বোঝো।",
+      "একটি ছোট app containerize করে image, container, port আর volume বুঝুন।",
     ),
     whyRecommended: scope(
       "Enough container literacy for a first deployment—no Kubernetes detour.",
@@ -463,7 +463,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Projects 1–5 to connect gates, CPU and machine code.",
-      "Project 1–5 করে gate, CPU আর machine code-এর যোগটা বোঝো।",
+      "Project 1–5 করে gate, CPU আর machine code-এর যোগটা বুঝুন।",
     ),
     whyRecommended: scope(
       "Builds a concrete mental model of what lies beneath software.",
@@ -499,7 +499,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Audit core data structures, sorting and graph foundations.",
-      "Core data structure, sorting আর graph foundation audit করো।",
+      "Core data structure, sorting আর graph foundation audit করুন।",
     ),
     whyRecommended: scope(
       "A rigorous bridge from solving problems to reasoning about algorithms.",
@@ -517,7 +517,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Use the subject map; choose one deep subject, not all at once.",
-      "Subject map ব্যবহার করো; একসঙ্গে সব নয়, একটি deep subject বেছে নাও।",
+      "Subject map ব্যবহার করুন; একসঙ্গে সব নয়, একটি deep subject বেছে নিন।",
     ),
     whyRecommended: scope(
       "A curated map for students who want depth beyond tool tutorials.",
@@ -535,7 +535,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Read selectively after basic backend and systems foundations. Treat the incident-driven chapters as prompts to compare scaling and reliability trade-offs—not as a universal architecture recipe.",
-      "Backend আর system-এর basic foundation হওয়ার পরে বেছে বেছে পড়ো। Incident-ভিত্তিক chapterগুলো দিয়ে scaling ও reliability-র trade-off ভাবো; সব project-এ বসিয়ে দেওয়ার architecture recipe হিসেবে নিয়ো না।",
+      "Backend আর system-এর basic foundation হওয়ার পরে বেছে বেছে পড়ুন। Incident-ভিত্তিক chapterগুলো দিয়ে scaling ও reliability-র trade-off ভাবুন; সব project-এ বসিয়ে দেওয়ার architecture recipe হিসেবে নেবেন না।",
     ),
     whyRecommended: scope(
       "A free, story-driven tour of how technical and leadership decisions evolve as a product grows, useful for connecting isolated tools to operational consequences.",
@@ -553,7 +553,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Read the clean-code characteristics, then improve names, duplication or one oversized function in working code. Protect behavior with tests before a larger refactor.",
-      "Clean code-এর বৈশিষ্ট্যগুলো পড়ে working code-এ naming, duplication বা বড় একটি function improve করো। বড় refactor-এর আগে test দিয়ে behavior ধরে রাখো।",
+      "Clean code-এর বৈশিষ্ট্যগুলো পড়ে working code-এ naming, duplication বা বড় একটি function improve করুন। বড় refactor-এর আগে test দিয়ে behavior ধরে রাখুন।",
     ),
     whyRecommended: scope(
       "Connects readability, simplicity, duplication and tests to the real maintenance cost of code—including code drafted with AI.",
@@ -571,7 +571,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Begin with Bloaters, Change Preventers and Couplers. Find one example in your own project, describe its change cost and refactor only with behavior protected.",
-      "Bloaters, Change Preventers আর Couplers দিয়ে শুরু করো। নিজের project-এ একটি example খুঁজে change cost লেখো; behavior protect করে তবেই refactor করো।",
+      "Bloaters, Change Preventers আর Couplers দিয়ে শুরু করুন। নিজের project-এ একটি example খুঁজে change cost লিখুন; behavior protect করে তবেই refactor করুন।",
     ),
     whyRecommended: scope(
       "A visual vocabulary for spotting maintainability pressure that compiling and AI-generated confidence do not reveal.",
@@ -589,7 +589,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Read what a pattern is, its benefits and criticism. Study Strategy or Adapter only after you can point to that problem in working code; compare it with the simpler option.",
-      "Pattern কী, লাভ কী আর criticism কোথায়—আগে এগুলো পড়ো। Working code-এ সমস্যা দেখাতে পারলে তবেই Strategy বা Adapter দেখো; simpler option-এর সঙ্গে compare করো।",
+      "Pattern কী, লাভ কী আর criticism কোথায়—আগে এগুলো পড়ুন। Working code-এ সমস্যা দেখাতে পারলে তবেই Strategy বা Adapter দেখুন; simpler option-এর সঙ্গে compare করুন।",
     ),
     whyRecommended: scope(
       "Explains patterns as adaptable design blueprints and shared team language, while also making room for their limits and misuse.",
@@ -607,7 +607,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Read testing fundamentals and apply three tests to a small app.",
-      "Testing foundation পড়ে ছোট app-এ তিনটি meaningful test দাও।",
+      "Testing foundation পড়ে ছোট app-এ তিনটি meaningful test দিন।",
     ),
     whyRecommended: scope(
       "Practical guidance on behavior-focused tests and maintainability.",
@@ -625,7 +625,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Complete the short exercises, then repeat one analysis on a small CSV you understand.",
-      "Short exercise শেষ করে নিজের বোঝা ছোট CSV-তে একটি analysis আবার করো।",
+      "Short exercise শেষ করে নিজের বোঝা ছোট CSV-তে একটি analysis আবার করুন।",
     ),
     whyRecommended: scope(
       "Quick practice for selecting, cleaning, grouping and checking tabular data.",
@@ -643,7 +643,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Use the free text for distributions, study design, inference and the difference between association and causation.",
-      "Distribution, study design, inference আর association-causation পার্থক্যের জন্য free text ব্যবহার করো।",
+      "Distribution, study design, inference আর association-causation পার্থক্যের জন্য free text ব্যবহার করুন।",
     ),
     whyRecommended: scope(
       "A rigorous, openly available statistics foundation for honest analysis.",
@@ -661,7 +661,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Use the beginner modules for data preparation, modeling and accessible reports; one BI tool is enough to start.",
-      "Data preparation, modeling আর accessible report-এর beginner module দেখো; শুরুতে একটি BI tool-ই যথেষ্ট।",
+      "Data preparation, modeling আর accessible report-এর beginner module দেখুন; শুরুতে একটি BI tool-ই যথেষ্ট।",
     ),
     whyRecommended: scope(
       "Official, task-oriented guidance that connects a report to its data model.",
@@ -679,7 +679,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Study model and transformer foundations before using the later application chapters selectively.",
-      "পরে application chapter বেছে নেওয়ার আগে model আর transformer foundation পড়ো।",
+      "পরে application chapter বেছে নেওয়ার আগে model আর transformer foundation পড়ুন।",
     ),
     whyRecommended: scope(
       "A free technical foundation that makes model behavior less mysterious.",
@@ -697,7 +697,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Use selected lectures on development infrastructure, testing, deployment and continual learning; verify current tool details separately.",
-      "Development infrastructure, testing, deployment আর continual learning-এর lecture বেছে দেখো; current tool detail আলাদা যাচাই করো।",
+      "Development infrastructure, testing, deployment আর continual learning-এর lecture বেছে দেখুন; current tool detail আলাদা যাচাই করুন।",
     ),
     whyRecommended: scope(
       "Connects models to the engineering work required around production systems.",
@@ -715,7 +715,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Focus on data, evaluation, testing and production lessons; reproduce a small example rather than copying the full stack.",
-      "Data, evaluation, testing আর production lesson-এ focus করো; পুরো stack copy না করে ছোট example reproduce করো।",
+      "Data, evaluation, testing আর production lesson-এ focus করুন; পুরো stack copy না করে ছোট example reproduce করুন।",
     ),
     whyRecommended: scope(
       "Treats evaluation and reliable delivery as part of ML/AI engineering.",
@@ -733,7 +733,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Use the staged path to understand prompts, retrieval, evaluation and production concerns; treat dated provider details as changeable.",
-      "Prompt, retrieval, evaluation আর production concern বুঝতে staged path ব্যবহার করো; dated provider detail বদলাতে পারে।",
+      "Prompt, retrieval, evaluation আর production concern বুঝতে staged path ব্যবহার করুন; dated provider detail বদলাতে পারে।",
     ),
     whyRecommended: scope(
       "A practical engineer-to-engineer view that ends stages with something built instead of a certificate.",
@@ -751,7 +751,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Read what qualifies as an agent, when a deterministic workflow is enough, the single-agent loop, tool design, guardrails and human intervention. Treat SDK examples as one implementation, not the concept itself.",
-      "কোন system agent, কখন deterministic workflow যথেষ্ট, single-agent loop, tool design, guardrail আর human intervention পড়ো। SDK example-কে concept নয়, একটি implementation হিসেবে ধরো।",
+      "কোন system agent, কখন deterministic workflow যথেষ্ট, single-agent loop, tool design, guardrail আর human intervention পড়ুন। SDK example-কে concept নয়, একটি implementation হিসেবে ধরুন।",
     ),
     whyRecommended: scope(
       "A primary guide that puts workflow fit, evals, bounded tools and guardrails before multi-agent complexity.",
@@ -769,7 +769,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Learn the retrieval → augmentation → generation flow and why data ingestion, retrieval quality, grounding and serving must be reasoned about separately.",
-      "Retrieval → augmentation → generation flow আর data ingestion, retrieval quality, grounding ও serving কেন আলাদা করে ভাবতে হয় শেখো।",
+      "Retrieval → augmentation → generation flow আর data ingestion, retrieval quality, grounding ও serving কেন আলাদা করে ভাবতে হয় শিখুন।",
     ),
     whyRecommended: scope(
       "A maintained conceptual overview that separates RAG architecture from a fashionable vector-database demo.",
@@ -787,7 +787,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Learn workflow structure, data flow, branches, loops, error handling and executions before adding an AI node. Rebuild one small, harmless workflow and inspect its failure history.",
-      "AI node-এর আগে workflow structure, data flow, branch, loop, error handling আর execution শেখো। একটি harmless small workflow rebuild করে failure history দেখো।",
+      "AI node-এর আগে workflow structure, data flow, branch, loop, error handling আর execution শিখুন। একটি harmless small workflow rebuild করে failure history দেখুন।",
     ),
     whyRecommended: scope(
       "Official tool guidance for implementing visible workflows without confusing a canvas with engineering judgment.",
@@ -805,7 +805,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "After building one bounded agent, inspect its loop, workspace, tool wiring and sessions; then read the linked security, sandbox and tool-policy guidance before granting host or account access.",
-      "একটি bounded agent বানানোর পরে loop, workspace, tool wiring আর session দেখো; host বা account access দেওয়ার আগে linked security, sandbox আর tool-policy guidance পড়ো।",
+      "একটি bounded agent বানানোর পরে loop, workspace, tool wiring আর session দেখুন; host বা account access দেওয়ার আগে linked security, sandbox আর tool-policy guidance পড়ুন।",
     ),
     whyRecommended: scope(
       "A concrete runtime example that makes persistent agent authority—and the resulting trust boundary—visible.",
@@ -823,7 +823,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Use the categories to recognize common application risks, then verify behavior in an authorized lab rather than scanning public targets.",
-      "Common application risk চিনতে category ব্যবহার করো; public target scan নয়, authorized lab-এ behavior verify করো।",
+      "Common application risk চিনতে category ব্যবহার করুন; public target scan নয়, authorized lab-এ behavior verify করুন।",
     ),
     whyRecommended: scope(
       "A shared starting vocabulary for application-security risk, not a complete test plan.",
@@ -841,7 +841,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Select the sheet matching one feature, such as input validation or authentication; test the recommendation in your own small app.",
-      "Input validation বা authentication-এর মতো একটি feature-এর matching sheet নাও; নিজের small app-এ recommendation test করো।",
+      "Input validation বা authentication-এর মতো একটি feature-এর matching sheet নিন; নিজের small app-এ recommendation test করুন।",
     ),
     whyRecommended: scope(
       "Actionable prevention guidance organized by the problem developers are implementing.",
@@ -859,7 +859,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Map one small feature's data flow, trust boundaries, threats and mitigations with its owners.",
-      "Owner-দের সঙ্গে একটি small feature-এর data flow, trust boundary, threat আর mitigation map করো।",
+      "Owner-দের সঙ্গে একটি small feature-এর data flow, trust boundary, threat আর mitigation map করুন।",
     ),
     whyRecommended: scope(
       "Moves security earlier than scanner output and keeps it tied to system context.",
@@ -877,7 +877,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Start with complexity, basic data structures and graph foundations; attempt a problem before reading an advanced explanation.",
-      "Complexity, basic data structure আর graph foundation দিয়ে শুরু করো; advanced explanation পড়ার আগে problem চেষ্টা করো।",
+      "Complexity, basic data structure আর graph foundation দিয়ে শুরু করুন; advanced explanation পড়ার আগে problem চেষ্টা করুন।",
     ),
     whyRecommended: scope(
       "A broad Bangla index of programming, data-structure and algorithm explanations grounded in problem solving.",
@@ -895,7 +895,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Use the Bangla category selectively for competitive-programming motivation, practice reflection and related engineering notes.",
-      "Competitive-programming motivation, practice reflection আর related engineering note-এর জন্য বাংলা category বেছে ব্যবহার করো।",
+      "Competitive-programming motivation, practice reflection আর related engineering note-এর জন্য বাংলা category বেছে ব্যবহার করুন।",
     ),
     whyRecommended: scope(
       "Adds a Bangladesh-based practitioner perspective alongside structured algorithm references.",
@@ -913,7 +913,7 @@ export const resources: LearningResource[] = [
     isFree: true,
     recommendedScope: scope(
       "Use as a reference after attempting problems, not as a list to memorize.",
-      "Problem চেষ্টা করার পরে reference হিসেবে ব্যবহার করো; মুখস্থের checklist না।",
+      "Problem চেষ্টা করার পরে reference হিসেবে ব্যবহার করুন; মুখস্থের checklist না।",
     ),
     whyRecommended: scope(
       "Clear algorithm explanations for the competence and competitive tracks.",

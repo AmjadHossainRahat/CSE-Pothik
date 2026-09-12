@@ -14,7 +14,7 @@ const { locale } = Astro.props;
 const bn = locale === "bn";
 const title = bn ? "CSE ক্যারিয়ার রোডম্যাপ" : "CSE Career Roadmaps";
 const description = bn
-  ? "ভিত্তি থেকে ধাপে ধাপে এগোনো CSE ক্যারিয়ার রোডম্যাপ—কী শিখবে, আপাতত কতটুকু যথেষ্ট, কী হাতে-কলমে করবে আর কোনটা এখন না শিখলেও চলবে।"
+  ? "ভিত্তি থেকে ধাপে ধাপে এগোনো CSE ক্যারিয়ার রোডম্যাপ—কী শিখবেন, আপাতত কতটুকু যথেষ্ট, কী হাতে-কলমে করবেন আর কোনটা এখন না শিখলেও চলবে।"
   : "Foundation-first, mentor-guided CSE career roadmaps with practical tasks, curated resources and clear guidance on what not to learn yet.";
 const groupedCareers = careerFamilies.map((family) => ({
   family,
@@ -62,7 +62,7 @@ const structuredData = collectionStructuredData({
     </p>
   </header>
   <DirectoryJumpNav
-    eyebrow={bn ? "কাজের ধরন বেছে নাও" : "Jump to a career family"}
+    eyebrow={bn ? "কাজের ধরন বেছে নিন" : "Jump to a career family"}
     label={bn ? "রোডম্যাপ বিভাগের তালিকা" : "Roadmap family index"}
     items={groupedCareers.map(({ family, careers: items }) => ({
       id: `roadmaps-${family.id}`,
@@ -76,7 +76,7 @@ const structuredData = collectionStructuredData({
   >
     <div class="container route-choice-grid">
       <article>
-        <p class="eyebrow">{bn ? "কী শিখবে" : "What to learn"}</p><h2>
+        <p class="eyebrow">{bn ? "কী শিখবেন" : "What to learn"}</p><h2>
           {bn ? "ক্যারিয়ার অনুযায়ী" : "By career"}
         </h2><p>
           {
@@ -85,12 +85,12 @@ const structuredData = collectionStructuredData({
               : "From foundations to specialization in backend, mobile, UX/UI and other careers."
           }
         </p><a class="button button--secondary" href="#career-roadmaps"
-          >{bn ? "ক্যারিয়ার রোডম্যাপ দেখো" : "Browse career roadmaps"}</a
+          >{bn ? "ক্যারিয়ার রোডম্যাপ দেখুন" : "Browse career roadmaps"}</a
         >
       </article>
       <article>
         <p class="eyebrow">
-          {bn ? "কোথায় কাজে লাগাবে" : "How to put it to work"}
+          {bn ? "কোথায় কাজে লাগাবেন" : "How to put it to work"}
         </p><h2>{bn ? "লক্ষ্য অনুযায়ী" : "By goal"}</h2><p>
           {
             bn
@@ -110,19 +110,19 @@ const structuredData = collectionStructuredData({
   <section class="section section--tinted" id="career-roadmaps">
     <div class="container project-entry">
       <p class="eyebrow">
-        {bn ? "শেখা কাজে লাগাও" : "Put your learning into practice"}
+        {bn ? "শেখা কাজে লাগান" : "Put your learning into practice"}
       </p>
       <h2>
         {
           bn
-            ? "ফাইনাল ইয়ার প্রজেক্ট শুরু করছ?"
+            ? "ফাইনাল ইয়ার প্রজেক্ট শুরু করছেন?"
             : "Starting your final-year project?"
         }
       </h2>
       <p>
         {
           bn
-            ? "Requirement থেকে test, review আর handover—শিক্ষার্থী হিসেবেই industry practice মেনে শেষ করা সম্ভব এমন project বানাও।"
+            ? "Requirement থেকে test, review আর handover—শিক্ষার্থী হিসেবেই industry practice মেনে শেষ করা সম্ভব এমন project বানান।"
             : "Turn a finishable project into engineering evidence: requirements, tests, reviews and a reproducible handover."
         }
       </p>
@@ -132,7 +132,7 @@ const structuredData = collectionStructuredData({
         data-track-param-destination="final-year-project"
         >{
           bn
-            ? "Project standard আর template দেখো"
+            ? "Project standard আর template দেখুন"
             : "Explore project standards and templates"
         } →</a
       >
@@ -165,7 +165,7 @@ const structuredData = collectionStructuredData({
                     data-track-event="next_step_clicked"
                     data-track-param-destination={`roadmap/${career.id}`}
                   >
-                    {bn ? "রোডম্যাপ খোলো" : "Open roadmap"}{" "}
+                    {bn ? "রোডম্যাপ খুলুন" : "Open roadmap"}{" "}
                     <span aria-hidden="true">→</span>
                   </a>
                 </div>
@@ -189,7 +189,7 @@ const structuredData = collectionStructuredData({
       </h2><p>
         {
           bn
-            ? "এখনকার ধাপের ‘আপাতত যথেষ্ট’ শর্ত পূরণ করো, হাতে-কলমে কাজটি শেষ করো, তারপর পরের ধাপে যাও। Resource link জমালেই skill জমে না।"
+            ? "এখনকার ধাপের ‘আপাতত যথেষ্ট’ শর্ত পূরণ করুন, হাতে-কলমে কাজটি শেষ করুন, তারপর পরের ধাপে যান। Resource link জমালেই skill জমে না।"
             : "Meet the current stage’s ‘enough for now’ criteria, complete its practical task, then move forward. Collecting resource links is not a skill."
         }
       </p>

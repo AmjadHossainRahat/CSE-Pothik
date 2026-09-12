@@ -320,12 +320,12 @@ const structuredData = [
         </ul>
       </div><div class="callout callout--amber">
         <p class="callout__label">
-          {bn ? "ভবিষ্যতের তুমি বলছে" : "Future You says"}
+          {bn ? "ভবিষ্যতের আপনি বলছেন" : "Future You says"}
         </p><p>
           {
             career.id === "backend-engineering"
               ? bn
-                ? "এখনও প্রথম API-টাই deploy করোনি। Kubernetes-কে একটু অপেক্ষা করতে বললে সে রাগ করবে না।"
+                ? "এখনও প্রথম API-টাই deploy করেননি। Kubernetes-কে একটু অপেক্ষা করতে বললে সে রাগ করবে না।"
                 : "You have not deployed your first API yet. Kubernetes can wait."
               : bn
                 ? "‘পরে’ মানে অপ্রয়োজনীয় নয়। ভিত তৈরি হওয়ার আগে শিখলে শুধু context-টাই থাকবে না।"
@@ -348,7 +348,7 @@ const structuredData = [
         </div><p class="lede">
           {
             bn
-              ? "এটি replacement-এর শতকরা হিসাব নয়। AI-এর ক্ষমতা বদলাবে; তাই কাজ, বিচারবোধ আর দায়িত্ব—তিনটাকে আলাদা করে দেখো।"
+              ? "এটি replacement-এর শতকরা হিসাব নয়। AI-এর ক্ষমতা বদলাবে; তাই কাজ, বিচারবোধ আর দায়িত্ব—তিনটাকে আলাদা করে দেখুন।"
               : "This is not a replacement probability. Capabilities will change, so separate tasks, judgment and responsibility."
           }
         </p>
@@ -361,7 +361,7 @@ const structuredData = [
                 <h3>{t(item.task, locale)}</h3>
                 <p>{t(item.explanation, locale)}</p>
                 <p>
-                  <strong>{bn ? "তোমার করণীয়:" : "Student response:"}</strong>{" "}
+                  <strong>{bn ? "আপনার করণীয়:" : "Student response:"}</strong>{" "}
                   {t(item.studentResponse, locale)}
                 </p>
               </>
@@ -398,7 +398,7 @@ const structuredData = [
         </h2><p class="lede">
           {
             bn
-              ? "কতগুলো resource জমিয়েছ, সেটি progress নয়। দরকারি অংশটুকু শেষ করে কিছু বানাও।"
+              ? "কতগুলো resource জমিয়েছেন, সেটি progress নয়। দরকারি অংশটুকু শেষ করে কিছু বানান।"
               : "Resource count is not progress. Finish the recommended scope and build something."
           }
         </p>
@@ -414,7 +414,7 @@ const structuredData = [
 
   <section class="section section--tinted">
     <div class="container">
-      <p class="eyebrow">{bn ? "এবার কী করবে" : "Next choices"}</p><h2>
+      <p class="eyebrow">{bn ? "এবার কী করবেন" : "Next choices"}</p><h2>
         {
           bn
             ? "এবার নিজের জন্য কোন evidence বানাবে?"

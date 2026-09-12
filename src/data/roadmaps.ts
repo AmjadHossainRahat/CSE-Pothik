@@ -34,21 +34,21 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
         l("1 · Foundation", "১ · Foundation"),
         l(
           "Build the vocabulary and problem-solving habits the rest of the path assumes.",
-          "পথের বাকিটা যে vocabulary আর problem-solving habit ধরে নেয়—সেটা বানাও।",
+          "পথের বাকিটা যে vocabulary আর problem-solving habit ধরে নেয়—সেটা বানান।",
         ),
         career.foundation,
         l(
           "You can build small programs, use Git, debug basic failures and explain what your code does.",
-          "ছোট program বানাতে, Git ব্যবহার করতে, basic failure debug আর নিজের code explain করতে পারো।",
+          "ছোট program বানাতে, Git ব্যবহার করতে, basic failure debug আর নিজের code explain করতে পারেন।",
         ),
         l(
           "Build one small command-line or browser program without copying an entire tutorial.",
-          "পুরো tutorial copy না করে ছোট command-line বা browser program বানাও।",
+          "পুরো tutorial copy না করে ছোট command-line বা browser program বানান।",
         ),
         [
           l(
             "Do not specialize so early that every basic problem looks like a framework problem.",
-            "এত তাড়াতাড়ি specialize কোরো না যেন basic problem-ও framework problem মনে হয়।",
+            "এত তাড়াতাড়ি specialize করবেন না যেন basic problem-ও framework problem মনে হয়।",
           ),
         ],
         [learn].filter(Boolean) as string[],
@@ -58,16 +58,16 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
         l("2 · Core", "২ · Core"),
         l(
           "Learn the concepts that make this career distinct from simply writing code.",
-          "শুধু code লেখা থেকে এই career-কে আলাদা করে যে conceptগুলো—সেগুলো শেখো।",
+          "শুধু code লেখা থেকে এই career-কে আলাদা করে যে conceptগুলো—সেগুলো শিখুন।",
         ),
         career.core,
         l(
           "You can explain the main trade-offs and solve a bounded problem without a recipe.",
-          "Main trade-off explain আর recipe ছাড়া bounded problem solve করতে পারো।",
+          "Main trade-off explain আর recipe ছাড়া bounded problem solve করতে পারেন।",
         ),
         l(
           "Rebuild a familiar exercise with one changed constraint and document your reasoning.",
-          "একটি familiar exercise-এ constraint বদলে আবার build করো আর reasoning লিখে রাখো।",
+          "একটি familiar exercise-এ constraint বদলে আবার build করুন আর reasoning লিখে রাখুন।",
         ),
         career.notYet.slice(0, 1),
         [practice].filter(Boolean) as string[],
@@ -77,16 +77,16 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
         l("3 · Practical", "৩ · Practical"),
         l(
           "Meet the inconvenient parts tutorials often skip: setup, failure, feedback and deployment.",
-          "Tutorial যে inconvenient অংশ skip করে—setup, failure, feedback, deployment—সেগুলোর মুখোমুখি হও।",
+          "Tutorial যে inconvenient অংশ skip করে—setup, failure, feedback, deployment—সেগুলোর মুখোমুখি হোন।",
         ),
         career.practical,
         l(
           "You have one small, working artifact and can demonstrate a failure you found and fixed.",
-          "একটি ছোট working artifact আছে, আর যে failure পেয়ে fix করেছ সেটা দেখাতে পারো।",
+          "একটি ছোট working artifact আছে, আর যে failure পেয়ে fix করেছেন সেটা দেখাতে পারেন।",
         ),
         l(
           "Complete the linked career experiment, then improve it after one deliberate failure or review.",
-          "Linked career experiment শেষ করে deliberate failure বা review-এর পরে improve করো।",
+          "Linked career experiment শেষ করে deliberate failure বা review-এর পরে improve করুন।",
         ),
         career.notYet.slice(1, 2),
         [deeper ?? practice].filter(Boolean) as string[],
@@ -96,7 +96,7 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
         l("4 · Professional Engineering", "৪ · Professional Engineering"),
         l(
           "Make your work readable, testable, reviewable and safe for another person to depend on.",
-          "তোমার কাজকে readable, testable, reviewable আর অন্যের depend করার মতো safe করো।",
+          "আপনার কাজকে readable, testable, reviewable আর অন্যের depend করার মতো safe করুন।",
         ),
         [
           l("Clean code and naming", "Clean code আর naming"),
@@ -112,16 +112,16 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
         ],
         l(
           "You can explain a design choice, review a peer’s change and refactor without changing behavior.",
-          "Design choice explain, peer-এর change review আর behavior না বদলে refactor করতে পারো।",
+          "Design choice explain, peer-এর change review আর behavior না বদলে refactor করতে পারেন।",
         ),
         l(
           "Find one pain point in your project, add a characterization test, then refactor it.",
-          "Project-এর একটি pain point খুঁজে characterization test যোগ করে refactor করো।",
+          "Project-এর একটি pain point খুঁজে characterization test যোগ করে refactor করুন।",
         ),
         [
           l(
             "Do not memorize SOLID or design patterns as interview incantations.",
-            "SOLID বা design pattern-কে interview-এর মন্ত্র হিসেবে মুখস্থ কোরো না।",
+            "SOLID বা design pattern-কে interview-এর মন্ত্র হিসেবে মুখস্থ করবেন না।",
           ),
         ],
         ["refactoring-guru", "testing-js"],
@@ -131,16 +131,16 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
         l("5 · Later / Specialization", "৫ · পরে / Specialization"),
         l(
           "Choose depth because a real project or question now demands it—not because a roadmap poster had empty boxes.",
-          "Real project বা question দাবি করছে বলে depth বেছে নাও—roadmap poster-এ খালি box ছিল বলে নয়।",
+          "Real project বা question দাবি করছে বলে depth বেছে নিন—roadmap poster-এ খালি box ছিল বলে নয়।",
         ),
         career.later,
         l(
           "Choose one depth area, state why it matters now and produce one evidence-backed result.",
-          "একটি depth area বেছে কেন এখন দরকার বলো আর evidence-backed result বানাও।",
+          "একটি depth area বেছে কেন এখন দরকার বলুন আর evidence-backed result বানান।",
         ),
         l(
           "Write a one-page depth plan tied to a real system, research question or role requirement.",
-          "Real system, research question বা role requirement-এর সঙ্গে যুক্ত one-page depth plan লেখো।",
+          "Real system, research question বা role requirement-এর সঙ্গে যুক্ত one-page depth plan লিখুন।",
         ),
         career.notYet.slice(2),
         [extra ?? deeper].filter(Boolean) as string[],
@@ -156,11 +156,11 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
     ];
     roadmap.stages[0]!.practicalTask = l(
       "Choose one platform that your available tooling supports. Build an editable list with in-memory state before adding storage.",
-      "হাতের tooling যে platform সমর্থন করে সেটি বেছে নাও। Storage-এর আগে in-memory state-সহ editable list বানাও।",
+      "হাতের tooling যে platform সমর্থন করে সেটি বেছে নিন। Storage-এর আগে in-memory state-সহ editable list বানান।",
     );
     roadmap.stages[0]!.enoughForNow = l(
       "You can run the app, change a field, trace its state and debug an error in your chosen language.",
-      "App চালাতে, field বদলাতে, state trace আর নিজের language-এ error debug করতে পারো।",
+      "App চালাতে, field বদলাতে, state trace আর নিজের language-এ error debug করতে পারেন।",
     );
     roadmap.stages[1]!.resourceIds = [
       "android-compose",
@@ -170,7 +170,7 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
     ];
     roadmap.stages[1]!.practicalTask = l(
       "Follow only your chosen platform reference. Add navigation and local persistence, then test restart, back navigation and missing data.",
-      "শুধু বাছা platform-এর reference অনুসরণ করো। Navigation আর local persistence দিয়ে restart, back navigation আর missing data test করো।",
+      "শুধু বাছা platform-এর reference অনুসরণ করুন। Navigation আর local persistence দিয়ে restart, back navigation আর missing data test করুন।",
     );
     roadmap.stages[2]!.resourceIds = [
       "android-compose",
@@ -181,7 +181,7 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
     roadmap.stages[3]!.topics = [
       l(
         "Separate UI state from data access and test the boundary.",
-        "UI state আর data access আলাদা করে boundary test করো।",
+        "UI state আর data access আলাদা করে boundary test করুন।",
       ),
       l(
         "Permission minimization, accessible controls and crash diagnostics.",
@@ -200,7 +200,7 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
     ];
     roadmap.stages[3]!.practicalTask = l(
       "Keep using your selected platform docs. Write a release checklist, test an interrupted save and record how to recover without losing user data.",
-      "বাছা platform-এর docs ব্যবহার চালাও। Release checklist লেখো, interrupted save test করো, user data না হারিয়ে recovery লিখে রাখো।",
+      "বাছা platform-এর docs ব্যবহার চালান। Release checklist লিখুন, interrupted save test করুন, user data না হারিয়ে recovery লিখে রাখুন।",
     );
     roadmap.stages[4]!.resourceIds = [
       "android-compose",
@@ -212,15 +212,15 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
   if (career.id === "ux-ui-engineering") {
     roadmap.stages[0]!.practicalTask = l(
       "Describe one user task, sketch its flow and implement a semantic HTML form without a component library.",
-      "একটি user task লিখে flow sketch করো; component library ছাড়া semantic HTML form বানাও।",
+      "একটি user task লিখে flow sketch করুন; component library ছাড়া semantic HTML form বানান।",
     );
     roadmap.stages[0]!.enoughForNow = l(
       "You can explain the task, build labeled controls and navigate them with a keyboard.",
-      "Task বোঝাতে, labeled control বানাতে আর keyboard দিয়ে ব্যবহার করতে পারো।",
+      "Task বোঝাতে, labeled control বানাতে আর keyboard দিয়ে ব্যবহার করতে পারেন।",
     );
     roadmap.stages[1]!.practicalTask = l(
       "Compare two low-fidelity flows, observe a consenting peer and distinguish observation from assumption. Implement the better-supported choice.",
-      "দুটি low-fidelity flow compare করে সম্মতি দেওয়া peer-কে দেখো; observation আর assumption আলাদা করো। Evidence বেশি এমন choice implement করো।",
+      "দুটি low-fidelity flow compare করে সম্মতি দেওয়া peer-কে দেখুন; observation আর assumption আলাদা করুন। Evidence বেশি এমন choice implement করুন।",
     );
     roadmap.stages[3]!.topics = [
       l(
@@ -239,11 +239,11 @@ export const roadmaps: Roadmap[] = careers.map((career) => {
     roadmap.stages[3]!.resourceIds = ["web-a11y", "gov-design-system"];
     roadmap.stages[3]!.practicalTask = l(
       "Extract one tested form component, document its states and have another person integrate it. Fix one misunderstanding and retest keyboard behavior.",
-      "একটি tested form component আলাদা করে state document করো; অন্য কাউকে integrate করতে দাও। একটি ভুল বোঝাবুঝি ঠিক করে keyboard behavior আবার test করো।",
+      "একটি tested form component আলাদা করে state document করুন; অন্য কাউকে integrate করতে দিন। একটি ভুল বোঝাবুঝি ঠিক করে keyboard behavior আবার test করুন।",
     );
     roadmap.stages[3]!.enoughForNow = l(
       "Another person can reuse the component and explain its behavior; you can show usability evidence and accessibility checks with their limitations.",
-      "অন্য কেউ component reuse আর behavior explain করতে পারে; সীমাবদ্ধতা-সহ usability evidence আর accessibility check দেখাতে পারো।",
+      "অন্য কেউ component reuse আর behavior explain করতে পারে; সীমাবদ্ধতা-সহ usability evidence আর accessibility check দেখাতে পারেন।",
     );
   }
   return refineSpecialistRoadmap(refineInfrastructureRoadmap(roadmap));

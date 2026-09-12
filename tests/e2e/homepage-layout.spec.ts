@@ -85,7 +85,7 @@ for (const locale of ["en", "bn"] as const) {
       "alt",
       locale === "en"
         ? "A Chakma woman holds a QA checklist tablet between two teammates at laptops, all three smiling toward you."
-        : "ল্যাপটপে কাজ করা দুই সতীর্থের মাঝে দাঁড়িয়ে ট্যাবলেটে সফটওয়্যার পরীক্ষার তালিকা দেখাচ্ছে এক চাকমা তরুণী; তিনজনই তোমার দিকে তাকিয়ে হাসছে।",
+        : "ল্যাপটপে কাজ করা দুই সতীর্থের মাঝে দাঁড়িয়ে ট্যাবলেটে সফটওয়্যার পরীক্ষার তালিকা দেখাচ্ছে এক চাকমা তরুণী; তিনজনই আপনার দিকে তাকিয়ে হাসছে।",
     );
     await expect(studyPartners).toHaveAttribute("loading", "eager");
     await expect(studyPartners).toHaveAttribute("fetchpriority", "high");

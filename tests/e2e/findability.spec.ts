@@ -69,7 +69,7 @@ test("bilingual inline search finds careers, guidance and resources without chan
 
   await page.goto(route("/bn/"));
   await page.getByRole("searchbox").fill("প্রজেক্ট");
-  await page.getByRole("button", { name: "খুঁজে দেখো" }).click();
+  await page.getByRole("button", { name: "খুঁজে দেখুন" }).click();
   await expect(
     page.getByRole("link", { name: /Final-year project standard/ }),
   ).toBeVisible();
@@ -180,6 +180,6 @@ test("comparison groups all careers by family and localizes live feedback", asyn
   await page.goto(route("/bn/compare/"));
   await page.locator(".career-options input:checked").nth(1).uncheck();
   await expect(page.locator("#compare-status")).toHaveText(
-    "কমপক্ষে দুটি ক্যারিয়ার বেছে নাও।",
+    "কমপক্ষে দুটি ক্যারিয়ার বেছে নিন।",
   );
 });

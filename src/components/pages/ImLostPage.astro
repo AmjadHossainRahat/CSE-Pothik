@@ -18,7 +18,7 @@ const bn = locale === "bn";
     ? "আমি দিশেহারা — CSE Next Step"
     : "I’m Lost — Find Your Next CSE Step"}
   description={bn
-    ? "আজ কোথায় আটকে আছ, সেটুকু বলো। কোনো তথ্য জমা না রেখেই CSE-Pothik তোমাকে কাজে লাগে এমন পরের ধাপটি দেখাবে।"
+    ? "আজ কোথায় আটকে আছেন, সেটুকু বলুন। কোনো তথ্য জমা না রেখেই CSE-Pothik আপনাকে কাজে লাগে এমন পরের ধাপটি দেখাবে।"
     : "Choose where you are stuck today and follow a deterministic, private CSE guidance path to a useful next step."}
 >
   <Breadcrumbs
@@ -35,13 +35,13 @@ const bn = locale === "bn";
     </p><h1>
       {
         bn
-          ? "মাথা গুলিয়ে গেছে? আজকের সমস্যাটা বেছে নাও।"
+          ? "মাথা গুলিয়ে গেছে? আজকের সমস্যাটা বেছে নিন।"
           : "Confused? Choose today’s problem."
       }
     </h1><p class="lede">
       {
         bn
-          ? "এটি personality test বা AI-এর ভবিষ্যদ্বাণী নয়। কোথায় আটকে আছ বললে প্রাসঙ্গিক একটি পথ দেখাবে; তোমার উত্তর কোথাও জমা হবে না।"
+          ? "এটি personality test বা AI-এর ভবিষ্যদ্বাণী নয়। কোথায় আটকে আছেন বললে প্রাসঙ্গিক একটি পথ দেখাবে; আপনার উত্তর কোথাও জমা হবে না।"
           : "This is not a personality test or AI prediction. Tell the site where you are stuck and it will reveal a relevant route. No answer is saved."
       }
     </p>
@@ -81,9 +81,9 @@ const bn = locale === "bn";
         tabindex="-1"
       >
         <p class="eyebrow">
-          {bn ? "এখন তোমার কাজে লাগবে" : "Your next meaningful step"}
+          {bn ? "এখন আপনার কাজে লাগবে" : "Your next meaningful step"}
         </p><h2 data-result-title>
-          {bn ? "একটি অবস্থা বেছে নাও" : "Choose one situation"}
+          {bn ? "একটি অবস্থা বেছে নিন" : "Choose one situation"}
         </h2><p data-result-copy></p><a class="button" data-result-link href="#"
           >{bn ? "এই পথে এগোই" : "Take this route"}</a
         ><button class="reset" type="button" data-lost-reset
@@ -108,7 +108,7 @@ const bn = locale === "bn";
         <p class="lede">
           {
             bn
-              ? "কিন্তু পরের তিন মাস নষ্ট হওয়া আজই থামাতে পারো। ছোট লক্ষ্য, প্রতিদিনের foundation, একটি project আর নিয়মিত feedback—শুনতে একটু boring, কিন্তু কাজের পরিকল্পনা সাধারণত এমনই হয়।"
+              ? "কিন্তু পরের তিন মাস নষ্ট হওয়া আজই থামাতে পারেন। ছোট লক্ষ্য, প্রতিদিনের foundation, একটি project আর নিয়মিত feedback—শুনতে একটু boring, কিন্তু কাজের পরিকল্পনা সাধারণত এমনই হয়।"
               : "But you can stop losing the next three months. A narrow target, daily foundations, one project and feedback—the boring plan is the useful one."
           }
         </p><a
@@ -117,7 +117,7 @@ const bn = locale === "bn";
             lostChoices.find((choice) => choice.id === "behind")!.destination[
               locale
             ],
-          )}>{bn ? "ঘুরে দাঁড়ানোর পথ দেখো →" : "Open the recovery route →"}</a
+          )}>{bn ? "ঘুরে দাঁড়ানোর পথ দেখুন →" : "Open the recovery route →"}</a
         >
       </div>
     </div>

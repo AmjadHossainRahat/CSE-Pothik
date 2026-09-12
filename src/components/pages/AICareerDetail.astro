@@ -37,7 +37,7 @@ const bn = locale === "bn";
     </p><h1>AI & {t(career.title, locale)}</h1><p class="lede">
       {
         bn
-          ? "এখানে কোনো replacement score নেই। কাজগুলো আলাদা করে দেখো—কোথায় AI-কে নির্দেশ দেবে, আর কোথায় নিজের চিন্তার হাল ছাড়বে না।"
+          ? "এখানে কোনো replacement score নেই। কাজগুলো আলাদা করে দেখুন—কোথায় AI-কে নির্দেশ দেবে, আর কোথায় নিজের চিন্তার হাল ছাড়বে না।"
           : "No replacement score. Separate the career’s tasks to see where to direct AI and where to preserve independent reasoning."
       }
     </p>
@@ -49,7 +49,7 @@ const bn = locale === "bn";
           <p class="eyebrow">Task Automation Exposure</p><h2>
             {
               bn
-                ? "কাজ, ব্যাখ্যা, তোমার করণীয়"
+                ? "কাজ, ব্যাখ্যা, আপনার করণীয়"
                 : "Task, explanation, student response"
             }
           </h2>
@@ -69,7 +69,7 @@ const bn = locale === "bn";
                 <h3>{t(item.task, locale)}</h3>
                 <p>{t(item.explanation, locale)}</p>
                 <p>
-                  <strong>{bn ? "তুমি যা করবে:" : "Your response:"}</strong>{" "}
+                  <strong>{bn ? "আপনি যা করবেন:" : "Your response:"}</strong>{" "}
                   {t(item.studentResponse, locale)}
                 </p>
               </>
@@ -103,7 +103,7 @@ const bn = locale === "bn";
         </p><p>
           {
             bn
-              ? "AI-এর বানানো solution থেকে একটি bug, প্রমাণহীন একটি assumption, বাদ পড়া একটি edge case আর সহজতর একটি বিকল্প খুঁজে লেখো।"
+              ? "AI-এর বানানো solution থেকে একটি bug, প্রমাণহীন একটি assumption, বাদ পড়া একটি edge case আর সহজতর একটি বিকল্প খুঁজে লিখুন।"
               : "In an AI-generated solution, identify one bug, one unproven assumption, one missing edge case and one simpler alternative."
           }
         </p>
@@ -112,7 +112,7 @@ const bn = locale === "bn";
   </section>
   <section class="section section--tinted">
     <div class="container">
-      <p class="eyebrow">{bn ? "এবার কী করবে" : "Next choices"}</p><h2>
+      <p class="eyebrow">{bn ? "এবার কী করবেন" : "Next choices"}</p><h2>
         {bn ? "ভয় নিয়ে বসে না থেকে কাজে নামো" : "Move from fear to practice"}
       </h2><div class="next-actions">
         <a class="button" href={withBase(experimentPath(locale, career.slug))}

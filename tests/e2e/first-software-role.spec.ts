@@ -18,7 +18,7 @@ for (const locale of ["en", "bn"] as const) {
       locale === "bn" ? "ভালো entry-level" : "well-paid entry roles",
     );
     await expect(page.locator("#entry-route-role-evidence")).toContainText(
-      locale === "bn" ? "নিজেই নিজেকে বাদ দিও না" : "Do not self-reject",
+      locale === "bn" ? "নিজেই নিজেকে বাদ দেবেন না" : "Do not self-reject",
     );
     await expect(page.locator(".role-stage")).toHaveCount(6);
     await expect(page.locator("#interview-baseline")).toContainText(

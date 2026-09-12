@@ -7,7 +7,7 @@ export const projectTemplates: ProjectTemplate[] = [
     title: l("Project brief & risk register", "Project brief ও risk register"),
     use: l(
       "Agree the smallest useful outcome with your supervisor before committing to scope.",
-      "Scope নেওয়ার আগে supervisor-এর সঙ্গে সবচেয়ে ছোট useful outcome ঠিক করো।",
+      "Scope নেওয়ার আগে supervisor-এর সঙ্গে সবচেয়ে ছোট useful outcome ঠিক করুন।",
     ),
     fields: [
       l(
@@ -44,7 +44,7 @@ export const projectTemplates: ProjectTemplate[] = [
     ),
     use: l(
       "Write together at kickoff; revisit when availability or scope changes.",
-      "Kickoff-এ একসঙ্গে লেখো; availability বা scope বদলালে আবার দেখো।",
+      "Kickoff-এ একসঙ্গে লিখুন; availability বা scope বদলালে আবার দেখুন।",
     ),
     fields: [
       l(
@@ -78,7 +78,7 @@ export const projectTemplates: ProjectTemplate[] = [
     title: l("Ready-to-pick-up issue", "কাজ শুরু করার মতো issue"),
     use: l(
       "Copy into your task manager. Split the task if a peer cannot explain what Done means.",
-      "Task manager-এ copy করো। Peer Done বোঝাতে না পারলে task আরও ভাঙো।",
+      "Task manager-এ copy করুন। Peer Done বোঝাতে না পারলে task আরও ভাঙুন।",
     ),
     fields: [
       l(
@@ -112,7 +112,7 @@ export const projectTemplates: ProjectTemplate[] = [
     title: l("Pull request & peer review", "Pull request ও peer review"),
     use: l(
       "Use for one coherent change; report checks you actually ran, including failures.",
-      "একটি coherent change-এর জন্য নাও; সত্যি চালানো check লেখো, failure-সহ।",
+      "একটি coherent change-এর জন্য নিন; সত্যি চালানো check লিখুন, failure-সহ।",
     ),
     fields: [
       l(
@@ -146,7 +146,7 @@ export const projectTemplates: ProjectTemplate[] = [
     title: l("Sync-up & weekly review note", "Sync-up ও weekly review note"),
     use: l(
       "Share the agenda first and publish decisions afterward; include absent teammates.",
-      "আগে agenda দাও, পরে decision প্রকাশ করো; অনুপস্থিত teammate-দের জানাও।",
+      "আগে agenda দিন, পরে decision প্রকাশ করুন; অনুপস্থিত teammate-দের জানান।",
     ),
     fields: [
       l(
@@ -183,7 +183,7 @@ export const projectTemplates: ProjectTemplate[] = [
     ),
     use: l(
       "Explain the tradeoff and connect a requirement to its evidence, not just a diagram.",
-      "শুধু diagram নয়, tradeoff বোঝাও আর requirement থেকে evidence যুক্ত করো।",
+      "শুধু diagram নয়, tradeoff বোঝান আর requirement থেকে evidence যুক্ত করুন।",
     ),
     fields: [
       l(
@@ -196,7 +196,7 @@ export const projectTemplates: ProjectTemplate[] = [
       ),
       l(
         "Requirement ID → scenario → acceptance criterion ID → issue/ADR → implementation/PR → test ID → actual result → release:",
-        "সংযোগ লেখো: Requirement ID → scenario → acceptance criterion ID → issue/ADR → implementation/PR → test ID → actual result → release:",
+        "সংযোগ লিখুন: Requirement ID → scenario → acceptance criterion ID → issue/ADR → implementation/PR → test ID → actual result → release:",
       ),
     ],
   },
@@ -208,7 +208,7 @@ export const projectTemplates: ProjectTemplate[] = [
     ),
     use: l(
       "Plan before implementation; fill actual results only after running the tests.",
-      "Implementation-এর আগে plan; test চালানোর পরেই actual result লেখো।",
+      "Implementation-এর আগে plan; test চালানোর পরেই actual result লিখুন।",
     ),
     fields: [
       l(
@@ -246,7 +246,7 @@ export const projectTemplates: ProjectTemplate[] = [
     title: l("Reproducible bug report", "Reproduce করা যায় এমন bug report"),
     use: l(
       "Describe what failed so another person can reproduce it without guessing.",
-      "কী fail করেছে এমনভাবে লেখো যেন অন্যজন অনুমান ছাড়াই reproduce করতে পারে।",
+      "কী fail করেছে এমনভাবে লিখুন যেন অন্যজন অনুমান ছাড়াই reproduce করতে পারে।",
     ),
     fields: [
       l(
@@ -275,7 +275,7 @@ export const projectTemplates: ProjectTemplate[] = [
     ),
     use: l(
       "Rehearse with a peer using a clean environment; do not merely tick a checklist.",
-      "Peer-কে নিয়ে clean environment-এ rehearsal করো; শুধু checklist tick নয়।",
+      "Peer-কে নিয়ে clean environment-এ rehearsal করুন; শুধু checklist tick নয়।",
     ),
     fields: [
       l(
@@ -312,7 +312,7 @@ export const projectTemplates: ProjectTemplate[] = [
     ),
     use: l(
       "Follow your department and publication rules; explain what each person can defend.",
-      "Department ও publication rule মানো; প্রত্যেকে কী defend করতে পারে লেখো।",
+      "Department ও publication rule মানুন; প্রত্যেকে কী defend করতে পারে লিখুন।",
     ),
     fields: [
       l(

@@ -28,7 +28,7 @@ const list = resourceIds
       <p class="muted">
         {locale === "en"
           ? "Platform alternatives: use the reference for your chosen stack. These are not consecutive learning levels; you do not need all of them."
-          : "Platform-এর বিকল্প: বাছা stack-এর reference ব্যবহার করো। এগুলো পরপর শেখার level নয়; সবগুলো দরকার নেই।"}
+          : "Platform-এর বিকল্প: বাছা stack-এর reference ব্যবহার করুন। এগুলো পরপর শেখার level নয়; সবগুলো দরকার নেই।"}
       </p>
     )
   }
@@ -46,7 +46,7 @@ const list = resourceIds
                 : index === 0
                   ? locale === "en"
                     ? "Learn"
-                    : "শেখো"
+                    : "শিখুন"
                   : index === 1
                     ? locale === "en"
                       ? "Practice"
@@ -76,7 +76,7 @@ const list = resourceIds
         </h3>
         {!compact && <p>{t(resource.whyRecommended, locale)}</p>}
         <p class="muted">
-          <strong>{locale === "en" ? "Do this much:" : "এতটুকু করো:"}</strong>{" "}
+          <strong>{locale === "en" ? "Do this much:" : "এতটুকু করুন:"}</strong>{" "}
           {t(resource.recommendedScope, locale)}
         </p>
         {!compact && (

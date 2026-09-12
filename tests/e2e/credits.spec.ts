@@ -19,7 +19,7 @@ for (const locale of ["en", "bn"] as const) {
         footer.getByRole("link", { name: source.name, exact: true }),
       ).toHaveAttribute("href", source.url);
     const feedbackLink = page.locator(".site-footer").getByRole("link", {
-      name: locale === "en" ? "Share feedback" : "ইচ্ছা হলে জানিয়ে দাও",
+      name: locale === "en" ? "Share feedback" : "ইচ্ছা হলে জানিয়ে দিন",
       exact: true,
     });
     await expect(feedbackLink).toHaveAttribute("href", siteConfig.feedbackUrl);

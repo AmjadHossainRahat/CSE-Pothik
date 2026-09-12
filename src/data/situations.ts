@@ -7,7 +7,7 @@ export const studentSituations: StudentSituation[] = [
     label: l("I just started CSE.", "আমি CSE-তে নতুন।"),
     note: l(
       "Start with the landscape and a calm first-semester plan.",
-      "আগে পুরো ক্ষেত্রটা একটু দেখে নাও, তারপর শান্তভাবে প্রথম সেমিস্টারের পরিকল্পনা করো।",
+      "আগে পুরো ক্ষেত্রটা একটু দেখে নিন, তারপর শান্তভাবে প্রথম সেমিস্টারের পরিকল্পনা করুন।",
     ),
     destination: {
       en: "/guidance/new-cse-student/",
@@ -22,7 +22,7 @@ export const studentSituations: StudentSituation[] = [
     ),
     note: l(
       "Explore work families, not personality labels.",
-      "Personality label নয়—কাজের ধরনগুলো ঘুরে দেখো।",
+      "Personality label নয়—কাজের ধরনগুলো ঘুরে দেখুন।",
     ),
     destination: { en: "/careers/", bn: "/bn/careers/" },
   },
@@ -34,7 +34,7 @@ export const studentSituations: StudentSituation[] = [
     ),
     note: l(
       "Compare real work, then try a small experiment.",
-      "আসল কাজগুলো মিলিয়ে দেখে ছোট একটি experiment করো।",
+      "আসল কাজগুলো মিলিয়ে দেখে ছোট একটি experiment করুন।",
     ),
     destination: { en: "/compare/", bn: "/bn/compare/" },
   },
@@ -46,7 +46,7 @@ export const studentSituations: StudentSituation[] = [
     ),
     note: l(
       "Separate exposed tasks from durable capabilities.",
-      "কোন কাজ সহজে automate হয় আর কোন দক্ষতা দীর্ঘদিন কাজে লাগে—দুটো আলাদা করে বোঝো।",
+      "কোন কাজ সহজে automate হয় আর কোন দক্ষতা দীর্ঘদিন কাজে লাগে—দুটো আলাদা করে বুঝুন।",
     ),
     destination: { en: "/ai/", bn: "/bn/ai/" },
   },
@@ -58,7 +58,7 @@ export const studentSituations: StudentSituation[] = [
     ),
     note: l(
       "Open a mentor-guided roadmap and verify it through practice.",
-      "ধাপে ধাপে রোডম্যাপ ধরে এগোও, আর কাজ করে নিজের সিদ্ধান্ত যাচাই করো।",
+      "ধাপে ধাপে রোডম্যাপ ধরে এগিয়ে যান, আর কাজ করে নিজের সিদ্ধান্ত যাচাই করুন।",
     ),
     destination: { en: "/roadmaps/", bn: "/bn/roadmaps/" },
   },
@@ -70,7 +70,7 @@ export const studentSituations: StudentSituation[] = [
     ),
     note: l(
       "Use a focused 12-week recovery route without shame.",
-      "নিজেকে দোষ না দিয়ে ১২ সপ্তাহের focused recovery plan ধরো।",
+      "নিজেকে দোষ না দিয়ে ১২ সপ্তাহের focused recovery plan ধরুন।",
     ),
     destination: {
       en: "/guidance/feel-behind/",
@@ -85,7 +85,7 @@ export const studentSituations: StudentSituation[] = [
     ),
     note: l(
       "Choose a route for your current problem-solving level, then build evidence and apply with focus.",
-      "Problem solving এখন যতটুকু পারো, সেই অনুযায়ী route বেছে evidence বানাও এবং বেছে বেছে আবেদন করো।",
+      "Problem solving এখন যতটুকু পারেন, সেই অনুযায়ী route বেছে evidence বানান এবং বেছে বেছে আবেদন করুন।",
     ),
     destination: {
       en: "/guidance/first-software-role/#entry-routes",
@@ -110,7 +110,7 @@ export const lostChoices: LostChoice[] = [
     ),
     response: l(
       "Choose a goal guide for industry, remote work, study abroad, research, freelancing or a tech business. Then connect it to one career roadmap.",
-      "দেশি-বিদেশি industry, remote work, উচ্চশিক্ষা, research, freelancing বা tech business—নিজের লক্ষ্যটি বেছে নাও। তারপর সেটির সঙ্গে একটি ক্যারিয়ার রোডম্যাপ মিলিয়ে নাও।",
+      "দেশি-বিদেশি industry, remote work, উচ্চশিক্ষা, research, freelancing বা tech business—নিজের লক্ষ্যটি বেছে নিন। তারপর সেটির সঙ্গে একটি ক্যারিয়ার রোডম্যাপ মিলিয়ে নিন।",
     ),
     destination: { en: "/goals/", bn: "/bn/goals/" },
   },
@@ -122,7 +122,7 @@ export const lostChoices: LostChoice[] = [
     ),
     response: l(
       "Start with eight work families. Open two that sound unlike each other.",
-      "আট ধরনের কাজ দিয়ে শুরু করো। একে অন্যের চেয়ে আলাদা মনে হয়—এমন দুটি খুলে দেখো।",
+      "আট ধরনের কাজ দিয়ে শুরু করুন। একে অন্যের চেয়ে আলাদা মনে হয়—এমন দুটি খুলে দেখুন।",
     ),
     destination: { en: "/careers/", bn: "/bn/careers/" },
   },
@@ -134,7 +134,7 @@ export const lostChoices: LostChoice[] = [
     ),
     response: l(
       "Compare the work, then run one experiment from each path.",
-      "কাজগুলো মিলিয়ে দেখো, তারপর দুই পথেরই একটি করে ছোট experiment করো।",
+      "কাজগুলো মিলিয়ে দেখুন, তারপর দুই পথেরই একটি করে ছোট experiment করুন।",
     ),
     destination: { en: "/compare/", bn: "/bn/compare/" },
   },
@@ -143,7 +143,7 @@ export const lostChoices: LostChoice[] = [
     prompt: l("I don’t know what to learn next.", "এরপর কী শিখব জানি না।"),
     response: l(
       "Choose the roadmap for your current target and stop at ‘enough for now’.",
-      "এখনকার লক্ষ্য অনুযায়ী রোডম্যাপ নাও, আর ‘আপাতত এতটুকুই যথেষ্ট’ জায়গায় থামো।",
+      "এখনকার লক্ষ্য অনুযায়ী রোডম্যাপ নিন, আর ‘আপাতত এতটুকুই যথেষ্ট’ জায়গায় থামুন।",
     ),
     destination: { en: "/roadmaps/", bn: "/bn/roadmaps/" },
   },
@@ -152,7 +152,7 @@ export const lostChoices: LostChoice[] = [
     prompt: l("I’m worried about AI.", "AI নিয়ে ভয় লাগছে।"),
     response: l(
       "Study task exposure, then practice directing and verifying AI.",
-      "কোন কাজে AI-এর প্রভাব কতটা বোঝো, তারপর AI-কে নির্দেশ দেওয়া আর ফল যাচাই করার চর্চা করো।",
+      "কোন কাজে AI-এর প্রভাব কতটা বুঝুন, তারপর AI-কে নির্দেশ দেওয়া আর ফল যাচাই করার চর্চা করুন।",
     ),
     destination: { en: "/ai/", bn: "/bn/ai/" },
   },
@@ -164,7 +164,7 @@ export const lostChoices: LostChoice[] = [
     ),
     response: l(
       "Follow the ordered Bangladesh technology watchlist: settle the anxiety, strengthen your thinking, then understand the working world. Compare every perspective with evidence.",
-      "বাংলাদেশের tech professionals-দের সাজানো watchlist দেখো: আগে দুশ্চিন্তা সামলাও, ভাবনার ভিত শক্ত করো, তারপর কাজের জগৎ বোঝো। প্রতিটি মতামত evidence দিয়ে মিলিয়ে নাও।",
+      "বাংলাদেশের tech professionals-দের সাজানো watchlist দেখুন: আগে দুশ্চিন্তা সামলাও, ভাবনার ভিত শক্ত করুন, তারপর কাজের জগৎ বুঝুন। প্রতিটি মতামত evidence দিয়ে মিলিয়ে নিন।",
     ),
     destination: {
       en: "/resources/#industry-voices",
@@ -179,7 +179,7 @@ export const lostChoices: LostChoice[] = [
     ),
     response: l(
       "You cannot recover three years in three weeks. You can stop losing the next three months.",
-      "তিন বছরের ঘাটতি তিন সপ্তাহে মিটবে না। কিন্তু পরের তিন মাস নষ্ট হওয়া আজই থামাতে পারো।",
+      "তিন বছরের ঘাটতি তিন সপ্তাহে মিটবে না। কিন্তু পরের তিন মাস নষ্ট হওয়া আজই থামাতে পারেন।",
     ),
     destination: {
       en: "/guidance/feel-behind/",
@@ -194,7 +194,7 @@ export const lostChoices: LostChoice[] = [
     ),
     response: l(
       "Check the roadmap, experiment and AI exposure before committing to a tool list.",
-      "Tool-এর তালিকা মুখস্থ করার আগে রোডম্যাপ, ছোট experiment আর AI-এর প্রভাব দেখে নাও।",
+      "Tool-এর তালিকা মুখস্থ করার আগে রোডম্যাপ, ছোট experiment আর AI-এর প্রভাব দেখে নিন।",
     ),
     destination: { en: "/careers/", bn: "/bn/careers/" },
   },
@@ -206,7 +206,7 @@ export const lostChoices: LostChoice[] = [
     ),
     response: l(
       "Choose among a strong-CP route, a balanced foundation-and-project route, or a role-evidence route. Then prepare for the actual hiring format and run a focused application cycle.",
-      "Strong-CP route, foundation আর project পাশাপাশি গড়ার route, অথবা role-evidence route—নিজের অবস্থার সঙ্গে মিলিয়ে একটি বেছে নাও। তারপর আসল hiring format-এর প্রস্তুতি নিয়ে focused application cycle চালাও।",
+      "Strong-CP route, foundation আর project পাশাপাশি গড়ার route, অথবা role-evidence route—নিজের অবস্থার সঙ্গে মিলিয়ে একটি বেছে নিন। তারপর আসল hiring format-এর প্রস্তুতি নিয়ে focused application cycle চালান।",
     ),
     destination: {
       en: "/guidance/first-software-role/#entry-routes",

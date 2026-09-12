@@ -44,7 +44,7 @@ for (const locale of ["en", "bn"] as const) {
       name:
         locale === "en"
           ? "Open the AI systems path"
-          : "AI system তৈরির পথ দেখো",
+          : "AI system তৈরির পথ দেখুন",
     });
     await expect(pathLink).toHaveAttribute(
       "href",

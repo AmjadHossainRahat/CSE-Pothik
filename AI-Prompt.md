@@ -284,7 +284,7 @@ Do not generate literal machine-style Bangla translations.
 
 Bangla should sound natural to Bangladeshi CSE students.
 
-Use a consistent, respectful **তুমি** voice. Rewrite Bangla as conversational mentoring prose rather than preserving English sentence order. Translate ordinary interface and editorial labels; retain English only for technical terms that Bangladeshi students naturally use or where translation would reduce precision. Read long Bangla passages on their own and remove phrases that sound like machine-translated English with Bangla suffixes. Keep humor sparse, contextual and kind.
+Use a consistent, respectful **আপনি** voice. Rewrite Bangla as conversational mentoring prose rather than preserving English sentence order. Translate ordinary interface and editorial labels; retain English only for technical terms that Bangladeshi students naturally use or where translation would reduce precision. Read long Bangla passages on their own and remove phrases that sound like machine-translated English with Bangla suffixes. Keep humor sparse, contextual and kind.
 
 Keep technical terminology in English where that is natural.
 
@@ -708,6 +708,8 @@ Use progressive disclosure and task-oriented anchors so students can find one us
 For architecture and optimization questions, inspect the actual repository, installed framework defaults and production output. Explain where the Astro structure follows conventions and where generated assets are optimized; explicitly distinguish bundled JS/CSS and compact HTML from unprocessed public/inline content and HTTP compression. Update README, DESIGN, SKILL and the validation/audit records to match verified behavior; never report a check that was not performed.
 
 Audit spacing across every public UI route, not only the homepage. At desktop widths, top-level containers and breadcrumbs must align with the shared content frame, intentional readable line lengths must remain balanced, and a hidden conditional panel must not reserve an empty grid column. Every non-homepage top section must use both sides of the available desktop frame: pair the title with its explanation, actions or contextual panel instead of stacking all copy in one wide-but-visually-empty column. Preserve the compact single-column mobile flow. Protect these rules with an exhaustive generated-route desktop bounds/overflow/two-column-utilization check and a focused before/after interaction check for conditional layouts such as “I’m Lost.”
+
+Keep the shared desktop canvas broad enough to leave compact gutters beside the fixed sidebar at common desktop widths. Let section grids use that canvas, but retain a separate readable measure for continuous prose. In the shared context bar, keep Search, language and theme together and align that control group to the inline end.
 
 Treat the AI task-model title as a desktop spectrum: **Higher exposure → AI-assisted → responsibility-heavy** must remain one continuous line at and above the sidebar breakpoint, using a restrained responsive heading size rather than overflowing. Allow it to wrap naturally below that breakpoint. Test the minimum desktop, standard desktop, wide desktop and mobile containment in both languages.
 

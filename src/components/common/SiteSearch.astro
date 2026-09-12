@@ -16,7 +16,7 @@ const bn = locale === "bn";
   data-locale={locale}
   data-search-index={withBase("/search-index.json")}
 >
-  <summary aria-label={bn ? "সাইটে খুঁজে দেখো" : "Search this site"}>
+  <summary aria-label={bn ? "সাইটে খুঁজে দেখুন" : "Search this site"}>
     <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <circle cx="11" cy="11" r="6.5"></circle>
       <path d="m16 16 4 4"></path>
@@ -43,7 +43,7 @@ const bn = locale === "bn";
           <circle cx="11" cy="11" r="6.5"></circle>
           <path d="m16 16 4 4"></path>
         </svg>
-        <span>{bn ? "খুঁজে দেখো" : "Search"}</span>
+        <span>{bn ? "খুঁজে দেখুন" : "Search"}</span>
       </button>
     </form>
     <div
@@ -56,7 +56,7 @@ const bn = locale === "bn";
       <div class="topbar-search__result-head">
         <p data-search-status aria-live="polite"></p>
         <button type="button" data-search-close>
-          {bn ? "বন্ধ করো" : "Close"}
+          {bn ? "বন্ধ করুন" : "Close"}
         </button>
       </div>
       <ul data-search-results role="list"></ul>
@@ -90,7 +90,7 @@ const bn = locale === "bn";
   const typeLabels = {
     career: locale === "bn" ? "ক্যারিয়ার গাইড" : "Career guide",
     roadmap: locale === "bn" ? "রোডম্যাপ" : "Roadmap",
-    experiment: locale === "bn" ? "কাজ করে দেখো" : "Experiment",
+    experiment: locale === "bn" ? "কাজ করে দেখুন" : "Experiment",
     ai: locale === "bn" ? "AI গাইড" : "AI guide",
     goal: locale === "bn" ? "লক্ষ্যভিত্তিক গাইড" : "Goal guide",
     guidance: locale === "bn" ? "দিকনির্দেশনা" : "Guidance",
@@ -156,7 +156,7 @@ const bn = locale === "bn";
     if (query.length < 2) {
       status.textContent =
         locale === "bn"
-          ? "কমপক্ষে ২টি অক্ষর লেখো।"
+          ? "কমপক্ষে ২টি অক্ষর লিখুন।"
           : "Type at least 2 characters.";
       return;
     }
@@ -170,7 +170,7 @@ const bn = locale === "bn";
     } catch {
       status.textContent =
         locale === "bn"
-          ? "এখন খোঁজা যাচ্ছে না। navigation থেকে ঘুরে দেখো।"
+          ? "এখন খোঁজা যাচ্ছে না। navigation থেকে ঘুরে দেখুন।"
           : "Search is unavailable right now. Please browse the navigation.";
       form?.removeAttribute("aria-busy");
       return;
@@ -207,7 +207,7 @@ const bn = locale === "bn";
         ? `${matches.length}টি ফল পাওয়া গেছে।`
         : `${matches.length} results found.`
       : locale === "bn"
-        ? "কিছু পাওয়া গেল না। অন্য নাম, skill বা লক্ষ্য লিখে দেখো।"
+        ? "কিছু পাওয়া গেল না। অন্য নাম, skill বা লক্ষ্য লিখে দেখুন।"
         : "No results. Try another title, skill or goal.";
 
     for (const match of matches) {

@@ -306,7 +306,7 @@ Technical terms may remain in English where natural.
 
 Do not mechanically translate every noun.
 
-Use a consistent, respectful `তুমি` voice throughout student-facing copy. Prefer conversational Bangla sentence structure, not English word order with Bangla suffixes. Translate ordinary interface scaffolding and mentoring labels; keep established technical terms in English only when students naturally use them or precision would otherwise suffer. Review long-form Bangla independently from its English pair and read representative passages aloud. Humor must be occasional, kind and attached to a useful point—never to a student's anxiety, identity, finances, language skill, CGPA or time already lost.
+Use a consistent, respectful `আপনি` voice throughout student-facing copy. Prefer conversational Bangla sentence structure, not English word order with Bangla suffixes. Translate ordinary interface scaffolding and mentoring labels; keep established technical terms in English only when students naturally use them or precision would otherwise suffer. Review long-form Bangla independently from its English pair and read representative passages aloud. Humor must be occasional, kind and attached to a useful point—never to a student's anxiety, identity, finances, language skill, CGPA or time already lost.
 
 Content integrity must guard recurring shared labels against regression to English-only Bangla branches and must reject accidental formal-pronoun drift in representative mentoring surfaces.
 
@@ -1621,6 +1621,7 @@ The implementation is complete only when all of the following are true.
 
 - mobile-first layouts are usable.
 - desktop containers, breadcrumbs and section boundaries align across every generated UI route.
+- the desktop canvas uses the available post-sidebar frame with compact gutters, while prose measure remains independently bounded; the Search, language and theme group aligns to the context bar's inline end.
 - conditional two-column layouts collapse while a panel is hidden, then use both columns once revealed.
 - keyboard navigation works.
 - focus states are visible.

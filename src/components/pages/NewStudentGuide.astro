@@ -12,15 +12,15 @@ const plan = bn
   ? [
       [
         "Week 1–2",
-        "একটি language দিয়ে variable, control flow, function আর debugging বোঝো।",
+        "একটি language দিয়ে variable, control flow, function আর debugging বুঝুন।",
       ],
       [
         "Week 3–4",
-        "Array, string, basic data structure আর ১২–১৫টি ছোট problem সমাধান করো।",
+        "Array, string, basic data structure আর ১২–১৫টি ছোট problem সমাধান করুন।",
       ],
       [
         "সপ্তাহ ৫–৬",
-        "Git, shell, file, HTTP—computer ভেতরে কী করছে, খেয়াল করো।",
+        "Git, shell, file, HTTP—computer ভেতরে কী করছে, খেয়াল করুন।",
       ],
       ["সপ্তাহ ৭–৯", "ছোট একটি project: input, data, error আর README-সহ।"],
       [
@@ -109,7 +109,7 @@ const plan = bn
       <div>
         <p class="eyebrow">
           {bn ? "এখনই যেগুলোর পেছনে ছুটতে হবে না" : "What not to learn yet"}
-        </p><h2>{bn ? "চারপাশের noise একটু কমাও" : "Reduce the noise"}</h2><ul
+        </p><h2>{bn ? "চারপাশের noise একটু কমান" : "Reduce the noise"}</h2><ul
           class="rule-list"
         >
           {
@@ -131,11 +131,11 @@ const plan = bn
         </ul>
       </div><div class="callout callout--amber">
         <p class="callout__label">
-          {bn ? "ভবিষ্যতের তুমি যা বলবে" : "Future You says"}
+          {bn ? "ভবিষ্যতের আপনি যা বলবেন" : "Future You says"}
         </p><p>
           {
             bn
-              ? "‘Please, Git এখনই শিখে রাখো। final.zip, final-2.zip, final-real.zip কোনো version-control strategy নয়।’"
+              ? "‘Please, Git এখনই শিখে রাখুন। final.zip, final-2.zip, final-real.zip কোনো version-control strategy নয়।’"
               : "“Please learn Git now. final.zip, final-2.zip and final-real.zip are not a version-control strategy.”"
           }
         </p>
@@ -145,11 +145,13 @@ const plan = bn
   <section class="section section--tinted">
     <div class="container">
       <h2>
-        {bn ? "এরপর ক্যারিয়ারের জগৎটা দেখো" : "Then see the landscape"}
+        {bn ? "এরপর ক্যারিয়ারের জগৎটা দেখুন" : "Then see the landscape"}
       </h2><div class="next-actions">
         <a class="button" href={withBase(localePath(locale, "/careers/"))}
           >{
-            bn ? "ক্যারিয়ারের ক্ষেত্রগুলো ঘুরে দেখো" : "Explore career families"
+            bn
+              ? "ক্যারিয়ারের ক্ষেত্রগুলো ঘুরে দেখুন"
+              : "Explore career families"
           }</a
         ><a
           class="button button--secondary"

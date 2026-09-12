@@ -7,7 +7,7 @@ export const independentGoals: GoalGuide[] = [
     title: l("Freelancing", "Freelancing-এর জন্য প্রস্তুতি"),
     summary: l(
       "Turn a specific skill into a clearly scoped service: find a real client need, show proof, agree on delivery and build trust.",
-      "একটি নির্দিষ্ট দক্ষতাকে পরিষ্কার সীমার service-এ রূপ দাও: client-এর আসল প্রয়োজন বোঝো, কাজের প্রমাণ দেখাও, delivery-এর শর্ত ঠিক করো এবং ধীরে ধীরে বিশ্বাস তৈরি করো।",
+      "একটি নির্দিষ্ট দক্ষতাকে পরিষ্কার সীমার service-এ রূপ দিন: client-এর আসল প্রয়োজন বুঝুন, কাজের প্রমাণ দেখান, delivery-এর শর্ত ঠিক করুন এবং ধীরে ধীরে বিশ্বাস তৈরি করুন।",
     ),
     reality: l(
       "Freelancing is client work plus running a small service business—not quick income from learning a tool. Finding clients, pricing, revisions and uncertain demand are part of the work. Platforms are optional; their fees, identity requirements and terms vary. No income or first-client timeline is guaranteed.",
@@ -18,7 +18,7 @@ export const independentGoals: GoalGuide[] = [
         title: l("A narrow technical service", "নির্দিষ্ট technical service"),
         description: l(
           "Examples: accessible landing pages, a small mobile feature, a tested integration or a data-cleaning task. Choose something you can deliver and support safely.",
-          "উদাহরণ: accessible landing page, ছোট mobile feature, tested integration বা data-cleaning task। নিরাপদে deliver আর support করতে পারবে এমন কাজ বাছো।",
+          "উদাহরণ: accessible landing page, ছোট mobile feature, tested integration বা data-cleaning task। নিরাপদে deliver আর support করতে পারবে এমন কাজ বাছুন।",
         ),
       },
       {
@@ -37,7 +37,7 @@ export const independentGoals: GoalGuide[] = [
         id: "foundation",
         title: l(
           "Define one service you can deliver",
-          "Deliver করতে পারো এমন একটি service ঠিক করো",
+          "Deliver করতে পারেন এমন একটি service ঠিক করুন",
         ),
         why: l(
           "Clients buy an outcome, not an endless list of technologies.",
@@ -46,16 +46,16 @@ export const independentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Choose one client type and a bounded problem. Use the linked career roadmap to fill the skills needed to deliver, test and explain the result.",
-            "এক client type আর bounded problem নাও। Result deliver, test আর explain করার skill gap linked career roadmap দিয়ে পূরণ করো।",
+            "এক client type আর bounded problem নিন। Result deliver, test আর explain করার skill gap linked career roadmap দিয়ে পূরণ করুন।",
           ),
           l(
             "Write what is included, excluded, needed from the client and what 'done' means. Build a small demonstration using fictional or permitted data.",
-            "কী included, excluded, client থেকে কী দরকার আর 'done' মানে কী লেখো। Fictional বা permitted data দিয়ে ছোট demonstration বানাও।",
+            "কী included, excluded, client থেকে কী দরকার আর 'done' মানে কী লিখুন। Fictional বা permitted data দিয়ে ছোট demonstration বানান।",
           ),
         ],
         evidence: l(
           "One service brief and a demo you can modify without following a tutorial step by step.",
-          "এক service brief আর tutorial ধাপে ধাপে না দেখে বদলাতে পারো এমন demo।",
+          "এক service brief আর tutorial ধাপে ধাপে না দেখে বদলাতে পারেন এমন demo।",
         ),
         notYet: l(
           "Do not offer everything from logos to AI systems before proving one service.",
@@ -67,7 +67,7 @@ export const independentGoals: GoalGuide[] = [
         id: "evidence",
         title: l(
           "Show proof and learn the client's problem",
-          "Proof দেখাও আর client-এর সমস্যা জানো",
+          "Proof দেখান আর client-এর সমস্যা জানুন",
         ),
         why: l(
           "Good discovery prevents expensive misunderstandings.",
@@ -76,11 +76,11 @@ export const independentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Create two focused examples with a problem, your decisions, testing and limitations. Label self-initiated projects honestly; never invent clients or testimonials.",
-            "Problem, decision, testing আর limitation-সহ দুই focused example বানাও। Self-initiated project সেভাবে বলো; client বা testimonial বানিও না।",
+            "Problem, decision, testing আর limitation-সহ দুই focused example বানান। Self-initiated project সেভাবে বলুন; client বা testimonial বানাবেন না।",
           ),
           l(
             "Talk to plausible clients respectfully. Ask how the task works today, what fails, who approves and what constraints exist before proposing a solution.",
-            "সম্ভাব্য client-এর সঙ্গে সম্মান রেখে কথা বলো। Solution-এর আগে আজ কাজ কীভাবে হয়, কোথায় আটকে, কে approve করে আর constraint কী জিজ্ঞেস করো।",
+            "সম্ভাব্য client-এর সঙ্গে সম্মান রেখে কথা বলুন। Solution-এর আগে আজ কাজ কীভাবে হয়, কোথায় আটকে, কে approve করে আর constraint কী জিজ্ঞেস করুন।",
           ),
         ],
         evidence: l(
@@ -97,7 +97,7 @@ export const independentGoals: GoalGuide[] = [
         id: "application",
         title: l(
           "Agree scope, milestones and safeguards",
-          "Scope, milestone আর safeguard ঠিক করো",
+          "Scope, milestone আর safeguard ঠিক করুন",
         ),
         why: l(
           "A shared written definition of the job protects both sides.",
@@ -106,11 +106,11 @@ export const independentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Write a proposal with deliverables, assumptions, schedule, acceptance criteria, revision limits, payment milestones, ownership and support boundaries. Clarify change requests in writing.",
-            "Deliverable, assumption, schedule, acceptance criteria, revision limit, payment milestone, ownership আর support boundary-সহ proposal লেখো। Change request লিখিতভাবে পরিষ্কার করো।",
+            "Deliverable, assumption, schedule, acceptance criteria, revision limit, payment milestone, ownership আর support boundary-সহ proposal লিখুন। Change request লিখিতভাবে পরিষ্কার করুন।",
           ),
           l(
             "Verify the client and payment workflow; use the agreed contract/platform safeguards. Read current fees and dispute rules and seek qualified advice for tax or legal obligations.",
-            "Client আর payment workflow যাচাই; agreed contract/platform safeguard ব্যবহার করো। Current fee/dispute rule পড়ো; tax বা legal obligation-এ qualified advice নাও।",
+            "Client আর payment workflow যাচাই; agreed contract/platform safeguard ব্যবহার করুন। Current fee/dispute rule পড়ুন; tax বা legal obligation-এ qualified advice নিন।",
           ),
         ],
         evidence: l(
@@ -127,7 +127,7 @@ export const independentGoals: GoalGuide[] = [
         id: "adapt",
         title: l(
           "Deliver, hand over and improve",
-          "Deliver, handover আর improve করো",
+          "Deliver, handover আর improve করুন",
         ),
         why: l(
           "A usable handoff creates more trust than a polished sales message.",
@@ -136,11 +136,11 @@ export const independentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Send short progress updates, demonstrate milestones and test against agreed criteria. Report delays or risks early; do not hide problems behind silence.",
-            "ছোট progress update, milestone demonstration আর agreed criteria দিয়ে test করো। Delay বা risk আগে জানাও; চুপ থেকে সমস্যা লুকিও না।",
+            "ছোট progress update, milestone demonstration আর agreed criteria দিয়ে test করুন। Delay বা risk আগে জানান; চুপ থেকে সমস্যা লুকাবেন না।",
           ),
           l(
             "Hand over setup, usage and maintenance notes, then agree any support period. Ask permission before showing work publicly; review scope accuracy and sustainable pricing for the next job.",
-            "Setup, usage আর maintenance note handover করে support period ঠিক করো। Public-এ দেখানোর আগে অনুমতি নাও; পরের কাজের জন্য scope accuracy আর sustainable pricing review করো।",
+            "Setup, usage আর maintenance note handover করে support period ঠিক করুন। Public-এ দেখানোর আগে অনুমতি নিন; পরের কাজের জন্য scope accuracy আর sustainable pricing review করুন।",
           ),
         ],
         evidence: l(
@@ -170,11 +170,11 @@ export const independentGoals: GoalGuide[] = [
     ],
     aiPractice: l(
       "Use AI only within client permission and confidentiality terms. Verify generated work, licenses and security; price and communicate the agreed outcome honestly. You remain responsible for delivery.",
-      "Client permission আর confidentiality terms-এর মধ্যে AI ব্যবহার করো। Generated work, license আর security যাচাই; agreed outcome-এর price আর communication সৎ রাখো। Delivery-এর দায়িত্ব তোমার।",
+      "Client permission আর confidentiality terms-এর মধ্যে AI ব্যবহার করুন। Generated work, license আর security যাচাই; agreed outcome-এর price আর communication সৎ রাখুন। Delivery-এর দায়িত্ব আপনার।",
     ),
     thisWeek: l(
       "Write one service brief and finish a small demonstration. Ask one suitable person whether the problem is real—without trying to sell before listening.",
-      "এক service brief লিখে ছোট demonstration শেষ করো। একজন উপযুক্ত মানুষকে সমস্যা বাস্তব কি না জিজ্ঞেস করো—শোনার আগে বিক্রি করতে যেও না।",
+      "এক service brief লিখে ছোট demonstration শেষ করুন। একজন উপযুক্ত মানুষকে সমস্যা বাস্তব কি না জিজ্ঞেস করুন—শোনার আগে বিক্রি করতে যেও না।",
     ),
     careerIds: [
       "frontend-engineering",
@@ -194,29 +194,29 @@ export const independentGoals: GoalGuide[] = [
     id: "tech-business",
     title: l(
       "Build a business with tech skills",
-      "Tech skill কাজে লাগিয়ে business গড়ো",
+      "Tech skill কাজে লাগিয়ে business গড়ুন",
     ),
     summary: l(
       "Start with a painful problem and a reachable customer. Validate a small service or product before investing in a large build.",
-      "যে সমস্যাটি মানুষ সত্যিই গুরুত্ব দেয় এবং যাদের কাছে তুমি পৌঁছাতে পারো—সেখান থেকে শুরু করো। বড় কিছু বানাতে সময় ও টাকা ঢালার আগে ছোট service বা product দিয়ে ধারণাটি যাচাই করো।",
+      "যে সমস্যাটি মানুষ সত্যিই গুরুত্ব দেয় এবং যাদের কাছে আপনি পৌঁছাতে পারেন—সেখান থেকে শুরু করুন। বড় কিছু বানাতে সময় ও টাকা ঢালার আগে ছোট service বা product দিয়ে ধারণাটি যাচাই করুন।",
     ),
     reality: l(
       "Coding is one capability in a business. Customer discovery, distribution, costs, support and trust matter too. Compliments are not purchase commitments. Start within an affordable loss limit; this guide offers learning experiments, not investment, tax or legal advice or a promise of revenue.",
-      "Business-এ coding একটি গুরুত্বপূর্ণ ক্ষমতা, পুরো business নয়। Customer discovery, distribution, খরচ, support ও বিশ্বাসও সমান জরুরি। কেউ ‘দারুণ idea’ বললেই সে কিনবে—এমন নয়। যতটুকু হারালেও সামলাতে পারবে, সেই সীমার মধ্যে শুরু করো; এই গাইড শেখার experiment দেয়, investment, tax বা legal advice কিংবা আয়ের প্রতিশ্রুতি নয়।",
+      "Business-এ coding একটি গুরুত্বপূর্ণ ক্ষমতা, পুরো business নয়। Customer discovery, distribution, খরচ, support ও বিশ্বাসও সমান জরুরি। কেউ ‘দারুণ idea’ বললেই সে কিনবে—এমন নয়। যতটুকু হারালেও সামলাতে পারবে, সেই সীমার মধ্যে শুরু করুন; এই গাইড শেখার experiment দেয়, investment, tax বা legal advice কিংবা আয়ের প্রতিশ্রুতি নয়।",
     ),
     variants: [
       {
         title: l("Service studio / agency", "Service studio / agency"),
         description: l(
           "Sell delivery for a defined client problem. Build repeatable discovery, scoping, quality checks and handover before hiring a team.",
-          "Defined client problem-এর delivery বিক্রি করো। Team hire-এর আগে repeatable discovery, scope, quality check আর handover বানাও।",
+          "Defined client problem-এর delivery বিক্রি করুন। Team hire-এর আগে repeatable discovery, scope, quality check আর handover বানান।",
         ),
       },
       {
         title: l("Product / software business", "Product / software business"),
         description: l(
           "Serve a repeated need across customers. Validate adoption and willingness to pay; account for acquisition, ongoing hosting, security and support.",
-          "একাধিক customer-এর repeated need মেটাও। Adoption আর payment willingness যাচাই; acquisition, ongoing hosting, security আর support হিসাব করো।",
+          "একাধিক customer-এর repeated need মেটাও। Adoption আর payment willingness যাচাই; acquisition, ongoing hosting, security আর support হিসাব করুন।",
         ),
       },
     ],
@@ -225,7 +225,7 @@ export const independentGoals: GoalGuide[] = [
         id: "foundation",
         title: l(
           "Find a real, reachable problem",
-          "বাস্তব আর নাগালে থাকা সমস্যা খোঁজো",
+          "বাস্তব আর নাগালে থাকা সমস্যা খুঁজুন",
         ),
         why: l(
           "A technically impressive solution can still solve a problem nobody prioritizes.",
@@ -234,11 +234,11 @@ export const independentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Choose one reachable customer group. Talk to a few people with consent about recent behavior, workarounds, frequency and consequences; avoid pitching during discovery.",
-            "নাগালে থাকা এক customer group নাও। সম্মতি নিয়ে কয়েকজনের recent behavior, workaround, frequency আর consequence জানো; discovery-তে pitch নয়।",
+            "নাগালে থাকা এক customer group নিন। সম্মতি নিয়ে কয়েকজনের recent behavior, workaround, frequency আর consequence জানুন; discovery-তে pitch নয়।",
           ),
           l(
             "Write the problem, current alternatives, buyer versus user, and evidence that would disprove your idea. Separate observations from guesses.",
-            "Problem, current alternative, buyer বনাম user আর idea ভুল প্রমাণ করবে এমন evidence লেখো। Observation আর guess আলাদা করো।",
+            "Problem, current alternative, buyer বনাম user আর idea ভুল প্রমাণ করবে এমন evidence লিখুন। Observation আর guess আলাদা করুন।",
           ),
         ],
         evidence: l(
@@ -247,7 +247,7 @@ export const independentGoals: GoalGuide[] = [
         ),
         notYet: l(
           "Do not begin with a logo, company registration or six-month build before testing demand; check legal prerequisites before any real trading.",
-          "Demand test-এর আগে logo, company registration বা ছয় মাসের build দিয়ে শুরু নয়; real trading-এর আগে legal prerequisite যাচাই করো।",
+          "Demand test-এর আগে logo, company registration বা ছয় মাসের build দিয়ে শুরু নয়; real trading-এর আগে legal prerequisite যাচাই করুন।",
         ),
         sourceId: "gov-research",
       },
@@ -255,7 +255,7 @@ export const independentGoals: GoalGuide[] = [
         id: "evidence",
         title: l(
           "Test the smallest useful offer",
-          "সবচেয়ে ছোট useful offer test করো",
+          "সবচেয়ে ছোট useful offer test করুন",
         ),
         why: l(
           "A bounded pilot can reveal whether the problem and solution connect.",
@@ -264,11 +264,11 @@ export const independentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Create a manual service, clickable prototype or tiny working feature. State what the pilot will test, its limits and how you will observe use ethically.",
-            "Manual service, clickable prototype বা tiny working feature বানাও। Pilot কী test করবে, limit আর ethically use observe করার উপায় লেখো।",
+            "Manual service, clickable prototype বা tiny working feature বানান। Pilot কী test করবে, limit আর ethically use observe করার উপায় লিখুন।",
           ),
           l(
             "Ask for a concrete next action such as a trial appointment or a written pilot agreement. Discuss pricing honestly; do not count likes or friendly compliments as revenue.",
-            "Trial appointment বা written pilot agreement-এর মতো concrete next action চাও। Pricing সৎভাবে আলোচনা করো; like বা বন্ধুত্বের প্রশংসাকে revenue ধরো না।",
+            "Trial appointment বা written pilot agreement-এর মতো concrete next action চান। Pricing সৎভাবে আলোচনা করুন; like বা বন্ধুত্বের প্রশংসাকে revenue ধরুন না।",
           ),
         ],
         evidence: l(
@@ -285,7 +285,7 @@ export const independentGoals: GoalGuide[] = [
         id: "application",
         title: l(
           "Make delivery and economics explicit",
-          "Delivery আর economics স্পষ্ট করো",
+          "Delivery আর economics স্পষ্ট করুন",
         ),
         why: l(
           "A sale is not sustainable if delivering it costs more time and money than you can support.",
@@ -294,11 +294,11 @@ export const independentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Estimate build time, hosting, payment costs, support and customer acquisition. Test simple pricing with customers and record assumptions; use actual numbers when available.",
-            "Build time, hosting, payment cost, support আর customer acquisition estimate করো। Customer-এর সঙ্গে simple pricing test; assumption লেখো, actual number পেলে ব্যবহার করো।",
+            "Build time, hosting, payment cost, support আর customer acquisition estimate করুন। Customer-এর সঙ্গে simple pricing test; assumption লিখুন, actual number পেলে ব্যবহার করুন।",
           ),
           l(
             "Agree pilot scope, ownership, data handling, refund/support boundaries and success criteria. Consult relevant official Bangladesh sources or qualified professionals for registration, tax and legal obligations before trading.",
-            "Pilot scope, ownership, data handling, refund/support boundary আর success criteria ঠিক করো। Trading-এর আগে registration, tax আর legal obligation-এ relevant official Bangladesh source বা qualified professional দেখো।",
+            "Pilot scope, ownership, data handling, refund/support boundary আর success criteria ঠিক করুন। Trading-এর আগে registration, tax আর legal obligation-এ relevant official Bangladesh source বা qualified professional দেখুন।",
           ),
         ],
         evidence: l(
@@ -313,7 +313,7 @@ export const independentGoals: GoalGuide[] = [
       },
       {
         id: "adapt",
-        title: l("Learn from actual delivery", "Actual delivery থেকে শেখো"),
+        title: l("Learn from actual delivery", "Actual delivery থেকে শিখুন"),
         why: l(
           "Repeat use and reliable service tell you more than a launch announcement.",
           "Launch announcement-এর চেয়ে repeat use আর reliable service বেশি জানায়।",
@@ -321,11 +321,11 @@ export const independentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Deliver the bounded pilot, track its agreed outcome and ask what prevented use. Fix reliability and usability issues before adding more features.",
-            "ছোট pilot deliver, agreed outcome দেখা আর use-এ বাধা কী জিজ্ঞেস করো। বেশি feature-এর আগে reliability আর usability issue ঠিক করো।",
+            "ছোট pilot deliver, agreed outcome দেখা আর use-এ বাধা কী জিজ্ঞেস করুন। বেশি feature-এর আগে reliability আর usability issue ঠিক করুন।",
           ),
           l(
             "Review costs, support effort, repeat demand and customer feedback. Choose to improve, narrow, pivot or stop; write the reason and preserve reusable learning.",
-            "Cost, support effort, repeat demand আর customer feedback review করো। Improve, narrow, pivot বা stop বেছে কারণ লেখো; reusable learning রাখো।",
+            "Cost, support effort, repeat demand আর customer feedback review করুন। Improve, narrow, pivot বা stop বেছে কারণ লিখুন; reusable learning রাখুন।",
           ),
         ],
         evidence: l(
@@ -346,20 +346,20 @@ export const independentGoals: GoalGuide[] = [
       ),
       l(
         "Validate with potential customers, not only friends who want to encourage you.",
-        "শুধু উৎসাহ দিতে চাওয়া বন্ধু নয়, potential customer দিয়ে validate করো।",
+        "শুধু উৎসাহ দিতে চাওয়া বন্ধু নয়, potential customer দিয়ে validate করুন।",
       ),
       l(
         "Use clear agreements with cofounders and clients. Public U.S. business guidance is not Bangladesh legal guidance.",
-        "Cofounder আর client-এর সঙ্গে clear agreement করো। Public U.S. business guidance বাংলাদেশের legal guidance নয়।",
+        "Cofounder আর client-এর সঙ্গে clear agreement করুন। Public U.S. business guidance বাংলাদেশের legal guidance নয়।",
       ),
     ],
     aiPractice: l(
       "AI can help prototype and critique assumptions, but synthetic personas are not customer interviews. Verify costs, security and claims; do not let cheap generation create expensive maintenance or privacy problems.",
-      "AI prototype আর assumption critique-এ সাহায্য করে; synthetic persona customer interview নয়। Cost, security আর claim যাচাই করো; সস্তা generation যেন ব্যয়বহুল maintenance/privacy সমস্যা না বানায়।",
+      "AI prototype আর assumption critique-এ সাহায্য করে; synthetic persona customer interview নয়। Cost, security আর claim যাচাই করুন; সস্তা generation যেন ব্যয়বহুল maintenance/privacy সমস্যা না বানায়।",
     ),
     thisWeek: l(
       "Speak with three reachable potential users, write one problem brief and sketch a tiny pilot. Learning that an idea is wrong early is progress, not embarrassment.",
-      "নাগালে থাকা তিন potential user-এর সঙ্গে কথা, এক problem brief আর tiny pilot sketch করো। শুরুতেই idea ভুল জানা progress, লজ্জা নয়।",
+      "নাগালে থাকা তিন potential user-এর সঙ্গে কথা, এক problem brief আর tiny pilot sketch করুন। শুরুতেই idea ভুল জানা progress, লজ্জা নয়।",
     ),
     careerIds: [
       "technical-product-leadership",

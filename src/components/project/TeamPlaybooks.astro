@@ -13,11 +13,11 @@ const bn = locale === "bn";
 <p>
   {
     bn
-      ? "সব একসঙ্গে পড়ার দরকার নেই। আজ যে কাজ আটকে আছে সেটি বেছে নাও; প্রতিটি playbook-এ steps আর একটি worked example আছে।"
+      ? "সব একসঙ্গে পড়ার দরকার নেই। আজ যে কাজ আটকে আছে সেটি বেছে নিন; প্রতিটি playbook-এ steps আর একটি worked example আছে।"
       : "You do not need to read everything now. Choose the job you are tackling today; each playbook has steps and a worked example."
   }
 </p>
-<nav aria-label={bn ? "দলের কাজের ধরন বেছে নাও" : "Choose a team workflow"}>
+<nav aria-label={bn ? "দলের কাজের ধরন বেছে নিন" : "Choose a team workflow"}>
   <ul class="workflow-links">
     {
       projectPlaybooks.map((playbook) => (
@@ -63,7 +63,7 @@ const bn = locale === "bn";
           )}
         </div>
         <p class="practice-references">
-          {bn ? "আরও জানো: " : "Go deeper: "}
+          {bn ? "আরও জানুন: " : "Go deeper: "}
           {playbook.sourceIds.map((id, sourceIndex) => (
             <>
               <a href={`#source-${id}`}>{guidanceSourceById.get(id)!.title}</a>

@@ -28,7 +28,7 @@ const sections = [
   ["evidence", bn ? "গবেষণা কী বলছে" : "What the evidence says"],
   ["scenarios", bn ? "কোন দিকে যেতে পারে" : "Possible futures"],
   ["foundations", bn ? "ভিত্তিটা কেন দরকার" : "Why foundations matter"],
-  ["next-step", bn ? "এখন কী করবে" : "Your next step"],
+  ["next-step", bn ? "এখন কী করবেন" : "Your next step"],
   ["prompt", bn ? "লেখার পেছনের prompt" : "The working prompt"],
 ] as const;
 const canonical = new URL(href(futurePath), Astro.site).href;
@@ -96,7 +96,7 @@ const structuredData = [
     <p class="lede">
       {
         bn
-          ? "ভয় দেখিয়ে নয়, সান্ত্বনা বিক্রি করেও নয়। কী জানি, কী এখনো জানি না, আর তার মধ্যে তুমি কী করতে পারো—সেই কথাই বলি।"
+          ? "ভয় দেখিয়ে নয়, সান্ত্বনা বিক্রি করেও নয়। কী জানি, কী এখনো জানি না, আর তার মধ্যে আপনি কী করতে পারেন—সেই কথাই বলি।"
           : "No doom-selling. No comfort-selling. Here is what the evidence supports, what remains unknown, and what you can do while the future is unsettled."
       }
     </p>
@@ -114,7 +114,7 @@ const structuredData = [
       <p>
         {
           bn
-            ? "AI দিয়ে লেখা; OpenAI-এর আনুষ্ঠানিক পূর্বাভাস নয়। AI-এর নিজের ক্ষেত্র নিয়ে লেখা বলেই পক্ষপাতের আশঙ্কা মাথায় রাখো। সূত্রগুলো যাচাই করো—আমাকেও।"
+            ? "AI দিয়ে লেখা; OpenAI-এর আনুষ্ঠানিক পূর্বাভাস নয়। AI-এর নিজের ক্ষেত্র নিয়ে লেখা বলেই পক্ষপাতের আশঙ্কা মাথায় রাখুন। সূত্রগুলো যাচাই করুন—আমাকেও।"
             : "AI-generated; not an official OpenAI forecast. An AI writing about its own field deserves extra scrutiny. Bias and error are possible; check the sources—and challenge me."
         }
       </p>
@@ -135,7 +135,7 @@ const structuredData = [
       <details open>
         <summary
           >{
-            bn ? "যেটা জানতে চাও, সেখানে যাও" : "Jump to the question you have"
+            bn ? "যেটা জানতে চান, সেখানে যান" : "Jump to the question you have"
           }</summary
         >
         <ol>
@@ -175,7 +175,7 @@ const structuredData = [
         <p>
           {
             bn
-              ? "CSE শুধু code টাইপ করা নয়—তথ্য, গণনা, system, hardware, নিরাপত্তা আর মানুষের সঙ্গে প্রযুক্তির সম্পর্ক বোঝার ক্ষেত্র। এর গুরুত্ব থাকা আর সব graduate-এর চাকরি হওয়া আলাদা কথা। দরকারি বিষয় পড়েও কঠিন চাকরির বাজারে পড়তে পারো।"
+              ? "CSE শুধু code টাইপ করা নয়—তথ্য, গণনা, system, hardware, নিরাপত্তা আর মানুষের সঙ্গে প্রযুক্তির সম্পর্ক বোঝার ক্ষেত্র। এর গুরুত্ব থাকা আর সব graduate-এর চাকরি হওয়া আলাদা কথা। দরকারি বিষয় পড়েও কঠিন চাকরির বাজারে পড়তে পারেন।"
               : "CSE is more than typing code: it studies computation, information, systems, hardware, security and how people use technology. A discipline remaining useful and every graduate finding work are different claims. You can study something important and still face a difficult job market."
           }
         </p>
@@ -264,7 +264,7 @@ const structuredData = [
                   data-track-param-resource-id={source.id}
                   data-track-param-provider={source.provider}
                 >
-                  {bn ? "মূল উৎস পড়ো" : "Read the original source"} ·{" "}
+                  {bn ? "মূল উৎস পড়ুন" : "Read the original source"} ·{" "}
                   {source.provider} <span aria-hidden="true">↗</span>
                 </a>
               </article>
@@ -274,7 +274,7 @@ const structuredData = [
         <p class="outlook-note">
           {
             bn
-              ? "বাংলাদেশের CSE graduate-দের AI-এর কারণে কত চাকরি যাবে বা তৈরি হবে—এমন নির্ভরযোগ্য causal হিসাব এই লেখায় প্রতিষ্ঠা করা হয়নি। স্থানীয় outsourcing, প্রতিষ্ঠানভেদে বাজেট, ভাষা, অবকাঠামো ও নিয়োগের ধরন আলাদা। US-এর সংখ্যা কপি করে তোমার সম্ভাবনা বলব না।"
+              ? "বাংলাদেশের CSE graduate-দের AI-এর কারণে কত চাকরি যাবে বা তৈরি হবে—এমন নির্ভরযোগ্য causal হিসাব এই লেখায় প্রতিষ্ঠা করা হয়নি। স্থানীয় outsourcing, প্রতিষ্ঠানভেদে বাজেট, ভাষা, অবকাঠামো ও নিয়োগের ধরন আলাদা। US-এর সংখ্যা কপি করে আপনার সম্ভাবনা বলব না।"
               : "This review does not establish a reliable causal estimate of AI-related job gains or losses for Bangladesh’s CSE graduates. Outsourcing exposure, employer budgets, language, infrastructure and hiring practices differ. I will not copy a US percentage and call it your personal prospects."
           }
         </p>
@@ -365,7 +365,7 @@ const structuredData = [
           <p>
             {
               bn
-                ? "উপায়? ‘আরও professional code দাও’ বলে দশবার generate করা নয়। এক slot একবারই বিক্রি হবে—নিয়মটা লিখে concurrency test করো, database constraint ও transaction যাচাই করো, সিদ্ধান্ত বুঝতে না পারলে review চাও। Token-এর bill বাড়লেই বোঝাপড়ার CGPA বাড়ে না।"
+                ? "উপায়? ‘আরও professional code দিন’ বলে দশবার generate করা নয়। এক slot একবারই বিক্রি হবে—নিয়মটা লিখে concurrency test করুন, database constraint ও transaction যাচাই করুন, সিদ্ধান্ত বুঝতে না পারলে review চান। Token-এর bill বাড়লেই বোঝাপড়ার CGPA বাড়ে না।"
                 : "The response is not ten rounds of ‘make it more professional.’ State the one-slot-one-sale invariant, test concurrent requests, inspect database constraints and transactions, and seek review when you cannot justify the choice. A larger token bill is not a degree in understanding."
             }
           </p>
@@ -405,11 +405,11 @@ const structuredData = [
             </h3><p>
               {
                 bn
-                  ? "শুধু বেতনের গল্প বা AI-এর ভয় দিয়ে বিষয় বেছে নিয়ো না। নিজের আগ্রহ, পড়ার খরচ, বিকল্প ও শেখার পরিবেশ দেখো। এই সপ্তাহে একটি ছোট সমস্যা নিজে চেষ্টা করো, তারপর AI দিয়ে সমালোচনা করাও। কোন ব্যাখ্যাটি নিজে করতে পারলে, লিখে রাখো।"
+                  ? "শুধু বেতনের গল্প বা AI-এর ভয় দিয়ে বিষয় বেছে নেবেন না। নিজের আগ্রহ, পড়ার খরচ, বিকল্প ও শেখার পরিবেশ দেখুন। এই সপ্তাহে একটি ছোট সমস্যা নিজে চেষ্টা করুন, তারপর AI দিয়ে সমালোচনা করান। কোন ব্যাখ্যাটি নিজে করতে পারলে, লিখে রাখুন।"
                   : "Do not choose a degree on salary stories or AI fear alone. Consider interest, study costs, alternatives and teaching quality. This week try one small problem yourself, then ask AI to critique it. Record which parts you can explain independently."
               }
             </p><a href={href("/guidance/new-cse-student/")}
-              >{bn ? "শুরুর পথটা দেখো" : "Open the beginner guide"} →</a
+              >{bn ? "শুরুর পথটা দেখুন" : "Open the beginner guide"} →</a
             >
           </li>
           <li>
@@ -422,13 +422,13 @@ const structuredData = [
             </h3><p>
               {
                 bn
-                  ? "একটি লক্ষ্য পদের কয়েকটি বর্তমান বিজ্ঞাপন পড়ো। নিজের project-এ একটি বাস্তব ঘাটতি ঠিক করো: issue, test, review আর ছোট release দিয়ে প্রমাণ রাখো। DSA-এর প্রয়োজন পদভেদে যাচাই করো; সব pattern শেখা পর্যন্ত আবেদন থামিয়ে রেখো না।"
+                  ? "একটি লক্ষ্য পদের কয়েকটি বর্তমান বিজ্ঞাপন পড়ুন। নিজের project-এ একটি বাস্তব ঘাটতি ঠিক করুন: issue, test, review আর ছোট release দিয়ে প্রমাণ রাখুন। DSA-এর প্রয়োজন পদভেদে যাচাই করুন; সব pattern শেখা পর্যন্ত আবেদন থামিয়ে রাখবেন না।"
                   : "Read several current descriptions for one target role. Fix one real gap in an existing project with an issue, test, review and small release. Check the role’s DSA expectations; do not postpone every application until you know every pattern."
               }
             </p><a href={href("/guidance/first-software-role/#entry-routes")}
               >{
                 bn
-                  ? "নিজের অবস্থার উপযোগী পথ বেছে নাও"
+                  ? "নিজের অবস্থার উপযোগী পথ বেছে নিন"
                   : "Choose your entry route"
               } →</a
             >
@@ -437,13 +437,13 @@ const structuredData = [
             <h3>
               {
                 bn
-                  ? "AI ব্যবহার করছ, ফলটা বুঝতে চাও?"
+                  ? "AI ব্যবহার করছেন, ফলটা বুঝতে চান?"
                   : "Already building with AI?"
               }
             </h3><p>
               {
                 bn
-                  ? "একটি ছোট কাজের সীমা, acceptance test, অনুমতি ও থামার শর্ত আগে ঠিক করো। Generation-এর সঙ্গে review, debugging ও সংশোধনের সময়ও মাপো। Code বা গোপন তথ্য দেওয়ার আগে প্রতিষ্ঠানের অনুমতি দেখো। Paid tool দিয়ে শুরু করতেই হবে না।"
+                  ? "একটি ছোট কাজের সীমা, acceptance test, অনুমতি ও থামার শর্ত আগে ঠিক করুন। Generation-এর সঙ্গে review, debugging ও সংশোধনের সময়ও মাপো। Code বা গোপন তথ্য দেওয়ার আগে প্রতিষ্ঠানের অনুমতি দেখুন। Paid tool দিয়ে শুরু করতেই হবে না।"
                   : "Define one small task’s boundaries, acceptance tests, permissions and stop conditions. Include review, debugging and rework when measuring time saved. Check organizational permission before sharing code or private data. Paid tools are not a prerequisite."
               }
             </p><a href={href("/roadmaps/ai-engineering/#ai-systems-path")}
@@ -458,7 +458,7 @@ const structuredData = [
         <p class="outlook-note">
           {
             bn
-              ? "সব দায় শিক্ষার্থীর নয়। বিশ্ববিদ্যালয়ে AI ব্যবহারের পাশাপাশি স্বাধীন reasoning ও teamwork যাচাই দরকার; প্রতিষ্ঠানে mentorship ও supervised entry কাজের সুযোগ দরকার। চাকরি না পেলে সেটি একা তোমার মেধার রায় নয়। প্রয়োজন হলে লক্ষ্য, বাজেট বা পথ বদলানোও যুক্তিসঙ্গত।"
+              ? "সব দায় শিক্ষার্থীর নয়। বিশ্ববিদ্যালয়ে AI ব্যবহারের পাশাপাশি স্বাধীন reasoning ও teamwork যাচাই দরকার; প্রতিষ্ঠানে mentorship ও supervised entry কাজের সুযোগ দরকার। চাকরি না পেলে সেটি একা আপনার মেধার রায় নয়। প্রয়োজন হলে লক্ষ্য, বাজেট বা পথ বদলানোও যুক্তিসঙ্গত।"
               : "This is not solely a student responsibility. Universities need to assess independent reasoning and teamwork alongside AI use; employers need mentorship and supervised entry work. Not finding a job is not a verdict on your intelligence. Revising a target, budget or direction can be rational."
           }
         </p>
@@ -468,7 +468,9 @@ const structuredData = [
             href={href("/guidance/software-engineering-foundations/")}
             >{bn ? "ভিত্তি মজবুত করার পথ" : "Strengthen your foundations"}</a
           ><a class="button button--secondary" href={href("/careers/")}
-            >{bn ? "অন্য কাজের পথও দেখো" : "Explore other kinds of CSE work"}</a
+            >{
+              bn ? "অন্য কাজের পথও দেখুন" : "Explore other kinds of CSE work"
+            }</a
           >
         </div>
       </section>
@@ -480,7 +482,7 @@ const structuredData = [
         <h2 id="prompt-title">
           {
             bn
-              ? "আমাকে শুধু ‘সত্য বলো’ বললে যথেষ্ট হতো না।"
+              ? "আমাকে শুধু ‘সত্য বলুন’ বললে যথেষ্ট হতো না।"
               : "‘Tell me the truth’ would not have been enough."
           }
         </h2>
@@ -495,7 +497,7 @@ const structuredData = [
           <summary
             >{
               bn
-                ? "পরিমার্জিত সম্পূর্ণ prompt পড়ো · v2"
+                ? "পরিমার্জিত সম্পূর্ণ prompt পড়ুন · v2"
                 : "Read the complete working prompt · refined v2"
             }</summary
           ><pre
@@ -509,7 +511,7 @@ const structuredData = [
           <summary
             >{
               bn
-                ? "প্রথম খসড়ার prompt দেখো · v1"
+                ? "প্রথম খসড়ার prompt দেখুন · v1"
                 : "See the original drafting prompt · v1"
             }</summary
           >
@@ -523,14 +525,14 @@ const structuredData = [
         <p>
           {
             bn
-              ? "v2-তে context, লক্ষ্য, প্রমাণের মান, দায়িত্বের সীমা, output আর কখন থামবে—আলাদা করে বলা আছে। প্রতিটি শর্ত এক জায়গায় রাখা হয়েছে। Model ও reasoning effort অ্যাপের setting-এ বেছে নেবে; prompt-এ নাম লিখলেই model বদলায় না।"
+              ? "v2-তে context, লক্ষ্য, প্রমাণের মান, দায়িত্বের সীমা, output আর কখন থামবে—আলাদা করে বলা আছে। প্রতিটি শর্ত এক জায়গায় রাখা হয়েছে। Model ও reasoning effort অ্যাপের setting-এ বেছে নেবেন; prompt-এ নাম লিখলেই model বদলায় না।"
               : "v2 makes context, goal, evidence standards, responsibility boundaries, output and stopping criteria explicit. Each constraint has one place. Select the model and reasoning effort in your app settings; writing a model name in a prompt does not switch the model."
           }
         </p>
         <p>
           {
             bn
-              ? "এটিকে ‘সবচেয়ে efficient’ বলছি না। ছোট prompt মানেই পুরো কাজের token কম—তা নয়; গবেষণা, reasoning, output আর সংশোধনেও খরচ হয়। একই মানদণ্ডে নির্ভুলতা, বাদ পড়া বিষয় ও মোট ব্যবহার মেপে তুলনা করতে হবে। এখানে এমন A/B পরীক্ষা করা হয়নি। পুনরায় ব্যবহার করতে চাইলে v2 নাও; ইতিহাসের v1 সঙ্গে পাঠানোর দরকার নেই।"
+              ? "এটিকে ‘সবচেয়ে efficient’ বলছি না। ছোট prompt মানেই পুরো কাজের token কম—তা নয়; গবেষণা, reasoning, output আর সংশোধনেও খরচ হয়। একই মানদণ্ডে নির্ভুলতা, বাদ পড়া বিষয় ও মোট ব্যবহার মেপে তুলনা করতে হবে। এখানে এমন A/B পরীক্ষা করা হয়নি। পুনরায় ব্যবহার করতে চাইলে v2 নিন; ইতিহাসের v1 সঙ্গে পাঠানোর দরকার নেই।"
               : "This is not a proven optimum. A shorter prompt does not guarantee lower total token use: research, reasoning, output and rework also cost tokens. Compare accuracy, omissions and total usage under the same evaluation criteria. No such A/B experiment was run here. For reuse, send v2 alone; the historical v1 need not accompany it."
           }
         </p>
@@ -560,14 +562,14 @@ const structuredData = [
         <p>
           {
             bn
-              ? "শেষ কথা: আমি বিশ্লেষণ করতে পারি, ভবিষ্যৎ দেখে ফিরে আসিনি। নতুন প্রমাণে এই লেখা বদলানো উচিত। কোনো ভুল বা দুর্বল যুক্তি দেখলে নিচের feedback link দিয়ে জানাতে পারো।"
+              ? "শেষ কথা: আমি বিশ্লেষণ করতে পারি, ভবিষ্যৎ দেখে ফিরে আসিনি। নতুন প্রমাণে এই লেখা বদলানো উচিত। কোনো ভুল বা দুর্বল যুক্তি দেখলে নিচের feedback link দিয়ে জানাতে পারেন।"
               : "My closing view: I can analyze evidence; I have not visited the future. This page should change when the evidence changes. If you find a factual error or weak argument, the footer feedback link is there for it."
           }
         </p>
         <a href={href("/ai/")}
           >{
             bn
-              ? "কাজভিত্তিক AI ও ক্যারিয়ার নির্দেশনায় যাও"
+              ? "কাজভিত্তিক AI ও ক্যারিয়ার নির্দেশনায় যান"
               : "Continue to task-by-task AI career guidance"
           } →</a
         >

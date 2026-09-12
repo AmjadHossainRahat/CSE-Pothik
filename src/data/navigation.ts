@@ -55,7 +55,7 @@ export const navigationGroups: NavigationGroup[] = [
   },
   {
     id: "discover",
-    label: l("Discover", "খুঁজে দেখো"),
+    label: l("Discover", "খুঁজে দেখুন"),
     items: [
       {
         id: "careers",
@@ -65,13 +65,13 @@ export const navigationGroups: NavigationGroup[] = [
       },
       {
         id: "compare",
-        label: l("Compare careers", "ক্যারিয়ার মিলিয়ে দেখো"),
+        label: l("Compare careers", "ক্যারিয়ার মিলিয়ে দেখুন"),
         path: "/compare/",
         match: "exact",
       },
       {
         id: "experiments",
-        label: l("Try real work", "কাজটা করে দেখো"),
+        label: l("Try real work", "কাজটা করে দেখুন"),
         path: "/try/",
         match: "prefix",
       },
@@ -119,7 +119,7 @@ export const navigationGroups: NavigationGroup[] = [
       },
       {
         id: "ai",
-        label: l("AI & your career", "AI ও তোমার ক্যারিয়ার"),
+        label: l("AI & your career", "AI ও আপনার ক্যারিয়ার"),
         path: "/ai/",
         match: "prefix",
       },

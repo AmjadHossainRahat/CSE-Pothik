@@ -10,7 +10,7 @@ export function renderProjectTemplate(locale: Locale): string {
     [
       `# ${t(guide.title, locale)}`,
       bn
-        ? "এটি কাজের template, completed report নয়। প্রতিটি field-এর নিচে নিজের evidence লেখো; example-কে result হিসেবে দিও না। Department rubric আর supervisor-এর নির্দেশ আগে মানবে। Private data বা secret এখানে দিও না। প্রয়োজনমতো section আলাদা করে issue, PR বা team document-এ নাও।"
+        ? "এটি কাজের template, completed report নয়। প্রতিটি field-এর নিচে নিজের evidence লিখুন; example-কে result হিসেবে দেবেন না। Department rubric আর supervisor-এর নির্দেশ আগে মানবে। Private data বা secret এখানে দেবেন না। প্রয়োজনমতো section আলাদা করে issue, PR বা team document-এ নিন।"
         : "This is a working template, not a completed report. Fill each field with your own evidence; do not present an example as a result. Your department rubric and supervisor’s instructions take priority. Keep private data and secrets out. Copy individual sections into issues, PRs or team documents as needed.",
       ...projectTemplates.map((template, index) =>
         [

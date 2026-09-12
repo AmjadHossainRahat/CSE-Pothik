@@ -16,7 +16,7 @@ const { locale } = Astro.props;
 const bn = locale === "bn";
 const title = bn ? "CSE ক্যারিয়ারের জগৎ" : "Explore CSE Careers";
 const description = bn
-  ? "আট ধরনের কাজ ধরে CSE ক্যারিয়ারের জগৎ ঘুরে দেখো—আসল কাজ, অসুবিধা, শেখার পথ, ছোট experiment আর AI-এর প্রভাবসহ।"
+  ? "আট ধরনের কাজ ধরে CSE ক্যারিয়ারের জগৎ ঘুরে দেখুন—আসল কাজ, অসুবিধা, শেখার পথ, ছোট experiment আর AI-এর প্রভাবসহ।"
   : "Explore CSE careers through eight broad work families, with realistic work, drawbacks, roadmaps, experiments and AI task exposure.";
 const structuredData = collectionStructuredData({
   title,
@@ -55,20 +55,20 @@ const structuredData = collectionStructuredData({
     <h1>
       {
         bn
-          ? "চাকরির নাম নয়, আগে কাজটা চেনো।"
+          ? "চাকরির নাম নয়, আগে কাজটা চিনুন।"
           : "Less job-title noise. More real work."
       }
     </h1>
     <p class="lede">
       {
         bn
-          ? "কোন ক্যারিয়ার ‘সেরা’—তার ranking এটি নয়। বরং কোন ধরনের সমস্যা, চাপ আর দায়িত্বের মধ্যেও তোমার কৌতূহল টিকে থাকে, সেটা খুঁজে দেখার জায়গা।"
+          ? "কোন ক্যারিয়ার ‘সেরা’—তার ranking এটি নয়। বরং কোন ধরনের সমস্যা, চাপ আর দায়িত্বের মধ্যেও আপনার কৌতূহল টিকে থাকে, সেটা খুঁজে দেখার জায়গা।"
           : "This is not a ranking of the ‘best’ career. Explore which problems, pressures and responsibilities can hold your curiosity."
       }
     </p>
   </header>
   <DirectoryJumpNav
-    eyebrow={bn ? "কাজের ধরন বেছে নাও" : "Jump to a career family"}
+    eyebrow={bn ? "কাজের ধরন বেছে নিন" : "Jump to a career family"}
     label={bn ? "ক্যারিয়ার বিভাগের তালিকা" : "Career family index"}
     items={careerFamilies.map((family) => ({
       id: family.id,
@@ -119,7 +119,7 @@ const structuredData = collectionStructuredData({
                 class="button button--secondary"
                 href={withBase(localePath(locale, family.practiceTrack.path))}
               >
-                {bn ? "ACM / ICPC guide দেখো" : "Open the ACM / ICPC guide"}
+                {bn ? "ACM / ICPC guide দেখুন" : "Open the ACM / ICPC guide"}
               </a>
             </aside>
           )}
@@ -134,13 +134,13 @@ const structuredData = collectionStructuredData({
       </p><h2>
         {
           bn
-            ? "দুটির মধ্যে আটকে গেছ? দুটো কাজই ছোট করে করে দেখো।"
+            ? "দুটির মধ্যে আটকে গেছ? দুটো কাজই ছোট করে করে দেখুন।"
             : "Stuck between two paths? Try both in miniature."
         }
       </h2><p>
         {
           bn
-            ? "তুলনা তোমাকে ভাবার ভাষা দেবে, experiment দেবে নিজের evidence। কোনো quiz তোমার হয়ে চূড়ান্ত পরিচয় ঠিক করে দেবে না।"
+            ? "তুলনা আপনাকে ভাবার ভাষা দেবে, experiment দেবে নিজের evidence। কোনো quiz আপনার হয়ে চূড়ান্ত পরিচয় ঠিক করে দেবে না।"
             : "Comparison gives you language. Experiments give you evidence. No quiz gives you a final identity."
         }
       </p>

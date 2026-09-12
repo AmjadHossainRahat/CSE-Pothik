@@ -22,14 +22,14 @@ export interface AISystemsTermNote {
 export const aiSystemsPathSteps: AISystemsPathStep[] = [
   {
     id: "frame",
-    title: l("1 · Frame the work", "১ · আগে কাজটার সীমানা ঠিক করো"),
+    title: l("1 · Frame the work", "১ · আগে কাজটার সীমানা ঠিক করুন"),
     intent: l(
       "Define the user, outcome, inputs, constraints, risks and evidence of done before choosing a model.",
-      "Model বাছার আগে user কে, ফল কী চাই, input কী, সীমাবদ্ধতা ও ঝুঁকি কোথায়, আর কোন evidence-এ কাজটাকে শেষ বলবে—এসব ঠিক করো।",
+      "Model বাছার আগে user কে, ফল কী চাই, input কী, সীমাবদ্ধতা ও ঝুঁকি কোথায়, আর কোন evidence-এ কাজটাকে শেষ বলবে—এসব ঠিক করুন।",
     ),
     build: l(
       "Write a one-page specification and the smallest deterministic baseline. This is forward engineering: move from an explicit need toward design, implementation and tests.",
-      "এক পাতার specification আর সবচেয়ে ছোট deterministic baseline লেখো। এটাই forward engineering: পরিষ্কার প্রয়োজন থেকে design, implementation আর test-এর দিকে এগোনো।",
+      "এক পাতার specification আর সবচেয়ে ছোট deterministic baseline লিখুন। এটাই forward engineering: পরিষ্কার প্রয়োজন থেকে design, implementation আর test-এর দিকে এগোনো।",
     ),
     terms: ["Forward engineering", "baseline", "success criteria"],
   },
@@ -37,15 +37,15 @@ export const aiSystemsPathSteps: AISystemsPathStep[] = [
     id: "prompt",
     title: l(
       "2 · Make one model call testable",
-      "২ · একটি model call-কে যাচাইযোগ্য করো",
+      "২ · একটি model call-কে যাচাইযোগ্য করুন",
     ),
     intent: l(
       "Treat instructions, examples, context and output schema as an interface—not a collection of magic words.",
-      "Instruction, example, context আর output schema-কে interface হিসেবে দেখো—জাদুর মন্ত্রের collection হিসেবে নয়।",
+      "Instruction, example, context আর output schema-কে interface হিসেবে দেখুন—জাদুর মন্ত্রের collection হিসেবে নয়।",
     ),
     build: l(
       "Create labelled success, refusal and failure cases; compare prompt versions against all of them.",
-      "Success, refusal আর failure-এর labelled case বানাও; prompt-এর প্রতিটি version সব case দিয়ে মিলিয়ে দেখো।",
+      "Success, refusal আর failure-এর labelled case বানান; prompt-এর প্রতিটি version সব case দিয়ে মিলিয়ে দেখুন।",
     ),
     terms: ["Prompt engineering", "structured output", "evaluation set"],
   },
@@ -53,15 +53,15 @@ export const aiSystemsPathSteps: AISystemsPathStep[] = [
     id: "ground",
     title: l(
       "3 · Ground with evidence",
-      "৩ · Evidence দিয়ে উত্তরকে মাটিতে রাখো",
+      "৩ · Evidence দিয়ে উত্তরকে মাটিতে রাখুন",
     ),
     intent: l(
       "Use retrieval when the answer depends on owned, current or domain-specific material; retrieval and generation are separate systems to test.",
-      "উত্তর যদি নিজের, হালনাগাদ বা domain-specific তথ্যের ওপর নির্ভর করে, retrieval ব্যবহার করো। retrieval আর generation-কে আলাদা system হিসেবে পরীক্ষা করো।",
+      "উত্তর যদি নিজের, হালনাগাদ বা domain-specific তথ্যের ওপর নির্ভর করে, retrieval ব্যবহার করুন। retrieval আর generation-কে আলাদা system হিসেবে পরীক্ষা করুন।",
     ),
     build: l(
       "Start with a keyword baseline, then add chunking, semantic retrieval, source display and refusal when evidence is missing.",
-      "Keyword baseline দিয়ে শুরু করো। এরপর chunking, semantic retrieval, source দেখানো এবং evidence না থাকলে উত্তর না দেওয়ার নিয়ম যোগ করো।",
+      "Keyword baseline দিয়ে শুরু করুন। এরপর chunking, semantic retrieval, source দেখানো এবং evidence না থাকলে উত্তর না দেওয়ার নিয়ম যোগ করুন।",
     ),
     terms: ["RAG", "embeddings", "retrieval", "citations"],
   },
@@ -69,15 +69,15 @@ export const aiSystemsPathSteps: AISystemsPathStep[] = [
     id: "workflow",
     title: l(
       "4 · Orchestrate a visible workflow",
-      "৪ · ধাপ দেখা যায় এমন workflow বানাও",
+      "৪ · ধাপ দেখা যায় এমন workflow বানান",
     ),
     intent: l(
       "Keep known steps deterministic: trigger, validate, retrieve, call, transform, approve, act and log.",
-      "যে ধাপগুলো আগে থেকেই জানা, সেগুলো deterministic রাখো: trigger, validate, retrieve, call, transform, approve, act আর log।",
+      "যে ধাপগুলো আগে থেকেই জানা, সেগুলো deterministic রাখুন: trigger, validate, retrieve, call, transform, approve, act আর log।",
     ),
     build: l(
       "Implement the same small workflow in code or a visual tool such as n8n. Test retries, timeouts, duplicate events and partial failure.",
-      "একই ছোট workflow code দিয়ে বা n8n-এর মতো visual tool-এ বানাও। retry, timeout, duplicate event আর আংশিক failure পরীক্ষা করো।",
+      "একই ছোট workflow code দিয়ে বা n8n-এর মতো visual tool-এ বানান। retry, timeout, duplicate event আর আংশিক failure পরীক্ষা করুন।",
     ),
     terms: ["AI workflow", "n8n", "orchestration", "idempotency"],
   },
@@ -85,28 +85,28 @@ export const aiSystemsPathSteps: AISystemsPathStep[] = [
     id: "agent",
     title: l(
       "5 · Add bounded agency",
-      "৫ · Agent-কে সীমার মধ্যে স্বাধীনতা দাও",
+      "৫ · Agent-কে সীমার মধ্যে স্বাধীনতা দিন",
     ),
     intent: l(
       "Use an agent only when the model must choose the next step or tool under ambiguity; a fixed workflow is often enough.",
-      "অনিশ্চিত অবস্থায় model-কে পরের ধাপ বা tool বাছতে হলেই agent ব্যবহার করো; অনেক কাজেই fixed workflow যথেষ্ট।",
+      "অনিশ্চিত অবস্থায় model-কে পরের ধাপ বা tool বাছতে হলেই agent ব্যবহার করুন; অনেক কাজেই fixed workflow যথেষ্ট।",
     ),
     build: l(
       "Build one loop: observe context → decide → call one narrow tool → inspect the result → stop, retry or escalate. Set a turn, time and cost budget.",
-      "একটি loop বানাও: context দেখো → সিদ্ধান্ত নাও → ছোট পরিসরের একটি tool চালাও → ফল যাচাই করো → থামো, আবার চেষ্টা করো বা মানুষের কাছে পাঠাও। turn, সময় আর খরচের সীমা ঠিক করে দাও।",
+      "একটি loop বানান: context দেখুন → সিদ্ধান্ত নিন → ছোট পরিসরের একটি tool চালান → ফল যাচাই করুন → থামুন, আবার চেষ্টা করুন বা মানুষের কাছে পাঠান। turn, সময় আর খরচের সীমা ঠিক করে দিন।",
     ),
     terms: ["Agentic AI", "tool use", "agent loop", "human approval"],
   },
   {
     id: "operate",
-    title: l("6 · Earn production trust", "৬ · Production-এর আস্থা অর্জন করো"),
+    title: l("6 · Earn production trust", "৬ · Production-এর আস্থা অর্জন করুন"),
     intent: l(
       "Evaluate quality and safety across real distributions; protect data and actions; make failures observable and reversible.",
-      "বাস্তব ধরনের data-তে quality আর safety যাচাই করো; data ও action সুরক্ষিত রাখো; failure যেন দেখা যায় এবং আগের অবস্থায় ফেরা যায়।",
+      "বাস্তব ধরনের data-তে quality আর safety যাচাই করুন; data ও action সুরক্ষিত রাখুন; failure যেন দেখা যায় এবং আগের অবস্থায় ফেরা যায়।",
     ),
     build: l(
       "Add traces, regression cases, permissions, guardrails, approval for consequential actions, staged rollout and rollback. Review cost and latency with quality.",
-      "Trace, regression case, permission, guardrail, বড় প্রভাবের action-এ approval, ধাপে rollout আর rollback যোগ করো। quality-এর সঙ্গে খরচ আর latency-ও দেখো।",
+      "Trace, regression case, permission, guardrail, বড় প্রভাবের action-এ approval, ধাপে rollout আর rollback যোগ করুন। quality-এর সঙ্গে খরচ আর latency-ও দেখুন।",
     ),
     terms: ["Evals", "guardrails", "observability", "rollback"],
   },
@@ -121,7 +121,7 @@ export const aiSystemsTermNotes: AISystemsTermNote[] = [
     ),
     placement: l(
       "Use at step 4 after you can draw and test the workflow without it.",
-      "Tool ছাড়াই workflow এঁকে বুঝিয়ে ও পরীক্ষা করে দেখাতে পারলে ধাপ ৪-এ এটি ব্যবহার করো।",
+      "Tool ছাড়াই workflow এঁকে বুঝিয়ে ও পরীক্ষা করে দেখাতে পারলে ধাপ ৪-এ এটি ব্যবহার করুন।",
     ),
   },
   {
@@ -132,7 +132,7 @@ export const aiSystemsTermNotes: AISystemsTermNote[] = [
     ),
     placement: l(
       "Explore after steps 5–6, first with isolated data, minimal tools, sandboxing and explicit approvals.",
-      "ধাপ ৫–৬ বোঝার পর isolated data, অল্প কয়েকটি tool, sandbox আর স্পষ্ট approval দিয়ে চেষ্টা করো।",
+      "ধাপ ৫–৬ বোঝার পর isolated data, অল্প কয়েকটি tool, sandbox আর স্পষ্ট approval দিয়ে চেষ্টা করুন।",
     ),
   },
   {
@@ -143,7 +143,7 @@ export const aiSystemsTermNotes: AISystemsTermNote[] = [
     ),
     placement: l(
       "Track claims critically, but build today's measurable systems instead of making an AGI prediction your roadmap.",
-      "দাবিগুলো প্রশ্ন করে দেখো; AGI নিয়ে ভবিষ্যদ্বাণীকে roadmap না বানিয়ে আজ মাপা যায় এমন system তৈরি করো।",
+      "দাবিগুলো প্রশ্ন করে দেখুন; AGI নিয়ে ভবিষ্যদ্বাণীকে roadmap না বানিয়ে আজ মাপা যায় এমন system তৈরি করুন।",
     ),
   },
   {
@@ -154,7 +154,7 @@ export const aiSystemsTermNotes: AISystemsTermNote[] = [
     ),
     placement: l(
       "Only after one bounded agent is measured and a specific coordination problem remains.",
-      "সীমাবদ্ধ একটি agent মেপে দেখার পরও নির্দিষ্ট coordination problem থেকে গেলেই ব্যবহার করো।",
+      "সীমাবদ্ধ একটি agent মেপে দেখার পরও নির্দিষ্ট coordination problem থেকে গেলেই ব্যবহার করুন।",
     ),
   },
 ];

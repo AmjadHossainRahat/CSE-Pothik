@@ -8,7 +8,7 @@ export const additionalCareers: CareerSeed[] = [
     title: l("Mobile App Development", "Mobile App Development"),
     description: l(
       "Build apps that remain useful on real phones: small screens, unreliable networks, limited battery and interrupted sessions.",
-      "ছোট screen, দুর্বল network, সীমিত battery আর বারবার interruption—বাস্তব ফোনের এসব সীমার মধ্যেও কাজে লাগে এমন app বানাও।",
+      "ছোট screen, দুর্বল network, সীমিত battery আর বারবার interruption—বাস্তব ফোনের এসব সীমার মধ্যেও কাজে লাগে এমন app বানান।",
     ),
     work: [
       l(
@@ -53,7 +53,7 @@ export const additionalCareers: CareerSeed[] = [
       ),
       l(
         "You want every user to have the same screen and network.",
-        "সব user-এর একই screen আর network থাকলেই শুধু কাজ করতে চাও।",
+        "সব user-এর একই screen আর network থাকলেই শুধু কাজ করতে চান।",
       ),
       l(
         "You dislike maintaining released software after the demo.",
@@ -94,21 +94,21 @@ export const additionalCareers: CareerSeed[] = [
       ),
       l(
         "Native and cross-platform are choices, not levels; check device/tooling access before choosing.",
-        "Native আর cross-platform হলো আলাদা পছন্দ, level নয়; বাছার আগে device/tooling-এর সুযোগ দেখো।",
+        "Native আর cross-platform হলো আলাদা পছন্দ, level নয়; বাছার আগে device/tooling-এর সুযোগ দেখুন।",
       ),
     ],
     practical: [
       l(
         "Build a small offline reading list and restore it after restart.",
-        "ছোট offline reading list বানাও; restart-এর পরেও ফিরিয়ে আনো।",
+        "ছোট offline reading list বানান; restart-এর পরেও ফিরিয়ে আনুন।",
       ),
       l(
         "Test lost connectivity, denied permissions and interrupted sessions.",
-        "Network হারানো, permission না দেওয়া আর interrupted session test করো।",
+        "Network হারানো, permission না দেওয়া আর interrupted session test করুন।",
       ),
       l(
         "Check screen-reader labels and larger text on a real device when available.",
-        "সুযোগ থাকলে real device-এ screen-reader label আর বড় text যাচাই করো।",
+        "সুযোগ থাকলে real device-এ screen-reader label আর বড় text যাচাই করুন।",
       ),
     ],
     later: [
@@ -122,7 +122,7 @@ export const additionalCareers: CareerSeed[] = [
       ),
       l(
         "Learn a second platform only when a role or user need justifies it.",
-        "Role বা user-এর দরকার হলে তবেই দ্বিতীয় platform শেখো।",
+        "Role বা user-এর দরকার হলে তবেই দ্বিতীয় platform শিখুন।",
       ),
     ],
     notYet: [
@@ -178,7 +178,7 @@ export const additionalCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Read current platform docs and explain each state transition before keeping generated code.",
-          "Current platform docs পড়ো; generated code রাখার আগে প্রতিটি state transition বোঝাও।",
+          "Current platform docs পড়ুন; generated code রাখার আগে প্রতিটি state transition বোঝান।",
         ),
       },
       {
@@ -190,7 +190,7 @@ export const additionalCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Capture a minimal reproduction, logs and a regression test without exposing user data.",
-          "User data না দিয়ে minimal reproduction, log আর regression test তৈরি করো।",
+          "User data না দিয়ে minimal reproduction, log আর regression test তৈরি করুন।",
         ),
       },
       {
@@ -205,7 +205,7 @@ export const additionalCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Practice permission minimization, accessible flows and a rollback plan.",
-          "কম permission, accessible flow আর rollback plan practice করো।",
+          "কম permission, accessible flow আর rollback plan practice করুন।",
         ),
       },
     ],
@@ -243,7 +243,7 @@ export const additionalCareers: CareerSeed[] = [
     enjoy: [
       l(
         "You ask why someone struggled before changing a button color.",
-        "Button-এর রং বদলানোর আগে কেন user আটকাল জিজ্ঞেস করো।",
+        "Button-এর রং বদলানোর আগে কেন user আটকাল জিজ্ঞেস করুন।",
       ),
       l(
         "You like both visual details and implementation constraints.",
@@ -251,13 +251,13 @@ export const additionalCareers: CareerSeed[] = [
       ),
       l(
         "You can welcome feedback that contradicts your first design.",
-        "নিজের প্রথম design-এর বিরুদ্ধে feedback-ও গ্রহণ করতে পারো।",
+        "নিজের প্রথম design-এর বিরুদ্ধে feedback-ও গ্রহণ করতে পারেন।",
       ),
     ],
     dislike: [
       l(
         "You only want to draw polished screens, without observing use.",
-        "ব্যবহার না দেখে শুধু সুন্দর screen আঁকতে চাও।",
+        "ব্যবহার না দেখে শুধু সুন্দর screen আঁকতে চান।",
       ),
       l(
         "You strongly dislike coding, testing or maintaining components; a design-focused path may fit better.",
@@ -288,7 +288,7 @@ export const additionalCareers: CareerSeed[] = [
       ),
       l(
         "Separate roles: UX/product design emphasizes discovery and decisions; frontend engineering covers broader application behavior; UI engineering bridges interaction and reusable implementation.",
-        "Role আলাদা করো: UX/product design-এ discovery আর decision; frontend-এ বিস্তৃত application behavior; UI engineering-এ interaction আর reusable implementation-এর যোগসূত্র।",
+        "Role আলাদা করুন: UX/product design-এ discovery আর decision; frontend-এ বিস্তৃত application behavior; UI engineering-এ interaction আর reusable implementation-এর যোগসূত্র।",
       ),
     ],
     core: [
@@ -308,15 +308,15 @@ export const additionalCareers: CareerSeed[] = [
     practical: [
       l(
         "Redesign one confusing form and explain the original problem.",
-        "বিভ্রান্তিকর একটি form নতুন করে বানাও; আগের সমস্যা ব্যাখ্যা করো।",
+        "বিভ্রান্তিকর একটি form নতুন করে বানান; আগের সমস্যা ব্যাখ্যা করুন।",
       ),
       l(
         "Observe a consenting participant attempting a task without coaching.",
-        "সম্মতি দেওয়া কাউকে সাহায্য না করে কাজটি করতে দেখো।",
+        "সম্মতি দেওয়া কাউকে সাহায্য না করে কাজটি করতে দেখুন।",
       ),
       l(
         "Build, test and document the revised interaction, including error states.",
-        "Error state-সহ সংশোধিত interaction build, test আর document করো।",
+        "Error state-সহ সংশোধিত interaction build, test আর document করুন।",
       ),
     ],
     later: [
@@ -330,7 +330,7 @@ export const additionalCareers: CareerSeed[] = [
       ),
       l(
         "Choose a design-heavy or engineering-heavy specialization from real work.",
-        "বাস্তব কাজ দেখে design-heavy বা engineering-heavy specialization বেছে নাও।",
+        "বাস্তব কাজ দেখে design-heavy বা engineering-heavy specialization বেছে নিন।",
       ),
     ],
     notYet: [
@@ -389,7 +389,7 @@ export const additionalCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Compare options against a real task, semantic markup and responsive constraints.",
-          "বাস্তব task, semantic markup আর responsive constraint দিয়ে option বিচার করো।",
+          "বাস্তব task, semantic markup আর responsive constraint দিয়ে option বিচার করুন।",
         ),
       },
       {
@@ -404,7 +404,7 @@ export const additionalCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Use anonymized notes only with permission; trace findings to observations and test manually.",
-          "অনুমতি নিয়ে anonymized note ব্যবহার করো; finding-এর observation খুঁজে manual test করো।",
+          "অনুমতি নিয়ে anonymized note ব্যবহার করুন; finding-এর observation খুঁজে manual test করুন।",
         ),
       },
       {
@@ -419,7 +419,7 @@ export const additionalCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Practice listening, accessible interaction design and explaining why a decision changed.",
-          "শোনা, accessible interaction design আর decision কেন বদলাল তা বলা practice করো।",
+          "শোনা, accessible interaction design আর decision কেন বদলাল তা বলা practice করুন।",
         ),
       },
     ],

@@ -169,7 +169,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Define contracts, review security and explain every generated branch.",
-          "Contract define করো, security review করো, generated branch explain করতে পারো কি না দেখো।",
+          "Contract define করুন, security review করুন, generated branch explain করতে পারেন কি না দেখুন।",
         ),
       ),
       exposure(
@@ -177,11 +177,11 @@ const seeds: CareerSeed[] = [
         "medium",
         l(
           "AI helps form hypotheses but lacks your production context.",
-          "AI hypothesis দিতে পারে, কিন্তু তোমার production context জানে না।",
+          "AI hypothesis দিতে পারে, কিন্তু আপনার production context জানে না।",
         ),
         l(
           "Practice logs, traces, isolation and verification without handing over judgment.",
-          "Judgment ছেড়ে না দিয়ে log, trace, isolation আর verification practice করো।",
+          "Judgment ছেড়ে না দিয়ে log, trace, isolation আর verification practice করুন।",
         ),
       ),
       exposure(
@@ -196,7 +196,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Learn to justify decisions and monitor the result.",
-          "Decision justify আর result monitor করতে শেখো।",
+          "Decision justify আর result monitor করতে শিখুন।",
         ),
       ),
     ],
@@ -341,7 +341,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Inspect semantics, responsiveness and duplication before accepting it.",
-          "Accept করার আগে semantic, responsiveness আর duplication দেখো।",
+          "Accept করার আগে semantic, responsiveness আর duplication দেখুন।",
         ),
       ),
       exposure(
@@ -356,7 +356,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Use keyboard and screen-reader checks yourself.",
-          "নিজে keyboard আর screen-reader check করো।",
+          "নিজে keyboard আর screen-reader check করুন।",
         ),
       ),
       exposure(
@@ -371,7 +371,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Practice interviewing, prototyping and validating trade-offs.",
-          "Interview, prototype আর trade-off validate করা practice করো।",
+          "Interview, prototype আর trade-off validate করা practice করুন।",
         ),
       ),
     ],
@@ -514,7 +514,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Validate grain, null behavior and edge cases with tests.",
-          "Grain, null behavior আর edge case test দিয়ে validate করো।",
+          "Grain, null behavior আর edge case test দিয়ে validate করুন।",
         ),
       ),
       exposure(
@@ -526,7 +526,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Learn profiling, reconciliation and contract design.",
-          "Profiling, reconciliation আর contract design শেখো।",
+          "Profiling, reconciliation আর contract design শিখুন।",
         ),
       ),
       exposure(
@@ -541,7 +541,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Practice communicating definitions and trade-offs.",
-          "Definition আর trade-off communicate করা practice করো।",
+          "Definition আর trade-off communicate করা practice করুন।",
         ),
       ),
     ],
@@ -613,7 +613,7 @@ const seeds: CareerSeed[] = [
     dislike: [
       l(
         "You mainly want to call an AI API and move on.",
-        "মূলত AI API call করেই এগোতে চাও।",
+        "মূলত AI API call করেই এগোতে চান।",
       ),
       l(
         "Ambiguous results and failed experiments feel intolerable.",
@@ -621,7 +621,7 @@ const seeds: CareerSeed[] = [
       ),
       l(
         "You want every week to involve training a futuristic model.",
-        "প্রতি সপ্তাহে futuristic model train করতে চাও।",
+        "প্রতি সপ্তাহে futuristic model train করতে চান।",
       ),
     ],
     dimensions: {
@@ -685,7 +685,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Rebuild a small baseline yourself and explain each metric.",
-          "নিজে ছোট baseline বানিয়ে প্রতিটি metric explain করো।",
+          "নিজে ছোট baseline বানিয়ে প্রতিটি metric explain করুন।",
         ),
       ),
       exposure(
@@ -697,7 +697,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Learn leakage checks, slices and falsifiable hypotheses.",
-          "Leakage check, slice আর falsifiable hypothesis শেখো।",
+          "Leakage check, slice আর falsifiable hypothesis শিখুন।",
         ),
       ),
       exposure(
@@ -709,7 +709,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Work with domain experts and document failure costs.",
-          "Domain expert-এর সঙ্গে কাজ করে failure cost document করো।",
+          "Domain expert-এর সঙ্গে কাজ করে failure cost document করুন।",
         ),
       ),
     ],
@@ -767,7 +767,7 @@ const seeds: CareerSeed[] = [
     enjoy: [
       l(
         "You ask how systems fail, not only how they work.",
-        "System কীভাবে কাজ করে শুধু নয়, কীভাবে fail করে তাও জানতে চাও।",
+        "System কীভাবে কাজ করে শুধু নয়, কীভাবে fail করে তাও জানতে চান।",
       ),
       l(
         "Careful investigation feels satisfying.",
@@ -853,7 +853,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Verify evidence and never paste secrets or sensitive logs into public tools.",
-          "Evidence verify করো; secret বা sensitive log public tool-এ দিও না।",
+          "Evidence verify করুন; secret বা sensitive log public tool-এ দেবেন না।",
         ),
       ),
       exposure(
@@ -865,7 +865,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Preserve evidence, test hypotheses and maintain authorization boundaries.",
-          "Evidence preserve, hypothesis test আর authorization boundary মানো।",
+          "Evidence preserve, hypothesis test আর authorization boundary মানুন।",
         ),
       ),
       exposure(
@@ -877,7 +877,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Practice concise risk reports and remediation trade-offs.",
-          "Concise risk report আর remediation trade-off practice করো।",
+          "Concise risk report আর remediation trade-off practice করুন।",
         ),
       ),
     ],
@@ -946,7 +946,7 @@ const seeds: CareerSeed[] = [
       ),
       l(
         "You stay structured during incidents.",
-        "Incident-এর সময় structured থাকতে পারো।",
+        "Incident-এর সময় structured থাকতে পারেন।",
       ),
     ],
     dislike: [
@@ -956,7 +956,7 @@ const seeds: CareerSeed[] = [
       ),
       l(
         "You want to work only on visible features.",
-        "শুধু visible feature-এ কাজ করতে চাও।",
+        "শুধু visible feature-এ কাজ করতে চান।",
       ),
       l(
         "You dislike reading logs, metrics and infrastructure code.",
@@ -1024,7 +1024,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Read every permission, secret boundary and failure behavior before running it.",
-          "Run করার আগে permission, secret boundary আর failure behavior পড়ো।",
+          "Run করার আগে permission, secret boundary আর failure behavior পড়ুন।",
         ),
       ),
       exposure(
@@ -1036,7 +1036,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Build causal reasoning with logs, metrics, traces and timelines.",
-          "Log, metric, trace আর timeline দিয়ে causal reasoning build করো।",
+          "Log, metric, trace আর timeline দিয়ে causal reasoning build করুন।",
         ),
       ),
       exposure(
@@ -1051,7 +1051,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Practice clear communication and blameless review.",
-          "Clear communication আর blameless review practice করো।",
+          "Clear communication আর blameless review practice করুন।",
         ),
       ),
     ],
@@ -1109,7 +1109,7 @@ const seeds: CareerSeed[] = [
     enjoy: [
       l(
         "A blinking LED you truly understand feels rewarding.",
-        "যে blinking LED সত্যিই বুঝে বানিয়েছ—সেটা rewarding লাগে।",
+        "যে blinking LED সত্যিই বুঝে বানিয়েছেন—সেটা rewarding লাগে।",
       ),
       l(
         "You like constraints and concrete cause-and-effect.",
@@ -1154,7 +1154,7 @@ const seeds: CareerSeed[] = [
       ),
       l(
         "Copying driver code you cannot trace.",
-        "Trace করতে পারো না এমন driver code copy।",
+        "Trace করতে পারেন না এমন driver code copy।",
       ),
     ],
     foundation: [
@@ -1192,7 +1192,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Cross-check every address and electrical constraint against the datasheet.",
-          "প্রতিটি address আর electrical constraint datasheet-এ মিলাও।",
+          "প্রতিটি address আর electrical constraint datasheet-এ মেলান।",
         ),
       ),
       exposure(
@@ -1204,7 +1204,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Learn instrumentation, timing diagrams and systematic isolation.",
-          "Instrumentation, timing diagram আর systematic isolation শেখো।",
+          "Instrumentation, timing diagram আর systematic isolation শিখুন।",
         ),
       ),
       exposure(
@@ -1219,7 +1219,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Treat verification, constraints and documentation as core engineering.",
-          "Verification, constraint আর documentation-কে core engineering ভাবো।",
+          "Verification, constraint আর documentation-কে core engineering ভাবুন।",
         ),
       ),
     ],
@@ -1283,7 +1283,7 @@ const seeds: CareerSeed[] = [
     enjoy: [
       l(
         "You keep asking why, not only which tool.",
-        "কোন tool শুধু নয়—কেন, সেটা জিজ্ঞেস করতে থাকো।",
+        "কোন tool শুধু নয়—কেন, সেটা জিজ্ঞেস করতে থাকুন।",
       ),
       l(
         "Deep focus and ambiguous questions energize you.",
@@ -1368,7 +1368,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Read primary sources and verify every citation.",
-          "Primary source পড়ো আর citation verify করো।",
+          "Primary source পড়ুন আর citation verify করুন।",
         ),
       ),
       exposure(
@@ -1380,7 +1380,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Pre-register expectations and test baselines independently.",
-          "Expectation আগে লিখে baseline independently test করো।",
+          "Expectation আগে লিখে baseline independently test করুন।",
         ),
       ),
       exposure(
@@ -1395,7 +1395,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Learn methods, critique and transparent reporting.",
-          "Method, critique আর transparent reporting শেখো।",
+          "Method, critique আর transparent reporting শিখুন।",
         ),
       ),
     ],
@@ -1463,11 +1463,11 @@ const seeds: CareerSeed[] = [
       ),
       l(
         "You can care about people and technical detail together.",
-        "মানুষ আর technical detail—দুটো একসঙ্গে care করতে পারো।",
+        "মানুষ আর technical detail—দুটো একসঙ্গে care করতে পারেন।",
       ),
       l(
         "Ambiguity makes you organize, not freeze.",
-        "Ambiguity-তে freeze না হয়ে organize করো।",
+        "Ambiguity-তে freeze না হয়ে organize করুন।",
       ),
     ],
     dislike: [
@@ -1549,7 +1549,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Verify decisions, owners and omitted disagreement before sharing.",
-          "Share করার আগে decision, owner আর বাদ যাওয়া disagreement verify করো।",
+          "Share করার আগে decision, owner আর বাদ যাওয়া disagreement verify করুন।",
         ),
       ),
       exposure(
@@ -1557,11 +1557,11 @@ const seeds: CareerSeed[] = [
         "medium",
         l(
           "AI broadens options but may not know political, human or domain context.",
-          "AI option বাড়ায়, human বা domain context নাও জানতে পারে।",
+          "AI option বাড়ায়, human বা domain context নিন জানতে পারে।",
         ),
         l(
           "Expose assumptions and seek evidence from the people affected.",
-          "Assumption expose করে affected মানুষের evidence নাও।",
+          "Assumption expose করে affected মানুষের evidence নিন।",
         ),
       ),
       exposure(
@@ -1576,7 +1576,7 @@ const seeds: CareerSeed[] = [
         ),
         l(
           "Build credibility through delivery, feedback and transparent decisions.",
-          "Delivery, feedback আর transparent decision দিয়ে credibility build করো।",
+          "Delivery, feedback আর transparent decision দিয়ে credibility build করুন।",
         ),
       ),
     ],
@@ -1639,10 +1639,10 @@ export const careerById = new Map(careers.map((career) => [career.id, career]));
 export const careerFamilies: CareerFamily[] = [
   {
     id: "build-software",
-    title: l("Build Software", "Software তৈরি করো"),
+    title: l("Build Software", "Software তৈরি করুন"),
     description: l(
       "Build, test and improve products and the systems behind them.",
-      "ব্যবহারযোগ্য product এবং তার পেছনের system তৈরি, পরীক্ষা ও উন্নত করো।",
+      "ব্যবহারযোগ্য product এবং তার পেছনের system তৈরি, পরীক্ষা ও উন্নত করুন।",
     ),
     careerIds: [
       "backend-engineering",
@@ -1654,60 +1654,63 @@ export const careerFamilies: CareerFamily[] = [
   },
   {
     id: "work-with-data",
-    title: l("Work With Data", "Data থেকে অর্থ খুঁজে বের করো"),
+    title: l("Work With Data", "Data থেকে অর্থ খুঁজে বের করুন"),
     description: l(
       "Make data reliable, useful and available.",
-      "Data-কে নির্ভরযোগ্য ও ব্যবহারযোগ্য করো, তারপর সেখান থেকে সিদ্ধান্তের উপযোগী অর্থ বের করো।",
+      "Data-কে নির্ভরযোগ্য ও ব্যবহারযোগ্য করুন, তারপর সেখান থেকে সিদ্ধান্তের উপযোগী অর্থ বের করুন।",
     ),
     careerIds: ["data-engineering", "data-analytics-bi"],
     accent: "teal",
   },
   {
     id: "build-intelligence",
-    title: l("Build Intelligence", "বুদ্ধিমান system তৈরি করো"),
+    title: l("Build Intelligence", "বুদ্ধিমান system তৈরি করুন"),
     description: l(
       "Design and evaluate learning systems.",
-      "শেখে সিদ্ধান্ত নিতে পারে—এমন system তৈরি করো এবং সেটি আসলেই কতটা ভালো কাজ করছে যাচাই করো।",
+      "শেখে সিদ্ধান্ত নিতে পারে—এমন system তৈরি করুন এবং সেটি আসলেই কতটা ভালো কাজ করছে যাচাই করুন।",
     ),
     careerIds: ["machine-learning", "ai-engineering"],
     accent: "violet",
   },
   {
     id: "protect-systems",
-    title: l("Protect Systems", "System নিরাপদ রাখো"),
+    title: l("Protect Systems", "System নিরাপদ রাখুন"),
     description: l(
       "Understand threats and reduce real risk.",
-      "হুমকি ও দুর্বলতা বুঝে বাস্তব ঝুঁকি কমাও।",
+      "হুমকি ও দুর্বলতা বুঝে বাস্তব ঝুঁকি কমান।",
     ),
     careerIds: ["cybersecurity", "application-security"],
     accent: "coral",
   },
   {
     id: "run-systems",
-    title: l("Run Systems", "System সচল ও নির্ভরযোগ্য রাখো"),
+    title: l("Run Systems", "System সচল ও নির্ভরযোগ্য রাখুন"),
     description: l(
       "Make delivery and operations dependable.",
-      "Software release থেকে প্রতিদিনের operation—পুরো প্রক্রিয়াটিকে নির্ভরযোগ্য রাখো।",
+      "Software release থেকে প্রতিদিনের operation—পুরো প্রক্রিয়াটিকে নির্ভরযোগ্য রাখুন।",
     ),
     careerIds: ["devops-sre", "network-engineering"],
     accent: "sky",
   },
   {
     id: "close-to-hardware",
-    title: l("Work Close to Hardware", "Hardware ও বাস্তব যন্ত্র নিয়ে কাজ করো"),
+    title: l(
+      "Work Close to Hardware",
+      "Hardware ও বাস্তব যন্ত্র নিয়ে কাজ করুন",
+    ),
     description: l(
       "Design electronic systems and connect software to the physical world.",
-      "Electronic system তৈরি করো এবং software-কে sensor, device ও বাস্তব জগতের সঙ্গে যুক্ত করো।",
+      "Electronic system তৈরি করুন এবং software-কে sensor, device ও বাস্তব জগতের সঙ্গে যুক্ত করুন।",
     ),
     careerIds: ["embedded-systems", "hardware-engineering"],
     accent: "amber",
   },
   {
     id: "computing-deeply",
-    title: l("Understand Computing Deeply", "Computing-এর গভীরে যাও"),
+    title: l("Understand Computing Deeply", "Computing-এর গভীরে যান"),
     description: l(
       "Study the ideas and systems beneath tools.",
-      "Tool বদলালেও যে ধারণা, algorithm ও system থেকে যায়—সেগুলো গভীরভাবে বোঝো।",
+      "Tool বদলালেও যে ধারণা, algorithm ও system থেকে যায়—সেগুলো গভীরভাবে বুঝুন।",
     ),
     careerIds: ["systems-research"],
     accent: "indigo",
@@ -1725,10 +1728,10 @@ export const careerFamilies: CareerFamily[] = [
   },
   {
     id: "technology-people",
-    title: l("Technology + People", "প্রযুক্তি ও মানুষকে যুক্ত করো"),
+    title: l("Technology + People", "প্রযুক্তি ও মানুষকে যুক্ত করুন"),
     description: l(
       "Connect technical work, decisions and teams.",
-      "মানুষের প্রয়োজন, প্রযুক্তিগত কাজ এবং team-এর সিদ্ধান্তকে একই দিকে এগিয়ে নাও।",
+      "মানুষের প্রয়োজন, প্রযুক্তিগত কাজ এবং team-এর সিদ্ধান্তকে একই দিকে এগিয়ে নিন।",
     ),
     careerIds: ["ux-ui-engineering", "technical-product-leadership"],
     accent: "warm",

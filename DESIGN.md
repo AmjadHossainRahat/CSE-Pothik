@@ -1011,7 +1011,7 @@ Bangla content must **not** be literal word-for-word translation.
 
 It should sound like natural communication among Bangladeshi CSE students and experienced mentors.
 
-Use one consistent conversational relationship: address the student as **তুমি**, with warmth and respect. Prefer the sentence rhythm a thoughtful Bangladeshi senior or mentor would actually use. Translate ordinary navigation and editorial scaffolding—such as guidance, next step, reality check and selected resources—while retaining established technical vocabulary when English is genuinely clearer. A sentence should not preserve English word order merely because its nouns are technical.
+Use one consistent conversational relationship: address the student as **আপনি**, with warmth and respect. Prefer the sentence rhythm a thoughtful Bangladeshi senior or mentor would actually use. Translate ordinary navigation and editorial scaffolding—such as guidance, next step, reality check and selected resources—while retaining established technical vocabulary when English is genuinely clearer. A sentence should not preserve English word order merely because its nouns are technical.
 
 Use code-switching deliberately, not automatically. `API`, `Git`, `pull request`, `debugging`, `RAG` and established role names may remain English; everyday ideas such as লক্ষ্য, পরের ধাপ, কাজের প্রমাণ, তথ্যের উৎস and যাচাই should normally be Bangla. Read each Bangla paragraph independently from the English source: it must make sense, sound natural aloud and leave the student with a clear action.
 
@@ -1591,6 +1591,7 @@ The design is considered correctly implemented when:
 - dark mode has clear contrast and no illustration/background merging;
 - mobile UX is fully usable;
 - desktop content uses the available frame purposefully: readable text measures are intentional, top-level sections align, every non-homepage hero pairs its title with supporting copy/actions/context across two columns, and hidden panels do not leave empty columns;
+- the shared canvas keeps compact gutters beside the sidebar at common desktop widths and expands grids/section compositions without stretching prose into unreadably long lines; Search, language and theme form one right-aligned top-bar group;
 - accessibility is WCAG 2.2 AA-oriented;
 - humor, motivation and suspense feel intentional but never gimmicky;
 - the site continually provides meaningful next navigation;

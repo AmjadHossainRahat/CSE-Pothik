@@ -31,7 +31,7 @@ const metadata = {
   privacy: {
     title: bn ? "গোপনীয়তা ও Analytics" : "Privacy & Analytics",
     description: bn
-      ? "CSE-Pothik কোনো account, profile বা progress জমা রাখে না। Aggregate GA4 analytics, browser-এ রাখা preference আর ইচ্ছা হলে ব্যবহার করা বাইরের feedback form কীভাবে কাজ করে, তা জানো।"
+      ? "CSE-Pothik কোনো account, profile বা progress জমা রাখে না। Aggregate GA4 analytics, browser-এ রাখা preference আর ইচ্ছা হলে ব্যবহার করা বাইরের feedback form কীভাবে কাজ করে, তা জানুন।"
       : "Learn how CSE-Pothik uses aggregate GA4 analytics, local preferences and an optional external feedback form without accounts, profiles or progress tracking.",
   },
   about: {
@@ -162,7 +162,7 @@ const structuredData =
                   <h2>Learn → Practice → Go deeper (optional)</h2>
                   <p>
                     {bn
-                      ? "একটি primary resource-এর দরকারি অংশ শেষ করো, কিছু বানাও, তারপর আরও গভীর resource সত্যিই দরকার কি না দেখো।"
+                      ? "একটি primary resource-এর দরকারি অংশ শেষ করুন, কিছু বানান, তারপর আরও গভীর resource সত্যিই দরকার কি না দেখুন।"
                       : "Finish the recommended scope of one primary resource, build something, then decide whether deeper material is needed."}
                   </p>
                 </>
@@ -184,7 +184,7 @@ const structuredData =
           </div>
         </section>
         <DirectoryJumpNav
-          eyebrow={bn ? "রিসোর্সের ধরন বেছে নাও" : "Jump by resource type"}
+          eyebrow={bn ? "রিসোর্সের ধরন বেছে নিন" : "Jump by resource type"}
           label={bn ? "রিসোর্সের ধরন" : "Resource type index"}
           items={resourceGroups.map((group) => ({
             id: group.id,
@@ -240,7 +240,7 @@ const structuredData =
             </h1>
             <p class="lede">
               {bn
-                ? "CSE-Pothik একটি static site। এখানে account, roadmap progress বা career score জমা রাখা হয় না। আলাদা Google feedback form-টি কেবল তুমি নিজে খুলে উত্তর পাঠাতে চাইলে ব্যবহার হবে।"
+                ? "CSE-Pothik একটি static site। এখানে account, roadmap progress বা career score জমা রাখা হয় না। আলাদা Google feedback form-টি কেবল আপনি নিজে খুলে উত্তর পাঠাতে চাইলে ব্যবহার হবে।"
                 : "CSE-Pothik is static. It stores no account, roadmap progress or career score. The separate Google feedback form is used only if you choose to open it and submit a response."}
             </p>
           </>
@@ -314,7 +314,7 @@ const structuredData =
                   </h2>
                   <p>
                     {bn
-                      ? "Learning-resource link বা Google feedback form খুললে সেই provider-এর privacy policy প্রযোজ্য। Feedback form-এ তুমি যা লিখে submit করবে, সেটি Google Forms-এর মাধ্যমে যাবে; শুধু link দেখলেই কোনো উত্তর পাঠানো হয় না। CSE-Pothik resource ID/provider বা feedback-link click গুনতে পারে, কিন্তু URL query, form response বা তোমার free text analytics-এ পাঠায় না।"
+                      ? "Learning-resource link বা Google feedback form খুললে সেই provider-এর privacy policy প্রযোজ্য। Feedback form-এ আপনি যা লিখে submit করবেন, সেটি Google Forms-এর মাধ্যমে যাবে; শুধু link দেখলেই কোনো উত্তর পাঠানো হয় না। CSE-Pothik resource ID/provider বা feedback-link click গুনতে পারে, কিন্তু URL query, form response বা আপনার free text analytics-এ পাঠায় না।"
                       : "When you open a learning resource or the Google feedback form, that provider’s privacy policy applies. Anything you choose to enter and submit in the form is handled through Google Forms; merely seeing the link submits nothing. CSE-Pothik may count a resource or feedback-link click, but it does not send URL queries, form responses or your free text to analytics."}
                   </p>
                 </>
@@ -331,7 +331,7 @@ const structuredData =
         <header class="page-hero container">
           <>
             <p class="eyebrow">
-              {bn ? "CSE-তে নিজের পথ খুঁজে নাও" : siteConfig.tagline}
+              {bn ? "CSE-তে নিজের পথ খুঁজে নিন" : siteConfig.tagline}
             </p>
             <h1>
               {bn
@@ -340,7 +340,7 @@ const structuredData =
             </h1>
             <p class="lede">
               {bn
-                ? "প্রথম semester-এ হোক বা graduation-এর ঠিক আগে—CSE-Pothik তোমাকে কাজের জগৎটা বুঝতে, ছোট করে যাচাই করতে এবং এখন সত্যিই কাজে লাগবে এমন একটি পরের ধাপ বেছে নিতে সাহায্য করে।"
+                ? "প্রথম semester-এ হোক বা graduation-এর ঠিক আগে—CSE-Pothik আপনাকে কাজের জগৎটা বুঝতে, ছোট করে যাচাই করতে এবং এখন সত্যিই কাজে লাগবে এমন একটি পরের ধাপ বেছে নিতে সাহায্য করে।"
                 : "CSE-Pothik helps students—from freshers to final year—understand the landscape, try real work, avoid common mistakes and take a meaningful next step in the AI era."}
             </p>
             <div class="about-actions">
@@ -399,7 +399,7 @@ const structuredData =
                 [
                   bn ? "ঘুরে দাঁড়ানোর পরের ধাপ" : "A practical recovery",
                   bn
-                    ? "Noise থামাও, একটি পথ বোঝো, ছোট evidence বানিয়ে এগোও।"
+                    ? "Noise থামান, একটি পথ বুঝুন, ছোট evidence বানিয়ে এগিয়ে যান।"
                     : "Stop the noise, understand one route and build a small piece of evidence.",
                 ],
               ].map(([title, description], index) => (

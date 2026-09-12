@@ -14,18 +14,18 @@ export const homepageIntro = {
   ),
   reassurance: l(
     "Without early orientation, semesters can disappear into trends and random tutorials. If that feels familiar, you have not missed your chance.",
-    "শুরুতে ঠিকমতো দিকনির্দেশনা না পেলে ট্রেন্ড আর এলোপাতাড়ি tutorial-এর পেছনে কখন যে কয়েকটি সেমিস্টার চলে যায়, বোঝাই যায় না। তোমারও এমন হয়ে থাকলে ভয় নেই—ট্রেন এখনও ছেড়ে যায়নি।",
+    "শুরুতে ঠিকমতো দিকনির্দেশনা না পেলে ট্রেন্ড আর এলোপাতাড়ি tutorial-এর পেছনে কখন যে কয়েকটি সেমিস্টার চলে যায়, বোঝাই যায় না। আপনারও এমন হয়ে থাকলে ভয় নেই—ট্রেন এখনও ছেড়ে যায়নি।",
   ),
   outcome: l(
     "Understand the options, try real work and choose one useful next step—while building the fundamentals and judgment that make AI useful.",
-    "কী কী পথ আছে বোঝো, ছোট করে আসল কাজের স্বাদ নাও, তারপর পরের কাজটি ঠিক করো। পাশাপাশি এমন ভিত আর বিচারবোধ গড়ো, যাতে AI-কে চালাও তুমি—AI যেন তোমাকে না চালায়।",
+    "কী কী পথ আছে বুঝুন, ছোট করে আসল কাজের স্বাদ নিন, তারপর পরের কাজটি ঠিক করুন। পাশাপাশি এমন ভিত আর বিচারবোধ গড়ুন, যাতে AI-কে চালান আপনি—AI যেন আপনাকে না চালায়।",
   ),
-  primaryAction: l("Help me find my next step", "আমার পরের ধাপ খুঁজে দাও"),
+  primaryAction: l("Help me find my next step", "আমার পরের ধাপ খুঁজে দিন"),
   secondaryAction: l("Explore career paths", "ক্যারিয়ারের পথগুলো দেখি"),
 } satisfies Record<string, LocalizedText>;
 
 export const aiEraMessage = {
-  eyebrow: l("Your advantage in the AI era", "AI যুগে তোমার শক্তি"),
+  eyebrow: l("Your advantage in the AI era", "AI যুগে আপনার শক্তি"),
   title: l(
     "AI can generate code. Can you lead the decision?",
     "AI কোড লিখতে পারে। কিন্তু সিদ্ধান্তের হাল ধরতে পারবে তো?",
@@ -36,7 +36,7 @@ export const aiEraMessage = {
   ),
   takeaway: l(
     "The goal is not to compete with AI at typing. Become the engineer who gives it useful context, challenges plausible mistakes, chooses trade-offs and can still proceed when the tool or tech lead is unavailable.",
-    "AI-এর সঙ্গে কে দ্রুত টাইপ করতে পারে, সেই দৌড়ে নামার দরকার নেই। এমন engineer হও, যে ঠিক context দেয়, দেখতে-ঠিক-লাগা ভুলও ধরে, trade-off বুঝে বেছে নেয় এবং tool বা tech lead পাশে না থাকলেও আটকে যায় না।",
+    "AI-এর সঙ্গে কে দ্রুত টাইপ করতে পারে, সেই দৌড়ে নামার দরকার নেই। এমন engineer হোন, যে ঠিক context দেয়, দেখতে-ঠিক-লাগা ভুলও ধরে, trade-off বুঝে বেছে নেয় এবং tool বা tech lead পাশে না থাকলেও আটকে যায় না।",
   ),
   scenarioSummary: l(
     "Follow one fresher, two kinds of AI context, and three very different outcomes",
@@ -48,57 +48,57 @@ export const aiEraMessage = {
   ),
   closing: l(
     "Code fluency, algorithms and data structures remain useful; speed alone is not enough. Clean code, code smells, SOLID, design patterns and defensive programming give you lenses for reviewing change—but not a checklist to force into every feature. Learn the principles, prefer the simplest adequate design and escalate high-impact decisions with evidence.",
-    "Code fluency, algorithm আর data structure এখনও দরকারি; তবে শুধু দ্রুত code লিখতে পারাই যথেষ্ট নয়। Clean code, code smell, SOLID, design pattern আর defensive programming change review করার lens দেয়—প্রতিটি feature-এ গুঁজে দেওয়ার checklist নয়। নীতিটা বোঝো, কাজ চালানোর সবচেয়ে সহজ design বেছে নাও, আর বড় প্রভাবের সিদ্ধান্তে evidence নিয়ে অভিজ্ঞ কারও মত নাও।",
+    "Code fluency, algorithm আর data structure এখনও দরকারি; তবে শুধু দ্রুত code লিখতে পারাই যথেষ্ট নয়। Clean code, code smell, SOLID, design pattern আর defensive programming change review করার lens দেয়—প্রতিটি feature-এ গুঁজে দেওয়ার checklist নয়। নীতিটা বুঝুন, কাজ চালানোর সবচেয়ে সহজ design বেছে নিন, আর বড় প্রভাবের সিদ্ধান্তে evidence নিয়ে অভিজ্ঞ কারও মত নিন।",
   ),
 } satisfies Record<string, LocalizedText>;
 
 export const aiEraDecisions = [
   {
     id: "frame",
-    label: l("Frame", "Problem ধরো"),
+    label: l("Frame", "Problem ধরুন"),
     question: l(
       "Can you explain the user need, constraints and what “done” means without asking AI first?",
       "AI-কে জিজ্ঞেস করার আগেই user-এর প্রয়োজন, সীমাবদ্ধতা আর কাজ শেষ হওয়ার শর্ত বোঝাতে পারবে?",
     ),
     no: l(
       "Pause. Clarify the problem, data, risks and acceptance criteria.",
-      "একটু থামো। সমস্যা, data, ঝুঁকি আর acceptance criteria আগে পরিষ্কার করো।",
+      "একটু থামুন। সমস্যা, data, ঝুঁকি আর acceptance criteria আগে পরিষ্কার করুন।",
     ),
     yes: l(
       "Give AI bounded context; then compare options.",
-      "AI-কে প্রয়োজনমতো context দাও; তারপর সম্ভাব্য পথগুলো মিলিয়ে দেখো।",
+      "AI-কে প্রয়োজনমতো context দিন; তারপর সম্ভাব্য পথগুলো মিলিয়ে দেখুন।",
     ),
   },
   {
     id: "verify",
-    label: l("Verify", "যাচাই করো"),
+    label: l("Verify", "যাচাই করুন"),
     question: l(
       "Can you challenge correctness, edge cases, security, tests and maintainability?",
       "কাজটি সঠিক কি না, edge case, security, test আর maintainability—এসব নিয়ে প্রশ্ন তুলতে পারবে?",
     ),
     no: l(
       "Shrink the task and build the missing foundation before you merge.",
-      "কাজের পরিধি ছোট করো। merge করার আগে যে ভিত্তিটুকু জানা নেই, সেটি শিখে নাও।",
+      "কাজের পরিধি ছোট করুন। merge করার আগে যে ভিত্তিটুকু জানা নেই, সেটি শিখে নিন।",
     ),
     yes: l(
       "Use evidence—not confidence—to accept or reject it.",
-      "উত্তরের আত্মবিশ্বাস দেখে নয়—evidence দেখে গ্রহণ বা বাতিল করো।",
+      "উত্তরের আত্মবিশ্বাস দেখে নয়—evidence দেখে গ্রহণ বা বাতিল করুন।",
     ),
   },
   {
     id: "own",
-    label: l("Own", "দায়িত্ব নাও"),
+    label: l("Own", "দায়িত্ব নিন"),
     question: l(
       "Can you justify this trade-off for the codebase, business and people affected?",
       "Codebase, business আর যাদের ওপর প্রভাব পড়বে—সবার কথা ভেবে এই trade-off ব্যাখ্যা করতে পারবে?",
     ),
     no: l(
       "Inspect team conventions and decision records; ask for review when impact is hard to reverse.",
-      "Team-এর নিয়ম আর আগের decision record দেখো। ভুল সিদ্ধান্ত ফেরানো কঠিন হলে review চাও।",
+      "Team-এর নিয়ম আর আগের decision record দেখুন। ভুল সিদ্ধান্ত ফেরানো কঠিন হলে review চান।",
     ),
     yes: l(
       "Proceed, test, document and monitor. You own the result.",
-      "তাহলে এগিয়ে যাও—test করো, লিখে রাখো, নজর রাখো। ফলাফলের দায়িত্বও নাও।",
+      "তাহলে এগিয়ে যান—test করুন, লিখে রাখুন, নজর রাখুন। ফলাফলের দায়িত্বও নিন।",
     ),
   },
 ] as const;
@@ -206,7 +206,7 @@ export const homepageEntries: HomepageEntry[] = [
     ),
     note: l(
       "See the real work, compare paths, and find a small experiment.",
-      "আসল কাজ কেমন দেখো, পথগুলো মিলিয়ে নাও, তারপর ছোট একটি experiment করো।",
+      "আসল কাজ কেমন দেখুন, পথগুলো মিলিয়ে নিন, তারপর ছোট একটি experiment করুন।",
     ),
     destination: "/careers/",
     analyticsDestination: "careers",

@@ -10,11 +10,11 @@ export const employmentGoals: GoalGuide[] = [
     ),
     summary: l(
       "Prepare for a role, not a logo: Google, Meta, Microsoft, Amazon, Tesla, SpaceX and NASA-related routes have different work and eligibility.",
-      "Logo দেখে নয়, কাজ বুঝে প্রস্তুতি নাও। Google, Meta, Microsoft, Amazon, Tesla, SpaceX কিংবা NASA-সংশ্লিষ্ট পথে কাজের ধরন ও যোগ্যতার শর্ত এক নয়।",
+      "Logo দেখে নয়, কাজ বুঝে প্রস্তুতি নিন। Google, Meta, Microsoft, Amazon, Tesla, SpaceX কিংবা NASA-সংশ্লিষ্ট পথে কাজের ধরন ও যোগ্যতার শর্ত এক নয়।",
     ),
     reality: l(
       "Ambition is useful; a company name is not a syllabus. NASA is a government agency and most NASA employment requires U.S. citizenship. Check each vacancy's location, work authorization, degree and experience conditions before investing in a company-specific route. No roadmap guarantees an interview or offer.",
-      "বড় স্বপ্ন অবশ্যই দরকার; কিন্তু কোনো company-র নাম syllabus নয়। NASA একটি সরকারি সংস্থা, এবং তাদের বেশিরভাগ চাকরিতে U.S. citizenship লাগে। তাই কোনো প্রতিষ্ঠানকে ঘিরে দীর্ঘ প্রস্তুতি নেওয়ার আগে vacancy-এর location, work authorization, degree ও experience-এর শর্ত দেখে নাও। কোনো roadmap interview বা offer নিশ্চিত করতে পারে না।",
+      "বড় স্বপ্ন অবশ্যই দরকার; কিন্তু কোনো company-র নাম syllabus নয়। NASA একটি সরকারি সংস্থা, এবং তাদের বেশিরভাগ চাকরিতে U.S. citizenship লাগে। তাই কোনো প্রতিষ্ঠানকে ঘিরে দীর্ঘ প্রস্তুতি নেওয়ার আগে vacancy-এর location, work authorization, degree ও experience-এর শর্ত দেখে নিন। কোনো roadmap interview বা offer নিশ্চিত করতে পারে না।",
     ),
     variants: [
       {
@@ -24,7 +24,7 @@ export const employmentGoals: GoalGuide[] = [
         ),
         description: l(
           "Backend, frontend, mobile, data, security and UX/UI roles. Build role depth plus coding, testing and collaborative problem-solving; interview emphasis varies.",
-          "Backend, frontend, mobile, data, security আর UX/UI role। Role-এর গভীরতা, coding, testing আর একসঙ্গে problem solve করা শেখো; interview emphasis আলাদা হতে পারে।",
+          "Backend, frontend, mobile, data, security আর UX/UI role। Role-এর গভীরতা, coding, testing আর একসঙ্গে problem solve করা শিখুন; interview emphasis আলাদা হতে পারে।",
         ),
       },
       {
@@ -34,7 +34,7 @@ export const employmentGoals: GoalGuide[] = [
         ),
         description: l(
           "For relevant Tesla, SpaceX or other engineering roles, inspect requirements for C/C++, hardware interfaces, control, real-time behavior and safety. A web portfolio alone may not demonstrate these.",
-          "Tesla, SpaceX বা অন্য relevant role-এ C/C++, hardware interface, control, real-time behavior আর safety requirement দেখো। শুধু web portfolio দিয়ে এগুলো বোঝানো নাও যেতে পারে।",
+          "Tesla, SpaceX বা অন্য relevant role-এ C/C++, hardware interface, control, real-time behavior আর safety requirement দেখুন। শুধু web portfolio দিয়ে এগুলো বোঝানো নিন যেতে পারে।",
         ),
       },
       {
@@ -44,14 +44,14 @@ export const employmentGoals: GoalGuide[] = [
         ),
         description: l(
           "Match a specific scientific question, lab or research role. Mathematics, experiments, papers and sometimes advanced degrees matter more than a generic interview-question streak.",
-          "নির্দিষ্ট scientific question, lab বা research role-এর সঙ্গে মিল দেখো। Generic interview streak-এর চেয়ে math, experiment, paper আর কখনো advanced degree বেশি প্রাসঙ্গিক।",
+          "নির্দিষ্ট scientific question, lab বা research role-এর সঙ্গে মিল দেখুন। Generic interview streak-এর চেয়ে math, experiment, paper আর কখনো advanced degree বেশি প্রাসঙ্গিক।",
         ),
       },
     ],
     stages: [
       {
         id: "foundation",
-        title: l("Choose a role and audit the gap", "Role বেছে gap দেখো"),
+        title: l("Choose a role and audit the gap", "Role বেছে gap দেখুন"),
         why: l(
           "You need a feasible target before a preparation calendar.",
           "Preparation calendar-এর আগে বাস্তবসম্মত target দরকার।",
@@ -59,16 +59,16 @@ export const employmentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Read three actual openings at a suitable level. Record repeated skills, responsibilities, location constraints and which requirements are essential versus preferred.",
-            "উপযুক্ত level-এর তিনটি actual opening পড়ো। Common skill, responsibility, location constraint আর essential বনাম preferred requirement লেখো।",
+            "উপযুক্ত level-এর তিনটি actual opening পড়ুন। Common skill, responsibility, location constraint আর essential বনাম preferred requirement লিখুন।",
           ),
           l(
             "Pick one career roadmap below. Practice a language, data structures, debugging, Git and the CS fundamentals your target uses; keep notes on concepts you cannot yet explain.",
-            "নিচের একটি career roadmap নাও। একটি language, data structure, debugging, Git আর target-এর CS foundation practice করো; যা বোঝাতে পারো না লিখে রাখো।",
+            "নিচের একটি career roadmap নিন। একটি language, data structure, debugging, Git আর target-এর CS foundation practice করুন; যা বোঝাতে পারেন না লিখে রাখুন।",
           ),
         ],
         evidence: l(
           "A one-page role brief and a small independently explained program. You know whether your target is currently eligible or needs an alternative route.",
-          "এক পাতার role brief আর নিজে বোঝানো ছোট program। Target-এ এখন eligible কি না, না হলে বিকল্প route দরকার কি না জানো।",
+          "এক পাতার role brief আর নিজে বোঝানো ছোট program। Target-এ এখন eligible কি না, না হলে বিকল্প route দরকার কি না জানুন।",
         ),
         notYet: l(
           "Do not collect seven company-specific courses or start senior system-design memorization before basic coding is dependable.",
@@ -80,7 +80,7 @@ export const employmentGoals: GoalGuide[] = [
         id: "evidence",
         title: l(
           "Build proof of engineering depth",
-          "Engineering depth-এর প্রমাণ বানাও",
+          "Engineering depth-এর প্রমাণ বানান",
         ),
         why: l(
           "Solving exercises and owning useful work are complementary skills.",
@@ -89,16 +89,16 @@ export const employmentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Build one role-aligned artifact: a tested service, accessible mobile flow, evaluated model or measured embedded prototype. Explain a failure, trade-off and limitation.",
-            "Role-matched artifact বানাও: tested service, accessible mobile flow, evaluated model বা measured embedded prototype। Failure, trade-off আর limitation বোঝাও।",
+            "Role-matched artifact বানান: tested service, accessible mobile flow, evaluated model বা measured embedded prototype। Failure, trade-off আর limitation বোঝান।",
           ),
           l(
             "Get a review, respond in writing and improve the artifact. For research roles, reproduce a baseline before proposing a new method.",
-            "Review নিয়ে লিখিতভাবে উত্তর দাও আর artifact উন্নত করো। Research role হলে নতুন method-এর আগে baseline reproduce করো।",
+            "Review নিয়ে লিখিতভাবে উত্তর দিন আর artifact উন্নত করুন। Research role হলে নতুন method-এর আগে baseline reproduce করুন।",
           ),
         ],
         evidence: l(
           "A runnable project, clear README, meaningful tests or evaluation, and one review-driven improvement you can defend.",
-          "Runnable project, পরিষ্কার README, meaningful test বা evaluation আর review থেকে করা একটি improvement বোঝাতে পারো।",
+          "Runnable project, পরিষ্কার README, meaningful test বা evaluation আর review থেকে করা একটি improvement বোঝাতে পারেন।",
         ),
         notYet: l(
           "A copied clone and inflated impact numbers are not evidence. Avoid publishing employer or user secrets.",
@@ -110,7 +110,7 @@ export const employmentGoals: GoalGuide[] = [
         id: "application",
         title: l(
           "Practice the actual hiring process",
-          "Actual hiring process practice করো",
+          "Actual hiring process practice করুন",
         ),
         why: l(
           "Good work still needs clear explanation under the relevant interview conditions.",
@@ -119,20 +119,20 @@ export const employmentGoals: GoalGuide[] = [
         tasks: [
           l(
             "For coding interviews, solve unfamiliar problems aloud: clarify, plan, implement, test and explain complexity. Review mistakes instead of counting solved questions.",
-            "Coding interview-তে নতুন problem নিয়ে clarify, plan, implement, test আর complexity বোঝানো practice করো। Question count নয়, ভুল review করো।",
+            "Coding interview-তে নতুন problem নিয়ে clarify, plan, implement, test আর complexity বোঝানো practice করুন। Question count নয়, ভুল review করুন।",
           ),
           l(
             "Prepare honest stories about collaboration, setbacks and decisions. Use role-specific mock interviews; confirm format, permitted tools and accommodations with the employer.",
-            "Collaboration, setback আর decision-এর সৎ গল্প প্রস্তুত করো। Role-specific mock interview করো; format, permitted tool আর accommodation employer-এর কাছে নিশ্চিত করো।",
+            "Collaboration, setback আর decision-এর সৎ গল্প প্রস্তুত করুন। Role-specific mock interview করুন; format, permitted tool আর accommodation employer-এর কাছে নিশ্চিত করুন।",
           ),
         ],
         evidence: l(
           "You can complete a realistic mock, explain the gaps and revise your plan; your CV links directly to verifiable work.",
-          "Realistic mock শেষ করে gap বোঝাতে আর plan বদলাতে পারো; CV থেকে যাচাইযোগ্য কাজে যাওয়া যায়।",
+          "Realistic mock শেষ করে gap বোঝাতে আর plan বদলাতে পারেন; CV থেকে যাচাইযোগ্য কাজে যাওয়া যায়।",
         ),
         notYet: l(
           "Do not secretly use AI in an assessment or assume every role has the same algorithm and system-design rounds.",
-          "Assessment-এ লুকিয়ে AI নয়; সব role-এ একই algorithm আর system-design round ধরে নিও না।",
+          "Assessment-এ লুকিয়ে AI নয়; সব role-এ একই algorithm আর system-design round ধরে নেবেন না।",
         ),
         sourceId: "amazon-interviews",
       },
@@ -140,7 +140,7 @@ export const employmentGoals: GoalGuide[] = [
         id: "adapt",
         title: l(
           "Apply broadly and use feedback",
-          "বিভিন্ন জায়গায় apply করে feedback কাজে লাগাও",
+          "বিভিন্ন জায়গায় apply করে feedback কাজে লাগান",
         ),
         why: l(
           "A narrow employer list makes useful skills feel like a failed lottery ticket.",
@@ -149,11 +149,11 @@ export const employmentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Apply to suitable internships and roles across employer sizes. Verify the listing on the official site; ask for a referral only with a clear role and evidence, not spam.",
-            "বিভিন্ন size-এর employer-এ suitable internship আর role-এ apply করো। Official site-এ listing যাচাই করো; clear role আর evidence নিয়ে referral চাও, spam নয়।",
+            "বিভিন্ন size-এর employer-এ suitable internship আর role-এ apply করুন। Official site-এ listing যাচাই করুন; clear role আর evidence নিয়ে referral চান, spam নয়।",
           ),
           l(
             "Keep a private application log, revise one weak skill from feedback and continue shipping work. Consider local or remote experience as valid routes, not consolation prizes.",
-            "নিজের application log রাখো, feedback-এর একটি weak skill ঠিক করো আর কাজ চালাও। Local বা remote experience-ও বাস্তব route, সান্ত্বনা পুরস্কার নয়।",
+            "নিজের application log রাখুন, feedback-এর একটি weak skill ঠিক করুন আর কাজ চালান। Local বা remote experience-ও বাস্তব route, সান্ত্বনা পুরস্কার নয়।",
           ),
         ],
         evidence: l(
@@ -178,16 +178,16 @@ export const employmentGoals: GoalGuide[] = [
       ),
       l(
         "Citizenship, work authorization and export-control conditions must be checked in current official postings; do not infer legal eligibility from this guide.",
-        "Citizenship, work authorization আর export-control condition current official posting-এ দেখো; এই guide দিয়ে legal eligibility ধরে নিও না।",
+        "Citizenship, work authorization আর export-control condition current official posting-এ দেখুন; এই guide দিয়ে legal eligibility ধরে নেবেন না।",
       ),
     ],
     aiPractice: l(
       "Use AI to challenge your explanation or generate test cases, then verify them. Regularly code and reason unaided so your independent ability is visible. Follow each assessment's tool rules.",
-      "AI দিয়ে explanation challenge বা test case তৈরি করিয়ে verify করো। নিয়মিত সাহায্য ছাড়া code আর reasoning করো যাতে নিজের ক্ষমতা বোঝা যায়। Assessment-এর tool rule মানো।",
+      "AI দিয়ে explanation challenge বা test case তৈরি করিয়ে verify করুন। নিয়মিত সাহায্য ছাড়া code আর reasoning করুন যাতে নিজের ক্ষমতা বোঝা যায়। Assessment-এর tool rule মানুন।",
     ),
     thisWeek: l(
       "Pick one role, annotate three vacancies and finish one small task from its foundation roadmap. Your first win is a clearer target—not an offer letter by Friday.",
-      "একটি role বেছে তিন vacancy-তে note নাও আর foundation roadmap-এর ছোট একটি task শেষ করো। প্রথম জয় হলো target পরিষ্কার হওয়া—শুক্রবারের মধ্যে offer letter নয়।",
+      "একটি role বেছে তিন vacancy-তে note নিন আর foundation roadmap-এর ছোট একটি task শেষ করুন। প্রথম জয় হলো target পরিষ্কার হওয়া—শুক্রবারের মধ্যে offer letter নয়।",
     ),
     careerIds: [
       "backend-engineering",
@@ -230,18 +230,18 @@ export const employmentGoals: GoalGuide[] = [
     ),
     summary: l(
       "Explore product teams, export services, fintech, telecom, enterprise IT and public-interest technology—then prepare for the actual work.",
-      "Product company, export service, fintech, telecom, enterprise IT ও জনস্বার্থের technology—ক্ষেত্রগুলো আগে চিনে নাও, তারপর আসল কাজের জন্য প্রস্তুতি নাও।",
+      "Product company, export service, fintech, telecom, enterprise IT ও জনস্বার্থের technology—ক্ষেত্রগুলো আগে চিনে নিন, তারপর আসল কাজের জন্য প্রস্তুতি নিন।",
     ),
     reality: l(
       "Local does not mean easy or second-rate. Company category helps you ask better questions; it does not predict pay, culture or engineering quality. Verify vacancies and evaluate mentorship, ownership, working conditions and learning opportunities individually.",
-      "দেশীয় প্রতিষ্ঠান মানেই কাজ সহজ বা মান কম—এ ধারণা ঠিক নয়। প্রতিষ্ঠানের ধরন তোমাকে ভালো প্রশ্ন করতে সাহায্য করবে, তবে বেতন, culture বা engineering quality নিশ্চিত করবে না। প্রতিটি vacancy আলাদা করে যাচাই করো; mentorship, দায়িত্ব, কাজের পরিবেশ ও শেখার সুযোগ বুঝে সিদ্ধান্ত নাও।",
+      "দেশীয় প্রতিষ্ঠান মানেই কাজ সহজ বা মান কম—এ ধারণা ঠিক নয়। প্রতিষ্ঠানের ধরন আপনাকে ভালো প্রশ্ন করতে সাহায্য করবে, তবে বেতন, culture বা engineering quality নিশ্চিত করবে না। প্রতিটি vacancy আলাদা করে যাচাই করুন; mentorship, দায়িত্ব, কাজের পরিবেশ ও শেখার সুযোগ বুঝে সিদ্ধান্ত নিন।",
     ),
     variants: [
       {
         title: l("Product companies & startups", "Product company আর startup"),
         description: l(
           "Practice shipping a narrow feature, using feedback and maintaining it. Ask who reviews junior work and how product decisions are made.",
-          "ছোট feature release, feedback ব্যবহার আর maintain করা practice করো। Junior-এর কাজ কে review করে আর product decision কীভাবে হয় জিজ্ঞেস করো।",
+          "ছোট feature release, feedback ব্যবহার আর maintain করা practice করুন। Junior-এর কাজ কে review করে আর product decision কীভাবে হয় জিজ্ঞেস করুন।",
         ),
       },
       {
@@ -251,21 +251,21 @@ export const employmentGoals: GoalGuide[] = [
         ),
         description: l(
           "Prepare for client requirements, readable delivery, documentation and changing scope. Confirm team language, review process and time-zone expectations.",
-          "Client requirement, readable delivery, documentation আর scope change-এর প্রস্তুতি নাও। Team language, review process আর time-zone expectation জেনে নাও।",
+          "Client requirement, readable delivery, documentation আর scope change-এর প্রস্তুতি নিন। Team language, review process আর time-zone expectation জেনে নিন।",
         ),
       },
       {
         title: l("Banks & fintech", "Bank আর fintech"),
         description: l(
           "Emphasize correctness, data access boundaries, auditability and integration. Use fictional data; production financial systems are not student playgrounds.",
-          "Correctness, data access boundary, auditability আর integration-এ জোর দাও। Fictional data ব্যবহার করো; production financial system practice-এর জায়গা নয়।",
+          "Correctness, data access boundary, auditability আর integration-এ জোর দিন। Fictional data ব্যবহার করুন; production financial system practice-এর জায়গা নয়।",
         ),
       },
       {
         title: l("Telecom & enterprise IT", "Telecom আর enterprise IT"),
         description: l(
           "Explore networks, operations, integration, reliability and internal tools. Distinguish engineering roles from support and administration in each posting.",
-          "Network, operation, integration, reliability আর internal tool দেখো। Posting-এ engineering, support আর administration role আলাদা করো।",
+          "Network, operation, integration, reliability আর internal tool দেখুন। Posting-এ engineering, support আর administration role আলাদা করুন।",
         ),
       },
       {
@@ -275,7 +275,7 @@ export const employmentGoals: GoalGuide[] = [
         ),
         description: l(
           "Check each circular's degree, examination and eligibility rules. For NGOs and service delivery, learn accessibility, field constraints and responsible data handling.",
-          "প্রতিটি circular-এর degree, examination আর eligibility rule দেখো। NGO আর service delivery-তে accessibility, মাঠের constraint আর responsible data handling শেখো।",
+          "প্রতিটি circular-এর degree, examination আর eligibility rule দেখুন। NGO আর service delivery-তে accessibility, মাঠের constraint আর responsible data handling শিখুন।",
         ),
       },
     ],
@@ -284,7 +284,7 @@ export const employmentGoals: GoalGuide[] = [
         id: "foundation",
         title: l(
           "Choose a work category, then a role",
-          "কাজের category, তারপর role বাছো",
+          "কাজের category, তারপর role বাছুন",
         ),
         why: l(
           "An industry label is too broad to tell you what to study tomorrow.",
@@ -293,11 +293,11 @@ export const employmentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Compare three junior/internship postings from official employer pages. Note tasks, required stack, degree conditions and application channel; check the closing date.",
-            "Official employer page থেকে তিন junior/internship posting compare করো। Task, required stack, degree condition, application channel আর closing date লেখো।",
+            "Official employer page থেকে তিন junior/internship posting compare করুন। Task, required stack, degree condition, application channel আর closing date লিখুন।",
           ),
           l(
             "Use one career roadmap for the repeated fundamentals. Practice reading technical English and explaining work clearly in Bangla and English.",
-            "বারবার আসা foundation-এর জন্য একটি career roadmap নাও। Technical English পড়া আর Bangla/English-এ কাজ বোঝানো practice করো।",
+            "বারবার আসা foundation-এর জন্য একটি career roadmap নিন। Technical English পড়া আর Bangla/English-এ কাজ বোঝানো practice করুন।",
           ),
         ],
         evidence: l(
@@ -314,25 +314,25 @@ export const employmentGoals: GoalGuide[] = [
         id: "evidence",
         title: l(
           "Deliver a relevant small project",
-          "Relevant ছোট project deliver করো",
+          "Relevant ছোট project deliver করুন",
         ),
         why: l(
           "A reviewer needs to see whether you can finish and explain useful work.",
-          "Reviewer দেখতে চান useful কাজ শেষ আর explain করতে পারো কি না।",
+          "Reviewer দেখতে চান useful কাজ শেষ আর explain করতে পারেন কি না।",
         ),
         tasks: [
           l(
             "Choose a realistic local use case: a bilingual service form, stock ledger, appointment flow or offline mobile list. Use synthetic data and keep scope small.",
-            "Realistic local use case নাও: bilingual service form, stock ledger, appointment flow বা offline mobile list। Synthetic data আর ছোট scope রাখো।",
+            "Realistic local use case নিন: bilingual service form, stock ledger, appointment flow বা offline mobile list। Synthetic data আর ছোট scope রাখুন।",
           ),
           l(
             "Add validation, tests, setup instructions and one failure-recovery path. Ask a peer to run it from the README and fix unclear instructions.",
-            "Validation, test, setup instruction আর একটি failure-recovery path দাও। Peer-কে README দিয়ে run করতে দিয়ে অস্পষ্ট instruction ঠিক করো।",
+            "Validation, test, setup instruction আর একটি failure-recovery path দিন। Peer-কে README দিয়ে run করতে দিয়ে অস্পষ্ট instruction ঠিক করুন।",
           ),
         ],
         evidence: l(
           "A reviewer can run the project, see your contribution and reproduce one test or bug fix.",
-          "Reviewer project run, তোমার contribution দেখা আর একটি test বা bug fix reproduce করতে পারেন।",
+          "Reviewer project run, আপনার contribution দেখা আর একটি test বা bug fix reproduce করতে পারেন।",
         ),
         notYet: l(
           "No real bank credentials, customer data or unpaid production project disguised as a portfolio exercise.",
@@ -353,11 +353,11 @@ export const employmentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Practice coding/debugging, basic databases or your role's core tasks, plus a short project walkthrough. Tailor your CV to evidence, not skill-bar graphics.",
-            "Coding/debugging, basic database বা role-এর core task আর ছোট project walkthrough practice করো। CV-তে evidence দাও, skill-bar graphic নয়।",
+            "Coding/debugging, basic database বা role-এর core task আর ছোট project walkthrough practice করুন। CV-তে evidence দিন, skill-bar graphic নয়।",
           ),
           l(
             "Ask about supervision, code review, probation, hours, support duties, pay terms and the written role. Clarify take-home scope before doing a large assignment.",
-            "Supervision, code review, probation, hours, support duty, pay terms আর written role জিজ্ঞেস করো। বড় take-home-এর আগে scope পরিষ্কার করো।",
+            "Supervision, code review, probation, hours, support duty, pay terms আর written role জিজ্ঞেস করুন। বড় take-home-এর আগে scope পরিষ্কার করুন।",
           ),
         ],
         evidence: l(
@@ -374,7 +374,7 @@ export const employmentGoals: GoalGuide[] = [
         id: "adapt",
         title: l(
           "Turn the first role into learning",
-          "প্রথম role-কে শেখার সুযোগ করো",
+          "প্রথম role-কে শেখার সুযোগ করুন",
         ),
         why: l(
           "Reliable small contributions create options beyond the first job title.",
@@ -383,16 +383,16 @@ export const employmentGoals: GoalGuide[] = [
         tasks: [
           l(
             "When joining, agree on a bounded first task, review expectations and who to ask for help. Learn the system before proposing a rewrite.",
-            "যোগ দিলে ছোট প্রথম task, review expectation আর সাহায্যের মানুষ ঠিক করো। Rewrite প্রস্তাবের আগে system শেখো।",
+            "যোগ দিলে ছোট প্রথম task, review expectation আর সাহায্যের মানুষ ঠিক করুন। Rewrite প্রস্তাবের আগে system শিখুন।",
           ),
           l(
             "Write concise updates, document decisions and reflect on one improvement each week. Keep confidential work private and describe public contributions honestly.",
-            "ছোট update, decision note আর প্রতি সপ্তাহের একটি improvement লেখো। Confidential কাজ private রাখো; public contribution সৎভাবে বলো।",
+            "ছোট update, decision note আর প্রতি সপ্তাহের একটি improvement লিখুন। Confidential কাজ private রাখুন; public contribution সৎভাবে বলুন।",
           ),
         ],
         evidence: l(
           "A completed reviewed task and a clear account of what you learned—not just time spent at a company.",
-          "Reviewed task শেষ আর কী শিখেছ তার পরিষ্কার বিবরণ—শুধু company-তে সময় কাটানো নয়।",
+          "Reviewed task শেষ আর কী শিখেছেন তার পরিষ্কার বিবরণ—শুধু company-তে সময় কাটানো নয়।",
         ),
         notYet: l(
           "Do not compare your first month to someone else's fifth year.",
@@ -412,16 +412,16 @@ export const employmentGoals: GoalGuide[] = [
       ),
       l(
         "Read written employment terms and seek qualified local advice for legal questions; this is educational guidance.",
-        "Written employment terms পড়ো; legal প্রশ্নে qualified local advice নাও। এটি educational guidance।",
+        "Written employment terms পড়ুন; legal প্রশ্নে qualified local advice নিন। এটি educational guidance।",
       ),
     ],
     aiPractice: l(
       "Use AI to review practice work and improve explanations; never upload employer code or client data without authorization. Be able to debug your own submission without AI.",
-      "Practice কাজ review আর explanation উন্নত করতে AI নাও; অনুমতি ছাড়া employer code বা client data upload নয়। নিজের submission AI ছাড়া debug করতে পারো।",
+      "Practice কাজ review আর explanation উন্নত করতে AI নিন; অনুমতি ছাড়া employer code বা client data upload নয়। নিজের submission AI ছাড়া debug করতে পারেন।",
     ),
     thisWeek: l(
       "Compare three suitable postings and build one tiny feature that appears in their work. A reviewed, working feature beats another week of collecting stack names.",
-      "তিন suitable posting compare করে তাদের কাজের একটি tiny feature বানাও। আরেক সপ্তাহ stack-এর নাম জমানোর চেয়ে reviewed, working feature ভালো evidence।",
+      "তিন suitable posting compare করে তাদের কাজের একটি tiny feature বানান। আরেক সপ্তাহ stack-এর নাম জমানোর চেয়ে reviewed, working feature ভালো evidence।",
     ),
     careerIds: [
       "backend-engineering",
@@ -451,18 +451,18 @@ export const employmentGoals: GoalGuide[] = [
     title: l("Remote employment", "Remote চাকরির প্রস্তুতি"),
     summary: l(
       "Become dependable without sharing an office: role competence, written collaboration, visible delivery and realistic location constraints.",
-      "একই office-এ না থেকেও ভরসাযোগ্য সহকর্মী হও: নিজের role-এ দক্ষতা, পরিষ্কার লিখিত যোগাযোগ, চোখে দেখা যায় এমন delivery এবং location-এর বাস্তব সীমা—সবই এখানে জরুরি।",
+      "একই office-এ না থেকেও ভরসাযোগ্য সহকর্মী হোন: নিজের role-এ দক্ষতা, পরিষ্কার লিখিত যোগাযোগ, চোখে দেখা যায় এমন delivery এবং location-এর বাস্তব সীমা—সবই এখানে জরুরি।",
     ),
     reality: l(
       "Remote describes where a team works, not a beginner skill or permission to work from any country. Employment and contractor arrangements differ. Verify Bangladesh eligibility, time-zone overlap, equipment, payment and contract terms with the employer; this guide is not legal or tax advice.",
-      "Remote মানে team কোথা থেকে কাজ করে; এটি কোনো beginner skill নয়, আবার যেকোনো দেশ থেকে কাজ করার স্বয়ংক্রিয় অনুমতিও নয়। Employee ও contractor-এর ব্যবস্থা আলাদা হতে পারে। প্রতিষ্ঠানটি বাংলাদেশ থেকে নিয়োগ দেয় কি না, সময়ের মিল, equipment, payment ও contract-এর শর্ত নিজে যাচাই করো; এই গাইড legal বা tax advice নয়।",
+      "Remote মানে team কোথা থেকে কাজ করে; এটি কোনো beginner skill নয়, আবার যেকোনো দেশ থেকে কাজ করার স্বয়ংক্রিয় অনুমতিও নয়। Employee ও contractor-এর ব্যবস্থা আলাদা হতে পারে। প্রতিষ্ঠানটি বাংলাদেশ থেকে নিয়োগ দেয় কি না, সময়ের মিল, equipment, payment ও contract-এর শর্ত নিজে যাচাই করুন; এই গাইড legal বা tax advice নয়।",
     ),
     variants: [
       {
         title: l("Remote employee", "Remote employee"),
         description: l(
           "A continuing role inside a team. Ask how the employer can hire in your country and what support, benefits and hours apply.",
-          "Team-এর মধ্যে চলমান role। তোমার দেশে কীভাবে hire করবে, support, benefit আর hours কী—জেনে নাও।",
+          "Team-এর মধ্যে চলমান role। আপনার দেশে কীভাবে hire করবে, support, benefit আর hours কী—জেনে নিন।",
         ),
       },
       {
@@ -472,14 +472,14 @@ export const employmentGoals: GoalGuide[] = [
         ),
         description: l(
           "May resemble team employment day-to-day, but contractual duties and protections differ. Read the actual agreement and seek qualified advice when needed.",
-          "দৈনন্দিন কাজে employment-এর মতো লাগলেও contractual duty আর protection আলাদা। Actual agreement পড়ো; প্রয়োজন হলে qualified advice নাও।",
+          "দৈনন্দিন কাজে employment-এর মতো লাগলেও contractual duty আর protection আলাদা। Actual agreement পড়ুন; প্রয়োজন হলে qualified advice নিন।",
         ),
       },
     ],
     stages: [
       {
         id: "foundation",
-        title: l("Make one role dependable", "একটি role-এ dependable হও"),
+        title: l("Make one role dependable", "একটি role-এ dependable হোন"),
         why: l(
           "Remote teams need work they can trust, not a special remote technology stack.",
           "Remote team-এর দরকার ভরসাযোগ্য কাজ, বিশেষ remote technology stack নয়।",
@@ -487,16 +487,16 @@ export const employmentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Choose a career roadmap and finish a small project with tests, setup documentation and a demonstrated bug fix.",
-            "Career roadmap বেছে test, setup documentation আর দেখানো bug fix-সহ ছোট project শেষ করো।",
+            "Career roadmap বেছে test, setup documentation আর দেখানো bug fix-সহ ছোট project শেষ করুন।",
           ),
           l(
             "Read eligible junior openings and identify whether they expect synchronous hours, written English, production experience or particular tools.",
-            "Eligible junior opening পড়ে synchronous hour, written English, production experience আর tool expectation দেখো।",
+            "Eligible junior opening পড়ে synchronous hour, written English, production experience আর tool expectation দেখুন।",
           ),
         ],
         evidence: l(
           "A runnable artifact you can explain, plus a realistic list of roles open to your location and level.",
-          "নিজে বোঝানো runnable artifact আর তোমার location/level-এ খোলা role-এর realistic list।",
+          "নিজে বোঝানো runnable artifact আর আপনার location/level-এ খোলা role-এর realistic list।",
         ),
         notYet: l(
           "Do not buy a remote-job course or assume remote roles skip interviews and experience requirements.",
@@ -508,20 +508,20 @@ export const employmentGoals: GoalGuide[] = [
         id: "evidence",
         title: l(
           "Practice asynchronous collaboration",
-          "Asynchronous collaboration practice করো",
+          "Asynchronous collaboration practice করুন",
         ),
         why: l(
           "Clear written context lets another person move work forward without waiting for you.",
-          "পরিষ্কার লিখিত context থাকলে অন্যজন তোমার জন্য অপেক্ষা না করে এগোতে পারেন।",
+          "পরিষ্কার লিখিত context থাকলে অন্যজন আপনার জন্য অপেক্ষা না করে এগোতে পারেন।",
         ),
         tasks: [
           l(
             "Work with a peer through an issue and pull request. Write the problem, plan, acceptance criteria, changes and evidence; respond to review respectfully.",
-            "Peer-এর সঙ্গে issue আর pull request দিয়ে কাজ করো। Problem, plan, acceptance criteria, change আর evidence লেখো; review-এর উত্তর সম্মান রেখে দাও।",
+            "Peer-এর সঙ্গে issue আর pull request দিয়ে কাজ করুন। Problem, plan, acceptance criteria, change আর evidence লিখুন; review-এর উত্তর সম্মান রেখে দিন।",
           ),
           l(
             "Send a concise status update with progress, blockers, attempted fixes and a specific question. Practice a handoff that survives a full day offline.",
-            "Progress, blocker, tried fix আর specific question-সহ ছোট status update দাও। এক দিন offline থাকলেও চলে—এমন handoff practice করো।",
+            "Progress, blocker, tried fix আর specific question-সহ ছোট status update দিন। এক দিন offline থাকলেও চলে—এমন handoff practice করুন।",
           ),
         ],
         evidence: l(
@@ -538,7 +538,7 @@ export const employmentGoals: GoalGuide[] = [
         id: "application",
         title: l(
           "Demonstrate work and verify the offer",
-          "কাজ দেখাও আর offer যাচাই করো",
+          "কাজ দেখান আর offer যাচাই করুন",
         ),
         why: l(
           "A remote search needs both relevant evidence and protection from impersonation.",
@@ -547,11 +547,11 @@ export const employmentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Tailor a short application around two relevant examples. Prepare coding or role-specific interviews and a concise screen-share walkthrough of your work.",
-            "দুটি relevant example দিয়ে ছোট application সাজাও। Coding বা role-specific interview আর সংক্ষিপ্ত screen-share walkthrough practice করো।",
+            "দুটি relevant example দিয়ে ছোট application সাজান। Coding বা role-specific interview আর সংক্ষিপ্ত screen-share walkthrough practice করুন।",
           ),
           l(
             "Verify the vacancy and recruiter through official channels. Clarify country eligibility, overlap hours, equipment and written terms; never pay an upfront recruitment fee or share credentials.",
-            "Official channel-এ vacancy আর recruiter যাচাই করো। Country eligibility, overlap hour, equipment আর written terms পরিষ্কার করো; upfront recruitment fee বা credential দিও না।",
+            "Official channel-এ vacancy আর recruiter যাচাই করুন। Country eligibility, overlap hour, equipment আর written terms পরিষ্কার করুন; upfront recruitment fee বা credential দেবেন না।",
           ),
         ],
         evidence: l(
@@ -568,7 +568,7 @@ export const employmentGoals: GoalGuide[] = [
         id: "adapt",
         title: l(
           "Build a sustainable working rhythm",
-          "টেকসই working rhythm বানাও",
+          "টেকসই working rhythm বানান",
         ),
         why: l(
           "Remote work should not mean invisible work or endless work.",
@@ -577,11 +577,11 @@ export const employmentGoals: GoalGuide[] = [
         tasks: [
           l(
             "Agree on overlap hours, response expectations, security practices and escalation routes. Test your connectivity and backup plan within your means.",
-            "Overlap hour, response expectation, security practice আর escalation route ঠিক করো। সামর্থ্যের মধ্যে connectivity আর backup plan test করো।",
+            "Overlap hour, response expectation, security practice আর escalation route ঠিক করুন। সামর্থ্যের মধ্যে connectivity আর backup plan test করুন।",
           ),
           l(
             "Make completed work, risks and decisions visible. Ask for feedback, protect rest time and renegotiate an unsustainable schedule early.",
-            "Completed work, risk আর decision দৃশ্যমান রাখো। Feedback চাও, বিশ্রামের সময় রাখো, অসহনীয় schedule হলে আগে আলোচনা করো।",
+            "Completed work, risk আর decision দৃশ্যমান রাখুন। Feedback চান, বিশ্রামের সময় রাখুন, অসহনীয় schedule হলে আগে আলোচনা করুন।",
           ),
         ],
         evidence: l(
@@ -590,7 +590,7 @@ export const employmentGoals: GoalGuide[] = [
         ),
         notYet: l(
           "Do not imitate another team's handbook blindly; agree on your team's actual conventions.",
-          "অন্য team-এর handbook অন্ধভাবে নয়; নিজের team-এর actual convention ঠিক করো।",
+          "অন্য team-এর handbook অন্ধভাবে নয়; নিজের team-এর actual convention ঠিক করুন।",
         ),
         sourceId: "gitlab-communication",
       },
@@ -598,7 +598,7 @@ export const employmentGoals: GoalGuide[] = [
     pitfalls: [
       l(
         "Entry-level remote work exists, but competition and supervision needs vary; build evidence rather than assuming easy access.",
-        "Entry-level remote কাজ আছে, তবে competition আর supervision need আলাদা; সহজ access ধরে না নিয়ে evidence বানাও।",
+        "Entry-level remote কাজ আছে, তবে competition আর supervision need আলাদা; সহজ access ধরে না নিয়ে evidence বানান।",
       ),
       l(
         "Freelancing involves finding and scoping clients; remote employment is a different preparation problem.",
@@ -606,16 +606,16 @@ export const employmentGoals: GoalGuide[] = [
       ),
       l(
         "Never send identity documents to an unverified recruiter or publish private team discussions as portfolio evidence.",
-        "Unverified recruiter-কে identity document বা portfolio-তে private team discussion দিও না।",
+        "Unverified recruiter-কে identity document বা portfolio-তে private team discussion দেবেন না।",
       ),
     ],
     aiPractice: l(
       "Draft clearer updates with AI using non-sensitive information, then check accuracy and ownership. Practice independent work; teammates need your judgment when generated suggestions fail.",
-      "Non-sensitive তথ্য দিয়ে AI-তে update পরিষ্কার করো; accuracy আর দায়িত্ব যাচাই করো। নিজে কাজ practice করো; generated suggestion ভুল হলে team-এর তোমার judgment দরকার।",
+      "Non-sensitive তথ্য দিয়ে AI-তে update পরিষ্কার করুন; accuracy আর দায়িত্ব যাচাই করুন। নিজে কাজ practice করুন; generated suggestion ভুল হলে team-এর আপনার judgment দরকার।",
     ),
     thisWeek: l(
       "Pair with a peer on one issue. Finish it through a written review and handoff. That is a stronger first remote-work rehearsal than rewriting your profile headline.",
-      "Peer-এর সঙ্গে একটি issue নাও। Written review আর handoff দিয়ে শেষ করো। Profile headline আবার লেখার চেয়ে এটি ভালো প্রথম remote-work rehearsal।",
+      "Peer-এর সঙ্গে একটি issue নিন। Written review আর handoff দিয়ে শেষ করুন। Profile headline আবার লেখার চেয়ে এটি ভালো প্রথম remote-work rehearsal।",
     ),
     careerIds: [
       "backend-engineering",

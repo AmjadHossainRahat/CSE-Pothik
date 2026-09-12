@@ -46,10 +46,10 @@ const directoryEntries: SearchEntry[] = [
     id: "careers",
     type: "directory",
     path: "/careers/",
-    title: l("Explore CSE careers", "CSE career explore করো"),
+    title: l("Explore CSE careers", "CSE career explore করুন"),
     description: l(
       "Browse seventeen careers through eight broad families.",
-      "আটটি broad family দিয়ে সতেরোটি career দেখো।",
+      "আটটি broad family দিয়ে সতেরোটি career দেখুন।",
     ),
     keywords: l("jobs roles work family choose", "চাকরি role কাজ family বেছে"),
   },
@@ -57,10 +57,10 @@ const directoryEntries: SearchEntry[] = [
     id: "compare",
     type: "directory",
     path: "/compare/",
-    title: l("Compare careers", "Career compare করো"),
+    title: l("Compare careers", "Career compare করুন"),
     description: l(
       "Compare two or three careers by work style and pressure.",
-      "Work style আর pressure দিয়ে দুই বা তিনটি career compare করো।",
+      "Work style আর pressure দিয়ে দুই বা তিনটি career compare করুন।",
     ),
     keywords: l("difference fit choose versus", "পার্থক্য fit বেছে versus"),
   },
@@ -71,7 +71,7 @@ const directoryEntries: SearchEntry[] = [
     title: l("Learning roadmaps", "Learning roadmap"),
     description: l(
       "Find a foundation-first learning order for a career.",
-      "Career-এর জন্য foundation-first শেখার order খুঁজে নাও।",
+      "Career-এর জন্য foundation-first শেখার order খুঁজে নিন।",
     ),
     keywords: l("learn study skills sequence", "শেখা পড়া skill sequence"),
   },
@@ -82,7 +82,7 @@ const directoryEntries: SearchEntry[] = [
     title: l("Goal preparation plans", "Goal-এর preparation plan"),
     description: l(
       "Prepare for industry, remote work, study, research or independent work.",
-      "Industry, remote কাজ, study, research বা independent কাজের প্রস্তুতি নাও।",
+      "Industry, remote কাজ, study, research বা independent কাজের প্রস্তুতি নিন।",
     ),
     keywords: l(
       "google local remote abroad thesis freelance business",
@@ -93,10 +93,10 @@ const directoryEntries: SearchEntry[] = [
     id: "ai-overview",
     type: "guidance",
     path: "/ai/",
-    title: l("AI and your career", "AI ও তোমার career"),
+    title: l("AI and your career", "AI ও আপনার career"),
     description: l(
       "Understand task automation exposure and learn to direct and verify AI.",
-      "Task automation exposure বুঝে AI-কে direct আর verify করতে শেখো।",
+      "Task automation exposure বুঝে AI-কে direct আর verify করতে শিখুন।",
     ),
     keywords: l(
       "automation future replace resilience",
@@ -109,11 +109,11 @@ const directoryEntries: SearchEntry[] = [
     path: "/roadmaps/ai-engineering/#ai-systems-path",
     title: l(
       "Build AI systems in the right order",
-      "সঠিক order-এ AI system build করো",
+      "সঠিক order-এ AI system build করুন",
     ),
     description: l(
       "Move from forward engineering and prompt contracts through RAG and workflows to a bounded agent loop and production trust.",
-      "Forward engineering ও prompt contract থেকে RAG, workflow, bounded agent loop আর production trust-এর দিকে এগোও।",
+      "Forward engineering ও prompt contract থেকে RAG, workflow, bounded agent loop আর production trust-এর দিকে এগিয়ে যান।",
     ),
     keywords: l(
       "agentic AI AI workflow n8n OpenClaw RAG AGI prompt engineering forward engineering agent loop orchestration agents",
@@ -127,7 +127,7 @@ const directoryEntries: SearchEntry[] = [
     title: l("I’m Lost", "আমি দিশেহারা"),
     description: l(
       "Choose today’s problem and reveal one useful route.",
-      "আজকের problem বেছে একটি useful route খুঁজে নাও।",
+      "আজকের problem বেছে একটি useful route খুঁজে নিন।",
     ),
     keywords: l(
       "confused help direction behind",
@@ -168,11 +168,11 @@ const directoryEntries: SearchEntry[] = [
     path: "/guidance/first-software-role/",
     title: l(
       "Choose your route into the software industry",
-      "Software industry-তে ঢোকার route বেছে নাও",
+      "Software industry-তে ঢোকার route বেছে নিন",
     ),
     description: l(
       "Use a strong-CP, balanced or role-evidence route to decide what to practise now and when to apply for an internship, trainee or junior role.",
-      "Strong-CP, balanced বা role-evidence route ধরে এখন কী practice করবে আর কখন internship, trainee বা junior role-এ apply করবে—তা ঠিক করো।",
+      "Strong-CP, balanced বা role-evidence route ধরে এখন কী practice করবে আর কখন internship, trainee বা junior role-এ apply করবে—তা ঠিক করুন।",
     ),
     keywords: l(
       "intern internship trainee junior graduate first job software developer local industry competitive programming ACM CP weak problem solving no CP cv resume portfolio interview application",
@@ -186,7 +186,7 @@ const directoryEntries: SearchEntry[] = [
     title: l("Final-year project standards", "Final-year project standard"),
     description: l(
       "Plan, collaborate, test, release and defend an evidence-backed project.",
-      "Evidence-backed project plan, collaborate, test, release আর defend করো।",
+      "Evidence-backed project plan, collaborate, test, release আর defend করুন।",
     ),
     keywords: l(
       "thesis capstone git task board testing team",
@@ -203,7 +203,7 @@ const directoryEntries: SearchEntry[] = [
     ),
     description: l(
       "Build computational thinking without treating competition as every career.",
-      "Competition-কে সব career না ধরে computational thinking তৈরি করো।",
+      "Competition-কে সব career না ধরে computational thinking তৈরি করুন।",
     ),
     keywords: l(
       "competitive programming algorithms dsa problem solving",
@@ -220,7 +220,7 @@ const directoryEntries: SearchEntry[] = [
     ),
     description: l(
       "Learn how clean code, code smells, SOLID, design patterns and defensive programming help you review and own AI-assisted work.",
-      "Clean code, code smell, SOLID, design pattern আর defensive programming দিয়ে AI-assisted কাজ review আর own করতে শেখো।",
+      "Clean code, code smell, SOLID, design pattern আর defensive programming দিয়ে AI-assisted কাজ review আর own করতে শিখুন।",
     ),
     keywords: l(
       "clean code code smells refactoring SOLID principles design patterns defensive programming architecture testing AI review maintainability",
@@ -234,7 +234,7 @@ const directoryEntries: SearchEntry[] = [
     title: l("Curated learning resources", "Curated learning resource"),
     description: l(
       "Find a deliberate local-industry watchlist plus scoped documentation, courses, labs, books and practice.",
-      "Local-industry watchlist-এর সঙ্গে scoped documentation, course, lab, book আর practice খুঁজে নাও।",
+      "Local-industry watchlist-এর সঙ্গে scoped documentation, course, lab, book আর practice খুঁজে নিন।",
     ),
     keywords: l(
       "Bangladesh industry veterans motivation podcast video free course documentation book lab",

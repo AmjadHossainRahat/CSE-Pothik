@@ -8,7 +8,7 @@ export const specialistCareers: CareerSeed[] = [
     title: l("Data Analytics & BI", "Data Analytics & BI"),
     description: l(
       "Turn messy questions and trustworthy data into decisions, metrics and explanations—not merely attractive dashboards.",
-      "এলোমেলো business question ও বিশ্বাসযোগ্য data থেকে সিদ্ধান্ত, metric ও পরিষ্কার ব্যাখ্যা তৈরি করো—শুধু সুন্দর dashboard নয়।",
+      "এলোমেলো business question ও বিশ্বাসযোগ্য data থেকে সিদ্ধান্ত, metric ও পরিষ্কার ব্যাখ্যা তৈরি করুন—শুধু সুন্দর dashboard নয়।",
     ),
     work: [
       l(
@@ -43,7 +43,7 @@ export const specialistCareers: CareerSeed[] = [
       ),
       l(
         "You can explain numbers without hiding uncertainty.",
-        "Uncertainty না লুকিয়ে number বোঝাতে পারো।",
+        "Uncertainty না লুকিয়ে number বোঝাতে পারেন।",
       ),
     ],
     dislike: [
@@ -53,7 +53,7 @@ export const specialistCareers: CareerSeed[] = [
       ),
       l(
         "You want every dataset to arrive clean and documented.",
-        "সব dataset clean আর documented হলেই শুধু কাজ করতে চাও।",
+        "সব dataset clean আর documented হলেই শুধু কাজ করতে চান।",
       ),
       l(
         "You prefer visual polish to checking whether a metric is valid.",
@@ -100,15 +100,15 @@ export const specialistCareers: CareerSeed[] = [
     practical: [
       l(
         "Answer one decision question from a small documented dataset.",
-        "ছোট documented dataset থেকে একটি decision question-এর answer দাও।",
+        "ছোট documented dataset থেকে একটি decision question-এর answer দিন।",
       ),
       l(
         "Create checks for duplicates, missing values and impossible ranges.",
-        "Duplicate, missing value আর impossible range-এর check বানাও।",
+        "Duplicate, missing value আর impossible range-এর check বানান।",
       ),
       l(
         "Present the finding, caveat and next question in one page.",
-        "এক page-এ finding, caveat আর next question দেখাও।",
+        "এক page-এ finding, caveat আর next question দেখান।",
       ),
     ],
     later: [
@@ -186,7 +186,7 @@ export const specialistCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Define the metric first, inspect rows and test totals against an independent calculation.",
-          "আগে metric define করে row inspect আর independent calculation দিয়ে total test করো।",
+          "আগে metric define করে row inspect আর independent calculation দিয়ে total test করুন।",
         ),
       },
       {
@@ -201,7 +201,7 @@ export const specialistCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Keep an evidence log and separate observations, hypotheses and verified causes.",
-          "Evidence log রাখো; observation, hypothesis আর verified cause আলাদা করো।",
+          "Evidence log রাখুন; observation, hypothesis আর verified cause আলাদা করুন।",
         ),
       },
       {
@@ -216,7 +216,7 @@ export const specialistCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Practice asking who is affected, what is missing and what decision the evidence supports.",
-          "কার ওপর প্রভাব, কী missing আর evidence কোন decision support করে—এসব জিজ্ঞেস করো।",
+          "কার ওপর প্রভাব, কী missing আর evidence কোন decision support করে—এসব জিজ্ঞেস করুন।",
         ),
       },
     ],
@@ -227,7 +227,7 @@ export const specialistCareers: CareerSeed[] = [
     title: l("AI Engineering", "AI Engineering"),
     description: l(
       "Build dependable product features around existing AI models, with retrieval, evaluation, cost, latency and safety treated as engineering constraints.",
-      "প্রস্তুত AI model ব্যবহার করে নির্ভরযোগ্য product feature বানাও; retrieval, evaluation, cost, latency ও safety-কে বাড়তি বিষয় নয়, মূল engineering constraint হিসেবে ধরো।",
+      "প্রস্তুত AI model ব্যবহার করে নির্ভরযোগ্য product feature বানান; retrieval, evaluation, cost, latency ও safety-কে বাড়তি বিষয় নয়, মূল engineering constraint হিসেবে ধরুন।",
     ),
     work: [
       l(
@@ -276,7 +276,7 @@ export const specialistCareers: CareerSeed[] = [
       ),
       l(
         "You want one prompt to replace product discovery and system design.",
-        "একটি prompt দিয়েই product discovery আর system design replace করতে চাও।",
+        "একটি prompt দিয়েই product discovery আর system design replace করতে চান।",
       ),
     ],
     dimensions: {
@@ -319,15 +319,15 @@ export const specialistCareers: CareerSeed[] = [
     practical: [
       l(
         "Build a bounded assistant over documents you own.",
-        "নিজের document নিয়ে bounded assistant বানাও।",
+        "নিজের document নিয়ে bounded assistant বানান।",
       ),
       l(
         "Compare it with a simple keyword baseline on labelled questions.",
-        "Labelled question-এ simple keyword baseline-এর সঙ্গে compare করো।",
+        "Labelled question-এ simple keyword baseline-এর সঙ্গে compare করুন।",
       ),
       l(
         "Add regression checks, source display and an honest refusal path.",
-        "Regression check, source display আর honest refusal path দাও।",
+        "Regression check, source display আর honest refusal path দিন।",
       ),
     ],
     later: [
@@ -401,7 +401,7 @@ export const specialistCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Keep small baselines, typed contracts and regression tests around every generated change.",
-          "প্রতিটি generated change-এর চারপাশে small baseline, typed contract আর regression test রাখো।",
+          "প্রতিটি generated change-এর চারপাশে small baseline, typed contract আর regression test রাখুন।",
         ),
       },
       {
@@ -416,7 +416,7 @@ export const specialistCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Use human-labelled representative cases, deterministic checks and explicit uncertainty.",
-          "Human-labelled representative case, deterministic check আর explicit uncertainty ব্যবহার করো।",
+          "Human-labelled representative case, deterministic check আর explicit uncertainty ব্যবহার করুন।",
         ),
       },
       {
@@ -431,7 +431,7 @@ export const specialistCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Practice threat modelling, privacy review, staged rollout and rollback decisions.",
-          "Threat model, privacy review, staged rollout আর rollback decision practice করো।",
+          "Threat model, privacy review, staged rollout আর rollback decision practice করুন।",
         ),
       },
     ],
@@ -442,7 +442,7 @@ export const specialistCareers: CareerSeed[] = [
     title: l("Application Security", "Application Security"),
     description: l(
       "Help teams design, build and verify software that resists abuse—inside an authorized scope and without becoming the release police.",
-      "অনুমোদিত সীমার মধ্যে team-কে এমন software তৈরি ও যাচাই করতে সাহায্য করো, যা অপব্যবহার ঠেকাতে পারে—release আটকে রাখা পুলিশ না হয়ে।",
+      "অনুমোদিত সীমার মধ্যে team-কে এমন software তৈরি ও যাচাই করতে সাহায্য করুন, যা অপব্যবহার ঠেকাতে পারে—release আটকে রাখা পুলিশ না হয়ে।",
     ),
     work: [
       l(
@@ -469,7 +469,7 @@ export const specialistCareers: CareerSeed[] = [
     enjoy: [
       l(
         "You naturally ask how a feature could be misused.",
-        "Feature কীভাবে misuse হতে পারে স্বাভাবিকভাবে ভাবো।",
+        "Feature কীভাবে misuse হতে পারে স্বাভাবিকভাবে ভাবুন।",
       ),
       l(
         "You like tracing input, identity and privilege across code.",
@@ -477,13 +477,13 @@ export const specialistCareers: CareerSeed[] = [
       ),
       l(
         "You can explain risk without drama or blame.",
-        "Drama বা blame ছাড়া risk বোঝাতে পারো।",
+        "Drama বা blame ছাড়া risk বোঝাতে পারেন।",
       ),
     ],
     dislike: [
       l(
         "You only want offensive testing and dislike prevention work.",
-        "শুধু offensive testing চাও; prevention work অপছন্দ।",
+        "শুধু offensive testing চান; prevention work অপছন্দ।",
       ),
       l(
         "Reading application code and collaborating with developers feels tedious.",
@@ -534,15 +534,15 @@ export const specialistCareers: CareerSeed[] = [
     practical: [
       l(
         "Threat-model a tiny app you own and rank three abuse cases.",
-        "নিজের tiny app threat-model করে তিনটি abuse case rank করো।",
+        "নিজের tiny app threat-model করে তিনটি abuse case rank করুন।",
       ),
       l(
         "Fix and regression-test one weakness in the local app.",
-        "Local app-এর একটি weakness fix আর regression-test করো।",
+        "Local app-এর একটি weakness fix আর regression-test করুন।",
       ),
       l(
         "Write a calm report with scope, evidence, impact and limits.",
-        "Scope, evidence, impact আর limit-সহ calm report লেখো।",
+        "Scope, evidence, impact আর limit-সহ calm report লিখুন।",
       ),
     ],
     later: [
@@ -620,7 +620,7 @@ export const specialistCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Verify every claim in an authorized reproduction and trace it to a requirement or threat.",
-          "প্রতিটি claim authorized reproduction-এ verify করে requirement বা threat-এর সঙ্গে trace করো।",
+          "প্রতিটি claim authorized reproduction-এ verify করে requirement বা threat-এর সঙ্গে trace করুন।",
         ),
       },
       {
@@ -635,7 +635,7 @@ export const specialistCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Map trust boundaries, validate assumptions with owners and test the chosen fix.",
-          "Trust boundary map, owner-এর সঙ্গে assumption validate আর chosen fix test করো।",
+          "Trust boundary map, owner-এর সঙ্গে assumption validate আর chosen fix test করুন।",
         ),
       },
       {
@@ -650,7 +650,7 @@ export const specialistCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Practice evidence-based severity, respectful collaboration and explicit escalation paths.",
-          "Evidence-based severity, respectful collaboration আর explicit escalation path practice করো।",
+          "Evidence-based severity, respectful collaboration আর explicit escalation path practice করুন।",
         ),
       },
     ],

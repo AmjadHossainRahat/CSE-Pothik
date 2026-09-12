@@ -14,10 +14,10 @@ interface Props {
 const { locale } = Astro.props;
 const bn = locale === "bn";
 const title = bn
-  ? "ক্যারিয়ার বাছার আগে কাজ করে দেখো"
+  ? "ক্যারিয়ার বাছার আগে কাজ করে দেখুন"
   : "Career Experiments — Try Before You Choose";
 const description = bn
-  ? "নিরাপদ, beginner-friendly ও অল্প সময়ের experiment দিয়ে CSE-র আসল কাজের একটু স্বাদ নাও।"
+  ? "নিরাপদ, beginner-friendly ও অল্প সময়ের experiment দিয়ে CSE-র আসল কাজের একটু স্বাদ নিন।"
   : "Safe, beginner-friendly, time-bounded CSE career experiments that let you feel a small version of the real work.";
 const groupedExperiments = careerFamilies.map((family) => ({
   family,
@@ -53,27 +53,27 @@ const structuredData = collectionStructuredData({
 >
   <Breadcrumbs
     locale={locale}
-    items={[{ label: bn ? "কাজ করে দেখো" : "Try a Career" }]}
+    items={[{ label: bn ? "কাজ করে দেখুন" : "Try a Career" }]}
   />
   <header class="page-hero page-hero--compact container">
     <p class="eyebrow">
-      {bn ? "বাছার আগে করে দেখো" : "Try before you choose"}
+      {bn ? "বাছার আগে করে দেখুন" : "Try before you choose"}
     </p><h1>
       {
         bn
-          ? "চাকরির নাম পছন্দ করার আগে কাজটা করে দেখো।"
+          ? "চাকরির নাম পছন্দ করার আগে কাজটা করে দেখুন।"
           : "Try the work before you fall for the title."
       }
     </h1><p class="lede">
       {
         bn
-          ? "এগুলো course বা assessment নয়। ৬০–১২০ মিনিট মন দিয়ে কাজ করে দেখো—কোন সমস্যায় আবার ফিরতে ইচ্ছে করে, সেটাই লক্ষ করো।"
+          ? "এগুলো course বা assessment নয়। ৬০–১২০ মিনিট মন দিয়ে কাজ করে দেখুন—কোন সমস্যায় আবার ফিরতে ইচ্ছে করে, সেটাই লক্ষ করুন।"
           : "These are not courses or assessments. They are focused 60–120 minute experiences for noticing which problems you want to revisit."
       }
     </p>
   </header>
   <DirectoryJumpNav
-    eyebrow={bn ? "কাজের ধরনে যাও" : "Jump by work family"}
+    eyebrow={bn ? "কাজের ধরনে যান" : "Jump by work family"}
     label={bn ? "কাজের বিভাগের তালিকা" : "Experiment family index"}
     items={groupedExperiments.map(({ family, experiments: items }) => ({
       id: `experiments-${family.id}`,
@@ -131,7 +131,7 @@ const structuredData = collectionStructuredData({
   <section class="section">
     <div class="container callout callout--warm">
       <p class="callout__label">
-        {bn ? "শেষে একটু ভেবে দেখো" : "Reflection rule"}
+        {bn ? "শেষে একটু ভেবে দেখুন" : "Reflection rule"}
       </p><h2>
         {
           bn
@@ -141,7 +141,7 @@ const structuredData = collectionStructuredData({
       </h2><p>
         {
           bn
-            ? "কোন অংশে সময় দ্রুত কেটেছে? কোনটা ক্লান্ত করেছে? এই কাজে আরও পাঁচ ঘণ্টা দিতে ইচ্ছে করবে? উত্তর কোথাও জমা হবে না—নিজের জন্য লিখে রাখো।"
+            ? "কোন অংশে সময় দ্রুত কেটেছে? কোনটা ক্লান্ত করেছে? এই কাজে আরও পাঁচ ঘণ্টা দিতে ইচ্ছে করবে? উত্তর কোথাও জমা হবে না—নিজের জন্য লিখে রাখুন।"
             : "Where did time move quickly? What drained you? Would you spend five more hours here? Nothing is saved; write the answer for yourself."
         }
       </p>

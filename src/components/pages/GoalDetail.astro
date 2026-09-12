@@ -49,21 +49,21 @@ const starts = [
     id: "orientation",
     title: bn ? "এখনো explore করছি" : "Still exploring",
     text: bn
-      ? "আগে পথের ধরনটা বোঝো।"
+      ? "আগে পথের ধরনটা বুঝুন।"
       : "Understand the different branches first.",
   },
   {
     id: "stage-foundation",
     title: bn ? "ভিত্তি তৈরি করছি" : "Building foundations",
     text: bn
-      ? "লক্ষ্য আর prerequisite মিলিয়ে নাও।"
+      ? "লক্ষ্য আর prerequisite মিলিয়ে নিন।"
       : "Match your target and prerequisites.",
   },
   {
     id: "stage-evidence",
     title: bn ? "কাজ বানাতে পারি" : "Can already build or investigate",
     text: bn
-      ? "লক্ষ্যের সঙ্গে মেলে এমন evidence বানাও।"
+      ? "লক্ষ্যের সঙ্গে মেলে এমন evidence বানান।"
       : "Turn ability into relevant evidence.",
   },
   {
@@ -72,7 +72,7 @@ const starts = [
       ? "আবেদন বা delivery-র জন্য প্রস্তুত"
       : "Ready to apply or deliver",
     text: bn
-      ? "আগের evidence-গুলো শর্তের সঙ্গে মিলিয়ে নাও।"
+      ? "আগের evidence-গুলো শর্তের সঙ্গে মিলিয়ে নিন।"
       : "Check the earlier evidence criteria, then proceed.",
   },
 ];
@@ -162,7 +162,7 @@ const structuredData = [
       <details class="mobile-index">
         <summary
           >{
-            bn ? "এই পাতায় · অংশ বেছে নাও" : "On this page · jump to a section"
+            bn ? "এই পাতায় · অংশ বেছে নিন" : "On this page · jump to a section"
           }</summary
         ><nav aria-label={bn ? "পাতার অংশ" : "Page sections"}>
           <ol>
@@ -182,7 +182,7 @@ const structuredData = [
         <p class="eyebrow">
           {bn ? "আগে বাস্তব কথাটা" : "First, a reality check"}
         </p><h2>
-          {bn ? "পথটা বুঝে নাও" : "Know the route before the checklist"}
+          {bn ? "পথটা বুঝে নিন" : "Know the route before the checklist"}
         </h2><div class="reality-note">
           <p>{t(goal.reality, locale)}</p>
         </div><div class="goal-variants">
@@ -213,7 +213,7 @@ const structuredData = [
             </h2>
             <p>
               {bn
-                ? "Strong CP তোমাকে algorithm-heavy hiring process-এ এগিয়ে রাখতে পারে। CP কম হলে project, debugging, testing বা role-specific কাজের evidence দিয়ে অন্য route ধরো—সঙ্গে প্রয়োজনীয় problem-solving foundation গড়তে থাকো। কোনোটিই shortcut বা guarantee নয়।"
+                ? "Strong CP আপনাকে algorithm-heavy hiring process-এ এগিয়ে রাখতে পারে। CP কম হলে project, debugging, testing বা role-specific কাজের evidence দিয়ে অন্য route ধরুন—সঙ্গে প্রয়োজনীয় problem-solving foundation গড়তে থাকুন। কোনোটিই shortcut বা guarantee নয়।"
                 : "Strong CP can create an advantage in algorithm-heavy hiring. If CP is not your strength, use project, debugging, testing or other role-specific evidence while building the necessary problem-solving floor. Neither route is a shortcut or guarantee."}
             </p>
             <nav
@@ -232,7 +232,7 @@ const structuredData = [
                       <strong>{t(route.title, locale)}</strong>
                       <span>{t(route.signal, locale)}</span>
                       <span class="industry-entry-list__action">
-                        {bn ? "এই route দেখো" : "See this route"} →
+                        {bn ? "এই route দেখুন" : "See this route"} →
                       </span>
                     </a>
                   </li>
@@ -246,11 +246,11 @@ const structuredData = [
         <p class="eyebrow">
           {bn ? "এটি পরীক্ষা নয়" : "Not a test or a score"}
         </p><h2>
-          {bn ? "আজ তুমি কোথায়?" : "Where are you starting today?"}
+          {bn ? "আজ আপনি কোথায়?" : "Where are you starting today?"}
         </h2><p>
           {
             bn
-              ? "যে অবস্থাটি মেলে, সেখান থেকে শুরু করো। আগের ধাপের evidence না থাকলে এক ধাপ ফিরে এসো। কোনো উত্তর বা progress জমা হয় না; ধাপ শেষ করার বাঁধা deadline-ও নেই।"
+              ? "যে অবস্থাটি মেলে, সেখান থেকে শুরু করুন। আগের ধাপের evidence না থাকলে এক ধাপ ফিরে এসো। কোনো উত্তর বা progress জমা হয় না; ধাপ শেষ করার বাঁধা deadline-ও নেই।"
               : "Jump to the point that fits. If earlier evidence is missing, return to it. Nothing is saved or scored, and stages have no fixed completion deadline."
           }
         </p><ul class="start-options">
@@ -306,7 +306,7 @@ const structuredData = [
       }
       <section class="guide-section" id="pitfalls">
         <p class="eyebrow">
-          {bn ? "বুদ্ধি দিয়ে এগোও" : "Keep your judgment switched on"}
+          {bn ? "বুদ্ধি দিয়ে এগিয়ে যান" : "Keep your judgment switched on"}
         </p><h2>
           {bn ? "ফাঁদ আর AI ব্যবহার" : "Common traps & sensible AI use"}
         </h2><ul class="task-list">
@@ -315,7 +315,7 @@ const structuredData = [
           <h3>
             {
               bn
-                ? "AI সহকারী; দায়িত্ব কিন্তু তোমার"
+                ? "AI সহকারী; দায়িত্ব কিন্তু আপনার"
                 : "AI can assist. You remain responsible."
             }
           </h3><p>{t(goal.aiPractice, locale)}</p><a href={href("/ai/")}
@@ -331,12 +331,12 @@ const structuredData = [
         <div class="week-card">
           <p class="eyebrow">
             {bn ? "একটি ছোট কাজ যথেষ্ট" : "One small action is enough"}
-          </p><h2>{bn ? "এই সপ্তাহে শুরু করো" : "Make this week count"}</h2><p>
+          </p><h2>{bn ? "এই সপ্তাহে শুরু করুন" : "Make this week count"}</h2><p>
             {t(goal.thisWeek, locale)}
           </p><p class="week-reflection">
             {
               bn
-                ? "শেষে তিনটি লাইন লেখো: কী করলাম, কী শিখলাম, এরপর কী বদলাব। আজকের দিকটি একটি draft—আজীবনের contract নয়।"
+                ? "শেষে তিনটি লাইন লিখুন: কী করলাম, কী শিখলাম, এরপর কী বদলাব। আজকের দিকটি একটি draft—আজীবনের contract নয়।"
                 : "Afterwards, write three lines: what I did, what I learned, what I will change next. Today's direction is a draft—not a lifetime contract."
             }
           </p>
@@ -344,17 +344,17 @@ const structuredData = [
       </section>
       <section class="guide-section" id="career-paths">
         <p class="eyebrow">
-          {bn ? "কী শিখবে, তার পথ" : "The skills underneath the goal"}
+          {bn ? "কী শিখবেন, তার পথ" : "The skills underneath the goal"}
         </p><h2>
           {
             bn
-              ? "একটি ক্যারিয়ার রোডম্যাপ মিলিয়ে নাও"
+              ? "একটি ক্যারিয়ার রোডম্যাপ মিলিয়ে নিন"
               : "Pair this with a career roadmap"
           }
         </h2><p>
           {
             bn
-              ? "এগুলো প্রাসঙ্গিক starting point, সবগুলো prerequisite নয়। একটি বেছে নাও; তোমার নির্দিষ্ট লক্ষ্যের সঙ্গে অন্য ক্যারিয়ারও মিলতে পারে।"
+              ? "এগুলো প্রাসঙ্গিক starting point, সবগুলো prerequisite নয়। একটি বেছে নিন; আপনার নির্দিষ্ট লক্ষ্যের সঙ্গে অন্য ক্যারিয়ারও মিলতে পারে।"
               : "These are relevant starting points, not a list of prerequisites. Choose one; other careers may also fit your specific goal."
           }
         </p><ul class="career-paths">
@@ -409,7 +409,7 @@ const structuredData = [
           <a href={href("/guidance/final-year-project/")}
             >{
               bn
-                ? "ফাইনাল ইয়ার প্রজেক্ট দিয়ে engineering evidence বানাও"
+                ? "ফাইনাল ইয়ার প্রজেক্ট দিয়ে engineering evidence বানান"
                 : "Build engineering evidence through your final-year project"
             } →</a
           >
@@ -417,13 +417,13 @@ const structuredData = [
         <h2>
           {
             bn
-              ? "তথ্যের উৎস ও শর্ত মিলিয়ে দেখো"
+              ? "তথ্যের উৎস ও শর্ত মিলিয়ে দেখুন"
               : "Sources & requirement checks"
           }
         </h2><p>
           {
             bn
-              ? "এই রোডম্যাপ CSE-Pothik-এর editorial guidance। source-গুলো নির্দিষ্ট official reference—পুরো পরিকল্পনার endorsement নয়। গাইডটি বিনামূল্যে হলেও application, test, tool বা publication-এ খরচ হতে পারে। নিয়ম বদলায়, তাই সিদ্ধান্তের আগে official page আবার দেখে নাও। বাইরের source-গুলোর বেশির ভাগই English।"
+              ? "এই রোডম্যাপ CSE-Pothik-এর editorial guidance। source-গুলো নির্দিষ্ট official reference—পুরো পরিকল্পনার endorsement নয়। গাইডটি বিনামূল্যে হলেও application, test, tool বা publication-এ খরচ হতে পারে। নিয়ম বদলায়, তাই সিদ্ধান্তের আগে official page আবার দেখে নিন। বাইরের source-গুলোর বেশির ভাগই English।"
               : "This roadmap is CSE-Pothik editorial guidance. Sources provide specific official references, not endorsement of the entire plan. Reading guidance may be free while applications, tests, tools or publication have costs. Rules change: recheck official pages before acting. External references are primarily in English."
           }
         </p><ul class="source-list">

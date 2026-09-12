@@ -23,7 +23,7 @@ const career = careerById.get(experiment.careerId)!;
   <Breadcrumbs
     locale={locale}
     items={[
-      { label: bn ? "কাজ করে দেখো" : "Try a Career", path: "/try/" },
+      { label: bn ? "কাজ করে দেখুন" : "Try a Career", path: "/try/" },
       { label: t(career.title, locale) },
     ]}
   />
@@ -47,10 +47,10 @@ const career = careerById.get(experiment.careerId)!;
         {
           career.familyId === "protect-systems"
             ? bn
-              ? "শুধু স্পষ্ট অনুমতি আছে এমন lab বা নিজের system-এ কাজ করবে। আসল কোনো target পরীক্ষা করা এই experiment-এর অংশ নয়—আইনসঙ্গতও নাও হতে পারে।"
+              ? "শুধু স্পষ্ট অনুমতি আছে এমন lab বা নিজের system-এ কাজ করবেন। আসল কোনো target পরীক্ষা করা এই experiment-এর অংশ নয়—আইনসঙ্গতও নাও হতে পারে।"
               : "Work only in explicitly authorized labs or your own system. Testing real targets is not part of this experiment and may be illegal."
             : bn
-              ? "Tutorial নকল করে শেষ করাই লক্ষ্য নয়। কোথায় আটকে গেলে আর কোন evidence দেখে ঠিক করলে—সেটি লক্ষ করো।"
+              ? "Tutorial নকল করে শেষ করাই লক্ষ্য নয়। কোথায় আটকে গেলে আর কোন evidence দেখে ঠিক করলে—সেটি লক্ষ করুন।"
               : "The goal is not tutorial completion. Notice where you get stuck and what evidence helps you move again."
         }
       </p>
@@ -66,7 +66,7 @@ const career = careerById.get(experiment.careerId)!;
         </ul><p class="muted">
           {
             bn
-              ? "বেঁধে দেওয়া সময় শেষ হলে থামতে পারো। অসম্পূর্ণ ফলও নিজের জন্য দরকারি evidence।"
+              ? "বেঁধে দেওয়া সময় শেষ হলে থামতে পারেন। অসম্পূর্ণ ফলও নিজের জন্য দরকারি evidence।"
               : "You may stop when the timebox ends. An incomplete result is still useful evidence."
           }
         </p>
@@ -101,10 +101,10 @@ const career = careerById.get(experiment.careerId)!;
   <section class="section section--tinted">
     <div class="container editorial-grid">
       <div>
-        <p class="eyebrow">03 · {bn ? "খেয়াল করো" : "Pay attention"}</p><h2>
+        <p class="eyebrow">03 · {bn ? "খেয়াল করুন" : "Pay attention"}</p><h2>
           {
             bn
-              ? "Output-এর পাশাপাশি নিজের প্রতিক্রিয়াও দেখো"
+              ? "Output-এর পাশাপাশি নিজের প্রতিক্রিয়াও দেখুন"
               : "Watch your reaction, not only the output"
           }
         </h2><ul class="rule-list">
@@ -112,11 +112,11 @@ const career = careerById.get(experiment.careerId)!;
         </ul>
       </div><div class="callout callout--amber">
         <p class="callout__label">
-          {bn ? "একটু অন্যভাবে ভাবো" : "Plot twist"}
+          {bn ? "একটু অন্যভাবে ভাবুন" : "Plot twist"}
         </p><p>
           {
             bn
-              ? "কঠিন লাগলেই ক্যারিয়ারটি তোমার নয়—এমন নয়। আসল প্রশ্ন: কঠিন হওয়ার পরও কৌতূহলটি কি ফিরে এসেছে?"
+              ? "কঠিন লাগলেই ক্যারিয়ারটি আপনার নয়—এমন নয়। আসল প্রশ্ন: কঠিন হওয়ার পরও কৌতূহলটি কি ফিরে এসেছে?"
               : "Difficulty does not mean the career is a bad fit. The useful question is whether curiosity returned after the difficulty."
           }
         </p>
@@ -125,7 +125,7 @@ const career = careerById.get(experiment.careerId)!;
   </section>
   <section class="section">
     <div class="container">
-      <p class="eyebrow">04 · {bn ? "ভেবে দেখো" : "Reflect"}</p><h2>
+      <p class="eyebrow">04 · {bn ? "ভেবে দেখুন" : "Reflect"}</p><h2>
         {bn ? "নিজেকে তিনটি সৎ প্রশ্ন" : "Three honest questions"}
       </h2><div class="reflection-grid">
         {
@@ -141,7 +141,7 @@ const career = careerById.get(experiment.careerId)!;
       </div><p class="muted">
         {
           bn
-            ? "তোমার উত্তর এই site জমা রাখে না। চাইলে নিজের notebook-এ লিখে রাখো।"
+            ? "আপনার উত্তর এই site জমা রাখে না। চাইলে নিজের notebook-এ লিখে রাখুন।"
             : "This site does not save your answers. Put them in your own notebook if useful."
         }
       </p>
@@ -152,7 +152,7 @@ const career = careerById.get(experiment.careerId)!;
       <p class="eyebrow">05 · {bn ? "এরপর কোথায়" : "Where to go next"}</p><h2>
         {
           bn
-            ? "Experiment ভালো লাগুক বা খারাপ—দুই ফলই তোমাকে কিছু জানায়।"
+            ? "Experiment ভালো লাগুক বা খারাপ—দুই ফলই আপনাকে কিছু জানায়।"
             : "Enjoyed it or disliked it—both results are useful."
         }
       </h2><div class="next-actions">

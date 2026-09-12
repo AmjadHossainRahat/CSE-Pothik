@@ -8,7 +8,7 @@ export const infrastructureCareers: CareerSeed[] = [
     title: l("Network Engineering", "Network Engineering"),
     description: l(
       "Design, connect and troubleshoot the networks people and services depend on. This is not just configuring a router—or the same job as cybersecurity.",
-      "মানুষ ও service যে network-এর ওপর নির্ভর করে, সেটি তৈরি, যুক্ত ও troubleshoot করো। কাজটি শুধু router configure করা নয়; cybersecurity-এর সঙ্গেও এক নয়।",
+      "মানুষ ও service যে network-এর ওপর নির্ভর করে, সেটি তৈরি, যুক্ত ও troubleshoot করুন। কাজটি শুধু router configure করা নয়; cybersecurity-এর সঙ্গেও এক নয়।",
     ),
     work: [
       l(
@@ -35,7 +35,7 @@ export const infrastructureCareers: CareerSeed[] = [
     enjoy: [
       l(
         "You want to know where a packet went, not just whether Wi-Fi works.",
-        "শুধু Wi-Fi চলছে কি না নয়—packet কোথায় গেল জানতে চাও।",
+        "শুধু Wi-Fi চলছে কি না নয়—packet কোথায় গেল জানতে চান।",
       ),
       l(
         "You enjoy diagrams, systematic diagnosis and reproducible evidence.",
@@ -43,13 +43,13 @@ export const infrastructureCareers: CareerSeed[] = [
       ),
       l(
         "You can communicate clearly while a service is unavailable.",
-        "Service বন্ধ থাকলেও পরিষ্কারভাবে যোগাযোগ করতে পারো।",
+        "Service বন্ধ থাকলেও পরিষ্কারভাবে যোগাযোগ করতে পারেন।",
       ),
     ],
     dislike: [
       l(
         "Maintenance windows, on-call work or field visits would be a poor fit; these vary by employer.",
-        "Maintenance window, on-call বা field visit তোমার জন্য কঠিন; employer অনুযায়ী বদলায়।",
+        "Maintenance window, on-call বা field visit আপনার জন্য কঠিন; employer অনুযায়ী বদলায়।",
       ),
       l(
         "You dislike documenting small configuration changes.",
@@ -80,7 +80,7 @@ export const infrastructureCareers: CareerSeed[] = [
       ),
       l(
         "Read a topology and record observations before changing configuration.",
-        "Configuration বদলানোর আগে topology পড়ো আর observation লেখো।",
+        "Configuration বদলানোর আগে topology পড়ুন আর observation লিখুন।",
       ),
     ],
     core: [
@@ -100,25 +100,25 @@ export const infrastructureCareers: CareerSeed[] = [
     practical: [
       l(
         "Build an isolated two-subnet lab and explain every hop.",
-        "বিচ্ছিন্ন two-subnet lab বানিয়ে প্রতিটি hop বোঝাও।",
+        "বিচ্ছিন্ন two-subnet lab বানিয়ে প্রতিটি hop বোঝান।",
       ),
       l(
         "Introduce a wrong gateway only in your lab; diagnose and restore it.",
-        "শুধু নিজের lab-এ ভুল gateway দিয়ে diagnose করে ঠিক করো।",
+        "শুধু নিজের lab-এ ভুল gateway দিয়ে diagnose করে ঠিক করুন।",
       ),
       l(
         "Write a topology, test matrix and rollback runbook for a peer.",
-        "Peer-এর জন্য topology, test matrix আর rollback runbook লেখো।",
+        "Peer-এর জন্য topology, test matrix আর rollback runbook লিখুন।",
       ),
     ],
     later: [
       l(
         "Choose enterprise/campus, ISP/telecom, data-center or cloud networking from real role requirements.",
-        "বাস্তব role requirement দেখে enterprise/campus, ISP/telecom, data-center বা cloud networking বেছে নাও।",
+        "বাস্তব role requirement দেখে enterprise/campus, ISP/telecom, data-center বা cloud networking বেছে নিন।",
       ),
       l(
         "Study BGP, redundancy, wireless or network automation when the lab demands it.",
-        "Lab-এর প্রয়োজন হলে BGP, redundancy, wireless বা network automation শেখো।",
+        "Lab-এর প্রয়োজন হলে BGP, redundancy, wireless বা network automation শিখুন।",
       ),
       l(
         "Certifications may structure study, but optional paid exams do not replace troubleshooting evidence.",
@@ -177,7 +177,7 @@ export const infrastructureCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Read vendor docs, diff the change and test only in your lab first.",
-          "Vendor docs পড়ে change diff দেখো; আগে নিজের lab-এ test করো।",
+          "Vendor docs পড়ে change diff দেখুন; আগে নিজের lab-এ test করুন।",
         ),
       },
       {
@@ -188,11 +188,11 @@ export const infrastructureCareers: CareerSeed[] = [
         exposure: "medium",
         explanation: l(
           "Suggestions can organize evidence but cannot establish what actually happened on your network.",
-          "Suggestion evidence সাজায়; তোমার network-এ কী ঘটেছে তার প্রমাণ নয়।",
+          "Suggestion evidence সাজায়; আপনার network-এ কী ঘটেছে তার প্রমাণ নয়।",
         ),
         studentResponse: l(
           "Keep timestamps, test one hypothesis at a time and redact captures before any sharing.",
-          "Timestamp রাখো, একবারে একটি hypothesis test করো; share করার আগে capture-এর private data সরাও।",
+          "Timestamp রাখুন, একবারে একটি hypothesis test করুন; share করার আগে capture-এর private data সরাও।",
         ),
       },
       {
@@ -207,7 +207,7 @@ export const infrastructureCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Practice peer review, clear maintenance notices and a tested recovery path.",
-          "Peer review, পরিষ্কার maintenance notice আর tested recovery practice করো।",
+          "Peer review, পরিষ্কার maintenance notice আর tested recovery practice করুন।",
         ),
       },
     ],
@@ -218,7 +218,7 @@ export const infrastructureCareers: CareerSeed[] = [
     title: l("Hardware Engineering", "Hardware Engineering"),
     description: l(
       "Design and verify electronic systems: logic, components, schematics and boards. Embedded engineering focuses more on software controlling devices; hardware is not simply computer repair.",
-      "Logic, component, schematic ও board মিলিয়ে electronic system তৈরি ও যাচাই করো। Embedded engineering-এ device চালানো software-এ জোর বেশি; আর hardware engineering মানে শুধু computer repair নয়।",
+      "Logic, component, schematic ও board মিলিয়ে electronic system তৈরি ও যাচাই করুন। Embedded engineering-এ device চালানো software-এ জোর বেশি; আর hardware engineering মানে শুধু computer repair নয়।",
     ),
     work: [
       l(
@@ -267,7 +267,7 @@ export const infrastructureCareers: CareerSeed[] = [
       ),
       l(
         "You want only application coding, without electronics foundations.",
-        "Electronics foundation ছাড়া শুধু application coding করতে চাও।",
+        "Electronics foundation ছাড়া শুধু application coding করতে চান।",
       ),
     ],
     dimensions: {
@@ -290,7 +290,7 @@ export const infrastructureCareers: CareerSeed[] = [
       ),
       l(
         "Read a simple datasheet and distinguish simulation from measured evidence.",
-        "সহজ datasheet পড়ো; simulation আর মাপা evidence আলাদা করো।",
+        "সহজ datasheet পড়ুন; simulation আর মাপা evidence আলাদা করুন।",
       ),
     ],
     core: [
@@ -310,21 +310,21 @@ export const infrastructureCareers: CareerSeed[] = [
     practical: [
       l(
         "Design and test a small digital logic circuit in a simulator first.",
-        "আগে simulator-এ ছোট digital logic circuit design আর test করো।",
+        "আগে simulator-এ ছোট digital logic circuit design আর test করুন।",
       ),
       l(
         "Draft a low-voltage board schematic and review component ratings with a supervisor.",
-        "Low-voltage board schematic এঁকে supervisor-এর সঙ্গে rating review করো।",
+        "Low-voltage board schematic এঁকে supervisor-এর সঙ্গে rating review করুন।",
       ),
       l(
         "Record expected versus observed behavior and one design revision.",
-        "Expected আর observed behavior এবং একটি design revision লেখো।",
+        "Expected আর observed behavior এবং একটি design revision লিখুন।",
       ),
     ],
     later: [
       l(
         "Choose board/product design, FPGA/digital verification or semiconductor/VLSI study deliberately.",
-        "ভেবে board/product design, FPGA/digital verification বা semiconductor/VLSI study বেছে নাও।",
+        "ভেবে board/product design, FPGA/digital verification বা semiconductor/VLSI study বেছে নিন।",
       ),
       l(
         "Signal integrity, EMC, power electronics and fabrication require deeper domain and safety training.",
@@ -332,7 +332,7 @@ export const infrastructureCareers: CareerSeed[] = [
       ),
       l(
         "Explore device/IoT teams, electronics R&D and verification roles; local lab access and role supply vary.",
-        "Device/IoT team, electronics R&D আর verification role দেখো; local lab আর role-এর সুযোগ ভিন্ন হয়।",
+        "Device/IoT team, electronics R&D আর verification role দেখুন; local lab আর role-এর সুযোগ ভিন্ন হয়।",
       ),
     ],
     notYet: [
@@ -387,7 +387,7 @@ export const infrastructureCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Verify against the exact datasheet and simulate each claimed behavior.",
-          "সঠিক datasheet-এর সঙ্গে মিলিয়ে প্রতিটি claimed behavior simulate করো।",
+          "সঠিক datasheet-এর সঙ্গে মিলিয়ে প্রতিটি claimed behavior simulate করুন।",
         ),
       },
       {
@@ -402,7 +402,7 @@ export const infrastructureCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Keep calculations, test conditions and measurement uncertainty alongside every conclusion.",
-          "প্রতিটি conclusion-এর সঙ্গে calculation, test condition আর measurement uncertainty রাখো।",
+          "প্রতিটি conclusion-এর সঙ্গে calculation, test condition আর measurement uncertainty রাখুন।",
         ),
       },
       {
@@ -417,7 +417,7 @@ export const infrastructureCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Use simulator-first practice, supervised low-voltage work and documented stop conditions.",
-          "আগে simulator, পরে supervised low-voltage কাজ; কখন থামতে হবে লিখে রাখো।",
+          "আগে simulator, পরে supervised low-voltage কাজ; কখন থামতে হবে লিখে রাখুন।",
         ),
       },
     ],
@@ -428,7 +428,7 @@ export const infrastructureCareers: CareerSeed[] = [
     title: l("Software QA & Testing", "Software QA ও Testing"),
     description: l(
       "Help a team understand product risk and prevent defects. Explore behavior, challenge requirements and automate useful checks—not just click through screens or count bugs.",
-      "Product-এর ঝুঁকি বুঝতে ও defect আগেই ঠেকাতে team-কে সাহায্য করো। আচরণ অনুসন্ধান, requirement যাচাই এবং দরকারি check automate করো—কাজটি শুধু screen-এ click করা বা bug গোনা নয়।",
+      "Product-এর ঝুঁকি বুঝতে ও defect আগেই ঠেকাতে team-কে সাহায্য করুন। আচরণ অনুসন্ধান, requirement যাচাই এবং দরকারি check automate করুন—কাজটি শুধু screen-এ click করা বা bug গোনা নয়।",
     ),
     work: [
       l(
@@ -455,7 +455,7 @@ export const infrastructureCareers: CareerSeed[] = [
     enjoy: [
       l(
         "You ask what could go wrong and can explain why it matters.",
-        "কী ভুল হতে পারে ভাবো আর কেন গুরুত্বপূর্ণ বোঝাতে পারো।",
+        "কী ভুল হতে পারে ভাবুন আর কেন গুরুত্বপূর্ণ বোঝাতে পারেন।",
       ),
       l(
         "You enjoy careful investigation, not blaming the author of a bug.",
@@ -473,7 +473,7 @@ export const infrastructureCareers: CareerSeed[] = [
       ),
       l(
         "You want QA to be a coding-free shortcut; automation roles require programming.",
-        "QA-কে coding ছাড়া shortcut ভাবো; automation role-এ programming লাগে।",
+        "QA-কে coding ছাড়া shortcut ভাবুন; automation role-এ programming লাগে।",
       ),
       l(
         "You dislike negotiating risk when exhaustive testing is impossible.",
@@ -520,29 +520,29 @@ export const infrastructureCareers: CareerSeed[] = [
     practical: [
       l(
         "Explore a small app you own; write a test charter and two precise bug reports.",
-        "নিজের ছোট app explore করে test charter আর দুটি নির্ভুল bug report লেখো।",
+        "নিজের ছোট app explore করে test charter আর দুটি নির্ভুল bug report লিখুন।",
       ),
       l(
         "Automate one important user journey and one failure case.",
-        "একটি গুরুত্বপূর্ণ user journey আর একটি failure case automate করো।",
+        "একটি গুরুত্বপূর্ণ user journey আর একটি failure case automate করুন।",
       ),
       l(
         "Run checks in CI and fix one flaky test by investigating its cause.",
-        "CI-এ check চালিয়ে কারণ বুঝে একটি flaky test ঠিক করো।",
+        "CI-এ check চালিয়ে কারণ বুঝে একটি flaky test ঠিক করুন।",
       ),
     ],
     later: [
       l(
         "Choose manual/exploratory depth, automation/SDET, performance or domain-specific quality work.",
-        "Manual/exploratory depth, automation/SDET, performance বা domain-specific quality কাজ বেছে নাও।",
+        "Manual/exploratory depth, automation/SDET, performance বা domain-specific quality কাজ বেছে নিন।",
       ),
       l(
         "Study load models, contract testing and quality strategy when product risks justify them.",
-        "Product risk দাবি করলে load model, contract testing আর quality strategy শেখো।",
+        "Product risk দাবি করলে load model, contract testing আর quality strategy শিখুন।",
       ),
       l(
         "A certificate is optional; show test decisions, readable code and honest release-risk reporting.",
-        "Certificate optional; test decision, readable code আর সৎ release-risk report দেখাও।",
+        "Certificate optional; test decision, readable code আর সৎ release-risk report দেখান।",
       ),
     ],
     notYet: [
@@ -597,7 +597,7 @@ export const infrastructureCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Derive expected results independently from requirements and make the check fail for the right reason.",
-          "Requirement থেকে independently expected result বের করো; সঠিক কারণে check fail হয় দেখো।",
+          "Requirement থেকে independently expected result বের করুন; সঠিক কারণে check fail হয় দেখুন।",
         ),
       },
       {
@@ -612,7 +612,7 @@ export const infrastructureCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "Reproduce, minimize and attach evidence; never invent defects or user research.",
-          "Reproduce করে ছোট করো, evidence যোগ করো; defect বা user research বানিয়ে লিখো না।",
+          "Reproduce করে ছোট করুন, evidence যোগ করুন; defect বা user research বানিয়ে লিখুন না।",
         ),
       },
       {
@@ -627,7 +627,7 @@ export const infrastructureCareers: CareerSeed[] = [
         ),
         studentResponse: l(
           "State scope, untested risks and alternatives clearly; QA informs a team decision, not a safety guarantee.",
-          "Scope, untested risk আর বিকল্প স্পষ্ট বলো; QA team-এর decision-এ সাহায্য করে, safety guarantee নয়।",
+          "Scope, untested risk আর বিকল্প স্পষ্ট বলুন; QA team-এর decision-এ সাহায্য করে, safety guarantee নয়।",
         ),
       },
     ],

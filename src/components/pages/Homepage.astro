@@ -41,28 +41,28 @@ const moreExperimentIds: CareerId[] = [
 const mapSteps = [
   [
     "Explore careers",
-    "ক্যারিয়ার চেনো",
+    "ক্যারিয়ার চিনুন",
     "What does the work involve?",
     "আসলে কী কাজ করতে হয়?",
     "#landscape",
   ],
   [
     "Try real work",
-    "কাজ করে দেখো",
+    "কাজ করে দেখুন",
     "Would I enjoy doing it?",
     "কাজটা আমার ভালো লাগবে?",
     "#experiments",
   ],
   [
     "Find a learning path",
-    "শেখার পথ খোঁজো",
+    "শেখার পথ খুঁজুন",
     "What should I learn first?",
     "আগে কী শিখব?",
     "/roadmaps/",
   ],
   [
     "Prepare for a goal",
-    "লক্ষ্যের প্রস্তুতি নাও",
+    "লক্ষ্যের প্রস্তুতি নিন",
     "How can I put my skills to work?",
     "শেখাটা কাজে লাগাব কীভাবে?",
     "/goals/",
@@ -85,44 +85,44 @@ const realityChecks = [
 const journey = [
   [
     "Understand",
-    "বোঝো",
+    "বুঝুন",
     "Find your starting point.",
-    "এখন কোথায় আছ, বোঝো।",
+    "এখন কোথায় আছেন, বুঝুন।",
     "#starting-point",
   ],
   [
     "Explore",
-    "দেখো",
+    "দেখুন",
     "Look behind the job title.",
-    "চাকরির নামের পেছনের আসল কাজ দেখো।",
+    "চাকরির নামের পেছনের আসল কাজ দেখুন।",
     "/careers/",
   ],
   [
     "Compare",
-    "তুলনা করো",
+    "তুলনা করুন",
     "Compare the trade-offs.",
-    "কাজের ভালো-মন্দ মিলিয়ে দেখো।",
+    "কাজের ভালো-মন্দ মিলিয়ে দেখুন।",
     "/compare/",
   ],
   [
     "Try",
-    "ট্রাই করো",
+    "ট্রাই করুন",
     "Get a little real evidence.",
-    "ছোট কাজ করে নিজের অভিজ্ঞতা নাও।",
+    "ছোট কাজ করে নিজের অভিজ্ঞতা নিন।",
     "/try/",
   ],
   [
     "Prepare",
-    "প্রস্তুত হও",
+    "প্রস্তুত হোন",
     "Build your foundations.",
-    "ভিত্তিটা শক্ত করো।",
+    "ভিত্তিটা শক্ত করুন।",
     "/roadmaps/",
   ],
   [
     "Adapt",
-    "বদলাও",
+    "বদলান",
     "Keep learning as work changes.",
-    "কাজ বদলালে শেখাটাও বদলাও।",
+    "কাজ বদলালে শেখাটাও বদলান।",
     "/ai/",
   ],
 ] as const;
@@ -133,15 +133,15 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
   locale={locale}
   title={copy(
     "CSE-Pothik — Find Your Direction in CSE",
-    "CSE-Pothik — CSE-তে নিজের পথ খুঁজে নাও (বাংলা)",
+    "CSE-Pothik — CSE-তে নিজের পথ খুঁজে নিন (বাংলা)",
   )}
   description={copy(
     "Free career guidance for CSE students: understand real career paths, try small experiments, build strong foundations and choose your next step in the AI era.",
-    "CSE শিক্ষার্থীদের জন্য বিনামূল্যের ক্যারিয়ার গাইড—কাজের পথগুলো বোঝো, ছোট experiment করে দেখো, foundation গড়ো এবং AI যুগে নিজের পরের ধাপ বেছে নাও।",
+    "CSE শিক্ষার্থীদের জন্য বিনামূল্যের ক্যারিয়ার গাইড—কাজের পথগুলো বুঝুন, ছোট experiment করে দেখুন, foundation গড়ুন এবং AI যুগে নিজের পরের ধাপ বেছে নিন।",
   )}
   imageAlt={copy(
     "CSE-Pothik — Find your direction in CSE, illustrated with branching paths.",
-    "CSE-Pothik — CSE-তে নিজের পথ খুঁজে নাও; বিভিন্ন দিকের পথচিহ্নসহ।",
+    "CSE-Pothik — CSE-তে নিজের পথ খুঁজে নিন; বিভিন্ন দিকের পথচিহ্নসহ।",
   )}
 >
   <Breadcrumbs locale={locale} items={[]} />
@@ -180,7 +180,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
               src={studyPartnersImage}
               alt={copy(
                 "A Chakma woman holds a QA checklist tablet between two teammates at laptops, all three smiling toward you.",
-                "ল্যাপটপে কাজ করা দুই সতীর্থের মাঝে দাঁড়িয়ে ট্যাবলেটে সফটওয়্যার পরীক্ষার তালিকা দেখাচ্ছে এক চাকমা তরুণী; তিনজনই তোমার দিকে তাকিয়ে হাসছে।",
+                "ল্যাপটপে কাজ করা দুই সতীর্থের মাঝে দাঁড়িয়ে ট্যাবলেটে সফটওয়্যার পরীক্ষার তালিকা দেখাচ্ছে এক চাকমা তরুণী; তিনজনই আপনার দিকে তাকিয়ে হাসছে।",
               )}
               widths={[400, 640, 900]}
               sizes="(min-width: 960px) 46vw, 90vw"
@@ -195,14 +195,14 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
                 >{
                   copy(
                     "A note from your future self",
-                    "ভবিষ্যতের তোমার একটা কথা",
+                    "ভবিষ্যতের আপনার একটা কথা",
                   )
                 }</span
               ><p>
                 {
                   copy(
                     "“Start small. Future you will be glad you did.”",
-                    "“ছোট করে শুরু করো। পরে নিজেকেই ধন্যবাদ দেবে।”",
+                    "“ছোট করে শুরু করুন। পরে নিজেকেই ধন্যবাদ দেবেন।”",
                   )
                 }
               </p>
@@ -212,12 +212,12 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
         <nav class="orientation-note" aria-labelledby="orientation-title">
           <div class="note-top">
             <h2 id="orientation-title">
-              {copy("Today’s orientation map", "আজ কোথা থেকে শুরু করবে")}
+              {copy("Today’s orientation map", "আজ কোথা থেকে শুরু করবেন")}
             </h2><p>
               {
                 copy(
                   "Pick a stop. You do not need to read everything.",
-                  "একটা জায়গা বেছে নাও। সবটা একসঙ্গে পড়তে হবে না।",
+                  "একটা জায়গা বেছে নিন। সবটা একসঙ্গে পড়তে হবে না।",
                 )
               }
             </p>
@@ -295,7 +295,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             {
               copy(
                 "AI produced an answer. What do you do next?",
-                "AI উত্তর দিয়েছে। এবার তুমি কী করবে?",
+                "AI উত্তর দিয়েছে। এবার আপনি কী করবেন?",
               )
             }
           </h3>
@@ -387,7 +387,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
               >{
                 copy(
                   "Build an AI-resilient practice",
-                  "AI-resilient practice বানাও",
+                  "AI-resilient practice বানান",
                 )
               }</a
             >
@@ -397,7 +397,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
               >{
                 copy(
                   "Strengthen engineering foundations",
-                  "Engineering foundation শক্ত করো",
+                  "Engineering foundation শক্ত করুন",
                 )
               }</a
             >
@@ -417,13 +417,13 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             <p class="eyebrow">
               {copy("Your next step starts here", "এখান থেকেই পরের ধাপ")}
             </p><h2 id="starting-title">
-              {copy("What would help you today?", "আজ কোনটা তোমার কাজে লাগবে?")}
+              {copy("What would help you today?", "আজ কোনটা আপনার কাজে লাগবে?")}
             </h2>
           </div><p>
             {
               copy(
                 "Pick one route. You can change direction later—no quiz, account, or perfect answer needed.",
-                "একটা পথ বেছে নাও। পরে বদলাতেই পারো—quiz, account বা নিখুঁত উত্তর লাগবে না।",
+                "একটা পথ বেছে নিন। পরে বদলাতেই পারেন—quiz, account বা নিখুঁত উত্তর লাগবে না।",
               )
             }
           </p>
@@ -463,7 +463,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
               {
                 copy(
                   "Trying to enter software industry?",
-                  "Software industry-তে ঢোকার চেষ্টা করছ?",
+                  "Software industry-তে ঢোকার চেষ্টা করছেন?",
                 )
               }
             </p>
@@ -471,7 +471,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
               {
                 copy(
                   "Choose an entry route that fits your problem-solving baseline.",
-                  "Problem solving এখন যতটুকু পারো, তার সঙ্গে মেলে এমন entry route বেছে নাও।",
+                  "Problem solving এখন যতটুকু পারেন, তার সঙ্গে মেলে এমন entry route বেছে নিন।",
                 )
               }
             </h3>
@@ -479,7 +479,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
               {
                 copy(
                   "Strong in CP, still building the foundation, or entering through project evidence? See what to try now, what to add next and when to start applying.",
-                  "CP-তে ভালো, foundation এখনও গড়ছ, নাকি project evidence দিয়ে শুরু করবে? এখন কী করবে, এরপর কী যোগ করবে আর কখন আবেদন শুরু করবে—এক জায়গায় দেখে নাও।",
+                  "CP-তে ভালো, foundation এখনও গড়ছেন, নাকি project evidence দিয়ে শুরু করবেন? এখন কী করবেন, এরপর কী যোগ করবেন আর কখন আবেদন শুরু করবেন—এক জায়গায় দেখে নিন।",
                 )
               }
             </p>
@@ -496,16 +496,16 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             >{
               copy(
                 "Already studying? Find a more specific starting point",
-                "আগেই পড়াশোনা শুরু করেছ? নিজের অবস্থার সঙ্গে মিলিয়ে দেখো",
+                "আগেই পড়াশোনা শুরু করেছেন? নিজের অবস্থার সঙ্গে মিলিয়ে দেখুন",
               )
             }</summary
           >
-          <h3>{copy("Where are you right now?", "তুমি এখন কোথায়?")}</h3>
+          <h3>{copy("Where are you right now?", "আপনি এখন কোথায়?")}</h3>
           <p>
             {
               copy(
                 "New, undecided, worried about AI, or feeling behind? Choose what sounds like you today.",
-                "তুমি কি নতুন, দ্বিধায় আছ, AI নিয়ে চিন্তিত, নাকি পিছিয়ে পড়েছ মনে হচ্ছে? আজ যে কথাটি নিজের সঙ্গে মেলে, সেটি বেছে নাও।",
+                "আপনি কি নতুন, দ্বিধায় আছেন, AI নিয়ে চিন্তিত, নাকি পিছিয়ে পড়েছেন মনে হচ্ছে? আজ যে কথাটি নিজের সঙ্গে মেলে, সেটি বেছে নিন।",
               )
             }
           </p>
@@ -537,9 +537,8 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
           </div>
         </details>
         <p class="mentor-line">
-          <strong>{copy("Feeling behind?", "পিছিয়ে পড়েছ মনে হচ্ছে?")}</strong>{
-            " "
-          }
+          <strong>{copy("Feeling behind?", "পিছিয়ে পড়েছেন মনে হচ্ছে?")}</strong
+          >{" "}
           {
             copy(
               "You do not have to catch everyone. You just need to stop standing still.",
@@ -550,7 +549,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             >{
               copy(
                 "Make a realistic restart →",
-                "বাস্তবসম্মতভাবে আবার শুরু করো →",
+                "বাস্তবসম্মতভাবে আবার শুরু করুন →",
               )
             }</a
           >
@@ -567,7 +566,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
           <p class="eyebrow">
             {copy("Before you choose anything", "কিছু বেছে নেওয়ার আগে")}
           </p><h2 id="before-title">
-            {copy("Take the pressure off.", "চাপটা একটু কমাও।")}
+            {copy("Take the pressure off.", "চাপটা একটু কমান।")}
           </h2><ul class="rule-list">
             {realityChecks.map(([en, bangla]) => <li>{copy(en, bangla)}</li>)}
           </ul><p class="small-encouragement">
@@ -605,7 +604,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             {
               copy(
                 "Explore different kinds of problems, daily tasks and trade-offs. Open a career that makes you curious—you are exploring, not committing.",
-                "আলাদা সমস্যা, প্রতিদিনের কাজ আর ভালো-মন্দ বোঝো। কৌতূহল হয় এমন একটি ক্যারিয়ার খোলো—এখন শুধু দেখছ, সিদ্ধান্তটা পাথরে খোদাই করছ না।",
+                "আলাদা সমস্যা, প্রতিদিনের কাজ আর ভালো-মন্দ বুঝুন। কৌতূহল হয় এমন একটি ক্যারিয়ার খুলুন—এখন শুধু দেখছেন, সিদ্ধান্তটা পাথরে খোদাই করছেন না।",
               )
             }
           </p>
@@ -624,7 +623,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
                     <summary>
                       {copy(
                         `See ${family.careerIds.length} career ${family.careerIds.length === 1 ? "path" : "paths"}`,
-                        `${family.careerIds.length.toLocaleString("bn-BD")}টি ক্যারিয়ারের পথ দেখো`,
+                        `${family.careerIds.length.toLocaleString("bn-BD")}টি ক্যারিয়ারের পথ দেখুন`,
                       )}
                     </summary>
                     <div class="family-links">
@@ -665,13 +664,13 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
         <div class="section-footer">
           <a class="text-link" href={href("/careers/")}
             >{
-              copy("Explore every career guide →", "সব ক্যারিয়ার গাইড দেখো →")
+              copy("Explore every career guide →", "সব ক্যারিয়ার গাইড দেখুন →")
             }</a
           ><a class="text-link" href={href("/compare/")}
             >{
               copy(
                 "Two paths caught your eye? Compare them →",
-                "দুটি পথ ভালো লাগছে? পাশাপাশি মিলিয়ে দেখো →",
+                "দুটি পথ ভালো লাগছে? পাশাপাশি মিলিয়ে দেখুন →",
               )
             }</a
           >
@@ -688,7 +687,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
         <div class="home-section-head">
           <div>
             <p class="eyebrow">
-              {copy("Try before you choose", "বেছে নেওয়ার আগে করে দেখো")}
+              {copy("Try before you choose", "বেছে নেওয়ার আগে করে দেখুন")}
             </p><h2 id="try-title">
               {
                 copy(
@@ -701,7 +700,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             {
               copy(
                 "Try a safe, 60–120 minute challenge. Check the prerequisites, try the work, and notice what interests you before committing to a longer learning path.",
-                "নিরাপদ ৬০–১২০ মিনিটের ছোট challenge নাও। আগে কী জানা দরকার দেখো, কাজ করে বোঝো কোনটা ভালো লাগে—তারপর বড় শেখার পথ বেছে নাও।",
+                "নিরাপদ ৬০–১২০ মিনিটের ছোট challenge নিন। আগে কী জানা দরকার দেখুন, কাজ করে বুঝুন কোনটা ভালো লাগে—তারপর বড় শেখার পথ বেছে নিন।",
               )
             }
           </p>
@@ -736,7 +735,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             {
               copy(
                 "Try three expanding paths: analytics, AI and application security",
-                "আরও তিনটি বাড়তে থাকা পথ করে দেখো: analytics, AI আর application security",
+                "আরও তিনটি বাড়তে থাকা পথ করে দেখুন: analytics, AI আর application security",
               )
             }
           </summary>
@@ -769,14 +768,14 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             {
               copy(
                 "Not enjoying one is useful information, too. You learned something about yourself.",
-                "একটা ভালো না লাগলেও লাভ আছে। নিজের সম্পর্কে কিছু তো জানলে।",
+                "একটা ভালো না লাগলেও লাভ আছে। নিজের সম্পর্কে কিছু তো জানলেন।",
               )
             }
           </p><a class="button button--secondary" href={href("/try/")}
             >{
               copy(
                 `See all ${experiments.length} career experiments`,
-                `${experiments.length.toLocaleString("bn-BD")}টি ক্যারিয়ারের কাজ দেখো`,
+                `${experiments.length.toLocaleString("bn-BD")}টি ক্যারিয়ারের কাজ দেখুন`,
               )
             }</a
           >
@@ -804,7 +803,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
         </div>
         <details class="journey-disclosure">
           <summary>
-            {copy("Open the six-step loop", "ছয় ধাপের loop খোলো")}
+            {copy("Open the six-step loop", "ছয় ধাপের loop খুলুন")}
           </summary>
           <ol class="journey" role="list">
             {
@@ -833,14 +832,14 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             {
               copy(
                 "A career roadmap explains what to learn. A goal guide helps you apply it.",
-                "ক্যারিয়ার রোডম্যাপ বলে কী শিখবে। লক্ষ্যভিত্তিক গাইড দেখায়, শেখাটা কোথায় কাজে লাগাবে।",
+                "ক্যারিয়ার রোডম্যাপ বলে কী শিখবেন। লক্ষ্যভিত্তিক গাইড দেখায়, শেখাটা কোথায় কাজে লাগাবেন।",
               )
             }{" "}
             <a href={href("/roadmaps/")}
-              >{copy("Choose a learning roadmap", "শেখার রোডম্যাপ বেছে নাও")}</a
+              >{copy("Choose a learning roadmap", "শেখার রোডম্যাপ বেছে নিন")}</a
             >{" · "}
             <a href={href("/goals/")}
-              >{copy("Find a preparation guide", "প্রস্তুতির গাইড দেখো")}</a
+              >{copy("Find a preparation guide", "প্রস্তুতির গাইড দেখুন")}</a
             >
           </p>
         </details>
@@ -868,7 +867,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             {
               copy(
                 "Give yourself 20 minutes today: open one career, notice what interests you, and pick one thing to try. That is a real start.",
-                "আজ নিজেকে ২০ মিনিট দাও: একটি ক্যারিয়ার দেখো, কোন কথাটি ভালো লাগে খেয়াল করো, তারপর করে দেখার মতো একটি কাজ বেছে নাও। এটিও সত্যিকারের শুরু।",
+                "আজ নিজেকে ২০ মিনিট দিন: একটি ক্যারিয়ার দেখুন, কোন কথাটি ভালো লাগে খেয়াল করুন, তারপর করে দেখার মতো একটি কাজ বেছে নিন। এটিও সত্যিকারের শুরু।",
               )
             }
           </p>
@@ -878,7 +877,7 @@ const familySymbols = ["{ }", "▤", "✦", "◇", "☁", "⌘", "λ", "↔"];
             href={href("/im-lost/")}
             data-track-event="im_lost_used"
             data-track-param-choice-id="homepage-closing"
-            >{copy("Help Me Find My Next Step", "আমার পরের ধাপ খুঁজে দাও")}
+            >{copy("Help Me Find My Next Step", "আমার পরের ধাপ খুঁজে দিন")}
             <span aria-hidden="true">→</span></a
           ><span
             >{

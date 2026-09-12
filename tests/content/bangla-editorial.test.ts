@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 
 import { describe, expect, it } from "vitest";
@@ -18,10 +18,17 @@ const sourceFiles = [
 ].map((path) => readFileSync(resolve(path), "utf8"));
 
 describe("Bangla editorial voice", () => {
-  it("does not fall back to formal pronouns in conversational mentoring copy", () => {
-    for (const source of sourceFiles) {
-      expect(source).not.toMatch(/আপনি|আপনার/);
+  it("uses professional address consistently across site source", () => {
+    const siteSources = readdirSync(resolve("src"), {
+      recursive: true,
+      encoding: "utf8",
+    })
+      .filter((path) => /\.(astro|ts)$/.test(path))
+      .map((path) => readFileSync(resolve("src", path), "utf8"));
+    for (const source of siteSources) {
+      expect(source).not.toMatch(/তুমি|তোমার|তোমাকে|তোমরা|তোমাদের/);
     }
+    expect(siteSources.join("\n")).toMatch(/আপনি|আপনার/);
   });
 
   it("does not reuse known English-only labels for the Bangla branch", () => {
