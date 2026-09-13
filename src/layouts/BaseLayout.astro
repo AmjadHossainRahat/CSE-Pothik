@@ -64,13 +64,13 @@ const baseStructuredData = {
 <html
   lang={localeInfo[locale].htmlLang}
   dir={localeInfo[locale].direction}
-  data-theme="light"
+  data-theme="dark"
 >
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="theme-color" content="#f8f9fc" />
+    <meta name="theme-color" content="#061522" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <meta name="author" content={siteConfig.author} />
@@ -115,9 +115,9 @@ const baseStructuredData = {
         try {
           const value = localStorage.getItem("cse-pothik-theme");
           document.documentElement.dataset.theme =
-            value === "dark" ? "dark" : "light";
+            value === "light" ? "light" : "dark";
         } catch {
-          document.documentElement.dataset.theme = "light";
+          document.documentElement.dataset.theme = "dark";
         }
         document
           .querySelector('meta[name="theme-color"]')

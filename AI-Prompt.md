@@ -90,7 +90,7 @@ Do not turn the interface into a literal travel-themed gimmick.
 
 Implement the complete visual system described in `DESIGN.md`.
 
-The default light theme should feel like:
+The optional light theme should feel like:
 
 - modern university orientation;
 - editorial;
@@ -110,7 +110,7 @@ In particular avoid:
 - stock-photo education imagery;
 - excessive visual clutter.
 
-The dark theme must feel like a focused late-night engineering/study environment while remaining part of the same brand.
+The default dark theme must feel like a focused late-night engineering/study environment while remaining part of the same brand. A returning visitor's explicit light-theme choice must override the default and persist locally.
 
 Pay particular attention to dark-mode contrast for:
 
@@ -222,7 +222,10 @@ source maintenance and validation.
 Maintain one public prompt specifically for generating and rechecking the
 future-of-CSE page. Keep runtime selection separate from prompt instructions;
 state role, exact task, evidence rules, required page structure, writing
-contract and stopping condition without prompt-history clutter. Credit human
+contract and stopping condition without prompt-history clutter. Present the
+prompt directly without surrounding optimization, reproducibility or token-use
+explanation; retain only the concise prompting-reference label and closing
+recheck note. Credit human
 purpose/publication decisions and AI research narration accurately. Do not claim
 a universal or empirically proven token optimum, exact output reproducibility or
 that prompt text can switch the selected model and reasoning effort.
@@ -607,7 +610,7 @@ Fix issues discovered during that review.
 
 # Visual review
 
-Review viewport-sized crops as well as full-page screenshots. Explicitly inspect the orientation map, useful loop, breadcrumb alignment, desktop navigation, mobile menu keyboard behavior, mentor disclosure, both illustrations, and Bangla line wrapping. Test 320px, 390px, 768px, 1280px and 1600px widths, both languages and both themes. A successful build or an overflow check alone is not a visual review.
+Review viewport-sized crops as well as full-page screenshots. Explicitly inspect the orientation map, useful loop, breadcrumb alignment, desktop navigation, mobile menu keyboard behavior, mentor disclosure, both illustrations, and Bangla line wrapping. Test 390px, 768px, 1280px and 1600px widths, both languages and both themes. The supported responsive baseline starts at 390px; do not claim or require 320px support. A successful build or an overflow check alone is not a visual review.
 
 Specifically inspect:
 
@@ -657,7 +660,7 @@ Use Yarn commands only.
 
 Preserve the attribution/provenance and inspiration requirements already defined in `DESIGN.md`.
 
-Keep roadmap.sh, Architect Prep and Amirul Islam credits visible in the shared footer, with a localized link to About `#credits`. Credit Amjad Hossain for the idea and as Creator, AI Agent Orchestrator, reviewer and quality controller; link his name to his intended GitHub Pages portfolio at `https://amjadhossainrahat.github.io/` in a new tab, even while that portfolio is not yet published. Credit ChatGPT for idea polishing plus requirement/design analysis and finalization. Credit Codex using **GPT-5.6 Sol (High)** and **GPT-6 Astra (High)** for implementation and iteration. Preserve these distinct roles in English and Bangla; do not imply affiliation or endorsement. Keep the acknowledgment compact and secondary to student navigation. Update README and the shared typed credit content together when provenance changes.
+Keep roadmap.sh, Architect Prep and Amirul Islam credits visible in the shared footer, with a localized link to About `#credits`. Credit Amjad Hossain for **Idea, Prompting, AI Agent Orchestrating, Review and Quality Control**; link his name to his intended GitHub Pages portfolio at `https://amjadhossainrahat.github.io/` in a new tab, even while that portfolio is not yet published. Credit ChatGPT for idea polishing plus requirement/design analysis and finalization. Credit Codex using **GPT-5.6 Sol (High)** and **GPT-6 Astra (High)** for implementation and iteration. Preserve these distinct roles in English and Bangla; do not imply affiliation or endorsement. Keep the acknowledgment compact and secondary to student navigation. Update README and the shared typed credit content together when provenance changes.
 
 For repository cleanup, remove only verified obsolete files. Preserve active illustration masters, the authoritative theme reference, source routes, tests, build configuration and documentation. Retired imagery can remain recoverable through Git history rather than as unused working-tree binaries. Report exactly what was removed and do not claim deployed-byte savings for assets that were never emitted.
 

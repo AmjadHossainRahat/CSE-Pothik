@@ -27,7 +27,7 @@ test("homepage actions dispatch bounded GA4 events without contacting Google", a
   await page.locator("[data-theme-switch]").click();
   await expect
     .poll(() => events)
-    .toContainEqual(["event", "theme_switch", { theme: "dark" }]);
+    .toContainEqual(["event", "theme_switch", { theme: "light" }]);
   await page.locator("[data-language-switch]").click();
   await expect
     .poll(() => events)

@@ -134,7 +134,7 @@ test("goal language switching and keyboard section navigation work without JavaS
   await context.close();
 });
 
-for (const width of [320, 390, 768, 1280, 1600]) {
+for (const width of [390, 768, 1280, 1600]) {
   for (const locale of ["en", "bn"] as const) {
     for (const theme of ["light", "dark"] as const) {
       test(`${locale} ${theme} guidance and new careers fit ${width}px`, async ({

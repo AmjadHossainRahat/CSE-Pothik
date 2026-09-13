@@ -13,7 +13,10 @@ for (const locale of ["en", "bn"] as const) {
   }) => {
     await page.goto(route(locale, "/guidance/new-cse-student/"));
     const footer = page.locator(".footer-credits");
-    await expect(footer).toContainText("Orchestrator");
+    await expect(footer).toContainText(
+      locale === "en" ? "AI Agent Orchestrating" : "AI Agent Orchestration",
+    );
+    await expect(footer).toContainText("Prompting");
     for (const source of inspirations)
       await expect(
         footer.getByRole("link", { name: source.name, exact: true }),
@@ -102,7 +105,9 @@ for (const locale of ["en", "bn"] as const) {
         (element) => getComputedStyle(element).outlineStyle,
       ),
     ).not.toBe("none");
-    await expect(page.locator("#credits")).toContainText("Orchestrator");
+    await expect(page.locator("#credits")).toContainText(
+      locale === "en" ? "AI Agent Orchestrating" : "AI Agent Orchestration",
+    );
     await expect(page.locator("#why-this-exists")).toContainText(
       sitePurpose.purpose[locale],
     );
@@ -111,7 +116,7 @@ for (const locale of ["en", "bn"] as const) {
   });
 }
 
-for (const width of [320, 390, 768, 1280, 1600])
+for (const width of [390, 768, 1280, 1600])
   for (const locale of ["en", "bn"])
     for (const theme of ["light", "dark"]) {
       test(`${locale} ${theme} credits layout and console at ${width}px`, async ({

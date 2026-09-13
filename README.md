@@ -11,6 +11,7 @@ English is the default language. Independently edited Bangla pages live under `/
 - [What the site includes](#what-the-site-includes)
 - [Documentation map](#documentation-map)
 - [Quick start](#quick-start)
+- [Contributing](#contributing)
 - [Quality checks](#quality-checks)
 - [GitHub Pages](#github-pages)
 - [Inspiration and collaboration](#inspiration-and-collaboration)
@@ -69,6 +70,10 @@ yarn check
 
 See the [engineering guide](docs/engineering/README.md) for the complete command matrix and base-path testing.
 
+## Contributing
+
+Contributions are welcome through the **fork and pull-request workflow**; contributors do not need direct write access. Follow the complete [step-by-step contribution guide](CONTRIBUTING.md) to fork, clone, branch, validate, submit and update a pull request. The maintainer reviews accepted changes and controls merges into `main` and production deployment.
+
 ## Quality checks
 
 Before publishing a material change, run the relevant full cycle:
@@ -105,7 +110,7 @@ Canonical URLs, assets, language alternates, sitemap and robots output all honor
 
 CSE-Pothik was conceptually inspired by [roadmap.sh](https://roadmap.sh/), [Architect Prep](https://mayurjp.github.io/architect-prep/) and [Amirul Islam](https://amirulislamalmamun.com/). Its visual system, copy, mentoring model, roadmaps and implementation are original.
 
-- **[Amjad Hossain](https://amjadhossainrahat.github.io/)** — Idea, Creator and AI Agent Orchestrator, Reviewer and Quality Control
+- **[Amjad Hossain](https://amjadhossainrahat.github.io/)** — Idea, Prompting, AI Agent Orchestrating, Review and Quality Control
 - **ChatGPT** — Idea polishing, Requirement and Design analysis and finalizing
 - **Codex** — Implementation & Iteration · GPT-5.6 Sol (High) and GPT-6 Astra (High)
 

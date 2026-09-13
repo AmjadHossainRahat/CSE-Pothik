@@ -70,7 +70,7 @@ for (const locale of ["en", "bn"] as const) {
   });
 }
 
-for (const width of [320, 390, 768, 1280, 1600])
+for (const width of [390, 768, 1280, 1600])
   for (const locale of ["en", "bn"])
     for (const theme of ["light", "dark"]) {
       test(`${locale} ${theme} open playbooks and templates fit ${width}px`, async ({

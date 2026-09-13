@@ -21,14 +21,14 @@ describe("project credits", () => {
     ]);
   });
 
-  it("distinguishes the human orchestrator from the AI contributions", () => {
+  it("distinguishes the human contribution from the AI contributions", () => {
     expect(collaborators.map((person) => person.name)).toEqual([
       siteConfig.creator,
       "ChatGPT",
       "Codex",
     ]);
     expect(collaborators[0]!.role.en).toBe(
-      "Idea, Creator and AI Agent Orchestrator, Reviewer and Quality Control",
+      "Idea, Prompting, AI Agent Orchestrating, Review and Quality Control",
     );
     expect(collaborators[0]!.name).toBe("Amjad Hossain");
     expect(collaborators[0]!.url).toBe(siteConfig.creatorUrl);

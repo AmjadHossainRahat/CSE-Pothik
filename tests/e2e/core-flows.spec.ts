@@ -60,15 +60,24 @@ test("language switching preserves the equivalent route", async ({ page }) => {
 
 test("theme switching persists and defaults safely", async ({ page }) => {
   await page.goto(route("/"));
-  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
-  await page.locator("[data-theme-switch]").click();
+  const themeSwitch = page.locator("[data-theme-switch]");
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await expect(themeSwitch).toHaveAttribute("aria-pressed", "true");
+  await expect(themeSwitch.locator("[data-theme-label]")).toHaveText("Light");
   await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute(
     "content",
     "#061522",
   );
+  await themeSwitch.click();
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
+  await expect(themeSwitch).toHaveAttribute("aria-pressed", "false");
+  await expect(themeSwitch.locator("[data-theme-label]")).toHaveText("Dark");
+  await expect(page.locator('meta[name="theme-color"]')).toHaveAttribute(
+    "content",
+    "#f8f9fc",
+  );
   await page.reload();
-  await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
+  await expect(page.locator("html")).toHaveAttribute("data-theme", "light");
 });
 
 test("starting point and lost flow route to useful guidance", async ({

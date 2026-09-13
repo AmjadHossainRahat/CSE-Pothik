@@ -135,7 +135,7 @@ test("new careers can be compared together", async ({ page }) => {
     ).toBeChecked();
 });
 
-for (const width of [320, 390, 768, 1280, 1600])
+for (const width of [390, 768, 1280, 1600])
   for (const locale of ["en", "bn"])
     for (const theme of ["light", "dark"]) {
       test(`${locale} ${theme} project and infrastructure layouts fit ${width}px`, async ({

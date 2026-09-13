@@ -46,12 +46,12 @@ export const collaborators: Collaborator[] = [
     name: siteConfig.creator,
     url: siteConfig.creatorUrl,
     role: {
-      en: "Idea, Creator and AI Agent Orchestrator, Reviewer and Quality Control",
-      bn: "আইডিয়া, নির্মাতা ও AI Agent Orchestrator · Reviewer ও Quality Control",
+      en: "Idea, Prompting, AI Agent Orchestrating, Review and Quality Control",
+      bn: "আইডিয়া, Prompting, AI Agent Orchestration, Review ও Quality Control",
     },
     contribution: {
-      en: "Originated the idea, orchestrated the AI agents, reviewed their output and retained responsibility for requirements, product decisions and final quality.",
-      bn: "মূল ধারণাটি তৈরি করেছেন, AI agent-গুলোর কাজ পরিচালনা করেছেন, তাদের output review করেছেন এবং requirement, product decision ও চূড়ান্ত মানের দায়িত্ব রেখেছেন।",
+      en: "Originated the idea, designed and refined the prompts, orchestrated the AI agents, reviewed their output and retained responsibility for requirements, product decisions and final quality.",
+      bn: "মূল ধারণাটি তৈরি করেছেন, prompt তৈরি ও পরিমার্জন করেছেন, AI agent-গুলোর কাজ পরিচালনা করেছেন, তাদের output review করেছেন এবং requirement, product decision ও চূড়ান্ত মানের দায়িত্ব রেখেছেন।",
     },
   },
   {

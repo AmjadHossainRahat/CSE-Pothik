@@ -72,13 +72,16 @@ for (const file of htmlFiles) {
     failures.push(`${label}: noindex page should preserve crawlable links`);
   }
   const footer = html.match(/<footer\b[\s\S]*?<\/footer>/i)?.[0] ?? "";
+  const expectedCreatorRole = label.startsWith("bn/")
+    ? "AI Agent Orchestration"
+    : "AI Agent Orchestrating";
   for (const credit of [
     "https://roadmap.sh/",
     "https://mayurjp.github.io/architect-prep/",
     "https://amirulislamalmamun.com/",
     "https://amjadhossainrahat.github.io/",
     "Amjad Hossain",
-    "Orchestrator",
+    expectedCreatorRole,
     "ChatGPT",
     "Codex",
   ]) {

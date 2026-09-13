@@ -63,10 +63,10 @@ The homepage “Find my next step” block is an orientation router, not a conte
 ## Language, theme and visual experience
 
 - English and Bangla have equivalent static routes and localized metadata.
-- Light and dark themes use shared semantic tokens.
+- Dark is the first-visit default; an explicit Light choice is stored locally. Both themes use shared semantic tokens and preserve feature parity.
 - Desktop uses a persistent intent-grouped sidebar; mobile/tablet uses an accessible native drawer.
 - Breadcrumbs, search, language and theme share one sticky context bar.
-- Layouts are tested at 320, 390, 768, 1280 and 1600 pixels.
+- Layouts are supported and tested from 390px, with explicit coverage at 390, 768, 1280 and 1600 pixels.
 - The homepage uses an inclusive three-person technology scene and an AI study-partner illustration; provenance is documented in [illustrations.md](../illustrations.md).
 
 ## Product boundaries

@@ -73,9 +73,10 @@ const otherLocale: Locale = locale === "en" ? "bn" : "en";
         data-light-label={copy.light}
         data-dark-label={copy.dark}
         aria-label={copy.theme}
+        aria-pressed="true"
       >
         <span aria-hidden="true" data-theme-icon>◐</span>
-        <span class="theme-label" data-theme-label>{copy.dark}</span>
+        <span class="theme-label" data-theme-label>{copy.light}</span>
       </button>
     </div>
   </div>

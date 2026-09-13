@@ -1,11 +1,11 @@
 # CSE-Pothik — DESIGN.md
 
-> **Status:** Product and UI/UX baseline  
-> **Product type:** Fully static bilingual career-navigation and mentoring website for CSE students  
-> **Default language:** English  
-> **Optional language:** Bangla  
-> **Default theme:** Light  
-> **Optional theme:** Dark  
+> **Status:** Product and UI/UX baseline
+> **Product type:** Fully static bilingual career-navigation and mentoring website for CSE students
+> **Default language:** English
+> **Optional language:** Bangla
+> **Default theme:** Dark
+> **Optional theme:** Light
 > **Hosting target:** GitHub Pages
 
 ---
@@ -372,7 +372,7 @@ Secondary CTA:
 
 The hero should feel open, calm and editorial—not like a dashboard.
 
-On phones, place the purpose, headline, explanation and primary action before the artwork. Keep the primary action fully visible in the tested 320×720 and 390×844 initial viewports, in English and Bangla; do not shrink text below readable sizes or hide the artwork to achieve this. Use shared typed bilingual copy from `src/data/homepage.ts`.
+On phones, place the purpose, headline, explanation and primary action before the artwork. Keep the primary action fully visible at the supported 390×844 mobile baseline, in English and Bangla; do not shrink text below readable sizes or hide the artwork to achieve this. Use shared typed bilingual copy from `src/data/homepage.ts`. Widths below 390px are not part of the supported or tested layout contract.
 
 The localized About page carries the complete origin story, not the homepage. Present promise → orientation gap → urgent search → practical recovery as a compact four-stage visual sequence, then state Purpose and Goal explicitly. Acknowledge the familiar late-stage question in social-media groups without shaming students for seeking help: the painful part is needing the map only after time and confidence feel scarce. Purpose: offer the early orientation many students wish they had and a calm route back later. Goal: reveal work behind career titles, test fit through small experiments, build durable foundations and connect the student to one practical next step. Mention independent and orientation-class use without implying university endorsement. Keep the story, homepage summary and tests grounded in shared bilingual `sitePurpose` data, with natural conversational Bangla rather than English sentence order.
 
@@ -919,6 +919,9 @@ fictional engineering failure case, kind humor and stage-specific next steps.
 Use a scannable section index and native optional story/prompt disclosures.
 Publish one complete prompt designed specifically to generate and recheck this
 page, not the user's conversational request or a history of draft prompts.
+Keep the disclosure concise: show the prompt itself, the scoped OpenAI prompting
+reference and a short closing recheck note without extra prompt-optimization or
+token-efficiency commentary around it.
 Separate runtime selection from prompt instructions, then state role, exact task,
 evidence rules, required structure, writing contract and stopping condition.
 Credit Amjad's purpose/publication decision and GPT-6 Astra (High)'s research
@@ -1084,7 +1087,7 @@ Not:
 - cyberpunk interface;
 - stock-photo education site.
 
-### 20.2 Light theme — default
+### 20.2 Light theme — optional
 
 Recommended palette direction:
 
@@ -1111,7 +1114,7 @@ Indicative tokens:
 
 These values are starting points, not excuses to skip contrast testing.
 
-### 20.3 Dark theme — optional
+### 20.3 Dark theme — default
 
 Dark mode should feel like:
 
@@ -1541,7 +1544,7 @@ This site is inspired in part by:
 
 The site must remain visually and editorially original and must not reproduce their content.
 
-**Project provenance:** [Amjad Hossain](https://amjadhossainrahat.github.io/) contributed the idea and is the creator, AI Agent Orchestrator, reviewer and quality controller. His name links in a new tab to his intended GitHub Pages portfolio; keep that canonical portfolio URL even while the separate portfolio site is not yet published. ChatGPT assisted with idea polishing plus requirement/design analysis and finalization. Codex using **GPT-5.6 Sol (High)** and **GPT-6 Astra (High)** handled implementation and iteration, including testing and bug fixing, under Amjad's review. Preserve human agency and distinguish these roles; do not imply affiliation or endorsement by the inspiration projects or AI providers.
+**Project provenance:** [Amjad Hossain](https://amjadhossainrahat.github.io/) contributed the idea, prompting, AI agent orchestrating, review and quality control. His name links in a new tab to his intended GitHub Pages portfolio; keep that canonical portfolio URL even while the separate portfolio site is not yet published. ChatGPT assisted with idea polishing plus requirement/design analysis and finalization. Codex using **GPT-5.6 Sol (High)** and **GPT-6 Astra (High)** handled implementation and iteration, including testing and bug fixing, under Amjad's review. Preserve human agency and distinguish these roles; do not imply affiliation or endorsement by the inspiration projects or AI providers.
 
 Make this acknowledgment discoverable, not hidden behind an ambiguous label: every localized page has a compact footer section with direct roadmap.sh, Architect Prep and Amirul Islam links, the three contribution roles, and a “Full credits” link to localized About `#credits`. About includes a direct jump link, contextual inspiration explanations and fuller collaboration history. Keep student navigation ahead of credits in the footer and do not add another homepage content section or a primary-navigation item solely for attribution. All credit copy must have English/Bangla parity and remain readable in both themes without JavaScript.
 

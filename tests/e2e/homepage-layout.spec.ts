@@ -142,7 +142,7 @@ for (const locale of ["en", "bn"] as const) {
     const context = await browser.newContext({
       javaScriptEnabled: false,
       reducedMotion: "reduce",
-      viewport: { width: 320, height: 720 },
+      viewport: { width: 390, height: 844 },
     });
     try {
       const page = await context.newPage();
@@ -329,7 +329,6 @@ test("the unified breadcrumb top bar remains visible below only the mobile heade
     },
   ]) {
     for (const viewport of [
-      { width: 320, height: 780, expectedTop: 72 },
       { width: 390, height: 844, expectedTop: 72 },
       { width: 768, height: 1024, expectedTop: 72 },
       { width: 1280, height: 900, expectedTop: 0 },

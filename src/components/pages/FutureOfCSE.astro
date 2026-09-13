@@ -485,13 +485,6 @@ const structuredData = [
               : "The complete prompt behind this page"
           }
         </h2>
-        <p>
-          {
-            bn
-              ? "এটিই এই প্রকাশিত ‘CSE-এর ভবিষ্যৎ’ পেজের পেছনের একক generation prompt। GPT-6 Astra এবং High reasoning আগে app বা API-তে বেছে নিতে হয়; prompt-টি model বদলায় না, বরং তার কাজ, প্রমাণের মান, সীমা ও output নির্দিষ্ট করে। Amjad Hossain উদ্দেশ্য ও প্রকাশনার সিদ্ধান্ত ঠিক করেছেন; GPT-6 Astra (High) ১২ সেপ্টেম্বর ২০২৬ পর্যন্ত পাওয়া প্রমাণ থেকে বিশ্লেষণ ও খসড়া তৈরি করেছে। এটি AI-র বিশ্লেষণ—OpenAI-এর আনুষ্ঠানিক পূর্বাভাস নয়।"
-              : "This is the single generation prompt behind the published Future of CSE page. GPT-6 Astra and High reasoning must be selected in the app or API first; the prompt does not switch the model—it defines the job, evidence standard, boundaries and output. Amjad Hossain set the purpose and publication decision; GPT-6 Astra (High) analyzed and drafted from evidence available through 12 September 2026. This is AI analysis, not an official OpenAI forecast."
-          }
-        </p>
         <details class="outlook-prompt">
           <summary
             >{
@@ -507,20 +500,6 @@ const structuredData = [
               : "English page-generation prompt"}>{futureGenerationPrompt}</pre>
         </details>
         <p>
-          {
-            bn
-              ? "Prompt-টি অযথা ইতিহাস বা একই কথা বারবার না রেখে সাতটি জিনিস স্পষ্ট করে: runtime, দায়িত্ব, নির্দিষ্ট কাজ, প্রমাণের নিয়ম, পেজের কাঠামো, লেখার ধরন ও কখন গবেষণা থামবে। তাই অন্য কেউ একই পেজ পুনরায় যাচাই বা হালনাগাদ করতে চাইলে প্রয়োজনীয় context এক জায়গাতেই পাবেন।"
-              : "The prompt removes history and repetition while making seven things explicit: runtime, role, exact task, evidence rules, page structure, writing contract and stopping condition. Someone rechecking or updating this page therefore gets the necessary context in one place."
-          }
-        </p>
-        <p>
-          {
-            bn
-              ? "এটি এই পেজের জন্য যত্ন করে optimized করা prompt; সব ধরনের কাজের জন্য ‘সর্বশ্রেষ্ঠ prompt’—এমন দাবি নয়। কম শব্দ মানেই মোট token কম হবে, সেটিও নিশ্চিত নয়। একই prompt আবার চালালেও ভাষা হুবহু এক হবে না; তাই source ও যুক্তি আবার যাচাই করতে হবে।"
-              : "This prompt is carefully optimized for this page; it is not claimed to be the universal or mathematically best prompt. Fewer input words do not guarantee lower total token use. Another run may not reproduce the exact wording, so its sources and reasoning still need review."
-          }
-        </p>
-        <p>
           <a
             href="https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6-astra#prompting-best-practices"
             target="_blank"
@@ -530,11 +509,7 @@ const structuredData = [
               bn ? "OpenAI-এর prompting নির্দেশনা" : "OpenAI prompting guidance"
             }
             <span aria-hidden="true">↗</span></a
-          > · {
-            bn
-              ? "Prompt গঠনের সহায়ক সূত্র; চাকরির পূর্বাভাসের প্রমাণ নয়।"
-              : "A prompt-design reference, not evidence for the job outlook."
-          }
+          > · {bn ? "Prompt গঠনের সহায়ক সূত্র।" : "A prompt-design reference."}
         </p>
         <p>
           {

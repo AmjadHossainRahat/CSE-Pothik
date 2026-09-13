@@ -105,7 +105,7 @@ test("first-role content remains usable without JavaScript", async ({
   await context.close();
 });
 
-test("first-role guide fits five widths, both themes and both languages", async ({
+test("first-role guide fits four widths, both themes and both languages", async ({
   page,
 }, testInfo) => {
   test.skip(testInfo.project.name === "mobile", "Responsive matrix runs once");
@@ -113,7 +113,6 @@ test("first-role guide fits five widths, both themes and both languages", async 
   for (const locale of ["en", "bn"] as const) {
     for (const theme of ["light", "dark"] as const) {
       for (const [width, height] of [
-        [320, 720],
         [390, 844],
         [768, 1024],
         [1280, 800],

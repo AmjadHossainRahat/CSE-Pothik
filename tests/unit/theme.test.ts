@@ -8,8 +8,10 @@ describe("theme helpers", () => {
     expect(isTheme("system")).toBe(false);
   });
 
-  it("defaults to light", () => {
-    expect(resolveTheme(undefined)).toBe("light");
+  it("defaults to dark", () => {
+    expect(resolveTheme(undefined)).toBe("dark");
+    expect(resolveTheme("sepia")).toBe("dark");
+    expect(resolveTheme("light")).toBe("light");
     expect(resolveTheme("dark")).toBe("dark");
   });
 });

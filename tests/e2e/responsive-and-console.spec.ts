@@ -4,7 +4,6 @@ const basePath = (process.env.BASE_PATH ?? "").replace(/\/$/, "");
 const route = (path: string) => `${basePath}${path}`;
 
 const viewports = [
-  { name: "small-mobile", width: 320, height: 720 },
   { name: "mobile", width: 390, height: 844 },
   { name: "tablet", width: 768, height: 1024 },
   { name: "desktop", width: 1280, height: 800 },

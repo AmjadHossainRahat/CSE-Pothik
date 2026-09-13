@@ -22,6 +22,27 @@ for (const locale of ["en", "bn"] as const) {
     await expect(page.locator(".outlook-byline")).toContainText(
       "GPT-6 Astra (High)",
     );
+    const promptSection = page.locator("#prompt");
+    await expect(promptSection).not.toContainText(
+      locale === "en"
+        ? "This is the single generation prompt"
+        : "পেজের পেছনের একক generation prompt",
+    );
+    await expect(promptSection).not.toContainText(
+      locale === "en"
+        ? "The prompt removes history and repetition"
+        : "Prompt-টি অযথা ইতিহাস",
+    );
+    await expect(promptSection).not.toContainText(
+      locale === "en"
+        ? "This prompt is carefully optimized"
+        : "যত্ন করে optimized করা prompt",
+    );
+    await expect(promptSection).toContainText(
+      locale === "en"
+        ? "A prompt-design reference."
+        : "Prompt গঠনের সহায়ক সূত্র।",
+    );
     await expect(page.locator("html")).toHaveAttribute("lang", locale);
     await expect(page.locator(".evidence-list article")).toHaveCount(4);
     for (const source of futureEvidence) {
@@ -89,7 +110,7 @@ for (const locale of ["en", "bn"] as const) {
   });
 
   for (const theme of ["light", "dark"] as const) {
-    test(`${locale} ${theme} outlook fits five widths with expanded detail`, async ({
+    test(`${locale} ${theme} outlook fits four widths with expanded detail`, async ({
       page,
     }, testInfo) => {
       test.skip(
@@ -106,7 +127,7 @@ for (const locale of ["en", "bn"] as const) {
         (value) => localStorage.setItem("cse-pothik-theme", value),
         theme,
       );
-      for (const width of [320, 390, 768, 1280, 1600]) {
+      for (const width of [390, 768, 1280, 1600]) {
         await page.setViewportSize({ width, height: 900 });
         await page.goto(route(locale));
         await expect(page.locator("html")).toHaveAttribute("data-theme", theme);

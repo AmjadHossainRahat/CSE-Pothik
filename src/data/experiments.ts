@@ -192,8 +192,8 @@ const seeds: ExperimentSeed[] = [
         "Keyboard আর touch-এ কাজ করা details reveal যোগ করুন।",
       ),
       l(
-        "Test at 320 px and 1024 px; fix wrapping and focus order.",
-        "320 px আর 1024 px-এ test করে wrapping আর focus order fix করুন।",
+        "Test at 390 px and 1024 px; fix wrapping and focus order.",
+        "390 px আর 1024 px-এ test করে wrapping আর focus order fix করুন।",
       ),
       l(
         "Ask one person to use it without coaching; improve one point of confusion.",
