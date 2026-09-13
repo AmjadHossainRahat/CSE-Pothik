@@ -1,5 +1,6 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import ContextualVoices from "@/components/common/ContextualVoices.astro";
 import ResourceList from "@/components/common/ResourceList.astro";
 import { localePath, withBase } from "@/config/site";
 import { resourceById } from "@/data/resources";
@@ -199,7 +200,7 @@ const topics = bn
     </h1><p class="lede">
       {
         bn
-          ? "এই page কোনো tutorial library নয়। প্রতিটি ধারণা কেন লাগে, কখন শেখা ভালো, এখন কতটা গভীরতা দরকার আর ছোট করে কী practice করবে—সেটি বলে।"
+          ? "এই page কোনো tutorial library নয়। প্রতিটি ধারণা কেন লাগে, কখন শেখা ভালো, এখন কতটা গভীরতা দরকার আর ছোট করে কী practice করবেন—সেটি বলে।"
           : "This is not a tutorial library. It explains why each idea matters, when to learn it, how deep to go now and what small practice makes it real."
       }
     </p>
@@ -218,7 +219,7 @@ const topics = bn
         </h2><p>
           {
             bn
-              ? "AI output যত বাড়ে, review-এর দায়ও তত বাড়ে। এই ধারণাগুলো fancy vocabulary নয়—generated code merge করার আগে কোথায় প্রশ্ন করবে, কীভাবে complexity কমাবে আর failure সামলাবে, তার practical lens।"
+              ? "AI output যত বাড়ে, review-এর দায়ও তত বাড়ে। এই ধারণাগুলো fancy vocabulary নয়—generated code merge করার আগে কোথায় প্রশ্ন করবেন, কীভাবে complexity কমাবেন আর failure সামলাবেন, তার practical lens।"
               : "As AI output grows, so does the responsibility to review it. These ideas are not decorative vocabulary; they are practical lenses for questioning generated code, reducing needless complexity and containing failure before you merge."
           }
         </p>
@@ -254,7 +255,7 @@ const topics = bn
               "defensive-programming",
               "05",
               "Defensive",
-              bn ? "Failure সামলাও" : "Contain failure",
+              bn ? "Failure সামলান" : "Contain failure",
             ],
           ].map(([id, number, label, action]) => (
             <li>
@@ -314,7 +315,7 @@ const topics = bn
                     </div>
                     <div>
                       <>
-                        <dt>{bn ? "কখন শিখবে" : "When to learn it"}</dt>
+                        <dt>{bn ? "কখন শিখবেন" : "When to learn it"}</dt>
                         <dd>{when}</dd>
                       </>
                     </div>
@@ -399,6 +400,22 @@ const topics = bn
   </section>
   <section class="section">
     <div class="container">
+      <ContextualVoices
+        locale={locale}
+        contextId="foundation-voices"
+        ids={[
+          "jhankar-why-learn-programming-with-ai",
+          "hasan-coding-is-not-enough",
+        ]}
+        title={{
+          en: "Motivation for depth, followed by practice",
+          bn: "Depth গড়ার motivation নিন, তারপর practice করুন",
+        }}
+        introduction={{
+          en: "These perspectives connect programming and engineering judgment to employability. Listen for the argument, then test it by improving one real project below.",
+          bn: "Programming, engineering judgment আর employability-এর সম্পর্ক বুঝতে perspective দুটি শুনুন। যুক্তিটি শুনে নিচের কাজ দিয়ে একটি real project উন্নত করে যাচাই করুন।",
+        }}
+      />
       <p class="eyebrow">{bn ? "এবার কী করবেন" : "Next step"}</p><h2>
         {
           bn

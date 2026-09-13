@@ -303,7 +303,7 @@ Primary navigation should be **problem-oriented**, not just conventional site ta
 
 Use one problem-oriented navigation model at every viewport. On wide screens it is a persistent labeled left sidebar; on phones and tablets it becomes a compact sticky header and native full-width menu drawer. Group links by student intent rather than exposing an unexplained taxonomy:
 
-- **Start here:** Home, Find my next step, New to CSE, First software role, I’m Lost;
+- **Start here:** Home, New to CSE, First software role, I’m Lost;
 - **Discover:** Career paths, Compare careers, Try real work;
 - **Prepare:** Learning roadmaps, Goal plans, Final-year project, Learning resources;
 - **Future:** AI & your career;
@@ -399,6 +399,8 @@ This section should be concise. Three carefully combined statements may cover th
 ### 10.3 Bangladesh Technology Voices
 
 Use the supplied public videos and podcast episodes from practitioners, leaders and educators as a curated perspective set—not anonymous quotations, a social feed or a popularity ranking.
+
+Reuse small, relevant two-item subsets in the new-student, feel-behind, first-software-role, software-foundations and AI guides. Place each subset beside the decision or action it explains, link onward to the complete ordered watchlist, and explicitly return the learner to the page's practical next step. These perspectives can motivate and add local context; they must not replace the guide, hiring evidence or primary technical sources.
 
 The homepage shows only two starting perspectives: whether choosing CSE was a mistake, and why programming still matters when AI can produce code. A complete watchlist belongs at `/resources/#industry-voices` in this pedagogical order:
 
@@ -882,11 +884,12 @@ Treat first-role transition as a distinct student problem, not as career discove
 
 Use **Target → Strengthen → Present → Practise → Apply → Improve**. Let visitors jump directly from project hygiene, CV/portfolio, interview preparation, applications or stalled feedback. Teach one genuine post-project improvement through an issue, short branch, test, pull request/review and small release; never suggest rewriting history or fabricating teamwork. Include 90-second, five-minute and fifteen-minute project walkthroughs, evidence-based CV language, safe public-repository checks, a private application log and opportunity-quality questions.
 
-State clearly that ACM/ICPC is a valuable optional practice track rather than a universal junior-job prerequisite. Place an early three-route decision before the longer guide:
+State clearly that ACM/ICPC is a valuable optional practice track rather than a universal junior-job prerequisite. Place an early four-route decision before the longer guide:
 
 1. **Strong competitive problem solving:** verify the actual assessment format, keep the algorithmic advantage and close practical gaps in projects, Git, testing and debugging.
 2. **Some but inconsistent problem solving:** maintain a bounded weekly DSA baseline while building role evidence in parallel.
 3. **Little CP or low algorithm confidence:** do not self-reject; investigate suitable frontend/UI, mobile, QA/testing, implementation/support and junior-development responsibilities while building a minimum problem-solving floor and one reviewable artifact.
+4. **Programming and project evidence both need rebuilding:** present this as a bounded recovery route, not a shortcut or verdict. Build a minimum language/debugging baseline and one small, honest, reviewable vertical slice before expanding applications.
 
 These are evidence-based entry strategies, not ranked identities or easy back doors. Each route needs a clear signal, what to do now, what to do next and an apply-when checkpoint. Some local hiring pipelines may give problem solving and OOP substantial weight, including for well-paid entry roles; other roles may evaluate different evidence. Keep employer guidance generic and name no local company. Give a bounded role/employer-specific DSA and engineering baseline, and connect to the deeper competitive-programming guide when relevant. Treat CGPA as one useful signal beside verifiable work. Diagnose patterns across suitable applications without presenting rejection as a score or verdict. No interview/offer promise, live vacancy aggregation, account or progress tracking.
 

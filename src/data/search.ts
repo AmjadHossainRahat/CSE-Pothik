@@ -171,8 +171,8 @@ const directoryEntries: SearchEntry[] = [
       "Software industry-তে ঢোকার route বেছে নিন",
     ),
     description: l(
-      "Use a strong-CP, balanced or role-evidence route to decide what to practise now and when to apply for an internship, trainee or junior role.",
-      "Strong-CP, balanced বা role-evidence route ধরে এখন কী practice করবে আর কখন internship, trainee বা junior role-এ apply করবে—তা ঠিক করুন।",
+      "Choose a strong-CP, balanced, role-evidence or recovery route to decide what to practise now and when to apply for an internship, trainee or junior role.",
+      "Strong-CP, balanced, role-evidence বা recovery route ধরে এখন কী practice করবেন আর কখন internship, trainee বা junior role-এ apply করবেন—তা ঠিক করুন।",
     ),
     keywords: l(
       "intern internship trainee junior graduate first job software developer local industry competitive programming ACM CP weak problem solving no CP cv resume portfolio interview application",

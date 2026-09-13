@@ -1,5 +1,6 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import ContextualVoices from "@/components/common/ContextualVoices.astro";
 import { localePath, withBase } from "@/config/site";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { Locale } from "@/types/content";
@@ -144,6 +145,19 @@ const plan = bn
   </section>
   <section class="section section--tinted">
     <div class="container">
+      <ContextualVoices
+        locale={locale}
+        contextId="new-student-voices"
+        ids={["jhankar-cse-decision-2026", "jhankar-student-life-red-flags"]}
+        title={{
+          en: "Settle the noise, then begin the plan",
+          bn: "আগে noise কমান, তারপর plan শুরু করুন",
+        }}
+        introduction={{
+          en: "Use these perspectives to examine the CSE decision and student habits. Motivation is useful only when it returns you to the 12-week actions above.",
+          bn: "CSE বেছে নেওয়ার সিদ্ধান্ত ও student-life-এর অভ্যাস যাচাই করতে এই perspective দুটি শুনুন। Motivation তখনই কাজে লাগে, যখন সেটি আপনাকে ওপরের ১২ সপ্তাহের কাজে ফিরিয়ে আনে।",
+        }}
+      />
       <h2>
         {bn ? "এরপর ক্যারিয়ারের জগৎটা দেখুন" : "Then see the landscape"}
       </h2><div class="next-actions">

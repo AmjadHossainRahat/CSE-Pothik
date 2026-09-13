@@ -1,5 +1,6 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import ContextualVoices from "@/components/common/ContextualVoices.astro";
 import { localePath, withBase } from "@/config/site";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import type { Locale } from "@/types/content";
@@ -180,7 +181,7 @@ const bn = locale === "bn";
         </h2><p>
           {
             bn
-              ? "যে ঘাটতিটি লক্ষ্যের পথে বাধা, সেটি আগে মেটাও। Job-ready মানে সব জানা নয়; দরকারি সমস্যা নিজে সমাধান, ব্যাখ্যা, শেখা আর উন্নত করতে পারা।"
+              ? "যে ঘাটতিটি লক্ষ্যের পথে বাধা, সেটি আগে মেটান। Job-ready মানে সব জানা নয়; দরকারি সমস্যা নিজে সমাধান, ব্যাখ্যা, শেখা আর উন্নত করতে পারা।"
               : "Close the relevant gaps. Job-ready does not mean knowing everything; it means solving, explaining, learning and improving useful problems with growing independence."
           }
         </p>
@@ -197,6 +198,22 @@ const bn = locale === "bn";
   </section>
   <section class="section">
     <div class="container">
+      <ContextualVoices
+        locale={locale}
+        contextId="recovery-voices"
+        ids={[
+          "jhankar-student-life-red-flags",
+          "nafis-problem-solving-mistakes",
+        ]}
+        title={{
+          en: "Use motivation to restart—not to compare",
+          bn: "Motivation নিন আবার শুরু করতে—তুলনা করতে নয়",
+        }}
+        introduction={{
+          en: "These perspectives can help you audit lost time and practise problem solving differently. Watch one, write one change, then return to the recovery cycle.",
+          bn: "সময় কোথায় নষ্ট হয়েছে এবং problem solving-এর practice কীভাবে বদলাবেন—এই perspective দুটি তা ভাবতে সাহায্য করতে পারে। একটি দেখুন, একটি পরিবর্তন লিখুন, তারপর recovery cycle-এ ফিরে আসুন।",
+        }}
+      />
       <h2>
         {
           bn

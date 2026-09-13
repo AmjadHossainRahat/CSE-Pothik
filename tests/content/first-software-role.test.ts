@@ -11,6 +11,7 @@ const hasLocalizedCopy = (value: { en: string; bn: string }) =>
 describe("first software role transition guide", () => {
   it("supports distinct starting bottlenecks and a complete evidence-to-application cycle", () => {
     expect(guide.starts.map((start) => start.id)).toEqual([
+      "recovery",
       "project",
       "presentation",
       "interview",
@@ -31,7 +32,9 @@ describe("first software role transition guide", () => {
       expect(
         guide.stages.some(
           (stage) => start.destination === `stage-${stage.id}`,
-        ) || start.destination === "feedback-loop",
+        ) ||
+          start.destination === "feedback-loop" ||
+          start.destination === "entry-route-recovery",
       ).toBe(true);
     }
     for (const stage of guide.stages) {
@@ -53,11 +56,12 @@ describe("first software role transition guide", () => {
     expect(guide.pitfalls.length).toBeGreaterThanOrEqual(4);
   });
 
-  it("offers honest entry routes for strong, developing and low-CP baselines", () => {
+  it("offers honest entry routes for strong, developing, low-CP and recovery baselines", () => {
     expect(guide.entryRoutes.map((route) => route.id)).toEqual([
       "algorithmic",
       "balanced",
       "role-evidence",
+      "recovery",
     ]);
     for (const route of guide.entryRoutes) {
       expect(hasLocalizedCopy(route.title)).toBe(true);
@@ -70,6 +74,9 @@ describe("first software role transition guide", () => {
     }
     expect(JSON.stringify(guide.entryRoutes)).toMatch(/local hiring pipelines/);
     expect(JSON.stringify(guide.entryRoutes)).toMatch(/do not self-reject/i);
+    expect(JSON.stringify(guide.entryRoutes)).toMatch(
+      /Programming and project evidence both need rebuilding/,
+    );
     expect(JSON.stringify(guide.entryRoutes)).not.toMatch(
       /guaranteed|guarantee a job/i,
     );

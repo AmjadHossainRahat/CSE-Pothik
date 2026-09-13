@@ -244,7 +244,7 @@ export const teamPlaybooks: ProjectPlaybook[] = [
         title: l("Resolve conflicts together", "Conflict একসঙ্গে বুঝুন"),
         body: l(
           "Agree who coordinates overlapping edits. If main changed, merge origin/main into your feature branch after fetching, resolve the intended behavior with the other author, then rerun tests and push. Never choose “ours/theirs” blindly or use reset --hard to make a conflict disappear. If the update is confusing, pause and ask for a paired review before changing shared history.",
-          "Overlapping edit কে coordinate করবে ঠিক করুন। Main বদলালে fetch-এর পরে feature branch-এ origin/main merge করে অন্য author-এর সঙ্গে intended behavior বুঝে conflict মেটাও; আবার test ও push করুন। অন্ধভাবে “ours/theirs” বা reset --hard দিয়ে conflict লুকাবেন না। Update অস্পষ্ট হলে shared history বদলানোর আগে pair review করুন।",
+          "Overlapping edit কে coordinate করবেন ঠিক করুন। Main বদলালে fetch-এর পরে feature branch-এ origin/main merge করে অন্য author-এর সঙ্গে intended behavior বুঝে conflict মেটান; আবার test ও push করুন। অন্ধভাবে “ours/theirs” বা reset --hard দিয়ে conflict লুকাবেন না। Update অস্পষ্ট হলে shared history বদলানোর আগে pair review করুন।",
         ),
       },
       {

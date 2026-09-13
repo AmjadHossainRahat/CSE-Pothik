@@ -1,0 +1,113 @@
+---
+import { localePath, withBase } from "@/config/site";
+import { industryVoiceById } from "@/data/industry-voices";
+import { t } from "@/lib/i18n";
+import type { Locale, LocalizedText } from "@/types/content";
+
+interface Props {
+  locale: Locale;
+  ids: string[];
+  title: LocalizedText;
+  introduction: LocalizedText;
+  contextId: string;
+}
+
+const { locale, ids, title, introduction, contextId } = Astro.props;
+const bn = locale === "bn";
+const voices = ids.map((id) => {
+  const voice = industryVoiceById.get(id);
+  if (!voice) throw new Error(`Unknown industry voice: ${id}`);
+  return voice;
+});
+---
+
+<aside class="contextual-voices" aria-labelledby={`${contextId}-title`}>
+  <header>
+    <p class="eyebrow">
+      {bn ? "প্রাসঙ্গিক বাংলাদেশি perspective" : "Relevant Bangladesh voices"}
+    </p>
+    <h2 id={`${contextId}-title`}>{t(title, locale)}</h2>
+    <p>{t(introduction, locale)}</p>
+  </header>
+  <ul role="list">
+    {
+      voices.map((voice) => (
+        <li>
+          <h3>
+            <a
+              href={voice.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-describedby="external-link-description"
+              data-track-event="learning_resource_clicked"
+              data-track-param-resource-id={`industry-voice-${voice.id}`}
+              data-track-param-provider={voice.publisher}
+            >
+              {t(voice.title, locale)} <span aria-hidden="true">▶</span>
+            </a>
+          </h3>
+          <p class="voice-byline">
+            {voice.speaker} · {voice.publisher}
+          </p>
+          <p>{t(voice.focus, locale)}</p>
+        </li>
+      ))
+    }
+  </ul>
+  <a
+    class="collection-link"
+    href={withBase(localePath(locale, "/resources/#industry-voices"))}
+  >
+    {bn ? "৯টি episode সাজানো ক্রমে দেখুন" : "See all 9 in deliberate order"}
+    <span aria-hidden="true">→</span>
+  </a>
+</aside>
+
+<style>
+  .contextual-voices {
+    margin-block: 2rem;
+    padding: clamp(1.25rem, 3vw, 2rem);
+    border: 1px solid var(--color-border-strong);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+  }
+  header > p:last-child {
+    max-width: 72ch;
+    color: var(--color-text-muted);
+  }
+  h2 {
+    font-size: clamp(1.35rem, 2.4vw, 1.9rem);
+  }
+  ul {
+    display: grid;
+    gap: 1rem;
+    margin-block: 1.25rem;
+    padding: 0;
+  }
+  li {
+    min-width: 0;
+    margin: 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+  }
+  h3 {
+    margin-bottom: 0.35rem;
+    font-size: 1.05rem;
+  }
+  li p {
+    margin-block: 0.35rem 0;
+  }
+  .voice-byline {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+  .collection-link {
+    font-weight: 800;
+  }
+  @media (min-width: 52rem) {
+    ul {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+</style>

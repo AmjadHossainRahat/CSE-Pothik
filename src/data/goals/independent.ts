@@ -216,7 +216,7 @@ export const independentGoals: GoalGuide[] = [
         title: l("Product / software business", "Product / software business"),
         description: l(
           "Serve a repeated need across customers. Validate adoption and willingness to pay; account for acquisition, ongoing hosting, security and support.",
-          "একাধিক customer-এর repeated need মেটাও। Adoption আর payment willingness যাচাই; acquisition, ongoing hosting, security আর support হিসাব করুন।",
+          "একাধিক customer-এর repeated need মেটান। Adoption আর payment willingness যাচাই করুন; acquisition, ongoing hosting, security আর support হিসাব করুন।",
         ),
       },
     ],

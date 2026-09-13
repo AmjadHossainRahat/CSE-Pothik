@@ -164,7 +164,7 @@ export const lostChoices: LostChoice[] = [
     ),
     response: l(
       "Follow the ordered Bangladesh technology watchlist: settle the anxiety, strengthen your thinking, then understand the working world. Compare every perspective with evidence.",
-      "বাংলাদেশের tech professionals-দের সাজানো watchlist দেখুন: আগে দুশ্চিন্তা সামলাও, ভাবনার ভিত শক্ত করুন, তারপর কাজের জগৎ বুঝুন। প্রতিটি মতামত evidence দিয়ে মিলিয়ে নিন।",
+      "বাংলাদেশের tech professionals-দের সাজানো watchlist দেখুন: আগে দুশ্চিন্তা সামলান, ভাবনার ভিত শক্ত করুন, তারপর কাজের জগৎ বুঝুন। প্রতিটি মতামত evidence দিয়ে মিলিয়ে নিন।",
     ),
     destination: {
       en: "/resources/#industry-voices",
@@ -205,8 +205,8 @@ export const lostChoices: LostChoice[] = [
       "Software industry-তে ঢুকতে চাই, কিন্তু কোন route আমার জন্য বুঝছি না।",
     ),
     response: l(
-      "Choose among a strong-CP route, a balanced foundation-and-project route, or a role-evidence route. Then prepare for the actual hiring format and run a focused application cycle.",
-      "Strong-CP route, foundation আর project পাশাপাশি গড়ার route, অথবা role-evidence route—নিজের অবস্থার সঙ্গে মিলিয়ে একটি বেছে নিন। তারপর আসল hiring format-এর প্রস্তুতি নিয়ে focused application cycle চালান।",
+      "Choose a route for strong CP, balanced growth, role evidence, or rebuilding both programming and project evidence. Then prepare for the actual hiring format and run a focused application cycle.",
+      "Strong CP, foundation ও project পাশাপাশি গড়া, role evidence, অথবা programming ও project evidence—দুটিই নতুন করে গড়ার route থেকে নিজের অবস্থার সঙ্গে মেলে এমনটি বেছে নিন। এরপর আসল hiring format-এর প্রস্তুতি নিয়ে focused application cycle চালান।",
     ),
     destination: {
       en: "/guidance/first-software-role/#entry-routes",

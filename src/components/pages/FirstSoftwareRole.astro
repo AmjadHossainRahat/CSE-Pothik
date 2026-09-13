@@ -1,5 +1,6 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import ContextualVoices from "@/components/common/ContextualVoices.astro";
 import { careerById } from "@/data/careers";
 import { firstSoftwareRoleGuide as guide } from "@/data/first-software-role";
 import { guidanceSourceById } from "@/data/guidance-sources";
@@ -33,7 +34,7 @@ const sections = [
     id: "feedback-loop",
     title: bn ? "ফল দেখে পরিকল্পনা বদলান" : "Read the response",
   },
-  { id: "traps", title: bn ? "যে ফাঁদগুলো এড়াবে" : "Traps to avoid" },
+  { id: "traps", title: bn ? "যে ফাঁদগুলো এড়াবেন" : "Traps to avoid" },
   { id: "this-week", title: bn ? "এই সপ্তাহের cycle" : "This week's cycle" },
   {
     id: "sources",
@@ -175,8 +176,8 @@ const structuredData = [
         <h2>
           {
             bn
-              ? "আজ আপনার problem-solving অবস্থার সঙ্গে মেলে—এমন route বেছে নিন।"
-              : "Choose the route that matches your problem-solving baseline today."
+              ? "আজ আপনার problem-solving আর project evidence-এর সঙ্গে মেলে—এমন route বেছে নিন।"
+              : "Choose the route that matches your problem-solving and project evidence today."
           }
         </h2>
         <p class="stage-why">
@@ -237,6 +238,20 @@ const structuredData = [
         </div>
       </section>
 
+      <ContextualVoices
+        locale={locale}
+        contextId="first-role-voices"
+        ids={["hasan-coding-is-not-enough", "jhankar-ai-and-junior-jobs"]}
+        title={{
+          en: "Hear the changing expectations—then act on your route",
+          bn: "বদলে যাওয়া expectation শুনুন—তারপর নিজের route ধরে কাজ করুন",
+        }}
+        introduction={{
+          en: "These local perspectives explain why coding output alone may be insufficient and how junior expectations are changing. Use them for context, then return to the evidence and application cycle below.",
+          bn: "শুধু coding output কেন যথেষ্ট নাও হতে পারে এবং junior role-এর expectation কীভাবে বদলাচ্ছে—এই local perspective দুটি তা বুঝতে সাহায্য করবে। Context নিন, তারপর নিচের evidence ও application cycle-এ ফিরে আসুন।",
+        }}
+      />
+
       {
         guide.stages.map((stage, index) => (
           <section class="role-section role-stage" id={`stage-${stage.id}`}>
@@ -247,7 +262,7 @@ const structuredData = [
             </p>
             <h2>{t(stage.title, locale)}</h2>
             <p class="stage-why">{t(stage.why, locale)}</p>
-            <h3>{bn ? "যা করবে" : "What to do"}</h3>
+            <h3>{bn ? "যা করবেন" : "What to do"}</h3>
             <ul class="task-list">
               {stage.tasks.map((task) => (
                 <li>{t(task, locale)}</li>

@@ -1,5 +1,6 @@
 ---
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import ContextualVoices from "@/components/common/ContextualVoices.astro";
 import { aiCareerPath, localePath, withBase } from "@/config/site";
 import { careers } from "@/data/careers";
 import { t } from "@/lib/i18n";
@@ -16,7 +17,7 @@ const bn = locale === "bn";
   locale={locale}
   title={bn ? "AI ও আপনার CSE ক্যারিয়ার" : "AI & Your CSE Career"}
   description={bn
-    ? "মনগড়া replacement percentage নয়—কোন কাজে AI-এর প্রভাব বেশি, কোন দক্ষতা টিকবে আর AI নিয়ে নিরাপদে কীভাবে শিখবে, তা বুঝুন।"
+    ? "মনগড়া replacement percentage নয়—কোন কাজে AI-এর প্রভাব বেশি, কোন দক্ষতা কাজে লাগবে আর AI নিয়ে নিরাপদে কীভাবে শিখবেন, তা বুঝুন।"
     : "Understand Task Automation Exposure, durable capabilities and how to learn with AI without fake replacement percentages or dependency."}
 >
   <Breadcrumbs
@@ -80,6 +81,26 @@ const bn = locale === "bn";
           </p>
         </div>
       </div>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <ContextualVoices
+        locale={locale}
+        contextId="ai-career-voices"
+        ids={[
+          "jhankar-why-learn-programming-with-ai",
+          "jhankar-ai-and-junior-jobs",
+        ]}
+        title={{
+          en: "Pair the task model with local experience",
+          bn: "Task model-এর সঙ্গে local experience মিলিয়ে দেখুন",
+        }}
+        introduction={{
+          en: "Use these discussions to examine why programming still matters and what may change for junior roles. Return to the task evidence on this page before accepting a broad claim.",
+          bn: "Programming কেন এখনও জরুরি এবং junior role-এ কী বদলাতে পারে—তা ভাবতে discussion দুটি শুনুন। কোনো বড় দাবি মেনে নেওয়ার আগে এই পেজের task evidence-এ ফিরে আসুন।",
+        }}
+      />
     </div>
   </section>
   <section class="section section--tinted">
@@ -265,7 +286,7 @@ const bn = locale === "bn";
         </div><p class="lede">
           {
             bn
-              ? "নিজের target career খুলে কোন task automate হচ্ছে আর কোন capability deliberateভাবে build করবে দেখুন।"
+              ? "নিজের target career খুলে কোন task automate হচ্ছে আর কোন capability deliberateভাবে build করবেন—তা দেখুন।"
               : "Open a target career to see which tasks are exposed and which capabilities deserve deliberate practice."
           }
         </p>

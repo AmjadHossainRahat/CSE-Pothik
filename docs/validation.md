@@ -1,5 +1,22 @@
 # Validation records
 
+## Progressive path-finding and contextual motivation — 13 September 2026
+
+Removed the homepage-only “Find my next step” anchor from global navigation: it remains a concise orientation router on Home, while every sidebar item now resolves to a durable page. The first-software-role navigation opens the guide itself. Added a fourth, non-ranked recovery route for final-semester students and other entrants whose programming foundation and project evidence both need rebuilding. It gives a bounded first two weeks, an honest small-artifact workflow and a concrete apply-when checkpoint without promising a shortcut or treating CP as the only entrance.
+
+Added a reusable static contextual-video block. Focused two-item selections from the existing nine-video Bangladesh technology watchlist now support the new-student, feel-behind, first-role, software-foundations and AI guides. Each selection opens safely in a new tab, uses bounded analytics, links to the full deliberate watch order and directs the visitor back to a practical action. The videos remain context and motivation, not authority or a replacement for the guides.
+
+| Check                                | Result                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Format, lint, type and unit/content  | PASS after one stale expected-start-list correction; `yarn check` completed with 61/61 tests and Astro checked 174 files with zero errors, warnings or hints.                                                                                                                                                            |
+| Complete browser regression          | PASS on final rerun; 267 checks passed and 111 intentional duplicate-project/matrix checks were skipped. The initial run correctly exposed one stale three-route E2E expectation after the fourth route was added; the corrected test passed in both projects before the full rerun.                                     |
+| Accessibility                        | PASS; all 150 axe WCAG A/AA checks passed across representative English/Bangla, light/dark and desktop/mobile routes, including both first-role pages.                                                                                                                                                                   |
+| GitHub Pages build and SEO           | PASS; `/CSE-Pothik/` emitted 187 HTML pages / 212 files without warnings. Generated verification found no broken local URLs, SEO defects, placeholders or unfinished routes.                                                                                                                                             |
+| Share preview                        | PASS in generated output; canonical/OG URLs include `/CSE-Pothik/`, the home title and description are present, Twitter uses `summary_large_image`, and the 1730×909 social image has explicit dimensions and alt text.                                                                                                  |
+| Visual and first-time-visitor review | PASS within reviewed scope; the English desktop homepage plus first-role desktop/mobile captures were inspected. The recovery state is the first guide choice, the sticky index and top actions are visible, text remains contained, and the sidebar no longer advertises the homepage router as a separate destination. |
+
+No deployment, social-platform cache refresh, physical-device/Safari/Firefox check or live GA4 receipt verification was performed.
+
 ## Documentation structure, professional Bangla and collaboration credits — 13 September 2026
 
 Reduced the root README from 397 lines to a concise indexed repository entry point. Detailed product, engineering, content and community guidance now lives in four linked sub-README files. A content-integrity test protects the root length/index and resolves every local file link across the new documentation map.

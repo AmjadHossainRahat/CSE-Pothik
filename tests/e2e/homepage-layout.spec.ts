@@ -211,10 +211,7 @@ test("desktop sidebar and mobile drawer preserve the same navigation", async ({
     "aria-current",
     "page",
   );
-  await expect(page.locator('[data-nav-item="next-step"]')).not.toHaveAttribute(
-    "aria-current",
-    "page",
-  );
+  await expect(page.locator('[data-nav-item="next-step"]')).toHaveCount(0);
   await expect(page.locator('[data-nav-item="why"]')).toHaveAttribute(
     "href",
     route("/about/#why-this-exists"),

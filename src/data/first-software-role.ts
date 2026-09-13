@@ -99,8 +99,48 @@ export const firstSoftwareRoleGuide: FirstRoleGuide = {
       ),
       destination: "stage-target",
     },
+    {
+      id: "recovery",
+      title: l(
+        "Programming and project evidence both need rebuilding",
+        "Programming আর project evidence—দুটিই নতুন করে গড়তে হবে",
+      ),
+      signal: l(
+        "Graduation is close, but small programs are still difficult and your final-year or personal project is incomplete, hard to explain, mostly copied, or missing tests and a usable repository.",
+        "Graduation কাছে, কিন্তু ছোট program লিখতেও কষ্ট হয়। Final-year বা personal project-টি অসম্পূর্ণ, বুঝিয়ে বলা কঠিন, বেশির ভাগ copy করা, অথবা test ও ব্যবহারযোগ্য repository নেই।",
+      ),
+      strategy: l(
+        "Treat this as a recovery route, not a shortcut or a verdict. Choose one realistic role, rebuild a minimum programming floor and produce one small honest artifact in parallel. An internship, trainee or junior application cycle may start later than you hoped; fabricated confidence will only move the problem into the interview.",
+        "এটিকে recovery route হিসেবে নিন—shortcut বা আপনার যোগ্যতার চূড়ান্ত রায় হিসেবে নয়। বাস্তবসম্মত একটি role বেছে ন্যূনতম programming foundation এবং ছোট একটি সৎ artifact পাশাপাশি গড়ুন। Internship, trainee বা junior role-এ আবেদন হয়তো ভাবনার চেয়ে কিছুটা পরে শুরু হবে; বানানো আত্মবিশ্বাস শুধু সমস্যাটিকে interview পর্যন্ত নিয়ে যাবে।",
+      ),
+      now: l(
+        "For the first two weeks, use one language to practise input/output, conditions, loops, functions, arrays/strings and debugging. At the same time, select one role-relevant task small enough to finish rather than beginning another ambitious course or clone.",
+        "প্রথম দুই সপ্তাহ একটি language দিয়ে input/output, condition, loop, function, array/string আর debugging practice করুন। একই সময়ে role-এর সঙ্গে মেলে এবং শেষ করা সম্ভব—এমন ছোট একটি task ঠিক করুন; আরেকটি বড় course বা clone project শুরু করবেন না।",
+      ),
+      next: l(
+        "If part of the final-year project is genuinely yours, repair and document one vertical slice; otherwise build a smaller independent artifact. Track it with an issue, branch and commits; add tests, a README, a runnable result and one external review. Then practise explaining every decision and failure.",
+        "Final-year project-এর কোনো অংশ সত্যিই আপনার হলে একটি vertical slice ঠিক করে documentation যোগ করুন; না হলে আরও ছোট independent artifact বানান। Issue, branch ও commit দিয়ে কাজটি track করুন; test, README, runnable result এবং অন্য কারও একটি review যোগ করুন। এরপর প্রতিটি decision ও failure নিজের ভাষায় বোঝানোর practice করুন।",
+      ),
+      applyWhen: l(
+        "Start a focused application cycle when you can implement, test, debug and explain one small role-relevant feature without hiding behind generated code, and can handle the basic screening tasks seen repeatedly in real openings. Keep repairing foundations while applying.",
+        "Generated code-এর আড়ালে না থেকে role-এর সঙ্গে মেলে এমন ছোট একটি feature implement, test, debug ও explain করতে পারলে এবং আসল job posting-এ বারবার দেখা basic screening task সামলাতে পারলে focused application শুরু করুন। আবেদনের পাশাপাশি foundation মেরামত চালিয়ে যান।",
+      ),
+      destination: "stage-target",
+    },
   ],
   starts: [
+    {
+      id: "recovery",
+      title: l(
+        "My programming and project evidence are both weak.",
+        "Programming আর project evidence—দুটিই দুর্বল।",
+      ),
+      note: l(
+        "Use the recovery route before sending random applications or starting another large course.",
+        "এলোপাতাড়ি আবেদন বা আরেকটি বড় course শুরুর আগে recovery route নিন।",
+      ),
+      destination: "entry-route-recovery",
+    },
     {
       id: "project",
       title: l(
@@ -109,7 +149,7 @@ export const firstSoftwareRoleGuide: FirstRoleGuide = {
       ),
       note: l(
         "Strengthen the work you already understand before starting another large project.",
-        "আরেকটি বড় প্রজেক্টে ঝাঁপ দেওয়ার আগে, যে কাজটি ভালো বুঝুন সেটিকেই শক্ত করুন।",
+        "আরেকটি বড় প্রজেক্টে ঝাঁপ দেওয়ার আগে, যে কাজটি ভালো বোঝেন সেটিকেই শক্ত করুন।",
       ),
       destination: "stage-strengthen",
     },

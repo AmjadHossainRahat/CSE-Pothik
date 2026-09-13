@@ -3,6 +3,35 @@ import { expect, test } from "@playwright/test";
 const basePath = (process.env.BASE_PATH ?? "").replace(/\/$/, "");
 const route = (path: string) => `${basePath}${path}`;
 
+const contextualRoutes = [
+  "/guidance/new-cse-student/",
+  "/guidance/feel-behind/",
+  "/guidance/first-software-role/",
+  "/guidance/software-engineering-foundations/",
+  "/ai/",
+] as const;
+
+for (const locale of ["en", "bn"] as const) {
+  test(`${locale} guidance pages connect relevant local voices to action`, async ({
+    page,
+  }) => {
+    for (const path of contextualRoutes) {
+      await page.goto(route(`${locale === "bn" ? "/bn" : ""}${path}`));
+      const voices = page.locator(".contextual-voices");
+      await expect(voices).toBeVisible();
+      await expect(voices.locator("li")).toHaveCount(2);
+      for (const link of await voices.locator("li h3 a").all()) {
+        await expect(link).toHaveAttribute("target", "_blank");
+        await expect(link).toHaveAttribute("rel", "noopener noreferrer");
+      }
+      await expect(voices.locator(".collection-link")).toHaveAttribute(
+        "href",
+        route(`${locale === "bn" ? "/bn" : ""}/resources/#industry-voices`),
+      );
+    }
+  });
+}
+
 for (const locale of ["en", "bn"] as const) {
   test(`${locale} homepage introduces real local voices without adding a feed`, async ({
     page,

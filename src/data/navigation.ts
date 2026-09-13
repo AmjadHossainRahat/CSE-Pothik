@@ -27,12 +27,6 @@ export const navigationGroups: NavigationGroup[] = [
         match: "exact",
       },
       {
-        id: "next-step",
-        label: l("Find my next step", "এরপর কী করব?"),
-        path: "/#starting-point",
-        match: "none",
-      },
-      {
         id: "new-student",
         label: l("New to CSE", "CSE-তে নতুন"),
         path: "/guidance/new-cse-student/",
@@ -41,7 +35,7 @@ export const navigationGroups: NavigationGroup[] = [
       {
         id: "first-role",
         label: l("Enter software industry", "Software industry-তে ঢুকব"),
-        path: "/guidance/first-software-role/#entry-routes",
+        path: "/guidance/first-software-role/",
         match: "exact",
       },
       {

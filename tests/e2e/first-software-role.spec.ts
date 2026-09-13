@@ -12,13 +12,16 @@ for (const locale of ["en", "bn"] as const) {
     await expect(page.locator("h1")).toContainText(
       locale === "bn" ? "প্রথম সফটওয়্যার চাকরি" : "first software role",
     );
-    await expect(page.locator(".start-list a")).toHaveCount(5);
-    await expect(page.locator("[data-entry-route]")).toHaveCount(3);
+    await expect(page.locator(".start-list a")).toHaveCount(6);
+    await expect(page.locator("[data-entry-route]")).toHaveCount(4);
     await expect(page.locator("#entry-route-algorithmic")).toContainText(
       locale === "bn" ? "ভালো entry-level" : "well-paid entry roles",
     );
     await expect(page.locator("#entry-route-role-evidence")).toContainText(
       locale === "bn" ? "নিজেই নিজেকে বাদ দেবেন না" : "Do not self-reject",
+    );
+    await expect(page.locator("#entry-route-recovery")).toContainText(
+      locale === "bn" ? "দুটিই নতুন করে গড়তে হবে" : "both need rebuilding",
     );
     await expect(page.locator(".role-stage")).toHaveCount(6);
     await expect(page.locator("#interview-baseline")).toContainText(
@@ -50,10 +53,7 @@ test("first-role journey is discoverable from home, navigation and I’m Lost", 
   );
   await expect(
     page.locator('[data-nav-item="first-role"]').first(),
-  ).toHaveAttribute(
-    "href",
-    route("/guidance/first-software-role/#entry-routes"),
-  );
+  ).toHaveAttribute("href", route("/guidance/first-software-role/"));
   await page.goto(route("/im-lost/"));
   const choice = page.locator('[data-lost-choice="first-role"]');
   await expect(choice).toHaveAttribute(
@@ -66,10 +66,14 @@ test("local-industry and competitive-programming guidance expose all entry lanes
   page,
 }) => {
   await page.goto(route("/goals/local-industry/"));
-  await expect(page.locator(".industry-entry-list a")).toHaveCount(3);
+  await expect(page.locator(".industry-entry-list a")).toHaveCount(4);
   await expect(page.locator(".industry-entry-list a").first()).toHaveAttribute(
     "href",
     route("/guidance/first-software-role/#entry-route-algorithmic"),
+  );
+  await expect(page.locator(".industry-entry-list a").last()).toHaveAttribute(
+    "href",
+    route("/guidance/first-software-role/#entry-route-recovery"),
   );
 
   await page.goto(route("/guidance/competitive-programming/"));

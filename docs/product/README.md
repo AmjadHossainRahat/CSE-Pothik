@@ -56,7 +56,9 @@ The first-role guide supports students with strong, developing or limited Compet
 
 ### Bangladesh technology perspectives
 
-Nine supplied videos and podcasts are ordered as perspectives from local leaders and practitioners, not authority or endorsement. Two appear on the homepage; the complete sequence is under Learning Resources. Links open in a new tab without embeds, autoplay or remote thumbnails.
+Nine supplied videos and podcasts are ordered as perspectives from local leaders and practitioners, not authority or endorsement. Two appear on the homepage; small context-specific pairs also appear in the new-student, recovery, first-role, software-foundations and AI guides. Each contextual pair returns the visitor to a concrete action and links to the complete sequence under Learning Resources. Links open in a new tab without embeds, autoplay or remote thumbnails.
+
+The homepage “Find my next step” block is an orientation router, not a content page. It is intentionally absent from the global sidebar. The sidebar links to durable destinations, while the router progressively reveals situation-specific paths. The first-role guide includes four honest entry strategies, including a recovery route for visitors whose programming foundation and project evidence both need rebuilding.
 
 ## Language, theme and visual experience
 

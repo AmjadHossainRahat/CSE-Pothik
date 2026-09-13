@@ -222,7 +222,7 @@ export interface FirstRoleGuide {
   summary: LocalizedText;
   reality: LocalizedText;
   entryRoutes: {
-    id: "algorithmic" | "balanced" | "role-evidence";
+    id: "algorithmic" | "balanced" | "role-evidence" | "recovery";
     title: LocalizedText;
     signal: LocalizedText;
     strategy: LocalizedText;

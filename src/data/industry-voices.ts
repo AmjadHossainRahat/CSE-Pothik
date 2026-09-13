@@ -26,7 +26,7 @@ export const industryVoiceStages: Array<{
     title: l("1 · Ground yourself", "১ · আগে নিজেকে স্থির করুন"),
     description: l(
       "Start with the decision you already made and the habits that can still change. Do not begin with salary or panic.",
-      "যে সিদ্ধান্ত নিয়েই ফেলেছ আর যে অভ্যাসগুলো এখনও বদলাতে পারেন—সেখান থেকেই শুরু করুন। শুরুটা salary কিংবা ভয় দিয়ে না হলেই ভালো।",
+      "যে সিদ্ধান্ত নিয়েই ফেলেছেন আর যে অভ্যাসগুলো এখনও বদলাতে পারেন—সেখান থেকেই শুরু করুন। শুরুটা salary কিংবা ভয় দিয়ে না হলেই ভালো।",
     ),
   },
   {
@@ -93,7 +93,7 @@ export const industryVoices: IndustryVoice[] = [
     stageId: "strengthen",
     title: l(
       "Why learn programming when AI can code?",
-      "AI আসছে তবুও কেন প্রোগ্রামিং শিখবে?",
+      "AI আসছে, তবু programming কেন শিখবেন?",
     ),
     originalTitle: "AI আসছে তবুও কেন প্রোগ্রামিং শিখবে?",
     speaker: "Jhankar Mahbub",

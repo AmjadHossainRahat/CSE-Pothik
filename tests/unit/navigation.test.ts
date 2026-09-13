@@ -62,7 +62,6 @@ describe("global navigation", () => {
     const compare = items.find((item) => item.id === "compare")!;
     const why = items.find((item) => item.id === "why")!;
     const home = items.find((item) => item.id === "home")!;
-    const nextStep = items.find((item) => item.id === "next-step")!;
 
     expect(
       isNavigationItemActive("/careers/backend-engineering/", careers),
@@ -72,6 +71,6 @@ describe("global navigation", () => {
     expect(isNavigationItemActive("/compare/", compare)).toBe(true);
     expect(isNavigationItemActive("/about/", why)).toBe(true);
     expect(isNavigationItemActive("/", home)).toBe(true);
-    expect(isNavigationItemActive("/", nextStep)).toBe(false);
+    expect(items.some((item) => item.id === "next-step")).toBe(false);
   });
 });
