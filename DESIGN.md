@@ -74,7 +74,7 @@ Do not translate the product name into Bangla. Surrounding copy should be natura
 
 Example Bangla positioning direction:
 
-> **CSE-তে কোন দিকে এগোবে—সেটা বুঝতে সাহায্য করার practical mentor.**
+> **CSE-তে কোন দিকে এগোবেন—সেটা বুঝতে সাহায্য করার practical mentor.**
 
 This is tone guidance, not a mandatory fixed tagline.
 
@@ -914,15 +914,15 @@ US percentages to Bangladesh. Include what would change the outlook, a clearly
 fictional engineering failure case, kind humor and stage-specific next steps.
 
 Use a scannable section index and native optional story/prompt disclosures.
-Publish the expanded working brief actually used, labelled as such rather than
-as a verbatim conversation or hidden instruction. Bangla is independently
-conversational. Recheck evolving evidence before changing the dated narrative.
-
-Keep prompt provenance versioned: preserve the original drafting brief and label
-later reusable refinements separately. Credit Amjad's direction and AI-assisted
-expansion honestly. Explain context, goal, evidence, output, authority boundaries
-and a useful stopping rule without claiming the prompt is an empirical optimum
-or that fewer input words guarantee lower total token usage.
+Publish one complete prompt designed specifically to generate and recheck this
+page, not the user's conversational request or a history of draft prompts.
+Separate runtime selection from prompt instructions, then state role, exact task,
+evidence rules, required structure, writing contract and stopping condition.
+Credit Amjad's purpose/publication decision and GPT-6 Astra (High)'s research
+narration honestly. Do not claim the prompt is a universal or empirically proven
+optimum, that fewer input words guarantee lower total token usage, or that a new
+run reproduces exact wording. Bangla is independently conversational. Recheck
+evolving evidence before changing the dated narrative.
 
 AI guidance is a first-class product pillar.
 
@@ -1037,7 +1037,7 @@ English:
 
 Natural Bangla:
 
-> এখনও প্রথম API-টাই deploy করোনি। Kubernetes একটু অপেক্ষা করতেই পারে।
+> এখনও প্রথম API-টাই deploy করেননি। Kubernetes একটু অপেক্ষা করতেই পারে।
 
 ### 19.3 Localize humor and examples
 
@@ -1538,7 +1538,7 @@ This site is inspired in part by:
 
 The site must remain visually and editorially original and must not reproduce their content.
 
-**Project provenance:** [Amjad Hossain](https://amjadhossainrahat.github.io/) is the Creator & Orchestrator. He shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed implementation and refinement using Codex. His name links in a new tab to his intended GitHub Pages portfolio; keep that canonical portfolio URL even while the separate portfolio site is not yet published. ChatGPT assisted with requirement engineering and product/design planning; Codex using **GPT-5.6 Sol (High)** was used to build the site and assist with testing, fixes and iteration. Preserve human agency and distinguish these roles; do not imply affiliation or endorsement by the inspiration projects or AI providers.
+**Project provenance:** [Amjad Hossain](https://amjadhossainrahat.github.io/) contributed the idea and is the creator, AI Agent Orchestrator, reviewer and quality controller. His name links in a new tab to his intended GitHub Pages portfolio; keep that canonical portfolio URL even while the separate portfolio site is not yet published. ChatGPT assisted with idea polishing plus requirement/design analysis and finalization. Codex using **GPT-5.6 Sol (High)** and **GPT-6 Astra (High)** handled implementation and iteration, including testing and bug fixing, under Amjad's review. Preserve human agency and distinguish these roles; do not imply affiliation or endorsement by the inspiration projects or AI providers.
 
 Make this acknowledgment discoverable, not hidden behind an ambiguous label: every localized page has a compact footer section with direct roadmap.sh, Architect Prep and Amirul Islam links, the three contribution roles, and a “Full credits” link to localized About `#credits`. About includes a direct jump link, contextual inspiration explanations and fuller collaboration history. Keep student navigation ahead of credits in the footer and do not add another homepage content section or a primary-navigation item solely for attribution. All credit copy must have English/Bangla parity and remain readable in both themes without JavaScript.
 

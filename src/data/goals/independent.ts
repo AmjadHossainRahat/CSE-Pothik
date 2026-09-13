@@ -174,7 +174,7 @@ export const independentGoals: GoalGuide[] = [
     ),
     thisWeek: l(
       "Write one service brief and finish a small demonstration. Ask one suitable person whether the problem is real—without trying to sell before listening.",
-      "এক service brief লিখে ছোট demonstration শেষ করুন। একজন উপযুক্ত মানুষকে সমস্যা বাস্তব কি না জিজ্ঞেস করুন—শোনার আগে বিক্রি করতে যেও না।",
+      "এক service brief লিখে ছোট demonstration শেষ করুন। একজন উপযুক্ত মানুষকে সমস্যা বাস্তব কি না জিজ্ঞেস করুন—শোনার আগে বিক্রি করতে যাবেন না।",
     ),
     careerIds: [
       "frontend-engineering",

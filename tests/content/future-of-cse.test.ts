@@ -3,13 +3,12 @@ import {
   futureCapabilities,
   futureDescription,
   futureEvidence,
+  futureGenerationPrompt,
   futureNarrator,
-  futureOriginalPrompt,
   futurePath,
   futureReviewDate,
   futureScenarios,
   futureTitle,
-  futureWorkingPrompt,
 } from "../../src/data/future-of-cse";
 import {
   isNavigationItemActive,
@@ -57,13 +56,19 @@ describe("future-of-CSE editorial", () => {
       "compression",
       "deeper-automation",
     ]);
-    expect(futureWorkingPrompt).toContain("Do not claim freedom from bias");
-    expect(futureOriginalPrompt).toContain("not a verbatim user message");
-    expect(futureWorkingPrompt).toContain("Boundaries:");
-    expect(futureWorkingPrompt).toContain("Efficiency:");
-    expect(futureWorkingPrompt.length).toBeLessThan(
-      futureOriginalPrompt.length,
+    expect(futureGenerationPrompt).toContain(
+      "Runtime (configure before running): GPT-6 Astra with High reasoning.",
     );
+    expect(futureGenerationPrompt).toContain(
+      "Create the complete bilingual editorial for /future-of-cse/",
+    );
+    expect(futureGenerationPrompt).toContain("Evidence rules:");
+    expect(futureGenerationPrompt).toContain("Required structure:");
+    expect(futureGenerationPrompt).toContain("Writing contract:");
+    expect(futureGenerationPrompt).toContain(
+      "Output only the publish-ready article",
+    );
+    expect(futureGenerationPrompt).toContain("Do not reveal chain-of-thought");
   });
 
   it("is discoverable with one active Future destination and bilingual search", () => {

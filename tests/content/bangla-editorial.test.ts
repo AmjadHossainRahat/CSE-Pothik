@@ -25,8 +25,38 @@ describe("Bangla editorial voice", () => {
     })
       .filter((path) => /\.(astro|ts)$/.test(path))
       .map((path) => readFileSync(resolve("src", path), "utf8"));
+    const familiarAddress = [
+      "তুই",
+      "তোকে",
+      "তোর",
+      "তুমি",
+      "তোমার",
+      "তোমাকে",
+      "তোমরা",
+      "তোমাদের",
+      "করো",
+      "কোরো",
+      "করোনি",
+      "ভেসো",
+      "যেও",
+      "এসো",
+      "মাপো",
+      "দেখো",
+      "শোনো",
+      "ভাবো",
+      "বোঝো",
+      "রাখো",
+      "লিখো",
+      "শিখো",
+      "থামো",
+      "ভুলো",
+      "এগোবে",
+    ];
+    const familiarAddressPattern = new RegExp(
+      `(?<![\\u0980-\\u09ff])(?:${familiarAddress.join("|")})(?![\\u0980-\\u09ff])`,
+    );
     for (const source of siteSources) {
-      expect(source).not.toMatch(/তুমি|তোমার|তোমাকে|তোমরা|তোমাদের/);
+      expect(source).not.toMatch(familiarAddressPattern);
     }
     expect(siteSources.join("\n")).toMatch(/আপনি|আপনার/);
   });

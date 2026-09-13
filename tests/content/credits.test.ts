@@ -27,16 +27,20 @@ describe("project credits", () => {
       "ChatGPT",
       "Codex",
     ]);
-    expect(collaborators[0]!.role.en).toContain("Orchestrator");
+    expect(collaborators[0]!.role.en).toBe(
+      "Idea, Creator and AI Agent Orchestrator, Reviewer and Quality Control",
+    );
     expect(collaborators[0]!.name).toBe("Amjad Hossain");
     expect(collaborators[0]!.url).toBe(siteConfig.creatorUrl);
     expect(siteConfig.creatorUrl).toBe("https://amjadhossainrahat.github.io/");
-    expect(collaborators[1]!.role.en).toBe("Requirements & design");
+    expect(collaborators[1]!.role.en).toBe(
+      "Idea polishing, Requirement and Design analysis and finalizing",
+    );
     expect(collaborators[2]!.role.en).toBe(
-      "Implementation & iteration · GPT-5.6 Sol (High)",
+      "Implementation & Iteration · GPT-5.6 Sol (High) and GPT-6 Astra (High)",
     );
     expect(collaborators[2]!.contribution.en).toMatch(
-      /GPT-5\.6 Sol.*High reasoning effort/,
+      /GPT-5\.6 Sol.*GPT-6 Astra.*High reasoning/,
     );
   });
 

@@ -45,29 +45,35 @@ export const collaborators: Collaborator[] = [
   {
     name: siteConfig.creator,
     url: siteConfig.creatorUrl,
-    role: { en: "Creator & Orchestrator", bn: "উদ্যোক্তা ও Orchestrator" },
+    role: {
+      en: "Idea, Creator and AI Agent Orchestrator, Reviewer and Quality Control",
+      bn: "আইডিয়া, নির্মাতা ও AI Agent Orchestrator · Reviewer ও Quality Control",
+    },
     contribution: {
-      en: "Shaped the vision, finalized the requirements and design through extended discussions with ChatGPT, and directed Codex through implementation and refinement.",
-      bn: "সাইটের লক্ষ্য নির্ধারণ করেছেন, ChatGPT-এর সঙ্গে দীর্ঘ আলোচনায় requirement ও design চূড়ান্ত করেছেন এবং Codex দিয়ে implementation ও পরিমার্জনের কাজ পরিচালনা করেছেন।",
+      en: "Originated the idea, orchestrated the AI agents, reviewed their output and retained responsibility for requirements, product decisions and final quality.",
+      bn: "মূল ধারণাটি তৈরি করেছেন, AI agent-গুলোর কাজ পরিচালনা করেছেন, তাদের output review করেছেন এবং requirement, product decision ও চূড়ান্ত মানের দায়িত্ব রেখেছেন।",
     },
   },
   {
     name: "ChatGPT",
-    role: { en: "Requirements & design", bn: "Requirement ও design" },
+    role: {
+      en: "Idea polishing, Requirement and Design analysis and finalizing",
+      bn: "আইডিয়া পরিমার্জন · Requirement ও design বিশ্লেষণ এবং চূড়ান্তকরণ",
+    },
     contribution: {
-      en: "Helped explore ideas, clarify requirements and refine the product experience and design through conversation with the creator.",
-      bn: "উদ্যোক্তার সঙ্গে আলোচনায় ধারণা যাচাই, requirement স্পষ্ট করা এবং product experience ও design পরিমার্জনে সহায়তা করেছে।",
+      en: "Helped polish the initial idea, analyze alternatives and turn extended discussion into finalized product requirements and design direction.",
+      bn: "প্রাথমিক আইডিয়া পরিমার্জন, বিকল্প বিশ্লেষণ এবং দীর্ঘ আলোচনাকে চূড়ান্ত product requirement ও design direction-এ রূপ দিতে সহায়তা করেছে।",
     },
   },
   {
     name: "Codex",
     role: {
-      en: "Implementation & iteration · GPT-5.6 Sol (High)",
-      bn: "Implementation ও পরিমার্জন · GPT-5.6 Sol (High)",
+      en: "Implementation & Iteration · GPT-5.6 Sol (High) and GPT-6 Astra (High)",
+      bn: "Implementation ও iteration · GPT-5.6 Sol (High) এবং GPT-6 Astra (High)",
     },
     contribution: {
-      en: "The creator used Codex with GPT-5.6 Sol at High reasoning effort to build the site from the agreed requirements and design, and to assist with testing, bug fixes and subsequent improvements.",
-      bn: "চূড়ান্ত requirement ও design থেকে সাইট তৈরি, test, bug fix এবং পরবর্তী উন্নয়নে উদ্যোক্তা GPT-5.6 Sol-এর High reasoning effort-সহ Codex ব্যবহার করেছেন।",
+      en: "Implemented and iterated on the approved requirements and design, including testing and bug fixing, using GPT-5.6 Sol and GPT-6 Astra with High reasoning.",
+      bn: "অনুমোদিত requirement ও design অনুযায়ী implementation, iteration, testing ও bug fixing-এ GPT-5.6 Sol এবং GPT-6 Astra—দুটিই High reasoning-সহ ব্যবহৃত হয়েছে।",
     },
   },
 ];

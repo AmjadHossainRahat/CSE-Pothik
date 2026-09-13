@@ -5,13 +5,12 @@ import {
   futureCapabilities,
   futureDescription,
   futureEvidence,
+  futureGenerationPrompt,
   futureNarrator,
-  futureOriginalPrompt,
   futurePath,
   futureReviewDate,
   futureScenarios,
   futureTitle,
-  futureWorkingPrompt,
 } from "@/data/future-of-cse";
 import { t } from "@/lib/i18n";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -29,7 +28,7 @@ const sections = [
   ["scenarios", bn ? "কোন দিকে যেতে পারে" : "Possible futures"],
   ["foundations", bn ? "ভিত্তিটা কেন দরকার" : "Why foundations matter"],
   ["next-step", bn ? "এখন কী করবেন" : "Your next step"],
-  ["prompt", bn ? "লেখার পেছনের prompt" : "The working prompt"],
+  ["prompt", bn ? "পেজ তৈরির prompt" : "The page-generation prompt"],
 ] as const;
 const canonical = new URL(href(futurePath), Astro.site).href;
 const structuredData = [
@@ -443,7 +442,7 @@ const structuredData = [
             </h3><p>
               {
                 bn
-                  ? "একটি ছোট কাজের সীমা, acceptance test, অনুমতি ও থামার শর্ত আগে ঠিক করুন। Generation-এর সঙ্গে review, debugging ও সংশোধনের সময়ও মাপো। Code বা গোপন তথ্য দেওয়ার আগে প্রতিষ্ঠানের অনুমতি দেখুন। Paid tool দিয়ে শুরু করতেই হবে না।"
+                  ? "একটি ছোট কাজের সীমা, acceptance test, অনুমতি ও থামার শর্ত আগে ঠিক করুন। Generation-এর সঙ্গে review, debugging ও সংশোধনের সময়ও মাপুন। Code বা গোপন তথ্য দেওয়ার আগে প্রতিষ্ঠানের অনুমতি দেখুন। Paid tool দিয়ে শুরু করতেই হবে না।"
                   : "Define one small task’s boundaries, acceptance tests, permissions and stop conditions. Include review, debugging and rework when measuring time saved. Check organizational permission before sharing code or private data. Paid tools are not a prerequisite."
               }
             </p><a href={href("/roadmaps/ai-engineering/#ai-systems-path")}
@@ -482,70 +481,48 @@ const structuredData = [
         <h2 id="prompt-title">
           {
             bn
-              ? "আমাকে শুধু ‘সত্য বলুন’ বললে যথেষ্ট হতো না।"
-              : "‘Tell me the truth’ would not have been enough."
+              ? "এই পেজ তৈরির সম্পূর্ণ prompt"
+              : "The complete prompt behind this page"
           }
         </h2>
         <p>
           {
             bn
-              ? "Amjad Hossain এই লেখার উদ্দেশ্য, পাঠকের প্রয়োজন ও মানের শর্ত ঠিক করেছেন। GPT-6 Astra (High) সেই নির্দেশনা থেকে বিস্তারিত prompt তৈরি ও পরিমার্জন করেছে। নিচের v2 আবার ব্যবহার করার জন্য সাজানো; প্রথম খসড়া v1 দিয়ে তৈরি হয়েছিল। কোনোটিই মূল কথোপকথনের হুবহু অনুলিপি নয়।"
-              : "Amjad Hossain set the purpose, reader needs and quality expectations. GPT-6 Astra (High) expanded and refined that direction into an editorial prompt. The reusable v2 below was refined after drafting; v1 shaped the original draft. Neither is a verbatim conversation transcript."
+              ? "এটিই এই প্রকাশিত ‘CSE-এর ভবিষ্যৎ’ পেজের পেছনের একক generation prompt। GPT-6 Astra এবং High reasoning আগে app বা API-তে বেছে নিতে হয়; prompt-টি model বদলায় না, বরং তার কাজ, প্রমাণের মান, সীমা ও output নির্দিষ্ট করে। Amjad Hossain উদ্দেশ্য ও প্রকাশনার সিদ্ধান্ত ঠিক করেছেন; GPT-6 Astra (High) ১২ সেপ্টেম্বর ২০২৬ পর্যন্ত পাওয়া প্রমাণ থেকে বিশ্লেষণ ও খসড়া তৈরি করেছে। এটি AI-র বিশ্লেষণ—OpenAI-এর আনুষ্ঠানিক পূর্বাভাস নয়।"
+              : "This is the single generation prompt behind the published Future of CSE page. GPT-6 Astra and High reasoning must be selected in the app or API first; the prompt does not switch the model—it defines the job, evidence standard, boundaries and output. Amjad Hossain set the purpose and publication decision; GPT-6 Astra (High) analyzed and drafted from evidence available through 12 September 2026. This is AI analysis, not an official OpenAI forecast."
           }
         </p>
         <details class="outlook-prompt">
           <summary
             >{
               bn
-                ? "পরিমার্জিত সম্পূর্ণ prompt পড়ুন · v2"
-                : "Read the complete working prompt · refined v2"
+                ? "পেজ তৈরির সম্পূর্ণ prompt পড়ুন"
+                : "Read the complete page-generation prompt"
             }</summary
           ><pre
             lang="en"
             tabindex="0"
             aria-label={bn
-              ? "পুনরায় ব্যবহারের ইংরেজি prompt"
-              : "Reusable English working prompt"}>{futureWorkingPrompt}</pre>
-        </details>
-        <details class="outlook-prompt-history">
-          <summary
-            >{
-              bn
-                ? "প্রথম খসড়ার prompt দেখুন · v1"
-                : "See the original drafting prompt · v1"
-            }</summary
-          >
-          <pre
-            lang="en"
-            tabindex="0"
-            aria-label={bn
-              ? "প্রথম খসড়ার ইংরেজি prompt"
-              : "Original English drafting prompt"}>{futureOriginalPrompt}</pre>
+              ? "পেজ তৈরির ইংরেজি prompt"
+              : "English page-generation prompt"}>{futureGenerationPrompt}</pre>
         </details>
         <p>
           {
             bn
-              ? "v2-তে context, লক্ষ্য, প্রমাণের মান, দায়িত্বের সীমা, output আর কখন থামবে—আলাদা করে বলা আছে। প্রতিটি শর্ত এক জায়গায় রাখা হয়েছে। Model ও reasoning effort অ্যাপের setting-এ বেছে নেবেন; prompt-এ নাম লিখলেই model বদলায় না।"
-              : "v2 makes context, goal, evidence standards, responsibility boundaries, output and stopping criteria explicit. Each constraint has one place. Select the model and reasoning effort in your app settings; writing a model name in a prompt does not switch the model."
+              ? "Prompt-টি অযথা ইতিহাস বা একই কথা বারবার না রেখে সাতটি জিনিস স্পষ্ট করে: runtime, দায়িত্ব, নির্দিষ্ট কাজ, প্রমাণের নিয়ম, পেজের কাঠামো, লেখার ধরন ও কখন গবেষণা থামবে। তাই অন্য কেউ একই পেজ পুনরায় যাচাই বা হালনাগাদ করতে চাইলে প্রয়োজনীয় context এক জায়গাতেই পাবেন।"
+              : "The prompt removes history and repetition while making seven things explicit: runtime, role, exact task, evidence rules, page structure, writing contract and stopping condition. Someone rechecking or updating this page therefore gets the necessary context in one place."
           }
         </p>
         <p>
           {
             bn
-              ? "এটিকে ‘সবচেয়ে efficient’ বলছি না। ছোট prompt মানেই পুরো কাজের token কম—তা নয়; গবেষণা, reasoning, output আর সংশোধনেও খরচ হয়। একই মানদণ্ডে নির্ভুলতা, বাদ পড়া বিষয় ও মোট ব্যবহার মেপে তুলনা করতে হবে। এখানে এমন A/B পরীক্ষা করা হয়নি। পুনরায় ব্যবহার করতে চাইলে v2 নিন; ইতিহাসের v1 সঙ্গে পাঠানোর দরকার নেই।"
-              : "This is not a proven optimum. A shorter prompt does not guarantee lower total token use: research, reasoning, output and rework also cost tokens. Compare accuracy, omissions and total usage under the same evaluation criteria. No such A/B experiment was run here. For reuse, send v2 alone; the historical v1 need not accompany it."
-          }
-        </p>
-        <p>
-          {
-            bn
-              ? "ভালো prompt-এ পাঠক, প্রশ্ন, সূত্রের মান, বিপরীত প্রমাণ, অনিশ্চয়তার নিয়ম আর যাচাইয়ের শর্ত পরিষ্কার থাকে। তারপরও উত্তর নিজে যাচাই করতে হয়। একই prompt অন্য model বা অন্য দিনে একই উত্তর নিশ্চিত করে না।"
-              : "A useful prompt specifies the audience, question, evidence standard, counterevidence, uncertainty rules and verification criteria. It still needs checking. The same prompt does not guarantee the same answer from another model or on another day."
+              ? "এটি এই পেজের জন্য যত্ন করে optimized করা prompt; সব ধরনের কাজের জন্য ‘সর্বশ্রেষ্ঠ prompt’—এমন দাবি নয়। কম শব্দ মানেই মোট token কম হবে, সেটিও নিশ্চিত নয়। একই prompt আবার চালালেও ভাষা হুবহু এক হবে না; তাই source ও যুক্তি আবার যাচাই করতে হবে।"
+              : "This prompt is carefully optimized for this page; it is not claimed to be the universal or mathematically best prompt. Fewer input words do not guarantee lower total token use. Another run may not reproduce the exact wording, so its sources and reasoning still need review."
           }
         </p>
         <p>
           <a
-            href="https://developers.openai.com/api/docs/guides/prompt-engineering"
+            href="https://developers.openai.com/api/docs/guides/latest-model?model=gpt-6-astra#prompting-best-practices"
             target="_blank"
             rel="noopener noreferrer"
             aria-describedby="external-link-description"
@@ -624,7 +601,6 @@ const structuredData = [
     border-top: 1px solid var(--color-border);
   }
   .outlook-article h2 {
-    max-width: 32ch;
     font-size: clamp(1.55rem, 2.6vw, 2.25rem);
   }
   .outlook-article h3 {
@@ -677,21 +653,18 @@ const structuredData = [
     border-left: 3px solid var(--color-primary);
   }
   .outlook-story,
-  .outlook-prompt,
-  .outlook-prompt-history {
+  .outlook-prompt {
     margin-block: 1.5rem;
     padding: 1rem;
     border: 1px solid var(--color-border-strong);
     border-radius: var(--radius-md);
   }
   .outlook-story summary,
-  .outlook-prompt summary,
-  .outlook-prompt-history summary {
+  .outlook-prompt summary {
     cursor: pointer;
     font-weight: 700;
   }
-  .outlook-prompt pre,
-  .outlook-prompt-history pre {
+  .outlook-prompt pre {
     white-space: pre-wrap;
     overflow-wrap: anywhere;
     font-size: 0.9rem;

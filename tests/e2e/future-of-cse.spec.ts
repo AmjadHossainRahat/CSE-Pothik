@@ -1,8 +1,7 @@
 import { expect, test } from "@playwright/test";
 import {
   futureEvidence,
-  futureOriginalPrompt,
-  futureWorkingPrompt,
+  futureGenerationPrompt,
 } from "../../src/data/future-of-cse";
 
 const base = (process.env.BASE_PATH ?? "").replace(/\/$/, "");
@@ -75,21 +74,15 @@ for (const locale of ["en", "bn"] as const) {
     });
     const page = await context.newPage();
     await page.goto(route(locale));
-    for (const selector of [
-      ".outlook-story",
-      ".outlook-prompt",
-      ".outlook-prompt-history",
-    ]) {
+    for (const selector of [".outlook-story", ".outlook-prompt"]) {
       await page.locator(`${selector} summary`).focus();
       await page.keyboard.press("Enter");
       await expect(page.locator(selector)).toHaveAttribute("open", "");
     }
     await expect(page.locator(".outlook-prompt pre")).toHaveText(
-      futureWorkingPrompt,
+      futureGenerationPrompt,
     );
-    await expect(page.locator(".outlook-prompt-history pre")).toHaveText(
-      futureOriginalPrompt,
-    );
+    await expect(page.locator(".outlook-prompt-history")).toHaveCount(0);
     await page.locator(".nav-details summary").click();
     await expect(page.locator('[data-nav-item="future-of-cse"]')).toBeVisible();
     await context.close();
@@ -120,11 +113,7 @@ for (const locale of ["en", "bn"] as const) {
         await page.screenshot({
           path: testInfo.outputPath(`hero-${width}.png`),
         });
-        for (const selector of [
-          ".outlook-story",
-          ".outlook-prompt",
-          ".outlook-prompt-history",
-        ])
+        for (const selector of [".outlook-story", ".outlook-prompt"])
           await page.locator(`${selector} summary`).click();
         expect(
           await page.evaluate(
@@ -145,4 +134,18 @@ for (const locale of ["en", "bn"] as const) {
       expect(errors).toEqual([]);
     });
   }
+
+  test(`${locale} prompt heading uses the desktop article width`, async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1600, height: 900 });
+    await page.goto(route(locale));
+    const lines = await page.locator("#prompt-title").evaluate((heading) => {
+      const style = getComputedStyle(heading);
+      return (
+        heading.getBoundingClientRect().height / parseFloat(style.lineHeight)
+      );
+    });
+    expect(lines).toBeLessThan(1.25);
+  });
 }

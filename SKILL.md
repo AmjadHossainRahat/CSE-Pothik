@@ -606,11 +606,12 @@ expert. No AI SDK, runtime generation or extra client hydration is warranted.
 Test both themes/locales, prompt/story keyboard and no-JavaScript access, source
 link safety, responsive containment, equivalent routes and both deployment bases.
 
-Preserve the original prompt as `futureOriginalPrompt`; keep refined reusable
-instructions in `futureWorkingPrompt`. Render both with honest version labels,
-native disclosures, English language metadata and wrapped selectable text. Test
-expanded history as well as the current prompt. Do not claim measured token
-savings from word/character counts or run paid model evaluations without authority.
+Keep one `futureGenerationPrompt` tailored to generating and rechecking this
+page. Render it in a native disclosure with English language metadata and wrapped
+selectable text. Runtime/model selection remains outside the prompt. Test the
+complete disclosed prompt without preserving irrelevant draft history. Do not
+claim measured token savings, empirical optimality or exact reproducibility, and
+do not run paid model evaluations without authority.
 
 Avoid numeric replacement probabilities.
 
@@ -1430,7 +1431,7 @@ Create a clear `README.md` containing:
 - contribution workflow;
 - attribution/inspiration link to the relevant section of `DESIGN.md`.
 
-Visible attribution is implemented as static shared-footer content and localized About `#credits`, backed by typed bilingual `src/data/credits.ts` and the creator identity/portfolio URL in `src/config/site.ts`. Render Amjad Hossain's name as a new-tab link to the intended GitHub Pages portfolio at `https://amjadhossainrahat.github.io/` with safe `rel` attributes; retain this canonical destination even while the portfolio is not yet published. Keep all three inspiration URLs (roadmap.sh, Architect Prep and Amirul Islam), the distinct Orchestrator/ChatGPT/Codex roles, and the Codex model/effort credit **GPT-5.6 Sol (High)** in content-integrity coverage. Verify footer-to-About base-path links, creator-link semantics, keyboard/no-JavaScript use, English/Bangla, both themes and narrow-screen wrapping. Build verification must confirm footer credits on all generated HTML pages and the target anchors. Do not add client hydration or analytics just for credits.
+Visible attribution is implemented as static shared-footer content and localized About `#credits`, backed by typed bilingual `src/data/credits.ts` and the creator identity/portfolio URL in `src/config/site.ts`. Render Amjad Hossain's name as a new-tab link to the intended GitHub Pages portfolio at `https://amjadhossainrahat.github.io/` with safe `rel` attributes; retain this canonical destination even while the portfolio is not yet published. Keep all three inspiration URLs (roadmap.sh, Architect Prep and Amirul Islam) and the distinct roles: Amjad supplied the idea and serves as Creator, AI Agent Orchestrator, reviewer and quality controller; ChatGPT handled idea polishing plus requirement/design analysis and finalization; Codex using **GPT-5.6 Sol (High)** and **GPT-6 Astra (High)** handled implementation and iteration. Protect these credits with content-integrity coverage. Verify footer-to-About base-path links, creator-link semantics, keyboard/no-JavaScript use, English/Bangla, both themes and narrow-screen wrapping. Build verification must confirm footer credits on all generated HTML pages and the target anchors. Do not add client hydration or analytics just for credits.
 
 Cleanup must follow reference and entry-point checks, not simply remove files lacking imports: Astro routes, public assets, scripts, tests and configuration are legitimate entry points. Preserve current PNG masters and design references; retire only confirmed obsolete assets with recoverable history and synchronized provenance documentation.
 

@@ -136,9 +136,9 @@ The original two inspiration links and ChatGPT/Codex provenance already existed 
 
 Shared typed bilingual data now distinguishes:
 
-- [Amjad Hossain](https://amjadhossainrahat.github.io/): Creator & Orchestrator; vision, final requirements/design and direction of the build. The rendered credit opens his intended GitHub Pages portfolio in a new tab, using the canonical URL even before that separate site is published.
-- ChatGPT: conversation-assisted requirements and design.
-- Codex: implementation, testing assistance, fixes and iteration under the creator's direction.
+- [Amjad Hossain](https://amjadhossainrahat.github.io/): idea, Creator and AI Agent Orchestrator, reviewer and quality control. The rendered credit opens his intended GitHub Pages portfolio in a new tab, using the canonical URL even before that separate site is published.
+- ChatGPT: idea polishing, requirement and design analysis and finalizing.
+- Codex: implementation and iteration using GPT-5.6 Sol (High) and GPT-6 Astra (High), under the creator's review.
 
 The sources are [roadmap.sh](https://roadmap.sh/), [Architect Prep](https://mayurjp.github.io/architect-prep/) and [Amirul Islam](https://amirulislamalmamun.com/). Their concepts are acknowledged without copying their content or implying endorsement. The latest repository link check verified all three URLs with HTTP 200.
 

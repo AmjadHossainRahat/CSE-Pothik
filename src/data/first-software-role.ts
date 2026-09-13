@@ -31,7 +31,7 @@ export const firstSoftwareRoleGuide: FirstRoleGuide = {
       ),
       now: l(
         "Check the actual assessment format and choose one target role. Prepare the likely coding round instead of practising contests without an application target.",
-        "আসল assessment format দেখে একটি target role ঠিক করুন। কোথায় আবেদন করবে না জেনে শুধু contest problem বাড়িয়ে যেও না; সম্ভাব্য coding round-এর প্রস্তুতি নিন।",
+        "আসল assessment format দেখে একটি target role ঠিক করুন। কোথায় আবেদন করবেন তা না জেনে শুধু contest problem বাড়িয়ে যাবেন না; সম্ভাব্য coding round-এর প্রস্তুতি নিন।",
       ),
       next: l(
         "Close the practical gap with one project walkthrough, Git, testing, debugging, databases or HTTP as relevant, and clear communication about your decisions.",

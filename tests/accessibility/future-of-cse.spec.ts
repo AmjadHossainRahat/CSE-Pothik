@@ -12,11 +12,7 @@ for (const locale of ["en", "bn"] as const) {
         theme,
       );
       await page.goto(`${base}${locale === "bn" ? "/bn" : ""}/future-of-cse/`);
-      for (const selector of [
-        ".outlook-story",
-        ".outlook-prompt",
-        ".outlook-prompt-history",
-      ])
+      for (const selector of [".outlook-story", ".outlook-prompt"])
         await page.locator(`${selector} summary`).click();
       const results = await new AxeBuilder({ page })
         .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"])

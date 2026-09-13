@@ -212,14 +212,18 @@ OpenAI forecast or a guarantee of unbiased future truth. Show the working prompt
 used, distinguish source findings from conditional predictions, include evidence
 of entry-level risk as well as opportunity, and state geographical limits and
 what would change the outlook. Keep it discoverable from Future navigation,
-search and AI guidance without lengthening the homepage. Preserve the existing
-GPT-5.6 Sol (High) site-building credit. Follow DESIGN and SKILL for content,
-static rendering, metadata, localization, source maintenance and validation.
+search and AI guidance without lengthening the homepage. Preserve the distinct
+Codex implementation credit for GPT-5.6 Sol (High) and GPT-6 Astra (High).
+Follow DESIGN and SKILL for content, static rendering, metadata, localization,
+source maintenance and validation.
 
-When refining the public editorial prompt, preserve the original drafting
-version and label the refinement separately. Credit human direction and AI
-assistance accurately; improve clarity and economy without claiming an untested
-token optimum or rewriting provenance.
+Maintain one public prompt specifically for generating and rechecking the
+future-of-CSE page. Keep runtime selection separate from prompt instructions;
+state role, exact task, evidence rules, required page structure, writing
+contract and stopping condition without prompt-history clutter. Credit human
+purpose/publication decisions and AI research narration accurately. Do not claim
+a universal or empirically proven token optimum, exact output reproducibility or
+that prompt text can switch the selected model and reasoning effort.
 
 Do not fill the site with generic placeholder text.
 
@@ -651,7 +655,7 @@ Use Yarn commands only.
 
 Preserve the attribution/provenance and inspiration requirements already defined in `DESIGN.md`.
 
-Keep roadmap.sh, Architect Prep and Amirul Islam credits visible in the shared footer, with a localized link to About `#credits`. Credit Amjad Hossain as Creator & Orchestrator and link his name to his intended GitHub Pages portfolio at `https://amjadhossainrahat.github.io/` in a new tab, even while that portfolio is not yet published; credit ChatGPT for requirement/design discussions and Codex using **GPT-5.6 Sol (High)** for implementation and iteration. Preserve these distinct roles in English and Bangla; do not imply affiliation or endorsement. Keep the acknowledgment compact and secondary to student navigation. Update README and the shared typed credit content together when provenance changes.
+Keep roadmap.sh, Architect Prep and Amirul Islam credits visible in the shared footer, with a localized link to About `#credits`. Credit Amjad Hossain for the idea and as Creator, AI Agent Orchestrator, reviewer and quality controller; link his name to his intended GitHub Pages portfolio at `https://amjadhossainrahat.github.io/` in a new tab, even while that portfolio is not yet published. Credit ChatGPT for idea polishing plus requirement/design analysis and finalization. Credit Codex using **GPT-5.6 Sol (High)** and **GPT-6 Astra (High)** for implementation and iteration. Preserve these distinct roles in English and Bangla; do not imply affiliation or endorsement. Keep the acknowledgment compact and secondary to student navigation. Update README and the shared typed credit content together when provenance changes.
 
 For repository cleanup, remove only verified obsolete files. Preserve active illustration masters, the authoritative theme reference, source routes, tests, build configuration and documentation. Retired imagery can remain recoverable through Git history rather than as unused working-tree binaries. Report exactly what was removed and do not claim deployed-byte savings for assets that were never emitted.
 
