@@ -1,5 +1,18 @@
 # Validation records
 
+## Future outlook follow-up routes — 14 September 2026
+
+Added two contextual, bilingual follow-up notes to the Future of CSE editorial. Directly after the short answer, a paired decision block now makes “CSE is broader than programming or Software Engineering” actionable through the complete career landscape and offers the ordered local technology leaders and practitioners watchlist beside it. The two equal columns stack in source order on narrow screens. The talks are explicitly described as useful context rather than forecast evidence or a final verdict. Both links are base-safe, work without JavaScript and emit bounded next-step analytics events.
+
+| Check                               | Result                                                                                                                                                                                               |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Format, lint, type and unit/content | PASS; `yarn check` completed with 61/61 tests. Astro checked 177 files with zero errors, warnings or hints.                                                                                          |
+| Future-page browser matrix          | PASS; 16 checks passed with four intentional duplicate-project matrix skips across English/Bangla, Light/Dark, desktop/mobile, four explicit widths, no-JavaScript access, SEO metadata and console. |
+| Focused accessibility               | PASS; 8/8 axe WCAG A/AA checks across both languages, themes and desktop/mobile projects.                                                                                                            |
+| Production build and SEO            | PASS; 203 HTML pages and 233 files were emitted for `https://cse-pothik.com/`; configured GA4 markup was present and verification found no broken local URL, SEO metadata defect or placeholder.     |
+
+No deployment was performed.
+
 ## Security career depth and specialization clarity — 14 September 2026
 
 Expanded Protect Systems from broad labels into four distinct complete careers: Cybersecurity, Security Operations (SOC & Incident Response), Application Security, and Offensive Security & Penetration Testing. The two new careers include bilingual reality checks, role variants, five-stage roadmaps, explicitly authorized experiments, AI task exposure, goal connections and official learning resources. Career pages now support a reusable specialization layer. It makes DevOps, SRE, Platform Engineering and DevSecOps visible under DevOps/SRE; distinguishes exploratory QA, automation/SDET, performance, accessibility and security testing; and clarifies the different branches within Cybersecurity and Application Security without inflating every specialization into a top-level career.

@@ -607,6 +607,10 @@ full-route layout audit and browser/accessibility tests. Extend the external-lin
 audit to its source registry. Reuse locale/base helpers and shared metadata;
 Article creditText names GPT-6 Astra (High), without representing AI as a human
 expert. No AI SDK, runtime generation or extra client hydration is warranted.
+Keep the paired career-landscape and Bangladesh-industry-voices follow-up links
+local, localized, base-safe and available without JavaScript. Use equal columns
+when space permits and semantic source-order stacking otherwise; treat voices as
+optional context rather than forecast evidence.
 Test both themes/locales, prompt/story keyboard and no-JavaScript access, source
 link safety, responsive containment, equivalent routes and both deployment bases.
 

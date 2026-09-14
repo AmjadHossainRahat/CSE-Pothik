@@ -45,6 +45,28 @@ for (const locale of ["en", "bn"] as const) {
     );
     await expect(page.locator("html")).toHaveAttribute("lang", locale);
     await expect(page.locator(".evidence-list article")).toHaveCount(4);
+    const realityLinks = page.locator(
+      "#short-answer .outlook-reality-links > .outlook-link-note",
+    );
+    await expect(realityLinks).toHaveCount(2);
+    const firstNote = await realityLinks.first().boundingBox();
+    const secondNote = await realityLinks.last().boundingBox();
+    expect(
+      firstNote && secondNote && Math.abs(firstNote.y - secondNote.y) <= 1,
+    ).toBe(true);
+    await expect(
+      page.locator('.outlook-link-note--careers a[href$="/careers/"]'),
+    ).toBeVisible();
+    await expect(
+      page.locator(
+        '.outlook-link-note--voices a[href$="/resources/#industry-voices"]',
+      ),
+    ).toBeVisible();
+    await expect(page.locator(".outlook-link-note--voices")).toContainText(
+      locale === "en"
+        ? "Bangladesh tech leaders and practitioners"
+        : "বাংলাদেশের tech leaders ও practitioners",
+    );
     for (const source of futureEvidence) {
       const anchor = page.locator(`.evidence-list a[href="${source.url}"]`);
       await expect(anchor).toHaveAttribute("target", "_blank");
@@ -100,6 +122,11 @@ for (const locale of ["en", "bn"] as const) {
       await page.keyboard.press("Enter");
       await expect(page.locator(selector)).toHaveAttribute("open", "");
     }
+    await expect(
+      page.locator("#short-answer .outlook-reality-links"),
+    ).toContainText(
+      locale === "en" ? "Bangladesh industry context" : "industry context",
+    );
     await expect(page.locator(".outlook-prompt pre")).toHaveText(
       futureGenerationPrompt,
     );

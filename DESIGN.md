@@ -915,6 +915,12 @@ than employment insurance, and human accountability without assumed staffing
 guarantees. Show source scope/date/limits next to the finding; do not extrapolate
 US percentages to Bangladesh. Include what would change the outlook, a clearly
 fictional engineering failure case, kind humor and stage-specific next steps.
+After the short answer, pair two related follow-up notes. Explain that CSE is
+broader than programming or Software Engineering and link to the complete career
+landscape; beside it, offer the ordered Bangladesh tech leaders and practitioners
+watchlist as optional local perspective. Use two balanced columns on wide screens
+and source-order stacking on narrow screens. State that the talks add context;
+they are not evidence that removes uncertainty.
 
 Use a scannable section index and native optional story/prompt disclosures.
 Publish one complete prompt designed specifically to generate and recheck this

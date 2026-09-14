@@ -218,6 +218,11 @@ of entry-level risk as well as opportunity, and state geographical limits and
 what would change the outlook. Keep it discoverable from Future navigation,
 search and AI guidance without lengthening the homepage. Preserve the distinct
 Codex implementation credit for GPT-5.6 Sol (High) and GPT-6 Astra (High).
+After the short answer, pair two responsive follow-up notes: link the claim that
+CSE is broader than programming or Software Engineering to the complete career
+landscape, and offer the ordered Bangladesh technology leaders and practitioners
+watchlist as local perspective—not proof or a final forecast. Use two columns on
+wide screens and preserve the reading order in one column on narrow screens.
 Follow DESIGN and SKILL for content, static rendering, metadata, localization,
 source maintenance and validation.
 

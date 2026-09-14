@@ -178,6 +178,80 @@ const structuredData = [
               : "CSE is more than typing code: it studies computation, information, systems, hardware, security and how people use technology. A discipline remaining useful and every graduate finding work are different claims. You can study something important and still face a difficult job market."
           }
         </p>
+        <div class="outlook-reality-links">
+          <aside class="outlook-link-note outlook-link-note--careers">
+            <div>
+              <p class="callout__label">
+                {
+                  bn
+                    ? "একটি field, অনেক ধরনের কাজ"
+                    : "One field, many kinds of work"
+                }
+              </p>
+              <h3>
+                {
+                  bn
+                    ? "CSE মানেই শুধু programming—বা শুধু Software Engineering—নয়।"
+                    : "CSE is not only programming—or only Software Engineering."
+                }
+              </h3>
+              <p>
+                {
+                  bn
+                    ? "Programming গুরুত্বপূর্ণ tool, পুরো field নয়। Data, AI, security, network, infrastructure, hardware, research, product আর মানুষকেন্দ্রিক design—কাজের ধরন অনেক। CSE-কে এক দরজার ঘর ভাবার আগে কাজগুলো দেখে নিন।"
+                    : "Programming is an important tool, not the entire field. Data, AI, security, networks, infrastructure, hardware, research, product and human-centred design lead to very different work. See the work before treating CSE as a room with one exit."
+                }
+              </p>
+            </div>
+            <a
+              class="text-link"
+              href={href("/careers/")}
+              data-track-event="next_step_clicked"
+              data-track-param-destination="careers"
+              >{
+                bn
+                  ? "CSE career-এর সব family দেখুন"
+                  : "Explore all CSE career families"
+              } →</a
+            >
+          </aside>
+          <aside class="outlook-link-note outlook-link-note--voices">
+            <div>
+              <p class="callout__label">
+                {
+                  bn
+                    ? "বাংলাদেশের industry context"
+                    : "Bangladesh industry context"
+                }
+              </p>
+              <h3>
+                {
+                  bn
+                    ? "বাংলাদেশের tech leaders ও practitioners-দের কথাও শুনতে চান?"
+                    : "Would you like to hear from Bangladesh tech leaders and practitioners?"
+                }
+              </h3>
+              <p>
+                {
+                  bn
+                    ? "দেশের industry-তে যাঁরা কাজ তৈরি, hiring বা নেতৃত্ব দিয়েছেন, তাঁদের অভিজ্ঞতা এই forecast-এ local context যোগ করতে পারে। এগুলো perspective—অনিশ্চয়তা মুছে দেওয়া final verdict নয়।"
+                    : "People who have built, hired or led in the local industry can add context that a forecast cannot. Their talks offer grounded perspectives—not a final verdict that makes uncertainty disappear."
+                }
+              </p>
+            </div>
+            <a
+              class="text-link"
+              href={href("/resources/#industry-voices")}
+              data-track-event="next_step_clicked"
+              data-track-param-destination="industry-voices"
+              >{
+                bn
+                  ? "সাজানো ৯টি video ও podcast দেখুন"
+                  : "See the ordered 9-video and podcast guide"
+              } →</a
+            >
+          </aside>
+        </div>
         <ol
           class="outlook-chain"
           aria-label={bn
@@ -627,6 +701,33 @@ const structuredData = [
     background: var(--color-surface);
     border-left: 3px solid var(--color-primary);
   }
+  .outlook-reality-links {
+    display: grid;
+    gap: 1rem;
+    margin-block: 1.5rem;
+  }
+  .outlook-link-note {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    gap: 0.8rem;
+    align-content: space-between;
+    margin: 0;
+    padding: clamp(1rem, 2.5vw, 1.4rem);
+    border: 1px solid var(--color-border-strong);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    background: var(--color-surface);
+  }
+  .outlook-link-note h3,
+  .outlook-link-note p {
+    margin-block: 0 0.55rem;
+  }
+  .outlook-link-note .callout__label {
+    color: var(--color-warm);
+  }
+  .outlook-link-note .text-link {
+    justify-self: start;
+  }
   .outlook-story,
   .outlook-prompt {
     margin-block: 1.5rem;
@@ -659,6 +760,11 @@ const structuredData = [
   @media (min-width: 40rem) {
     .outlook-chain {
       grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 56rem) {
+    .outlook-reality-links {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
   @media (min-width: 75rem) {
