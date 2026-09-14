@@ -19,7 +19,7 @@ English is the default language. Independently edited Bangla pages live under `/
 
 ## What the site includes
 
-- 17 career guides across eight career families
+- 19 career guides across eight career families
 - career comparison, short experiments and five-stage roadmaps
 - goal plans for Bangladesh industry, global companies, remote work, study abroad, research, freelancing and technology businesses
 - starting guidance for new, uncertain, final-semester and recent-graduate students

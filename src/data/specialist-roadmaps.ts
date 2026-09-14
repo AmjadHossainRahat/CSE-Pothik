@@ -250,6 +250,125 @@ export function refineSpecialistRoadmap(roadmap: Roadmap): Roadmap {
     ];
   }
 
+  if (roadmap.id === "devops-sre") {
+    professional.topics = [
+      l(
+        "Versioned infrastructure, peer-reviewed delivery and tested rollback.",
+        "Versioned infrastructure, peer-reviewed delivery আর tested rollback।",
+      ),
+      l(
+        "Observable service-level objectives, actionable alerts and blameless incident learning.",
+        "Observable service-level objective, actionable alert আর blameless incident learning।",
+      ),
+      l(
+        "DevSecOps: reviewed dependency, secret, provenance and security checks with safe exception handling.",
+        "DevSecOps: safe exception handling-সহ reviewed dependency, secret, provenance আর security check।",
+      ),
+    ];
+    professional.practicalTask = l(
+      "Add one justified security check to a practice delivery pipeline. Use a harmless known finding to prove detection, review the result, document false-positive handling and remove the finding before release.",
+      "Practice delivery pipeline-এ একটি justified security check যোগ করুন। Harmless known finding দিয়ে detection প্রমাণ, result review, false-positive handling document আর release-এর আগে finding remove করুন।",
+    );
+    professional.enoughForNow = l(
+      "A reviewer can trace the release, verify rollback and understand what the security check detects, misses and allows through an approved exception.",
+      "Reviewer release trace ও rollback verify করতে পারে; security check কী detect করে, কী miss করে আর approved exception-এ কীভাবে pass হয় বুঝতে পারে।",
+    );
+    professional.notYet = [
+      l(
+        "Do not install every scanner, block delivery on unexplained severity or expose secrets to make a pipeline look secure.",
+        "সব scanner install, unexplained severity-তে delivery block বা pipeline secure দেখাতে secret expose করবেন না।",
+      ),
+    ];
+    professional.resourceIds = ["docker-start", "owasp-devsecops"];
+    later.resourceIds = ["owasp-devsecops", "missing-semester"];
+  }
+
+  if (roadmap.id === "security-operations") {
+    foundation.practicalTask = l(
+      "Draw how one fictional login event travels from an application through collection and storage to an analyst. Mark timestamps, identities, trust boundaries and missing context.",
+      "একটি fictional login event application থেকে collection ও storage হয়ে analyst-এর কাছে কীভাবে আসে আঁকুন। Timestamp, identity, trust boundary আর missing context mark করুন।",
+    );
+    foundation.enoughForNow = l(
+      "You can explain the source and limits of an event, normalize time and protect sensitive evidence before drawing a conclusion.",
+      "Conclusion-এর আগে event-এর source ও limit explain, time normalize আর sensitive evidence protect করতে পারেন।",
+    );
+    core.resourceIds = ["cisa-cyber-defense-analyst", "mitre-attack-start"];
+    practical.resourceIds = ["nist-incident-response", "wireshark-guide"];
+    professional.topics = [
+      l(
+        "Repeatable triage, evidence timelines, confidence and escalation boundaries.",
+        "Repeatable triage, evidence timeline, confidence আর escalation boundary।",
+      ),
+      l(
+        "Detection-as-code review, benign test cases and false-positive learning.",
+        "Detection-as-code review, benign test case আর false-positive learning।",
+      ),
+      l(
+        "Privacy-aware records, incident communication, containment approval and handover.",
+        "Privacy-aware record, incident communication, containment approval আর handover।",
+      ),
+    ];
+    professional.practicalTask = l(
+      "Turn a fictional alert into a reviewed mini-playbook: evidence sources, query, two benign cases, severity conditions, escalation owner, safe containment options and closure criteria.",
+      "Fictional alert থেকে reviewed mini-playbook বানান: evidence source, query, দুটি benign case, severity condition, escalation owner, safe containment option আর closure criteria।",
+    );
+    professional.enoughForNow = l(
+      "Another analyst can reproduce your triage, distinguish evidence from hypotheses and know when to close, escalate or ask for authority.",
+      "অন্য analyst triage reproduce, evidence-hypothesis আলাদা আর কখন close, escalate বা authority চাইতে হবে বুঝতে পারে।",
+    );
+    professional.notYet = [
+      l(
+        "Do not automate containment, ingest real private logs or tune detections against one convenient example without an accountable owner.",
+        "Accountable owner ছাড়া containment automate, real private log ingest বা একটি convenient example দিয়ে detection tune করবেন না।",
+      ),
+    ];
+    professional.resourceIds = ["nist-incident-response", "mitre-attack-start"];
+    later.resourceIds = ["mitre-attack-start", "nist-incident-response"];
+  }
+
+  if (roadmap.id === "offensive-security") {
+    foundation.practicalTask = l(
+      "For one deliberately vulnerable lab, write the exact target, allowed accounts and data, excluded actions, stop condition and evidence rule before sending a test request.",
+      "Deliberately vulnerable একটি lab-এর exact target, allowed account ও data, excluded action, stop condition আর evidence rule test request-এর আগে লিখুন।",
+    );
+    foundation.enoughForNow = l(
+      "You can explain HTTP and authorization behavior, read a request, state written scope and stop when a test crosses it.",
+      "HTTP ও authorization behavior explain, request পড়া, written scope বলা আর test scope ছাড়ালে stop করতে পারেন।",
+    );
+    core.resourceIds = ["owasp-wstg-v42", "owasp-top-ten"];
+    practical.resourceIds = ["portswigger", "owasp-wstg-v42"];
+    professional.topics = [
+      l(
+        "Rules of engagement, risk-based methodology and minimal proof of impact.",
+        "Rules of engagement, risk-based methodology আর minimal proof of impact।",
+      ),
+      l(
+        "Reproducible evidence, severity reasoning, remediation and retesting.",
+        "Reproducible evidence, severity reasoning, remediation আর retesting।",
+      ),
+      l(
+        "Sensitive-data handling, responsible disclosure, peer review and explicit limitations.",
+        "Sensitive-data handling, responsible disclosure, peer review আর explicit limitation।",
+      ),
+    ];
+    professional.practicalTask = l(
+      "Assess one authorized training feature against a short WSTG-informed plan. Deliver a reviewed finding with raw evidence, observed versus possible impact, smallest useful fix and a retest result.",
+      "Short WSTG-informed plan দিয়ে একটি authorized training feature assess করুন। Raw evidence, observed বনাম possible impact, smallest useful fix আর retest result-সহ reviewed finding দিন।",
+    );
+    professional.enoughForNow = l(
+      "The owner can reproduce the finding safely, understand why it matters, implement a proportionate fix and verify closure without receiving unnecessary secrets.",
+      "Owner unnecessary secret না পেয়েও finding safely reproduce, গুরুত্ব বুঝে proportionate fix implement আর closure verify করতে পারে।",
+    );
+    professional.notYet = [
+      l(
+        "Do not expand scope, maximize impact, publish exploitable detail or call scanner output a penetration-test report.",
+        "Scope expand, impact maximize, exploitable detail publish বা scanner output-কে penetration-test report বলবেন না।",
+      ),
+    ];
+    professional.resourceIds = ["owasp-wstg-v42", "portswigger"];
+    later.resourceIds = ["mitre-attack-start", "owasp-wstg-v42"];
+  }
+
   if (roadmap.id === "application-security") {
     foundation.practicalTask = l(
       "Draw one owned app's data flow, mark its trust boundaries and write three abuse cases before using a scanner or exploit tool.",

@@ -312,7 +312,7 @@ const seeds: ExperimentSeed[] = [
     prerequisites: [
       l(
         "Basic HTTP; use only the linked deliberately vulnerable lab.",
-        "Basic HTTP; শুধু linked deliberately vulnerable lab ব্যবহার করবে।",
+        "Basic HTTP; শুধু linked deliberately vulnerable lab ব্যবহার করুন।",
       ),
     ],
     goals: [

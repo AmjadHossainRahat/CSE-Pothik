@@ -430,6 +430,46 @@ export const infrastructureCareers: CareerSeed[] = [
       "Help a team understand product risk and prevent defects. Explore behavior, challenge requirements and automate useful checks—not just click through screens or count bugs.",
       "Product-এর ঝুঁকি বুঝতে ও defect আগেই ঠেকাতে team-কে সাহায্য করুন। আচরণ অনুসন্ধান, requirement যাচাই এবং দরকারি check automate করুন—কাজটি শুধু screen-এ click করা বা bug গোনা নয়।",
     ),
+    specializations: [
+      {
+        title: l("Exploratory & functional QA", "Exploratory ও functional QA"),
+        description: l(
+          "Investigate behavior, question requirements and expose product risk with focused charters and reproducible evidence.",
+          "Focused charter আর reproducible evidence দিয়ে behavior investigate, requirement প্রশ্ন আর product risk সামনে আনা।",
+        ),
+      },
+      {
+        title: l("Test automation / SDET", "Test automation / SDET"),
+        description: l(
+          "Write maintainable test software for valuable API, integration and user-journey checks; programming is part of the job.",
+          "দরকারি API, integration আর user-journey check-এর জন্য maintainable test software লেখা; programming এই কাজের অংশ।",
+        ),
+      },
+      {
+        title: l(
+          "Performance & reliability testing",
+          "Performance ও reliability testing",
+        ),
+        description: l(
+          "Model realistic load, measure bottlenecks and communicate limits without attacking systems you do not own.",
+          "Realistic load model, bottleneck measure আর limit বোঝানো—নিজের নয় এমন system-এ test চালানো নয়।",
+        ),
+      },
+      {
+        title: l("Accessibility testing", "Accessibility testing"),
+        description: l(
+          "Combine standards, assistive-technology checks and disabled-user feedback; an automated scan is only one signal.",
+          "Standard, assistive-technology check আর disabled user-এর feedback একসঙ্গে দেখা; automated scan কেবল একটি signal।",
+        ),
+      },
+      {
+        title: l("Security testing bridge", "Security testing bridge"),
+        description: l(
+          "Add risk-based security cases to normal quality work, then move toward Application or Offensive Security for deeper specialization.",
+          "Normal quality work-এ risk-based security case যোগ করা; আরও গভীরে যেতে Application বা Offensive Security-র দিকে যাওয়া।",
+        ),
+      },
+    ],
     work: [
       l(
         "Clarify acceptance criteria and find missing edge cases before coding.",

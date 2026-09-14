@@ -199,6 +199,40 @@ const structuredData = [
     </div>
   </section>
 
+  {
+    career.specializations && (
+      <section class="section" aria-labelledby="specializations-title">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">
+                {bn ? "এই ক্ষেত্রের ভেতরের পথ" : "Paths inside the field"}
+              </p>
+              <h2 id="specializations-title">
+                {bn
+                  ? "একটি title-এর আড়ালে কয়েক ধরনের কাজ থাকে"
+                  : "One label can hide several different jobs"}
+              </h2>
+            </div>
+            <p class="lede">
+              {bn
+                ? "শুরুতেই একটি specialization স্থায়ীভাবে বেছে নিতে হবে না। কাজগুলোর পার্থক্য বুঝে ছোট experiment দিয়ে fit যাচাই করুন।"
+                : "You do not need to lock in a specialization now. Understand the differences, then test your fit through small, authorized work."}
+            </p>
+          </div>
+          <div class="card-grid specialization-grid">
+            {career.specializations.map((specialization) => (
+              <article class="card">
+                <h3>{t(specialization.title, locale)}</h3>
+                <p>{t(specialization.description, locale)}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   <section class="section section--tinted">
     <div class="container fit-grid">
       <div>

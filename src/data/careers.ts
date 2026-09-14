@@ -32,6 +32,10 @@ export interface CareerSeed {
   related: CareerId[];
   ai: AITaskExposure[];
   day: [string, LocalizedText][];
+  specializations?: {
+    title: LocalizedText;
+    description: LocalizedText;
+  }[];
 }
 
 const exposure = (
@@ -745,6 +749,42 @@ const seeds: CareerSeed[] = [
       "Reduce risk by understanding systems, finding weaknesses and helping people respond responsibly.",
       "System গভীরভাবে বুঝে দুর্বলতা খুঁজে বের করা এবং দায়িত্বশীলভাবে সাড়া দিয়ে বাস্তব ঝুঁকি কমানো।",
     ),
+    specializations: [
+      {
+        title: l("Security operations", "Security operations"),
+        description: l(
+          "Monitor evidence, triage alerts and coordinate incident response; this now has its own complete CSE-Pothik path.",
+          "Evidence monitor, alert triage আর incident response coordinate করা; CSE-Pothik-এ এখন এর আলাদা পূর্ণাঙ্গ path আছে।",
+        ),
+      },
+      {
+        title: l("Application security", "Application security"),
+        description: l(
+          "Work with product teams on threat models, secure design, code review, security testing and verified fixes.",
+          "Product team-এর সঙ্গে threat model, secure design, code review, security testing আর verified fix নিয়ে কাজ করা।",
+        ),
+      },
+      {
+        title: l(
+          "Offensive security / penetration testing",
+          "Offensive security / penetration testing",
+        ),
+        description: l(
+          "Test an explicitly authorized scope, prove realistic weaknesses safely and communicate remediation; this also has a dedicated path.",
+          "স্পষ্টভাবে authorized scope test করে নিরাপদে realistic weakness প্রমাণ আর remediation বোঝানো; এরও আলাদা path আছে।",
+        ),
+      },
+      {
+        title: l(
+          "Governance, risk & compliance",
+          "Governance, risk ও compliance",
+        ),
+        description: l(
+          "Translate obligations and business risk into controls, evidence and accountable decisions rather than checkbox theatre.",
+          "Checkbox পূরণের অভিনয় নয়—obligation ও business risk-কে control, evidence আর accountable decision-এ রূপ দেওয়া।",
+        ),
+      },
+    ],
     work: [
       l(
         "Review systems for realistic threats.",
@@ -913,6 +953,39 @@ const seeds: CareerSeed[] = [
       "Help teams ship safely and keep services observable, reliable and recoverable.",
       "Team যেন নিরাপদে software release করতে পারে এবং service যেন দেখা, ভরসা ও বিপর্যয়ের পর ফিরিয়ে আনা যায়—তা নিশ্চিত করা।",
     ),
+    specializations: [
+      {
+        title: l("DevOps engineering", "DevOps engineering"),
+        description: l(
+          "Automate repeatable build, test, release and infrastructure workflows while keeping failure and rollback visible.",
+          "Failure আর rollback visible রেখে repeatable build, test, release ও infrastructure workflow automate করা।",
+        ),
+      },
+      {
+        title: l(
+          "Site reliability engineering",
+          "Site reliability engineering",
+        ),
+        description: l(
+          "Use software, service-level objectives and incident learning to improve production reliability.",
+          "Software, service-level objective আর incident learning দিয়ে production reliability উন্নত করা।",
+        ),
+      },
+      {
+        title: l("Platform engineering", "Platform engineering"),
+        description: l(
+          "Build paved paths and self-service capabilities that help product teams deliver safely without hiding the underlying system.",
+          "Underlying system আড়াল না করে product team-কে নিরাপদে deliver করতে paved path ও self-service capability বানানো।",
+        ),
+      },
+      {
+        title: l("DevSecOps", "DevSecOps"),
+        description: l(
+          "Embed reviewed security checks, dependency and secret controls, provenance and safe exceptions into delivery—not a scanner renamed as culture.",
+          "Scanner-এর নাম বদলে culture নয়—delivery-তে reviewed security check, dependency ও secret control, provenance এবং safe exception যুক্ত করা।",
+        ),
+      },
+    ],
     work: [
       l(
         "Automate build and deployment paths.",
@@ -1008,9 +1081,23 @@ const seeds: CareerSeed[] = [
         "Capacity and platform engineering",
         "Capacity আর platform engineering",
       ),
+      l(
+        "DevSecOps: reviewed security checks, provenance, secrets and safe exceptions in delivery",
+        "DevSecOps: delivery-তে reviewed security check, provenance, secret আর safe exception",
+      ),
     ],
-    resources: ["linux-journey", "missing-semester", "docker-start"],
-    related: ["backend-engineering", "data-engineering", "cybersecurity"],
+    resources: [
+      "linux-journey",
+      "missing-semester",
+      "docker-start",
+      "owasp-devsecops",
+    ],
+    related: [
+      "backend-engineering",
+      "security-operations",
+      "application-security",
+      "data-engineering",
+    ],
     ai: [
       exposure(
         l(
@@ -1632,6 +1719,7 @@ export const careers: Career[] = [
   practical: seed.practical,
   later: seed.later,
   resourceIds: seed.resources,
+  specializations: seed.specializations,
 }));
 
 export const careerById = new Map(careers.map((career) => [career.id, career]));
@@ -1679,7 +1767,12 @@ export const careerFamilies: CareerFamily[] = [
       "Understand threats and reduce real risk.",
       "হুমকি ও দুর্বলতা বুঝে বাস্তব ঝুঁকি কমান।",
     ),
-    careerIds: ["cybersecurity", "application-security"],
+    careerIds: [
+      "cybersecurity",
+      "security-operations",
+      "application-security",
+      "offensive-security",
+    ],
     accent: "coral",
   },
   {

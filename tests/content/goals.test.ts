@@ -103,7 +103,9 @@ describe("goal-based guidance", () => {
     for (const id of [
       "data-analytics-bi",
       "ai-engineering",
+      "security-operations",
       "application-security",
+      "offensive-security",
     ] as const) {
       expect(goals.filter((goal) => goal.careerIds.includes(id)).length).toBe(
         7,

@@ -88,7 +88,7 @@ This implements the earlier Start here, explicit-label, preparation-group and cu
 
 ## Completed: focused career breadth without homepage overload
 
-Work With Data now exposes Data Engineering and Data Analytics & BI; Build Intelligence exposes Machine Learning Engineering and AI Engineering; Protect Systems exposes Cybersecurity and Application Security. Each addition is a complete route graph rather than a label-only card. The homepage keeps its original three immediate experiments and places the three expanding paths in one native disclosure, while the dedicated index exposes all seventeen. This preserves fast scanning for a fresher and still makes the new choices discoverable without search or JavaScript.
+Work With Data exposes Data Engineering and Data Analytics & BI; Build Intelligence exposes Machine Learning Engineering and AI Engineering; Protect Systems now separates Cybersecurity, Security Operations, Application Security and Offensive Security. Each addition is a complete route graph rather than a label-only card. The homepage keeps its original three immediate experiments and places three expanding paths in one native disclosure, while the dedicated index exposes all nineteen. This preserves fast scanning for a fresher and still makes the new choices discoverable without search or JavaScript.
 
 Understand Computing Deeply now distinguishes its career guide from an ACM Programming / ICPC **practice track**. The separate callout explicitly says it is not a job title or substitute for projects. Its guide adds a finite six-week loop and Bangla starting shelf instead of turning the family card into a dense syllabus. Automated and manual mobile checks confirm that the callout, disclosure and mixed English/Bangla technical terms wrap without horizontal overflow. This is a heuristic UX improvement, not evidence that students now choose careers more accurately.
 
@@ -112,7 +112,7 @@ JavaScript, uses `noindex, follow` and is omitted from the sitemap.
 “I’m Lost” choices are now real destination links that JavaScript progressively
 enhances into the existing explanation panel. The selected prompt becomes the
 result heading, the hash deep-links the choice, and reset clears both state and
-hash. Bangla comparison feedback is localized, and its seventeen choices are
+hash. Bangla comparison feedback is localized, and its nineteen choices are
 grouped by family. These changes address the two high-priority findings from the
 first review; they do not claim measured comprehension gains.
 

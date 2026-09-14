@@ -10,6 +10,8 @@ export const careerIds = [
   "data-engineering",
   "machine-learning",
   "cybersecurity",
+  "security-operations",
+  "offensive-security",
   "devops-sre",
   "embedded-systems",
   "systems-research",
@@ -106,6 +108,10 @@ export interface Career {
   practical: LocalizedText[];
   later: LocalizedText[];
   resourceIds: string[];
+  specializations?: {
+    title: LocalizedText;
+    description: LocalizedText;
+  }[];
 }
 
 export interface CareerFamily {

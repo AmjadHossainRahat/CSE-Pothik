@@ -48,8 +48,8 @@ const directoryEntries: SearchEntry[] = [
     path: "/careers/",
     title: l("Explore CSE careers", "CSE career explore করুন"),
     description: l(
-      "Browse seventeen careers through eight broad families.",
-      "আটটি broad family দিয়ে সতেরোটি career দেখুন।",
+      "Browse nineteen careers through eight broad families.",
+      "আটটি broad family-তে উনিশটি career ঘুরে দেখুন।",
     ),
     keywords: l("jobs roles work family choose", "চাকরি role কাজ family বেছে"),
   },
@@ -254,9 +254,10 @@ const familyEntries: SearchEntry[] = careerFamilies.map((family) => ({
 
 const careerEntries: SearchEntry[] = careers.flatMap((career) => {
   const family = careerFamilies.find((item) => item.id === career.familyId)!;
+  const specializationKeywords = career.specializations ?? [];
   const commonKeywords = {
-    en: `${family.title.en} ${career.actualWork.map((item) => item.en).join(" ")}`,
-    bn: `${family.title.bn} ${career.actualWork.map((item) => item.bn).join(" ")}`,
+    en: `${family.title.en} ${career.actualWork.map((item) => item.en).join(" ")} ${specializationKeywords.map((item) => `${item.title.en} ${item.description.en}`).join(" ")}`,
+    bn: `${family.title.bn} ${career.actualWork.map((item) => item.bn).join(" ")} ${specializationKeywords.map((item) => `${item.title.bn} ${item.description.bn}`).join(" ")}`,
   };
   const experiment = experiments.find((item) => item.careerId === career.id)!;
   return [

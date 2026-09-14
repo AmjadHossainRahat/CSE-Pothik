@@ -55,6 +55,12 @@ describe("content integrity", () => {
       expect(career.notYet.length).toBeGreaterThanOrEqual(3);
       expect(career.realisticDay.length).toBeGreaterThanOrEqual(3);
       expect(
+        (career.specializations ?? []).every(
+          (item) =>
+            hasLocalizedCopy(item.title) && hasLocalizedCopy(item.description),
+        ),
+      ).toBe(true);
+      expect(
         career.actualWork
           .concat(career.enjoyIf, career.dislikeIf, career.notYet)
           .every(hasLocalizedCopy),
@@ -177,6 +183,15 @@ describe("content integrity", () => {
         ),
       ).toBe(true);
     }
+    expect(
+      searchEntries.find((entry) => entry.id === "career-devops-sre")?.keywords
+        .en,
+    ).toMatch(/DevSecOps/i);
+    expect(
+      searchEntries.find(
+        (entry) => entry.id === "career-software-quality-assurance",
+      )?.keywords.en,
+    ).toMatch(/SDET.*security testing/i);
     const foundations = searchEntries.find(
       (entry) => entry.id === "software-foundations",
     );

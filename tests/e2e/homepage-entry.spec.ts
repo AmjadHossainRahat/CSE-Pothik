@@ -39,7 +39,7 @@ for (const locale of ["en", "bn"] as const) {
       if (entry.id === "start")
         await expect(page.locator(".timeline li")).toHaveCount(5);
       if (entry.id === "explore")
-        await expect(page.locator(".card-grid article")).toHaveCount(17);
+        await expect(page.locator(".card-grid article")).toHaveCount(19);
       if (entry.id === "prepare")
         await expect(page.locator(".goal-option")).toHaveCount(7);
     }

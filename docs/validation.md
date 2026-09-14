@@ -1,5 +1,21 @@
 # Validation records
 
+## Security career depth and specialization clarity — 14 September 2026
+
+Expanded Protect Systems from broad labels into four distinct complete careers: Cybersecurity, Security Operations (SOC & Incident Response), Application Security, and Offensive Security & Penetration Testing. The two new careers include bilingual reality checks, role variants, five-stage roadmaps, explicitly authorized experiments, AI task exposure, goal connections and official learning resources. Career pages now support a reusable specialization layer. It makes DevOps, SRE, Platform Engineering and DevSecOps visible under DevOps/SRE; distinguishes exploratory QA, automation/SDET, performance, accessibility and security testing; and clarifies the different branches within Cybersecurity and Application Security without inflating every specialization into a top-level career.
+
+| Check                               | Result                                                                                                                                                                                                                   |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Format, lint, type and unit/content | PASS; `yarn check` completed with 61/61 tests. Astro checked 177 files with zero errors, warnings or hints.                                                                                                              |
+| Complete browser regression         | PASS; 259 checks passed with 91 intentional duplicate-project/matrix skips across desktop/mobile, English/Bangla, Light/Dark, navigation, search, GA4, SEO behavior, no-JavaScript fallbacks and browser-console checks. |
+| Focused security journeys           | PASS; 18/18 production-preview checks covered both new careers across career, roadmap, experiment and AI routes in English/Bangla and desktop/mobile, plus DevSecOps, SDET and security-testing discoverability.         |
+| Automated accessibility             | PASS; 59/59 Chromium axe checks found no detectable WCAG A/AA violations across the representative Light/Dark and English/Bangla route set, including the new security careers.                                          |
+| Custom-domain production build      | PASS; 203 HTML pages and 232 files were emitted at `/`, with no build warnings, broken local URL, SEO metadata defect or placeholder.                                                                                    |
+| GitHub project-path compatibility   | PASS; `/CSE-Pothik/` emitted the same 203 HTML pages / 232 files and passed generated-build verification.                                                                                                                |
+| External resources                  | PASS for 94 live links, including CISA, NIST, MITRE ATT&CK, OWASP WSTG and OWASP DevSecOps. Linux Journey returned a bot-restricted 403 for manual review; the checker found no confirmed broken link.                   |
+
+No deployment was performed. The final local output was rebuilt for the custom-domain root after the project-path portability check.
+
 ## Illustrated invalid-route recovery — 14 September 2026
 
 Replaced the minimal 404 copy with a complete recovery experience that retains the shared sidebar/header and sticky context bar. The page gives a no-blame explanation, a concise conversational Bangla reassurance, and obvious internal actions for Home and “I’m Lost.” It remains `noindex, follow`. A new original transparent illustration makes the humor readable without embedded text: a map-confused student has followed a route in a circle while a friendly compass-carrying robot points home. The artwork provenance and final built-in ImageGen prompt are recorded in `docs/illustrations.md`; Astro emits four responsive WebP variants from the project-local PNG master.

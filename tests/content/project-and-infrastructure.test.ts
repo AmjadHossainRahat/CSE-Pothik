@@ -115,10 +115,12 @@ describe("complete project and infrastructure guidance", () => {
     }
   });
 
-  it("keeps the three specialist expansions complete and role-specific", () => {
+  it("keeps the five specialist expansions complete and role-specific", () => {
     expect(specialistCareers.map((career) => career.id)).toEqual([
       "data-analytics-bi",
       "ai-engineering",
+      "security-operations",
+      "offensive-security",
       "application-security",
     ]);
     expect(specialistExperiments.map((experiment) => experiment.id)).toEqual(
@@ -127,6 +129,14 @@ describe("complete project and infrastructure guidance", () => {
     verifyLocalized(specialistCareers);
     verifyLocalized(specialistExperiments);
     for (const career of specialistCareers) {
+      if (
+        [
+          "security-operations",
+          "offensive-security",
+          "application-security",
+        ].includes(career.id)
+      )
+        expect(career.specializations?.length ?? 0).toBeGreaterThanOrEqual(3);
       expect(career.ai.map((task) => task.exposure).sort()).toEqual([
         "higher",
         "lower",

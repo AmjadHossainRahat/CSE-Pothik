@@ -437,6 +437,512 @@ export const specialistCareers: CareerSeed[] = [
     ],
   },
   {
+    id: "security-operations",
+    familyId: "protect-systems",
+    title: l(
+      "Security Operations (SOC & Incident Response)",
+      "Security Operations (SOC ও Incident Response)",
+    ),
+    description: l(
+      "Turn logs, alerts and reports into evidence-led detection and response—without declaring every anomaly an attack.",
+      "প্রতিটি anomaly-কে attack ঘোষণা না করে log, alert আর report থেকে evidence-led detection ও response তৈরি করুন।",
+    ),
+    specializations: [
+      {
+        title: l("SOC analyst", "SOC analyst"),
+        description: l(
+          "Monitor and correlate alerts, separate benign activity from plausible threats, document evidence and escalate clearly.",
+          "Alert monitor ও correlate করে benign activity থেকে plausible threat আলাদা, evidence document আর পরিষ্কারভাবে escalate করা।",
+        ),
+      },
+      {
+        title: l("Incident responder", "Incident responder"),
+        description: l(
+          "Investigate confirmed incidents, support containment and recovery, preserve evidence and coordinate under pressure.",
+          "Confirmed incident investigate, containment ও recovery support, evidence preserve এবং চাপের মধ্যে coordinate করা।",
+        ),
+      },
+      {
+        title: l(
+          "Detection engineer / threat hunter",
+          "Detection engineer / threat hunter",
+        ),
+        description: l(
+          "Turn threat hypotheses into testable telemetry and detections, then measure gaps and noisy assumptions.",
+          "Threat hypothesis-কে testable telemetry ও detection-এ রূপ দিয়ে gap আর noisy assumption measure করা।",
+        ),
+      },
+      {
+        title: l("Digital forensics", "Digital forensics"),
+        description: l(
+          "Acquire and analyze evidence with strict integrity and legal process; deeper specialization needs supervised practice.",
+          "Evidence integrity আর legal process মেনে evidence acquire ও analyze করা; গভীর specialization-এ supervised practice দরকার।",
+        ),
+      },
+    ],
+    work: [
+      l(
+        "Monitor security telemetry and triage alerts against normal behavior.",
+        "Normal behavior-এর সঙ্গে মিলিয়ে security telemetry monitor আর alert triage করা।",
+      ),
+      l(
+        "Correlate identity, endpoint, network and application evidence into a timeline.",
+        "Identity, endpoint, network আর application evidence মিলিয়ে timeline বানানো।",
+      ),
+      l(
+        "Document confidence, impact and unanswered questions before escalation.",
+        "Escalation-এর আগে confidence, impact আর unanswered question document করা।",
+      ),
+      l(
+        "Support containment, recovery and communication during confirmed incidents.",
+        "Confirmed incident-এ containment, recovery আর communication support করা।",
+      ),
+      l(
+        "Improve detections and playbooks after false positives and incidents.",
+        "False positive আর incident থেকে শিখে detection ও playbook উন্নত করা।",
+      ),
+    ],
+    enjoy: [
+      l(
+        "You enjoy reconstructing what happened from incomplete evidence.",
+        "অসম্পূর্ণ evidence থেকে কী ঘটেছে reconstruct করতে ভালো লাগে।",
+      ),
+      l(
+        "You can remain methodical when an alert looks urgent.",
+        "Alert urgent মনে হলেও methodical থাকতে পারেন।",
+      ),
+      l(
+        "Writing a precise timeline feels as important as finding the cause.",
+        "Cause খোঁজার মতো precise timeline লেখাকেও গুরুত্বপূর্ণ মনে হয়।",
+      ),
+    ],
+    dislike: [
+      l(
+        "Shift work, repeated false positives or interrupted focus would be unacceptable.",
+        "Shift work, repeated false positive বা বারবার focus ভাঙা একেবারেই unacceptable লাগবে।",
+      ),
+      l(
+        "You prefer dramatic conclusions to checking ordinary explanations first.",
+        "আগে ordinary explanation যাচাই না করে dramatic conclusion পছন্দ করেন।",
+      ),
+      l(
+        "Protecting sensitive logs and documenting escalation feels like bureaucracy.",
+        "Sensitive log protect আর escalation document করাকে bureaucracy মনে হয়।",
+      ),
+    ],
+    dimensions: {
+      coding: 2,
+      mathematics: 1,
+      systems: 3,
+      investigation: 3,
+      creativity: 2,
+      communication: 3,
+      production: 3,
+    },
+    foundation: [
+      l(
+        "Networking, DNS, HTTP, operating systems and identity basics.",
+        "Networking, DNS, HTTP, operating system আর identity basics।",
+      ),
+      l(
+        "Linux/Windows logs, timestamps, processes and a little scripting.",
+        "Linux/Windows log, timestamp, process আর অল্প scripting।",
+      ),
+      l(
+        "Authorization, privacy, evidence handling and incident terminology.",
+        "Authorization, privacy, evidence handling আর incident terminology।",
+      ),
+    ],
+    core: [
+      l(
+        "Telemetry sources, log queries, baselines and alert triage.",
+        "Telemetry source, log query, baseline আর alert triage।",
+      ),
+      l(
+        "Hypothesis testing, timelines, severity and escalation.",
+        "Hypothesis testing, timeline, severity আর escalation।",
+      ),
+      l(
+        "Incident response, detection logic and ATT&CK as a map—not a checklist.",
+        "Incident response, detection logic আর checklist নয়—map হিসেবে ATT&CK।",
+      ),
+    ],
+    practical: [
+      l(
+        "Triage a harmless fictional authentication-log alert.",
+        "Harmless fictional authentication-log alert triage করুন।",
+      ),
+      l(
+        "Build an evidence timeline and separate facts from hypotheses.",
+        "Evidence timeline বানিয়ে fact আর hypothesis আলাদা করুন।",
+      ),
+      l(
+        "Write one detection query, test benign cases and produce an escalation note.",
+        "একটি detection query লিখে benign case test আর escalation note বানান।",
+      ),
+    ],
+    later: [
+      l(
+        "Detection engineering, threat hunting and threat intelligence.",
+        "Detection engineering, threat hunting আর threat intelligence।",
+      ),
+      l(
+        "Cloud, identity, endpoint and network-specialized operations.",
+        "Cloud, identity, endpoint আর network-specialized operations।",
+      ),
+      l(
+        "Incident command, malware analysis and digital forensics with appropriate supervision.",
+        "Appropriate supervision-সহ incident command, malware analysis আর digital forensics।",
+      ),
+    ],
+    notYet: [
+      l(
+        "Buying a SIEM course before you can explain where logs come from.",
+        "Log কোথা থেকে আসে explain করার আগেই SIEM course কেনা।",
+      ),
+      l(
+        "Uploading real company logs, secrets or malware to public tools.",
+        "Real company log, secret বা malware public tool-এ upload করা।",
+      ),
+      l(
+        "Treating every alert as an incident or every ATT&CK box as required coverage.",
+        "প্রতিটি alert-কে incident বা প্রতিটি ATT&CK box-কে required coverage ভাবা।",
+      ),
+    ],
+    resources: [
+      "cisa-cyber-defense-analyst",
+      "nist-incident-response",
+      "mitre-attack-start",
+      "wireshark-guide",
+    ],
+    related: [
+      "cybersecurity",
+      "network-engineering",
+      "devops-sre",
+      "application-security",
+    ],
+    day: [
+      [
+        "08:30",
+        l(
+          "Review the handover queue and establish what normal looked like overnight.",
+          "Handover queue review করে রাতে normal behavior কেমন ছিল establish করা।",
+        ),
+      ],
+      [
+        "11:45",
+        l(
+          "Correlate an identity alert with endpoint and network evidence before escalating.",
+          "Escalate করার আগে identity alert-এর সঙ্গে endpoint ও network evidence correlate করা।",
+        ),
+      ],
+      [
+        "16:10",
+        l(
+          "Tune a noisy detection and document what evidence would still be missing.",
+          "Noisy detection tune করে এখনও কোন evidence missing থাকবে document করা।",
+        ),
+      ],
+    ],
+    ai: [
+      {
+        task: l("Routine alert summaries", "Routine alert summary"),
+        exposure: "higher",
+        explanation: l(
+          "AI can compress repetitive log context, but it may omit a timestamp, invent causality or expose sensitive data.",
+          "AI repetitive log context ছোট করতে পারে; timestamp বাদ, causality invent বা sensitive data expose-ও করতে পারে।",
+        ),
+        studentResponse: l(
+          "Use approved tools with minimized data and verify every event against the original evidence.",
+          "Approved tool-এ minimized data ব্যবহার করে প্রতিটি event original evidence দিয়ে verify করুন।",
+        ),
+      },
+      {
+        task: l(
+          "Correlation and incident hypotheses",
+          "Correlation আর incident hypothesis",
+        ),
+        exposure: "medium",
+        explanation: l(
+          "AI can suggest connections, but normal business activity and attacker behavior often look similar without local context.",
+          "AI connection suggest করতে পারে; local context ছাড়া normal business activity আর attacker behavior একই রকম লাগতে পারে।",
+        ),
+        studentResponse: l(
+          "Record competing hypotheses, falsify them with telemetry and attach confidence to conclusions.",
+          "Competing hypothesis লিখে telemetry দিয়ে falsify করুন আর conclusion-এর সঙ্গে confidence দিন।",
+        ),
+      },
+      {
+        task: l(
+          "Containment, escalation and accountable communication",
+          "Containment, escalation আর accountable communication",
+        ),
+        exposure: "lower",
+        explanation: l(
+          "Disrupting a service, preserving evidence and notifying affected people require authority and situational judgment.",
+          "Service disrupt, evidence preserve আর affected মানুষকে notify করতে authority ও situational judgment লাগে।",
+        ),
+        studentResponse: l(
+          "Practise playbooks, clear handovers and escalation boundaries; never let generated confidence substitute for approval.",
+          "Playbook, clear handover আর escalation boundary practice করুন; generated confidence-কে approval-এর বিকল্প ভাববেন না।",
+        ),
+      },
+    ],
+  },
+  {
+    id: "offensive-security",
+    familyId: "protect-systems",
+    title: l(
+      "Offensive Security & Penetration Testing",
+      "Offensive Security ও Penetration Testing",
+    ),
+    description: l(
+      "Test an explicitly authorized system like a careful engineer: define scope, validate weaknesses, limit impact and make the fix actionable.",
+      "Careful engineer-এর মতো explicitly authorized system test করুন: scope ঠিক করুন, weakness validate করুন, impact সীমিত রাখুন আর fix-কে actionable করুন।",
+    ),
+    specializations: [
+      {
+        title: l("Penetration testing", "Penetration testing"),
+        description: l(
+          "Assess a defined application, API, network or cloud scope and deliver reproducible findings and retest evidence.",
+          "Defined application, API, network বা cloud scope assess করে reproducible finding আর retest evidence দেওয়া।",
+        ),
+      },
+      {
+        title: l(
+          "Red teaming / adversary emulation",
+          "Red teaming / adversary emulation",
+        ),
+        description: l(
+          "Evaluate detection and response against agreed objectives and rules of engagement; this is not an unsupervised beginner starting point.",
+          "Agreed objective আর rules of engagement মেনে detection ও response evaluate করা; এটি unsupervised beginner starting point নয়।",
+        ),
+      },
+      {
+        title: l("Web & API security testing", "Web ও API security testing"),
+        description: l(
+          "Understand application behavior deeply enough to test authentication, authorization, input and business logic.",
+          "Authentication, authorization, input আর business logic test করার মতো গভীরভাবে application behavior বোঝা।",
+        ),
+      },
+      {
+        title: l("Vulnerability research", "Vulnerability research"),
+        description: l(
+          "Study unfamiliar failure mechanisms and create defensible reproductions; advanced work requires deeper systems knowledge.",
+          "অপরিচিত failure mechanism নিয়ে study আর defensible reproduction তৈরি করা; advanced কাজের জন্য গভীর systems knowledge দরকার।",
+        ),
+      },
+    ],
+    work: [
+      l(
+        "Agree scope, objectives, exclusions, data rules and stop conditions before testing.",
+        "Testing-এর আগে scope, objective, exclusion, data rule আর stop condition agree করা।",
+      ),
+      l(
+        "Understand the target and build risk-based test hypotheses.",
+        "Target বুঝে risk-based test hypothesis বানানো।",
+      ),
+      l(
+        "Validate weaknesses manually and minimize proof-of-impact.",
+        "Weakness manually validate আর proof-of-impact যতটা সম্ভব সীমিত রাখা।",
+      ),
+      l(
+        "Write reproducible findings with evidence, impact, uncertainty and remediation.",
+        "Evidence, impact, uncertainty আর remediation-সহ reproducible finding লেখা।",
+      ),
+      l(
+        "Retest fixes and explain residual risk to technical and business owners.",
+        "Fix retest করে technical ও business owner-কে residual risk বোঝানো।",
+      ),
+    ],
+    enjoy: [
+      l(
+        "You enjoy forming and disproving hypotheses about unfamiliar behavior.",
+        "Unfamiliar behavior নিয়ে hypothesis বানিয়ে ভুল প্রমাণ করতেও ভালো লাগে।",
+      ),
+      l(
+        "A precise report and useful fix feel as satisfying as finding the weakness.",
+        "Weakness খোঁজার মতো precise report আর useful fix-ও satisfying লাগে।",
+      ),
+      l(
+        "Strict scope and ethical constraints sharpen rather than spoil the challenge.",
+        "Strict scope আর ethical constraint challenge নষ্ট নয়, বরং পরিষ্কার করে।",
+      ),
+    ],
+    dislike: [
+      l(
+        "You mainly want permission to attack random public systems.",
+        "মূল আগ্রহ random public system attack করার permission পাওয়া।",
+      ),
+      l(
+        "Reading code, protocols and long documentation feels less interesting than running tools.",
+        "Tool চালানোর তুলনায় code, protocol আর দীর্ঘ documentation পড়া boring লাগে।",
+      ),
+      l(
+        "Writing evidence, remediation and limitations feels optional.",
+        "Evidence, remediation আর limitation লেখাকে optional মনে হয়।",
+      ),
+    ],
+    dimensions: {
+      coding: 3,
+      mathematics: 1,
+      systems: 3,
+      investigation: 3,
+      creativity: 3,
+      communication: 3,
+      production: 2,
+    },
+    foundation: [
+      l(
+        "Networking, HTTP, Linux, scripting and how applications store identity and data.",
+        "Networking, HTTP, Linux, scripting আর application কীভাবে identity ও data রাখে।",
+      ),
+      l(
+        "Authentication, authorization, sessions, input handling and common architectures.",
+        "Authentication, authorization, session, input handling আর common architecture।",
+      ),
+      l(
+        "Written authorization, lab isolation, evidence handling and responsible disclosure.",
+        "Written authorization, lab isolation, evidence handling আর responsible disclosure।",
+      ),
+    ],
+    core: [
+      l(
+        "Rules of engagement, threat-informed scoping and test methodology.",
+        "Rules of engagement, threat-informed scoping আর test methodology।",
+      ),
+      l(
+        "Manual validation of web/API vulnerability classes and business logic.",
+        "Web/API vulnerability class আর business logic-এর manual validation।",
+      ),
+      l(
+        "Evidence, severity reasoning, remediation and retesting.",
+        "Evidence, severity reasoning, remediation আর retesting।",
+      ),
+    ],
+    practical: [
+      l(
+        "Complete deliberately vulnerable labs and explain the mechanism before the payload.",
+        "Deliberately vulnerable lab complete করে payload-এর আগে mechanism explain করুন।",
+      ),
+      l(
+        "Plan a tiny authorized assessment and record every tested hypothesis.",
+        "Tiny authorized assessment plan করে প্রতিটি tested hypothesis লিখুন।",
+      ),
+      l(
+        "Deliver one finding, fix recommendation and retest result without exposing secrets.",
+        "Secret expose না করে একটি finding, fix recommendation আর retest result দিন।",
+      ),
+    ],
+    later: [
+      l(
+        "Network, cloud, mobile or identity-focused penetration testing.",
+        "Network, cloud, mobile বা identity-focused penetration testing।",
+      ),
+      l(
+        "Red/purple teaming and adversary emulation under mature supervision.",
+        "Mature supervision-এর মধ্যে red/purple teaming আর adversary emulation।",
+      ),
+      l(
+        "Exploit development and vulnerability research after operating-system depth.",
+        "Operating-system depth-এর পরে exploit development আর vulnerability research।",
+      ),
+    ],
+    notYet: [
+      l(
+        "Installing Kali Linux, collecting tools and calling that a methodology.",
+        "Kali Linux install, tool collect আর সেটিকেই methodology বলা।",
+      ),
+      l(
+        "Testing public targets, classmates or campus systems without explicit written authorization.",
+        "Explicit written authorization ছাড়া public target, classmate বা campus system test করা।",
+      ),
+      l(
+        "Copying payloads you cannot explain or maximizing impact to make a report dramatic.",
+        "Explain করতে পারেন না এমন payload copy বা report dramatic করতে impact বাড়ানো।",
+      ),
+    ],
+    resources: [
+      "owasp-wstg-v42",
+      "portswigger",
+      "owasp-top-ten",
+      "mitre-attack-start",
+    ],
+    related: [
+      "application-security",
+      "cybersecurity",
+      "security-operations",
+      "backend-engineering",
+    ],
+    day: [
+      [
+        "09:00",
+        l(
+          "Confirm the rules of engagement and remove an ambiguous target from scope.",
+          "Rules of engagement confirm করে ambiguous target scope থেকে বাদ দেওয়া।",
+        ),
+      ],
+      [
+        "12:20",
+        l(
+          "Manually validate an authorization weakness with harmless test accounts.",
+          "Harmless test account দিয়ে authorization weakness manually validate করা।",
+        ),
+      ],
+      [
+        "16:15",
+        l(
+          "Review a finding with its owner, reduce exaggeration and agree how the fix will be retested.",
+          "Owner-এর সঙ্গে finding review, exaggeration কমানো আর fix কীভাবে retest হবে agree করা।",
+        ),
+      ],
+    ],
+    ai: [
+      {
+        task: l("Payload and checklist drafts", "Payload আর checklist draft"),
+        exposure: "higher",
+        explanation: l(
+          "AI can generate familiar test ideas quickly, including unsafe or irrelevant ones that exceed scope.",
+          "AI familiar test idea দ্রুত বানাতে পারে—unsafe বা scope-এর বাইরে idea-ও দিতে পারে।",
+        ),
+        studentResponse: l(
+          "Understand every request, constrain it to the written lab scope and predict side effects before execution.",
+          "প্রতিটি request বুঝে written lab scope-এ সীমিত করুন আর execution-এর আগে side effect অনুমান করুন।",
+        ),
+      },
+      {
+        task: l(
+          "Attack-path hypotheses and finding triage",
+          "Attack-path hypothesis আর finding triage",
+        ),
+        exposure: "medium",
+        explanation: l(
+          "AI broadens hypotheses but can hallucinate exploitability, severity and system relationships.",
+          "AI hypothesis বাড়ায়; exploitability, severity আর system relationship hallucinate-ও করতে পারে।",
+        ),
+        studentResponse: l(
+          "Reproduce safely, preserve raw evidence and separate observed behavior from possible impact.",
+          "Safely reproduce, raw evidence preserve আর observed behavior থেকে possible impact আলাদা করুন।",
+        ),
+      },
+      {
+        task: l(
+          "Authorization, impact limits and responsible reporting",
+          "Authorization, impact limit আর responsible reporting",
+        ),
+        exposure: "lower",
+        explanation: l(
+          "A model cannot grant permission, accept business risk or own harm caused by a test.",
+          "Model permission দিতে, business risk accept করতে বা test-এর harm-এর দায় নিতে পারে না।",
+        ),
+        studentResponse: l(
+          "Stop when scope is unclear, minimize proof, protect data and involve the accountable owner.",
+          "Scope unclear হলে stop, proof minimize, data protect আর accountable owner-কে involve করুন।",
+        ),
+      },
+    ],
+  },
+  {
     id: "application-security",
     familyId: "protect-systems",
     title: l("Application Security", "Application Security"),
@@ -444,6 +950,45 @@ export const specialistCareers: CareerSeed[] = [
       "Help teams design, build and verify software that resists abuse—inside an authorized scope and without becoming the release police.",
       "অনুমোদিত সীমার মধ্যে team-কে এমন software তৈরি ও যাচাই করতে সাহায্য করুন, যা অপব্যবহার ঠেকাতে পারে—release আটকে রাখা পুলিশ না হয়ে।",
     ),
+    specializations: [
+      {
+        title: l(
+          "Product / application security",
+          "Product / application security",
+        ),
+        description: l(
+          "Partner from design through release on threats, controls, code and evidence rather than arriving only with a scanner report.",
+          "শুধু scanner report নিয়ে শেষে হাজির নয়—design থেকে release পর্যন্ত threat, control, code আর evidence নিয়ে partner হওয়া।",
+        ),
+      },
+      {
+        title: l("Security testing", "Security testing"),
+        description: l(
+          "Verify application controls through risk-based manual and automated tests within a written scope.",
+          "Written scope-এর মধ্যে risk-based manual ও automated test দিয়ে application control verify করা।",
+        ),
+      },
+      {
+        title: l(
+          "Security champion / enablement",
+          "Security champion / enablement",
+        ),
+        description: l(
+          "Help engineering teams use secure defaults, review patterns and practical guardrails without turning security into a gatekeeper.",
+          "Security-কে gatekeeper না বানিয়ে engineering team-কে secure default, review pattern আর practical guardrail ব্যবহার করতে সাহায্য করা।",
+        ),
+      },
+      {
+        title: l(
+          "DevSecOps & supply-chain security",
+          "DevSecOps ও supply-chain security",
+        ),
+        description: l(
+          "Connect application risk to reviewed pipeline checks, dependency provenance, secrets and deployment controls.",
+          "Application risk-কে reviewed pipeline check, dependency provenance, secret আর deployment control-এর সঙ্গে যুক্ত করা।",
+        ),
+      },
+    ],
     work: [
       l(
         "Threat-model features, data flows and trust boundaries.",
