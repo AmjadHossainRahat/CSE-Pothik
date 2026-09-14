@@ -1,11 +1,12 @@
-# Homepage illustration provenance
+# Site illustration provenance
 
-The homepage uses two original AI-generated editorial illustrations, created for CSE-Pothik with the built-in ImageGen tool during the August 2026 visual revision. They are fictional characters, not portraits of real mentors, testimonials or endorsements. `themes-sample.png` informed the visual mood; its artwork was not copied into the site. The code-native path identity and social-sharing card remain separate assets.
+The site uses original AI-generated editorial illustrations created for CSE-Pothik with the built-in ImageGen tool. They are fictional characters, not portraits of real mentors, testimonials or endorsements. `themes-sample.png` informed the visual mood; its artwork was not copied into the site. The code-native path identity and social-sharing card remain separate assets.
 
-| Source asset                                    | Purpose                                                                                | Source dimensions | Delivery                                                  |
-| ----------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------- | --------------------------------------------------------- |
-| `src/assets/illustrations/study-partners.png`   | Three computing peers: a Chakma QA teammate with a tablet between two laptop users     | 1536 × 1024       | Responsive WebP widths 400, 640, 900; eager/high priority |
-| `src/assets/illustrations/ai-study-partner.png` | AI partner checking a result; illustrates verification rather than replacement anxiety | 1254 × 1254       | Responsive WebP widths 180, 300, 480; lazy loading        |
+| Source asset                                    | Purpose                                                                                | Source dimensions | Delivery                                                   |
+| ----------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------- | ---------------------------------------------------------- |
+| `src/assets/illustrations/study-partners.png`   | Three computing peers: a Chakma QA teammate with a tablet between two laptop users     | 1536 × 1024       | Responsive WebP widths 400, 640, 900; eager/high priority  |
+| `src/assets/illustrations/ai-study-partner.png` | AI partner checking a result; illustrates verification rather than replacement anxiety | 1254 × 1254       | Responsive WebP widths 180, 300, 480; lazy loading         |
+| `src/assets/illustrations/lost-route-guide.png` | A robot uses a compass to guide a map-confused student home on the 404 page            | 1536 × 1024       | Responsive WebP widths 480, 768, 1024; eager/high priority |
 
 The study-partners scene has an intentional solid blue-gray editorial background, framed by a semantic theme-aware border. The supporting AI image retains alpha transparency. The same artwork is used in light/dark themes and both languages; no gender or ethnicity is deferred to another slide or selected from a user preference. Proportional sizing with `object-fit: contain` keeps all three teammates, both laptops and the QA tablet visible on narrow screens. Astro reserves width/height to prevent image-driven layout shifts. English and Bangla alt text is authored in the shared homepage component. These images add no browser JavaScript and no external image-host dependency.
 
@@ -121,11 +122,30 @@ The website mark is an original code-native SVG: an open circular C surrounds a 
 
 Generation prompt: Use case: text-localization. Asset type: replacement social sharing preview card for the same website. Input image: the supplied image is the edit target and visual reference. Primary request: preserve the existing cool off-white editorial background, generous whitespace, deep navy typography, restrained blue/teal branching route linework on the right, layout, proportions, and professional visual tone. Replace only the large brand title text with the exact text “CSE-Pothik”. Keep the smaller tagline exactly “Find your direction in CSE.” Text (verbatim): large title “CSE-Pothik”; smaller tagline “Find your direction in CSE.” Composition: landscape approximately 1.9:1, all text fully visible with generous safe margins, branch linework stays on the right and never overlaps text. Constraints: render each exact string once; exact capitalization and hyphen; no other text; no old CSE Compass wording; no new icons, characters, logos, badges, watermarks, gradients, fake UI, or decorative clutter.
 
+## Lost-route 404 illustration — 14 September 2026
+
+The custom 404 page uses one transparent, text-free illustration so its joke works beside both the English recovery message and the concise Bangla reassurance. A student holds a map upside down after following a route that loops in a circle; a friendly robot uses a compass and points toward home. The robot is a scene character, not the product identity or an assertion that AI always knows the way. The built-in ImageGen output `exec-002bca7d-c196-455b-a639-88c46cbfdc24.png` was copied to `src/assets/illustrations/lost-route-guide.png`. The 1536 × 1024 PNG has genuine alpha transparency and is optimized by Astro at build time.
+
+Final generation prompt:
+
+```text
+Use case: illustration-story
+Asset type: responsive 404 error-page illustration for the CSE-Pothik educational website
+Primary request: A friendly small AI robot humorously guiding one lost and visibly confused young adult pedestrian back toward home. The pedestrian is holding a paper map upside down with a sheepish, amused expression; the robot confidently points toward a welcoming glowing home icon while its other hand holds a tiny compass. A harmless dotted route has looped in a silly circle behind them before finally heading home, making the joke immediately readable without words.
+Scene/backdrop: minimal abstract navigation setting with a few subtle path markers; genuinely transparent background so it works in light and dark themes
+Subject: full-body robot and pedestrian, inclusive gender-neutral casual student styling, warm and reassuring rather than distressed
+Style/medium: polished friendly editorial digital illustration matching the site's existing white, navy, cyan and small amber-accent AI robot artwork; crisp outlines, subtle hand-painted texture, professional rather than childish
+Composition/framing: wide landscape grouping, both characters and the home symbol fully visible, balanced silhouette, generous transparent padding, readable when displayed around 520px wide
+Lighting/mood: optimistic, playful, calm
+Color palette: deep navy, bright blue, cyan/teal, white and restrained amber accents
+Constraints: no written text, no letters, no numbers, no logos, no trademarks, no watermark; transparent background; no romance; no danger; clear visual storytelling and gentle humor; hands and limbs anatomically coherent
+```
+
 ## Asset maintenance
 
 - Keep the active original PNG masters, including the study-partners' intentional backdrop and the AI partner's real alpha. Superseded unused masters can be removed after checking references and preserving provenance/history. Do not substitute screenshots or simulated-transparency checkerboards.
 - Preserve all three teammates' equal agency and visibility, the central QA tablet, the seated woman's hair-covering orna and the current clothing-reference limits. Do not reintroduce a lone-male default or rotating gender/ethnicity-specific slides.
 - Generate edits through ImageGen and inspect the complete silhouette in both themes.
 - Import through `astro:assets`, not public raw PNG URLs. Update responsive sizes if the rendered layout changes.
-- Keep the robot supporting the verification lesson; do not turn it into the core brand mascot.
+- Keep robots as supporting scene characters for the verification lesson and lost-route recovery; do not turn them into the core brand mascot.
 - Recheck mobile crop, image loading, layout stability and bilingual alt text after any replacement.

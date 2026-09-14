@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import Breadcrumbs from "@/components/common/Breadcrumbs.astro";
+import lostRouteGuide from "@/assets/illustrations/lost-route-guide.png";
 import { withBase } from "@/config/site";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 ---
@@ -11,18 +13,105 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
   noindex
   headerPathname="/"
 >
-  <Breadcrumbs locale="en" items={[{ label: "Page not found" }]} pathname="/" />
-  <section class="page-hero container">
-    <p class="eyebrow">404 · Direction not found</p><h1>
-      This path does not exist.
-    </h1><p class="lede">
-      The link may be old or mistyped. Nothing is wrong with your career
-      plan—this route is simply missing.
-    </p><div class="button-row">
-      <a class="button" href={withBase("/")}>Return home</a><a
-        class="button button--secondary"
-        href={withBase("/im-lost/")}>I’m Lost</a
-      >
+  <Breadcrumbs
+    locale="en"
+    items={[{ label: "Page not found · পাতা পাওয়া যায়নি" }]}
+    pathname="/"
+  />
+  <section class="not-found container" aria-labelledby="not-found-title">
+    <div class="not-found__copy">
+      <p class="eyebrow">404 · This route wandered off</p>
+      <h1 id="not-found-title">The robot found home. This page didn’t.</h1>
+      <p class="lede">
+        The address may be mistyped, or the page may have moved. You have not
+        broken anything—and neither has your career plan.
+      </p>
+      <p class="not-found__bangla" lang="bn">
+        রোবটটি বাড়ির পথ পেয়েছে, পাতাটি পায়নি। ঠিকানায় ভুল থাকতে পারে, অথবা
+        পাতাটি সরানো হয়েছে—আপনার career plan কিন্তু ঠিকই আছে।
+      </p>
+      <div class="button-row">
+        <a class="button" href={withBase("/")}>Go to the homepage</a>
+        <a class="button button--secondary" href={withBase("/im-lost/")}
+          >Help me choose a direction</a
+        >
+      </div>
     </div>
+
+    <figure class="not-found__art">
+      <Image
+        src={lostRouteGuide}
+        alt="A cheerful robot with a compass points a confused student—who is holding a map upside down—toward home after their route loops in a circle."
+        widths={[480, 768, 1024]}
+        sizes="(min-width: 68rem) 46vw, (min-width: 48rem) 56rem, 100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <figcaption>
+        The map was upside down. The robot promises not to mention it again.
+      </figcaption>
+    </figure>
   </section>
 </BaseLayout>
+
+<style>
+  .not-found {
+    display: grid;
+    gap: clamp(1.5rem, 5vw, 4.5rem);
+    align-items: center;
+    min-height: min(46rem, calc(100svh - 9rem));
+    padding-block: clamp(2rem, 6vw, 5rem);
+  }
+
+  .not-found__copy {
+    position: relative;
+    z-index: 1;
+  }
+
+  .not-found h1 {
+    max-width: 18ch;
+    font-size: clamp(2.6rem, 4.5vw, 4.25rem);
+  }
+
+  .not-found__bangla {
+    max-width: 44rem;
+    margin-block: var(--space-5);
+    padding-inline-start: var(--space-4);
+    border-inline-start: 3px solid var(--color-teal);
+    color: var(--color-text-muted);
+    font-size: 1.05rem;
+  }
+
+  .not-found__art {
+    min-width: 0;
+    margin: 0;
+    text-align: center;
+  }
+
+  .not-found__art img {
+    width: 100%;
+    max-width: 58rem;
+    height: auto;
+    margin-inline: auto;
+    filter: drop-shadow(0 1.5rem 2.5rem rgb(0 0 0 / 18%));
+  }
+
+  .not-found__art figcaption {
+    max-width: 34rem;
+    margin: var(--space-3) auto 0;
+    color: var(--color-text-muted);
+    font-size: 0.92rem;
+  }
+
+  @media (min-width: 64rem) {
+    .not-found {
+      grid-template-columns: minmax(22rem, 0.8fr) minmax(30rem, 1.2fr);
+    }
+  }
+
+  @media (max-width: 39.999rem) {
+    .not-found .button {
+      width: 100%;
+    }
+  }
+</style>

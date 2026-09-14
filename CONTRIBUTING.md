@@ -127,11 +127,11 @@ yarn test:a11y
 yarn check:external-links
 ```
 
-For a GitHub project-site build in PowerShell:
+For a production-equivalent custom-domain build in PowerShell:
 
 ```powershell
-$env:BASE_PATH = "/CSE-Pothik"
-$env:SITE_URL = "https://amjadhossainrahat.github.io"
+$env:BASE_PATH = "/"
+$env:SITE_URL = "https://cse-pothik.com"
 yarn build
 yarn verify:build
 Remove-Item Env:SITE_URL

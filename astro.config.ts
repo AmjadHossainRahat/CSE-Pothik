@@ -1,14 +1,8 @@
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 
-const repositoryName =
-  process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "CSE-Pothik";
-const isProjectPages =
-  process.env.GITHUB_ACTIONS === "true" &&
-  !repositoryName.endsWith(".github.io");
-const base =
-  process.env.BASE_PATH ?? (isProjectPages ? `/${repositoryName}` : "/");
-const site = process.env.SITE_URL ?? "https://amjadhossainrahat.github.io";
+const base = process.env.BASE_PATH ?? "/";
+const site = process.env.SITE_URL ?? "https://cse-pothik.com";
 
 export default defineConfig({
   site,

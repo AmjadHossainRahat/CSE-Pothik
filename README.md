@@ -98,13 +98,13 @@ yarn check:external-links
 
 Every push to `main` runs the production gates and deploys the tested `dist/` artifact through `.github/workflows/deploy-pages.yml`. Configure **Settings → Pages → Source: GitHub Actions** once.
 
-The workflow derives the current repository name for the Pages base path. For a manual project-site build:
+Production is served from the custom-domain root. For an equivalent manual build:
 
 ```bash
-BASE_PATH=/CSE-Pothik SITE_URL=https://username.github.io yarn build
+BASE_PATH=/ SITE_URL=https://cse-pothik.com yarn build
 ```
 
-Canonical URLs, assets, language alternates, sitemap and robots output all honor the configured base. Deployment details and PowerShell examples are in the [engineering guide](docs/engineering/README.md#github-pages-and-ci).
+Canonical URLs, assets, language alternates, sitemap and robots output use `https://cse-pothik.com/`. CI separately retains a non-root `/CSE-Pothik/` compatibility build. Deployment details and PowerShell examples are in the [engineering guide](docs/engineering/README.md#github-pages-and-ci).
 
 ## Inspiration and collaboration
 

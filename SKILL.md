@@ -469,6 +469,8 @@ Render reusable two-item contextual subsets in the new-student, feel-behind, fir
 
 Use `themes-sample.png` for visual mood, while retaining the CSE-Pothik brand and original art. Source illustrations live in `src/assets/illustrations/`; import through `astro:assets` to generate responsive WebP and reserve intrinsic dimensions. Eager-load the hero with high fetch priority, lazy-load the supporting AI illustration, and avoid new client-side image libraries. Keep generation provenance in `docs/illustrations.md`.
 
+Implement invalid-route recovery as Astro's static `src/pages/404.astro`, emitting root `404.html` for GitHub Pages. Keep the response noindexed with follow enabled, retain the shared shell, and expose internal Home and “I’m Lost” actions without opening new tabs. Import the transparent lost-route master from `src/assets/illustrations/` through `astro:assets` and emit bounded responsive WebP sources. Verify an actual nonexistent URL returns status 404 and renders the illustration, copy and links without horizontal overflow on supported desktop/mobile widths; run axe in Light and Dark themes. Record the image source and final generation prompt in `docs/illustrations.md`.
+
 The hero uses one inclusive three-person study-partners scene: a Chakma Bangladeshi woman with a QA checklist tablet and stylus between a woman and man at laptops. Preserve equal peer status and the entire composition with proportional sizing/containment, never a mobile crop that removes a teammate. Keep accurate bilingual alt text and verify eager loading, responsive sources, dimensions, both themes and no-JavaScript/reduced-motion use. Do not add carousel controls, autoplay, gender/ethnicity preference selection or extra hydration for this artwork. Retain only English and Bangla routes and controls.
 
 Manually inspect each replacement for three equally prominent teammates, relaxed viewer-directed smiles, personal space, keyboard hands and a visible QA tablet/stylus. The seated woman's teal hoodie and neatly head-draped orna must remain recognizable, with all hair covered. Document references for the centre teammate's contemporary Chakma-textile-inspired clothing; do not claim exact cultural authenticity from a generated image or infer identity from facial features. Check that coffee, water bottle and small indoor plant rest on the desk beside the notebook, and that devices face physically consistent directions. Do not mistake image-load/alt-text tests for proof of visual representation or the absence of romantic posing. Keep actual content and localized descriptions consistent; role and ethnicity do not imply one another.
@@ -958,7 +960,9 @@ No essential SEO content should depend on client-side rendering.
 
 ## 25. GitHub Pages
 
-The build must support GitHub Pages project-site hosting, including a non-root base path if the repository is not `<username>.github.io`.
+Production is deployed through GitHub Pages at the custom-domain root `https://cse-pothik.com/`. Build it with `SITE_URL=https://cse-pothik.com` and `BASE_PATH=/` so assets, navigation, canonical metadata, language alternates, sitemap, robots and social URLs share the public contract.
+
+The build must also retain explicit GitHub Pages project-site compatibility, including a non-root base path if the repository is not `<username>.github.io`. This is a portability regression target, not the canonical production URL.
 
 Do not hard-code root-relative assumptions that break under:
 

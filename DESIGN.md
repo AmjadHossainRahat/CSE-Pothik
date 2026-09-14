@@ -6,7 +6,7 @@
 > **Optional language:** Bangla
 > **Default theme:** Dark
 > **Optional theme:** Light
-> **Hosting target:** GitHub Pages
+> **Hosting target:** GitHub Pages at `https://cse-pothik.com/`
 
 ---
 
@@ -1259,6 +1259,8 @@ Avoid associating dark mode exclusively with cybersecurity.
 Dark-theme illustrations must use lighter clothing/accent separation where needed so silhouettes remain visible.
 
 Required homepage assets are the original three-person Bangladeshi computing team (a Chakma woman using a QA checklist tablet between two teammates at laptops) and the original AI study partner checking a result. All three people are peers with visible technical participation; avoid stereotyped roles and keep everyone visible without interaction. The study-partners scene uses an intentional soft blue-gray editorial backdrop with a theme-aware border, while the robot retains its transparent background. Do not ship a simulated transparency checkerboard. Keep source PNGs under `src/assets/illustrations/`; generate responsive WebP through Astro's image pipeline. Reserve intrinsic image dimensions, load the hero eagerly, and lazy-load the supporting robot. Generation provenance, cultural-reference limitations and prompts are recorded in `docs/illustrations.md`.
+
+Invalid routes use one useful custom 404 experience rather than a blank or generic server page. Pair a clear no-blame explanation with prominent Home and “I’m Lost” recovery actions, `noindex, follow`, and an original transparent illustration of a friendly robot guiding a map-confused student home. Keep the humor kind and text-independent, preserve the shared navigation/context bar, avoid a mascot-like error spectacle, and ensure the message, artwork and actions fit without horizontal overflow from 390px upward in both themes.
 
 Breadcrumbs must use the same content container as the page heading, aligned text baselines, and zero inherited prose-list margins. Long labels wrap within the available width. The persistent sidebar must remain visible on wide screens, including after resizing from the mobile drawer; page content begins after the sidebar and never sits beneath it. Never hide a closed disclosure's summary and its only route to navigation.
 

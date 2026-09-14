@@ -8,7 +8,7 @@ const base =
     "",
   );
 const expectedSite = new globalThis.URL(
-  process.env.SITE_URL ?? "https://amjadhossainrahat.github.io",
+  process.env.SITE_URL ?? "https://cse-pothik.com",
 ).href.replace(/\/+$/, "");
 const failures = [];
 

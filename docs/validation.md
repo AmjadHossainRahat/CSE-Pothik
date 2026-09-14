@@ -1,5 +1,34 @@
 # Validation records
 
+## Illustrated invalid-route recovery — 14 September 2026
+
+Replaced the minimal 404 copy with a complete recovery experience that retains the shared sidebar/header and sticky context bar. The page gives a no-blame explanation, a concise conversational Bangla reassurance, and obvious internal actions for Home and “I’m Lost.” It remains `noindex, follow`. A new original transparent illustration makes the humor readable without embedded text: a map-confused student has followed a route in a circle while a friendly compass-carrying robot points home. The artwork provenance and final built-in ImageGen prompt are recorded in `docs/illustrations.md`; Astro emits four responsive WebP variants from the project-local PNG master.
+
+| Check                               | Result                                                                                                                                                                                                                                                                                |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Format, lint, type and unit/content | PASS; `yarn check` completed with 61/61 tests. Astro checked 176 files with zero errors, warnings or hints.                                                                                                                                                                           |
+| Production build verification       | PASS; the custom-domain root build emitted 187 HTML pages and 216 files with no broken local URL, SEO or placeholder defects.                                                                                                                                                         |
+| Invalid-route behavior              | PASS in desktop and mobile Chromium; a nonexistent URL returned status 404, exposed `noindex, follow`, loaded the responsive illustration, rendered both recovery links and had no horizontal overflow.                                                                               |
+| Focused accessibility               | PASS; four axe WCAG A/AA checks covered desktop/mobile and Light/Dark themes.                                                                                                                                                                                                         |
+| Visual review                       | PASS within the tested scope; 1440×1000 and 390×844 production-preview captures were inspected. The desktop headline was reduced after the first capture so the explanation and both recovery actions remain visible together; the transparent art stays legible on the Dark default. |
+
+No deployment was performed. The new `404.html` and image variants will be published by the existing Pages workflow after commit and push.
+
+## Custom-domain root deployment — 14 September 2026
+
+Migrated the production contract from the GitHub project path to `https://cse-pothik.com/`. Astro, the Pages deployment workflow, the primary CI quality job, generated robots fallback, build verifier, environment example and engineering documentation now agree on the custom origin and `/` base. Removed automatic GitHub Actions repository-name inference so a successful deployment cannot silently generate `/CSE-Pothik/` asset and navigation URLs for the root-mounted custom domain. A separate non-deploying CI job still builds and verifies `https://amjadhossainrahat.github.io/CSE-Pothik/`, preserving explicit project-base portability without contaminating production output.
+
+| Check                               | Result                                                                                                                                                                                                    |
+| ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Format, lint, type and unit/content | PASS; `yarn check` completed with 61/61 tests. Astro checked 174 files with zero errors, warnings or hints.                                                                                               |
+| Complete browser regression         | PASS; 247 checks passed with 91 intentional duplicate-project/matrix skips on the custom-domain root production preview.                                                                                  |
+| Automated accessibility             | PASS; all 150 axe WCAG A/AA checks passed across the representative desktop/mobile, English/Bangla and Light/Dark matrix.                                                                                 |
+| Custom-domain production build      | PASS; 187 HTML pages and 212 files were emitted at `/`, with no build warnings or broken local URL, SEO or placeholder defects.                                                                           |
+| Generated SEO and asset inspection  | PASS; Home canonical, Bangla hreflang, Open Graph URL, robots sitemap and sitemap entries use `https://cse-pothik.com`; assets use `/_astro/`; generated Home and sitemap contain no `/CSE-Pothik/` path. |
+| Project-base compatibility          | PASS; an explicit `/CSE-Pothik/` build emitted 187 HTML pages / 212 files and passed the same generated-build verifier.                                                                                   |
+
+No deployment or DNS/HTTPS change was performed from the local repository. The corrected configuration takes effect after these changes are committed and pushed to `main`, allowing the existing Pages workflow to publish them.
+
 ## Supported mobile baseline changed to 390px — 13 September 2026
 
 Removed every explicit 320px Playwright viewport because widths below 390px are no longer part of the product's supported layout contract. Responsive coverage remains at 390, 768, 1280 and 1600px across the applicable English/Bangla and Light/Dark matrices. The homepage no-JavaScript/reduced-motion case now uses 390×844, and the student-facing responsive experiment recommends 390px rather than an unsupported width. AI-Prompt, DESIGN, SKILL, product and UX documentation now state the same baseline. Older validation entries mentioning 320px remain unchanged because they truthfully record checks performed at that time; they are historical evidence, not the current support policy.

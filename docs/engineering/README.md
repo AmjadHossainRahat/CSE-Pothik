@@ -96,21 +96,21 @@ The repeatable artifact inspection is `yarn inspect:build`. See [engineering-aud
 
 ## GitHub Pages and CI
 
-`.github/workflows/ci.yml` runs immutable installation, format, lint, type, unit/content, production build, artifact verification, inspection, E2E and accessibility gates. `.github/workflows/deploy-pages.yml` repeats release gates on pushes to `main`, uploads the tested `dist/` directory and deploys it through GitHub Pages.
+`.github/workflows/ci.yml` runs immutable installation, format, lint, type, unit/content, custom-domain-root build, artifact verification, inspection, E2E and accessibility gates. A second lightweight job preserves non-root GitHub project-path build verification. `.github/workflows/deploy-pages.yml` repeats the production release gates on pushes to `main`, uploads the tested `dist/` directory and deploys it through GitHub Pages.
 
 Configure **Settings → Pages → Source: GitHub Actions** once.
 
-Root-site build:
+Production custom-domain build:
 
 ```bash
-BASE_PATH=/ SITE_URL=https://username.github.io yarn build
+BASE_PATH=/ SITE_URL=https://cse-pothik.com yarn build
 ```
 
-Project-site PowerShell verification:
+Production PowerShell verification:
 
 ```powershell
-$env:BASE_PATH = "/CSE-Pothik"
-$env:SITE_URL = "https://username.github.io"
+$env:BASE_PATH = "/"
+$env:SITE_URL = "https://cse-pothik.com"
 yarn build
 yarn verify:build
 $env:PLAYWRIGHT_SERVER = "preview"
@@ -120,6 +120,6 @@ Remove-Item Env:SITE_URL
 Remove-Item Env:BASE_PATH
 ```
 
-Use the same `BASE_PATH` and `SITE_URL` for building, verification and browser tests. Canonical URLs, assets, hreflang, sitemap and robots output honor the configured base.
+Use the same `BASE_PATH` and `SITE_URL` for building, verification and browser tests. Canonical URLs, assets, hreflang, sitemap and robots output honor the configured base. CI additionally builds with `BASE_PATH=/CSE-Pothik` and the account-level GitHub Pages origin to prevent accidental loss of non-root portability; that artifact is never deployed.
 
 Return to the [documentation map](../../README.md#documentation-map).

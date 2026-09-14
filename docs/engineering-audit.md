@@ -39,10 +39,11 @@ Remote branch protection, repository permissions and deployed-host settings cann
 
 ## Reproduce the inspection
 
-Use the same base path for build and verification. For example, in PowerShell:
+Use the canonical production origin and root base consistently for build and verification. For example, in PowerShell:
 
 ```powershell
-$env:BASE_PATH = "/CSE-Pothik"
+$env:BASE_PATH = "/"
+$env:SITE_URL = "https://cse-pothik.com"
 yarn build
 yarn verify:build
 yarn inspect:build

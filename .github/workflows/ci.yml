@@ -12,8 +12,8 @@ jobs:
   quality:
     runs-on: ubuntu-latest
     env:
-      BASE_PATH: /${{ github.event.repository.name }}
-      SITE_URL: https://${{ github.repository_owner }}.github.io
+      BASE_PATH: /
+      SITE_URL: https://cse-pothik.com
       PLAYWRIGHT_SERVER: preview
     timeout-minutes: 30
     steps:
@@ -35,3 +35,20 @@ jobs:
       - run: yarn playwright install --with-deps chromium
       - run: yarn test:e2e
       - run: yarn test:a11y
+
+  project-base-compatibility:
+    name: GitHub project-path compatibility
+    runs-on: ubuntu-latest
+    env:
+      BASE_PATH: /${{ github.event.repository.name }}
+      SITE_URL: https://${{ github.repository_owner }}.github.io
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: corepack enable
+      - run: yarn install --immutable
+      - run: yarn build
+      - run: yarn verify:build

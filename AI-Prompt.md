@@ -165,6 +165,8 @@ The teammates must look welcoming and engaged in technology, not romance: all lo
 
 Keep the homepage focused: show three representative experiments immediately, place the Data Analytics & BI, AI Engineering and Application Security previews in a native progressive disclosure, and link to the complete published experiment index (currently seventeen); derive counts from data and do not reduce the detail pages. In the orientation map and useful loop, group every caption with its title and make every step a working link. Reset inherited list margins for grid/flex components. Every page, including Home, must use one content-aligned sticky context bar combining breadcrumbs, local bilingual search, language and theme. It sits at the viewport top beside the desktop sidebar and below the sticky mobile header, with exactly one `aria-current` item, safe narrow-screen truncation, anchor clearance and a no-JavaScript mobile offset. Do not create a second utility bar or standalone search route. Desktop navigation must remain visible after mobile breakpoint changes.
 
+Ship a custom static `404.html` for invalid routes. Preserve the shared navigation and sticky context bar, mark it `noindex, follow`, explain the missing route without blaming or alarming the student, and provide obvious links to Home and “I’m Lost.” Use the original transparent lost-route illustration: a friendly robot with a compass guides a student holding an upside-down map toward home after a comically looping route. Import it through `astro:assets`, retain intrinsic dimensions and responsive WebP output, and test the real 404 response, image load, recovery links, both themes, desktop/mobile containment and axe accessibility.
+
 ## Goal-based guidance expansion
 
 Implement and preserve the complete seven-goal preparation layer specified in DESIGN.md: global companies/advanced engineering, Bangladesh industry, remote employment, study abroad, thesis/research/publication, freelancing and tech business. Do not collapse distinct goals into one generic advice page. Every guide needs meaningful branches, staged tasks, evidence criteria, not-yet guidance, pitfalls, AI responsibility, a practical action this week, scoped dated official references and related career roadmaps.
@@ -653,6 +655,11 @@ Create or update `README.md` so that a new maintainer can understand:
 - analytics;
 - SEO;
 - GitHub Pages deployment.
+
+Treat `https://cse-pothik.com/` as the canonical production origin and `/` as
+its production base path. Preserve an explicit non-root GitHub project-path
+compatibility check; never use that compatibility target for production SEO or
+asset URLs.
 
 Use Yarn commands only.
 
